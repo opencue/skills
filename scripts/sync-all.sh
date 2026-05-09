@@ -37,8 +37,8 @@ LOCK_FILE="/tmp/recodeee-sync.lock"
 LOG_FILE="${HOME}/.cache/recodeee-sync.log"
 mkdir -p "$(dirname "$LOG_FILE")"
 
-SKILLS="${HOME}/Documents/recodeee/skills"
-MCPS="${HOME}/Documents/recodeee/mcps"
+SKILLS="${HOME}/Documents/soul/skills"
+MCPS="${HOME}/Documents/soul/mcps"
 
 exec 9>"$LOCK_FILE"
 if ! flock -n 9; then
