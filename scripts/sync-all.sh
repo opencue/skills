@@ -6,14 +6,16 @@
 # concurrent firings can't race.
 #
 # Order:
-#   1. skills/scripts/install-local.sh — refresh ~/.claude + ~/.codex symlinks
-#                                        from the current source-tree organization
-#                                        (idempotent: no-op when symlinks already match)
-#   2. skills/scripts/auto-push.sh   — commit+push skills repo
-#   3. mcps/scripts/refresh-all.sh   — refresh mcps snapshots
-#   4. mcps/scripts/auto-push.sh     — commit+push mcps repo
-#   5. cleanup stale `.backup.*` symlinks the install step creates when it
-#      replaces a moved skill (so they don't accumulate every 15 min)
+#   1. git pull --ff-only on both repos        — pick up any remote reorg
+#   2. skills/scripts/install-local.sh         — refresh ~/.claude + ~/.codex
+#                                                 symlinks from the current
+#                                                 source-tree organization
+#                                                 (idempotent via `ln -sfn`)
+#   3. skills/scripts/auto-push.sh             — commit+push skills repo
+#   4. mcps/scripts/refresh-all.sh             — refresh mcps snapshots
+#   5. mcps/scripts/auto-push.sh               — commit+push mcps repo
+#   6. sweep broken symlinks under ~/.claude/skills + ~/.codex/skills
+#      (catches deleted-from-source skills; `ln -sfn` already handles moves)
 #
 # Each auto-push is a no-op when its tracked paths are unchanged (built-in
 # git diff --cached --quiet check), so per-turn firing is cheap.
