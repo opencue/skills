@@ -18,8 +18,10 @@ target_dir="$repo_root/mcps"
 mkdir -p "$target_dir"
 
 claude_source="${HOME}/.claude/settings.json"
+claude_runtime_source="${HOME}/.claude.json"
 codex_source="${HOME}/.codex/config.toml"
 claude_target="$target_dir/claude-mcp-servers.json"
+claude_runtime_target="$target_dir/claude-runtime-mcp-servers.json"
 codex_target="$target_dir/codex-mcp-servers.json"
 
 # ── Claude side (jq on JSON) ────────────────────────────────────────────
@@ -127,5 +129,46 @@ PY
   echo "$new_snapshot" > "$codex_target"
 }
 
+sync_claude_runtime() {
+  [[ -f "$claude_runtime_source" ]] || return 0
+  command -v jq >/dev/null 2>&1 || return 0
+
+  local new_snapshot
+  new_snapshot=$(
+    jq -e '
+      def redact:
+        if type == "object" then
+          with_entries(
+            if (.key | ascii_downcase
+                | test("token|secret|password|api[_-]?key|auth[_-]?key|private[_-]?key|access[_-]?key|bearer"))
+            then .value = "<redacted>"
+            else .value |= redact
+            end
+          )
+        elif type == "array" then map(redact)
+        else .
+        end;
+      {
+        generated: (now | strftime("%Y-%m-%dT%H:%M:%SZ")),
+        source: "~/.claude.json",
+        mcpServers: ((.mcpServers // {}) | redact),
+        projects: ((.projects // {}) | with_entries(
+          .value = (.value.mcpServers // {} | redact)
+        ) | with_entries(select(.value != {})))
+      }
+    ' "$claude_runtime_source" 2>/dev/null
+  ) || return 0
+
+  if [[ -f "$claude_runtime_target" ]]; then
+    local old_payload new_payload
+    old_payload=$(jq 'del(.generated)' "$claude_runtime_target" 2>/dev/null || echo '{}')
+    new_payload=$(echo "$new_snapshot" | jq 'del(.generated)')
+    [[ "$old_payload" == "$new_payload" ]] && return 0
+  fi
+
+  echo "$new_snapshot" > "$claude_runtime_target"
+}
+
 sync_claude
+sync_claude_runtime
 sync_codex
