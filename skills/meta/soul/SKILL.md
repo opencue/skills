@@ -154,14 +154,21 @@ When invoked, follow this order:
 3. **Pick the category.** Match against the table above. If multiple apply,
    prefer the most specific one. If none match, ask the user before
    inventing a new category — categories are durable.
-4. **Check for collisions.** Does `soul/skills/skills/<category>/<name>/`
+4. **Search upstream FIRST — don't reinvent.** If the skill is for a tool,
+   library, framework, or open-source repo (`just`, `pnpm`, `playwright`,
+   `stripe`, `medusa`, `obsidian-cli`, etc.), check whether someone has
+   already written a canonical SKILL.md before authoring one yourself.
+   See **Upstream-first rule** below for the exact procedure. Only proceed
+   to step 5 with an upstream skill (adopted) or after confirming none
+   exists.
+5. **Check for collisions.** Does `soul/skills/skills/<category>/<name>/`
    already exist? Does `soul/mcps/mcps/<name>/` already exist? If yes, ask
    whether to update vs. rename.
-5. **Write the file.** Use the template above; do not invent extra fields.
+6. **Write the file.** Use the template above; do not invent extra fields.
    Description goes in frontmatter; everything else in body.
-6. **(Skill only) Verify the frontmatter.** `description` must start with
+7. **(Skill only) Verify the frontmatter.** `description` must start with
    `Use when user says` and include at least 3 trigger phrases.
-7. **Don't run install-local.sh manually.** The systemd timer fires every
+8. **Don't run install-local.sh manually.** The systemd timer fires every
    15 min and the Claude Code Stop hook fires at end of turn. Either path
    picks the new skill up. Tell the user the new skill will be live within
    15 min, or they can force it with:
@@ -170,8 +177,73 @@ When invoked, follow this order:
    ~/Documents/soul/skills/scripts/install-local.sh
    ```
 
-8. **Tell the user the path.** Always echo the absolute path of the file
+9. **Tell the user the path.** Always echo the absolute path of the file
    you wrote so they can review.
+
+## Upstream-first rule
+
+**Don't reinvent a SKILL.md when the community already wrote one.** A
+hand-rolled local skill drifts from upstream wisdom and accumulates
+quirks; an adopted upstream skill stays current and benefits from other
+people's bug reports.
+
+### When to apply
+
+Any skill whose subject is a **tool / library / framework / open-source
+repo** that has its own community. Examples: `just`, `pnpm`, `git`,
+`playwright`, `stripe`, `obsidian-cli`, `medusa`, `coolify`, `supabase`,
+`docker`. NOT for skills that are inherently personal-workflow
+(`workspace-recipes`, `colony-prompts`, `soul`, `note`, `hud`) — those
+have no upstream.
+
+### Procedure
+
+1. **Search GitHub (in this order):**
+   - The tool's own repo for `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, or a
+     `skills/` directory at root or under `docs/`.
+     ```
+     gh search code 'filename:SKILL.md' --repo <owner/tool>
+     ```
+   - GitHub-wide search for community SKILL.md files matching the tool name:
+     ```
+     gh search code 'filename:SKILL.md <tool-name>' --limit 20
+     ```
+   - Anthropic-published skills (highest authority for the agentic-skill
+     format): `gh search repos --owner anthropics skills`
+   - Awesome-skills lists / model-context-protocol repos.
+
+2. **Decide what to adopt:**
+   - **Full match** (skill exists, fits the user's intent): copy the body
+     verbatim, add a `Source:` line near the top pointing at the upstream
+     URL + commit SHA. Keep the upstream's wording — don't paraphrase.
+   - **Partial match** (skill exists but covers a different scope): adopt
+     the body, then add an explicit "Local additions" section at the
+     bottom for anything the user actually needed. Don't merge inline.
+   - **No match**: write from scratch using the template above. Note in a
+     code comment near the top that no upstream was found, so the next
+     person doesn't redo the search.
+
+3. **Keep upstream and local concerns separate.** When the upstream skill
+   describes the tool generally and the user has personal recipes/configs,
+   create TWO skills:
+   - `meta/<tool>/SKILL.md` — adopted upstream, generic
+   - `meta/workspace-<tool>/SKILL.md` (or `<category>/workspace-...`) —
+     user's specific recipes, with the upstream skill as a "see also"
+     reference
+
+   Precedent: `meta/just/SKILL.md` (upstream `just` reference) +
+   `meta/workspace-recipes/SKILL.md` (user's `~/Documents/Justfile`).
+
+4. **Re-pull periodically.** Note the upstream commit SHA in the `Source:`
+   line. When the user says "refresh skills" or "update <tool> skill",
+   diff against latest upstream and merge changes.
+
+### Anti-pattern
+
+Don't copy the upstream skill and silently rewrite half of it to match a
+local opinion. Either adopt cleanly with attribution, or write a separate
+`workspace-<tool>` skill that *complements* the upstream — never both
+sneakily merged.
 
 ## Naming rules
 
