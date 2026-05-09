@@ -15,7 +15,8 @@ set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 target_dir="$repo_root/mcps"
-mkdir -p "$target_dir"
+plugins_dir="$repo_root/plugins"
+mkdir -p "$target_dir" "$plugins_dir"
 
 claude_source="${HOME}/.claude/settings.json"
 claude_runtime_source="${HOME}/.claude.json"
@@ -172,3 +173,99 @@ sync_claude_runtime() {
 sync_claude
 sync_claude_runtime
 sync_codex
+
+sync_plugins() {
+  [[ -f "$claude_source" ]] || return 0
+  command -v jq >/dev/null 2>&1 || return 0
+  command -v python3 >/dev/null 2>&1 || return 0
+
+  local cache_root="${HOME}/.claude/plugins/cache"
+  local target_file="$plugins_dir/plugins.sanitized.json"
+
+  local new_snapshot
+  new_snapshot=$(python3 - "$claude_source" "$cache_root" <<'PY' 2>/dev/null
+import json, re, sys, datetime
+from pathlib import Path
+
+settings_path = Path(sys.argv[1])
+cache_root = Path(sys.argv[2])
+
+SECRET_RE = re.compile(r"token|secret|password|api[_-]?key|auth[_-]?key|private[_-]?key|access[_-]?key|bearer", re.I)
+
+def redact(obj):
+    if isinstance(obj, dict):
+        return {k: ("<redacted>" if SECRET_RE.search(k) else redact(v)) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [redact(x) for x in obj]
+    return obj
+
+try:
+    settings = json.loads(settings_path.read_text())
+except Exception:
+    sys.exit(0)
+
+enabled = settings.get("enabledPlugins") or {}
+marketplaces = redact(settings.get("extraKnownMarketplaces") or {})
+
+def latest_version(plugin_root: Path):
+    if not plugin_root.is_dir():
+        return None
+    versions = sorted((p for p in plugin_root.iterdir() if p.is_dir()), key=lambda p: p.stat().st_mtime, reverse=True)
+    return versions[0] if versions else None
+
+def read_servers(version_dir: Path):
+    inline = version_dir / ".mcp.json"
+    if inline.exists():
+        try:
+            return redact((json.loads(inline.read_text()).get("mcpServers") or {}))
+        except Exception:
+            return {}
+    manifest = version_dir / ".claude-plugin" / "plugin.json"
+    if manifest.exists():
+        try:
+            data = json.loads(manifest.read_text())
+            ref = data.get("mcpServers")
+            if isinstance(ref, str):
+                ref_path = (version_dir / ref).resolve()
+                if ref_path.exists():
+                    return redact((json.loads(ref_path.read_text()).get("mcpServers") or {}))
+            elif isinstance(ref, dict):
+                return redact(ref)
+        except Exception:
+            pass
+    return {}
+
+plugins = {}
+for plugin_id, is_enabled in sorted(enabled.items()):
+    name, _, marketplace = plugin_id.partition("@")
+    if not marketplace:
+        marketplace = "builtin"
+    entry = {"name": name, "marketplace": marketplace, "enabled": bool(is_enabled)}
+    version_dir = latest_version(cache_root / marketplace / name)
+    if version_dir is not None:
+        entry["version"] = version_dir.name
+        entry["mcpServers"] = read_servers(version_dir)
+    plugins[plugin_id] = entry
+
+print(json.dumps({
+    "generated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+    "source": "~/.claude/settings.json#enabledPlugins + ~/.claude/plugins/cache/",
+    "marketplaces": marketplaces,
+    "plugins": plugins,
+}, indent=2, sort_keys=True))
+PY
+  ) || return 0
+
+  [[ -z "$new_snapshot" ]] && return 0
+
+  if [[ -f "$target_file" ]]; then
+    local old_payload new_payload
+    old_payload=$(jq 'del(.generated)' "$target_file" 2>/dev/null || echo '{}')
+    new_payload=$(echo "$new_snapshot" | jq 'del(.generated)')
+    [[ "$old_payload" == "$new_payload" ]] && return 0
+  fi
+
+  echo "$new_snapshot" > "$target_file"
+}
+
+sync_plugins
