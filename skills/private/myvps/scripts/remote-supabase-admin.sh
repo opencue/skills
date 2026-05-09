@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ssh_target="${SUPA_SCHEMA_SSH_TARGET:-root@62.72.35.11}"
+if [[ -z "${SUPA_SCHEMA_SSH_TARGET:-}" ]]; then
+  echo "Error: SUPA_SCHEMA_SSH_TARGET is not set. Export it before running this script." >&2
+  exit 2
+fi
+
+ssh_target="$SUPA_SCHEMA_SSH_TARGET"
 create_cmd="${SUPA_SCHEMA_REMOTE_CREATE_CMD:-supabase-create-schema}"
 apply_cmd="${SUPA_SCHEMA_REMOTE_APPLY_CMD:-supabase-apply-sql}"
 
@@ -25,8 +30,10 @@ Notes:
   - Use '-' as local_sql_file to read SQL from stdin.
   - Prefer local .sql files over long inline SQL.
 
-Environment variables:
-  SUPA_SCHEMA_SSH_TARGET            SSH target (default: root@62.72.35.11)
+Required environment variables:
+  SUPA_SCHEMA_SSH_TARGET            SSH target (e.g. an alias from ~/.ssh/config)
+
+Optional environment variables:
   SUPA_SCHEMA_REMOTE_CREATE_CMD     Create command (default: supabase-create-schema)
   SUPA_SCHEMA_REMOTE_APPLY_CMD      Apply command (default: supabase-apply-sql)
 USAGE
@@ -67,7 +74,7 @@ case "$command" in
     fi
     schema="$1"
     require_schema "$schema"
-    echo "Creating schema '$schema' on $ssh_target..."
+    echo "Creating schema '$schema' on remote target..."
     exec ssh "$ssh_target" "$create_cmd" "$schema"
     ;;
 
@@ -81,7 +88,7 @@ case "$command" in
     require_schema "$schema"
     require_file_or_stdin "$sql_input"
 
-    echo "Applying SQL to schema '$schema' on $ssh_target..."
+    echo "Applying SQL to schema '$schema' on remote target..."
     if [[ "$sql_input" == "-" ]]; then
       exec ssh "$ssh_target" "$apply_cmd" --schema "$schema" -
     else
@@ -97,7 +104,7 @@ case "$command" in
     sql_input="$1"
     require_file_or_stdin "$sql_input"
 
-    echo "Applying SQL (no forced schema search_path) on $ssh_target..."
+    echo "Applying SQL (no forced schema search_path) on remote target..."
     if [[ "$sql_input" == "-" ]]; then
       exec ssh "$ssh_target" "$apply_cmd" -
     else

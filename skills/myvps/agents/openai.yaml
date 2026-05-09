@@ -1,4 +1,0 @@
-interface:
-  display_name: "MyVPS"
-  short_description: "Create remote Supabase schemas and apply local SQL files over SSH."
-  default_prompt: "Create a schema or apply local SQL to my remote Supabase server at root@62.72.35.11 using supabase-create-schema and supabase-apply-sql."
