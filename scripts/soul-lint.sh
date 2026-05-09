@@ -11,20 +11,28 @@ set -euo pipefail
 MODE="${1:-human}"
 LINTER="${HOME}/Documents/soul/mcps/mcps/soul-skills/lint.py"
 
-if [[ ! -x "$LINTER" ]]; then
-  echo "soul-lint: linter not found or not executable: $LINTER" >&2
+if [[ ! -f "$LINTER" ]]; then
+  echo "soul-lint: linter not found: $LINTER" >&2
   exit 2
 fi
 
-if ! command -v uv >/dev/null 2>&1; then
-  echo "soul-lint: uv is required (https://docs.astral.sh/uv/)" >&2
+# linter is stdlib-only; plain python3 works. PEP 723 shebang is a fallback
+# when running under uv. Prefer plain python3 here for portability.
+# lint.py exits 1 when it finds errors (not when it crashes). Capture stdout
+# regardless of exit code; we'll classify pass/fail from error_count below.
+if command -v python3 >/dev/null 2>&1; then
+  result=$(python3 "$LINTER" 2>/dev/null || true)
+elif command -v uv >/dev/null 2>&1; then
+  result=$(uv run --quiet "$LINTER" 2>/dev/null || true)
+else
+  echo "soul-lint: python3 or uv required" >&2
   exit 2
 fi
 
-result=$("$LINTER" 2>/dev/null) || result=$(uv run --quiet "$LINTER" 2>&1) || {
-  echo "soul-lint: linter failed to run" >&2
+if [[ -z "$result" ]] || ! echo "$result" | jq empty 2>/dev/null; then
+  echo "soul-lint: linter produced no parsable output (it crashed)" >&2
   exit 2
-}
+fi
 
 err_count=$(echo "$result" | jq -r '.error_count // 0')
 warn_count=$(echo "$result" | jq -r '.warning_count // 0')
