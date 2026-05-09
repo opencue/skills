@@ -1,0 +1,129 @@
+{
+  "generated": "2026-05-09T11:57:55Z",
+  "marketplaces": {
+    "cavekit-marketplace": {
+      "source": {
+        "repo": "juliusbrussee/cavekit",
+        "source": "github"
+      }
+    },
+    "caveman": {
+      "source": {
+        "path": "/home/deadpool/Documents/recodee/caveman",
+        "source": "directory"
+      }
+    },
+    "claude-obsidian-marketplace": {
+      "source": {
+        "repo": "AgriciDaniel/claude-obsidian",
+        "source": "github"
+      }
+    },
+    "everything-claude-code": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/affaan-m/everything-claude-code.git"
+      }
+    },
+    "omc": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/Yeachan-Heo/oh-my-claudecode.git"
+      }
+    },
+    "ruflo": {
+      "source": {
+        "repo": "ruvnet/ruflo",
+        "source": "github"
+      }
+    },
+    "thedotmack": {
+      "source": {
+        "repo": "thedotmack/claude-mem",
+        "source": "github"
+      }
+    }
+  },
+  "plugins": {
+    "ck@cavekit-marketplace": {
+      "enabled": true,
+      "marketplace": "cavekit-marketplace",
+      "mcpServers": {},
+      "name": "ck",
+      "version": "4.0.0"
+    },
+    "claude-mem@thedotmack": {
+      "enabled": true,
+      "marketplace": "thedotmack",
+      "mcpServers": {
+        "mcp-search": {
+          "args": [
+            "-c",
+            "_C=\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}\"; _E=\"${CLAUDE_PLUGIN_ROOT:-${PLUGIN_ROOT:-}}\"; _P=$({ [ -n \"$_E\" ] && printf '%s\\n' \"$_E\"; printf '%s\\n' \"$PWD/plugin\" \"$PWD\"; ls -dt \"$HOME/.codex/plugins/cache/claude-mem-local/claude-mem\"/[0-9]*/ \"$HOME/.codex/plugins/cache/thedotmack/claude-mem\"/[0-9]*/ \"$_C/plugins/cache/thedotmack/claude-mem\"/[0-9]*/ 2>/dev/null; printf '%s\\n' \"$_C/plugins/marketplaces/thedotmack/plugin\"; } | while IFS= read -r _R; do _R=\"${_R%/}\"; [ -d \"$_R/plugin/scripts\" ] && _Q=\"$_R/plugin\" || _Q=\"$_R\"; [ -f \"$_Q/scripts/mcp-server.cjs\" ] && { printf '%s\\n' \"$_Q\"; break; }; done); [ -n \"$_P\" ] || { echo \"claude-mem: mcp server not found\" >&2; exit 1; }; exec node \"$_P/scripts/mcp-server.cjs\""
+          ],
+          "command": "sh",
+          "type": "stdio"
+        }
+      },
+      "name": "claude-mem",
+      "version": "13.0.0"
+    },
+    "claude-obsidian@claude-obsidian-marketplace": {
+      "enabled": true,
+      "marketplace": "claude-obsidian-marketplace",
+      "mcpServers": {},
+      "name": "claude-obsidian",
+      "version": "1.6.0"
+    },
+    "oh-my-claudecode@omc": {
+      "enabled": true,
+      "marketplace": "omc",
+      "mcpServers": {
+        "t": {
+          "args": [
+            "${CLAUDE_PLUGIN_ROOT}/bridge/mcp-server.cjs"
+          ],
+          "command": "node"
+        }
+      },
+      "name": "oh-my-claudecode",
+      "version": "4.12.1"
+    },
+    "ruflo-autopilot@ruflo": {
+      "enabled": false,
+      "marketplace": "ruflo",
+      "mcpServers": {},
+      "name": "ruflo-autopilot",
+      "version": "0.1.0"
+    },
+    "ruflo-core@ruflo": {
+      "enabled": false,
+      "marketplace": "ruflo",
+      "mcpServers": {},
+      "name": "ruflo-core",
+      "version": "0.1.0"
+    },
+    "ruflo-federation@ruflo": {
+      "enabled": false,
+      "marketplace": "ruflo",
+      "mcpServers": {},
+      "name": "ruflo-federation",
+      "version": "0.2.0"
+    },
+    "ruflo-swarm@ruflo": {
+      "enabled": false,
+      "marketplace": "ruflo",
+      "mcpServers": {},
+      "name": "ruflo-swarm",
+      "version": "0.1.0"
+    },
+    "rust-analyzer-lsp@claude-plugins-official": {
+      "enabled": true,
+      "marketplace": "claude-plugins-official",
+      "mcpServers": {},
+      "name": "rust-analyzer-lsp",
+      "version": "1.0.0"
+    }
+  },
+  "source": "~/.claude/settings.json#enabledPlugins + ~/.claude/plugins/cache/"
+}
