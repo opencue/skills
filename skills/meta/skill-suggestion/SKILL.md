@@ -43,12 +43,23 @@ If you can't compress it to one sentence, you don't have a clear pattern — abo
 
 ### Step 2 — Search for an existing skill
 
-In this order:
+**Use the local catalog first — it's pre-indexed and zero-latency.**
 
-1. **Already-loaded skills.** Scan the skill list visible in your context. If a description matches the pattern, the user just needs to invoke it (or you should have invoked it). Surface that.
-2. **`~/Documents/soul/skills/skills/`.** May contain skills not auto-loaded yet.
-3. **GitHub upstream.** Quick check via `gh search code 'filename:SKILL.md <keyword>'` if the pattern is generic (a tool, library, framework). Trusted publishers first: `anthropics/skills`, `obra/superpowers`, the user's own catalogs.
-4. **MCPs.** `~/Documents/soul/mcps/mcps/` — sometimes the right answer is an MCP server, not a skill.
+```bash
+# Catalog file: ~/Documents/soul/skills/catalog/catalog.json
+# Refreshed via: just refresh-catalog
+# Quick search across installed + upstream + mcps:
+just catalog-search <keyword>
+```
+
+If the catalog is stale (`generated_at` more than ~24h old per `just catalog-stats`), refresh it first: `just refresh-catalog`. The refresh hits GitHub for `anthropics/skills`, `obra/superpowers`, `wshobson/agents`, and any other repos in `soul/skills/catalog/known_repos.json`.
+
+Search order within the catalog:
+
+1. **`installed`** — already loaded into Claude Code / Codex. If matched, the user just needs to invoke (or YOU should have invoked it). Surface the existing skill name + trigger phrase.
+2. **`upstream`** — exists in a trusted repo but not adopted yet. Surface the name + repo URL; offer to adopt via `soul`.
+3. **`mcps`** — sometimes the right answer is an MCP server, not a skill (stateful APIs, persistent connections).
+4. **Wider GitHub** — only if catalog has no match: `gh search code 'filename:SKILL.md <keyword>'`. If the result is from a publisher you trust, suggest adding the repo to `known_repos.json` so future searches see it.
 
 ### Step 3 — Decide which path
 
