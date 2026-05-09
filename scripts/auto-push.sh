@@ -23,7 +23,7 @@ git remote get-url origin >/dev/null 2>&1 || exit 0
 
 # Stage only repo paths we care about — never the user's WIP elsewhere
 paths_to_stage=()
-for p in skills mcps docs/installed-sources.tsv README.md; do
+for p in skills mcps docs/installed-sources.tsv README.md .gitignore scripts; do
   [[ -e "$p" ]] && paths_to_stage+=("$p")
 done
 

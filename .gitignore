@@ -1,0 +1,30 @@
+# Runtime / agent state — never sync
+.omc/
+.omx/
+.claude/state/
+.claude/sessions/
+.claude/local/
+.claude/settings.local.json
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+*credentials*
+*secret*
+*.local.json
+
+# Build / cache
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+dist/
+build/
+.cache/
+
+# Editor scratch
+*.swp
+*.swo
+.DS_Store
