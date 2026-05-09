@@ -1,0 +1,39 @@
+[
+  {
+    "slug": "compastor-komposztolto",
+    "product_id": "prod_01KR6T96D1JDVAVHN6CWR9AHVK",
+    "shots": [
+      {
+        "variant": "hero",
+        "mode": "product_shot",
+        "aspect_ratio": "1:1",
+        "prompt": "compostor garden bin, neutral studio backdrop, soft daylight, 3/4 angle, packshot for product page"
+      },
+      {
+        "variant": "lifestyle",
+        "mode": "lifestyle_scene",
+        "aspect_ratio": "4:3",
+        "prompt": "compostor bin in a Hungarian garden, autumn leaves, hands adding kitchen scraps, golden hour"
+      }
+    ]
+  },
+  {
+    "slug": "compastor-giliszta",
+    "shots": [
+      {
+        "variant": "hero",
+        "mode": "product_shot",
+        "prompt": "small jar of red compost worms, clean white background, soft top-down light"
+      },
+      {
+        "variant": "lifestyle",
+        "mode": "closeup_product_with_person",
+        "prompt": "hands cradling earthworms over rich dark soil, vermicomposting tray visible, warm natural light"
+      },
+      {
+        "variant": "preserved",
+        "url": "https://compastor-medusa.s3.eu-central-1.amazonaws.com/medusa/products/compastor-giliszta-old-keep.jpg"
+      }
+    ]
+  }
+]
