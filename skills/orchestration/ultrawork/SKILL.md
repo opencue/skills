@@ -1,6 +1,11 @@
 ---
 name: ultrawork
-description: "[OMX] Parallel execution engine for high-throughput task completion"
+description: >-
+  [OMX] Use when user says ulw, ultrawork, or wants parallel execution of
+  multiple independent tasks. Provides parallelism, context discipline, and
+  smart delegation guidance — but no persistence. NOT for guaranteed
+  completion (use $ralph), full idea→PR pipeline (use $autopilot), or a
+  single sequential task (just execute).
 ---
 
 <Purpose>

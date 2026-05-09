@@ -1,6 +1,6 @@
 ---
 name: doctor
-description: "[OMX] Diagnose and fix oh-my-codex installation issues"
+description: "[OMX] Use when user says 'omx doctor', 'diagnose omx', 'fix oh-my-codex install', or sees duplicate skills / stale plugin cache / legacy ~/.agents/skills overlap. Audits plugin cache, config.toml hooks, legacy bash hooks, AGENTS.md, skill roots; offers auto-fix."
 ---
 
 # Doctor Skill

@@ -1,6 +1,6 @@
 ---
 name: ultraqa
-description: "[OMX] QA cycling workflow - test, verify, fix, repeat until goal met"
+description: "[OMX] Use when user says 'ultraqa', '/ultraqa', '--tests', '--build', '--lint', '--typecheck', or 'fix until tests/build/lint/types pass'. Runs the qa-tester -> architect diagnosis -> executor fix cycle (max 5) until the chosen verification goal is met or the same failure repeats. NOT for: implementing new features (use $ralph) or full delivery (use $autopilot)."
 ---
 
 # UltraQA Skill

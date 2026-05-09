@@ -1,6 +1,6 @@
 ---
 name: skill
-description: "[OMX] Manage local skills - list, add, remove, search, edit, setup wizard"
+description: "[OMX] Use when user says '/skill list/add/remove/edit/search/info/sync/setup/scan', 'manage local skills', 'create a skill', 'find a skill'. CRUDs SKILL.md files in ~/.codex/skills/ (user) and .codex/skills/ (project): frontmatter, triggers, scopes, templates, sync, conversation pattern scan."
 argument-hint: "<command> [args]"
 ---
 

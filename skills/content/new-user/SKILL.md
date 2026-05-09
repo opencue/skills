@@ -1,6 +1,10 @@
 ---
 name: new-user
-description: Create an admin user in Medusa
+description: >-
+  Create a new Medusa admin user via `npx medusa user -e <email> -p <password>`.
+  Use when user says create admin, new admin user, /medusa-dev:user, or supplies
+  an email + password pair for a Medusa backend. Medusa-only — NOT for general
+  user creation.
 argument-hint: <email> <password>
 allowed-tools: Bash(npx medusa user:*)
 ---

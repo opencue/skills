@@ -1,6 +1,10 @@
 ---
 name: keyword-research
-description: 'Find high-value SEO keywords: search volume, difficulty, intent classification, topic clusters. 关键词研究/内容选题'
+description: >-
+  Find high-value SEO keywords — search volume, keyword difficulty, intent
+  classification, topic clusters, long-tail. Use when user says keyword
+  research, what keywords, find SEO keywords, topic clusters, or starts a
+  new SEO content/campaign. 关键词研究/内容选题. Outputs ranked keyword sets.
 version: "9.0.0"
 license: Apache-2.0
 compatibility: "Claude Code ≥1.0, skills.sh marketplace, ClawHub marketplace, Vercel Labs skills ecosystem. No system packages required. Optional: MCP network access for SEO tool integrations."

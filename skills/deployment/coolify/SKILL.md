@@ -1,6 +1,6 @@
 ---
 name: coolify
-description: Use when the user wants to manage Coolify resources through the Coolify API CLI (contexts, servers, apps, deployments, databases, services, env vars, and GitHub app integrations).
+description: "Use when user mentions Coolify, asks to deploy/manage apps on Coolify, list servers, manage env vars, trigger deployments, or run Coolify CLI workflows. Drives the local coolify CLI for contexts, servers, apps, databases, services, and GitHub app integrations."
 ---
 
 # Coolify CLI Skill

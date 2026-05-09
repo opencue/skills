@@ -1,6 +1,6 @@
 ---
 name: ai-slop-cleaner
-description: "[OMX] Run an anti-slop cleanup/refactor/deslop workflow"
+description: "Use when user says 'cleanup AI slop', 'deslop', 'refactor this AI code', 'remove dead code', 'simplify bloated code', or asks to clean up AI-generated output. Tests-first, smell-by-smell cleanup that preserves behavior. NOT for security or general code review."
 ---
 
 # AI Slop Cleaner Skill

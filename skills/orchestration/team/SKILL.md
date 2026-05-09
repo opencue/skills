@@ -1,6 +1,6 @@
 ---
 name: team
-description: "[OMX] N coordinated agents on shared task list using tmux-based orchestration"
+description: "[OMX] Use when user says 'team', '$team', 'omx team', 'spawn workers', 'parallel workers', or wants N real Codex/Claude CLI sessions running in tmux panes coordinated by shared task state and mailbox. Requires being inside tmux. NOT for: in-process parallel calls (use $ultrawork), single persistence loop (use $ralph), or autonomous idea-to-PR (use $autopilot)."
 ---
 
 # Team Skill

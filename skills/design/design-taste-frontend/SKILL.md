@@ -1,6 +1,6 @@
 ---
 name: design-taste-frontend
-description: Senior UI/UX Engineer. Architect digital interfaces overriding default LLM biases. Enforces metric-based rules, strict component architecture, CSS hardware acceleration, and balanced design engineering.
+description: Use when building React/Next.js UI and the user asks for high-taste frontend, Tailwind components, motion-rich pages, or "design like a real engineer". Enforces dependency checks, RSC/client boundaries, Tailwind version rules, no-emoji policy, viewport-stable layouts, and tuned variance/motion/density baselines.
 ---
 
 # High-Agency Frontend Skill

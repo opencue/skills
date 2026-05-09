@@ -1,6 +1,10 @@
 ---
 name: db-migrate
-description: Run database migrations in Medusa
+description: >-
+  Apply pending Medusa database migrations via `npx medusa db:migrate`.
+  Use when user says /medusa-dev:db-migrate, run migrations, apply
+  pending migrations, or after running /db-generate to bring the
+  database up to date. Reports applied count plus any errors.
 allowed-tools: Bash(npx medusa db:migrate:*)
 ---
 

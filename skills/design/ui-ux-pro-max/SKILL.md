@@ -1,6 +1,6 @@
 ---
 name: ui-ux-pro-max
-description: UI/UX design intelligence with searchable database
+description: Use when user asks to "design", "build", "create", "review", or "improve" a UI/UX and wants vetted recommendations. Queries a searchable Python database of 67 styles, 96 color palettes, 57 font pairings, 99 UX guidelines, and 25 chart types across 13 stacks to return a full design system (pattern, style, colors, typography, anti-patterns) for the requested product type.
 ---
 # ui-ux-pro-max
 

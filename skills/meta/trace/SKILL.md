@@ -1,6 +1,6 @@
 ---
 name: trace
-description: "[OMX] Show agent flow trace timeline and summary"
+description: "[OMX] Use when user says 'show trace', 'trace timeline', 'omx trace', 'what fired this session', 'why did this skill activate'. Calls trace_timeline + trace_summary MCP tools for chronological hook/keyword/skill/agent/tool flow; surfaces mode transitions, bottlenecks, keyword→skill→agent chains. NOT debugging — use $analyze."
 ---
 
 # Agent Flow Trace

@@ -1,6 +1,6 @@
 ---
 name: visual-verdict
-description: "[OMX] Structured visual QA verdict for screenshot-to-reference comparisons"
+description: Use when comparing a generated UI screenshot against one or more reference images and you need a deterministic pass/fail signal. Returns strict JSON `{score, verdict, category_match, differences, suggestions, reasoning}` with a 90+ pass threshold to drive the next edit iteration in visual-fidelity loops.
 ---
 
 <Purpose>

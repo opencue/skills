@@ -1,6 +1,6 @@
 ---
 name: redesign-existing-projects
-description: Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS.
+description: Use when user says "redesign", "upgrade this site", "make this look better", "fix the design", or "audit my UI". Scans an existing project, diagnoses generic AI design patterns (default fonts, weak hierarchy, boring layouts), and applies targeted typography/spacing/color/motion fixes in place. Works with Tailwind, vanilla CSS, styled-components.
 ---
 
 # Redesign Skill

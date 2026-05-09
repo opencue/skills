@@ -1,6 +1,11 @@
 ---
 name: ralph
-description: "[OMX] Self-referential loop until task completion with architect verification"
+description: >-
+  [OMX] Use when user says ralph, $ralph, do not stop, must complete, finish
+  this, or keep going until done on a single concrete task. Persistence loop
+  with parallel delegation, architect verification, deslop pass, regression
+  re-verify. NOT for idea→PR autonomy (use $autopilot) or planning
+  (use $ralplan).
 ---
 
 [RALPH + ULTRAWORK - ITERATION {{ITERATION}}/{{MAX}}]

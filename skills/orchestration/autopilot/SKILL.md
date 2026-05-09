@@ -1,6 +1,6 @@
 ---
 name: autopilot
-description: "[OMX] Strict autonomous loop: $ralplan -> $ralph -> $code-review"
+description: "[OMX] Use when user says 'autopilot', '$autopilot', 'autonomous', 'full auto', 'handle it all', 'build me', 'create me', or 'make me X' from an idea/issue/PRD. Runs the strict ralplan -> ralph -> code-review loop, returning to ralplan automatically when review is not clean. NOT for: single focused edits (use $ralph), planning only (use $ralplan), or review only (use $code-review)."
 ---
 
 <Purpose>

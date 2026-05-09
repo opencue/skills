@@ -1,6 +1,6 @@
 ---
 name: minimalist-ui
-description: Clean editorial-style interfaces. Warm monochrome palette, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows.
+description: Use when user asks for "minimalist", "editorial", "Notion-style", "document-style", or "ultra-flat" interfaces. Builds warm monochrome palettes, serif/sans typographic contrast, flat bento grids, and muted pastel accents. Bans Inter/Roboto, gradients, heavy shadows, neon, glassmorphism, and pill-shaped buttons.
 ---
 
 # Protocol: Premium Utilitarian Minimalism UI Architect

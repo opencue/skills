@@ -1,6 +1,6 @@
 ---
 name: imagegen-frontend-web
-description: Elite frontend image-direction skill for generating premium, conversion-aware website design references. CRITICAL OUTPUT RULE — generate ONE separate horizontal image FOR EVERY section. A landing page with 8 sections produces 8 images. Never compress multiple sections into one image. Enforces composition variety (not always left-text / right-image), background-image freedom, varied CTAs, varied hero scales (giant / mid / mini minimalist), narrative concept spine, second-read moments, and a single consistent palette across all images. Optimized for landing pages, marketing sites, and product comps that developers or coding models can accurately recreate.
+description: Use when user asks for landing page mockups, marketing site references, hero/section images, or website design comps. Generates one horizontal image per section (8 sections = 8 images, never combined), with varied hero composition, varied CTAs, and a single consistent palette across all images. NOT for mobile apps — use imagegen-frontend-mobile.
 ---
 
 # HARD OUTPUT RULE — READ FIRST

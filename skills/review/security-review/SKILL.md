@@ -1,6 +1,6 @@
 ---
 name: security-review
-description: "[OMX] Run a comprehensive security review on code"
+description: "Use when user says 'security review', 'security audit', 'check for vulnerabilities', 'OWASP review', 'find security issues', or '/security-review'. Audits code for OWASP Top 10, hardcoded secrets, injection, auth flaws, unsafe patterns. NOT for general code quality — use code-review."
 ---
 
 # Security Review Skill

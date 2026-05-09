@@ -1,6 +1,6 @@
 ---
 name: gpt-taste
-description: Elite UX/UI & Advanced GSAP Motion Engineer. Enforces Python-driven true randomization for layout variance, strict AIDA page structure, wide editorial typography (bans 6-line wraps), gapless bento grids, strict GSAP ScrollTriggers (pinning, stacking, scrubbing), inline micro-images, and massive section spacing.
+description: Use when user asks for an "Awwwards-level" landing page, GSAP scroll site, bento layout, or wants to break LLM design defaults. Enforces seeded layout randomization, AIDA page structure, wide editorial typography, gapless bento grids, GSAP ScrollTrigger pinning/stacking/scrubbing, and large section spacing.
 ---
 
 # CORE DIRECTIVE: AWWWARDS-LEVEL DESIGN ENGINEERING

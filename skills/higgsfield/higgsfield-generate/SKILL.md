@@ -1,23 +1,7 @@
 ---
 version: 0.3.0
 name: higgsfield-generate
-description: |
-  Generate images/videos via Higgsfield AI. Models: GPT Image 2, Nano Banana
-  2/Pro, Soul V2/Cinema/Cast/Location, Seedance 2.0, Veo 3.1, Kling 3.0, Flux
-  2, Z Image, Hailuo; plus Marketing Studio ads with
-  avatars/products/hooks/settings.
-  Use when: "generate an image", "make a picture",
-  "make a video", "animate this photo", "image-to-video",
-  "edit/stylize/remix this image", "produce a clip",
-  "create an ad", "make a UGC video", "product demo", "unboxing", "TV spot",
-  "brand video", "presenter video", "import product from URL",
-  "create avatar for ad".
-  Supports text-to-image, image-to-image, image-to-video, reference-based
-  generation, and Marketing Studio. Auto-detects upload IDs vs previous job IDs.
-  Chain with higgsfield-soul-id when the user wants face/identity consistency.
-  NOT for: training Soul Character (use higgsfield-soul-id), product photoshoots
-  (use higgsfield-product-photoshoot), marketplace listing cards (use
-  higgsfield-marketplace-cards), text/chat/TTS tasks.
+description: "Use when user says 'generate image/video', 'animate this photo', 'image-to-video', 'remix/stylize this', 'create an ad', or 'UGC video'. Runs Higgsfield models and Marketing Studio. Chain with higgsfield-soul-id for face consistency. NOT for product photoshoots or marketplace cards."
 argument-hint: "[prompt] [--model <name>] [--image <path-or-id>]"
 allowed-tools: Bash
 ---

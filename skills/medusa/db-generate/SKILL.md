@@ -1,6 +1,10 @@
 ---
 name: db-generate
-description: Generate database migrations for a Medusa module
+description: >-
+  Generate database migrations for a Medusa module via `npx medusa
+  db:generate <module-name>`. Use when user says /medusa-dev:db-generate,
+  generate migrations for module X, or modifies a Medusa module data
+  model and needs migration files. Pair with /db-migrate to apply.
 argument-hint: <module-name>
 allowed-tools: Bash(npx medusa db:generate:*)
 ---

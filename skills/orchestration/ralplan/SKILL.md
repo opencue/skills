@@ -1,6 +1,6 @@
 ---
 name: ralplan
-description: "[OMX] Alias for $plan --consensus"
+description: "[OMX] Use when user says 'ralplan', '$ralplan', 'plan this', 'plan with consensus', 'PRD for', or when an execution request is too vague (e.g. 'ralph fix this', 'autopilot build the app'). Runs the Planner -> Architect -> Critic consensus loop with RALPLAN-DR deliberation, ADR, pre-mortem, and test spec; outputs an approved plan. NOT for: implementing code (use $ralph or $team)."
 ---
 
 # Ralplan (Consensus Planning Alias)

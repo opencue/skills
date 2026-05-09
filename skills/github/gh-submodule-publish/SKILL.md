@@ -1,6 +1,11 @@
 ---
 name: gh-submodule-publish
-description: Create missing GitHub repositories and push a parent repository that tracks app repositories as Git submodules. Use when the user asks to finish publishing locally initialized repos, push a parent repo plus backend/storefront submodules, create repos under an org, recover from invalid `gh auth status` when `gh api user` works, fall back from SSH `Permission denied (publickey)` to `gh` HTTPS auth, handle missing `workflow` token scope for `.github/workflows/*`, or verify remote `main` refs after push.
+description: >-
+  Create missing GitHub repos and push a parent repo that tracks app repos as
+  Git submodules. Use when user asks to publish locally-initialized repos,
+  push parent + backend/storefront submodules, create org-scoped repos,
+  recover from broken `gh auth` / SSH publickey errors, or fix missing
+  workflow token scope.
 ---
 
 # Gh Submodule Publish

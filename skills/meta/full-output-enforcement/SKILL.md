@@ -1,6 +1,7 @@
 ---
 name: full-output-enforcement
-description: Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged output.
+description: >-
+  Use when user says 'no truncation', 'full output', 'don't skip', 'write the whole file', 'no placeholders', or task needs exhaustive code across many files. Bans `// ...`, `// rest of code`, "for brevity", skeleton outputs; on token limits emits `[PAUSED — X of Y]` and resumes on `continue`.
 ---
 
 # Full-Output Enforcement

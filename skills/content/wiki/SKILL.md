@@ -1,6 +1,10 @@
 ---
 name: wiki
-description: "[OMX] Persistent markdown project wiki stored under .omx/wiki with keyword search and lifecycle capture"
+description: >-
+  [OMX] Persistent project wiki under .omx/wiki with keyword search and
+  lifecycle capture. Use when user says wiki add, wiki query, wiki lint,
+  wiki read, wiki delete, or asks to save architectural decisions / ingest
+  project knowledge into a searchable markdown KB.
 triggers: ["wiki add", "wiki lint", "wiki query", "wiki read", "wiki delete"]
 ---
 

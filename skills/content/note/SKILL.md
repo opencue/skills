@@ -1,6 +1,10 @@
 ---
 name: note
-description: "[OMX] Save notes to notepad.md for compaction resilience"
+description: >-
+  [OMX] Save context to .omx/notepad.md so it survives compaction. Use when
+  user says /note, save this note, remember this for later, /note --priority,
+  or /note --show. Three sections: Priority Context (always loaded), Working
+  Memory (timestamped, auto-pruned), MANUAL (never pruned).
 ---
 
 # Note Skill

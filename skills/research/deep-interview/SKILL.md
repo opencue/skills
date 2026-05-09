@@ -1,6 +1,11 @@
 ---
 name: deep-interview
-description: "[OMX] Socratic deep interview with mathematical ambiguity gating before execution"
+description: >-
+  [OMX] Use when user says deep interview, interview me, ask me everything,
+  do not assume, or ouroboros. Socratic intent-clarification with
+  quantitative ambiguity scoring. Modes: --quick / --standard / --deep.
+  Outputs a spec for $ralplan, $autopilot, $ralph, or $team. NOT for plan
+  brainstorming — use $plan.
 argument-hint: "[--quick|--standard|--deep] [--autoresearch] <idea or vague description>"
 ---
 

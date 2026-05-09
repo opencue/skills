@@ -1,6 +1,6 @@
 ---
 name: plan
-description: "[OMX] Strategic planning with optional interview workflow"
+description: "[OMX] Use when user says 'plan this', 'let's plan', 'review this plan', 'ralplan', '--consensus', '--review'. Auto-detects interview vs direct mode; Planner/Architect/Critic consensus loop with RALPLAN-DR (short/deliberate) and Critic-only review. Saves to .omx/plans/. Hands off to $ralph or $team only with --interactive."
 ---
 
 <Purpose>
