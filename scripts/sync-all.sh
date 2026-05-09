@@ -47,9 +47,14 @@ log()   { echo "[$(stamp)] $*" >> "$LOG_FILE"; }
 
 log "sync start"
 
-# Refresh local symlinks first so any source-tree reorg landed locally
-# (or pulled from origin) materializes in ~/.claude/skills and ~/.codex/skills
-# before we push. install-local.sh is idempotent.
+# Pull remote changes first (multi-machine workflows). --ff-only refuses on
+# divergence, leaving conflict resolution to the human — never auto-merge.
+( cd "$SKILLS" && git pull --ff-only ) >> "$LOG_FILE" 2>&1 || log "skills pull skipped (likely diverged or offline)"
+( cd "$MCPS"   && git pull --ff-only ) >> "$LOG_FILE" 2>&1 || log "mcps pull skipped (likely diverged or offline)"
+
+# Refresh local symlinks so any source-tree reorg (local or just pulled)
+# materializes in ~/.claude/skills and ~/.codex/skills before we push.
+# install-local.sh is idempotent via `ln -sfn` — no .backup.* clutter.
 if [[ -x "$SKILLS/scripts/install-local.sh" ]]; then
   "$SKILLS/scripts/install-local.sh" >> "$LOG_FILE" 2>&1 || log "install-local failed"
 fi
@@ -71,12 +76,13 @@ if [[ -x "$MCPS/scripts/auto-push.sh" ]]; then
   "$MCPS/scripts/auto-push.sh" >> "$LOG_FILE" 2>&1 || log "mcps auto-push failed"
 fi
 
-# Sweep stale `.backup.*` symlinks left by install-local.sh whenever it
-# replaced a moved skill. Without this they accumulate at every fire.
-# Only deletes broken symlinks (-xtype l) that match the install backup
-# pattern; never touches user-owned files.
+# Sweep BROKEN symlinks (target no longer exists). Catches:
+#   - skills deleted from the source tree
+#   - any leftover `.backup.*` symlinks from older install-script versions
+# `-xtype l` matches symlinks whose target doesn't resolve. Real skill
+# symlinks point to existing dirs and are never touched.
 find "${HOME}/.claude/skills" "${HOME}/.codex/skills" -maxdepth 1 \
-  -name '*.backup.*' -xtype l -delete 2>>"$LOG_FILE" || true
+  -xtype l -delete 2>>"$LOG_FILE" || true
 
 log "sync done"
 exit 0
