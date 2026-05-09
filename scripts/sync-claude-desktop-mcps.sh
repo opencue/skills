@@ -37,37 +37,39 @@ command -v jq >/dev/null 2>&1 || exit 0
 
 # ── REVERSE merge: if Desktop has stdio MCPs not in ~/.claude.json (because
 # user added them via Desktop's "Edit Config" UI), pull them back so the next
-# forward-sync pass doesn't wipe them. Skips http/sse entries (those don't
-# exist in Desktop config anyway after the forward sync filters them out).
+# forward-sync pass doesn't wipe them. Skips http/sse entries.
 orphans=$(jq -r --slurpfile cli "$src" '
-  .mcpServers // {} as $desktop |
-  ($cli[0].mcpServers // {}) as $known |
-  $desktop | to_entries | map(
-    select(.key as $k | ($known | has($k)) | not)
-    | select((.value.type // "stdio") == "stdio")
-    | select((.value.command // null) != null)
-  ) | from_entries | keys[]
+  ($cli[0].mcpServers // {}) as $known
+  | (.mcpServers // {}) | to_entries
+  | map(
+      select(($known[.key] // null) == null)
+      | select((.value.type // "stdio") == "stdio")
+      | select((.value.command // null) != null)
+    )
+  | .[].key
 ' "$dst" 2>/dev/null || true)
 
 if [[ -n "$orphans" ]]; then
   bak="${src}.soul-backup"
   cp -f "$src" "$bak"
   merged=$(jq -s '
-    .[0] as $cli |
-    (.[1].mcpServers // {}) as $desktop |
-    $cli * { mcpServers: (($cli.mcpServers // {}) + (
-      $desktop | with_entries(
-        select((.value.type // "stdio") == "stdio")
-        | select((.value.command // null) != null)
-      )
-    )) }
+    .[0] as $cli
+    | (.[1].mcpServers // {}) as $desktop
+    | $cli * { mcpServers: (
+        ($cli.mcpServers // {}) + (
+          $desktop | with_entries(
+            select((.value.type // "stdio") == "stdio")
+            | select((.value.command // null) != null)
+          )
+        )
+      ) }
   ' "$src" "$dst" 2>/dev/null) || merged=""
   if [[ -n "$merged" ]] && echo "$merged" | jq empty 2>/dev/null; then
     tmp=$(mktemp "${src}.XXXXXX")
     echo "$merged" > "$tmp"
     mv "$tmp" "$src"
     echo "[claude-desktop sync] reverse-merged orphans → ~/.claude.json (backup: $bak):" >&2
-    echo "$orphans" | sed 's/^/  + /' >&2
+    while IFS= read -r k; do echo "  + $k" >&2; done <<< "$orphans"
   else
     echo "[claude-desktop sync] reverse-merge produced invalid JSON; skipped" >&2
   fi

@@ -62,9 +62,15 @@ if [[ -x "$SKILLS/scripts/install-local.sh" ]]; then
   "$SKILLS/scripts/install-local.sh" >> "$LOG_FILE" 2>&1 || log "install-local failed"
 fi
 
+# Run soul-lint in --quiet mode. Silent on clean (errors only). Errors land
+# in the sync log so a SKILL.md regression doesn't go unnoticed.
+if [[ -x "$SKILLS/scripts/soul-lint.sh" ]]; then
+  "$SKILLS/scripts/soul-lint.sh" --quiet >> "$LOG_FILE" 2>&1 || log "soul-lint reported errors (see log)"
+fi
+
 # Propagate ~/.claude.json mcpServers into Claude Desktop's config so MCPs
 # added via `claude mcp add` flow into the desktop app on its next restart.
-# Idempotent — only writes when content changed.
+# Now bidirectional: reverse-merges Desktop-only orphans before forward-sync.
 if [[ -x "$SKILLS/scripts/sync-claude-desktop-mcps.sh" ]]; then
   "$SKILLS/scripts/sync-claude-desktop-mcps.sh" >> "$LOG_FILE" 2>&1 || log "claude-desktop mcp sync failed"
 fi
