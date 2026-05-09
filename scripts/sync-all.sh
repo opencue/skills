@@ -11,10 +11,13 @@
 #                                                 symlinks from the current
 #                                                 source-tree organization
 #                                                 (idempotent via `ln -sfn`)
-#   3. skills/scripts/auto-push.sh             — commit+push skills repo
-#   4. mcps/scripts/refresh-all.sh             — refresh mcps snapshots
-#   5. mcps/scripts/auto-push.sh               — commit+push mcps repo
-#   6. sweep broken symlinks under ~/.claude/skills + ~/.codex/skills
+#   3. skills/scripts/sync-claude-desktop-mcps.sh — propagate ~/.claude.json
+#                                                 mcpServers into Desktop's
+#                                                 config (Claude Code → Desktop)
+#   4. skills/scripts/auto-push.sh             — commit+push skills repo
+#   5. mcps/scripts/refresh-all.sh             — refresh mcps snapshots
+#   6. mcps/scripts/auto-push.sh               — commit+push mcps repo
+#   7. sweep broken symlinks under ~/.claude/skills + ~/.codex/skills
 #      (catches deleted-from-source skills; `ln -sfn` already handles moves)
 #
 # Each auto-push is a no-op when its tracked paths are unchanged (built-in
