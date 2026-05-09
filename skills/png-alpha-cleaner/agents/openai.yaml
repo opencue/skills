@@ -1,0 +1,7 @@
+interface:
+  display_name: "PNG Alpha Cleaner"
+  short_description: "Fix fake PNG transparency fast"
+  default_prompt: "Use $png-alpha-cleaner to make this logo a real transparent PNG and verify RGBA output."
+
+policy:
+  allow_implicit_invocation: true

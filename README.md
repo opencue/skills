@@ -1,6 +1,6 @@
 # recodeee skills
 
-Canonical source for reusable agent skills shared by Codex and Claude.
+Canonical source for reusable agent skills shared by Codex, Claude, and shared agent skill folders.
 
 ## Layout
 
@@ -14,6 +14,8 @@ scripts/
   install-codex.sh
   install-claude.sh
   install-local.sh
+docs/
+  installed-sources.tsv
 docs/
   install.md
 ```
@@ -32,6 +34,8 @@ This links each folder under `skills/` into:
 - `~/.claude/skills/<skill-name>`
 
 Existing skill folders are moved to timestamped backups before linking.
+
+`docs/installed-sources.tsv` records where each imported local skill came from and whether duplicates were skipped.
 
 ## Secrets
 

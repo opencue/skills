@@ -27,3 +27,13 @@ Install only Claude:
 
 The scripts symlink each `skills/<name>` directory into the target global skill directory.
 If a target folder already exists and is not this symlink, it is moved to a timestamped backup.
+
+## Source Inventory
+
+`installed-sources.tsv` records imported local skill sources from:
+
+- `~/.codex/skills`
+- `~/.claude/skills`
+- `~/.agents/skills`
+
+Backups, hidden/system folders, and repo-pointing symlinks are not imported as new canonical skills.

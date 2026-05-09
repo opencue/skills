@@ -1,0 +1,4 @@
+interface:
+  display_name: "GH Submodule Publish"
+  short_description: "Create GitHub repos and push submodule trees"
+  default_prompt: "Use $gh-submodule-publish to create missing GitHub repos, push submodule repos first, then push the parent repo with verification."
