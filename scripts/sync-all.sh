@@ -62,6 +62,13 @@ if [[ -x "$SKILLS/scripts/install-local.sh" ]]; then
   "$SKILLS/scripts/install-local.sh" >> "$LOG_FILE" 2>&1 || log "install-local failed"
 fi
 
+# Propagate ~/.claude.json mcpServers into Claude Desktop's config so MCPs
+# added via `claude mcp add` flow into the desktop app on its next restart.
+# Idempotent — only writes when content changed.
+if [[ -x "$SKILLS/scripts/sync-claude-desktop-mcps.sh" ]]; then
+  "$SKILLS/scripts/sync-claude-desktop-mcps.sh" >> "$LOG_FILE" 2>&1 || log "claude-desktop mcp sync failed"
+fi
+
 # MCP + plugin snapshots are owned by recodeee/mcps (sole source of truth).
 # skills/scripts/sync-mcps.sh was removed 2026-05-09 to dedup; the skills
 # repo references mcps/ via README pointers. mcps/scripts/refresh-all.sh
