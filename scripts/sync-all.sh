@@ -24,17 +24,17 @@
 # git diff --cached --quiet check), so per-turn firing is cheap.
 #
 # Best-effort: never blocks the session. Errors logged to
-# ~/.cache/recodeee-sync.log only.
-# Kill switch: export RECODEEE_SYNC_OFF=1.
+# ~/.cache/soul-sync.log only.
+# Kill switch: export SOUL_SYNC_OFF=1.
 
 set -euo pipefail
 
-if [[ "${RECODEEE_SYNC_OFF:-0}" == "1" ]]; then
+if [[ "${SOUL_SYNC_OFF:-0}" == "1" ]]; then
   exit 0
 fi
 
-LOCK_FILE="/tmp/recodeee-sync.lock"
-LOG_FILE="${HOME}/.cache/recodeee-sync.log"
+LOCK_FILE="/tmp/soul-sync.lock"
+LOG_FILE="${HOME}/.cache/soul-sync.log"
 mkdir -p "$(dirname "$LOG_FILE")"
 
 SKILLS="${HOME}/Documents/soul/skills"
@@ -69,7 +69,7 @@ if [[ -x "$SKILLS/scripts/sync-claude-desktop-mcps.sh" ]]; then
   "$SKILLS/scripts/sync-claude-desktop-mcps.sh" >> "$LOG_FILE" 2>&1 || log "claude-desktop mcp sync failed"
 fi
 
-# MCP + plugin snapshots are owned by recodeee/mcps (sole source of truth).
+# MCP + plugin snapshots are owned by soul/mcps (sole source of truth).
 # skills/scripts/sync-mcps.sh was removed 2026-05-09 to dedup; the skills
 # repo references mcps/ via README pointers. mcps/scripts/refresh-all.sh
 # below regenerates the canonical snapshots.

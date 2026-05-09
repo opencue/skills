@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Pull in skills installed globally (e.g. via `npx skills add` or
-# Claude/Codex marketplaces) so the recodeee/skills repo stays the source
+# Claude/Codex marketplaces) so the soul/skills repo stays the source
 # of truth for everything routable on this laptop.
 #
 # Behaviour:
