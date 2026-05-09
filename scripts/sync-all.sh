@@ -45,6 +45,13 @@ log()   { echo "[$(stamp)] $*" >> "$LOG_FILE"; }
 
 log "sync start"
 
+# Refresh local symlinks first so any source-tree reorg landed locally
+# (or pulled from origin) materializes in ~/.claude/skills and ~/.codex/skills
+# before we push. install-local.sh is idempotent.
+if [[ -x "$SKILLS/scripts/install-local.sh" ]]; then
+  "$SKILLS/scripts/install-local.sh" >> "$LOG_FILE" 2>&1 || log "install-local failed"
+fi
+
 # MCP + plugin snapshots are owned by recodeee/mcps (sole source of truth).
 # skills/scripts/sync-mcps.sh was removed 2026-05-09 to dedup; the skills
 # repo references mcps/ via README pointers. mcps/scripts/refresh-all.sh
@@ -61,6 +68,13 @@ fi
 if [[ -x "$MCPS/scripts/auto-push.sh" ]]; then
   "$MCPS/scripts/auto-push.sh" >> "$LOG_FILE" 2>&1 || log "mcps auto-push failed"
 fi
+
+# Sweep stale `.backup.*` symlinks left by install-local.sh whenever it
+# replaced a moved skill. Without this they accumulate at every fire.
+# Only deletes broken symlinks (-xtype l) that match the install backup
+# pattern; never touches user-owned files.
+find "${HOME}/.claude/skills" "${HOME}/.codex/skills" -maxdepth 1 \
+  -name '*.backup.*' -xtype l -delete 2>>"$LOG_FILE" || true
 
 log "sync done"
 exit 0
