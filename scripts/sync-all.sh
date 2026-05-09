@@ -41,9 +41,10 @@ log()   { echo "[$(stamp)] $*" >> "$LOG_FILE"; }
 
 log "sync start"
 
-if [[ -x "$SKILLS/scripts/sync-mcps.sh" ]]; then
-  "$SKILLS/scripts/sync-mcps.sh" >> "$LOG_FILE" 2>&1 || log "sync-mcps.sh failed"
-fi
+# MCP + plugin snapshots are owned by recodeee/mcps (sole source of truth).
+# skills/scripts/sync-mcps.sh was removed 2026-05-09 to dedup; the skills
+# repo references mcps/ via README pointers. mcps/scripts/refresh-all.sh
+# below regenerates the canonical snapshots.
 
 if [[ -x "$SKILLS/scripts/auto-push.sh" ]]; then
   "$SKILLS/scripts/auto-push.sh" >> "$LOG_FILE" 2>&1 || log "skills auto-push failed"

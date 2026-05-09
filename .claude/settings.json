@@ -19,7 +19,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/home/deadpool/Documents/recodeee/skills/scripts/sync-mcps.sh && /home/deadpool/Documents/recodeee/skills/scripts/import-globals.sh && /home/deadpool/Documents/recodeee/skills/scripts/auto-push.sh",
+            "command": "/home/deadpool/Documents/recodeee/skills/scripts/import-globals.sh && /home/deadpool/Documents/recodeee/skills/scripts/auto-push.sh",
             "timeout": 30,
             "statusMessage": "skills auto-sync"
           }
