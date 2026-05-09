@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-09T02:30:55Z",
+  "generated": "2026-05-09T11:48:10Z",
   "source": "~/.codex/config.toml",
   "mcpServers": {
     "colony": {
@@ -19,14 +19,12 @@
         }
       }
     },
-    "react-grab-mcp": {
-      "command": "npx",
+    "gbrain": {
+      "command": "/home/deadpool/.bun/bin/gbrain",
       "args": [
-        "-y",
-        "@react-grab/mcp",
-        "--stdio"
+        "serve"
       ],
-      "startup_timeout_sec": 15.0
+      "startup_timeout_sec": 20.0
     },
     "coolify": {
       "command": "bash",
