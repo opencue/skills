@@ -47,7 +47,7 @@ For the underlying `just` tool itself (discovery flags, syntax), see the `just` 
 
 | Command | What it does |
 |---------|--------------|
-| `just colony-rebuild` | `pnpm install && pnpm --filter @imdeadpool/colony-cli build` in `recodee/colony/`. Run this if the colony Stop/SessionStart hooks start failing with `Cannot find module '/home/deadpool/Documents/recodee/colony/apps/cli/dist/index.js'` — usually after `just clean` wipes `dist/`. |
+| `just colony-rebuild` | `pnpm install && pnpm --filter colonyq build` in `recodee/colony/`. Run this if the colony Stop/SessionStart hooks start failing with `Cannot find module '/home/deadpool/Documents/recodee/colony/apps/cli/dist/index.js'` — usually after `just clean` wipes `dist/`. |
 
 ## When to invoke
 
