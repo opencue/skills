@@ -15,17 +15,46 @@ Use this skill when a user wants WooCommerce products pushed into a Medusa backe
 4. Use Medusa workflows for product mutations. Do not write product rows directly.
 5. Make the importer idempotent before any live write.
 
-## Secret handling
+## Secret + operation resolution
 
 Never ask the user to paste WooCommerce secrets into chat.
 Never commit secrets, generated `.env` files, or credential screenshots.
 
-Support this resolution order:
+This skill spans up to four providers per run: WooCommerce (read), Medusa
+admin API (write), AWS S3 (optional image rehost), and the local DB if
+the import is run via `medusa exec`. Bouncer-MCP coverage is partial as
+of 2026-05-10 — pick a mode per leg.
+
+### Mode A: Agent-driven (Claude / Codex with `secret-mcp` registered)
+
+| Leg | Bouncer status | Path |
+| --- | --- | --- |
+| AWS S3 image rehost | ✅ wrapped (PR #1660) | `mcp__secret-mcp__aws_s3_copy_from_url(bucket, key, region, source_url=woo_image_url)` |
+| WooCommerce REST | ❌ not yet wrapped | Mode B fallback (`WOOCOMMERCE_*` env) |
+| Medusa admin API | ❌ not yet wrapped | Mode B fallback (`MEDUSA_SECRET_KEY` env) |
+
+Use Mode A specifically for the image rehost path (when the importer
+chooses to copy Woo images into the shop's S3 bucket rather than
+referencing them in place). The bouncer holds `AWS_SECRET_ACCESS_KEY`;
+the agent passes the Woo URL and gets back the S3 public URL — bytes
+traverse the MCP server but **NOT** the agent context.
+
+The `aws_s3_copy_from_url` tool requires the source host to be in
+`AWS_S3_COPY_FROM_URL_ALLOWLIST` (env on the bouncer host). Add the Woo
+store's image CDN host (e.g. `wp-content.example.com`) before importing.
+
+### Mode B: Shell / `medusa exec` driven
+
+For non-agent runs (CI, cron, batch imports started by the operator) and
+for the WooCommerce + Medusa-admin legs that aren't bouncer-wrapped yet,
+resolve secrets the traditional way:
 
 1. Process env vars:
    - `WOOCOMMERCE_URL`
    - `WOOCOMMERCE_CONSUMER_KEY`
    - `WOOCOMMERCE_CONSUMER_SECRET`
+   - `MEDUSA_SECRET_KEY` (when patching products via admin HTTP)
+   - `AWS_ACCESS_KEY_ID` + `AWS_SECRET_ACCESS_KEY` (for image rehost)
 2. Global local env file, outside repos:
    - `~/.config/woocommerce-medusa-import/env`
 3. Repo-local env only if the repo already has an untracked local env pattern.

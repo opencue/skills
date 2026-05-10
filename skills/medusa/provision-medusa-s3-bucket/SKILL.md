@@ -22,6 +22,34 @@ VPS, EC2, anything). Pairs with `medusa-config.ts` configurations that use
 `@medusajs/medusa/file-s3` with explicit access keys (the R2 provider config
 path in this codebase, with AWS endpoint + region set).
 
+## Bouncer migration: out of scope
+
+This skill operates at AWS-account admin tier — `s3:CreateBucket`,
+`s3:PutBucketPolicy`, `s3:PutBucketCORS`, `s3:PutBucketLifecycle`,
+`s3:PutEncryptionConfiguration`, `s3:PutBucketVersioning`. The recodee
+bouncer MCP (`tools/secret-mcp/`) intentionally does NOT wrap these
+operations — see PR #1660's design.md §"What this design does NOT settle":
+
+> AWS-account admin operations (CreateBucket, PutBucketPolicy, etc.).
+> Bucket provisioning is rare, admin-tier, and currently scripted via the
+> `provision-medusa-s3-bucket` skill running with operator AWS creds.
+> Adding these to the bouncer would require a separate IAM principal and
+> review; defer to a follow-up PR if/when an agent-driven provisioning
+> flow exists.
+
+In practice this means: **provisioning runs with operator credentials**,
+not vault-injected ones. The operator's `aws` CLI session must have IAM
+admin reach (or at least `AmazonS3FullAccess`) for the duration of the
+provision. After the bucket is up, the **runtime** credentials that go
+into Medusa's `medusa-config.ts` are the lower-privilege ones the bouncer
+serves to the agent at object-tier (`PutObject`/`GetObject`/`HeadObject`/
+`DeleteObject` on the specific bucket, scoped via
+`AWS_S3_BUCKETS_ALLOWED`).
+
+This skill therefore stays **shell-driven only** — Mode B in the
+nomenclature of `higgsfield-to-medusa-products`. There is no Mode A
+alternative for it.
+
 ## Inputs
 
 - `bucket-name` (required): globally unique S3 bucket name (e.g.

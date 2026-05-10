@@ -97,22 +97,46 @@ Two execution modes — pick by who's running the skill.
 ### Mode A: Agent-driven (Claude / Codex with `secret-mcp` registered)
 
 For providers that already have bouncer-MCP wrappers, the agent calls the
-bouncer tool directly — the secret never enters context. As of 2026-05-10
-**only Higgsfield is wrapped** (recodee `tools/secret-mcp/`, landed in PRs
-#1653 + #1655 + #1656; Phase 1 of the `agent-secret-vault-mcp` openspec
-change).
+bouncer tool directly — the secret never enters context. Bouncer state as
+of 2026-05-10:
 
-Available bouncer tools right now:
+| Provider | Status | recodee PR |
+| --- | --- | --- |
+| Higgsfield | ✅ landed | #1655 (Phase 1 PoC) |
+| AWS S3 | 🟡 in review | #1660 (Phase 2 first follow-up) |
+| Medusa-admin-API | ❌ not yet wrapped | future Phase-2 PR |
+| Coolify, Hostinger, GitHub, Stripe, Supabase | ❌ not yet wrapped | future Phase-2 PRs |
+
+Available bouncer tools (registered in `tools/secret-mcp/`):
 
 ```
+# Higgsfield (PR #1655)
 mcp__secret-mcp__higgsfield_submit_generation({model, prompt, mode?, ...})
   -> {job_id, status}
 mcp__secret-mcp__higgsfield_get_job({job_id})
   -> {id, status, result_url?, thumbnail_url?, error?}
+
+# AWS S3 (PR #1660 — pending merge)
+mcp__secret-mcp__aws_s3_head_object({bucket, key, region})
+  -> {exists, size?, etag?, content_type?}
+mcp__secret-mcp__aws_s3_get_presigned_put_url({bucket, key, region,
+  expires_in?, content_type?, cache_control?})
+  -> {url, expires_at, required_headers}
+mcp__secret-mcp__aws_s3_copy_from_url({bucket, key, region, source_url,
+  content_type?, cache_control?, max_bytes?})
+  -> {etag?, size, public_url}
+mcp__secret-mcp__aws_s3_delete_object({bucket, key, region}) -> {ok: true}
 ```
 
-Higgsfield workspace token is held in Infisical and read by the MCP at call
-time. There is **no** `vault.get(name)` operation by spec design — vault
+Vault-stored secrets (Infisical):
+- `HIGGSFIELD_WORKSPACE_TOKEN` — the only Higgsfield credential.
+- `AWS_SECRET_ACCESS_KEY` — the secret half of the AWS credential pair.
+  The access key id is non-secret and held in env (`AWS_ACCESS_KEY_ID`),
+  per PR #1660's per-credential split rationale. Bouncer also reads
+  `AWS_S3_BUCKETS_ALLOWED` and `AWS_S3_COPY_FROM_URL_ALLOWLIST` from env
+  for blast-radius caps; populate per shop.
+
+There is **no** `vault.get(name)` operation by spec design — vault
 introspection is forbidden (`design.md` §"No introspection tools"). The
 agent cannot fetch the secret value; it can only invoke wrapped operations.
 
@@ -125,20 +149,33 @@ Bootstrap once per developer:
 3. Make sure recodee `.mcp.json` is in the agent's MCP search path (it is by
    default when the agent runs in the recodee repo).
 
-Agent-driven flow for the Higgsfield part of this pipeline:
+Agent-driven full-pipeline flow (per manifest entry):
 
 ```
+# 1. Generate via Higgsfield bouncer
 job = mcp__secret-mcp__higgsfield_submit_generation(
-  model="gpt_image_2", prompt=manifest_shot.prompt, ...)
+    model="gpt_image_2", prompt=shot.prompt, ...)
 while True:
-  s = mcp__secret-mcp__higgsfield_get_job(job_id=job["job_id"])
-  if s["status"] in ("succeeded", "failed"): break
-# s["result_url"]  → curl download → aws s3 cp → POST /admin/products/{id}
+    s = mcp__secret-mcp__higgsfield_get_job(job_id=job["job_id"])
+    if s["status"] in ("succeeded", "failed"): break
+
+# 2. Move bytes Higgsfield CDN → S3 via AWS bouncer (NO bytes in agent ctx)
+res = mcp__secret-mcp__aws_s3_copy_from_url(
+    bucket="compastor-medusa", region="eu-central-1",
+    key=f"medusa/products/{slug}-{variant}.jpg",
+    source_url=s["result_url"],
+    content_type="image/jpeg",
+    cache_control="public, max-age=31536000, immutable")
+public_url = res["public_url"]
+
+# 3. Patch product (Medusa not yet bouncer-wrapped — falls through to Mode B
+#    or to a future mcp__secret-mcp__medusa_patch_product call)
 ```
 
-For **AWS-S3 + Medusa-admin-API** (not yet bouncer-wrapped — Phase 2 of the
-migration plan), the agent falls through to Mode B's env-resolution. Same
-applies to Coolify, Hostinger, GitHub.
+For **Medusa-admin-API** (not yet bouncer-wrapped — future Phase-2 PR), the
+agent falls through to Mode B's env-resolution for the `POST /admin/products/{id}`
+leg. Same applies to Coolify, Hostinger, GitHub. Mixed Mode A + Mode B is
+expected during the migration window — each provider migrates independently.
 
 ### Mode B: Shell-driven (`run-pipeline.sh`)
 
