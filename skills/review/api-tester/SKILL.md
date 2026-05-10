@@ -92,9 +92,22 @@ openai:sk-...
 
 ## Cheatsheet
 
+Three input modes:
+
+- **inline** — `api-tester sk-... [more keys ...]`
+- **file** — `api-tester <path>` (any absolute or relative path)
+- **stdin** — pipe / heredoc / paste
+
 ```bash
-# default — list /v1/models for each key, no token spend
+# inline — single key, fastest path for "is this key live?"
+api-tester sk-proj-abc...
+
+# inline — multiple keys
+api-tester sk-ant-api03-... xai-... AIzaSy...
+
+# default file mode — list /v1/models for each key, no token spend
 api-tester keys.txt
+api-tester ~/secrets/staging-keys.txt        # any path works
 
 # only show the live ones, unmasked, with detected model ids
 api-tester keys.txt --only valid --show-full --show-models
