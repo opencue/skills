@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
-# load-env.sh — single source of truth for resolving secrets + config for the
-# higgsfield → medusa pipeline. Sourced by run-pipeline.sh.
+# load-env.sh — secret + config resolver for the bash pipeline (Mode B in
+# SKILL.md). Sourced by run-pipeline.sh.
+#
+# IMPORTANT — the recodee bouncer MCP (Phase 1, PR #1655) is agent-only by
+# spec design: vault introspection (`vault.get(name)`) is forbidden, so there
+# is no shell-side fetch path. Agent-driven runs (Claude / Codex) call the
+# bouncer MCP directly and skip this script entirely for wrapped providers.
+# This script handles non-agent runs (CI / cron / manual) and unwrapped
+# providers (AWS-S3, Medusa-admin-API — Phase 2, not yet landed).
 #
 # Resolution order (first hit wins, per env var):
 #   1. process env (already exported)
-#   2. recodee bouncer MCP — `codex secret get <var> --scope <shop>` if available
-#   3. ~/.config/medusa-image-pipeline/<shop>.env
+#   2. ~/.config/medusa-image-pipeline/<shop>.env  (chmod 600)
 #
 # Usage:
 #   SHOP="$1" source "$(dirname "$0")/load-env.sh"
@@ -25,19 +31,7 @@ CONFIG_FILE="${MEDUSA_PIPELINE_CONFIG:-$HOME/.config/medusa-image-pipeline/$SHOP
 # --- Step 1: process env vars stay as-is ---
 # Nothing to do; bash already has them.
 
-# --- Step 2: bouncer MCP (placeholder until recodee/agent-secret-vault-mcp lands) ---
-# When the MCP exposes a CLI shim like `codex secret get`, populate any unset
-# vars from it here. Today this block is a no-op fall-through.
-if command -v recodee-vault >/dev/null 2>&1; then
-  for v in MEDUSA_BACKEND_URL MEDUSA_SECRET_KEY S3_BUCKET S3_REGION S3_PREFIX S3_PUBLIC_BASE AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY; do
-    if [[ -z "${!v:-}" ]]; then
-      val=$(recodee-vault get "$v" --scope "$SHOP" 2>/dev/null || true)
-      [[ -n "$val" ]] && export "$v=$val"
-    fi
-  done
-fi
-
-# --- Step 3: config file ---
+# --- Step 2: per-shop config file ---
 if [[ -f "$CONFIG_FILE" ]]; then
   perm=$(stat -c "%a" "$CONFIG_FILE" 2>/dev/null || stat -f "%Lp" "$CONFIG_FILE")
   if [[ "$perm" != "600" && "$perm" != "400" ]]; then
@@ -63,7 +57,7 @@ fi
 
 if (( ${#missing[@]} > 0 )); then
   echo "load-env: missing required config: ${missing[*]}" >&2
-  echo "load-env: set in env, in vault, or in $CONFIG_FILE" >&2
+  echo "load-env: set in env or in $CONFIG_FILE" >&2
   return 4 2>/dev/null || exit 4
 fi
 

@@ -90,21 +90,69 @@ $EDITOR ~/.config/medusa-image-pipeline/compastor.env
 chmod 600 ~/.config/medusa-image-pipeline/compastor.env
 ```
 
-## Secret resolution
+## Secret + operation resolution
 
-Order (first one that yields a value wins):
+Two execution modes — pick by who's running the skill.
 
-1. **Process env vars** (`MEDUSA_BACKEND_URL`, `MEDUSA_SECRET_KEY`, …) — for
-   ephemeral / CI runs.
-2. **recodee bouncer MCP** — when `mcp__recodee__vault_get_secret` is
-   registered, prefer it over the file. Currently in proposal stage
-   (`recodee/openspec/changes/agent-secret-vault-mcp`); the script gracefully
-   falls through if the MCP is not present.
-3. **Per-shop env file**: `~/.config/medusa-image-pipeline/<shop>.env`.
+### Mode A: Agent-driven (Claude / Codex with `secret-mcp` registered)
 
-The resolver is in `scripts/load-env.sh` — keep it as the only place that
-reads secrets, so the day the bouncer MCP lands you change one helper, not
-the rest of the pipeline.
+For providers that already have bouncer-MCP wrappers, the agent calls the
+bouncer tool directly — the secret never enters context. As of 2026-05-10
+**only Higgsfield is wrapped** (recodee `tools/secret-mcp/`, landed in PRs
+#1653 + #1655 + #1656; Phase 1 of the `agent-secret-vault-mcp` openspec
+change).
+
+Available bouncer tools right now:
+
+```
+mcp__secret-mcp__higgsfield_submit_generation({model, prompt, mode?, ...})
+  -> {job_id, status}
+mcp__secret-mcp__higgsfield_get_job({job_id})
+  -> {id, status, result_url?, thumbnail_url?, error?}
+```
+
+Higgsfield workspace token is held in Infisical and read by the MCP at call
+time. There is **no** `vault.get(name)` operation by spec design — vault
+introspection is forbidden (`design.md` §"No introspection tools"). The
+agent cannot fetch the secret value; it can only invoke wrapped operations.
+
+Bootstrap once per developer:
+
+1. Get the per-developer Infisical service-account token via the vault
+   dashboard UI (recodee PR #1656).
+2. Save it: `install -m 600 /dev/stdin ~/.config/recodee/infisical-token` then
+   paste the token + Enter + Ctrl-D.
+3. Make sure recodee `.mcp.json` is in the agent's MCP search path (it is by
+   default when the agent runs in the recodee repo).
+
+Agent-driven flow for the Higgsfield part of this pipeline:
+
+```
+job = mcp__secret-mcp__higgsfield_submit_generation(
+  model="gpt_image_2", prompt=manifest_shot.prompt, ...)
+while True:
+  s = mcp__secret-mcp__higgsfield_get_job(job_id=job["job_id"])
+  if s["status"] in ("succeeded", "failed"): break
+# s["result_url"]  → curl download → aws s3 cp → POST /admin/products/{id}
+```
+
+For **AWS-S3 + Medusa-admin-API** (not yet bouncer-wrapped — Phase 2 of the
+migration plan), the agent falls through to Mode B's env-resolution. Same
+applies to Coolify, Hostinger, GitHub.
+
+### Mode B: Shell-driven (`run-pipeline.sh`)
+
+The bash script cannot call MCP tools; the bouncer MCP is agent-only by
+design. Shell flows resolve secrets the traditional way, in order, first hit
+wins:
+
+1. **Process env vars** (`MEDUSA_BACKEND_URL`, `MEDUSA_SECRET_KEY`,
+   `HIGGSFIELD_*`, `AWS_*`, …).
+2. **Per-shop env file**: `~/.config/medusa-image-pipeline/<shop>.env`.
+
+The resolver is `scripts/load-env.sh`. Higgsfield in Mode B uses the
+`higgsfield` CLI (which holds its own auth via `higgsfield auth login`) —
+this is the path for CI / cron / non-agent runs.
 
 **Never** echo secret values, **never** put them in git, **never** ask the
 user to paste them into chat.
