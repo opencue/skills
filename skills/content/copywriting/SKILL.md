@@ -1,6 +1,8 @@
 ---
 name: copywriting
-description: Use when writing conversion-focused copy for landing pages, ads, emails, popups, product pages, or CTAs.
+description: >-
+  Use when user says "write copy", "landing copy", or "sales copy" and needs
+  conversion-focused writing. Covers positioning, voice, hooks, CTAs, objections, and polish.
 ---
 # Copywriting
 

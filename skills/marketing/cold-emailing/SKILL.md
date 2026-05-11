@@ -1,6 +1,9 @@
 ---
 name: cold-emailing
-description: Use when writing outbound email campaigns, prospecting sequences, personalization frameworks, or reply-driving follow-ups.
+description: >-
+  Use when user says "cold emailing", "cold emailing help", or "use cold-emailing" and needs
+  the cold emailing skill for marketing work. Covers the existing workflow, guardrails,
+  validation, and handoff guidance in this SKILL.md.
 ---
 # Cold Emailing
 

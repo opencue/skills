@@ -1,6 +1,9 @@
 ---
 name: ad-creative-design
-description: Use when creating paid ad concepts, image/video creative briefs, hooks, variants, angles, or platform-specific creative direction.
+description: >-
+  Use when user says "ad creative design", "ad creative design help", or "use
+  ad-creative-design" and needs the ad creative design skill for marketing work. Covers the
+  existing workflow, guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Ad Creative Design
 

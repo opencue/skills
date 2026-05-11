@@ -1,6 +1,8 @@
 ---
 name: vps
-description: Hostinger VPS API for virtual machine management, Docker projects, firewalls, SSH keys, backups, snapshots, OS templates, post-install scripts, recovery mode, malware scanning, PTR records, and metrics. Use when creating, managing, or troubleshooting VPS instances, deploying Docker containers, configuring firewalls, or managing server infrastructure.
+description: >-
+  Use when user says "Hostinger VPS", "server deploy", or "VPS access" and needs VPS guidance.
+  Covers SSH, services, Docker, logs, health, and safe operations.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
 ---

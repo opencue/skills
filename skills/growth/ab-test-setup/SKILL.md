@@ -1,6 +1,8 @@
 ---
 name: ab-test-setup
-description: Use when defining an experiment, hypothesis, variants, metrics, guardrails, instrumentation, or rollout plan.
+description: >-
+  Use when user says "A/B test", "experiment setup", or "split test" and needs growth
+  experiment guidance. Covers hypothesis, variants, metrics, tracking, rollout, and analysis.
 ---
 # A/B Test Setup
 

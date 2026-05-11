@@ -1,6 +1,9 @@
 ---
 name: coolify
-description: "Use when user mentions Coolify, asks to deploy/manage apps on Coolify, list servers, manage env vars, trigger deployments, or run Coolify CLI workflows. Drives the local coolify CLI for contexts, servers, apps, databases, services, and GitHub app integrations."
+description: >-
+  Use when user says "Coolify", "deploy backend", or "check deploy logs" and needs Coolify
+  deployment guidance. Covers env vars, builds, restarts, logs, health checks, and rollback
+  risk.
 ---
 
 # Coolify CLI Skill

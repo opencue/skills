@@ -1,10 +1,8 @@
 ---
 name: worker
 description: >-
-  [OMX] Auto-loaded by Codex sessions started as an OMX Team worker (a tmux
-  pane spawned by $team). Defines the worker startup ACK, mailbox poll loop,
-  and task lifecycle. Use when OMX_TEAM_WORKER is set or the worker inbox
-  tells you to load it. NOT user-invocable — leader-spawned only.
+  Use when user says "worker", "team worker", or "assigned slice" and needs worker-lane
+  execution guidance. Covers ownership, scope, blocker reporting, and handoff to the leader.
 ---
 
 # Worker Skill

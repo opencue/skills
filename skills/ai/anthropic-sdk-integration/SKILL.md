@@ -1,6 +1,9 @@
 ---
 name: anthropic-sdk-integration
-description: Use when integrating Anthropic APIs or SDKs, tool use, streaming, messages, files, batches, or Claude-powered app features.
+description: >-
+  Use when user says "Anthropic SDK", "Claude API", or "streamText with Anthropic" and needs
+  integration guidance for Claude or Anthropic SDK work. Covers setup, request flow,
+  streaming, errors, and validation.
 ---
 # Anthropic SDK Integration
 

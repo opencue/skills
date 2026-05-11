@@ -1,15 +1,12 @@
 ---
 name: remotion-best-practices
 description: >-
-  Use when working with Remotion code, scaffolding a new video project
-  (`create-video`), or animating React components into video. Covers
-  `useCurrentFrame`, `interpolate`, easing, compositions, and rendering.
-  Trigger phrases — Remotion, video in React, programmatic video, render
-  video from code.
-metadata:
+  Use when user says "Remotion", "video render", or "motion composition" and needs Remotion
+  guidance. Covers composition structure, assets, timing, rendering, and validation.metadata:
   tags: remotion, video, react, animation, composition
 ---
 
+# Remotion Best Practices
 ## When to use
 
 Use this skills whenever you are dealing with Remotion code to obtain the domain-specific knowledge.

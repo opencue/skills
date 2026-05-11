@@ -1,6 +1,8 @@
 ---
 name: writing-execution-plans
-description: Use when creating an implementation plan, ExecPlan, task plan, migration plan, or handoff that another agent or developer must execute.
+description: >-
+  Use when user says "execution plan", "write a plan", or "implementation plan" and needs
+  plan-writing guidance. Covers steps, ownership, risks, validation, and handoff.
 ---
 # Writing Execution Plans
 

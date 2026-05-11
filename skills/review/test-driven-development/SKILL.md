@@ -1,6 +1,9 @@
 ---
 name: test-driven-development
-description: Use when the user asks for TDD, test-first development, regression-first bug fixing, or behavior changes that should be locked by tests before implementation.
+description: >-
+  Use when user says "TDD", "test first", or "write failing test" and needs test-driven
+  development guidance. Covers regression tests, minimal implementation, refactor, and
+  validation.
 ---
 # Test-Driven Development (TDD)
 

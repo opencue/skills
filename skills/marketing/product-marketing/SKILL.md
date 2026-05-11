@@ -1,6 +1,9 @@
 ---
 name: product-marketing
-description: Use when writing positioning, messaging, personas, launches, competitive narrative, feature pages, or sales-facing product stories.
+description: >-
+  Use when user says "product marketing", "product marketing help", or "use product-marketing"
+  and needs the product marketing skill for marketing work. Covers the existing workflow,
+  guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Product Marketing
 

@@ -1,11 +1,8 @@
 ---
 name: colony
 description: >-
-  Use when user says handoff, claim this file, who owns this, check the inbox,
-  what's blocking me, /colony, /task, /handoff, or anything multi-agent or
-  quota-safe. Loads the Colony contract — hivemind_context, attention_inbox,
-  task_ready_for_agent, claim files before edits, task_note_working updates,
-  quota-safe handoff/relay before stopping. NOT for solo single-file edits.
+  Use when user says "Colony", "Colony plan", or "Colony task" and needs Colony workflow
+  guidance. Covers live plans, parser lanes, handoffs, validation, and completion evidence.
 ---
 
 # Colony

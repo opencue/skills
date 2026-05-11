@@ -1,6 +1,8 @@
 ---
 name: paywall-upgrade-cro
-description: Use when improving paywalls, upgrade prompts, pricing gates, feature locks, or free-to-paid conversion.
+description: >-
+  Use when user says "paywall", "upgrade conversion", or "pricing gate" and needs paywall CRO
+  guidance. Covers value framing, timing, objections, experiments, and measurement.
 ---
 # Paywall & Upgrade CRO
 

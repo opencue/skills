@@ -1,6 +1,9 @@
 ---
 name: sales-enablement
-description: Use when creating sales decks, battlecards, objection handling, demo scripts, one-pagers, or account messaging.
+description: >-
+  Use when user says "sales enablement", "sales enablement help", or "use sales-enablement"
+  and needs the sales enablement skill for marketing work. Covers the existing workflow,
+  guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Sales Enablement
 

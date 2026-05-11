@@ -1,6 +1,8 @@
 ---
 name: landing-page-cro
-description: Use when improving landing pages for conversion, message match, clarity, trust, friction removal, or test ideas.
+description: >-
+  Use when user says "landing page CRO", "improve conversions", or "optimize landing page" and
+  needs conversion guidance. Covers offer, proof, CTA, objections, and tests.
 ---
 # Landing Page CRO
 

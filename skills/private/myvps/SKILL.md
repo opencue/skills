@@ -1,6 +1,9 @@
 ---
 name: myvps
-description: Use when asked to create PostgreSQL schemas or apply local SQL files to a remote self-hosted Supabase server over SSH. Connection details come from the SUPA_SCHEMA_SSH_TARGET environment variable.
+description: >-
+  Use when user says "my VPS", "remote Supabase", or "server admin" and needs private VPS
+  guidance. Covers env-based access, safe commands, remote checks, and validation without
+  storing secrets.
 ---
 
 # MyVPS

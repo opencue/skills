@@ -1,14 +1,11 @@
 ---
 name: deep-interview
 description: >-
-  [OMX] Use when user says deep interview, interview me, ask me everything,
-  do not assume, or ouroboros. Socratic intent-clarification with
-  quantitative ambiguity scoring. Modes: --quick / --standard / --deep.
-  Outputs a spec for $ralplan, $autopilot, $ralph, or $team. NOT for plan
-  brainstorming — use $plan.
-argument-hint: "[--quick|--standard|--deep] [--autoresearch] <idea or vague description>"
+  Use when user says "deep interview", "interview me", or "do not assume" and needs Socratic
+  requirements discovery. Covers ambiguity, one-question flow, decision points, and handoff.argument-hint: "[--quick|--standard|--deep] [--autoresearch] <idea or vague description>"
 ---
 
+# Deep Interview
 <Purpose>
 Deep Interview is an intent-first Socratic clarification loop before planning or implementation. It turns vague ideas into execution-ready specifications by asking targeted questions about why the user wants a change, how far it should go, what should stay out of scope, and what OMX may decide without confirmation.
 </Purpose>

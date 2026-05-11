@@ -1,11 +1,9 @@
 ---
 name: autoresearch
 description: >-
-  [OMX] Validator-gated persistent research loop with native-hook state.
-  Use when user says $autoresearch or wants a Ralph-style research loop
-  that won't stop until evidence (a script result or architect artifact)
-  proves it's done. Pick validation mode at init. NOT the deprecated
-  omx autoresearch CLI.
+  Use when user says "research this", "deep research", or "validate sources" and needs
+  research automation. Covers source finding, cross-checking, citations, synthesis, and
+  limits.
 ---
 
 # Autoresearch

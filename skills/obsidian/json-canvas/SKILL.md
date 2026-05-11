@@ -1,6 +1,8 @@
 ---
 name: json-canvas
-description: "Use when user asks to create/edit a .canvas file, build a mind map, flowchart, or visual canvas in Obsidian, or mentions JSON Canvas, nodes, edges, or canvas groups. Writes JSON Canvas Spec 1.0 files with nodes, edges, groups, and connections."
+description: >-
+  Use when user says "JSON canvas", "Obsidian canvas", or "canvas file" and needs Obsidian
+  canvas guidance. Covers node layout, edges, schema, generation, and validation.
 ---
 
 # JSON Canvas Skill

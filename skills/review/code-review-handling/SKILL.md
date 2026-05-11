@@ -1,6 +1,8 @@
 ---
 name: code-review-handling
-description: Use when responding to reviewer comments, CI findings, PR feedback, requested changes, or conflicting review recommendations.
+description: >-
+  Use when user says "handle review comments", "fix PR feedback", or "address code review" and
+  needs review-response guidance. Covers triage, patches, evidence, and replies.
 ---
 # Code Review Handling
 

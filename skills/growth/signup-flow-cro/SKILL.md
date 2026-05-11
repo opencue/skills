@@ -1,6 +1,8 @@
 ---
 name: signup-flow-cro
-description: Use when optimizing signup, trial-start, account creation, SSO, activation entry, or lead capture flows.
+description: >-
+  Use when user says "signup flow", "improve signup", or "registration conversion" and needs
+  signup CRO guidance. Covers friction, trust, fields, activation, and measurement.
 ---
 # Signup Flow CRO
 

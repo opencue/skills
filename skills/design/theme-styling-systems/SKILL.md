@@ -1,6 +1,9 @@
 ---
 name: theme-styling-systems
-description: Use when designing or refactoring themes, design tokens, CSS variables, Tailwind config, dark/light modes, or styling architecture.
+description: >-
+  Use when user says "theme system", "styling tokens", or "design tokens" and needs
+  styling-system guidance. Covers variables, themes, components, consistency, and
+  verification.
 ---
 # Theme & Styling Systems
 

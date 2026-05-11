@@ -1,6 +1,8 @@
 ---
 name: obsidian-markdown
-description: "Use when user asks to write/edit an Obsidian note, add wikilinks, embeds, callouts, frontmatter properties, or tags, or mentions Obsidian Flavored Markdown. Covers Obsidian-specific syntax extensions over CommonMark/GFM."
+description: >-
+  Use when user says "Obsidian markdown", "vault note", or "markdown note" and needs Obsidian
+  markdown guidance. Covers frontmatter, links, embeds, structure, and validation.
 ---
 
 # Obsidian Flavored Markdown Skill

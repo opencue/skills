@@ -1,17 +1,8 @@
 ---
 name: provision-medusa-s3-bucket
 description: >-
-  Create and configure an AWS S3 bucket for a Medusa v2 backend in one shot.
-  Sets up: bucket creation in a region, public-read bucket policy scoped to a
-  product-images prefix, CORS for admin uploads, versioning, server-side
-  encryption (SSE-S3), and lifecycle to clean up incomplete multipart uploads.
-  Outputs the env var block ready to paste into `~/.config/woocommerce-medusa-import/env`
-  AND the env vars to set in Coolify so the running Medusa file provider
-  switches off local-storage to S3. Use when user says "create medusa bucket",
-  "provision s3 for medusa", "new shop bucket", or supplies a shop name + AWS
-  region. Requires `aws` CLI configured (or `AWS_ACCESS_KEY_ID`+`AWS_SECRET_ACCESS_KEY`
-  in env).
-argument-hint: <bucket-name> [<region=eu-central-1>] [<prefix=medusa/>]
+  Use when user says "Medusa S3", "provision bucket", or "file storage bucket" and needs S3
+  bucket provisioning for Medusa. Covers envs, provider settings, access, and validation.argument-hint: <bucket-name> [<region=eu-central-1>] [<prefix=medusa/>]
 allowed-tools: Bash(aws:*)
 ---
 

@@ -1,6 +1,9 @@
 ---
 name: woocommerce-to-medusa-import
-description: Build or run WooCommerce product importers into Medusa v2 backends. Use when importing WooCommerce products, variations, categories, images, prices, inventory, or metadata into Medusa, especially repos with apps/backend. Includes safe secret handling, dry-run/idempotent import rules, Medusa workflow usage, and verification steps.
+description: >-
+  Use when user says "WooCommerce import", "migrate products", or "Woo to Medusa" and needs
+  WooCommerce-to-Medusa import guidance. Covers extraction, mapping, assets, import, and
+  checks.
 ---
 
 # WooCommerce to Medusa Import

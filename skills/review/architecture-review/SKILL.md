@@ -1,6 +1,8 @@
 ---
 name: architecture-review
-description: Use when reviewing system design, boundaries, scalability, coupling, data flow, failure modes, or technical tradeoffs.
+description: >-
+  Use when user says "architecture review", "review design", or "system design critique" and
+  needs architecture feedback. Covers boundaries, tradeoffs, risks, scalability, and tests.
 ---
 # Architecture Review
 

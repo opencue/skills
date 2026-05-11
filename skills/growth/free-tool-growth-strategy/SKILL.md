@@ -1,6 +1,8 @@
 ---
 name: free-tool-growth-strategy
-description: Use when designing calculators, generators, audits, quizzes, templates, or utilities as acquisition channels.
+description: >-
+  Use when user says "free tool", "growth tool", or "lead magnet tool" and needs free-tool
+  growth strategy. Covers audience, value, distribution, capture, and measurement.
 ---
 # Free Tool Growth Strategy
 

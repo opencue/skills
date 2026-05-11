@@ -1,6 +1,9 @@
 ---
 name: marketing-psychology
-description: Use when applying persuasion, behavioral economics, decision science, trust cues, urgency, social proof, or objection framing.
+description: >-
+  Use when user says "marketing psychology", "marketing psychology help", or "use
+  marketing-psychology" and needs the marketing psychology skill for marketing work. Covers
+  the existing workflow, guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Marketing Psychology
 

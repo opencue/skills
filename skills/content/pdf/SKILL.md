@@ -1,6 +1,8 @@
 ---
 name: "pdf"
-description: "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction."
+description: >-
+  Use when user says "PDF", "extract PDF", or "make a PDF" and needs PDF handling guidance.
+  Covers parsing, rendering, conversion, layout checks, and validation.
 ---
 
 

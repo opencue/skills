@@ -1,6 +1,8 @@
 ---
 name: obsidian-cli
-description: "Use when user asks to run the Obsidian CLI, manage their vault from the terminal, read/create/search notes via CLI, manage tasks/properties, or reload/debug Obsidian plugins or themes. Drives a running Obsidian instance via the obsidian CLI."
+description: >-
+  Use when user says "Obsidian CLI", "vault command", or "manage vault" and needs command-line
+  vault guidance. Covers files, links, search, automation, and checks.
 ---
 
 # Obsidian CLI

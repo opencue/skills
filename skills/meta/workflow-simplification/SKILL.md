@@ -1,6 +1,9 @@
 ---
 name: workflow-simplification
-description: Use when reducing process steps, tool prompts, ceremony, duplicated commands, or handoff friction.
+description: >-
+  Use when user says "simplify workflow", "too many steps", or "reduce process" and needs
+  workflow simplification guidance. Covers deletion, consolidation, automation, and
+  validation.
 ---
 # Workflow Simplification
 

@@ -1,6 +1,8 @@
 ---
 name: code-review-requesting
-description: Use when preparing work for review, asking another agent for review, opening a PR, or producing a review-ready summary.
+description: >-
+  Use when user says "request review", "ask for code review", or "prepare PR review" and needs
+  review-request guidance. Covers context, scope, risk, checklist, and reviewer notes.
 ---
 # Code Review Requesting
 

@@ -1,6 +1,9 @@
 ---
 name: lead-magnet-creation
-description: Use when designing free resources, calculators, checklists, reports, templates, or gated offers for list growth.
+description: >-
+  Use when user says "lead magnet creation", "lead magnet creation help", or "use
+  lead-magnet-creation" and needs the lead magnet creation skill for marketing work. Covers
+  the existing workflow, guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Lead Magnet Creation
 

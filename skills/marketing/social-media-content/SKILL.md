@@ -1,6 +1,9 @@
 ---
 name: social-media-content
-description: Use when creating platform-native posts, threads, carousels, short-form video scripts, community posts, or social calendars.
+description: >-
+  Use when user says "social media content", "social media content help", or "use
+  social-media-content" and needs the social media content skill for marketing work. Covers
+  the existing workflow, guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Social Media Content
 

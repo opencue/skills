@@ -1,6 +1,9 @@
 ---
 name: schema-markup
-description: Use when adding or auditing structured data, JSON-LD, rich-result eligibility, entity markup, or schema validation.
+description: >-
+  Use when user says "schema markup", "schema markup help", or "use schema-markup" and needs
+  the schema markup skill for marketing work. Covers the existing workflow, guardrails,
+  validation, and handoff guidance in this SKILL.md.
 ---
 # Schema Markup
 

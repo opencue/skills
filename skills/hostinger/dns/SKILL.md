@@ -1,6 +1,8 @@
 ---
 name: dns
-description: Hostinger DNS API for zone record management, snapshots, and validation. Use when creating, updating, or deleting DNS records, restoring DNS snapshots, validating zone changes, or resetting DNS to defaults.
+description: >-
+  Use when user says "Hostinger DNS", "DNS record", or "point domain" and needs Hostinger DNS
+  guidance. Covers records, propagation, verification, and rollback risk.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
 ---

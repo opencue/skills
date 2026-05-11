@@ -1,6 +1,8 @@
 ---
 name: keybindings-developer-ux
-description: Use when improving shortcuts, command palettes, keyboard flows, editor integration, CLI ergonomics, or developer productivity UX.
+description: >-
+  Use when user says "keybindings", "keyboard shortcut", or "developer UX" and needs shortcut
+  or dev workflow guidance. Covers bindings, discoverability, conflicts, and validation.
 ---
 # Keybindings & Developer UX
 

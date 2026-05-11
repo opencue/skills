@@ -1,6 +1,8 @@
 ---
 name: production-grade-ui-components
-description: Use when building robust reusable UI components with states, accessibility, responsive behavior, API clarity, and testable contracts.
+description: >-
+  Use when user says "production UI", "component quality", or "build components" and needs
+  robust UI component guidance. Covers states, accessibility, responsiveness, and polish.
 ---
 # Production-Grade UI Components
 

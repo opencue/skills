@@ -1,14 +1,9 @@
 ---
 name: colony-prompts
 description: >-
-  Use when user says "colony:prompts", "generate colony planner prompts", "add
-  N agent prompts to planner", "wave plan for colony", "split this into
-  parallel agent prompts", "/colony-prompts", or asks to scaffold N
-  parallel-safe agent prompt files for the colony hivemind planner. Produces
-  prompt files at apps/frontend/public/colony-planner/prompts/agent-NN.md in
-  the canonical Goal/Read/Implement/Constraints/Proof format with
-  file-ownership invariants per wave. NOT for solo single-file tasks — use
-  this only when the user wants a multi-agent wave plan.
+  Use when user says "Colony prompts", "prompt pack", or "Colony handoff" and needs prompt
+  guidance for Colony workflows. Covers prompt boundaries, task readiness, validation, and
+  handoff wording.
 ---
 
 # Colony Planner Prompts

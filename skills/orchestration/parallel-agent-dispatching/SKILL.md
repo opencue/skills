@@ -1,6 +1,8 @@
 ---
 name: parallel-agent-dispatching
-description: Use when a task has independent lanes that can run in parallel with bounded ownership and verification.
+description: >-
+  Use when user says "dispatch agents", "parallel agents", or "split this up" and needs
+  parallel subtask guidance. Covers ownership, non-overlap, integration, and verification.
 ---
 # Parallel Agent Dispatching
 

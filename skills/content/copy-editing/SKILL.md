@@ -1,6 +1,9 @@
 ---
 name: copy-editing
-description: Use when improving clarity, tone, grammar, concision, consistency, or brand voice without changing the underlying intent.
+description: >-
+  Use when user says "copy edit", "edit this copy", or "tighten this writing" and needs
+  editing guidance. Covers clarity, tone, grammar, structure, and final polish without
+  changing intent.
 ---
 # Copy Editing
 

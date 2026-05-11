@@ -1,6 +1,9 @@
 ---
 name: programmatic-seo
-description: Use when designing or reviewing scalable landing-page systems, template pages, data-driven SEO pages, or indexable page factories.
+description: >-
+  Use when user says "programmatic seo", "programmatic seo help", or "use programmatic-seo"
+  and needs the programmatic seo skill for marketing work. Covers the existing workflow,
+  guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Programmatic SEO
 

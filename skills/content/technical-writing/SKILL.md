@@ -1,6 +1,8 @@
 ---
 name: technical-writing
-description: Use when writing technical docs, runbooks, architecture notes, API docs, developer guides, README sections, or release explanations.
+description: >-
+  Use when user says "technical writing", "write docs", or "explain the system" and needs
+  technical documentation. Covers audience, structure, accuracy, examples, and review.
 ---
 # Technical Writing
 

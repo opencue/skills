@@ -1,6 +1,9 @@
 ---
 name: site-architecture
-description: Use when planning marketing site IA, navigation, hub pages, internal links, conversion paths, or SEO-friendly structure.
+description: >-
+  Use when user says "site architecture", "site architecture help", or "use site-architecture"
+  and needs the site architecture skill for marketing work. Covers the existing workflow,
+  guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Site Architecture
 

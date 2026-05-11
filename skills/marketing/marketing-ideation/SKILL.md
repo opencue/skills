@@ -1,6 +1,9 @@
 ---
 name: marketing-ideation
-description: Use when generating campaign ideas, hooks, acquisition channels, launch angles, partnerships, or growth experiments.
+description: >-
+  Use when user says "marketing ideation", "marketing ideation help", or "use
+  marketing-ideation" and needs the marketing ideation skill for marketing work. Covers the
+  existing workflow, guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Marketing Ideation
 

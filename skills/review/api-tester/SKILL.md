@@ -1,13 +1,8 @@
 ---
 name: api-tester
 description: >-
-  Batch-validate LLM API keys across 7 providers (OpenAI, Anthropic, Gemini,
-  DeepSeek, SiliconCloud, xAI, OpenRouter) via the local `api-tester` CLI. Use
-  when user says "test these keys", "validate api keys", "are these keys still
-  good", "audit these tokens", "check which keys work", or pastes a list of
-  candidate keys (sk-, sk-ant-, xai-, AIza, sk-or-) and asks if they're real.
-  NOT for sending an actual chat completion as a one-off (use the relevant
-  provider SDK) or for quality/code review (use code-review / security-review).
+  Use when user says "test API", "API endpoint", or "curl this endpoint" and needs API
+  validation. Covers request setup, auth, assertions, response checks, and failure evidence.
 ---
 
 # api-tester

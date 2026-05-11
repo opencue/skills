@@ -1,8 +1,11 @@
 ---
 name: visual-verdict
-description: Use when comparing a generated UI screenshot against one or more reference images and you need a deterministic pass/fail signal. Returns strict JSON `{score, verdict, category_match, differences, suggestions, reasoning}` with a 90+ pass threshold to drive the next edit iteration in visual-fidelity loops.
+description: >-
+  Use when user says "visual verdict", "review screenshot", or "judge the UI" and needs visual
+  QA. Covers screenshot analysis, layout issues, polish gaps, accessibility, and next edits.
 ---
 
+# Visual Verdict
 <Purpose>
 Use this skill to compare generated UI screenshots against one or more reference images and return a strict JSON verdict that can drive the next edit iteration.
 </Purpose>

@@ -1,6 +1,9 @@
 ---
 name: pricing-strategy
-description: Use when designing pricing, packaging, tiers, trials, discounts, bundles, value metrics, or monetization tests.
+description: >-
+  Use when user says "pricing strategy", "pricing strategy help", or "use pricing-strategy"
+  and needs the pricing strategy skill for marketing work. Covers the existing workflow,
+  guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Pricing Strategy
 

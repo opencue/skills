@@ -1,6 +1,9 @@
 ---
 name: visual-ralph
-description: "[OMX] Visual Ralph orchestration for frontend UI from generated references, static references, or live URL targets, using $ralph with $visual-verdict and pixel-diff evidence until the implementation matches and leaves a reproducible design system."
+description: >-
+  Use when user says "visual ralph", "iterate visually", or "keep fixing UI" and needs
+  persistent visual iteration. Covers screenshot evidence, visual verdicts, edits, and
+  re-verification.
 ---
 
 # Visual Ralph Skill

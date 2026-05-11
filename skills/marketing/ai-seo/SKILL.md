@@ -1,6 +1,9 @@
 ---
 name: ai-seo
-description: Use when optimizing for AI search, answer engines, LLM citations, entity clarity, topical authority, and retrieval-friendly content.
+description: >-
+  Use when user says "ai seo", "ai seo help", or "use ai-seo" and needs the ai seo skill for
+  marketing work. Covers the existing workflow, guardrails, validation, and handoff guidance
+  in this SKILL.md.
 ---
 # AI SEO
 

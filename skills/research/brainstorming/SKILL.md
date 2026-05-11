@@ -1,6 +1,8 @@
 ---
 name: brainstorming
-description: Use when the user wants divergent options, naming, positioning, product ideas, campaign ideas, feature ideas, or alternatives before choosing a direction.
+description: >-
+  Use when user says "brainstorm", "ideas for", or "come up with options" and needs ideation
+  guidance. Covers options, constraints, tradeoffs, selection criteria, and next steps.
 ---
 # Brainstorming
 

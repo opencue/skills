@@ -1,6 +1,8 @@
 ---
 name: popup-cro
-description: Use when designing or auditing popups, slide-ins, exit-intent offers, lead capture, discount prompts, or onsite overlays.
+description: >-
+  Use when user says "popup CRO", "modal conversion", or "lead capture popup" and needs popup
+  optimization guidance. Covers timing, targeting, copy, design, and measurement.
 ---
 # Popup CRO
 

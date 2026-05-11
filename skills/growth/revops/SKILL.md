@@ -1,6 +1,8 @@
 ---
 name: revops
-description: Use when aligning CRM, lifecycle stages, handoffs, routing, attribution, pipeline reporting, or revenue operations workflows.
+description: >-
+  Use when user says "RevOps", "sales ops", or "revenue process" and needs revenue operations
+  guidance. Covers pipeline, lifecycle, tooling, reporting, and process design.
 ---
 # RevOps
 

@@ -1,6 +1,8 @@
 ---
 name: hosting
-description: Hostinger Hosting API for website management, order listing, datacenter selection, domain verification, and free subdomain generation. Use when creating websites, listing hosting orders, choosing datacenters, verifying domain ownership, or generating free subdomains.
+description: >-
+  Use when user says "Hostinger hosting", "upload site", or "shared hosting" and needs
+  Hostinger hosting guidance. Covers static deploys, files, domains, SSL, and validation.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
 ---

@@ -1,6 +1,9 @@
 ---
 name: frontend-design
-description: Use when creating or improving frontend UI with strong visual hierarchy, responsive behavior, accessibility, and production-quality interaction design.
+description: >-
+  Use when user says "frontend design", "build the UI", or "redesign this page" and needs
+  application UI guidance. Covers layout, components, interactions, responsiveness, and
+  verification.
 ---
 # Frontend Design
 

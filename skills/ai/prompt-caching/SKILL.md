@@ -1,6 +1,8 @@
 ---
 name: prompt-caching
-description: Use when optimizing Claude or LLM prompts with cache breakpoints, reusable context, cost controls, and latency-aware prompt structure.
+description: >-
+  Use when user says "prompt caching", "cache prompts", or "reduce LLM cost" and needs AI
+  prompt-cache guidance. Covers cache boundaries, invalidation, token savings, and validation.
 ---
 # Prompt Caching
 

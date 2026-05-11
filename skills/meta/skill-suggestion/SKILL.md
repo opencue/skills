@@ -1,12 +1,9 @@
 ---
 name: skill-suggestion
 description: >-
-  Load PROACTIVELY when you observe the user about to repeat an automatable
-  workflow — e.g. they just ran the same 3+ step sequence twice, manually
-  walked through something an existing skill could do, or solved a problem
-  that warrants a reusable skill. Suggests installing an upstream skill OR
-  scaffolding a new one. NOT for reactive "find me a skill for X" requests
-  (use `find-skills`). NOT for one-off operations.
+  Use when user says "find a skill", "which skill", or "suggest skill" and needs skill
+  discovery. Covers catalog lookup, matching existing skills, avoiding duplicates, and
+  routing.
 ---
 
 # skill-suggestion

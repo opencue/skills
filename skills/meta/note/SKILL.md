@@ -1,10 +1,8 @@
 ---
 name: note
 description: >-
-  [OMX] Save context to .omx/notepad.md so it survives compaction. Use when
-  user says /note, save this note, remember this for later, /note --priority,
-  or /note --show. Three sections: Priority Context (always loaded), Working
-  Memory (timestamped, auto-pruned), MANUAL (never pruned).
+  Use when user says "note this", "save note", or "remember this" and needs a local note
+  workflow. Covers note placement, concise capture, retrieval, and confirmation.
 ---
 
 # Note Skill

@@ -1,6 +1,8 @@
 ---
 name: project-initialization
-description: Use when bootstrapping a new project, repo, package, app, plugin, or workspace with conventions and first verification.
+description: >-
+  Use when user says "new project", "initialize repo", or "setup project" and needs project
+  initialization guidance. Covers structure, dependencies, scripts, docs, and verification.
 ---
 # Project Initialization
 

@@ -1,6 +1,9 @@
 ---
 name: executing-development-plans
-description: Use when implementing from an existing plan, PRD, task list, OpenSpec change, or staged execution checklist.
+description: >-
+  Use when user says "execute the plan", "run the implementation plan", or "work through
+  tasks" and needs plan execution guidance. Covers sequencing, edits, validation, and status
+  reporting.
 ---
 # Executing Development Plans
 

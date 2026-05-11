@@ -1,6 +1,9 @@
 ---
 name: "png-alpha-cleaner"
-description: "Use when a user wants an image or logo to be a real transparent PNG, remove a baked checkerboard/white background, add an alpha channel, verify PNG/RGBA bytes, or fix a file that only has a .png extension but no usable transparency."
+description: >-
+  Use when user says "clean PNG alpha", "remove transparent fringe", or "fix PNG edges" and
+  needs alpha-channel cleanup. Covers image inspection, processing, validation, and output
+  checks.
 ---
 
 # PNG Alpha Cleaner

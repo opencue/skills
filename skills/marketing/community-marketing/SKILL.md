@@ -1,6 +1,9 @@
 ---
 name: community-marketing
-description: Use when building community-led growth, Discord/Slack/forum strategy, ambassador loops, events, or community content.
+description: >-
+  Use when user says "community marketing", "community marketing help", or "use
+  community-marketing" and needs the community marketing skill for marketing work. Covers the
+  existing workflow, guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Community Marketing
 

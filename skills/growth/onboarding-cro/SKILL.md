@@ -1,6 +1,8 @@
 ---
 name: onboarding-cro
-description: Use when improving first-run experience, activation flows, setup checklists, tutorials, or time-to-value.
+description: >-
+  Use when user says "onboarding conversion", "activation flow", or "improve onboarding" and
+  needs onboarding CRO guidance. Covers friction, aha moments, prompts, and metrics.
 ---
 # Onboarding CRO
 

@@ -1,6 +1,9 @@
 ---
 name: task-scheduling-automation
-description: Use when designing recurring jobs, scheduled agents, queues, timers, reminders, or automation workflows.
+description: >-
+  Use when user says "scheduled task", "automate this later", or "task scheduler" and needs
+  scheduling automation guidance. Covers triggers, cadence, retries, observability, and
+  validation.
 ---
 # Task Scheduling & Automation
 

@@ -1,6 +1,9 @@
 ---
 name: seo-audit
-description: Use when auditing a website for search visibility, indexing, technical SEO, content gaps, internal linking, or SERP fit.
+description: >-
+  Use when user says "seo audit", "seo audit help", or "use seo-audit" and needs the seo audit
+  skill for marketing work. Covers the existing workflow, guardrails, validation, and handoff
+  guidance in this SKILL.md.
 ---
 # SEO Audit
 

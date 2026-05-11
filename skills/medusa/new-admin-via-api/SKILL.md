@@ -1,14 +1,8 @@
 ---
 name: new-admin-via-api
 description: >-
-  Create a Medusa v2 admin user against a running backend over HTTP, no CLI/SSH
-  required. Two flows: (a) invite-accept for ADDITIONAL admins (needs an
-  existing admin's session to mint the invite), (b) CLI fallback for the FIRST
-  admin (no admin exists yet — Medusa v2 has no public POST /admin/users).
-  Use when user says "create admin via API", "invite admin", "new admin on the
-  live site", or supplies a backend URL + email + password and login is at
-  /app/login. Medusa v2-only.
-argument-hint: <backend-url> <email> <password> [<existing-admin-email> <existing-admin-password>]
+  Use when user says "create Medusa admin", "new admin via API", or "add admin user" and needs
+  API-based admin creation guidance. Covers auth, request shape, envs, validation, and risk.argument-hint: <backend-url> <email> <password> [<existing-admin-email> <existing-admin-password>]
 allowed-tools: Bash(curl:*)
 ---
 

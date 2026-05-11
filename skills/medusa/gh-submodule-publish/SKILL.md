@@ -1,11 +1,9 @@
 ---
 name: gh-submodule-publish
 description: >-
-  Create missing GitHub repos and push a parent repo that tracks app repos as
-  Git submodules. Use when user asks to publish locally-initialized repos,
-  push parent + backend/storefront submodules, create org-scoped repos,
-  recover from broken `gh auth` / SSH publickey errors, or fix missing
-  workflow token scope.
+  Use when user says "publish submodule", "GitHub submodule", or "Medusa submodule publish"
+  and needs submodule publishing guidance. Covers repo state, commits, push, references, and
+  validation.
 ---
 
 # Gh Submodule Publish

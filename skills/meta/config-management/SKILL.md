@@ -1,6 +1,8 @@
 ---
 name: config-management
-description: Use when changing configuration files, env surfaces, defaults, feature flags, local settings, or config validation.
+description: >-
+  Use when user says "config management", "settings drift", or "manage config" and needs
+  configuration guidance. Covers source of truth, envs, validation, sync, and rollback risk.
 ---
 # Config Management
 

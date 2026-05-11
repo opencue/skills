@@ -1,6 +1,8 @@
 ---
 name: competitor-analysis
-description: Use when comparing competitors, positioning, SEO, pricing, offers, messaging, product gaps, or go-to-market moves.
+description: >-
+  Use when user says "competitor analysis", "analyze competitors", or "market comparison" and
+  needs competitor research. Covers positioning, features, pricing, channels, and synthesis.
 ---
 # Competitor Analysis
 

@@ -1,6 +1,9 @@
 ---
 name: content-strategy
-description: Use when planning content pillars, editorial calendars, funnel content, thought leadership, or distribution strategy.
+description: >-
+  Use when user says "content strategy", "content plan", or "editorial calendar" and needs
+  content strategy guidance. Covers audience, topics, channels, sequencing, measurement, and
+  validation.
 ---
 # Content Strategy
 

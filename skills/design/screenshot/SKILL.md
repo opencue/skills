@@ -1,6 +1,8 @@
 ---
 name: "screenshot"
-description: "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed."
+description: >-
+  Use when user says "screenshot", "capture the page", or "visual proof" and needs screenshot
+  capture guidance. Covers browser/window capture, artifacts, naming, and validation.
 ---
 
 

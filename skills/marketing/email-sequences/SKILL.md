@@ -1,6 +1,9 @@
 ---
 name: email-sequences
-description: Use when designing lifecycle emails, launch sequences, nurture flows, onboarding emails, retention emails, or sales follow-ups.
+description: >-
+  Use when user says "email sequences", "email sequences help", or "use email-sequences" and
+  needs the email sequences skill for marketing work. Covers the existing workflow,
+  guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Email Sequences
 

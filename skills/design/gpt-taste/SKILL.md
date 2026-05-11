@@ -1,6 +1,9 @@
 ---
 name: gpt-taste
-description: Use when user asks for an "Awwwards-level" landing page, GSAP scroll site, bento layout, or wants to break LLM design defaults. Enforces seeded layout randomization, AIDA page structure, wide editorial typography, gapless bento grids, GSAP ScrollTrigger pinning/stacking/scrubbing, and large section spacing.
+description: >-
+  Use when user says "GPT taste", "make this less generic", or "improve visual taste" and
+  needs design critique. Covers taste checks, simplification, hierarchy, and polished
+  execution.
 ---
 
 # CORE DIRECTIVE: AWWWARDS-LEVEL DESIGN ENGINEERING

@@ -1,6 +1,8 @@
 ---
 name: imagegen-frontend-mobile
-description: Use when user asks for mobile app screen mockups, iOS/Android UI concepts, onboarding/auth/dashboard/chat/fintech/health screens, or multi-screen app flows. Generates images only (no code) of app screens framed inside subtle phone mockups with consistent palettes and readable hierarchy. NOT for websites or landing pages — use imagegen-frontend-web.
+description: >-
+  Use when user says "mobile mockup", "generate mobile UI", or "imagegen mobile" and needs
+  mobile frontend visual generation. Covers prompts, constraints, assets, and review.
 ---
 
 # CORE DIRECTIVE: PREMIUM MOBILE APP IMAGE DIRECTION

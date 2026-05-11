@@ -1,13 +1,8 @@
 ---
 name: just
 description: >-
-  Reference for `just`, the command runner. Use when working in a project
-  with a `justfile` or when the user mentions `just` or `justfile`. Covers
-  discovery (`--list`, `--show`, `--dump`, `--evaluate`, `--summary`),
-  execution (`just`, `just <RECIPE>`, `just <RECIPE> <ARG>`), and recipe
-  syntax (deps, args, defaults, shebang scripts, doc-comments). Generic
-  tool reference, not workspace-specific. For the recipes in
-  ~/Documents/Justfile, see the `workspace-recipes` skill instead.
+  Use when user says "just", "quick task", or "simple task" and needs the lightest direct
+  execution path. Covers scope control, minimal tooling, verification, and concise handoff.
 ---
 
 # just

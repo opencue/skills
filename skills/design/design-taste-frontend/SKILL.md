@@ -1,6 +1,9 @@
 ---
 name: design-taste-frontend
-description: Use when building React/Next.js UI and the user asks for high-taste frontend, Tailwind components, motion-rich pages, or "design like a real engineer". Enforces dependency checks, RSC/client boundaries, Tailwind version rules, no-emoji policy, viewport-stable layouts, and tuned variance/motion/density baselines.
+description: >-
+  Use when user says "improve the UI", "make it tasteful", or "frontend design pass" and needs
+  design-taste guidance for frontend work. Covers hierarchy, spacing, polish, and visual
+  validation.
 ---
 
 # High-Agency Frontend Skill

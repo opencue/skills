@@ -1,6 +1,8 @@
 ---
 name: churn-prevention
-description: Use when reducing cancellations, improving retention, building winback flows, identifying churn signals, or designing save offers.
+description: >-
+  Use when user says "reduce churn", "retention problem", or "win back users" and needs churn
+  prevention guidance. Covers signals, segments, interventions, experiments, and measurement.
 ---
 # Churn Prevention
 

@@ -1,6 +1,9 @@
 ---
 name: product-launch-strategy
-description: Use when planning launches, positioning, audience sequencing, announcement assets, beta lists, or launch metrics.
+description: >-
+  Use when user says "product launch strategy", "product launch strategy help", or "use
+  product-launch-strategy" and needs the product launch strategy skill for marketing work.
+  Covers the existing workflow, guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Product Launch Strategy
 

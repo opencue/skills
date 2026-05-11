@@ -1,6 +1,9 @@
 ---
 name: claude-model-migration
-description: Use when migrating between Claude models, API versions, model aliases, capability differences, prompts, evals, or cost/performance profiles.
+description: >-
+  Use when user says "migrate Claude model", "update Anthropic model", or "Claude model
+  migration" and needs safe model upgrade guidance. Covers compatibility checks, config edits,
+  rollout risk, and verification.
 ---
 # Claude Model Migration
 

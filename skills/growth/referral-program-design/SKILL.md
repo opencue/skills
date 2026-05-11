@@ -1,6 +1,8 @@
 ---
 name: referral-program-design
-description: Use when designing referral loops, incentives, sharing mechanics, fraud controls, or ambassador programs.
+description: >-
+  Use when user says "referral program", "invite rewards", or "viral loop" and needs referral
+  design guidance. Covers incentives, fraud risk, UX, launch, and metrics.
 ---
 # Referral Program Design
 

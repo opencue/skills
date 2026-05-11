@@ -1,6 +1,9 @@
 ---
 name: paid-ads-strategy
-description: Use when planning or auditing paid acquisition across Google, Meta, TikTok, LinkedIn, X, Reddit, or marketplace ads.
+description: >-
+  Use when user says "paid ads strategy", "paid ads strategy help", or "use paid-ads-strategy"
+  and needs the paid ads strategy skill for marketing work. Covers the existing workflow,
+  guardrails, validation, and handoff guidance in this SKILL.md.
 ---
 # Paid Ads Strategy
 

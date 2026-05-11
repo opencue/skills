@@ -1,6 +1,9 @@
 ---
 name: medusa-shop-setup
-description: Use when creating a new Medusa webshop from medusa-shops/base-template, generating backend/storefront env files from a domain, preparing Coolify backend deployment, configuring Hostinger hosting/DNS, creating the per-shop Postgres schema, or making a domain-to-shop setup checklist. Triggers include "new webshop", "create webshop", "base-template env", "configure envs for a site", "Coolify + Hostinger Medusa shop", and "domain address then setup .env".
+description: >-
+  Use when user says "new Medusa shop", "setup Medusa store", or "Medusa shop scaffold" and
+  needs shop setup guidance. Covers base template, backend, storefront, envs, deployment, and
+  checks.
 ---
 
 # Medusa Shop Setup

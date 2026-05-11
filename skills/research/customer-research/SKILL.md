@@ -1,6 +1,8 @@
 ---
 name: customer-research
-description: Use when synthesizing customer interviews, surveys, reviews, support tickets, jobs-to-be-done, or buyer objections.
+description: >-
+  Use when user says "customer research", "user interviews", or "customer insights" and needs
+  research guidance. Covers segments, questions, synthesis, findings, and decisions.
 ---
 # Customer Research
 

@@ -1,6 +1,8 @@
 ---
 name: imagegen-frontend-web
-description: Use when user asks for landing page mockups, marketing site references, hero/section images, or website design comps. Generates one horizontal image per section (8 sections = 8 images, never combined), with varied hero composition, varied CTAs, and a single consistent palette across all images. NOT for mobile apps — use imagegen-frontend-mobile.
+description: >-
+  Use when user says "web mockup", "generate website UI", or "imagegen web" and needs web
+  frontend visual generation. Covers prompts, layout, assets, and visual review.
 ---
 
 # HARD OUTPUT RULE — READ FIRST

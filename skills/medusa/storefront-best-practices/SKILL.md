@@ -1,10 +1,9 @@
 ---
 name: storefront-best-practices
 description: >-
-  Use when working on ecommerce storefronts (Next.js, SvelteKit, React, Vue) —
-  checkout, cart, payment flows, product pages, navigation, homepage, or ANY
-  storefront component. Critical for adding checkout, implementing cart,
-  integrating a Medusa backend, or building ecommerce functionality.
+  Use when user says "storefront best practices", "Medusa storefront", or "storefront
+  architecture" and needs storefront guidance. Covers data fetching, UX, caching, errors, and
+  validation.
 ---
 
 # Ecommerce Storefront Best Practices

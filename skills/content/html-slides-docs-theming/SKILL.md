@@ -1,6 +1,8 @@
 ---
 name: html-slides-docs-theming
-description: Use when applying visual systems to HTML reports, slide decks, docs, PDFs, knowledge bases, or branded document templates.
+description: >-
+  Use when user says "HTML slides", "theme docs", or "presentation page" and needs themed HTML
+  docs or slides. Covers layout, typography, responsive styling, and verification.
 ---
 # HTML / Slides / Docs Theming
 

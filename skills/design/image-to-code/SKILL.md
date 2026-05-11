@@ -1,6 +1,9 @@
 ---
 name: image-to-code
-description: Use when user wants a website built from a design image, asks to "design then code", or wants section-by-section landing/marketing/portfolio pages. Generates per-section reference images first, analyzes them, then implements matching frontend. Forces large readable images per section, no card-in-card spam, and clean spacious hero composition.
+description: >-
+  Use when user says "image to code", "match this screenshot", or "recreate this design" and
+  needs implementation from visual reference. Covers inspection, layout mapping, and visual
+  validation.
 ---
 
 # CORE DIRECTIVE: IMAGE-FIRST WEBSITE DESIGN TO CODE

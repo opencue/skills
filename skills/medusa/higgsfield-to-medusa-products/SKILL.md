@@ -1,16 +1,9 @@
 ---
 name: higgsfield-to-medusa-products
 description: >-
-  End-to-end product imagery pipeline for Medusa v2 shops. Generates product
-  shots via Higgsfield (`higgsfield product-photoshoot create`), uploads them to
-  the shop's S3 bucket on a public-read prefix, then patches the matching
-  Medusa products via `POST /admin/products/{id}` to set thumbnail + images.
-  Use when user says "generate product images", "refresh product photos",
-  "shop képeket generálni", "Higgsfield images to Medusa", or supplies a list
-  of product slugs/IDs and prompts. Reads backend URL + secret + AWS creds from
-  a per-shop config file (or a future recodee bouncer MCP), never hardcodes
-  them. Idempotent — re-running overwrites the same S3 keys + product fields.
-argument-hint: <shop> [<manifest.json>]
+  Use when user says "Higgsfield to Medusa", "generate product photos", or "import AI product
+  assets" and needs the Higgsfield-to-Medusa pipeline. Covers asset generation, product
+  mapping, import, and validation.argument-hint: <shop> [<manifest.json>]
 allowed-tools: Bash(aws:*), Bash(curl:*), Bash(higgsfield:*), Bash(jq:*)
 ---
 

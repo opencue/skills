@@ -1,10 +1,8 @@
 ---
 name: help
 description: >-
-  [OMX] Cheat sheet for the oh-my-codex (OMX) plugin — how prompts auto-route
-  to triage lanes (HEAVY/LIGHT/PASS), magic keywords (ralph, ralplan, ulw,
-  autopilot, team), and how to opt out per-prompt. Use when user asks how OMX
-  works, what magic keywords exist, /help OMX, or seems lost in OMX routing.
+  Use when user says "help", "what can you do", or "skill help" and needs available workflow
+  guidance. Covers commands, routing, skill discovery, and next actions.
 ---
 
 # How OMX Works

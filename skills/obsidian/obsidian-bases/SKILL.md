@@ -1,6 +1,8 @@
 ---
 name: obsidian-bases
-description: "Use when user asks to create/edit a .base file, build an Obsidian Base, make a table or card view of notes, add filters/formulas/summaries, or mentions Obsidian Bases. Writes valid Bases YAML with views, filters, formulas, and summaries."
+description: >-
+  Use when user says "Obsidian Bases", "base view", or "vault database" and needs Obsidian
+  Bases guidance. Covers schema, filters, views, and validation.
 ---
 
 # Obsidian Bases Skill

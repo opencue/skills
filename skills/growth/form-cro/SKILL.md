@@ -1,6 +1,8 @@
 ---
 name: form-cro
-description: Use when optimizing forms, checkout fields, quote requests, lead forms, validation, or completion rates.
+description: >-
+  Use when user says "form conversion", "optimize form", or "reduce form dropoff" and needs
+  form CRO guidance. Covers fields, friction, validation, trust, and measurement.
 ---
 # Form CRO
 

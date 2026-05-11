@@ -1,6 +1,9 @@
 ---
 name: permission-prompt-optimization
-description: Use when reducing approval prompts, sandbox prompts, confirmation loops, or agent command friction without broadening risk unnecessarily.
+description: >-
+  Use when user says "permission prompts", "approval friction", or "reduce prompts" and needs
+  permission-flow guidance. Covers safe batching, prefix rules, escalation scope, and
+  validation.
 ---
 # Permission Prompt Optimization
 

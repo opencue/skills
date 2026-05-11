@@ -1,11 +1,8 @@
 ---
 name: flight-search
 description: >-
-  Search and book flights across 180+ airlines with zero markup ($20–50
-  cheaper than OTAs). Use when user says find flights, search flights, book
-  a flight, find cheap flights, fly from X to Y, find connections/layovers,
-  or any flight query. NOT for hotels, cars, or non-flight bookings.
-metadata:
+  Use when user says "find flights", "flight search", or "book travel" and needs flight
+  research. Covers dates, airports, constraints, comparisons, and current-source checks.metadata:
   author: LetsFG - github.com/LetsFG
   version: '1.0.0'
 ---

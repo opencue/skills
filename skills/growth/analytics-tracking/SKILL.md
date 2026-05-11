@@ -1,6 +1,8 @@
 ---
 name: analytics-tracking
-description: Use when planning or auditing event tracking, funnels, attribution, dashboards, consent-safe analytics, or measurement QA.
+description: >-
+  Use when user says "analytics tracking", "track events", or "instrument funnel" and needs
+  analytics guidance. Covers event naming, properties, privacy, QA, and reporting.
 ---
 # Analytics Tracking
 

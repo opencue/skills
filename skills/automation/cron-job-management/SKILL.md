@@ -1,6 +1,9 @@
 ---
 name: cron-job-management
-description: Use when creating, auditing, debugging, or documenting cron jobs, systemd timers, scheduled scripts, or recurring maintenance tasks.
+description: >-
+  Use when user says "cron job", "schedule this", or "recurring task" and needs cron
+  automation guidance. Covers job creation, environment setup, logging, reliability, and
+  verification.
 ---
 # Cron Job Management
 

@@ -1,6 +1,8 @@
 ---
 name: subagent-driven-development
-description: Use when implementing a plan with bounded subagents, separate review passes, and integration ownership.
+description: >-
+  Use when user says "use subagents", "delegate work", or "subagent development" and needs
+  bounded native subagent guidance. Covers slicing, prompts, integration, and validation.
 ---
 # Subagent-Driven Development
 

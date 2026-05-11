@@ -1,10 +1,9 @@
 ---
 name: stripe-webhooks
-description: >
-  Receive and verify Stripe webhooks. Use when setting up Stripe webhook
-  handlers, debugging signature verification, or handling payment events
-  like payment_intent.succeeded, customer.subscription.created, or invoice.paid.
-license: MIT
+description: >-
+  Use when user says "Stripe webhook", "webhook signature", or "payment event" and needs
+  Stripe webhook guidance. Covers endpoint setup, verification, idempotency, retries, and
+  tests.license: MIT
 metadata:
   author: hookdeck
   version: "0.1.0"
