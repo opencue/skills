@@ -1,8 +1,7 @@
 ---
 name: defuddle
 description: >-
-  Use when user says "extract article", "clean webpage", or "defuddle" and needs readable
-  content extraction. Covers fetching, cleanup, summarization, citation, and limits.
+  Use when user says "extract article", "clean webpage", or "defuddle". Readable content extraction: fetching, cleanup, citation.
 ---
 
 # Defuddle

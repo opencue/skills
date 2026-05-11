@@ -1,9 +1,7 @@
 ---
 name: stripe-webhooks
 description: >-
-  Use when user says "Stripe webhook", "webhook signature", or "payment event" and needs
-  Stripe webhook guidance. Covers endpoint setup, verification, idempotency, retries, and
-  tests.license: MIT
+  Use when user says "Stripe webhook", "webhook signature", or "payment event". Endpoint setup, verification, idempotency, retries.
 metadata:
   author: hookdeck
   version: "0.1.0"

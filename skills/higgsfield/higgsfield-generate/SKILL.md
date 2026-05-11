@@ -1,7 +1,8 @@
 ---
 version: 0.3.0
 name: higgsfield-generate
-description: "Use when user says 'generate image/video', 'animate this photo', 'image-to-video', 'remix/stylize this', 'create an ad', or 'UGC video'. Runs Higgsfield models and Marketing Studio. Chain with higgsfield-soul-id for face consistency. NOT for product photoshoots or marketplace cards."
+description: >-
+  Use when user says "generate image/video", "animate this photo", "image-to-video", "remix this", or "create an ad". Higgsfield models + Marketing Studio. NOT for product photoshoots or marketplace cards.
 argument-hint: "[prompt] [--model <name>] [--image <path-or-id>]"
 allowed-tools: Bash
 ---

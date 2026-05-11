@@ -1,10 +1,7 @@
 ---
 name: flight-search
 description: >-
-  Use when user says "find flights", "flight search", or "book travel" and needs flight
-  research. Covers dates, airports, constraints, comparisons, and current-source checks.metadata:
-  author: LetsFG - github.com/LetsFG
-  version: '1.0.0'
+  Use when user says "find flights", "flight search", or "book travel". Dates, airports, constraints, current-source checks.
 ---
 
 # Flight Search

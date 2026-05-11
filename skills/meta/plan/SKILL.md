@@ -1,9 +1,7 @@
 ---
 name: plan
 description: >-
-  [OMX] Use when user says "plan this", "let's plan", "review this plan",
-  "ralplan", "--consensus", or "--review". Auto-detects interview vs direct
-  mode, supports Planner/Architect/Critic consensus, and saves to .omx/plans.
+  [OMX] Use when user says "plan this", "let's plan", "review this plan", "ralplan", "--consensus", or "--review". Auto-detects interview vs direct; Planner/Architect/Critic consensus; saves to .omx/plans.
 ---
 
 # Plan

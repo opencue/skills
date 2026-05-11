@@ -1,9 +1,7 @@
 ---
 name: woocommerce-to-medusa-import
 description: >-
-  Use when user says "WooCommerce import", "migrate products", or "Woo to Medusa" and needs
-  WooCommerce-to-Medusa import guidance. Covers extraction, mapping, assets, import, and
-  checks.
+  Use when user says "WooCommerce import", "migrate products", or "Woo to Medusa". Extraction, mapping, assets, import.
 ---
 
 # WooCommerce to Medusa Import

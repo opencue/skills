@@ -1,8 +1,7 @@
 ---
 name: imagegen-frontend-mobile
 description: >-
-  Use when user says "mobile mockup", "generate mobile UI", or "imagegen mobile" and needs
-  mobile frontend visual generation. Covers prompts, constraints, assets, and review.
+  Use when user says "mobile mockup", "generate mobile UI", or "imagegen mobile". Mobile frontend visual generation.
 ---
 
 # CORE DIRECTIVE: PREMIUM MOBILE APP IMAGE DIRECTION

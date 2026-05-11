@@ -1,6 +1,7 @@
 ---
 name: analyze
-description: "[OMX] Use when user says 'analyze', 'investigate', 'why does X', 'what's causing', 'how is X wired'. Read-only cross-file repo analysis: ranked explanations, confidence, file:line evidence, evidence-vs-inference boundaries. NOT for edits/fixes — use $ralph or $plan."
+description: >-
+  [OMX] Use when user says "analyze", "investigate", "why does X", or "how is X wired". Read-only cross-file analysis: ranked explanations, evidence, file:line. NOT for edits — use $ralph or $plan.
 ---
 
 # Analyze — Read-Only Deep Analysis

@@ -1,10 +1,7 @@
 ---
 name: caveman-commit
-description: >
-  Use when user says "write a commit", "commit message", "generate commit",
-  "/commit", or invokes "/caveman-commit". Ultra-compressed commit message
-  generator using Conventional Commits, intent-first subjects, and body only
-  when the why is not obvious.
+description: >-
+  Use when user says "write a commit", "commit message", or "/commit". Conventional Commits, intent-first subject, body only when why is non-obvious.
 ---
 
 # Caveman Commit

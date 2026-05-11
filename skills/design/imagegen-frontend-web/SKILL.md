@@ -1,8 +1,7 @@
 ---
 name: imagegen-frontend-web
 description: >-
-  Use when user says "web mockup", "generate website UI", or "imagegen web" and needs web
-  frontend visual generation. Covers prompts, layout, assets, and visual review.
+  Use when user says "web mockup", "generate website UI", or "imagegen web". Web frontend visual generation.
 ---
 
 # HARD OUTPUT RULE — READ FIRST

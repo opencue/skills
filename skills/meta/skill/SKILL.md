@@ -1,10 +1,7 @@
 ---
 name: skill
 description: >-
-  [OMX] Use when user says "/skill list", "/skill add", "manage local skills",
-  "create a skill", "edit a skill", or "find a skill". Manages SKILL.md
-  files, frontmatter, triggers, scopes, templates, sync, and conversation
-  pattern scans.
+  [OMX] Use when user says "/skill list", "/skill add", "manage local skills", "create a skill", or "edit a skill". Manages SKILL.md files, frontmatter, triggers, scopes, sync.
 argument-hint: "<command> [args]"
 ---
 

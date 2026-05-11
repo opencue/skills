@@ -1,10 +1,7 @@
 ---
 name: team
 description: >-
-  [OMX] Use when user says "team", "$team", "omx team", "spawn workers",
-  "parallel workers", or wants real Codex/Claude CLI sessions in tmux panes
-  coordinated by shared state and mailbox. Requires tmux. NOT for native
-  in-session subagents, single persistence loops, or idea-to-PR autonomy.
+  [OMX] Use when user says "team", "$team", "spawn workers", or "parallel workers". Real Codex/Claude CLI sessions in tmux panes, shared state + mailbox. Requires tmux. NOT for native subagents.
 ---
 
 # Team Skill

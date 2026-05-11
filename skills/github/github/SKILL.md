@@ -1,10 +1,7 @@
 ---
 name: github
 description: >-
-  Use when user says "check the PR", "open an issue", "view CI logs",
-  "merge this PR", or needs GitHub operations via gh: issues, PRs, checks,
-  run logs, reviews, comments, and API queries. NOT for unconfigured gh auth
-  or bulk cross-repo scripting.
+  Use when user says "check the PR", "open an issue", "view CI logs", or "merge this PR". GitHub ops via gh: issues, PRs, checks, logs, reviews, API.
 metadata:
   {
     "openclaw":

@@ -1,8 +1,7 @@
 ---
 name: just
 description: >-
-  Use when user says "just", "quick task", or "simple task" and needs the lightest direct
-  execution path. Covers scope control, minimal tooling, verification, and concise handoff.
+  Use when user says "just", "quick task", or "simple task". Lightest direct execution path: scope control, minimal tooling.
 ---
 
 # just

@@ -1,7 +1,8 @@
 ---
 version: 0.3.0
 name: higgsfield-marketplace-cards
-description: "Use when user asks for 'marketplace listing images', 'product detail cards', 'A+ content', 'Amazon/Shopee/eBay images', or sales-ready listing sets. Generates compliant main image plus secondary and A+ modules. NOT for generic brand photography — use higgsfield-product-photoshoot."
+description: >-
+  Use when user asks for "marketplace listing images", "product detail cards", "A+ content", or "Amazon/Shopee/eBay images". Compliant main + secondary + A+ modules. NOT for brand photography.
 argument-hint: "[--scope main|product-images|aplus|full-set] [prompt]"
 allowed-tools: Bash
 ---

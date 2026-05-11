@@ -1,10 +1,7 @@
 ---
 name: ralplan
 description: >-
-  [OMX] Use when user says "ralplan", "$ralplan", "plan this",
-  "plan with consensus", "PRD for", or gives a vague execution request.
-  Runs Planner, Architect, and Critic consensus with RALPLAN-DR, ADR,
-  pre-mortem, and test spec. NOT for implementing code.
+  [OMX] Use when user says "ralplan", "$ralplan", "plan this", or "PRD for". Planner/Architect/Critic consensus with RALPLAN-DR, ADR, pre-mortem, test spec. NOT for implementing code.
 ---
 
 # Ralplan (Consensus Planning Alias)

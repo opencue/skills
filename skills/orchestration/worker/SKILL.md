@@ -1,8 +1,7 @@
 ---
 name: worker
 description: >-
-  Use when user says "worker", "team worker", or "assigned slice" and needs worker-lane
-  execution guidance. Covers ownership, scope, blocker reporting, and handoff to the leader.
+  Use when user says "worker", "team worker", or "assigned slice". Worker-lane execution: ownership, scope, blocker reporting, handoff.
 ---
 
 # Worker Skill

@@ -1,9 +1,7 @@
 ---
 name: building-with-medusa
 description: >-
-  Use when user says "Medusa backend", "custom module", "API route",
-  "workflow", "data model", or plans/researches/implements Medusa backend
-  features. Required for modules, routes, workflows, links, and business logic.
+  Use when user says "Medusa backend", "custom module", "API route", "workflow", or "data model". Required for Medusa modules, routes, workflows, links, business logic.
 ---
 
 # Medusa Backend Development

@@ -1,10 +1,7 @@
 ---
 name: guardex-merge-skills-to-dev
 description: >-
-  Use when user says "merge skill updates", "skills to dev",
-  "promote SKILL.md changes", "agent branch skills", or needs SKILL.md updates
-  merged from agent branches/worktrees into the local base branch with the
-  multiagent-safety flow.
+  Use when user says "merge skill updates", "promote SKILL.md changes", or "agent branch skills". Merges SKILL.md updates from agent branches into base with multiagent-safety flow.
 ---
 
 # GuardeX Merge Skills to dev

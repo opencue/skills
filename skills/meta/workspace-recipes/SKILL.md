@@ -1,12 +1,7 @@
 ---
 name: workspace-recipes
 description: >-
-  Recipes in ~/Documents/Justfile — workspace-specific commands the user
-  has codified. Use when user says "spawn a new shop", "new medusa shop",
-  "create shop NAME", "clean disk", "wipe node_modules", "free disk space",
-  "show disk usage", "list agents.md", "agent tree", "rebuild colony cli",
-  "fix the stop hook". For generic `just` syntax/discovery use the `just`
-  skill instead.
+  Use when user says "spawn a new shop", "new medusa shop", "clean disk", "agent tree", or "rebuild colony cli". Workspace-specific recipes from ~/Documents/Justfile. For generic `just` syntax use the `just` skill.
 ---
 
 # workspace-recipes — `~/Documents/Justfile`

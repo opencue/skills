@@ -1,6 +1,7 @@
 ---
 name: brandkit
-description: Use when user says "brand kit", "brand guidelines", "logo system", "identity deck", "visual identity", "brand world", or "brand board". Generates brand-guidelines presentation boards as images — logo concepts, mockups, typography, color, and brand applications across minimalist, editorial, dark-tech, luxury, gaming, and consumer styles.
+description: >-
+  Use when user says "brand kit", "brand guidelines", "logo system", "identity deck", or "brand world". Generates brand-guideline presentation boards: logo, typography, color, mockups across minimalist/editorial/luxury/gaming styles.
 ---
 
 # BRANDKIT IMAGE GENERATION SKILL

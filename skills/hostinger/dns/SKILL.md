@@ -1,8 +1,7 @@
 ---
 name: dns
 description: >-
-  Use when user says "Hostinger DNS", "DNS record", or "point domain" and needs Hostinger DNS
-  guidance. Covers records, propagation, verification, and rollback risk.
+  Use when user says "Hostinger DNS", "DNS record", or "point domain". Records, propagation, verification, rollback risk.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
 ---

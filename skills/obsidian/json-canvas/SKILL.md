@@ -1,8 +1,7 @@
 ---
 name: json-canvas
 description: >-
-  Use when user says "JSON canvas", "Obsidian canvas", or "canvas file" and needs Obsidian
-  canvas guidance. Covers node layout, edges, schema, generation, and validation.
+  Use when user says "JSON canvas", "Obsidian canvas", or "canvas file". Obsidian canvas node layout, edges, schema.
 ---
 
 # JSON Canvas Skill

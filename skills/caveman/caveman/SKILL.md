@@ -1,10 +1,7 @@
 ---
 name: caveman
 description: >-
-  Use when user says "caveman mode", "talk like caveman", "less tokens",
-  "be brief", or invokes "/caveman". Ultra-compressed communication that cuts
-  token usage while preserving technical accuracy. Levels: lite, full, ultra,
-  wenyan-lite, wenyan-full, wenyan-ultra.
+  Use when user says "caveman mode", "be brief", "less tokens", or "/caveman". Ultra-compressed replies (lite/full/ultra).
 ---
 
 # Caveman

@@ -1,10 +1,7 @@
 ---
 name: ralph
 description: >-
-  [OMX] Use when user says "ralph", "$ralph", "do not stop", "must complete",
-  "finish this", or "keep going until done" on one concrete task. Persistence
-  loop with delegation, architect verification, cleanup pass, and regression
-  re-verify. NOT for planning; use ralplan.
+  [OMX] Use when user says "ralph", "$ralph", "do not stop", "finish this", or "keep going" on one task. Persistence loop with delegation, architect verification, regression check. NOT for planning — use ralplan.
 ---
 
 # Ralph

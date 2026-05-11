@@ -1,8 +1,7 @@
 ---
 name: new-user
 description: >-
-  Use when user says "new Medusa user", "create first admin", or "add user" and needs Medusa
-  user creation guidance. Covers CLI/API options, credentials, validation, and handoff.argument-hint: <email> <password>
+  Use when user says "new Medusa user", "create first admin", or "add user". CLI/API user creation, credentials.
 allowed-tools: Bash(npx medusa user:*)
 ---
 

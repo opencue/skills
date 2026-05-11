@@ -1,6 +1,7 @@
 ---
 name: redesign-existing-projects
-description: Use when user says "redesign", "upgrade this site", "make this look better", "fix the design", or "audit my UI". Scans an existing project, diagnoses generic AI design patterns (default fonts, weak hierarchy, boring layouts), and applies targeted typography/spacing/color/motion fixes in place. Works with Tailwind, vanilla CSS, styled-components.
+description: >-
+  Use when user says "redesign", "upgrade this site", "make this look better", or "audit my UI". Diagnoses generic AI patterns; applies in-place typography/spacing/color/motion fixes for Tailwind/CSS/styled-components.
 ---
 
 # Redesign Skill

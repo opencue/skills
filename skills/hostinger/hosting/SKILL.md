@@ -1,8 +1,7 @@
 ---
 name: hosting
 description: >-
-  Use when user says "Hostinger hosting", "upload site", or "shared hosting" and needs
-  Hostinger hosting guidance. Covers static deploys, files, domains, SSL, and validation.
+  Use when user says "Hostinger hosting", "upload site", or "shared hosting". Static deploys, files, domains, SSL.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
 ---

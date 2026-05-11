@@ -1,8 +1,7 @@
 ---
 name: obsidian-bases
 description: >-
-  Use when user says "Obsidian Bases", "base view", or "vault database" and needs Obsidian
-  Bases guidance. Covers schema, filters, views, and validation.
+  Use when user says "Obsidian Bases", "base view", or "vault database". Bases schema, filters, views.
 ---
 
 # Obsidian Bases Skill

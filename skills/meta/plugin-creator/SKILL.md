@@ -1,7 +1,7 @@
 ---
 name: plugin-creator
 description: >-
-  Use when user says 'create a codex plugin', 'scaffold plugin', 'new plugin folder', 'add plugin to marketplace.json', 'register plugin'. Runs create_basic_plugin.py to scaffold plugin root with optional skills/hooks/scripts/assets/.mcp.json/.app.json; writes/updates repo-root .agents/plugins/marketplace.json (policy.installation, policy.authentication, category).
+  Use when user says "create a codex plugin", "scaffold plugin", or "register plugin". Runs create_basic_plugin.py; writes/updates .agents/plugins/marketplace.json.
 ---
 
 # Plugin Creator

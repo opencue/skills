@@ -1,9 +1,7 @@
 ---
 name: image-to-code
 description: >-
-  Use when user says "image to code", "match this screenshot", or "recreate this design" and
-  needs implementation from visual reference. Covers inspection, layout mapping, and visual
-  validation.
+  Use when user says "image to code", "match this screenshot", or "recreate this design". Visual inspection, layout mapping, validation.
 ---
 
 # CORE DIRECTIVE: IMAGE-FIRST WEBSITE DESIGN TO CODE

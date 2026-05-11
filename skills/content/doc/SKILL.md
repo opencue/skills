@@ -1,8 +1,7 @@
 ---
 name: "doc"
 description: >-
-  Use when user says "create a doc", "write documentation", or "make a DOCX" and needs
-  document creation guidance. Covers structure, formatting, export, validation, and handoff.
+  Use when user says "write documentation", "make a DOCX", or "create a doc". Document structure, formatting, export.
 ---
 
 

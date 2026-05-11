@@ -1,8 +1,7 @@
 ---
 name: obsidian-markdown
 description: >-
-  Use when user says "Obsidian markdown", "vault note", or "markdown note" and needs Obsidian
-  markdown guidance. Covers frontmatter, links, embeds, structure, and validation.
+  Use when user says "Obsidian markdown", "vault note", or "markdown note". Frontmatter, links, embeds, structure.
 ---
 
 # Obsidian Flavored Markdown Skill

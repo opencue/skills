@@ -1,8 +1,7 @@
 ---
 name: pnpm
 description: >-
-  Use when user says "pnpm", "workspace install", or "pnpm build" and needs Node workspace
-  package guidance. Covers installs, scripts, filters, lockfiles, and verification.
+  Use when user says "pnpm", "workspace install", or "pnpm build". Installs, scripts, filters, lockfiles.
 metadata:
   author: Anthony Fu
   version: "2026.1.28"

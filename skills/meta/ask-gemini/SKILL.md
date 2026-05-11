@@ -1,6 +1,7 @@
 ---
 name: ask-gemini
-description: "[OMX] Use when user says 'ask gemini', '/ask-gemini', 'second opinion from gemini', or wants Gemini as external advisor for design feedback or brainstorming. Runs local `gemini -p` CLI (not MCP), saves output to .omx/artifacts/gemini-*.md with prompt, raw output, summary, action items."
+description: >-
+  [OMX] Use when user says "ask gemini", "/ask-gemini", or "second opinion from gemini". Runs local `gemini -p` CLI; saves to .omx/artifacts/gemini-*.md.
 ---
 
 # Ask Gemini (Local CLI)

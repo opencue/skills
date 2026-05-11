@@ -1,6 +1,7 @@
 ---
 name: ui-ux-pro-max
-description: Use when user asks to "design", "build", "create", "review", or "improve" a UI/UX and wants vetted recommendations. Queries a searchable Python database of 67 styles, 96 color palettes, 57 font pairings, 99 UX guidelines, and 25 chart types across 13 stacks to return a full design system (pattern, style, colors, typography, anti-patterns) for the requested product type.
+description: >-
+  Use when user asks to "design", "build", "review", or "improve" UI/UX with vetted recommendations. Queries Python DB of 67 styles, 96 palettes, 57 font pairings, 99 UX guidelines, 25 chart types across 13 stacks.
 ---
 # ui-ux-pro-max
 

@@ -1,9 +1,7 @@
 ---
 name: higgsfield-to-medusa-products
 description: >-
-  Use when user says "Higgsfield to Medusa", "generate product photos", or "import AI product
-  assets" and needs the Higgsfield-to-Medusa pipeline. Covers asset generation, product
-  mapping, import, and validation.argument-hint: <shop> [<manifest.json>]
+  Use when user says "Higgsfield to Medusa", "generate product photos", or "import AI product assets". Asset generation → product mapping → import.
 allowed-tools: Bash(aws:*), Bash(curl:*), Bash(higgsfield:*), Bash(jq:*)
 ---
 

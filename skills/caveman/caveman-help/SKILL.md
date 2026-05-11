@@ -1,8 +1,7 @@
 ---
 name: caveman-help
 description: >-
-  Use when user says "caveman help", "how to use caveman", or "caveman commands" and needs
-  quick reference for Caveman modes, triggers, compression levels, and usage examples.
+  Use when user says "caveman help" or "caveman commands". Quick reference for Caveman modes, triggers, levels.
 ---
 
 # Caveman Help

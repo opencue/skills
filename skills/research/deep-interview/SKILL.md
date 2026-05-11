@@ -1,8 +1,7 @@
 ---
 name: deep-interview
 description: >-
-  Use when user says "deep interview", "interview me", or "do not assume" and needs Socratic
-  requirements discovery. Covers ambiguity, one-question flow, decision points, and handoff.argument-hint: "[--quick|--standard|--deep] [--autoresearch] <idea or vague description>"
+  Use when user says "deep interview", "interview me", or "do not assume". Socratic requirements discovery: one-question flow, decision points.
 ---
 
 # Deep Interview

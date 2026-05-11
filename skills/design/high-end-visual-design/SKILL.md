@@ -1,6 +1,7 @@
 ---
 name: high-end-visual-design
-description: Use when user asks for "agency-level", "expensive-looking", "Apple-tier", or "Linear-tier" website design, or wants to escape generic AI output. Specifies banned fonts (Inter, Roboto), banned shadows/borders/motion, and selects from vetted vibe/layout archetypes (Ethereal Glass, Editorial Luxury, Asymmetrical Bento) for premium results.
+description: >-
+  Use when user asks for "agency-level", "expensive-looking", "Apple-tier", or "Linear-tier" design. Bans Inter/Roboto; picks vetted archetypes (Ethereal Glass, Editorial Luxury, Asymmetrical Bento).
 ---
 
 # Agent Skill: Principal UI/UX Architect & Motion Choreographer (Awwwards-Tier)

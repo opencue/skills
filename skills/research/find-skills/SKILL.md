@@ -1,8 +1,7 @@
 ---
 name: find-skills
 description: >-
-  Use when user says "find skills", "available skills", or "skill search" and needs skill
-  discovery. Covers catalog search, matching, install suggestions, and fallback guidance.
+  Use when user says "find skills", "available skills", or "skill search". Catalog search, matching, install suggestions.
 ---
 
 # Find Skills

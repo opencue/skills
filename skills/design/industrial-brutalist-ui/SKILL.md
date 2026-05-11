@@ -1,6 +1,7 @@
 ---
 name: industrial-brutalist-ui
-description: Use when user asks for "brutalist", "Swiss design", "terminal UI", "tactical/military HUD", "blueprint", "monospace dashboard", or "industrial" interfaces. Builds rigid modular grids, extreme type-scale contrast, utilitarian palettes, monospaced type, and analog degradation (halftones, scanlines, dithering) for data-heavy dashboards, portfolios, and editorial sites.
+description: >-
+  Use when user asks for "brutalist", "Swiss design", "terminal UI", "tactical/military HUD", "blueprint", or "industrial" interfaces. Rigid grids, extreme type contrast, monospace, halftones/scanlines.
 ---
 
 # SKILL: Industrial Brutalism & Tactical Telemetry UI

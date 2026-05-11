@@ -1,10 +1,7 @@
 ---
 name: "gh-fix-ci"
 description: >-
-  Use when user says "fix CI", "GitHub checks failed", "debug PR checks",
-  "view Actions logs", or needs failing GitHub Actions inspected with gh.
-  Summarize failure context, draft a fix plan, and implement only after
-  explicit approval. External providers are out of scope.
+  Use when user says "fix CI", "GitHub checks failed", or "debug PR checks". Inspects failing Actions via gh; fix plan needs approval before implementation.
 ---
 
 

@@ -1,9 +1,7 @@
 ---
 name: db-migrate
 description: >-
-  Use when user says "medusa db:migrate", "run migrations", or "apply Medusa migration" and
-  needs Medusa migration guidance. Covers environment checks, commands, rollback risk, and
-  verification.allowed-tools: Bash(npx medusa db:migrate:*)
+  Use when user says "medusa db:migrate" or "run migrations". Medusa migration apply: env checks, commands, rollback risk.
 ---
 
 # Run Database Migrations

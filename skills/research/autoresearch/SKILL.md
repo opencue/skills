@@ -1,9 +1,7 @@
 ---
 name: autoresearch
 description: >-
-  Use when user says "research this", "deep research", or "validate sources" and needs
-  research automation. Covers source finding, cross-checking, citations, synthesis, and
-  limits.
+  Use when user says "research this", "deep research", or "validate sources". Research automation: source finding, cross-checking, citations.
 ---
 
 # Autoresearch

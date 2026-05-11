@@ -1,8 +1,7 @@
 ---
 name: api-tester
 description: >-
-  Use when user says "test API", "API endpoint", or "curl this endpoint" and needs API
-  validation. Covers request setup, auth, assertions, response checks, and failure evidence.
+  Use when user says "test API", "API endpoint", or "curl this endpoint". Request setup, auth, assertions, response checks.
 ---
 
 # api-tester

@@ -1,8 +1,7 @@
 ---
 name: "openai-docs"
 description: >-
-  Use when user says "OpenAI docs", "OpenAI API", or "ChatGPT API" and needs official OpenAI
-  documentation lookup. Covers current docs, examples, limits, and citations.
+  Use when user says "OpenAI docs", "OpenAI API", or "ChatGPT API". Official OpenAI docs lookup: current docs, examples, limits, citations.
 ---
 
 

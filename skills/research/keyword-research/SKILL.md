@@ -1,8 +1,7 @@
 ---
 name: keyword-research
 description: >-
-  Use when user says "keyword research", "SEO keywords", or "search demand" and needs keyword
-  guidance. Covers seed terms, intent, volume, difficulty, clustering, and priorities.version: "9.0.0"
+  Use when user says "keyword research", "SEO keywords", "search volume", "keyword difficulty", or "topic clusters". Seed terms, intent, volume, difficulty, clustering.
 license: Apache-2.0
 compatibility: "Claude Code ≥1.0, skills.sh marketplace, ClawHub marketplace, Vercel Labs skills ecosystem. No system packages required. Optional: MCP network access for SEO tool integrations."
 homepage: "https://github.com/aaron-he-zhu/seo-geo-claude-skills"

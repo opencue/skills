@@ -1,6 +1,7 @@
 ---
 name: ai-slop-cleaner
-description: "Use when user says 'cleanup AI slop', 'deslop', 'refactor this AI code', 'remove dead code', 'simplify bloated code', or asks to clean up AI-generated output. Tests-first, smell-by-smell cleanup that preserves behavior. NOT for security or general code review."
+description: >-
+  Use when user says "cleanup AI slop", "deslop", "refactor this AI code", or "simplify bloated code". Tests-first, smell-by-smell cleanup preserving behavior. NOT for security or general code review.
 ---
 
 # AI Slop Cleaner Skill

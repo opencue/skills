@@ -1,9 +1,7 @@
 ---
 name: design-taste-frontend
 description: >-
-  Use when user says "improve the UI", "make it tasteful", or "frontend design pass" and needs
-  design-taste guidance for frontend work. Covers hierarchy, spacing, polish, and visual
-  validation.
+  Use when user says "improve the UI", "make it tasteful", or "design pass". Hierarchy, spacing, polish, visual validation.
 ---
 
 # High-Agency Frontend Skill

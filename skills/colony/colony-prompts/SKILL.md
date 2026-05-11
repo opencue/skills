@@ -1,9 +1,7 @@
 ---
 name: colony-prompts
 description: >-
-  Use when user says "Colony prompts", "prompt pack", or "Colony handoff" and needs prompt
-  guidance for Colony workflows. Covers prompt boundaries, task readiness, validation, and
-  handoff wording.
+  Use when user says "Colony prompts" or "Colony handoff". Prompt boundaries, task readiness, handoff wording for Colony.
 ---
 
 # Colony Planner Prompts

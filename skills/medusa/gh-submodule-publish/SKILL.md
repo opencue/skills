@@ -1,9 +1,7 @@
 ---
 name: gh-submodule-publish
 description: >-
-  Use when user says "publish submodule", "GitHub submodule", or "Medusa submodule publish"
-  and needs submodule publishing guidance. Covers repo state, commits, push, references, and
-  validation.
+  Use when user says "publish submodule" or "Medusa submodule publish". Repo state, commits, push, references, validation.
 ---
 
 # Gh Submodule Publish

@@ -1,6 +1,7 @@
 ---
 name: pipeline
-description: "[OMX] Use when user says '$pipeline', 'run the pipeline', or wants explicit configurable stage sequencing (custom stage list, custom worker count, custom iteration ceilings). Runs ralplan -> team-exec -> ralph-verify by default through the PipelineStage interface with persisted resume. NOT for: standard hands-off delivery (use $autopilot)."
+description: >-
+  [OMX] Use when user says "$pipeline" or "run the pipeline" with custom stages/workers/iterations. ralplan → team-exec → ralph-verify via PipelineStage with persisted resume. NOT for hands-off delivery — use $autopilot.
 ---
 
 # Pipeline Skill

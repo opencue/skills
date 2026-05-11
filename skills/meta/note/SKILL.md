@@ -1,8 +1,7 @@
 ---
 name: note
 description: >-
-  Use when user says "note this", "save note", or "remember this" and needs a local note
-  workflow. Covers note placement, concise capture, retrieval, and confirmation.
+  Use when user says "note this", "save note", or "remember this". Local note workflow: placement, concise capture, retrieval.
 ---
 
 # Note Skill

@@ -1,9 +1,7 @@
 ---
 name: gpt-taste
 description: >-
-  Use when user says "GPT taste", "make this less generic", or "improve visual taste" and
-  needs design critique. Covers taste checks, simplification, hierarchy, and polished
-  execution.
+  Use when user says "GPT taste", "make this less generic", or "improve visual taste". Taste checks, simplification, hierarchy.
 ---
 
 # CORE DIRECTIVE: AWWWARDS-LEVEL DESIGN ENGINEERING

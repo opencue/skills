@@ -1,8 +1,7 @@
 ---
 name: vps
 description: >-
-  Use when user says "Hostinger VPS", "server deploy", or "VPS access" and needs VPS guidance.
-  Covers SSH, services, Docker, logs, health, and safe operations.
+  Use when user says "Hostinger VPS", "server deploy", or "VPS access". SSH, services, Docker, logs, health, safe ops.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
 ---

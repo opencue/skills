@@ -1,8 +1,7 @@
 ---
 name: domains
 description: >-
-  Use when user says "Hostinger domain", "buy domain", or "domain settings" and needs
-  Hostinger domain guidance. Covers registration, nameservers, ownership, renewal, and checks.
+  Use when user says "Hostinger domain", "buy domain", or "domain settings". Registration, nameservers, ownership, renewal.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
 ---

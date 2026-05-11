@@ -1,8 +1,7 @@
 ---
 name: provision-medusa-s3-bucket
 description: >-
-  Use when user says "Medusa S3", "provision bucket", or "file storage bucket" and needs S3
-  bucket provisioning for Medusa. Covers envs, provider settings, access, and validation.argument-hint: <bucket-name> [<region=eu-central-1>] [<prefix=medusa/>]
+  Use when user says "Medusa S3", "provision bucket", or "file storage bucket". S3 provisioning: envs, provider, access.
 allowed-tools: Bash(aws:*)
 ---
 

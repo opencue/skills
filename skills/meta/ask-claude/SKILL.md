@@ -1,6 +1,7 @@
 ---
 name: ask-claude
-description: "[OMX] Use when user says 'ask claude', '/ask-claude', 'second opinion from claude', or wants Claude as external advisor for review/brainstorm. Runs local `claude -p` CLI (not MCP), saves output to .omx/artifacts/claude-*.md with prompt, raw output, summary, action items."
+description: >-
+  [OMX] Use when user says "ask claude", "/ask-claude", or "second opinion from claude". Runs local `claude -p` CLI; saves to .omx/artifacts/claude-*.md.
 ---
 
 # Ask Claude (Local CLI)

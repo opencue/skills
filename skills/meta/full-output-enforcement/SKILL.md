@@ -1,7 +1,7 @@
 ---
 name: full-output-enforcement
 description: >-
-  Use when user says 'no truncation', 'full output', 'don't skip', 'write the whole file', 'no placeholders', or task needs exhaustive code across many files. Bans `// ...`, `// rest of code`, "for brevity", skeleton outputs; on token limits emits `[PAUSED — X of Y]` and resumes on `continue`.
+  Use when user says "no truncation", "full output", "don't skip", or "write the whole file". Bans `// ...`, "for brevity", skeletons; pauses on token limit and resumes on `continue`.
 ---
 
 # Full-Output Enforcement

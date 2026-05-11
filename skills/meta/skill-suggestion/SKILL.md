@@ -1,9 +1,7 @@
 ---
 name: skill-suggestion
 description: >-
-  Use when user says "find a skill", "which skill", or "suggest skill" and needs skill
-  discovery. Covers catalog lookup, matching existing skills, avoiding duplicates, and
-  routing.
+  Use when user says "find a skill", "which skill", or "suggest skill". Catalog lookup, matching existing skills, avoiding duplicates.
 ---
 
 # skill-suggestion

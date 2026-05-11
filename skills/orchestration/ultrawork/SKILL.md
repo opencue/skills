@@ -1,10 +1,7 @@
 ---
 name: ultrawork
 description: >-
-  [OMX] Use when user says "ulw", "ultrawork", "parallel execution",
-  "multiple independent tasks", or wants concurrent work without persistence.
-  Provides parallelism, context discipline, and delegation guidance. NOT for
-  guaranteed completion, idea-to-PR autonomy, or one sequential task.
+  [OMX] Use when user says "ulw", "ultrawork", "parallel execution", or "multiple independent tasks". Concurrent work, context discipline, delegation. NOT for sequential tasks or idea-to-PR autonomy.
 ---
 
 # Ultrawork

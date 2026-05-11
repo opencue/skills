@@ -1,8 +1,7 @@
 ---
 name: "playwright"
 description: >-
-  Use when user says "Playwright", "browser test", or "take a snapshot" and needs browser
-  automation guidance. Covers navigation, locators, screenshots, assertions, and verification.
+  Use when user says "Playwright", "browser test", or "snapshot". Navigation, locators, screenshots, assertions.
 ---
 
 

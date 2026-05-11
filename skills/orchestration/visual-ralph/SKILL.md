@@ -1,9 +1,7 @@
 ---
 name: visual-ralph
 description: >-
-  Use when user says "visual ralph", "iterate visually", or "keep fixing UI" and needs
-  persistent visual iteration. Covers screenshot evidence, visual verdicts, edits, and
-  re-verification.
+  Use when user says "visual ralph", "iterate visually", or "keep fixing UI". Persistent visual iteration: screenshot, verdict, edit, re-verify.
 ---
 
 # Visual Ralph Skill

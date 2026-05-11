@@ -1,9 +1,7 @@
 ---
 name: supabase
 description: >-
-  Use when user says "Supabase", "Supabase DB", or "Supabase migration" and needs Supabase
-  deployment or database guidance. Covers envs, migrations, SQL checks, access, and
-  validation.
+  Use when user says "Supabase", "Supabase DB", or "Supabase migration". Envs, migrations, SQL checks, access.
 metadata:
   author: supabase
   version: "0.1.2"

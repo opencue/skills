@@ -1,6 +1,7 @@
 ---
 name: omx-setup
-description: "[OMX] Use when user says 'install omx', 'omx setup', 'refresh oh-my-codex', 'switch to plugin mode', 'reinstall skills', 'project-scope omx'. Runs `omx setup [--force|--merge-agents|--scope user|project|--plugin|--legacy]`: prompts/skills/native agents, merges config.toml, AGENTS.md, hud-config.json. NOT for diagnosing — use $doctor."
+description: >-
+  [OMX] Use when user says "install omx", "omx setup", or "refresh oh-my-codex". Runs `omx setup [--force|--merge-agents|--scope|--plugin|--legacy]`. NOT for diagnosing — use $doctor.
 ---
 
 # OMX Setup

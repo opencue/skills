@@ -1,8 +1,7 @@
 ---
 name: "pdf"
 description: >-
-  Use when user says "PDF", "extract PDF", or "make a PDF" and needs PDF handling guidance.
-  Covers parsing, rendering, conversion, layout checks, and validation.
+  Use when user says "PDF", "extract PDF", or "make a PDF". Parsing, rendering, conversion, layout checks.
 ---
 
 

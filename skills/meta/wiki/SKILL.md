@@ -1,8 +1,7 @@
 ---
 name: wiki
 description: >-
-  Use when user says "wiki", "document knowledge", or "knowledge base" and needs wiki
-  guidance. Covers structure, linking, maintenance, and retrieval.triggers: ["wiki add", "wiki lint", "wiki query", "wiki read", "wiki delete"]
+  Use when user says "wiki", "document knowledge", or "knowledge base". Wiki structure, linking, maintenance, retrieval. Triggers: wiki add/lint/query/read/delete.
 ---
 
 # Wiki

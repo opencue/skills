@@ -1,8 +1,7 @@
 ---
 name: "screenshot"
 description: >-
-  Use when user says "screenshot", "capture the page", or "visual proof" and needs screenshot
-  capture guidance. Covers browser/window capture, artifacts, naming, and validation.
+  Use when user says "screenshot", "capture the page", or "visual proof". Browser/window capture, artifacts, naming.
 ---
 
 

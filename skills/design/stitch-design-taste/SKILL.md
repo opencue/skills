@@ -1,6 +1,7 @@
 ---
 name: stitch-design-taste
-description: Use when user mentions "Google Stitch", "Stitch design", "DESIGN.md for Stitch", or wants a semantic design system to drive Stitch screen generation. Produces a DESIGN.md encoding atmosphere, color palette, typography, components, layout, motion, and explicit anti-patterns Stitch's agent can follow.
+description: >-
+  Use when user mentions "Google Stitch", "Stitch design", or wants a DESIGN.md for Stitch screen generation. Produces DESIGN.md with atmosphere, palette, type, components, motion, anti-patterns.
 ---
 
 # Stitch Design Taste — Semantic Design System Skill

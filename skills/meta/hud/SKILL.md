@@ -1,6 +1,7 @@
 ---
 name: "hud"
-description: "[OMX] Use when user says 'show hud', 'omx hud', 'configure statusline', 'change hud preset', 'live hud', or wants ralph/ultrawork/autopilot/team/pipeline mode state. Runs `omx hud [--watch|--json|--preset=minimal|focused|full]`, reads .omx/state/*.json, configures `[tui] status_line` in ~/.codex/config.toml."
+description: >-
+  [OMX] Use when user says "show hud", "omx hud", "configure statusline", or "live hud". Runs `omx hud`; configures `[tui] status_line` for ralph/ultrawork/autopilot/team state.
 role: "display"
 scope: ".omx/**"
 ---

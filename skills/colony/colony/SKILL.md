@@ -1,8 +1,7 @@
 ---
 name: colony
 description: >-
-  Use when user says "Colony", "Colony plan", or "Colony task" and needs Colony workflow
-  guidance. Covers live plans, parser lanes, handoffs, validation, and completion evidence.
+  Use when user says "Colony", "Colony plan", or "Colony task". Colony workflow: live plans, lanes, handoffs, completion evidence.
 ---
 
 # Colony

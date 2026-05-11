@@ -1,12 +1,7 @@
 ---
 name: obscura
 description: >-
-  Headless browser written in Rust for AI agents and web scraping. Use when
-  user says "scrape", "headless browser", "web scrape", "puppeteer", "cdp",
-  "stealth scrape", "obscura", or needs JavaScript-rendered content from
-  a URL. Drop-in replacement for headless Chrome with built-in
-  anti-detection, 30 MB RAM, 85 ms page load. NOT for static pages
-  without JS — use `defuddle` or `curl + jq` instead.
+  Use when user says "scrape", "headless browser", "puppeteer", "stealth scrape", or needs JS-rendered content from a URL. Rust headless browser with anti-detection, 30 MB RAM, 85 ms page load. NOT for static pages — use defuddle.
 ---
 
 # obscura

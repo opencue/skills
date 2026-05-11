@@ -1,6 +1,7 @@
 ---
 name: ultraqa
-description: "[OMX] Use when user says 'ultraqa', '/ultraqa', '--tests', '--build', '--lint', '--typecheck', or 'fix until tests/build/lint/types pass'. Runs the qa-tester -> architect diagnosis -> executor fix cycle (max 5) until the chosen verification goal is met or the same failure repeats. NOT for: implementing new features (use $ralph) or full delivery (use $autopilot)."
+description: >-
+  [OMX] Use when user says "ultraqa", "/ultraqa", "--tests", "--build", "--lint", or "fix until tests pass". qa-tester → architect → executor cycle until verification met. NOT for new features — use $ralph.
 ---
 
 # UltraQA Skill

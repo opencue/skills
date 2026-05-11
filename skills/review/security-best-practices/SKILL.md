@@ -1,6 +1,7 @@
 ---
 name: "security-best-practices"
-description: "Use when user asks 'security best practices', 'secure coding for python/typescript/go', 'how to harden this', or wants language/framework-specific secure-by-default guidance. Loads language-specific security references. NOT for auditing existing code — use security-review."
+description: >-
+  Use when user asks "security best practices", "secure coding for python/typescript/go", or "how to harden this". Language/framework-specific secure-by-default guidance. NOT for auditing existing code — use security-review.
 ---
 
 # Security Best Practices

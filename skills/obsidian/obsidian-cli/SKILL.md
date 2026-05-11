@@ -1,8 +1,7 @@
 ---
 name: obsidian-cli
 description: >-
-  Use when user says "Obsidian CLI", "vault command", or "manage vault" and needs command-line
-  vault guidance. Covers files, links, search, automation, and checks.
+  Use when user says "Obsidian CLI", "vault command", or "manage vault". Command-line vault ops: files, links, search.
 ---
 
 # Obsidian CLI

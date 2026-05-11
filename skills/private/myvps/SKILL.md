@@ -1,9 +1,7 @@
 ---
 name: myvps
 description: >-
-  Use when user says "my VPS", "remote Supabase", or "server admin" and needs private VPS
-  guidance. Covers env-based access, safe commands, remote checks, and validation without
-  storing secrets.
+  Use when user says "my VPS", "remote Supabase", or "server admin". Private VPS: env-based access, safe commands, remote checks (no stored secrets).
 ---
 
 # MyVPS

@@ -1,9 +1,7 @@
 ---
 name: caveman-compress
 description: >-
-  Use when user says "compress this", "caveman compress", or "shorten prompt" and needs token
-  compression. Covers preserving intent, removing filler, validating meaning, and compact
-  output formats.
+  Use when user says "compress this", "shorten prompt", or "/caveman-compress". Token compression preserving intent.
 ---
 
 # Caveman Compress

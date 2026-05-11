@@ -1,9 +1,7 @@
 ---
 name: remotion-best-practices
 description: >-
-  Use when user says "Remotion", "video render", or "motion composition" and needs Remotion
-  guidance. Covers composition structure, assets, timing, rendering, and validation.metadata:
-  tags: remotion, video, react, animation, composition
+  Use when user says "Remotion", "video render", or "motion composition". Composition structure, assets, timing, rendering.
 ---
 
 # Remotion Best Practices

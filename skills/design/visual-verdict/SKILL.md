@@ -1,8 +1,7 @@
 ---
 name: visual-verdict
 description: >-
-  Use when user says "visual verdict", "review screenshot", or "judge the UI" and needs visual
-  QA. Covers screenshot analysis, layout issues, polish gaps, accessibility, and next edits.
+  Use when user says "visual verdict", "review screenshot", or "judge the UI". Screenshot QA: layout, polish, a11y, next edits.
 ---
 
 # Visual Verdict
