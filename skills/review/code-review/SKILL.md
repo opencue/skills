@@ -1,6 +1,10 @@
 ---
 name: code-review
-description: "Use when user says 'review this code', 'code review', 'review my changes', 'review the diff', or '/review'. Runs a structured quality and maintainability review with severity-rated feedback. NOT for security audits — use security-review."
+description: >-
+  Use when user says "review this code", "code review", "review my changes",
+  "review the diff", or "/review". Runs a structured quality and maintainability
+  review with severity-rated findings. NOT for security audits; use
+  security-review.
 ---
 
 # Code Review Skill

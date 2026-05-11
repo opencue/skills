@@ -1,6 +1,9 @@
 ---
 name: development-branch-finalization
-description: Use when finishing a development branch through commit, push, PR, merge, cleanup, and final evidence capture.
+description: >-
+  Use when user says "finish this branch", "commit and push", "merge the PR",
+  "cleanup the worktree", or needs a development branch carried through commit,
+  push, PR, merge, cleanup, and final evidence capture.
 ---
 # Development Branch Finalization
 

@@ -1,13 +1,11 @@
 ---
 name: soul
 description: >-
-  Use when user says "/soul", "new soul skill", "create soul skill", "soul mcp",
-  "scaffold a skill", "add this to soul", "where does this skill go", or wants
-  to create a new skill or MCP catalog entry in the right place under
-  ~/Documents/soul/. Knows the soul/ folder taxonomy and writes SKILL.md
-  files (with proper frontmatter) and MCP README.md catalog entries directly
-  into the correct category folder. NOT for editing arbitrary files —
-  use only for new soul skills and new soul MCP catalog entries.
+  Use when user says "/soul", "new soul skill", "create soul skill",
+  "soul mcp", "scaffold a skill", "add this to soul", or "where does this
+  skill go". Creates soul skills or MCP catalog entries under
+  ~/Documents/soul with correct taxonomy and frontmatter. NOT for arbitrary
+  file edits.
 ---
 
 # soul

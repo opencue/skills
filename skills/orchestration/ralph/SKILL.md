@@ -1,12 +1,13 @@
 ---
 name: ralph
 description: >-
-  [OMX] Use when user says ralph, $ralph, do not stop, must complete, finish
-  this, or keep going until done on a single concrete task. Persistence loop
-  with parallel delegation, architect verification, deslop pass, regression
-  re-verify. NOT for idea→PR autonomy (use $autopilot) or planning
-  (use $ralplan).
+  [OMX] Use when user says "ralph", "$ralph", "do not stop", "must complete",
+  "finish this", or "keep going until done" on one concrete task. Persistence
+  loop with delegation, architect verification, cleanup pass, and regression
+  re-verify. NOT for planning; use ralplan.
 ---
+
+# Ralph
 
 [RALPH + ULTRAWORK - ITERATION {{ITERATION}}/{{MAX}}]
 

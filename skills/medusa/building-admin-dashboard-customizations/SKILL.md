@@ -1,6 +1,9 @@
 ---
 name: building-admin-dashboard-customizations
-description: Load automatically when planning, researching, or implementing Medusa Admin dashboard UI (widgets, custom pages, forms, tables, data loading, navigation). REQUIRED for all admin UI work in ALL modes (planning, implementation, exploration). Contains design patterns, component usage, and data loading patterns that MCP servers don't provide.
+description: >-
+  Use when user says "Medusa admin", "admin widget", "custom admin page",
+  "admin form", or plans/researches/implements Medusa Admin dashboard UI.
+  Required for widgets, pages, forms, tables, data loading, and navigation.
 ---
 
 # Medusa Admin Dashboard Customizations

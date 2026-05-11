@@ -1,11 +1,10 @@
 ---
-name: creating-agents-in-medusa
+name: creating-internal-agents
 description: >-
-  Use when building an internal admin-facing AI agent in a Medusa project —
-  operated by merchants/operators, NOT customers. Covers data models, module
-  service, agent runtime (tools, system prompt, streamText), streaming NDJSON
-  API routes, and admin UI chat extensions. NOT for storefront / buyer-side
-  chatbots.
+  Use when user says "Medusa agent", "admin AI agent", "internal agent",
+  "streamText", or builds an internal admin-facing AI agent in a Medusa
+  project. Covers models, module service, runtime tools, NDJSON routes, and
+  admin UI chat. NOT for buyer-side storefront chatbots.
 ---
 
 # Creating Agents in Medusa

@@ -1,6 +1,9 @@
 ---
 name: verification-before-completion
-description: Use before claiming work is done, especially after code, config, deployment, data, content, or workflow changes that need proof.
+description: >-
+  Use when user expects final proof, or before saying "done", "complete",
+  "fixed", "verified", or after code, config, deployment, data, content, or
+  workflow changes that need evidence before final reporting.
 ---
 # Verification Before Completion
 

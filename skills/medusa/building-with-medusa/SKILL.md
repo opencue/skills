@@ -1,6 +1,9 @@
 ---
 name: building-with-medusa
-description: Load automatically when planning, researching, or implementing ANY Medusa backend features (custom modules, API routes, workflows, data models, module links, business logic). REQUIRED for all Medusa backend work in ALL modes (planning, implementation, exploration). Contains architectural patterns, best practices, and critical rules that MCP servers don't provide.
+description: >-
+  Use when user says "Medusa backend", "custom module", "API route",
+  "workflow", "data model", or plans/researches/implements Medusa backend
+  features. Required for modules, routes, workflows, links, and business logic.
 ---
 
 # Medusa Backend Development

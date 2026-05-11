@@ -1,6 +1,9 @@
 ---
 name: git-worktrees
-description: Use when creating, resuming, cleaning, or reasoning about git worktrees, agent sandboxes, branch isolation, or multi-worktree safety.
+description: >-
+  Use when user says "create a worktree", "resume the worktree",
+  "clean up worktrees", "agent sandbox", or needs branch isolation,
+  multi-worktree safety, or worktree state reasoning.
 ---
 # Git Worktrees
 

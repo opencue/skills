@@ -1,12 +1,13 @@
 ---
 name: ultrawork
 description: >-
-  [OMX] Use when user says ulw, ultrawork, or wants parallel execution of
-  multiple independent tasks. Provides parallelism, context discipline, and
-  smart delegation guidance — but no persistence. NOT for guaranteed
-  completion (use $ralph), full idea→PR pipeline (use $autopilot), or a
-  single sequential task (just execute).
+  [OMX] Use when user says "ulw", "ultrawork", "parallel execution",
+  "multiple independent tasks", or wants concurrent work without persistence.
+  Provides parallelism, context discipline, and delegation guidance. NOT for
+  guaranteed completion, idea-to-PR autonomy, or one sequential task.
 ---
+
+# Ultrawork
 
 <Purpose>
 Ultrawork is a parallel execution engine for high-throughput task completion. It is a component, not a standalone persistence mode: it provides parallelism, context discipline, and smart delegation guidance, but not Ralph's persistence loop, architect sign-off, or long-running completion guarantees.

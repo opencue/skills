@@ -1,6 +1,9 @@
 ---
 name: medusa-reference
-description: Medusa implementation guidance for backend and storefront work. Use when building or modifying Medusa workflows, subscribers, API routes, auth, data models, query logic, jobs, or storefront integrations.
+description: >-
+  Use when user says "Medusa workflow", "Medusa subscriber", "Medusa auth",
+  "Medusa query", or builds/modifies Medusa API routes, data models, jobs,
+  backend logic, storefront integrations, or implementation patterns.
 ---
 
 # Medusa Reference

@@ -1,10 +1,10 @@
 ---
 name: github
 description: >-
-  GitHub operations via the `gh` CLI — issues, PRs, CI runs, code review,
-  API queries. Use when checking PR status or CI, creating/commenting on
-  issues, listing/filtering PRs or issues, or viewing run logs. NOT for
-  bulk cross-repo work (script with `gh api`) or unconfigured `gh auth`.
+  Use when user says "check the PR", "open an issue", "view CI logs",
+  "merge this PR", or needs GitHub operations via gh: issues, PRs, checks,
+  run logs, reviews, comments, and API queries. NOT for unconfigured gh auth
+  or bulk cross-repo scripting.
 metadata:
   {
     "openclaw":

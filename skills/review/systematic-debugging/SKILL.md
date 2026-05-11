@@ -1,6 +1,9 @@
 ---
 name: systematic-debugging
-description: Use when diagnosing a bug, regression, flaky behavior, failing command, broken integration, or unclear runtime behavior that needs evidence-first root cause analysis.
+description: >-
+  Use when user says "debug this", "investigate the failure", "find root cause",
+  "flaky test", or needs evidence-first diagnosis of a bug, regression, failing
+  command, broken integration, or unclear runtime behavior.
 ---
 # Systematic Debugging
 
