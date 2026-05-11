@@ -3,7 +3,7 @@
    │                                                               │
    │     r e c o d e e e  /  s k i l l s                           │
    │     ─────────────────────────────────                         │
-   │     85 skills · 13 categories · one source of truth           │
+   │     167 skills · 20 categories · one source of truth          │
    │                                                               │
    └───────────────────────────────────────────────────────────────┘
 ```
@@ -55,19 +55,26 @@ docs/
 
 | Folder            | Count | What lives here                                                  |
 | ----------------- | ----: | ---------------------------------------------------------------- |
+| `ai/`             |     3 | Anthropic SDK integration, prompt caching, Claude migration      |
+| `automation/`     |     2 | Task scheduling, cron jobs, recurring automation                 |
 | `caveman/`        |     5 | Token compression — caveman, caveman-commit, caveman-review, …   |
-| `content/`        |     8 | Note, doc, pdf, openai-docs, wiki, playwright, help, new-user    |
-| `deployment/`     |     1 | Coolify (server / deployment management)                         |
-| `design/`         |    16 | UI, UX, visual design, image-direction, brandkit, mockups        |
-| `github/`         |     5 | github CLI, gh-fix-ci, gh-submodule-publish, gitguardex          |
+| `colony/`         |     2 | Colony coordination, prompts, and handoff surfaces               |
+| `content/`        |     8 | Technical writing, copywriting, theming, docs, PDF, browser work |
+| `deployment/`     |     3 | Coolify, pnpm, Supabase                                          |
+| `design/`         |    19 | UI, UX, visual design, image-direction, brandkit, mockups        |
+| `github/`         |     6 | github CLI, gh-fix-ci, gitguardex, worktrees, branch finish      |
+| `growth/`         |    12 | CRO, analytics, retention, referrals, free-tool growth           |
 | `higgsfield/`     |     4 | Higgsfield AI — generate, soul-id, photoshoot, marketplace       |
-| `medusa/`         |     9 | Medusa commerce, storefronts, db migrations, woocommerce import  |
-| `meta/`           |    12 | Agent meta — skill mgmt, plan, doctor, hud, ask-*, trace, …      |
+| `hostinger/`      |     4 | Hostinger domains, DNS, hosting, VPS                             |
+| `marketing/`      |    18 | SEO, ads, email, launch, PMM, pricing, community, RevOps-adjacent |
+| `medusa/`         |    14 | Medusa commerce, storefronts, db migrations, woocommerce import  |
+| `meta/`           |    25 | Agent meta, config, workflow, plans, doctor, hud, ask-*, trace   |
 | `obsidian/`       |     4 | Obsidian vault tooling and JSON canvas                           |
-| `orchestration/`  |    10 | autopilot, ralph, team, ultraqa, ultrawork, pipeline, worker, …  |
+| `orchestration/`  |    13 | autopilot, ralph, team, subagents, ultraqa, ultrawork, pipeline  |
 | `private/`        |     1 | Host- / account-specific skills (no secrets in repo)             |
-| `research/`       |     6 | autoresearch, deep-interview, keyword-research, defuddle, …      |
-| `review/`         |     4 | code-review, security-review, ai-slop-cleaner                    |
+| `research/`       |    11 | autoresearch, interviews, customer/competitor research, keywords |
+| `review/`         |    11 | code/security/architecture review, debugging, TDD, verification  |
+| `stripe/`         |     2 | Stripe integration and webhooks                                  |
 
 > Skill leaf names are unique repo-wide so symlink installs never collide.
 
