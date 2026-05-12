@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "_comment": "Hand-curated trusted publishers of agent skills. Add a new entry only when you've vetted that the repo's SKILL.md files follow the standard frontmatter format. The refresh script reads from these to populate the available-skills section of catalog.json.",
+  "repos": [
+    {
+      "owner": "anthropics",
+      "name": "skills",
+      "trust": "official",
+      "description": "Anthropic's official skill collection — highest authority for the agentic-skill format.",
+      "skill_paths": ["skills/", "."],
+      "url": "https://github.com/anthropics/skills"
+    },
+    {
+      "owner": "obra",
+      "name": "superpowers",
+      "trust": "community",
+      "description": "Jesse Vincent's curated skill collection (popular in the Claude Code community).",
+      "skill_paths": ["skills/", "."],
+      "url": "https://github.com/obra/superpowers"
+    },
+    {
+      "owner": "wshobson",
+      "name": "agents",
+      "trust": "community",
+      "description": "Community-maintained agentic skill catalog.",
+      "skill_paths": ["skills/", "."],
+      "url": "https://github.com/wshobson/agents"
+    }
+  ]
+}
