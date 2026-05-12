@@ -1,7 +1,6 @@
 ---
 name: cancel
-description: >-
-  [OMX] Use when user says "cancel", "/cancel", "stop", "abort", or "--force". Terminates active OMX mode (autopilot/ralph/ultrawork/ultraqa/swarm/pipeline/team); tmux team shutdown.
+description: "[OMX] Cancel any active OMX mode (autopilot, ralph, ultrawork, ecomode, ultraqa, swarm, ultrapilot, pipeline, team)"
 ---
 
 # Cancel Skill

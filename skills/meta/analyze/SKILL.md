@@ -1,7 +1,6 @@
 ---
 name: analyze
-description: >-
-  [OMX] Use when user says "analyze", "investigate", "why does X", or "how is X wired". Read-only cross-file analysis: ranked explanations, evidence, file:line. NOT for edits — use $ralph or $plan.
+description: "[OMX] Run read-only deep repository analysis and return a ranked synthesis with explicit confidence, concrete file references, and clear evidence-vs-inference boundaries. Use when a user says 'analyze', 'investigate', 'why does', 'what's causing', or needs grounded cross-file explanation before any changes are proposed."
 ---
 
 # Analyze — Read-Only Deep Analysis
@@ -145,5 +144,3 @@ A good analyze response is:
 - free of normative drift or judgmental filler
 - explicit about the evidence-vs-inference distinction
 - concise for simple cases, broader only when the question truly needs it
-
-Task: {{ARGUMENTS}}

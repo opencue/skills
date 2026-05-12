@@ -1,7 +1,6 @@
 ---
 name: autoresearch
-description: >-
-  Use when user says "research this", "deep research", or "validate sources". Research automation: source finding, cross-checking, citations.
+description: "[OMX] Stateful validator-gated research loop with native-hook persistence"
 ---
 
 # Autoresearch

@@ -1,7 +1,6 @@
 ---
 name: "hud"
-description: >-
-  [OMX] Use when user says "show hud", "omx hud", "configure statusline", or "live hud". Runs `omx hud`; configures `[tui] status_line` for ralph/ultrawork/autopilot/team state.
+description: "[OMX] Show or configure the OMX HUD (two-layer statusline)"
 role: "display"
 scope: ".omx/**"
 ---

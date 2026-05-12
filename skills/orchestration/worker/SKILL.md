@@ -1,7 +1,6 @@
 ---
 name: worker
-description: >-
-  Use when user says "worker", "team worker", or "assigned slice". Worker-lane execution: ownership, scope, blocker reporting, handoff.
+description: "[OMX] Team worker protocol (ACK, mailbox, task lifecycle) for tmux-based OMX teams"
 ---
 
 # Worker Skill

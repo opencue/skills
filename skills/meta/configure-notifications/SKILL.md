@@ -1,7 +1,6 @@
 ---
 name: configure-notifications
-description: >-
-  [OMX] Use when user says "configure notifications", "discord webhook", "telegram bot", or "slack webhook". Edits ~/.codex/.omx-config.json: native + generic webhooks, verbosity, idle cooldown.
+description: "[OMX] Configure OMX notifications - unified entry point for all platforms"
 triggers:
   - "configure notifications"
   - "setup notifications"
