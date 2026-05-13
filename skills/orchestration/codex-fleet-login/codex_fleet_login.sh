@@ -19,21 +19,52 @@ set -euo pipefail
 
 COUNT=1
 OPEN_URL=1
+OPEN_MODE="incognito"     # incognito | default | none
 LABEL=""
 HOLD=1
 PORT="${CODEX_LOGIN_PORT:-1455}"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --count)    COUNT="$2"; shift 2 ;;
-    --no-open)  OPEN_URL=0; shift ;;
-    --label)    LABEL="$2"; shift 2 ;;
-    --hold)     HOLD=1; shift ;;
-    --no-hold)  HOLD=0; shift ;;
-    -h|--help)  sed -n '2,18p' "$0"; exit 0 ;;
+    --count)         COUNT="$2"; shift 2 ;;
+    --no-open)       OPEN_URL=0; shift ;;
+    --open-default)  OPEN_MODE="default"; shift ;;
+    --open-incognito) OPEN_MODE="incognito"; shift ;;
+    --label)         LABEL="$2"; shift 2 ;;
+    --hold)          HOLD=1; shift ;;
+    --no-hold)       HOLD=0; shift ;;
+    -h|--help)       sed -n '2,18p' "$0"; exit 0 ;;
     *) echo "unknown arg: $1" >&2; exit 2 ;;
   esac
 done
+
+# Pick a browser launcher for the URL.
+# Default: Chrome/Chromium --incognito (bypasses cache, extensions, and stale
+# service workers on auth.openai.com that have been seen to render a blank
+# page when the user's main profile is hot).
+pick_browser_cmd() {
+  case "$OPEN_MODE" in
+    none)    echo ""; return ;;
+    default) command -v xdg-open >/dev/null && echo "xdg-open" && return
+             echo ""; return ;;
+    incognito|*)
+      for c in google-chrome google-chrome-stable chromium chromium-browser brave-browser; do
+        if command -v "$c" >/dev/null; then
+          echo "$c --incognito --new-window"
+          return
+        fi
+      done
+      # firefox private as fallback
+      if command -v firefox >/dev/null; then
+        echo "firefox --private-window"
+        return
+      fi
+      # last resort: default opener (no incognito guarantee)
+      command -v xdg-open >/dev/null && echo "xdg-open"
+      ;;
+  esac
+}
+BROWSER_CMD="$(pick_browser_cmd)"
 
 command -v kitty >/dev/null || { echo "kitty not found on PATH" >&2; exit 1; }
 command -v codex >/dev/null || { echo "codex not found on PATH" >&2; exit 1; }
@@ -71,12 +102,35 @@ spawn_one() {
 
   # The command that runs inside the kitty window.
   local inner_cmd
+  # Resolve a non-guarded codex binary in the outer env so the kitty subshell
+  # doesn't depend on its login-shell PATH (e.g. nvm not sourced under bash -lc).
+  local codex_bin=""
+  IFS=':' read -r -a _path_dirs <<< "$PATH"
+  local _self_resolved=""
+  if local _shim="$(command -v codex 2>/dev/null)"; then
+    _self_resolved="$(readlink -f "$_shim" 2>/dev/null || echo "$_shim")"
+  fi
+  for _d in "${_path_dirs[@]}"; do
+    [[ -z "$_d" ]] && continue
+    local _c="$_d/codex"
+    [[ -x "$_c" && ! -d "$_c" ]] || continue
+    local _r
+    _r="$(readlink -f "$_c" 2>/dev/null || echo "$_c")"
+    if [[ "$_r" != "$_self_resolved" ]]; then
+      codex_bin="$_c"
+      break
+    fi
+  done
+  # Fallback: pass through the name and let the inner shell resolve it.
+  [[ -z "$codex_bin" ]] && codex_bin="codex"
+
   inner_cmd=$(cat <<EOF
 clear
 echo "[codex-fleet-login] account #${idx} — log: ${log}"
+echo "[codex-fleet-login] codex: ${codex_bin}"
 echo "[codex-fleet-login] running: codex login"
 echo
-codex login 2>&1 | tee "${log}"
+CODEX_GUARD_BYPASS=1 "${codex_bin}" login 2>&1 | tee "${log}"
 status=\${PIPESTATUS[0]}
 touch "${done_marker}"
 echo
@@ -111,8 +165,13 @@ EOF
   else
     echo "[fleet] URL: $url"
     if (( OPEN_URL == 1 )); then
-      ( xdg-open "$url" >/dev/null 2>&1 & )
-      echo "[fleet] opened in browser"
+      if [[ -n "$BROWSER_CMD" ]]; then
+        # shellcheck disable=SC2086
+        ( nohup $BROWSER_CMD "$url" >/dev/null 2>&1 & )
+        echo "[fleet] opened via: $BROWSER_CMD"
+      else
+        echo "[fleet] no browser launcher available — copy the URL manually"
+      fi
     fi
   fi
 
