@@ -92,6 +92,14 @@ if [[ -x "$MCPS/scripts/auto-push.sh" ]]; then
   "$MCPS/scripts/auto-push.sh" >> "$LOG_FILE" 2>&1 || log "mcps auto-push failed"
 fi
 
+# Mirror skills/ + mcps/ into the unified public recodeee/soul repo.
+# Snapshot lives at ~/.local/state/soul-mirror; auto-push-soul.sh rsyncs
+# and pushes only when contents change. Runs after the per-repo pushes
+# so soul reflects the just-pushed state of both halves.
+if [[ -x "$SKILLS/scripts/auto-push-soul.sh" ]]; then
+  "$SKILLS/scripts/auto-push-soul.sh" >> "$LOG_FILE" 2>&1 || log "soul auto-push failed"
+fi
+
 # Sweep BROKEN symlinks (target no longer exists). Catches:
 #   - skills deleted from the source tree
 #   - any leftover `.backup.*` symlinks from older install-script versions
