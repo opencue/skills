@@ -1,7 +1,7 @@
 ---
 name: cloakbrowser
 description: >-
-  Use when user says "cloakbrowser", "stealth chromium", "bypass bot detection", "anti-bot scraping", "fingerprint spoof", or needs to scrape sites that block headless browsers (Cloudflare, FingerprintJS, reCAPTCHA, sannysoft). Docker-packaged stealth Chromium with rotating fingerprints. Verified 5/6 on the standard bot-detection battery (sannysoft 56/56, BrowserScan clean, reCAPTCHA v3 score 0.9, deviceandbrowserinfo not-bot, incolumitas 35/36).
+  Use when user says "cloakbrowser", "stealth chromium", "bypass bot detection", "anti-bot scraping", or "fingerprint spoof". Stealth Chromium for sites that block headless browsers (Cloudflare, FingerprintJS, reCAPTCHA). Verified 5/6 on the standard bot-detection battery — details in body.
 ---
 
 # cloakbrowser

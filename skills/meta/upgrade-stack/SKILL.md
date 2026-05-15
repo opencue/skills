@@ -1,6 +1,6 @@
 ---
 name: upgrade-stack
-description: "Use when user says 'upgrade my stack', 'update plugins', 'upgrade claude-mem', 'update rtk', 'reapply patches', 'check for updates', or after a claude-mem plugin upgrade. Runs ~/.local/bin/claude-stack-doctor.sh to upgrade bun/npm/cargo globals and re-apply the --smol patches to claude-mem. NOT for Claude Code itself — that's restart-sensitive and stays manual."
+description: "Use when user says 'upgrade my stack', 'update plugins', 'upgrade claude-mem', 'reapply patches', 'check for updates', or after a claude-mem plugin upgrade. Runs claude-stack-doctor.sh to upgrade bun/npm/cargo globals and re-apply --smol patches. NOT for Claude Code itself — that's manual."
 ---
 
 # upgrade-stack — keep the Claude Code stack current
