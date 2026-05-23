@@ -272,3 +272,192 @@ gh pr comment $PENDING_PR --repo "$list" \
 ## Advanced: Timing
 
 Submit Tue-Thu during business hours for fastest maintainer response. Skip weekends and Mondays.
+
+---
+
+## Advanced: Automated Weekly Status Check
+
+Set up a cron/scheduled check for PR status updates:
+
+```bash
+# Run weekly: cue awesome-submit --check-status
+check_all_submissions() {
+  jq -c '.[] | select(.status == "pending")' "$HISTORY_FILE" | while read entry; do
+    local list=$(echo "$entry" | jq -r '.list')
+    local pr=$(echo "$entry" | jq -r '.pr')
+    local pr_num=$(basename "$pr")
+
+    local state=$(gh pr view "$pr_num" --repo "$list" --json state -q '.state' 2>/dev/null)
+    case "$state" in
+      MERGED)
+        echo "🎉 MERGED: $list (#$pr_num)"
+        update_status "$list" "merged"
+        ;;
+      CLOSED)
+        echo "❌ CLOSED: $list (#$pr_num)"
+        local reason=$(gh pr view "$pr_num" --repo "$list" --json comments -q '.comments[-1].body' 2>/dev/null)
+        echo "   Reason: $reason"
+        update_status "$list" "closed"
+        ;;
+      OPEN)
+        local age=$(( ($(date +%s) - $(date -d "$(echo "$entry" | jq -r '.date')" +%s)) / 86400 ))
+        if [ "$age" -gt 14 ]; then
+          echo "⏰ STALE ($age days): $list (#$pr_num) — consider bumping"
+        fi
+        ;;
+    esac
+  done
+}
+```
+
+---
+
+## Advanced: Release-triggered Discovery
+
+GitHub Action that runs on every release tag:
+
+```yaml
+# .github/workflows/awesome-submit.yml
+name: Find new awesome lists
+on:
+  release:
+    types: [published]
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          # Find lists created since last release that match our topics
+          SINCE=$(gh release list --limit 2 --json publishedAt -q '.[1].publishedAt')
+          gh search repos "awesome claude-code" --sort updated --json fullName,createdAt \
+            | jq --arg since "$SINCE" '[.[] | select(.createdAt > $since)]'
+          # Output as issue for manual review
+      - run: |
+          gh issue create --title "New awesome lists to submit to" \
+            --body "$(cat /tmp/new-lists.md)" --label "marketing"
+```
+
+---
+
+## Advanced: Maintainer Relationship DB
+
+Track maintainer behavior for smarter targeting:
+
+```bash
+MAINTAINER_DB="$HOME/.config/cue/awesome-maintainers.json"
+
+# After each PR resolution, record maintainer response
+record_maintainer() {
+  local repo="$1" outcome="$2" days_to_respond="$3"
+  jq --arg r "$repo" --arg o "$outcome" --arg d "$days_to_respond" \
+    '.[$r] = (.[$r] // {}) | .[$r].history += [{"outcome": $o, "days": ($d|tonumber)}] | .[$r].avg_days = ([.[$r].history[].days] | add / length)' \
+    "$MAINTAINER_DB" > "$MAINTAINER_DB.tmp" && mv "$MAINTAINER_DB.tmp" "$MAINTAINER_DB"
+}
+
+# Prioritize responsive maintainers
+rank_targets() {
+  jq -r 'to_entries | sort_by(.value.avg_days) | .[] | "\(.value.avg_days)d avg — \(.key)"' "$MAINTAINER_DB"
+}
+```
+
+---
+
+## Advanced: A/B Test PR Titles
+
+Rotate title formats and track which gets merged:
+
+```bash
+PR_TITLE_VARIANTS=(
+  "Add $PROJECT_NAME"
+  "Add $PROJECT_NAME — $SHORT_DESC"
+  "Add $PROJECT_NAME ($STARS+ stars)"
+  "Add $PROJECT_NAME: $ONE_LINE_VALUE_PROP"
+)
+
+select_title() {
+  # Pick based on what's worked before
+  local best=$(jq -r '[.[] | select(.status=="merged")] | group_by(.title_style) | sort_by(-length) | .[0][0].title_style // empty' "$HISTORY_FILE")
+  if [ -n "$best" ]; then
+    echo "${PR_TITLE_VARIANTS[$best]}"
+  else
+    # Rotate through variants
+    local idx=$(( $(jq 'length' "$HISTORY_FILE") % ${#PR_TITLE_VARIANTS[@]} ))
+    echo "${PR_TITLE_VARIANTS[$idx]}"
+  fi
+}
+```
+
+---
+
+## Advanced: Auto-generate Comparison Table Rows
+
+Some lists have feature comparison tables. Auto-fill cue's row:
+
+```bash
+detect_comparison_table() {
+  local readme="$1"
+  # Find tables with competitor names
+  if echo "$readme" | grep -q "claude-code-switcher\|skillport\|agent-skill"; then
+    echo "comparison-table"
+  fi
+}
+
+generate_comparison_row() {
+  # cue's features for common comparison dimensions
+  cat <<'EOF'
+| **cue** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+EOF
+  # Columns: skills | MCPs | plugins | profiles | per-dir | isolation | inherit
+}
+```
+
+---
+
+## Advanced: Backlink Monitoring
+
+Verify links stay live after merge:
+
+```bash
+# Monthly check: are our links still in the READMEs?
+monitor_backlinks() {
+  jq -c '.[] | select(.status == "merged")' "$HISTORY_FILE" | while read entry; do
+    local list=$(echo "$entry" | jq -r '.list')
+    local still_listed=$(gh api "repos/$list/readme" --jq '.content' | base64 -d | grep -c "$REPO_URL")
+    if [ "$still_listed" -eq 0 ]; then
+      echo "⚠️  REMOVED from $list — re-submit or investigate"
+    fi
+  done
+}
+```
+
+---
+
+## Advanced: Multi-language Submissions
+
+Submit to non-English awesome lists with translated descriptions:
+
+```bash
+TRANSLATIONS=(
+  "zh:代理配置管理器 — 按目录隔离技能、MCP和插件，支持继承和缓存"
+  "ja:エージェントプロファイルマネージャー — ディレクトリごとにスキル・MCP・プラグインを分離"
+  "ko:에이전트 프로필 관리자 — 디렉토리별 스킬/MCP/플러그인 격리"
+)
+
+# Known non-English lists
+NON_EN_LISTS=(
+  "yzfly/Awesome-MCP-ZH"           # Chinese MCP list (7k stars)
+  "punkpeye/awesome-mcp-servers"    # Has i18n section
+)
+
+get_translated_description() {
+  local lang="$1"
+  for t in "${TRANSLATIONS[@]}"; do
+    if [[ "$t" == "$lang:"* ]]; then
+      echo "${t#*:}"
+      return
+    fi
+  done
+  echo "$DESCRIPTION"  # fallback to English
+}
+```
