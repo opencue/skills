@@ -1,10 +1,14 @@
 ---
-description: "When user asks to record a high-quality CLI demo GIF that needs Kitty graphics protocol (real PNG icons inline) — use this headless Xvfb + Kitty + tmux + ffmpeg pipeline instead of vhs/asciinema which don't speak the Kitty protocol"
-requires_mcps: []
-allowed-tools: Bash(Xvfb:*), Bash(kitty:*), Bash(tmux:*), Bash(xdotool:*), Bash(ffmpeg:*), Bash(/usr/bin/ffmpeg:*), Read(*), Write(*)
+description: "When user asks to record a high-quality CLI demo GIF that needs Kitty graphics protocol (real PNG icons inline) — use this headless cage/Wayland + Kitty + tmux + ffmpeg pipeline instead of vhs/asciinema which don't speak the Kitty protocol. Includes auto-redaction of moving text via tesseract OCR."
+requires_mcps: [cue-tty-watch]
+allowed-tools: Bash(cage:*), Bash(weston:*), Bash(Xvfb:*), Bash(kitty:*), Bash(tmux:*), Bash(xdotool:*), Bash(wf-recorder:*), Bash(grim:*), Bash(ffmpeg:*), Bash(/usr/bin/ffmpeg:*), Bash(tesseract:*), Bash(convert:*), Read(*), Write(*), mcp__cue-tty-watch__*
 ---
 
-# Headless GIF demos with Kitty + tmux + Xvfb + ffmpeg
+# Headless GIF demos with Cage (Wayland) + Kitty + tmux + auto-redaction
+
+> Updated pipeline: prefer **cage** (headless wlroots compositor) over Xvfb when on a Wayland host.
+> Kitty graphics protocol works through wf-recorder → real brand-icon PNGs render in the GIF.
+> Tesseract OCR + `redact_video` MCP tool handles moving-text redaction automatically.
 
 When you need a demo GIF of a CLI tool that uses **Kitty graphics protocol** (e.g. cue's brand-logo PNGs in `cue optimizer`), `vhs` and `asciinema` won't work — they render in `ttyd` which doesn't speak the protocol. Logos show as garbled placeholder boxes or fall back to emoji.
 
@@ -20,15 +24,19 @@ This skill captures the working pipeline: spin up a virtual X display, run real 
 
 ## Required tools
 
-| Tool | Install (apt) | Install (nix) |
+| Tool | Purpose | Install |
 |---|---|---|
-| `Xvfb` | `sudo apt install xvfb` | `nix profile install nixpkgs#xorg.xorgserver` |
-| `xdotool` | `sudo apt install xdotool` | `nix profile install nixpkgs#xdotool` |
-| `ffmpeg` with `x11grab` | `sudo apt install ffmpeg` (**not** nix-pure ffmpeg — that one lacks x11grab) | `nix profile install nixpkgs#ffmpeg-full` |
-| `kitty` | already on your box | — |
-| `tmux` | already on your box | — |
+| `cage` | Headless wlroots compositor (preferred over weston — speaks `wlr-screencopy`) | `sudo apt install cage` |
+| `wf-recorder` | Wayland screen capture (needs wlroots compositor) | `sudo apt install wf-recorder` |
+| `grim` | Wayland screenshot (for preflight checks) | `sudo apt install grim` |
+| `kitty` | Terminal with graphics protocol — renders brand PNGs inline | already there |
+| `tmux` | Drives the demo via `send-keys` (works on any display protocol) | already there |
+| `/usr/bin/ffmpeg` (apt) | Used to convert mp4→gif. Nix's `ffmpeg` lacks `x11grab`/`palettegen` features sometimes — apt build is safer. | `sudo apt install ffmpeg` |
+| `tesseract` | OCR for auto-redaction. Returns bounding boxes per word/line. | `sudo apt install tesseract-ocr tesseract-ocr-eng` |
+| `ollama` + `moondream` | Optional: fast vision Q&A ("is the splash visible yet?") | `ollama pull moondream` |
+| `opencv-python`, `scenedetect`, `numpy`, `pillow` | Vision scripting in `~/.venvs/video` (or similar) | `pip install opencv-python-headless scenedetect numpy pillow` |
 
-**Gotcha:** verify ffmpeg has x11grab with `ffmpeg -devices | grep x11`. nix's stock `ffmpeg` doesn't ship it — use `/usr/bin/ffmpeg` (apt) or `ffmpeg-full` (nix).
+**Fallback (X11-only systems):** `Xvfb` + `ffmpeg x11grab` + `xdotool`. Same shape, X-only verbs.
 
 ## The pipeline
 
@@ -166,3 +174,40 @@ Pathological capture (means kitty didn't render to Xvfb):
 3. Test-run; check the preflight screenshot is non-empty
 4. Iterate on timing — pickers and Claude Code splash both need 2–3 s headroom
 5. Commit both the script and the resulting GIF — re-running gives byte-identical output for a fixed tape
+
+## Auto-redaction with the cue-tty-watch MCP
+
+When the demo captures sensitive moving text (email in a splash card that scrolls as content is added below), don't fight per-frame `drawbox` coordinates by hand. The `cue-tty-watch` MCP (autoloaded on every cue profile via `core` inheritance) wraps tesseract + scenedetect + moondream so the agent can do this automatically:
+
+| MCP tool | Backed by | Use when |
+|---|---|---|
+| `screenshot(display)` | `xwd` / `grim` | "What's on the headless display right now?" |
+| `tmux_pane(socket, session)` | `tmux capture-pane -p` | "What text did the inner shell render?" |
+| `send_keys_tmux(...)` | `tmux send-keys` | Drive the demo non-interactively |
+| `find_text(image, query)` | `tesseract` | Get `{x,y,w,h}` for every occurrence of a substring in a frame |
+| `ask_about_image(image, q)` | `ollama` + `moondream` | Fast yes/no-style vision Q&A ("did the splash render?") |
+| `detect_scenes(video)` | `scenedetect` (`ContentDetector`) | Find scene-cut timestamps automatically |
+| **`redact_video(in, out, query)`** | All of the above | **One call**: walks the video, OCRs each sampled frame, finds `query`, builds per-frame drawbox+drawtext filter, encodes the output |
+
+`redact_video` is the killer. The "email scrolls up as Claude responds and my fixed drawbox is in the wrong place" problem reduces to:
+
+```jsonc
+// MCP call
+{
+  "tool": "redact_video",
+  "input_path": "/tmp/cue-demo-raw.mp4",
+  "output_path": "/tmp/cue-demo-redacted.mp4",
+  "query": "webubusiness",
+  "label": "[ account info · redacted ]",
+  "samples_per_second": 4,
+  "pad": 6
+}
+```
+
+Then convert the redacted mp4 → gif with the standard 2-pass palette pipeline.
+
+Why this beats the manual approach:
+- No more 3-phase time-gated drawboxes that leak at transitions
+- Adapts automatically to any future demo (different fonts, scroll speeds, splash layouts)
+- Handles boundaries cleanly — text disappears one frame, box disappears the next
+- Works for ANY moving sensitive text, not just the email row
