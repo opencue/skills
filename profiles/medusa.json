@@ -1,0 +1,15 @@
+{
+  "name": "medusa",
+  "extends": ["base"],
+  "include": [
+    "building-with-medusa",
+    "building-storefronts",
+    "building-admin-dashboard-customizations",
+    "medusa-reference",
+    "db-generate",
+    "db-migrate",
+    "new-user",
+    "new-admin-via-api",
+    "storefront-best-practices"
+  ]
+}

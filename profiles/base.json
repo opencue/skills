@@ -1,0 +1,15 @@
+{
+  "name": "base",
+  "include": [
+    "just",
+    "help",
+    "skill-suggestion",
+    "find-skills",
+    "caveman",
+    "github",
+    "gh-fix-ci",
+    "code-review",
+    "security-best-practices",
+    "colony"
+  ]
+}

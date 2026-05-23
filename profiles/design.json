@@ -1,0 +1,14 @@
+{
+  "name": "design",
+  "extends": ["base"],
+  "include": [
+    "imagegen-frontend-web",
+    "imagegen-frontend-mobile",
+    "image-to-code",
+    "gpt-taste",
+    "high-end-visual-design",
+    "redesign-existing-projects",
+    "brandkit",
+    "screenshot"
+  ]
+}

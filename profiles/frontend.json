@@ -1,0 +1,13 @@
+{
+  "name": "frontend",
+  "extends": ["base"],
+  "include": [
+    "ui-ux-pro-max",
+    "design-taste-frontend",
+    "image-to-code",
+    "redesign-existing-projects",
+    "gpt-taste",
+    "screenshot",
+    "playwright"
+  ]
+}

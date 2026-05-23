@@ -1,0 +1,12 @@
+{
+  "name": "review",
+  "extends": ["base"],
+  "include": [
+    "code-review",
+    "security-review",
+    "security-best-practices",
+    "api-tester",
+    "github",
+    "gh-fix-ci"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "orchestration",
+  "extends": ["base"],
+  "include": [
+    "colony",
+    "colony-prompts",
+    "codex-fleet-login",
+    "worker",
+    "pipeline",
+    "visual-ralph",
+    "gitguardex"
+  ]
+}

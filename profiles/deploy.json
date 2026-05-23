@@ -1,0 +1,13 @@
+{
+  "name": "deploy",
+  "extends": ["base"],
+  "include": [
+    "coolify",
+    "pnpm",
+    "supabase",
+    "vps",
+    "hosting",
+    "dns",
+    "domains"
+  ]
+}

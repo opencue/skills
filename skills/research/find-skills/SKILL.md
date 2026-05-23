@@ -1,143 +1,168 @@
 ---
 name: find-skills
 description: >-
-  Use when user says "find skills", "available skills", or "skill search". Catalog search, matching, install suggestions.
+  When user says "find skills for X", "search for skills", "what skills exist for Y",
+  or "add SVG/diagram/testing/etc skills to my profile" — search GitHub for open-source
+  Claude Code skills, evaluate them, and add the best ones to the active profile.
+tags: [meta, cue, research, skills]
+category: research
+version: 1.0.0
+requires_mcps: []
+allowed-tools: Bash(curl:*), Bash(gh:*), WebFetch, WebSearch, Read(*), Write(*)
 ---
 
-# Find Skills
+# Find & Install Open-Source Skills
 
-This skill helps you discover and install skills from the open agent skills ecosystem.
+Search GitHub for Claude Code / Codex skills that match a user's need, evaluate quality, and add them to the active cue profile.
 
-## When to Use This Skill
+## When to activate
 
-Use this skill when the user:
+- User says "find skills for X" or "search for X skills"
+- User says "what open-source skills exist for Y?"
+- User says "add diagram/testing/deployment/etc skills to my profile"
+- User describes a capability gap and you think a public skill could fill it
 
-- Asks "how do I do X" where X might be a common task with an existing skill
-- Says "find a skill for X" or "is there a skill for X"
-- Asks "can you do X" where X is a specialized capability
-- Expresses interest in extending agent capabilities
-- Wants to search for tools, templates, or workflows
-- Mentions they wish they had help with a specific domain (design, testing, deployment, etc.)
+## Workflow
 
-## What is the Skills CLI?
+### 1. Search GitHub for skills
 
-The Skills CLI (`npx skills`) is the package manager for the open agent skills ecosystem. Skills are modular packages that extend agent capabilities with specialized knowledge, workflows, and tools.
-
-**Key commands:**
-
-- `npx skills find [query]` - Search for skills interactively or by keyword
-- `npx skills add <package>` - Install a skill from GitHub or other sources
-- `npx skills check` - Check for skill updates
-- `npx skills update` - Update all installed skills
-
-**Browse skills at:** https://skills.sh/
-
-## How to Help Users Find Skills
-
-### Step 1: Understand What They Need
-
-When a user asks for help with something, identify:
-
-1. The domain (e.g., React, testing, design, deployment)
-2. The specific task (e.g., writing tests, creating animations, reviewing PRs)
-3. Whether this is a common enough task that a skill likely exists
-
-### Step 2: Check the Leaderboard First
-
-Before running a CLI search, check the [skills.sh leaderboard](https://skills.sh/) to see if a well-known skill already exists for the domain. The leaderboard ranks skills by total installs, surfacing the most popular and battle-tested options.
-
-For example, top skills for web development include:
-- `vercel-labs/agent-skills` — React, Next.js, web design (100K+ installs each)
-- `anthropics/skills` — Frontend design, document processing (100K+ installs)
-
-### Step 3: Search for Skills
-
-If the leaderboard doesn't cover the user's need, run the find command:
+Use multiple search strategies:
 
 ```bash
-npx skills find [query]
+# Strategy A: GitHub topic search (most reliable)
+curl -sL "https://api.github.com/search/repositories?q=topic:claude-code-skill+topic:$TOPIC&sort=stars&per_page=10" \
+  -H "Accept: application/vnd.github.v3+json" | jq '.items[] | {name: .full_name, stars: .stargazers_count, desc: .description, url: .html_url}'
+
+# Strategy B: Search for SKILL.md files (catches skills not tagged)
+curl -sL "https://api.github.com/search/code?q=filename:SKILL.md+$KEYWORD&per_page=10" \
+  -H "Accept: application/vnd.github.v3+json" | jq '.items[] | {repo: .repository.full_name, path: .path}'
+
+# Strategy C: Topic-based discovery
+curl -sL "https://api.github.com/search/repositories?q=$KEYWORD+claude+skill+in:name,description,readme&sort=stars&per_page=10" \
+  -H "Accept: application/vnd.github.v3+json" | jq '.items[] | {name: .full_name, stars: .stargazers_count, desc: .description}'
 ```
 
-For example:
+Also search for known high-quality skill collections:
+- `anthropics/skills` — official Anthropic skills
+- `daymade/claude-code-skills` — curated collection
+- `levnikolaevich/claude-code-skills` — delivery workflow skills
+- `yizhiyanhua-ai/fireworks-tech-graph` — SVG diagram generation
+- `cathrynlavery/diagram-design` — editorial diagrams
+- `oh-my-mermaid/oh-my-mermaid` — architecture diagrams from code
 
-- User asks "how do I make my React app faster?" → `npx skills find react performance`
-- User asks "can you help me with PR reviews?" → `npx skills find pr review`
-- User asks "I need to create a changelog" → `npx skills find changelog`
+### 2. Evaluate each candidate
 
-### Step 4: Verify Quality Before Recommending
-
-**Do not recommend a skill based solely on search results.** Always verify:
-
-1. **Install count** — Prefer skills with 1K+ installs. Be cautious with anything under 100.
-2. **Source reputation** — Official sources (`vercel-labs`, `anthropics`, `microsoft`) are more trustworthy than unknown authors.
-3. **GitHub stars** — Check the source repository. A skill from a repo with <100 stars should be treated with skepticism.
-
-### Step 5: Present Options to the User
-
-When you find relevant skills, present them to the user with:
-
-1. The skill name and what it does
-2. The install count and source
-3. The install command they can run
-4. A link to learn more at skills.sh
-
-Example response:
-
-```
-I found a skill that might help! The "react-best-practices" skill provides
-React and Next.js performance optimization guidelines from Vercel Engineering.
-(185K installs)
-
-To install it:
-npx skills add vercel-labs/agent-skills@react-best-practices
-
-Learn more: https://skills.sh/vercel-labs/agent-skills/react-best-practices
-```
-
-### Step 6: Offer to Install
-
-If the user wants to proceed, you can install the skill for them:
+For each promising repo, check:
 
 ```bash
-npx skills add <owner/repo@skill> -g -y
+# Check if it has a SKILL.md (required for cue compatibility)
+curl -sL "https://api.github.com/repos/$REPO/contents/" \
+  -H "Accept: application/vnd.github.v3+json" | jq '.[].name' | grep -i "skill"
+
+# Check stars, last commit, license
+curl -sL "https://api.github.com/repos/$REPO" \
+  -H "Accept: application/vnd.github.v3+json" | jq '{stars: .stargazers_count, updated: .updated_at, license: .license.spdx_id, archived: .archived}'
 ```
 
-The `-g` flag installs globally (user-level) and `-y` skips confirmation prompts.
+**Quality criteria (score 1-5):**
+- ⭐ Stars: >1k = 5, >500 = 4, >100 = 3, >20 = 2, <20 = 1
+- 📅 Last updated: <1 month = 5, <3 months = 4, <6 months = 3, <1 year = 2, >1 year = 1
+- 📄 Has SKILL.md: required (skip if missing)
+- 📜 License: MIT/Apache/ISC = ✓, no license = ⚠️ warn user
+- 🏗️ Structure: has references/, templates/, or examples/ = bonus
 
-## Common Skill Categories
+### 3. Present findings to user
 
-When searching, consider these common categories:
-
-| Category        | Example Queries                          |
-| --------------- | ---------------------------------------- |
-| Web Development | react, nextjs, typescript, css, tailwind |
-| Testing         | testing, jest, playwright, e2e           |
-| DevOps          | deploy, docker, kubernetes, ci-cd        |
-| Documentation   | docs, readme, changelog, api-docs        |
-| Code Quality    | review, lint, refactor, best-practices   |
-| Design          | ui, ux, design-system, accessibility     |
-| Productivity    | workflow, automation, git                |
-
-## Tips for Effective Searches
-
-1. **Use specific keywords**: "react testing" is better than just "testing"
-2. **Try alternative terms**: If "deploy" doesn't work, try "deployment" or "ci-cd"
-3. **Check popular sources**: Many skills come from `vercel-labs/agent-skills` or `ComposioHQ/awesome-claude-skills`
-
-## When No Skills Are Found
-
-If no relevant skills exist:
-
-1. Acknowledge that no existing skill was found
-2. Offer to help with the task directly using your general capabilities
-3. Suggest the user could create their own skill with `npx skills init`
-
-Example:
+Format results as a ranked table:
 
 ```
-I searched for skills related to "xyz" but didn't find any matches.
-I can still help you with this task directly! Would you like me to proceed?
+🔍 Found 4 skills for "SVG diagrams":
 
-If this is something you do often, you could create your own skill:
-npx skills init my-xyz-skill
+  ⭐⭐⭐⭐⭐ yizhiyanhua-ai/fireworks-tech-graph (7k stars)
+  "Generate production-quality SVG+PNG technical diagrams from natural language"
+  7 styles, 14 diagram types, AI/Agent patterns
+  License: MIT | Updated: 2 weeks ago
+  Install: npx ref → yizhiyanhua-ai/fireworks-tech-graph
+
+  ⭐⭐⭐⭐ cathrynlavery/diagram-design (2.4k stars)
+  "Thirteen editorial diagram types for Claude Code. Self-contained HTML+SVG."
+  Brand-aware, no Mermaid, editorial quality
+  License: MIT | Updated: 1 month ago
+  Install: npx ref → cathrynlavery/diagram-design
+
+  ⭐⭐⭐ oh-my-mermaid/oh-my-mermaid (800 stars)
+  "Turn complex codebases into clear architecture diagrams"
+  Mermaid-based, auto-generates from code
+  License: MIT | Updated: 3 weeks ago
+  Install: npx ref → oh-my-mermaid/oh-my-mermaid
+
+  ⚠️ some-user/svg-tool (15 stars)
+  Skipped: too few stars, no SKILL.md found
 ```
+
+### 4. Add to profile (with user confirmation)
+
+After user picks which skills to add:
+
+```bash
+# Check current profile
+PROFILE=$(cat .cue-profile 2>/dev/null || cue current --json 2>/dev/null | jq -r '.profile')
+
+# Show what will be added
+echo "Adding to profile: $PROFILE"
+echo "  npx:"
+echo "    - repo: yizhiyanhua-ai/fireworks-tech-graph"
+echo "      skills: [fireworks-tech-graph]"
+```
+
+Then edit the profile YAML:
+
+```bash
+# Read current profile
+cat profiles/$PROFILE/profile.yaml
+
+# Add the npx entry under skills.npx
+# (use the agent to edit the YAML properly)
+```
+
+Or use the cue CLI if available:
+
+```bash
+cue skills add-to-profile --npx "yizhiyanhua-ai/fireworks-tech-graph:fireworks-tech-graph" --profile $PROFILE
+```
+
+### 5. Verify installation
+
+```bash
+# Validate the updated profile
+cue validate $PROFILE
+
+# Show the updated skill count
+cue current
+```
+
+## Search Shortcuts
+
+Common searches the user might ask for:
+
+| User says | Search terms |
+|-----------|-------------|
+| "diagram skills" | `svg diagram architecture claude-code-skill` |
+| "testing skills" | `testing test-runner claude skill` |
+| "deployment skills" | `deploy docker kubernetes claude skill` |
+| "documentation skills" | `readme docs markdown claude skill` |
+| "security skills" | `security audit owasp claude skill` |
+| "API skills" | `api rest graphql openapi claude skill` |
+| "database skills" | `database postgres migration claude skill` |
+| "frontend skills" | `react nextjs frontend ui claude skill` |
+
+## Rules
+
+- Always show stars, last update, and license before recommending
+- Never add a skill without user confirmation
+- Prefer skills with >100 stars and recent activity
+- Warn if a skill has no license (legal risk)
+- Warn if a skill is archived or >1 year stale
+- Show max 5 results, ranked by quality score
+- If no good skills found, suggest creating one with `cue skills-new`
+- Always verify the skill has a SKILL.md — repos without one won't work with cue
