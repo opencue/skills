@@ -186,3 +186,89 @@ already_submitted() {
 - Max 5 submissions per session
 - Show the PR URLs so user can track acceptance
 - If a list is archived or restructuring, skip with explanation
+
+---
+
+## Advanced: Competitor Analysis
+
+Find where competing tools are listed and submit to those same lists:
+
+```bash
+COMPETITORS="claude-code-switcher skillport agent-skills-cli agent-skill-manager skillshub"
+
+find_gaps() {
+  local our_listings=$(gh search code "$PROJECT_NAME" --filename README.md --limit 50 --json repository | jq -r '.[].repository.fullName')
+  for comp in $COMPETITORS; do
+    gh search code "$comp" --filename README.md --limit 20 --json repository \
+      | jq -r '.[].repository.fullName' \
+      | grep -i "awesome\|list\|collection" \
+      | while read repo; do
+          echo "$our_listings" | grep -q "$repo" || echo "GAP: $repo (has $comp, missing us)"
+        done
+  done
+}
+```
+
+Present as:
+```
+🔍 Competitor Analysis — found 3 gaps where competitors are listed but we aren't.
+```
+
+---
+
+## Advanced: Custom PR Body Templates
+
+Auto-detect list audience and use the right pitch:
+
+```bash
+detect_list_type() {
+  local name="$1" desc="$2"
+  if echo "$name $desc" | grep -qi "mcp\|model.context.protocol"; then echo "mcp"
+  elif echo "$name $desc" | grep -qi "skill\|agent"; then echo "ai-agents"
+  elif echo "$name $desc" | grep -qi "cli\|command.line"; then echo "cli"
+  else echo "dev-tools"
+  fi
+}
+```
+
+Templates per audience:
+- **ai-agents**: Lead with the problem (context overload), show 10-agent support
+- **cli**: Lead with Unix philosophy, sub-5ms overhead, no daemon
+- **mcp**: Lead with per-project MCP scoping, inheritance
+- **skills**: Lead with 110+ bundled skills, npx skill packs
+- **dev-tools**: Lead with developer experience, one-command install
+
+---
+
+## Advanced: Screenshot/GIF in PR Body
+
+Auto-find and embed visual assets:
+
+```bash
+find_demo_assets() {
+  for f in docs/assets/demo.gif assets/demo.gif \
+           docs/assets/terminal-optimizer.svg docs/assets/hero.svg; do
+    [ -f "$f" ] && echo "![Demo](https://raw.githubusercontent.com/$(gh repo view --json nameWithOwner -q '.nameWithOwner')/main/$f)" && return
+  done
+}
+```
+
+Inject into every PR body — maintainers see what the tool does without clicking through. Visual PRs get merged 2-3x faster.
+
+---
+
+## Advanced: Cross-reference After Merge
+
+When one PR is merged, comment on pending PRs with social proof:
+
+```bash
+# After a merge is detected:
+gh pr comment $PENDING_PR --repo "$list" \
+  --body "👋 Friendly bump — recently accepted into $MERGED_LIST. Happy to adjust format if needed!"
+```
+
+---
+
+## Advanced: Timing
+
+Submit Tue-Thu during business hours for fastest maintainer response. Skip weekends and Mondays.
