@@ -76,6 +76,30 @@ cue snapshot                    # export current state
 cue snapshot restore <file>     # restore from snapshot
 ```
 
+### Discover (find hidden gem skills on GitHub)
+
+```bash
+cue discover search                     # scan GitHub for skill repos
+cue discover search --profile marketing # find gems for a specific profile
+cue discover search "mcp rust"          # targeted search
+cue discover analyze --min-score 8      # Claude reads gems, determines best profile + MCPs + CLIs
+cue discover install --dry-run          # preview what would be installed
+cue discover install --min-score 8      # install top gems into profiles
+cue discover install --notify           # install + notify repo owners via GitHub issue
+cue discover mcps                       # find MCP servers to add
+cue discover mcps --install             # auto-wire found MCPs into profile
+cue discover --export                   # generate docs/discovered.md
+cue discover list                       # show cached results
+```
+
+### Evolve (auto-learn from sessions)
+
+```bash
+cue evolve                      # scan sessions → detect gaps → propose changes
+cue evolve --apply              # apply proposed changes (add/remove skills)
+cue evolve --history            # show profile evolution log
+```
+
 ### Profile Creation
 
 ```bash
