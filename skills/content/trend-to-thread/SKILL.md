@@ -8,10 +8,14 @@ allowed-tools:
   - mcp__trendradar__get_trending_topics
   - mcp__trendradar__get_latest_news
   - mcp__trendradar__search_news
+  - mcp__trendradar__find_related_news
+  - mcp__trendradar__analyze_topic_trend
+  - mcp__trendradar__analyze_sentiment
   - mcp__higgsfield__balance
   - mcp__higgsfield__generate_image
   - mcp__higgsfield__job_status
   - mcp__higgsfield__models_explore
+  - WebSearch
   - Bash
   - Read
   - Write
@@ -43,15 +47,62 @@ If no seed is given, default to `auto`.
 
 ## Pipeline (7 phases — each must finish before the next)
 
-### Phase 1 — pick the angle
+### Phase 1 — ROI-ranked ideation
 
-- `auto` mode:
-  - Call `mcp__trendradar__get_trending_topics(mode="daily", extract_mode="auto_extract", top_n=25)`
-  - Call `mcp__trendradar__get_latest_news(limit=60)`
-  - Cross-correlate: which topics appear in BOTH trending keywords AND multiple platform top-3 rankings? Those are the cross-platform signals worth a thread.
-  - Filter for global / non-Mainland-China-domestic relevance (skip celebrity/regional sports unless the user's audience is that).
-  - Emit 3-5 candidate angles. For each: 1-line hook, why-now sentence, suggested cashtag set, image direction. Ask the user to pick.
-- Seed mode: skip straight to phase 2 using the provided topic.
+Produce 3–5 candidate angles **ranked by predicted ROI**, in the conclusion-first format the blog-writer profile mandates (summary table first, prose verdicts second, no field-name skeleton, one explicit "Pick this one" line at the bottom).
+
+#### 1.1 Signal pull (parallel)
+
+- `mcp__trendradar__get_trending_topics(mode="daily", extract_mode="auto_extract", top_n=25)`
+- `mcp__trendradar__get_latest_news(limit=60)`
+- Cross-correlate: topics in BOTH trending keywords AND multiple platform top-3 are the cross-platform signals worth a thread. Filter out celebrity / regional sports / Mainland-China-domestic noise unless the user's audience is that.
+
+#### 1.2 Competitive scan (web search per candidate)
+
+For each top topic (≤5), call `WebSearch` with two queries to size up coverage saturation and identify the undercovered angle:
+
+- `<topic> site:finance.yahoo.com OR site:bloomberg.com OR site:reuters.com` → what mainstream finance covered already
+- `<topic> analysis OR "hot take"` → what financial X / Substack already said
+
+Note for each candidate:
+- **Coverage count** — how many top-tier outlets ran it (saturation proxy)
+- **Dominant angle** — what take is everybody already running
+- **Open angle** — what nobody's said yet that we could own
+
+The highest-ROI ideas have a **strong catalyst with an undercovered angle**. Don't write the 5th version of a Bloomberg take.
+
+#### 1.3 ROI score each candidate (0–25)
+
+| Axis | 1 | 3 | 5 |
+|---|---|---|---|
+| **Catalyst clarity** | vague trend | known event, no date | binary headline + dated window |
+| **Asymmetry** | symmetric risk | tilted up | defined downside, big upside |
+| **Saturation (inverted)** | covered everywhere | 1–2 outlets | undercovered / fresh angle |
+| **Brand fit (volaria)** | non-finance | tangential | core markets / tape / macro |
+| **Time-decay risk** | intraday only | days | multi-week thesis |
+
+Total: **15+ = strong, 10–14 = solid, <10 = skip.**
+
+#### 1.4 Emit the ideation block (conclusion-first, blog-writer rules)
+
+**Summary table first** (scan layer):
+
+| Rank | Topic | Verdict (1-line, plain language) | ROI |
+|---|---|---|---|
+| 1 | … | "Binary catalyst, 30-day window, nobody's writing the supply-chain angle." | 19/25 |
+| 2 | … | "Multi-quarter trend, low variance, fits volaria macro voice." | 16/25 |
+
+**Per-item prose** (depth layer): 2–3 sentences each, no "Setup / Vehicle / Risk / ROI" field-name skeleton. Lead each item with the **bolded verdict** in plain language, then catalyst + vehicle + asymmetry + what-mainstream-missed flow as natural prose. Include the cashtag(s) inline, suggest the volaria card template (`tri-band-cinematic` / `billboard` / `ticker-tape` / `magazine`), and note image direction.
+
+**End the block with one `Pick this one →` sentence** naming the top angle to run with, in plain language ("This one — binary headline + 30-day window + nobody's posted the spread trade angle"). Don't leave the user weighing 5 options without a recommendation.
+
+#### 1.5 Confirm with user
+
+Show the ranked block, surface your recommendation, wait for their pick (they may override). Proceed to Phase 2 with the chosen angle.
+
+#### Seed mode (`"<topic seed>"`)
+
+Skip steps 1.1–1.4. Run a one-topic competitive scan (just step 1.2 against the supplied seed) for sanity, surface what's already been said + the open angle, then proceed to Phase 2.
 
 ### Phase 2 — draft the long-form article
 

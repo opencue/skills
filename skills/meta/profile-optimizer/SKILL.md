@@ -15,6 +15,15 @@ allowed-tools: Bash
 
 You help users optimize their cue profile by analyzing skill usage, suggesting removals of unused skills, and recommending new skills based on the current repository.
 
+## Iron contract — never silently mutate a profile
+
+Profile edits are user-visible and affect every future session under that
+profile. Never run `cue skills remove`, `cue skills add-to-profile`, or
+edit `profile.yaml` without first showing the user the exact diff and
+getting explicit approval. The dashboard step is read-only; the mutation
+step is gated. A silent removal that breaks the user's next session is
+the worst-possible failure mode for this skill.
+
 ## When to activate
 
 - User says "optimize my profile", "clean up skills", "profile review"
@@ -127,3 +136,20 @@ Show a before/after comparison:
 - **Be concise.** Don't list every skill — focus on the actionable ones (unused + recommended).
 - **Consider inheritance.** Skills from `core` profile are shared everywhere — don't suggest removing those.
 - **Explain WHY** a skill is recommended (what in the repo triggered the suggestion).
+
+## Capture learnings
+
+If you noticed something about this profile that future-you should know
+(a skill that *looks* unused but is actually critical during specific
+workflows, a recurring add-recommendation that the user keeps declining,
+a project type signal that suggests a different profile entirely), log it:
+
+```bash
+bin/cue-learnings log --type preference \
+                     --key <profile-name>-<short-slug> \
+                     --insight "<one-line description>" \
+                     --confidence 1-10 \
+                     --source observed
+```
+
+Conventions: [../skill-reviewer/references/learnings.md](../skill-reviewer/references/learnings.md).

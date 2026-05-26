@@ -23,6 +23,18 @@ This is the heavyweight cousin of `/code-review`. It runs two passes
 against `git diff <base-branch>` and produces a structured findings
 report with auto-fixes for the mechanical issues.
 
+## Iron contract — every finding is grounded; CRITICAL is never auto-fixed silently
+
+Two non-negotiables:
+
+1. **Every finding cites file:line.** A finding without a file path and
+   line number is a vibe, not a review. Drop it or grep until you have
+   the citation.
+2. **CRITICAL findings (Pass 1) are never auto-applied without the user
+   seeing the diff first.** Mechanical INFORMATIONAL fixes (Pass 2) may
+   batch-apply; SQL/auth/injection fixes never do. A wrong auto-fix on
+   a critical bug ships a worse bug than the original.
+
 ## Setup
 
 1. **Determine base branch.** Default to `main`. If the repo uses
@@ -115,3 +127,22 @@ Everything else gets batched into one `AskUserQuestion` at the end.
 
 If issues are fixed, suggest: "Run your test suite, then `/code-review`
 (the lighter version) to double-check, then ship the PR."
+
+## Capture learnings
+
+If a category of finding kept appearing across this review (same
+antipattern in multiple files, same missed test convention, recurring
+SQL escape mistake), log it so future reviews of this project flag the
+pattern earlier:
+
+```bash
+bin/cue-learnings log --type pitfall \
+                     --key <project-slug>-<short-pattern-name> \
+                     --insight "<one-line: where it lives, what to check>" \
+                     --confidence 1-10 \
+                     --source observed
+```
+
+Only log patterns that span 2+ files or repeat in 2+ reviews. One-off
+bugs go in the PR description, not the learnings log. Convention:
+[../../meta/skill-reviewer/references/learnings.md](../../meta/skill-reviewer/references/learnings.md).

@@ -1,0 +1,90 @@
+#!/usr/bin/python3
+"""List capture targets (monitors) from Mutter DisplayConfig.
+
+Output: JSON to stdout. Used by `cue-rec` for `--monitor N` resolution and
+by interactive pickers ("which display do you want to record?").
+
+Schema:
+  {"monitors": [
+     {"index": 0, "name": "DP-1", "x": 0, "y": 0,
+      "width": 3000, "height": 1920, "scale": 1.0, "primary": true},
+     ...
+  ]}
+
+Exit 1 if Mutter is unavailable (not GNOME / not Wayland / different session).
+"""
+import json
+import sys
+
+import gi
+gi.require_version("Gio", "2.0")
+from gi.repository import Gio, GLib  # noqa: E402
+
+
+def main():
+    try:
+        bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+        proxy = Gio.DBusProxy.new_sync(
+            bus, Gio.DBusProxyFlags.NONE, None,
+            "org.gnome.Mutter.DisplayConfig",
+            "/org/gnome/Mutter/DisplayConfig",
+            "org.gnome.Mutter.DisplayConfig",
+            None,
+        )
+        result = proxy.call_sync("GetCurrentState", None,
+                                 Gio.DBusCallFlags.NONE, -1, None)
+    except GLib.Error as e:
+        print(f"cue-rec-list-targets: Mutter DisplayConfig not reachable: {e.message}",
+              file=sys.stderr)
+        sys.exit(1)
+
+    _serial, physical, logical, _props = result.unpack()
+
+    # Build name → (width, height) map from the physical monitor's current mode.
+    name_to_size = {}
+    for mon in physical:
+        (connector, _vendor, _product, _serial), modes, _props = mon
+        cur_w = cur_h = None
+        for mode in modes:
+            mode_id, w, h, _refresh, _scale, _scales, props = mode
+            if props.get("is-current", False):
+                cur_w, cur_h = int(w), int(h)
+                break
+        if cur_w and cur_h:
+            name_to_size[connector] = (cur_w, cur_h)
+
+    out = {"monitors": []}
+    for idx, lm in enumerate(logical):
+        x, y, scale, _transform, primary, monitor_specs, _props = lm
+        name = monitor_specs[0][0] if monitor_specs else f"monitor-{idx}"
+        size = name_to_size.get(name)
+        if size is None:
+            continue
+        w, h = size
+        # Logical coords are post-scale; scale<1 (HiDPI/fractional) shrinks
+        # the logical box. For full-pixel screencast geometry we want the
+        # logical-space dimensions Mutter actually composites with.
+        scale_f = float(scale) if scale else 1.0
+        lw = int(round(w / scale_f))
+        lh = int(round(h / scale_f))
+        out["monitors"].append({
+            "index": idx,
+            "name": name,
+            "x": int(x),
+            "y": int(y),
+            "width": lw,
+            "height": lh,
+            "scale": scale_f,
+            "primary": bool(primary),
+        })
+
+    out["monitors"].sort(key=lambda m: (m["x"], m["y"]))
+    for new_idx, m in enumerate(out["monitors"]):
+        m["index"] = new_idx
+
+    json.dump(out, sys.stdout, indent=2)
+    sys.stdout.write("\n")
+
+
+if __name__ == "__main__":
+    main()

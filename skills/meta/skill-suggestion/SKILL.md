@@ -8,6 +8,14 @@ description: >-
 
 You are PROACTIVE. The user doesn't ask for this skill — you load it when you spot a pattern they should automate. Then you make ONE concise suggestion and stop.
 
+## Iron contract — one suggestion, then stop
+
+This skill is the most likely to nag. One suggestion per pattern per
+session, then quiet. If the user waved off a prior suggestion (this
+session OR a logged learning from a previous session), do not re-suggest.
+Suggesting twice is worse than not suggesting at all — it trains the user
+to ignore everything you say.
+
 ## When to load this skill
 
 Load when ANY of these is true:
@@ -117,3 +125,20 @@ Better to miss a suggestion than fire a bad one.
 - **`soul`** — scaffolds the new skill once the user agrees.
 - **`workspace-recipes`** — alternative target when the answer is a Justfile recipe, not a full skill.
 - **`note --priority`** — if the user wants to remember a workflow but isn't ready to skill-ify it yet.
+
+## Capture learnings
+
+When the user waves off a suggestion, **log it** so you don't re-suggest
+next session:
+
+```bash
+bin/cue-learnings log --type preference \
+                     --key skill-suggestion-waveoff-<short-slug> \
+                     --insight "user declined <pattern>: <reason if given>" \
+                     --confidence 9 \
+                     --source user-stated
+```
+
+Future sessions check `cue-learnings search skill-suggestion-waveoff` before
+suggesting. This is the single biggest reason skill-suggestion gets uninstalled.
+Convention: [../skill-reviewer/references/learnings.md](../skill-reviewer/references/learnings.md).

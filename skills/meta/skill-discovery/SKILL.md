@@ -15,6 +15,15 @@ allowed-tools: Bash
 
 Analyze the current session's work and suggest skills that would have helped.
 
+## Iron contract — never recommend a skill that doesn't exist
+
+Every suggestion must reference a real skill (already in the registry) or
+be explicitly framed as "scaffold a new skill for X." Suggesting an
+imagined skill that doesn't exist is worse than suggesting nothing — it
+sends the user looking for something they can't install. Also: cap
+suggestions at 3 per session. More than that is noise; the user stops
+reading.
+
 ## When to activate
 
 - User says "what skills would have helped?" or "session review"
@@ -86,3 +95,21 @@ Apply suggestions? I can run:
 - Show what the skill would have automated (concrete example from this session)
 - If no skill exists for the pattern, suggest creating one
 - Keep it to max 3-4 suggestions — don't overwhelm
+
+## Capture learnings
+
+If you noticed a recurring pattern this session that future-you should
+know about (a skill that always gets suggested but never adopted, a
+profile that keeps missing the same capability, a CLI quirk), log it:
+
+```bash
+bin/cue-learnings log --type pattern \
+                     --key <short-slug> \
+                     --insight "<one-line description>" \
+                     --confidence 1-10 \
+                     --source observed
+```
+
+Only log genuine discoveries. A good test: would this insight save time
+in a future session? If yes, log it. If you can't pass that test, don't.
+Convention details: [../skill-reviewer/references/learnings.md](../skill-reviewer/references/learnings.md).

@@ -1,0 +1,130 @@
+#!/usr/bin/python3
+"""cue-rec-daemon — holds the GNOME Shell Screencast D-Bus client alive.
+
+GNOME ties screencast lifetime to the calling D-Bus sender. A `gdbus call`
+returns immediately, Mutter sees the sender vanish, and aborts recording
+mid-flight. This daemon stays connected for the whole recording.
+
+Invoked by `cue-rec`. Not meant to be run directly.
+
+  cue-rec-daemon --status STATUSFILE full <file_template>
+  cue-rec-daemon --status STATUSFILE area <x> <y> <w> <h> <file_template>
+
+After starting the screencast, it writes `OK <pid> <filename>\n` to
+STATUSFILE (atomically via rename). On failure it writes `ERR <message>`
+and exits non-zero. On SIGTERM/SIGINT it calls StopScreencast, waits
+for the call to return, and exits 0.
+"""
+import os
+import signal
+import sys
+import tempfile
+
+import gi
+gi.require_version("Gio", "2.0")
+from gi.repository import Gio, GLib  # noqa: E402
+
+BUS_NAME = "org.gnome.Shell.Screencast"
+OBJ_PATH = "/org/gnome/Shell/Screencast"
+IFACE    = "org.gnome.Shell.Screencast"
+
+
+def write_status(path, line):
+    d = os.path.dirname(path) or "."
+    fd, tmp = tempfile.mkstemp(dir=d, prefix=".cue-rec-status.")
+    try:
+        os.write(fd, line.encode() if isinstance(line, str) else line)
+        os.close(fd)
+        os.rename(tmp, path)
+    except Exception:
+        try: os.unlink(tmp)
+        except OSError: pass
+        raise
+
+
+def die(status_file, msg, code=1):
+    if status_file:
+        try: write_status(status_file, f"ERR {msg}\n")
+        except Exception: pass
+    print(f"cue-rec-daemon: {msg}", file=sys.stderr, flush=True)
+    sys.exit(code)
+
+
+def main(argv):
+    if len(argv) < 5 or argv[1] != "--status":
+        die(None, "usage: cue-rec-daemon --status FILE full|area ...")
+    status_file = argv[2]
+    mode = argv[3]
+    if mode == "full":
+        if len(argv) != 5:
+            die(status_file, "full requires: file")
+        file_tpl = argv[4]
+        area = None
+    elif mode == "area":
+        if len(argv) != 9:
+            die(status_file, "area requires: x y w h file")
+        x, y, w, h = (int(v) for v in argv[4:8])
+        file_tpl = argv[8]
+        area = (x, y, w, h)
+    else:
+        die(status_file, f"unknown mode: {mode}")
+
+    try:
+        bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+        proxy = Gio.DBusProxy.new_sync(
+            bus, Gio.DBusProxyFlags.NONE, None,
+            BUS_NAME, OBJ_PATH, IFACE, None,
+        )
+
+        opts = {
+            "draw-cursor": GLib.Variant("b", True),
+            "framerate":   GLib.Variant("u", 30),
+        }
+
+        if area is None:
+            result = proxy.call_sync(
+                "Screencast",
+                GLib.Variant("(sa{sv})", (file_tpl, opts)),
+                Gio.DBusCallFlags.NONE, -1, None,
+            )
+        else:
+            x, y, w, h = area
+            result = proxy.call_sync(
+                "ScreencastArea",
+                GLib.Variant("(iiiisa{sv})", (x, y, w, h, file_tpl, opts)),
+                Gio.DBusCallFlags.NONE, -1, None,
+            )
+    except GLib.Error as e:
+        die(status_file, f"D-Bus call failed: {e.message}", 2)
+
+    success, filename_used = result.unpack()
+    if not success:
+        die(status_file, f"gnome-shell refused screencast (file_template={file_tpl})")
+
+    write_status(status_file, f"OK {os.getpid()} {filename_used}\n")
+
+    loop = GLib.MainLoop()
+
+    def shutdown(*_a):
+        try:
+            stop_res = proxy.call_sync(
+                "StopScreencast", None,
+                Gio.DBusCallFlags.NONE, -1, None,
+            )
+            (stop_ok,) = stop_res.unpack()
+            if not stop_ok:
+                print("cue-rec-daemon: StopScreencast returned false", file=sys.stderr, flush=True)
+        except GLib.Error as e:
+            print(f"cue-rec-daemon: StopScreencast failed: {e.message}", file=sys.stderr, flush=True)
+        loop.quit()
+        return GLib.SOURCE_REMOVE
+
+    GLib.unix_signal_add(GLib.PRIORITY_HIGH, signal.SIGTERM, shutdown)
+    GLib.unix_signal_add(GLib.PRIORITY_HIGH, signal.SIGINT,  shutdown)
+    GLib.unix_signal_add(GLib.PRIORITY_HIGH, signal.SIGHUP,  shutdown)
+
+    loop.run()
+
+
+if __name__ == "__main__":
+    main(sys.argv)

@@ -81,6 +81,15 @@ Use the TrendRadar MCP server for all news aggregation, trend analysis, and noti
 3. `analyze_sentiment "AI agents"` → gauge market sentiment
 4. `read_articles_batch` → deep-read the top hits
 
+**ROI-ranked content ideation (post-worthy angles only):**
+1. `get_trending_topics(top_n=25)` + `get_latest_news(limit=60)` — cross-correlate signals
+2. For each top candidate: `WebSearch` competitive scan (Yahoo/Bloomberg/Reuters + "hot take" pass) — score saturation, find the undercovered angle
+3. Score each on 5 axes (catalyst clarity, asymmetry, saturation-inverted, brand fit, time-decay) → 0–25
+4. Emit a conclusion-first ranked table + "Pick this one →" recommendation
+5. Hand off to `/trend-to-thread` (Phase 2+) with the chosen angle
+
+Full ideation recipe lives in `trend-to-thread/SKILL.md` Phase 1. Use that skill directly when the user says "ötlet a mai trendből", "/trend-to-thread auto", or "what should we post about today".
+
 ## Prerequisites
 
 - Python 3.12+

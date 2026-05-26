@@ -1,0 +1,474 @@
+#!/usr/bin/env bash
+# cue-rec — start/stop CLI for GNOME Shell screen recording (Wayland)
+#
+# Wraps org.gnome.Shell.Screencast over D-Bus. Recordings land in
+# ~/Videos/cue-rec/. State (current filename + start time) is kept in
+# ~/.cache/cue-rec/current so `stop`/`status` work across shells.
+
+set -euo pipefail
+
+OUT_DIR="${CUE_REC_DIR:-$HOME/Videos/cue-rec}"
+STATE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/cue-rec"
+STATE_FILE="$STATE_DIR/current"
+mkdir -p "$OUT_DIR" "$STATE_DIR"
+
+DAEMON="${CUE_REC_DAEMON:-$(dirname "$(readlink -f "$0")")/cue-rec-daemon}"
+LOG_FILE="$STATE_DIR/daemon.log"
+
+die()  { printf 'cue-rec: %s\n' "$*" >&2; exit 1; }
+info() { printf 'cue-rec: %s\n' "$*"; }
+
+require() { command -v "$1" >/dev/null 2>&1 || die "missing dependency: $1"; }
+[[ -x "$DAEMON" ]] || die "missing daemon: $DAEMON"
+
+# is_recording: state file exists AND the recorded PID is still alive
+is_recording() {
+  [[ -s "$STATE_FILE" ]] || return 1
+  local pid
+  pid=$(awk -F= '/^pid=/{print $2}' "$STATE_FILE")
+  [[ -n "$pid" ]] && kill -0 "$pid" 2>/dev/null
+}
+
+cmd_start() {
+  local area=0 pick=0 kitty=0 name="" geom="" monitor=""
+  while (( $# )); do
+    case "$1" in
+      --area|-a)    area=1 ;;
+      --pick|-p)    pick=1 ;;
+      --kitty|-k)   kitty=1 ;;
+      --name|-n)    shift; name="${1:-}" ;;
+      --geom|-g)    shift; geom="${1:-}" ;;
+      --monitor|-m) shift; monitor="${1:-}" ;;
+      -h|--help)
+        cat <<'USAGE'
+usage: cue-rec start [options]
+  --area, -a              pick a region with slurp (drag with mouse)
+  --pick, -p              interactive numbered menu: pick a monitor
+  --kitty, -k             capture the current kitty window
+                          (auto-detect on X11; on Wayland: drag with slurp)
+  --monitor N, -m N       capture monitor N (index from `cue-rec targets`)
+  --geom X,Y,WxH, -g ...  explicit geometry (e.g. 0,0,1920x1080)
+  --name NAME, -n NAME    label the output file
+no flags = full multi-monitor screen.
+
+For terminal-content (not pixels), use:  cue-rec term
+USAGE
+        return 0 ;;
+      *) die "unknown arg: $1" ;;
+    esac
+    shift
+  done
+
+  # --kitty: try to discover the kitty window's geometry; if Wayland
+  # (no absolute coords exposed), fall back to slurp with guidance.
+  if (( kitty )); then
+    local kgeom=""
+    # X11 path: xdotool can give us active-window absolute geometry
+    if [[ "${XDG_SESSION_TYPE:-}" != "wayland" ]] && command -v xdotool >/dev/null; then
+      local wid wgeom
+      wid=$(xdotool search --class kitty | tail -1 2>/dev/null)
+      if [[ -n "$wid" ]]; then
+        wgeom=$(xdotool getwindowgeometry --shell "$wid" 2>/dev/null)
+        local kx ky kw kh
+        kx=$(awk -F= '/^X=/{print $2}'      <<<"$wgeom")
+        ky=$(awk -F= '/^Y=/{print $2}'      <<<"$wgeom")
+        kw=$(awk -F= '/^WIDTH=/{print $2}'  <<<"$wgeom")
+        kh=$(awk -F= '/^HEIGHT=/{print $2}' <<<"$wgeom")
+        if [[ -n "$kx$ky$kw$kh" ]]; then
+          kgeom="${kx},${ky},${kw}x${kh}"
+          info "auto-detected kitty window (X11): ${kw}x${kh}+${kx}+${ky}"
+        fi
+      fi
+    fi
+    if [[ -z "$kgeom" ]]; then
+      # Wayland fallback: slurp, but tell the user what to do
+      info "Wayland can't expose kitty's absolute position — drag a box around the kitty window"
+      area=1
+    else
+      geom="$kgeom"
+    fi
+  fi
+
+  # --pick: interactive numbered menu (terminal use only — needs /dev/tty)
+  if (( pick )); then
+    [[ -e /dev/tty ]] || die "--pick needs a terminal; use --monitor N or --geom from scripts"
+    require cue-rec-list-targets
+    info "available capture targets:"
+    cue-rec-list-targets | /usr/bin/python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+for m in data['monitors']:
+    pri = ' (primary)' if m['primary'] else ''
+    print(f\"  [{m['index']}] {m['name']:8s}  {m['width']}x{m['height']}+{m['x']}+{m['y']}{pri}\")
+print('  [F] full screen (all monitors)')
+print('  [A] interactive region (slurp drag)')
+"
+    local choice=""
+    read -rp "select target: " choice </dev/tty || die "no input"
+    case "$choice" in
+      F|f) : ;;
+      A|a) area=1 ;;
+      ''|*[!0-9]*) die "invalid choice: $choice" ;;
+      *) monitor="$choice" ;;
+    esac
+  fi
+
+  # --monitor N → resolve to --geom via the targets helper
+  if [[ -n "$monitor" ]]; then
+    [[ "$monitor" =~ ^[0-9]+$ ]] || die "--monitor expects an integer index (see: cue-rec targets)"
+    require cue-rec-list-targets
+    geom=$(cue-rec-list-targets | /usr/bin/python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+for m in data['monitors']:
+    if m['index'] == $monitor:
+        print(f\"{m['x']},{m['y']},{m['width']}x{m['height']}\")
+        break
+else:
+    sys.exit('monitor index $monitor not found')
+") || die "monitor $monitor not found"
+  fi
+
+  if is_recording; then
+    die "already recording → $(awk -F= '/^file=/{print $2}' "$STATE_FILE")"
+  fi
+  # Stale state file from a crashed daemon — clear it.
+  [[ -e "$STATE_FILE" ]] && rm -f "$STATE_FILE"
+
+  local stamp file_tpl
+  stamp=$(date +%Y%m%d-%H%M%S)
+  if [[ -n "$name" ]]; then
+    file_tpl="$OUT_DIR/${stamp}-${name}.webm"
+  else
+    file_tpl="$OUT_DIR/${stamp}.webm"
+  fi
+
+  local status_file="$STATE_DIR/daemon.status"
+  rm -f "$status_file" "$LOG_FILE"
+
+  local geom_args=() mode_label=full
+  if [[ -n "$geom" ]]; then
+    # Parse "X,Y,WxH" → x y w h
+    local gx gy gw gh
+    if ! [[ "$geom" =~ ^(-?[0-9]+),(-?[0-9]+),([0-9]+)x([0-9]+)$ ]]; then
+      die "bad --geom (want X,Y,WxH): $geom"
+    fi
+    gx=${BASH_REMATCH[1]}; gy=${BASH_REMATCH[2]}
+    gw=${BASH_REMATCH[3]}; gh=${BASH_REMATCH[4]}
+    geom_args=(area "$gx" "$gy" "$gw" "$gh")
+    mode_label="area ${gw}x${gh}+${gx}+${gy}"
+    info "recording region ${gw}x${gh}+${gx}+${gy} → $file_tpl"
+  elif (( area )); then
+    require slurp
+    local sgeom x y w h
+    sgeom=$(slurp -f '%x %y %w %h') || die "region cancelled"
+    read -r x y w h <<<"$sgeom"
+    geom_args=(area "$x" "$y" "$w" "$h")
+    mode_label="area ${w}x${h}+${x}+${y}"
+    info "recording region ${w}x${h}+${x}+${y} → $file_tpl"
+  else
+    geom_args=(full)
+    info "recording full screen → $file_tpl"
+  fi
+
+  # Launch detached. Daemon writes OK/ERR to status_file, blocks waiting for SIGTERM.
+  setsid -f "$DAEMON" --status "$status_file" "${geom_args[@]}" "$file_tpl" \
+    >>"$LOG_FILE" 2>&1 </dev/null
+
+  # Poll the status file (up to 5s) for the daemon's confirmation
+  local waited=0 status=""
+  while (( waited < 50 )); do
+    if [[ -s "$status_file" ]]; then
+      status=$(<"$status_file")
+      break
+    fi
+    sleep 0.1
+    waited=$((waited + 1))
+  done
+
+  if [[ -z "$status" ]]; then
+    local log_tail
+    log_tail=$(tail -n 5 "$LOG_FILE" 2>/dev/null || true)
+    die "daemon did not confirm start within 5s${log_tail:+ — log tail:
+$log_tail}"
+  fi
+
+  # status is "OK <pid> <filename>" or "ERR <message>"
+  case "$status" in
+    OK\ *)
+      local pid used
+      pid=$(printf '%s' "$status" | awk '{print $2}')
+      used=$(printf '%s' "$status" | cut -d' ' -f3-)
+      used=${used%$'\n'}
+      [[ -n "$pid" && -n "$used" ]] || die "malformed daemon status: $status"
+      {
+        printf 'file=%s\n'    "$used"
+        printf 'pid=%s\n'     "$pid"
+        printf 'started=%s\n' "$(date +%s)"
+        printf 'mode=%s\n'    "$mode_label"
+      } > "$STATE_FILE"
+      info "started ✓ pid=$pid  (cue-rec stop to finish)"
+      ;;
+    ERR\ *)
+      die "daemon failed: ${status#ERR }"
+      ;;
+    *)
+      die "unknown daemon status: $status"
+      ;;
+  esac
+}
+
+cmd_stop() {
+  is_recording || { [[ -e "$STATE_FILE" ]] && rm -f "$STATE_FILE"; die "not recording"; }
+  local file pid started elapsed
+  file=$(awk -F= '/^file=/{print $2}'    "$STATE_FILE")
+  pid=$(awk  -F= '/^pid=/{print $2}'     "$STATE_FILE")
+  started=$(awk -F= '/^started=/{print $2}' "$STATE_FILE")
+  elapsed=$(( $(date +%s) - started ))
+
+  kill -TERM "$pid" 2>/dev/null || die "could not signal daemon pid=$pid"
+
+  # Wait for the daemon to finish (it calls StopScreencast + exits)
+  local waited=0
+  while kill -0 "$pid" 2>/dev/null; do
+    sleep 0.2
+    waited=$((waited + 1))
+    if (( waited > 50 )); then  # 10s
+      kill -KILL "$pid" 2>/dev/null || true
+      info "daemon did not exit in 10s, killed"
+      break
+    fi
+  done
+  rm -f "$STATE_FILE"
+
+  # gnome-shell flushes the muxer asynchronously
+  for _ in 1 2 3 4 5 6 7 8 9 10; do
+    [[ -s "$file" ]] && break
+    sleep 0.2
+  done
+
+  if [[ -s "$file" ]]; then
+    local size
+    size=$(du -h "$file" | cut -f1)
+    info "stopped ✓  ${elapsed}s, $size"
+    printf '%s\n' "$file"
+  else
+    info "stopped, but file not flushed yet: $file"
+    [[ -s "$LOG_FILE" ]] && info "daemon log: $(tail -n 3 "$LOG_FILE")"
+  fi
+}
+
+cmd_status() {
+  if is_recording; then
+    local file started elapsed mode
+    file=$(awk -F= '/^file=/{print $2}'    "$STATE_FILE")
+    started=$(awk -F= '/^started=/{print $2}' "$STATE_FILE")
+    mode=$(awk -F= '/^mode=/{print $2}'    "$STATE_FILE")
+    elapsed=$(( $(date +%s) - started ))
+    printf 'recording (%s) — %ds elapsed\n  → %s\n' "$mode" "$elapsed" "$file"
+  else
+    printf 'idle\n'
+  fi
+}
+
+cmd_list() {
+  if ! compgen -G "$OUT_DIR/*" >/dev/null; then
+    printf '(no recordings in %s)\n' "$OUT_DIR"
+    return 0
+  fi
+  ls -lh --time-style=long-iso "$OUT_DIR" | awk 'NR>1 {printf "%s  %s  %s %s\n", $6, $7, $5, $8}'
+}
+
+cmd_term() {
+  local name=""
+  while (( $# )); do
+    case "$1" in
+      --name|-n) shift; name="${1:-}" ;;
+      -h|--help)
+        cat <<'USAGE'
+usage: cue-rec term [--name NAME]
+
+  Records the current terminal session as an asciinema .cast file —
+  text-only, tiny (~tens of KB), perfect for CLI demos and README GIFs.
+
+  Runs a new shell inside asciinema. Type `exit` (or Ctrl-D) to stop.
+  Output: ~/Videos/cue-rec/<timestamp>-<name>.cast
+
+  After recording:
+    cue-rec term-gif FILE.cast    # convert to gif (needs agg)
+    cue-rec term-play FILE.cast   # replay in this terminal
+USAGE
+        return 0 ;;
+      *) die "unknown arg: $1" ;;
+    esac
+    shift
+  done
+
+  require asciinema
+  local stamp out
+  stamp=$(date +%Y%m%d-%H%M%S)
+  if [[ -n "$name" ]]; then
+    out="$OUT_DIR/${stamp}-${name}.cast"
+  else
+    out="$OUT_DIR/${stamp}.cast"
+  fi
+  info "recording terminal session → $out"
+  info "type 'exit' or Ctrl-D to stop"
+  asciinema rec "$out"
+  if [[ -s "$out" ]]; then
+    local size
+    size=$(du -h "$out" | cut -f1)
+    info "saved ✓ $size"
+    printf '%s\n' "$out"
+  else
+    die "asciinema did not produce a file"
+  fi
+}
+
+cmd_term_play() {
+  local src="${1:-}"
+  if [[ -z "$src" ]]; then
+    src=$(ls -t "$OUT_DIR"/*.cast 2>/dev/null | head -1)
+    [[ -n "$src" ]] || die "no .cast files in $OUT_DIR (give a path)"
+  fi
+  [[ -f "$src" ]] || die "no such file: $src"
+  require asciinema
+  asciinema play "$src"
+}
+
+cmd_term_gif() {
+  local src="${1:-}"
+  [[ -n "$src" ]] || die "usage: cue-rec term-gif FILE.cast [OUT.gif]"
+  [[ -f "$src" ]] || die "no such file: $src"
+  local out="${2:-${src%.*}.gif}"
+  if ! command -v agg >/dev/null 2>&1; then
+    cat >&2 <<'HINT'
+cue-rec: `agg` (asciinema → gif) not installed. Install with:
+  cargo install --locked agg
+  # or
+  cargo install --git https://github.com/asciinema/agg agg
+HINT
+    exit 1
+  fi
+  info "converting → $out"
+  agg "$src" "$out"
+  info "done → $out  ($(du -h "$out" | cut -f1))"
+}
+
+cmd_play() {
+  local src="${1:-}"
+  if [[ -z "$src" ]]; then
+    # Default: most recently modified file in OUT_DIR
+    src=$(ls -t "$OUT_DIR"/*.{mp4,webm,mkv,mov} 2>/dev/null | head -1)
+    [[ -n "$src" ]] || die "no recordings in $OUT_DIR (give a file path)"
+  fi
+  [[ -f "$src" ]] || die "no such file: $src"
+
+  # Prefer VLC (handles every codec + Wayland + wide textures without GL surprises),
+  # then mpv with explicit GPU context, then ffplay as a last resort.
+  local player
+  for player in vlc mpv ffplay; do
+    command -v "$player" >/dev/null 2>&1 || continue
+    info "playing → $src  ($player)"
+    case "$player" in
+      vlc)    setsid -f vlc --no-video-title-show --play-and-exit "$src" >/dev/null 2>&1 </dev/null ;;
+      mpv)    setsid -f mpv --no-terminal "$src"                       >/dev/null 2>&1 </dev/null ;;
+      ffplay) setsid -f ffplay -autoexit -hide_banner "$src"           >/dev/null 2>&1 </dev/null ;;
+    esac
+    return 0
+  done
+  die "no playable video player found (install vlc or mpv)"
+}
+
+cmd_targets() {
+  require cue-rec-list-targets
+  local fmt="${1:-pretty}"
+  case "$fmt" in
+    --json|json)
+      cue-rec-list-targets ;;
+    --pretty|pretty|"")
+      cue-rec-list-targets | /usr/bin/python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+n = len(data['monitors'])
+print(f'{n} monitor(s) — use \`cue-rec start --monitor N\`:')
+for m in data['monitors']:
+    pri = ' (primary)' if m['primary'] else ''
+    print(f\"  [{m['index']}] {m['name']:8s}  {m['width']}x{m['height']}+{m['x']}+{m['y']}{pri}\")
+" ;;
+    *) die "usage: cue-rec targets [--json|--pretty]" ;;
+  esac
+}
+
+cmd_gif() {
+  local src="${1:-}"
+  [[ -n "$src" ]] || die "usage: cue-rec gif <file.webm|mp4> [out.gif]"
+  [[ -f "$src" ]] || die "no such file: $src"
+  local out="${2:-${src%.*}.gif}"
+  require ffmpeg
+  info "converting → $out"
+  ffmpeg -y -i "$src" \
+    -vf "fps=15,scale=1280:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=128[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5" \
+    -loop 0 "$out" </dev/null
+  info "done → $out  ($(du -h "$out" | cut -f1))"
+}
+
+cmd_mp4() {
+  local src="${1:-}"
+  [[ -n "$src" ]] || die "usage: cue-rec mp4 <file.webm> [out.mp4]"
+  [[ -f "$src" ]] || die "no such file: $src"
+  local out="${2:-${src%.*}.mp4}"
+  require ffmpeg
+  info "converting → $out"
+  ffmpeg -y -i "$src" -c:v libx264 -preset slow -crf 20 -pix_fmt yuv420p -movflags +faststart "$out" </dev/null
+  info "done → $out  ($(du -h "$out" | cut -f1))"
+}
+
+usage() {
+  cat <<'EOF'
+cue-rec — start/stop GNOME screen recording from the CLI
+
+  cue-rec start [options]                begin pixel recording (see: cue-rec start --help)
+       --area / -a                          pick a region with slurp (drag)
+       --pick / -p                          interactive numbered menu (terminal)
+       --kitty / -k                         capture the current kitty window
+       --monitor N / -m N                   capture monitor N (see: cue-rec targets)
+       --geom X,Y,WxH / -g                  explicit geometry
+       --name NAME / -n NAME                label the output file
+  cue-rec stop                            finish current recording, print path
+  cue-rec status                          show recording state
+  cue-rec targets [--json]                list monitors with index/geometry
+  cue-rec list                            list recordings under ~/Videos/cue-rec/
+  cue-rec play [FILE]                     open FILE (or latest) in VLC/mpv (skips broken Totem GL)
+  cue-rec term [--name N]                 record this terminal as a .cast (asciinema, text-only)
+  cue-rec term-play [FILE]                replay a .cast file in this terminal
+  cue-rec term-gif  FILE [OUT]            convert .cast → gif (requires agg)
+  cue-rec gif  FILE [OUT]                 convert webm/mp4 → palette-optimized gif
+  cue-rec mp4  FILE [OUT]                 transcode webm → x264 mp4 (for marketing)
+
+Output dir:   $HOME/Videos/cue-rec      (override with CUE_REC_DIR)
+State file:   $XDG_CACHE_HOME/cue-rec/current
+EOF
+}
+
+main() {
+  local sub="${1:-}"
+  [[ $# -gt 0 ]] && shift || true
+  case "$sub" in
+    start)     cmd_start     "$@" ;;
+    stop)      cmd_stop      "$@" ;;
+    status)    cmd_status    "$@" ;;
+    list)      cmd_list      "$@" ;;
+    targets)   cmd_targets   "$@" ;;
+    play)      cmd_play      "$@" ;;
+    term)      cmd_term      "$@" ;;
+    term-play) cmd_term_play "$@" ;;
+    term-gif)  cmd_term_gif  "$@" ;;
+    gif)       cmd_gif       "$@" ;;
+    mp4)       cmd_mp4       "$@" ;;
+    ""|-h|--help|help) usage ;;
+    *) die "unknown subcommand: $sub  (try 'cue-rec help')" ;;
+  esac
+}
+
+main "$@"

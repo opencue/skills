@@ -1,19 +1,12 @@
 ---
 name: context-restore
 description: |
-  Restore working context saved earlier by /context-save. Loads the most recent
-  saved state (across all branches by default) so you can pick up where you
-  left off — even across Conductor workspace handoffs.
-  Use when asked to "resume", "restore context", "where was I", or
-  "pick up where I left off". Pair with /context-save.
-  Formerly /checkpoint resume — renamed because Claude Code treats /checkpoint
-  as a native rewind alias in current environments.
-allowed-tools: Bash(-:*), Bash(Bash:*)
-  - Bash
-  - Read
-  - Glob
-  - Grep
-  - AskUserQuestion
+  Resume from a context note saved earlier by /context-save. Loads the most
+  recent .cue/context/*.md for the current branch (or asks if multiple match)
+  and replays the task, next-step, decisions, and failed-approach lists. Pair
+  with /context-save. Use when the user says "resume", "restore context",
+  "where was I", or "pick up where I left off".
+allowed-tools: [Bash, Read, Glob, Grep, AskUserQuestion]
 triggers:
   - resume where i left off
   - restore context
@@ -21,115 +14,59 @@ triggers:
   - pick up where i left off
   - context restore
 ---
-## Detect command
 
-Parse the user's input:
+# /context-restore — resume from a saved context note
 
-- `/context-restore` → load the most recent saved context (any branch)
-- `/context-restore <title-fragment-or-number>` → load a specific saved context
-- `/context-restore list` → tell the user "Use `/context-save list` — listing
-  lives on the save side" and exit. No mode detection here.
+## Step 1 — find the right note
 
----
-
-## Restore flow
-
-### Step 1: Find saved contexts
+Look under `.cue/context/`. Match against current branch first:
 
 ```bash
-eval "$(~/.claude/skills/gstack/bin/gstack-slug 2>/dev/null)" && mkdir -p ~/.gstack/projects/$SLUG
-eval "$(~/.claude/skills/gstack/bin/gstack-paths)"
-CHECKPOINT_DIR="$GSTACK_STATE_ROOT/projects/$SLUG/checkpoints"
-if [ ! -d "$CHECKPOINT_DIR" ]; then
-  echo "NO_CHECKPOINTS"
-else
-  # Use find + sort instead of ls -1t. Two reasons:
-  # 1. Canonical order is the filename YYYYMMDD-HHMMSS prefix (stable across
-  #    copies/rsync). Filesystem mtime drifts and is not authoritative.
-  # 2. On macOS, `find ... | xargs ls -1t` with zero results falls back to
-  #    listing cwd. `sort -r` on empty input cleanly returns nothing.
-  # Cap at 20 most recent: a user with 10k saved files shouldn't blow the
-  # context window just listing them. /context-save list handles pagination.
-  FILES=$(find "$CHECKPOINT_DIR" -maxdepth 1 -name "*.md" -type f 2>/dev/null | sort -r | head -20)
-  if [ -z "$FILES" ]; then
-    echo "NO_CHECKPOINTS"
-  else
-    echo "$FILES"
-  fi
-fi
+branch="$(git branch --show-current 2>/dev/null | tr '/' '-')"
+ls -t .cue/context/${branch}-*.md 2>/dev/null | head -3
 ```
 
-**Candidates include every `.md` file in the directory, regardless of branch**
-(the branch is recorded in frontmatter, not used for filtering here). This
-enables Conductor workspace handoff.
+- **One match**: load it.
+- **Multiple matches**: ask via `AskUserQuestion` — list the 3 most
+  recent with timestamps and one-line "Task" preview from each.
+- **No match for current branch**: fall back to the 3 most-recent notes
+  across all branches and ask.
+- **None at all**: tell the user "no saved context found" and stop.
 
-### Step 2: Load the right file
+## Step 2 — read the note
 
-- If the user specified a title fragment or number: find the matching file among
-  the candidates.
-- Otherwise: load the **first file returned by the `sort -r` above** — that is
-  the newest `YYYYMMDD-HHMMSS` prefix, which is the canonical "most recent."
+Read the full markdown. Don't summarize it back to the user word-for-word
+— they wrote it. Just confirm what you absorbed.
 
-Read the chosen file and present a summary:
+## Step 3 — reconcile against current state
 
-```
-RESUMING CONTEXT
-════════════════════════════════════════
-Title:       {title}
-Branch:      {branch from frontmatter}
-Saved:       {timestamp, human-readable}
-Duration:    Last session was {formatted duration} (if available)
-Status:      {status}
-════════════════════════════════════════
+The note was a snapshot. The repo may have moved since:
 
-### Summary
-{summary from saved file}
+- Re-run `git status -s`, `git log -5 --oneline`.
+- If the branch advanced (new commits since the save), say so explicitly:
+  "Note was saved at sha X, branch is now at sha Y (N commits forward)."
+- If the working tree differs from what the note expected, flag the
+  delta and ask whether to proceed.
 
-### Remaining Work
-{remaining work items}
+## Step 4 — report what you'll do next
 
-### Notes
-{notes}
-```
+In one paragraph, state:
 
-If the current branch differs from the saved context's branch, note this:
-"This context was saved on branch `{branch}`. You are currently on
-`{current branch}`. You may want to switch branches before continuing."
+> "Resuming `<task>`. Last action was `<just-done>`. Next step is
+> `<next-step>`. I'll avoid `<failed-approaches>`. Sound right?"
 
-### Step 3: Offer next steps
+Then wait for confirmation before continuing.
 
-After presenting, ask via AskUserQuestion:
+## Anti-patterns
 
-- A) Continue working on the remaining items
-- B) Show the full saved file
-- C) Just needed the context, thanks
+- ❌ Loading the note and immediately starting work. The state may have
+  moved — confirm with the user first.
+- ❌ Reading only the "next step" field. The failed-approaches and
+  decisions sections are why the note exists.
+- ❌ Picking the newest note across branches when the current branch
+  has its own. Branch match wins.
 
-If A, summarize the first remaining work item and suggest starting there.
+## After restoring
 
----
-
-## If no saved contexts exist
-
-If Step 1 printed `NO_CHECKPOINTS`, tell the user:
-
-"No saved contexts yet. Run `/context-save` first to save your current working
-state, then `/context-restore` will find it."
-
----
-
-## Important Rules
-
-- **Never modify code.** This skill only reads saved files and presents them.
-- **Always search across all branches by default.** Cross-branch resume is the
-  whole point. Only filter by branch if the user explicitly asks via a
-  title-fragment match that happens to be branch-specific.
-- **"Most recent" means the filename `YYYYMMDD-HHMMSS` prefix**, not
-  `ls -1t` (filesystem mtime). Filenames are stable across file-system
-  operations; mtime is not.
-- **This is a gstack skill, not a Claude Code built-in.** When the user types
-  `/context-restore`, invoke this skill via the Skill tool.
-
-
-## Prerequisites
-
-- `-` — install via your package manager
+Continue the task. Don't write a fresh `/context-save` yet — that
+happens later when the user wants to checkpoint.
