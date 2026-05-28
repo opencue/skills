@@ -1,685 +1,2002 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-05-09T14:47:20Z",
+  "schema_version": "2.0",
+  "generated_at": "2026-05-28T15:30:11Z",
   "offline": true,
   "counts": {
-    "installed": 100,
+    "installed": 257,
     "upstream": 0,
-    "mcps": 14
+    "mcps": 22
   },
   "installed": [
     {
-      "name": "caveman-commit",
-      "description": "Ultra-compressed commit message generator. Cuts noise from commit messages while preserving intent and reasoning. Conventional Commits format. Subject ≤50 chars, body only when \"why\" isn't obvious. Use when user says \"write a commit\", \"commit message\", \"generate commit\", \"/commit\", or invokes /caveman-commit. Auto-triggers when staging changes.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/caveman/caveman-commit/SKILL.md",
-      "category": "caveman"
-    },
-    {
-      "name": "caveman-compress",
-      "description": "Compress natural language memory files (CLAUDE.md, todos, preferences) into caveman format to save input tokens. Preserves all technical substance, code, URLs, and structure. Compressed version overwrites the original file. Human-readable backup saved as FILE.original.md. Trigger: /caveman:compress <filepath> or \"compress memory file\"",
-      "source": "/home/deadpool/Documents/soul/skills/skills/caveman/caveman-compress/SKILL.md",
-      "category": "caveman"
-    },
-    {
-      "name": "caveman-help",
-      "description": "Quick-reference card for all caveman modes, skills, and commands. One-shot display, not a persistent mode. Trigger: /caveman-help, \"caveman help\", \"what caveman commands\", \"how do I use caveman\".",
-      "source": "/home/deadpool/Documents/soul/skills/skills/caveman/caveman-help/SKILL.md",
-      "category": "caveman"
-    },
-    {
-      "name": "caveman-review",
-      "description": "Ultra-compressed code review comments. Cuts noise from PR feedback while preserving the actionable signal. Each comment is one line: location, problem, fix. Use when user says \"review this PR\", \"code review\", \"review the diff\", \"/review\", or invokes /caveman-review. Auto-triggers when reviewing pull requests.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/caveman/caveman-review/SKILL.md",
-      "category": "caveman"
-    },
-    {
-      "name": "caveman",
-      "description": "Ultra-compressed communication mode that cuts token usage ~75% by speaking like caveman while preserving technical accuracy. Levels: lite, full, ultra, wenyan-{lite,full,ultra}. Use when user says caveman mode, talk like caveman, less tokens, be brief, or invokes /caveman.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/caveman/caveman/SKILL.md",
-      "category": "caveman"
-    },
-    {
-      "name": "colony-prompts",
-      "description": "Use when user says \"colony:prompts\", \"generate colony planner prompts\", \"add N agent prompts to planner\", \"wave plan for colony\", \"split this into parallel agent prompts\", \"/colony-prompts\", or asks to scaffold N parallel-safe agent prompt files for the colony hivemind planner. Produces prompt files at apps/frontend/public/colony-planner/prompts/agent-NN.md in the canonical Goal/Read/Implement/Constraints/Proof format with file-ownership invariants per wave. NOT for solo single-file tasks — use this only when the user wants a multi-agent wave plan.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/colony/colony-prompts/SKILL.md",
-      "category": "colony"
-    },
-    {
-      "name": "colony",
-      "description": "Use when user says handoff, claim this file, who owns this, check the inbox, what's blocking me, /colony, /task, /handoff, or anything multi-agent or quota-safe. Loads the Colony contract — hivemind_context, attention_inbox, task_ready_for_agent, claim files before edits, task_note_working updates, quota-safe handoff/relay before stopping. NOT for solo single-file edits.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/colony/colony/SKILL.md",
-      "category": "colony"
-    },
-    {
-      "name": "doc",
-      "description": "Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters; prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/content/doc/SKILL.md",
-      "category": "content"
-    },
-    {
-      "name": "pdf",
-      "description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/content/pdf/SKILL.md",
-      "category": "content"
-    },
-    {
-      "name": "playwright",
-      "description": "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/content/playwright/SKILL.md",
-      "category": "content"
-    },
-    {
-      "name": "coolify",
-      "description": "Use when user mentions Coolify, asks to deploy/manage apps on Coolify, list servers, manage env vars, trigger deployments, or run Coolify CLI workflows. Drives the local coolify CLI for contexts, servers, apps, databases, services, and GitHub app integrations.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/deployment/coolify/SKILL.md",
-      "category": "deployment"
-    },
-    {
-      "name": "pnpm",
-      "description": "Node.js package manager with strict dependency resolution. Use when running pnpm specific commands, configuring workspaces, or managing dependencies with catalogs, patches, or overrides.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/deployment/pnpm/SKILL.md",
-      "category": "deployment"
-    },
-    {
-      "name": "supabase",
-      "description": "Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector).",
-      "source": "/home/deadpool/Documents/soul/skills/skills/deployment/supabase/SKILL.md",
-      "category": "deployment"
-    },
-    {
-      "name": "brandkit",
-      "description": "Use when user says \"brand kit\", \"brand guidelines\", \"logo system\", \"identity deck\", \"visual identity\", \"brand world\", or \"brand board\". Generates brand-guidelines presentation boards as images — logo concepts, mockups, typography, color, and brand applications across minimalist, editorial, dark-tech, luxury, gaming, and consumer styles.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/brandkit/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "design-taste-frontend",
-      "description": "Use when building React/Next.js UI and the user asks for high-taste frontend, Tailwind components, motion-rich pages, or \"design like a real engineer\". Enforces dependency checks, RSC/client boundaries, Tailwind version rules, no-emoji policy, viewport-stable layouts, and tuned variance/motion/density baselines.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/design-taste-frontend/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "gpt-taste",
-      "description": "Use when user asks for an \"Awwwards-level\" landing page, GSAP scroll site, bento layout, or wants to break LLM design defaults. Enforces seeded layout randomization, AIDA page structure, wide editorial typography, gapless bento grids, GSAP ScrollTrigger pinning/stacking/scrubbing, and large section spacing.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/gpt-taste/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "high-end-visual-design",
-      "description": "Use when user asks for \"agency-level\", \"expensive-looking\", \"Apple-tier\", or \"Linear-tier\" website design, or wants to escape generic AI output. Specifies banned fonts (Inter, Roboto), banned shadows/borders/motion, and selects from vetted vibe/layout archetypes (Ethereal Glass, Editorial Luxury, Asymmetrical Bento) for premium results.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/high-end-visual-design/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "imagegen-frontend-mobile",
-      "description": "Use when user asks for mobile app screen mockups, iOS/Android UI concepts, onboarding/auth/dashboard/chat/fintech/health screens, or multi-screen app flows. Generates images only (no code) of app screens framed inside subtle phone mockups with consistent palettes and readable hierarchy. NOT for websites or landing pages — use imagegen-frontend-web.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/imagegen-frontend-mobile/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "imagegen-frontend-web",
-      "description": "Use when user asks for landing page mockups, marketing site references, hero/section images, or website design comps. Generates one horizontal image per section (8 sections = 8 images, never combined), with varied hero composition, varied CTAs, and a single consistent palette across all images. NOT for mobile apps — use imagegen-frontend-mobile.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/imagegen-frontend-web/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "image-to-code",
-      "description": "Use when user wants a website built from a design image, asks to \"design then code\", or wants section-by-section landing/marketing/portfolio pages. Generates per-section reference images first, analyzes them, then implements matching frontend. Forces large readable images per section, no card-in-card spam, and clean spacious hero composition.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/image-to-code/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "industrial-brutalist-ui",
-      "description": "Use when user asks for \"brutalist\", \"Swiss design\", \"terminal UI\", \"tactical/military HUD\", \"blueprint\", \"monospace dashboard\", or \"industrial\" interfaces. Builds rigid modular grids, extreme type-scale contrast, utilitarian palettes, monospaced type, and analog degradation (halftones, scanlines, dithering) for data-heavy dashboards, portfolios, and editorial sites.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/industrial-brutalist-ui/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "minimalist-ui",
-      "description": "Use when user asks for \"minimalist\", \"editorial\", \"Notion-style\", \"document-style\", or \"ultra-flat\" interfaces. Builds warm monochrome palettes, serif/sans typographic contrast, flat bento grids, and muted pastel accents. Bans Inter/Roboto, gradients, heavy shadows, neon, glassmorphism, and pill-shaped buttons.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/minimalist-ui/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "png-alpha-cleaner",
-      "description": "Use when a user wants an image or logo to be a real transparent PNG, remove a baked checkerboard/white background, add an alpha channel, verify PNG/RGBA bytes, or fix a file that only has a .png extension but no usable transparency.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/png-alpha-cleaner/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "redesign-existing-projects",
-      "description": "Use when user says \"redesign\", \"upgrade this site\", \"make this look better\", \"fix the design\", or \"audit my UI\". Scans an existing project, diagnoses generic AI design patterns (default fonts, weak hierarchy, boring layouts), and applies targeted typography/spacing/color/motion fixes in place. Works with Tailwind, vanilla CSS, styled-components.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/redesign-existing-projects/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "remotion-best-practices",
-      "description": "Use when working with Remotion code, scaffolding a new video project (`create-video`), or animating React components into video. Covers `useCurrentFrame`, `interpolate`, easing, compositions, and rendering. Trigger phrases — Remotion, video in React, programmatic video, render video from code.\nUse when working with Remotion code, scaffolding a new video project (`create-video`), or animating React components into video. Covers `useCurrentFrame`, `interpolate`, easing, compositions, and rendering. Trigger phrases — Remotion, video in React, programmatic video, render video from code.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/remotion-best-practices/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "screenshot",
-      "description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/screenshot/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "stitch-design-taste",
-      "description": "Use when user mentions \"Google Stitch\", \"Stitch design\", \"DESIGN.md for Stitch\", or wants a semantic design system to drive Stitch screen generation. Produces a DESIGN.md encoding atmosphere, color palette, typography, components, layout, motion, and explicit anti-patterns Stitch's agent can follow.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/stitch-design-taste/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "ui-ux-pro-max",
-      "description": "Use when user asks to \"design\", \"build\", \"create\", \"review\", or \"improve\" a UI/UX and wants vetted recommendations. Queries a searchable Python database of 67 styles, 96 color palettes, 57 font pairings, 99 UX guidelines, and 25 chart types across 13 stacks to return a full design system (pattern, style, colors, typography, anti-patterns) for the requested product type.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/ui-ux-pro-max/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "visual-verdict",
-      "description": "Use when comparing a generated UI screenshot against one or more reference images and you need a deterministic pass/fail signal. Returns strict JSON `{score, verdict, category_match, differences, suggestions, reasoning}` with a 90+ pass threshold to drive the next edit iteration in visual-fidelity loops.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/design/visual-verdict/SKILL.md",
-      "category": "design"
-    },
-    {
-      "name": "gh-fix-ci",
-      "description": "Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/github/gh-fix-ci/SKILL.md",
-      "category": "github"
-    },
-    {
-      "name": "gitguardex",
-      "description": "Use when repo safety might be broken (failing CI, dirty working tree, dropped submodules, weird branch state). Runs the gx (gitguardex) guardrail flow — gx status to assess, gx doctor to repair, gx status --strict to verify. Bootstrap via gx setup. NOT for code-quality review — use code-review.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/github/gitguardex/SKILL.md",
-      "category": "github"
-    },
-    {
-      "name": "github",
-      "description": "GitHub operations via the `gh` CLI — issues, PRs, CI runs, code review, API queries. Use when checking PR status or CI, creating/commenting on issues, listing/filtering PRs or issues, or viewing run logs. NOT for bulk cross-repo work (script with `gh api`) or unconfigured `gh auth`.\nGitHub operations via the `gh` CLI — issues, PRs, CI runs, code review, API queries. Use when checking PR status or CI, creating/commenting on issues, listing/filtering PRs or issues, or viewing run logs. NOT for bulk cross-repo work (script with `gh api`) or unconfigured `gh auth`.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/github/github/SKILL.md",
-      "category": "github"
-    },
-    {
-      "name": "guardex-merge-skills-to-dev",
-      "description": "Use when you need to merge SKILL.md updates from agent branches/worktrees into the local base branch (default: dev) with the multiagent-safety flow.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/github/guardex-merge-skills-to-dev/SKILL.md",
-      "category": "github"
-    },
-    {
-      "name": "higgsfield-generate",
-      "description": "Use when user says 'generate image/video', 'animate this photo', 'image-to-video', 'remix/stylize this', 'create an ad', or 'UGC video'. Runs Higgsfield models and Marketing Studio. Chain with higgsfield-soul-id for face consistency. NOT for product photoshoots or marketplace cards.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/higgsfield/higgsfield-generate/SKILL.md",
-      "category": "higgsfield"
-    },
-    {
-      "name": "higgsfield-marketplace-cards",
-      "description": "Use when user asks for 'marketplace listing images', 'product detail cards', 'A+ content', 'Amazon/Shopee/eBay images', or sales-ready listing sets. Generates compliant main image plus secondary and A+ modules. NOT for generic brand photography — use higgsfield-product-photoshoot.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/higgsfield/higgsfield-marketplace-cards/SKILL.md",
-      "category": "higgsfield"
-    },
-    {
-      "name": "higgsfield-product-photoshoot",
-      "description": "Use when user says 'product photo', 'studio shot', 'lifestyle image', 'hero banner', 'ad creative', 'virtual try-on', or wants brand/paid-social product visuals. Backend-enhanced prompts on GPT Image 2. NOT for marketplace listing cards (use higgsfield-marketplace-cards) or generic image-gen.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/higgsfield/higgsfield-product-photoshoot/SKILL.md",
-      "category": "higgsfield"
-    },
-    {
-      "name": "higgsfield-soul-id",
-      "description": "Use when user says 'train my face', 'create my Soul', 'make my digital twin', or 'build my avatar'. One-time training of a Soul Character face model; returns reference_id used by higgsfield-generate. NOT for one-shot face swaps or generating images — use higgsfield-generate.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/higgsfield/higgsfield-soul-id/SKILL.md",
-      "category": "higgsfield"
-    },
-    {
-      "name": "dns",
-      "description": "Hostinger DNS API for zone record management, snapshots, and validation. Use when creating, updating, or deleting DNS records, restoring DNS snapshots, validating zone changes, or resetting DNS to defaults.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/hostinger/dns/SKILL.md",
-      "category": "hostinger"
-    },
-    {
       "name": "domains",
-      "description": "Hostinger Domains API for domain portfolio management, availability checks, forwarding, WHOIS profiles, nameservers, domain lock, and privacy protection. Use when registering domains, checking availability, managing DNS delegation, configuring redirects, or handling WHOIS contact information.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/hostinger/domains/SKILL.md",
-      "category": "hostinger"
+      "description": "Use when user says \"Hostinger domain\", \"buy domain\", or \"domain settings\". Registration, nameservers, ownership, renewal.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/hostinger/domains/SKILL.md",
+      "category": "hostinger",
+      "tags": []
     },
     {
       "name": "hosting",
-      "description": "Hostinger Hosting API for website management, order listing, datacenter selection, domain verification, and free subdomain generation. Use when creating websites, listing hosting orders, choosing datacenters, verifying domain ownership, or generating free subdomains.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/hostinger/hosting/SKILL.md",
-      "category": "hostinger"
+      "description": "Use when user says \"Hostinger hosting\", \"upload site\", or \"shared hosting\". Static deploys, files, domains, SSL.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/hostinger/hosting/SKILL.md",
+      "category": "hostinger",
+      "tags": []
+    },
+    {
+      "name": "dns",
+      "description": "Use when user says \"Hostinger DNS\", \"DNS record\", or \"point domain\". Records, propagation, verification, rollback risk.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/hostinger/dns/SKILL.md",
+      "category": "hostinger",
+      "tags": []
     },
     {
       "name": "vps",
-      "description": "Hostinger VPS API for virtual machine management, Docker projects, firewalls, SSH keys, backups, snapshots, OS templates, post-install scripts, recovery mode, malware scanning, PTR records, and metrics. Use when creating, managing, or troubleshooting VPS instances, deploying Docker containers, configuring firewalls, or managing server infrastructure.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/hostinger/vps/SKILL.md",
-      "category": "hostinger"
+      "description": "Use when user says \"Hostinger VPS\", \"server deploy\", or \"VPS access\". SSH, services, Docker, logs, health, safe ops.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/hostinger/vps/SKILL.md",
+      "category": "hostinger",
+      "tags": []
     },
     {
-      "name": "building-admin-dashboard-customizations",
-      "description": "Load automatically when planning, researching, or implementing Medusa Admin dashboard UI (widgets, custom pages, forms, tables, data loading, navigation). REQUIRED for all admin UI work in ALL modes (planning, implementation, exploration). Contains design patterns, component usage, and data loading patterns that MCP servers don't provide.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/building-admin-dashboard-customizations/SKILL.md",
-      "category": "medusa"
+      "name": "cue-rec",
+      "description": "Record the current desktop/terminal session to a video for marketing, demos, or sharing a flow. Wraps GNOME Shell's built-in Screencast over D-Bus on Wayland (no extra deps beyond ffmpeg + slurp). Use when the user says \"record this session\", \"screencast this\", \"make a marketing video\", \"make a demo video\", \"start recording\", \"stop the recording\", \"capture this flow\", or invokes /cue-rec.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/cue-rec/SKILL.md",
+      "category": "marketing",
+      "tags": [
+        "marketing",
+        "video",
+        "demo",
+        "screencast",
+        "wayland",
+        "gnome"
+      ]
     },
     {
-      "name": "building-storefronts",
-      "description": "Load automatically when planning, researching, or implementing Medusa storefront features (calling custom API routes, SDK integration, React Query patterns, data fetching). REQUIRED for all storefront development in ALL modes (planning, implementation, exploration). Contains SDK usage patterns, frontend integration, and critical rules for calling Medusa APIs.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/building-storefronts/SKILL.md",
-      "category": "medusa"
+      "name": "wedding-invitations",
+      "description": "Use when designing a wedding invitation, save-the-date, or RSVP card from a conversation — bespoke HTML rendered to a print-ready PNG, any language, any aesthetic, fully local. Pointer to upstream wyx-sg/wedding-invitation-skill.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/event-design/wedding-invitations/SKILL.md",
+      "category": "event-design",
+      "tags": []
     },
     {
-      "name": "building-with-medusa",
-      "description": "Load automatically when planning, researching, or implementing ANY Medusa backend features (custom modules, API routes, workflows, data models, module links, business logic). REQUIRED for all Medusa backend work in ALL modes (planning, implementation, exploration). Contains architectural patterns, best practices, and critical rules that MCP servers don't provide.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/building-with-medusa/SKILL.md",
-      "category": "medusa"
-    },
-    {
-      "name": "creating-agents-in-medusa",
-      "description": "Use when building an internal admin-facing AI agent in a Medusa project — operated by merchants/operators, NOT customers. Covers data models, module service, agent runtime (tools, system prompt, streamText), streaming NDJSON API routes, and admin UI chat extensions. NOT for storefront / buyer-side chatbots.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/creating-internal-agents/SKILL.md",
-      "category": "medusa"
-    },
-    {
-      "name": "db-generate",
-      "description": "Generate database migrations for a Medusa module via `npx medusa db:generate <module-name>`. Use when user says /medusa-dev:db-generate, generate migrations for module X, or modifies a Medusa module data model and needs migration files. Pair with /db-migrate to apply.\nGenerate database migrations for a Medusa module via `npx medusa db:generate <module-name>`. Use when user says /medusa-dev:db-generate, generate migrations for module X, or modifies a Medusa module data model and needs migration files. Pair with /db-migrate to apply.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/db-generate/SKILL.md",
-      "category": "medusa"
+      "name": "creating-internal-agents",
+      "description": "Use when user says \"Medusa agent\", \"admin AI agent\", \"internal agent\", or \"streamText\". Internal admin-facing AI: models, module service, runtime tools, NDJSON routes, admin chat UI. NOT for buyer storefront chatbots.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/creating-internal-agents/SKILL.md",
+      "category": "medusa",
+      "tags": []
     },
     {
       "name": "db-migrate",
-      "description": "Apply pending Medusa database migrations via `npx medusa db:migrate`. Use when user says /medusa-dev:db-migrate, run migrations, apply pending migrations, or after running /db-generate to bring the database up to date. Reports applied count plus any errors.\nApply pending Medusa database migrations via `npx medusa db:migrate`. Use when user says /medusa-dev:db-migrate, run migrations, apply pending migrations, or after running /db-generate to bring the database up to date. Reports applied count plus any errors.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/db-migrate/SKILL.md",
-      "category": "medusa"
+      "description": "Use when user says \"medusa db:migrate\" or \"run migrations\". Medusa migration apply: env checks, commands, rollback risk.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/db-migrate/SKILL.md",
+      "category": "medusa",
+      "tags": []
     },
     {
-      "name": "gh-submodule-publish",
-      "description": "Create missing GitHub repos and push a parent repo that tracks app repos as Git submodules. Use when user asks to publish locally-initialized repos, push parent + backend/storefront submodules, create org-scoped repos, recover from broken `gh auth` / SSH publickey errors, or fix missing workflow token scope.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/gh-submodule-publish/SKILL.md",
-      "category": "medusa"
-    },
-    {
-      "name": "medusa-reference",
-      "description": "Medusa implementation guidance for backend and storefront work. Use when building or modifying Medusa workflows, subscribers, API routes, auth, data models, query logic, jobs, or storefront integrations.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/medusa-reference/SKILL.md",
-      "category": "medusa"
-    },
-    {
-      "name": "new-admin-via-api",
-      "description": "Create a Medusa v2 admin user against a running backend over HTTP, no CLI/SSH required. Two flows: (a) invite-accept for ADDITIONAL admins (needs an existing admin's session to mint the invite), (b) CLI fallback for the FIRST admin (no admin exists yet — Medusa v2 has no public POST /admin/users). Use when user says \"create admin via API\", \"invite admin\", \"new admin on the live site\", or supplies a backend URL + email + password and login is at /app/login. Medusa v2-only.\nCreate a Medusa v2 admin user against a running backend over HTTP, no CLI/SSH required. Two flows: (a) invite-accept for ADDITIONAL admins (needs an existing admin's session to mint the invite), (b) CLI fallback for the FIRST admin (no admin exists yet — Medusa v2 has no public POST /admin/users). Use when user says \"create admin via API\", \"invite admin\", \"new admin on the live site\", or supplies a backend URL + email + password and login is at /app/login. Medusa v2-only.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/new-admin-via-api/SKILL.md",
-      "category": "medusa"
-    },
-    {
-      "name": "new-user",
-      "description": "Create a new Medusa admin user via `npx medusa user -e <email> -p <password>`. Use when user says create admin, new admin user, /medusa-dev:user, or supplies an email + password pair for a Medusa backend. Medusa-only — NOT for general user creation.\nCreate a new Medusa admin user via `npx medusa user -e <email> -p <password>`. Use when user says create admin, new admin user, /medusa-dev:user, or supplies an email + password pair for a Medusa backend. Medusa-only — NOT for general user creation.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/new-user/SKILL.md",
-      "category": "medusa"
+      "name": "db-generate",
+      "description": "Use when user says \"medusa db:generate\" or \"generate migration\". Medusa migration generation: model changes, commands, review.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/db-generate/SKILL.md",
+      "category": "medusa",
+      "tags": []
     },
     {
       "name": "storefront-best-practices",
-      "description": "Use when working on ecommerce storefronts (Next.js, SvelteKit, React, Vue) — checkout, cart, payment flows, product pages, navigation, homepage, or ANY storefront component. Critical for adding checkout, implementing cart, integrating a Medusa backend, or building ecommerce functionality.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/storefront-best-practices/SKILL.md",
-      "category": "medusa"
+      "description": "Use when user says \"storefront best practices\" or \"storefront architecture\". Data fetching, UX, caching, errors.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/storefront-best-practices/SKILL.md",
+      "category": "medusa",
+      "tags": []
+    },
+    {
+      "name": "new-admin-via-api",
+      "description": "Use when user says \"create Medusa admin\", \"new admin via API\", or \"add admin user\". API-based admin creation: auth, request, envs.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/new-admin-via-api/SKILL.md",
+      "category": "medusa",
+      "tags": []
+    },
+    {
+      "name": "medusa-reference",
+      "description": "Use when user says \"Medusa workflow\", \"Medusa subscriber\", \"Medusa auth\", \"Medusa query\", or builds/modifies API routes, models, jobs, backend logic, storefront integrations.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/medusa-reference/SKILL.md",
+      "category": "medusa",
+      "tags": []
+    },
+    {
+      "name": "building-with-medusa",
+      "description": "Use when user says \"Medusa backend\", \"custom module\", \"API route\", \"workflow\", or \"data model\". Required for Medusa modules, routes, workflows, links, business logic.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/building-with-medusa/SKILL.md",
+      "category": "medusa",
+      "tags": []
+    },
+    {
+      "name": "building-storefronts",
+      "description": "Use when user says \"Medusa storefront\", \"call Medusa API\", \"SDK integration\", or \"React Query\". Required for storefront fetching, mutations, cache, Medusa API calls.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/building-storefronts/SKILL.md",
+      "category": "medusa",
+      "tags": []
+    },
+    {
+      "name": "higgsfield-to-medusa-products",
+      "description": "Use when user says \"Higgsfield to Medusa\", \"generate product photos\", or \"import AI product assets\". Asset generation → product mapping → import.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/higgsfield-to-medusa-products/SKILL.md",
+      "category": "medusa",
+      "tags": []
+    },
+    {
+      "name": "new-user",
+      "description": "Use when user says \"new Medusa user\", \"create first admin\", or \"add user\". CLI/API user creation, credentials.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/new-user/SKILL.md",
+      "category": "medusa",
+      "tags": []
+    },
+    {
+      "name": "medusa-local-dev",
+      "description": "Use when starting any Medusa shop locally (backend + storefront), when two shops collide on port 9000 or 3000, when \"EADDRINUSE :::9000\" appears, or when running multiple shops side-by-side under ~/Documents/medusa-shops/ and ~/Documents/recodee/.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/medusa-local-dev/SKILL.md",
+      "category": "medusa",
+      "tags": []
+    },
+    {
+      "name": "marva-blog-author",
+      "description": "Use when user says \"write a MARVA blog post\", \"marvahome blog\", \"publish MARVA blog\", \"generate Hungarian blog for marvahome\", \"MARVA Home cikk\", or asks to draft, author, push, or publish an SEO blog post for marvahome.com. End-to-end: Hungarian SEO+GEO authoring → marva-blog MCP push → Higgsfield thumbnail.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/marva-blog-author/SKILL.md",
+      "category": "medusa",
+      "tags": [
+        "3-6 lowercase Hungarian — prefer COMMON_TAGS"
+      ]
+    },
+    {
+      "name": "building-admin-dashboard-customizations",
+      "description": "Use when user says \"Medusa admin\", \"admin widget\", \"custom admin page\", or \"admin form\". Required for Medusa Admin widgets, pages, forms, tables, data loading.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/building-admin-dashboard-customizations/SKILL.md",
+      "category": "medusa",
+      "tags": []
     },
     {
       "name": "woocommerce-to-medusa-import",
-      "description": "Build or run WooCommerce product importers into Medusa v2 backends. Use when importing WooCommerce products, variations, categories, images, prices, inventory, or metadata into Medusa, especially repos with apps/backend. Includes safe secret handling, dry-run/idempotent import rules, Medusa workflow usage, and verification steps.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/medusa/woocommerce-to-medusa-import/SKILL.md",
-      "category": "medusa"
+      "description": "Use when user says \"WooCommerce import\", \"migrate products\", or \"Woo to Medusa\". Extraction, mapping, assets, import.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/woocommerce-to-medusa-import/SKILL.md",
+      "category": "medusa",
+      "tags": []
     },
     {
-      "name": "analyze",
-      "description": "[OMX] Use when user says 'analyze', 'investigate', 'why does X', 'what's causing', 'how is X wired'. Read-only cross-file repo analysis: ranked explanations, confidence, file:line evidence, evidence-vs-inference boundaries. NOT for edits/fixes — use $ralph or $plan.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/analyze/SKILL.md",
-      "category": "meta"
+      "name": "gh-submodule-publish",
+      "description": "Use when user says \"publish submodule\" or \"Medusa submodule publish\". Repo state, commits, push, references, validation.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/gh-submodule-publish/SKILL.md",
+      "category": "medusa",
+      "tags": []
     },
     {
-      "name": "ask-claude",
-      "description": "[OMX] Use when user says 'ask claude', '/ask-claude', 'second opinion from claude', or wants Claude as external advisor for review/brainstorm. Runs local `claude -p` CLI (not MCP), saves output to .omx/artifacts/claude-*.md with prompt, raw output, summary, action items.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/ask-claude/SKILL.md",
-      "category": "meta"
+      "name": "medusa-shop-setup",
+      "description": "Use when user says \"new Medusa shop\", \"setup Medusa store\", or \"Medusa shop scaffold\". Base template, backend, storefront, envs, deployment.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/medusa-shop-setup/SKILL.md",
+      "category": "medusa",
+      "tags": []
     },
     {
-      "name": "ask-gemini",
-      "description": "[OMX] Use when user says 'ask gemini', '/ask-gemini', 'second opinion from gemini', or wants Gemini as external advisor for design feedback or brainstorming. Runs local `gemini -p` CLI (not MCP), saves output to .omx/artifacts/gemini-*.md with prompt, raw output, summary, action items.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/ask-gemini/SKILL.md",
-      "category": "meta"
+      "name": "provision-medusa-s3-bucket",
+      "description": "Use when user says \"Medusa S3\", \"provision bucket\", or \"file storage bucket\". S3 provisioning: envs, provider, access.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/medusa/provision-medusa-s3-bucket/SKILL.md",
+      "category": "medusa",
+      "tags": []
     },
     {
-      "name": "configure-notifications",
-      "description": "[OMX] Use when user says 'configure/setup notifications', 'configure discord/telegram/slack/openclaw', 'discord webhook', 'telegram bot', 'slack webhook'. Edits ~/.codex/.omx-config.json with native (Discord/Telegram/Slack) or generic (custom_webhook_command, custom_cli_command), verbosity, idle cooldown, reply listener.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/configure-notifications/SKILL.md",
-      "category": "meta"
+      "name": "setup-deploy",
+      "description": "Configure deployment settings for /land-and-deploy. Detects your deploy platform (Fly.io, Render, Vercel, Netlify, Heroku, GitHub Actions, custom), production URL, health check endpoints, and deploy status commands. Writes the configuration to CLAUDE.md so all future deploys are automatic. Use when: \"setup deploy\", \"configure deployment\", \"set up land-and-deploy\", \"how do I deploy with gstack\", \"add deploy config\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/setup-deploy/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "doctor",
-      "description": "[OMX] Use when user says 'omx doctor', 'diagnose omx', 'fix oh-my-codex install', or sees duplicate skills / stale plugin cache / legacy ~/.agents/skills overlap. Audits plugin cache, config.toml hooks, legacy bash hooks, AGENTS.md, skill roots; offers auto-fix.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/doctor/SKILL.md",
-      "category": "meta"
+      "name": "investigate",
+      "description": "Systematic debugging with root cause investigation. Four phases: investigate, analyze, hypothesize, implement. Iron Law: no fixes without root cause. Use when asked to \"debug this\", \"fix this bug\", \"why is this broken\", \"investigate this error\", or \"root cause analysis\". Proactively invoke this skill (do NOT debug directly) when the user reports errors, 500 errors, stack traces, unexpected behavior, \"it was working yesterday\", or is troubleshooting why something stopped working.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/investigate/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "full-output-enforcement",
-      "description": "Use when user says 'no truncation', 'full output', 'don't skip', 'write the whole file', 'no placeholders', or task needs exhaustive code across many files. Bans `// ...`, `// rest of code`, \"for brevity\", skeleton outputs; on token limits emits `[PAUSED — X of Y]` and resumes on `continue`.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/full-output-enforcement/SKILL.md",
-      "category": "meta"
+      "name": "health",
+      "description": "Code quality dashboard. Wraps existing project tools (type checker, linter, test runner, dead code detector, shell linter), computes a weighted composite 0-10 score, and tracks trends over time. Use when: \"health check\", \"code quality\", \"how healthy is the codebase\", \"run all checks\", \"quality score\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/health/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "help",
-      "description": "[OMX] Cheat sheet for the oh-my-codex (OMX) plugin — how prompts auto-route to triage lanes (HEAVY/LIGHT/PASS), magic keywords (ralph, ralplan, ulw, autopilot, team), and how to opt out per-prompt. Use when user asks how OMX works, what magic keywords exist, /help OMX, or seems lost in OMX routing.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/help/SKILL.md",
-      "category": "meta"
+      "name": "benchmark-models",
+      "description": "Cross-model benchmark for gstack skills. Runs the same prompt through Claude, GPT (via Codex CLI), and Gemini side-by-side — compares latency, tokens, cost, and optionally quality via LLM judge. Answers \"which model is actually best for this skill?\" with data instead of vibes. Separate from /benchmark, which measures web page performance. Use when: \"benchmark models\", \"compare models\", \"which model is best for X\", \"cross-model comparison\", \"model shootout\". Voice triggers (speech-to-text aliases): \"compare models\", \"model shootout\", \"which model is best\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/benchmark-models/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "hud",
-      "description": "[OMX] Use when user says 'show hud', 'omx hud', 'configure statusline', 'change hud preset', 'live hud', or wants ralph/ultrawork/autopilot/team/pipeline mode state. Runs `omx hud [--watch|--json|--preset=minimal|focused|full]`, reads .omx/state/*.json, configures `[tui] status_line` in ~/.codex/config.toml.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/hud/SKILL.md",
-      "category": "meta"
+      "name": "ship",
+      "description": "Ship workflow: detect + merge base branch, run tests, review diff, bump VERSION, update CHANGELOG, commit, push, create PR. Use when asked to \"ship\", \"deploy\", \"push to main\", \"create a PR\", \"merge and push\", or \"get it deployed\". Proactively invoke this skill (do NOT push/PR directly) when the user says code is ready, asks about deploying, wants to push code up, or asks to create a PR.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/ship/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "just",
-      "description": "Reference for `just`, the command runner. Use when working in a project with a `justfile` or when the user mentions `just` or `justfile`. Covers discovery (`--list`, `--show`, `--dump`, `--evaluate`, `--summary`), execution (`just`, `just <RECIPE>`, `just <RECIPE> <ARG>`), and recipe syntax (deps, args, defaults, shebang scripts, doc-comments). Generic tool reference, not workspace-specific. For the recipes in ~/Documents/Justfile, see the `workspace-recipes` skill instead.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/just/SKILL.md",
-      "category": "meta"
+      "name": "plan-ceo-review",
+      "description": "CEO/founder-mode plan review. Rethink the problem, find the 10-star product, challenge premises, expand scope when it creates a better product. Four modes: SCOPE EXPANSION (dream big), SELECTIVE EXPANSION (hold scope + cherry-pick expansions), HOLD SCOPE (maximum rigor), SCOPE REDUCTION (strip to essentials). Use when asked to \"think bigger\", \"expand scope\", \"strategy review\", \"rethink this\", or \"is this ambitious enough\". Proactively suggest when the user is questioning scope or ambition of a plan, or when the plan feels like it could be thinking bigger.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/plan-ceo-review/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "note",
-      "description": "[OMX] Save context to .omx/notepad.md so it survives compaction. Use when user says /note, save this note, remember this for later, /note --priority, or /note --show. Three sections: Priority Context (always loaded), Working Memory (timestamped, auto-pruned), MANUAL (never pruned).",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/note/SKILL.md",
-      "category": "meta"
+      "name": "design-consultation",
+      "description": "Design consultation: understands your product, researches the landscape, proposes a complete design system (aesthetic, typography, color, layout, spacing, motion), and generates font+color preview pages. Creates DESIGN.md as your project's design source of truth. For existing sites, use /plan-design-review to infer the system instead. Use when asked to \"design system\", \"brand guidelines\", or \"create DESIGN.md\". Proactively suggest when starting a new project's UI with no existing design system or DESIGN.md.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/design-consultation/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "omx-setup",
-      "description": "[OMX] Use when user says 'install omx', 'omx setup', 'refresh oh-my-codex', 'switch to plugin mode', 'reinstall skills', 'project-scope omx'. Runs `omx setup [--force|--merge-agents|--scope user|project|--plugin|--legacy]`: prompts/skills/native agents, merges config.toml, AGENTS.md, hud-config.json. NOT for diagnosing — use $doctor.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/omx-setup/SKILL.md",
-      "category": "meta"
+      "name": "cso",
+      "description": "Chief Security Officer mode. Infrastructure-first security audit: secrets archaeology, dependency supply chain, CI/CD pipeline security, LLM/AI security, skill supply chain scanning, plus OWASP Top 10, STRIDE threat modeling, and active verification. Two modes: daily (zero-noise, 8/10 confidence gate) and comprehensive (monthly deep scan, 2/10 bar). Trend tracking across audit runs. Use when: \"security audit\", \"threat model\", \"pentest review\", \"OWASP\", \"CSO review\". Voice triggers (speech-to-text aliases): \"see-so\", \"see so\", \"security review\", \"security check\", \"vulnerability scan\", \"run security\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/cso/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "plan",
-      "description": "[OMX] Use when user says 'plan this', 'let's plan', 'review this plan', 'ralplan', '--consensus', '--review'. Auto-detects interview vs direct mode; Planner/Architect/Critic consensus loop with RALPLAN-DR (short/deliberate) and Critic-only review. Saves to .omx/plans/. Hands off to $ralph or $team only with --interactive.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/plan/SKILL.md",
-      "category": "meta"
+      "name": "skillify",
+      "description": "Codify the most recent successful /scrape flow into a permanent browser-skill on disk. Future /scrape calls with the same intent run the codified script in ~200ms instead of re-driving the page. Walks back through the conversation, synthesizes script.ts + script.test.ts + fixture, runs the test in a temp dir, and asks before committing. Use when asked to \"skillify\", \"codify\", \"save this scrape\", or \"make this permanent\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/skillify/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "plugin-creator",
-      "description": "Use when user says 'create a codex plugin', 'scaffold plugin', 'new plugin folder', 'add plugin to marketplace.json', 'register plugin'. Runs create_basic_plugin.py to scaffold plugin root with optional skills/hooks/scripts/assets/.mcp.json/.app.json; writes/updates repo-root .agents/plugins/marketplace.json (policy.installation, policy.authentication, category).",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/plugin-creator/SKILL.md",
-      "category": "meta"
+      "name": "setup-browser-cookies",
+      "description": "Import cookies from your real Chromium browser into the headless browse session. Opens an interactive picker UI where you select which cookie domains to import. Use before QA testing authenticated pages. Use when asked to \"import cookies\", \"login to the site\", or \"authenticate the browser\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/setup-browser-cookies/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "skill",
-      "description": "[OMX] Use when user says '/skill list/add/remove/edit/search/info/sync/setup/scan', 'manage local skills', 'create a skill', 'find a skill'. CRUDs SKILL.md files in ~/.codex/skills/ (user) and .codex/skills/ (project): frontmatter, triggers, scopes, templates, sync, conversation pattern scan.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/skill/SKILL.md",
-      "category": "meta"
+      "name": "guard",
+      "description": "Full safety mode: destructive command warnings + directory-scoped edits. Combines /careful (warns before rm -rf, DROP TABLE, force-push, etc.) with /freeze (blocks edits outside a specified directory). Use for maximum safety when touching prod or debugging live systems. Use when asked to \"guard mode\", \"full safety\", \"lock it down\", or \"maximum safety\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/guard/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "skill-suggestion",
-      "description": "Load PROACTIVELY when you observe the user about to repeat an automatable workflow — e.g. they just ran the same 3+ step sequence twice, manually walked through something an existing skill could do, or solved a problem that warrants a reusable skill. Suggests installing an upstream skill OR scaffolding a new one. NOT for reactive \"find me a skill for X\" requests (use `find-skills`). NOT for one-off operations.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/skill-suggestion/SKILL.md",
-      "category": "meta"
+      "name": "plan-tune",
+      "description": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). Review which AskUserQuestion prompts fire across gstack skills, set per-question preferences (never-ask / always-ask / ask-only-for-one-way), inspect the dual-track profile (what you declared vs what your behavior suggests), and enable/disable question tuning. Conversational interface — no CLI syntax required.  Use when asked to \"tune questions\", \"stop asking me that\", \"too many questions\", \"show my profile\", \"what questions have I been asked\", \"show my vibe\", \"developer profile\", or \"turn off question tuning\".  Proactively suggest when the user says the same gstack question has come up before, or when they explicitly override a recommendation for the Nth time.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/plan-tune/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "soul",
-      "description": "Use when user says \"/soul\", \"new soul skill\", \"create soul skill\", \"soul mcp\", \"scaffold a skill\", \"add this to soul\", \"where does this skill go\", or wants to create a new skill or MCP catalog entry in the right place under ~/Documents/soul/. Knows the soul/ folder taxonomy and writes SKILL.md files (with proper frontmatter) and MCP README.md catalog entries directly into the correct category folder. NOT for editing arbitrary files — use only for new soul skills and new soul MCP catalog entries.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/soul/SKILL.md",
-      "category": "meta"
+      "name": "scrape",
+      "description": "Pull data from a web page. First call on a new intent prototypes the flow via $B primitives and returns JSON. Subsequent calls on a matching intent route to a codified browser-skill and return in ~200ms. Read-only — for mutating flows (form fills, clicks, submissions), use /automate. Use when asked to \"scrape\", \"get data from\", \"pull\", \"extract from\", or \"what's on\" a page.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/scrape/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "trace",
-      "description": "[OMX] Use when user says 'show trace', 'trace timeline', 'omx trace', 'what fired this session', 'why did this skill activate'. Calls trace_timeline + trace_summary MCP tools for chronological hook/keyword/skill/agent/tool flow; surfaces mode transitions, bottlenecks, keyword→skill→agent chains. NOT debugging — use $analyze.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/trace/SKILL.md",
-      "category": "meta"
+      "name": "context-save",
+      "description": "Capture working context — git state, decisions made, remaining work — so a future session (after compaction, a restart, or a worktree switch) can resume without re-discovering what's in flight. Writes a markdown note under .cue/context/<branch>-<YYYYMMDD-HHMM>.md. Pair with /context-restore. Use when the user says \"save progress\", \"save state\", \"context save\", or \"save my work\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/context-save/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "wiki",
-      "description": "[OMX] Persistent project wiki under .omx/wiki with keyword search and lifecycle capture. Use when user says wiki add, wiki query, wiki lint, wiki read, wiki delete, or asks to save architectural decisions / ingest project knowledge into a searchable markdown KB.\n[OMX] Persistent project wiki under .omx/wiki with keyword search and lifecycle capture. Use when user says wiki add, wiki query, wiki lint, wiki read, wiki delete, or asks to save architectural decisions / ingest project knowledge into a searchable markdown KB.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/wiki/SKILL.md",
-      "category": "meta"
+      "name": "land-and-deploy",
+      "description": "Land and deploy workflow. Merges the PR, waits for CI and deploy, verifies production health via canary checks. Takes over after /ship creates the PR. Use when: \"merge\", \"land\", \"deploy\", \"merge and verify\", \"land it\", \"ship it to production\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/land-and-deploy/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "workspace-recipes",
-      "description": "Recipes in ~/Documents/Justfile — workspace-specific commands the user has codified. Use when user says \"spawn a new shop\", \"new medusa shop\", \"create shop NAME\", \"clean disk\", \"wipe node_modules\", \"free disk space\", \"show disk usage\", \"list agents.md\", \"agent tree\", \"rebuild colony cli\", \"fix the stop hook\". For generic `just` syntax/discovery use the `just` skill instead.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/meta/workspace-recipes/SKILL.md",
-      "category": "meta"
+      "name": "plan-devex-review",
+      "description": "Interactive developer experience plan review. Explores developer personas, benchmarks against competitors, designs magical moments, and traces friction points before scoring. Three modes: DX EXPANSION (competitive advantage), DX POLISH (bulletproof every touchpoint), DX TRIAGE (critical gaps only). Use when asked to \"DX review\", \"developer experience audit\", \"devex review\", or \"API design review\". Proactively suggest when the user has a plan for developer-facing products (APIs, CLIs, SDKs, libraries, platforms, docs). Voice triggers (speech-to-text aliases): \"dx review\", \"developer experience review\", \"devex review\", \"devex audit\", \"API design review\", \"onboarding review\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/plan-devex-review/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "json-canvas",
-      "description": "Use when user asks to create/edit a .canvas file, build a mind map, flowchart, or visual canvas in Obsidian, or mentions JSON Canvas, nodes, edges, or canvas groups. Writes JSON Canvas Spec 1.0 files with nodes, edges, groups, and connections.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/obsidian/json-canvas/SKILL.md",
-      "category": "obsidian"
+      "name": "review",
+      "description": "Pre-landing PR review. Analyzes diff against the base branch for SQL safety, LLM trust boundary violations, conditional side effects, and other structural issues. Use when asked to \"review this PR\", \"code review\", \"pre-landing review\", or \"check my diff\". Proactively suggest when the user is about to merge or land code changes.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/review/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "obsidian-bases",
-      "description": "Use when user asks to create/edit a .base file, build an Obsidian Base, make a table or card view of notes, add filters/formulas/summaries, or mentions Obsidian Bases. Writes valid Bases YAML with views, filters, formulas, and summaries.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/obsidian/obsidian-bases/SKILL.md",
-      "category": "obsidian"
+      "name": "freeze",
+      "description": "Restrict file edits to a specific directory for the session. Blocks Edit and Write outside the allowed path. Use when debugging to prevent accidentally \"fixing\" unrelated code, or when you want to scope changes to one module. Use when asked to \"freeze\", \"restrict edits\", \"only edit this folder\", or \"lock down edits\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/freeze/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "obsidian-cli",
-      "description": "Use when user asks to run the Obsidian CLI, manage their vault from the terminal, read/create/search notes via CLI, manage tasks/properties, or reload/debug Obsidian plugins or themes. Drives a running Obsidian instance via the obsidian CLI.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/obsidian/obsidian-cli/SKILL.md",
-      "category": "obsidian"
+      "name": "design-review",
+      "description": "Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems, AI slop patterns, and slow interactions — then fixes them. Iteratively fixes issues in source code, committing each fix atomically and re-verifying with before/after screenshots. For plan-mode design review (before implementation), use /plan-design-review. Use when asked to \"audit the design\", \"visual QA\", \"check if it looks good\", or \"design polish\". Proactively suggest when the user mentions visual inconsistencies or wants to polish the look of a live site.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/design-review/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "obsidian-markdown",
-      "description": "Use when user asks to write/edit an Obsidian note, add wikilinks, embeds, callouts, frontmatter properties, or tags, or mentions Obsidian Flavored Markdown. Covers Obsidian-specific syntax extensions over CommonMark/GFM.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/obsidian/obsidian-markdown/SKILL.md",
-      "category": "obsidian"
+      "name": "careful",
+      "description": "Safety guardrails for destructive commands. Warns before rm -rf, DROP TABLE, force-push, git reset --hard, kubectl delete, and similar destructive operations. User can override each warning. Use when touching prod, debugging live systems, or working in a shared environment. Use when asked to \"be careful\", \"safety mode\", \"prod mode\", or \"careful mode\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/careful/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "autopilot",
-      "description": "[OMX] Use when user says 'autopilot', '$autopilot', 'autonomous', 'full auto', 'handle it all', 'build me', 'create me', or 'make me X' from an idea/issue/PRD. Runs the strict ralplan -> ralph -> code-review loop, returning to ralplan automatically when review is not clean. NOT for: single focused edits (use $ralph), planning only (use $ralplan), or review only (use $code-review).",
-      "source": "/home/deadpool/Documents/soul/skills/skills/orchestration/autopilot/SKILL.md",
-      "category": "orchestration"
+      "name": "document-release",
+      "description": "Post-ship documentation update. Reads all project docs, cross-references the diff, builds a Diataxis coverage map (reference/how-to/tutorial/explanation), updates README/ARCHITECTURE/CONTRIBUTING/CLAUDE.md to match what shipped, detects architecture diagram drift, polishes CHANGELOG voice with a sell-test rubric, cleans up TODOS, and optionally bumps VERSION. Surfaces documentation debt in the PR body. Use when asked to \"update the docs\", \"sync documentation\", or \"post-ship docs\". Proactively suggest after a PR is merged or code is shipped.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/document-release/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "cancel",
-      "description": "[OMX] Use when user says 'cancel', '/cancel', 'stop', 'abort', 'cancelomc', 'stopomc', or '--force'. Detects the active OMX mode (autopilot, ralph, ultrawork, ultraqa, swarm, ultrapilot, pipeline, team) and terminalizes its state cleanly, including tmux team shutdown and linked-mode cleanup. Preserves autopilot for resume; clears others.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/orchestration/cancel/SKILL.md",
-      "category": "orchestration"
+      "name": "context-restore",
+      "description": "Resume from a context note saved earlier by /context-save. Loads the most recent .cue/context/*.md for the current branch (or asks if multiple match) and replays the task, next-step, decisions, and failed-approach lists. Pair with /context-save. Use when the user says \"resume\", \"restore context\", \"where was I\", or \"pick up where I left off\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/context-restore/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "pipeline",
-      "description": "[OMX] Use when user says '$pipeline', 'run the pipeline', or wants explicit configurable stage sequencing (custom stage list, custom worker count, custom iteration ceilings). Runs ralplan -> team-exec -> ralph-verify by default through the PipelineStage interface with persisted resume. NOT for: standard hands-off delivery (use $autopilot).",
-      "source": "/home/deadpool/Documents/soul/skills/skills/orchestration/pipeline/SKILL.md",
-      "category": "orchestration"
+      "name": "hackernews-frontpage",
+      "description": "Scrape the Hacker News front page (titles, points, comment counts).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/hackernews-frontpage/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "ralph",
-      "description": "[OMX] Use when user says ralph, $ralph, do not stop, must complete, finish this, or keep going until done on a single concrete task. Persistence loop with parallel delegation, architect verification, deslop pass, regression re-verify. NOT for idea→PR autonomy (use $autopilot) or planning (use $ralplan).",
-      "source": "/home/deadpool/Documents/soul/skills/skills/orchestration/ralph/SKILL.md",
-      "category": "orchestration"
+      "name": "plan-eng-review",
+      "description": "Eng manager-mode plan review. Lock in the execution plan — architecture, data flow, diagrams, edge cases, test coverage, performance. Walks through issues interactively with opinionated recommendations. Use when asked to \"review the architecture\", \"engineering review\", or \"lock in the plan\". Proactively suggest when the user has a plan or design doc and is about to start coding — to catch architecture issues before implementation. Voice triggers (speech-to-text aliases): \"tech review\", \"technical review\", \"plan engineering review\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/plan-eng-review/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "ralplan",
-      "description": "[OMX] Use when user says 'ralplan', '$ralplan', 'plan this', 'plan with consensus', 'PRD for', or when an execution request is too vague (e.g. 'ralph fix this', 'autopilot build the app'). Runs the Planner -> Architect -> Critic consensus loop with RALPLAN-DR deliberation, ADR, pre-mortem, and test spec; outputs an approved plan. NOT for: implementing code (use $ralph or $team).",
-      "source": "/home/deadpool/Documents/soul/skills/skills/orchestration/ralplan/SKILL.md",
-      "category": "orchestration"
+      "name": "make-pdf",
+      "description": "Turn any markdown file into a publication-quality PDF. Proper 1in margins, intelligent page breaks, page numbers, cover pages, running headers, curly quotes and em dashes, clickable TOC, diagonal DRAFT watermark. Not a draft artifact — a finished artifact. Use when asked to \"make a PDF\", \"export to PDF\", \"turn this markdown into a PDF\", or \"generate a document\". Voice triggers (speech-to-text aliases): \"make this a pdf\", \"make it a pdf\", \"export to pdf\", \"turn this into a pdf\", \"turn this markdown into a pdf\", \"generate a pdf\", \"make a pdf from\", \"pdf this markdown\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/make-pdf/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "team",
-      "description": "[OMX] Use when user says 'team', '$team', 'omx team', 'spawn workers', 'parallel workers', or wants N real Codex/Claude CLI sessions running in tmux panes coordinated by shared task state and mailbox. Requires being inside tmux. NOT for: in-process parallel calls (use $ultrawork), single persistence loop (use $ralph), or autonomous idea-to-PR (use $autopilot).",
-      "source": "/home/deadpool/Documents/soul/skills/skills/orchestration/team/SKILL.md",
-      "category": "orchestration"
+      "name": "unfreeze",
+      "description": "Clear the freeze boundary set by /freeze, allowing edits to all directories again. Use when you want to widen edit scope without ending the session. Use when asked to \"unfreeze\", \"unlock edits\", \"remove freeze\", or \"allow all edits\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/unfreeze/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "ultraqa",
-      "description": "[OMX] Use when user says 'ultraqa', '/ultraqa', '--tests', '--build', '--lint', '--typecheck', or 'fix until tests/build/lint/types pass'. Runs the qa-tester -> architect diagnosis -> executor fix cycle (max 5) until the chosen verification goal is met or the same failure repeats. NOT for: implementing new features (use $ralph) or full delivery (use $autopilot).",
-      "source": "/home/deadpool/Documents/soul/skills/skills/orchestration/ultraqa/SKILL.md",
-      "category": "orchestration"
+      "name": "devex-review",
+      "description": "Live developer experience audit. Uses the browse tool to actually TEST the developer experience: navigates docs, tries the getting started flow, times TTHW, screenshots error messages, evaluates CLI help text. Produces a DX scorecard with evidence. Compares against /plan-devex-review scores if they exist (the boomerang: plan said 3 minutes, reality says 8). Use when asked to \"test the DX\", \"DX audit\", \"developer experience test\", or \"try the onboarding\". Proactively suggest after shipping a developer-facing feature. Voice triggers (speech-to-text aliases): \"dx audit\", \"test the developer experience\", \"try the onboarding\", \"developer experience test\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/devex-review/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "ultrawork",
-      "description": "[OMX] Use when user says ulw, ultrawork, or wants parallel execution of multiple independent tasks. Provides parallelism, context discipline, and smart delegation guidance — but no persistence. NOT for guaranteed completion (use $ralph), full idea→PR pipeline (use $autopilot), or a single sequential task (just execute).",
-      "source": "/home/deadpool/Documents/soul/skills/skills/orchestration/ultrawork/SKILL.md",
-      "category": "orchestration"
+      "name": "retro",
+      "description": "Weekly engineering retrospective. Analyzes commit history, work patterns, and code quality metrics with persistent history and trend tracking. Team-aware: breaks down per-person contributions with praise and growth areas. Use when asked to \"weekly retro\", \"what did we ship\", or \"engineering retrospective\". Proactively suggest at the end of a work week or sprint.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/retro/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "visual-ralph",
-      "description": "[OMX] Visual Ralph orchestration for frontend UI from generated references, static references, or live URL targets, using $ralph with $visual-verdict and pixel-diff evidence until the implementation matches and leaves a reproducible design system.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/orchestration/visual-ralph/SKILL.md",
-      "category": "orchestration"
+      "name": "canary",
+      "description": "Post-deploy canary monitoring. Watches the live app for console errors, performance regressions, and page failures using the browse daemon. Takes periodic screenshots, compares against pre-deploy baselines, and alerts on anomalies. Use when: \"monitor deploy\", \"canary\", \"post-deploy check\", \"watch production\", \"verify deploy\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/canary/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "worker",
-      "description": "[OMX] Auto-loaded by Codex sessions started as an OMX Team worker (a tmux pane spawned by $team). Defines the worker startup ACK, mailbox poll loop, and task lifecycle. Use when OMX_TEAM_WORKER is set or the worker inbox tells you to load it. NOT user-invocable — leader-spawned only.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/orchestration/worker/SKILL.md",
-      "category": "orchestration"
+      "name": "autoplan",
+      "description": "Auto-review pipeline — reads the full CEO, design, eng, and DX review skills from disk and runs them sequentially with auto-decisions using 6 decision principles. Surfaces taste decisions (close approaches, borderline scope, codex disagreements) at a final approval gate. One command, fully reviewed plan out. Use when asked to \"auto review\", \"autoplan\", \"run all reviews\", \"review this plan automatically\", or \"make the decisions for me\". Proactively suggest when the user has a plan file and wants to run the full review gauntlet without answering 15-30 intermediate questions. Voice triggers (speech-to-text aliases): \"auto plan\", \"automatic review\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/autoplan/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "myvps",
-      "description": "Use when asked to create PostgreSQL schemas or apply local SQL files to a remote self-hosted Supabase server over SSH. Connection details come from the SUPA_SCHEMA_SSH_TARGET environment variable.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/private/myvps/SKILL.md",
-      "category": "private"
+      "name": "benchmark",
+      "description": "Performance regression detection using the browse daemon. Establishes baselines for page load times, Core Web Vitals, and resource sizes. Compares before/after on every PR. Tracks performance trends over time. Use when: \"performance\", \"benchmark\", \"page speed\", \"lighthouse\", \"web vitals\", \"bundle size\", \"load time\". Voice triggers (speech-to-text aliases): \"speed test\", \"check performance\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/benchmark/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "autoresearch",
-      "description": "[OMX] Validator-gated persistent research loop with native-hook state. Use when user says $autoresearch or wants a Ralph-style research loop that won't stop until evidence (a script result or architect artifact) proves it's done. Pick validation mode at init. NOT the deprecated omx autoresearch CLI.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/research/autoresearch/SKILL.md",
-      "category": "research"
+      "name": "office-hours",
+      "description": "YC Office Hours — two modes. Startup mode: six forcing questions that expose demand reality, status quo, desperate specificity, narrowest wedge, observation, and future-fit. Builder mode: design thinking brainstorming for side projects, hackathons, learning, and open source. Saves a design doc. Use when asked to \"brainstorm this\", \"I have an idea\", \"help me think through this\", \"office hours\", or \"is this worth building\". Proactively invoke this skill (do NOT answer directly) when the user describes a new product idea, asks whether something is worth building, wants to think through design decisions for something that doesn't exist yet, or is exploring a concept before any code is written. Use before /plan-ceo-review or /plan-eng-review.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/office-hours/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "deep-interview",
-      "description": "[OMX] Use when user says deep interview, interview me, ask me everything, do not assume, or ouroboros. Socratic intent-clarification with quantitative ambiguity scoring. Modes: --quick / --standard / --deep. Outputs a spec for $ralplan, $autopilot, $ralph, or $team. NOT for plan brainstorming — use $plan.\n[OMX] Use when user says deep interview, interview me, ask me everything, do not assume, or ouroboros. Socratic intent-clarification with quantitative ambiguity scoring. Modes: --quick / --standard / --deep. Outputs a spec for $ralplan, $autopilot, $ralph, or $team. NOT for plan brainstorming — use $plan.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/research/deep-interview/SKILL.md",
-      "category": "research"
+      "name": "landing-report",
+      "description": "Read-only queue dashboard for workspace-aware ship. Shows which VERSION slots are currently claimed by open PRs, which sibling Conductor workspaces have WIP work likely to ship soon, and what slot /ship would pick next. No mutations — just a snapshot. Use when asked to \"landing report\", \"what's in the queue\", \"show me open PRs\", or \"which version do I claim next\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/landing-report/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "defuddle",
-      "description": "Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to save tokens. Use instead of WebFetch when the user provides a URL to read or analyze, for online documentation, articles, blog posts, or any standard web page. Do NOT use for URLs ending in .md — those are already markdown, use WebFetch directly.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/research/defuddle/SKILL.md",
-      "category": "research"
+      "name": "codex",
+      "description": "OpenAI Codex CLI wrapper — three modes. Code review: independent diff review via codex review with pass/fail gate. Challenge: adversarial mode that tries to break your code. Consult: ask codex anything with session continuity for follow-ups. The \"200 IQ autistic developer\" second opinion. Use when asked to \"codex review\", \"codex challenge\", \"ask codex\", \"second opinion\", or \"consult codex\". Voice triggers (speech-to-text aliases): \"code x\", \"code ex\", \"get another opinion\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/codex/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "find-skills",
-      "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/research/find-skills/SKILL.md",
-      "category": "research"
+      "name": "plan-design-review",
+      "description": "Designer's eye plan review — interactive, like CEO and Eng review. Rates each design dimension 0-10, explains what would make it a 10, then fixes the plan to get there. Works in plan mode. For live site visual audits, use /design-review. Use when asked to \"review the design plan\" or \"design critique\". Proactively suggest when the user has a plan with UI/UX components that should be reviewed before implementation.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/plan-design-review/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
-      "name": "flight-search",
-      "description": "Search and book flights across 180+ airlines with zero markup ($20–50 cheaper than OTAs). Use when user says find flights, search flights, book a flight, find cheap flights, fly from X to Y, find connections/layovers, or any flight query. NOT for hotels, cars, or non-flight bookings.\nSearch and book flights across 180+ airlines with zero markup ($20–50 cheaper than OTAs). Use when user says find flights, search flights, book a flight, find cheap flights, fly from X to Y, find connections/layovers, or any flight query. NOT for hotels, cars, or non-flight bookings.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/research/flight-search/SKILL.md",
-      "category": "research"
-    },
-    {
-      "name": "keyword-research",
-      "description": "Find high-value SEO keywords — search volume, keyword difficulty, intent classification, topic clusters, long-tail. Use when user says keyword research, what keywords, find SEO keywords, topic clusters, or starts a new SEO content/campaign. 关键词研究/内容选题. Outputs ranked keyword sets.\nFind high-value SEO keywords — search volume, keyword difficulty, intent classification, topic clusters, long-tail. Use when user says keyword research, what keywords, find SEO keywords, topic clusters, or starts a new SEO content/campaign. 关键词研究/内容选题. Outputs ranked keyword sets.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/research/keyword-research/SKILL.md",
-      "category": "research"
-    },
-    {
-      "name": "openai-docs",
-      "description": "Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations (for example: Codex, Responses API, Chat Completions, Apps SDK, Agents SDK, Realtime, model capabilities or limits); prioritize OpenAI docs MCP tools and restrict any fallback browsing to official OpenAI domains.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/research/openai-docs/SKILL.md",
-      "category": "research"
-    },
-    {
-      "name": "ai-slop-cleaner",
-      "description": "Use when user says 'cleanup AI slop', 'deslop', 'refactor this AI code', 'remove dead code', 'simplify bloated code', or asks to clean up AI-generated output. Tests-first, smell-by-smell cleanup that preserves behavior. NOT for security or general code review.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/review/ai-slop-cleaner/SKILL.md",
-      "category": "review"
-    },
-    {
-      "name": "code-review",
-      "description": "Use when user says 'review this code', 'code review', 'review my changes', 'review the diff', or '/review'. Runs a structured quality and maintainability review with severity-rated feedback. NOT for security audits — use security-review.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/review/code-review/SKILL.md",
-      "category": "review"
-    },
-    {
-      "name": "security-best-practices",
-      "description": "Use when user asks 'security best practices', 'secure coding for python/typescript/go', 'how to harden this', or wants language/framework-specific secure-by-default guidance. Loads language-specific security references. NOT for auditing existing code — use security-review.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/review/security-best-practices/SKILL.md",
-      "category": "review"
-    },
-    {
-      "name": "security-review",
-      "description": "Use when user says 'security review', 'security audit', 'check for vulnerabilities', 'OWASP review', 'find security issues', or '/security-review'. Audits code for OWASP Top 10, hardcoded secrets, injection, auth flaws, unsafe patterns. NOT for general code quality — use code-review.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/review/security-review/SKILL.md",
-      "category": "review"
-    },
-    {
-      "name": "stripe-best-practices",
-      "description": "Guides Stripe integration decisions — API selection (Checkout Sessions vs PaymentIntents), Connect platform setup (Accounts v2, controller properties), billing/subscriptions, Treasury financial accounts, integration surfaces (Checkout, Payment Element), migrating from deprecated Stripe APIs, and security best practices (API key management, restricted keys, webhooks, OAuth). Use when building, modifying, or reviewing any Stripe integration — including accepting payments, building marketplaces, integrating Stripe, processing payments, setting up subscriptions, creating connected accounts, or implementing secure key handling. ",
-      "source": "/home/deadpool/Documents/soul/skills/skills/stripe/stripe-best-practices/SKILL.md",
-      "category": "stripe"
+      "name": "document-generate",
+      "description": "Generate missing documentation from scratch for a feature, module, or entire project. Uses the Diataxis framework (tutorial / how-to / reference / explanation) to produce complete, structured documentation. Can be invoked standalone or called by /document-release when it finds coverage gaps. Use when asked to \"write docs\", \"generate documentation\", \"document this feature\", \"create a tutorial\", or \"explain this module\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/document-generate/SKILL.md",
+      "category": "gstack",
+      "tags": []
     },
     {
       "name": "stripe-webhooks",
-      "description": "Receive and verify Stripe webhooks. Use when setting up Stripe webhook handlers, debugging signature verification, or handling payment events like payment_intent.succeeded, customer.subscription.created, or invoice.paid.\nReceive and verify Stripe webhooks. Use when setting up Stripe webhook handlers, debugging signature verification, or handling payment events like payment_intent.succeeded, customer.subscription.created, or invoice.paid.",
-      "source": "/home/deadpool/Documents/soul/skills/skills/stripe/stripe-webhooks/SKILL.md",
-      "category": "stripe"
+      "description": "Use when user says \"Stripe webhook\", \"webhook signature\", or \"payment event\". Endpoint setup, verification, idempotency, retries.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/stripe/stripe-webhooks/SKILL.md",
+      "category": "stripe",
+      "tags": []
+    },
+    {
+      "name": "stripe-best-practices",
+      "description": "Use when user says \"Stripe\", \"Stripe integration\", or \"payment flow\". Checkout, webhooks, idempotency, security, testing.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/stripe/stripe-best-practices/SKILL.md",
+      "category": "stripe",
+      "tags": []
+    },
+    {
+      "name": "error-handling",
+      "description": "Use when designing Rust error types — choosing between thiserror (libraries) and anyhow (apps), wrapping foreign errors, returning Result from main.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/error-handling/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "mdbook",
+      "description": "Use when authoring Rust project documentation as a static site — Rust Book / The Cargo Book / clap docs style.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/mdbook/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "async-tokio",
+      "description": "Use when writing async Rust with tokio — picking a runtime flavor, structuring tasks, choosing sync vs async primitives, debugging deadlocks.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/async-tokio/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "clap-cli",
+      "description": "Use when building a command-line tool in Rust. Covers clap derive (subcommands, args, env), dialoguer for prompts, indicatif for progress bars/spinners.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/clap-cli/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-readme",
+      "description": "Use when keeping README.md in sync with lib.rs doc comments — generate the README from `//!` crate-level docs.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-readme/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-flamegraph",
+      "description": "Use when profiling Rust performance, benchmarking, or analysing binary size. Covers cargo-flamegraph, cargo-criterion, cargo-bloat.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-flamegraph/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "axum-api",
+      "description": "Use when building an HTTP API or web service in Rust. Covers axum (recommended), with notes on actix-web and rocket. Extractors, layers, error types, OpenAPI.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/axum-api/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-hack",
+      "description": "Use when a Rust crate has multiple feature flags and you need to verify every combination compiles + tests cleanly. Catches \"works on default features only\" bugs.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-hack/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-chef",
+      "description": "Use when building a Docker image of a Rust app and the dep compile step keeps invalidating cache. Splits dep compilation into a cacheable layer.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-chef/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "pyo3",
+      "description": "Use when exposing Rust code to Python — write a CPython extension module in Rust, ship as a wheel via maturin.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/pyo3/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "bacon-watch",
+      "description": "Use when iterating on Rust code and wanting auto-rerun on save. Covers bacon (TUI) and cargo-watch (simpler scripted loop).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/bacon-watch/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "just-runner",
+      "description": "Use when authoring or running project task recipes — Rust ecosystem's de-facto replacement for Make. Justfile syntax.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/just-runner/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-msrv",
+      "description": "Use when determining or verifying the minimum supported Rust version (MSRV) of a published crate.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-msrv/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "release-plz",
+      "description": "Use when automating crates.io releases for a workspace — version bumps, CHANGELOG generation, GitHub Release PRs based on Conventional Commits.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/release-plz/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "wasm-rust",
+      "description": "Use when building Rust → WASM — modules with JS bindings (wasm-pack), full SPA frontends (trunk + Yew/Leptos/Sycamore), or Dioxus apps.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/wasm-rust/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "clippy-and-fmt",
+      "description": "Use when linting or formatting Rust code, or when CI complains about style. Covers cargo clippy with -D warnings, cargo fmt --check, and per-crate config files.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/clippy-and-fmt/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-audit",
+      "description": "Use when checking a Rust project for known vulnerabilities, license violations, or supply-chain risk. Covers cargo-audit, cargo-deny, cargo-geiger, cargo-vet, cargo-crev.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-audit/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "sqlx-cli",
+      "description": "Use when managing database migrations or query caching for a Rust app using sqlx, sea-orm, or diesel.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/sqlx-cli/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "napi-rs",
+      "description": "Use when exposing Rust to Node.js — write a native addon via N-API. The path NextSwc, Parcel, and Prisma's query engine take.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/napi-rs/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-nextest",
+      "description": "Use when running Rust tests slowly with cargo test, or when CI test time hurts. Drop-in faster runner with better output, retries, and JUnit XML.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-nextest/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "bevy",
+      "description": "Use when building a game or interactive simulation in Rust with the Bevy engine — ECS-first, data-driven, hot-reloading, cross-platform (desktop + wasm).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/bevy/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "embedded",
+      "description": "Use when flashing, debugging, or developing for microcontrollers in Rust (Cortex-M, RISC-V, ESP32). Covers probe-rs, cargo-embed, defmt, embassy async runtime.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/embedded/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "property-testing",
+      "description": "Use when testing parsers, serializers, math/algorithms, anything with invariants — generate thousands of inputs and check properties hold. Covers proptest and quickcheck.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/property-testing/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cross-compile",
+      "description": "Use when building a Rust binary for a different target — ARM, musl, Windows, Android — without setting up native toolchains.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cross-compile/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "sccache",
+      "description": "Use when Rust cold builds are slow, CI rebuild times hurt, or switching branches forces full recompiles. Drop-in compiler cache.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/sccache/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "reqwest",
+      "description": "Use when making HTTP requests from Rust — JSON APIs, file downloads, streaming. Covers reqwest (async), reqwest-middleware for retries, blocking variant, hyper for low-level.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/reqwest/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "typos-spellcheck",
+      "description": "Use when spell-checking Rust source, docs, comments — `typos` CLI catches common misspellings without false positives on code identifiers.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/typos-spellcheck/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "uniffi",
+      "description": "Use when exposing one Rust library to multiple languages (Kotlin/Swift/Python/Ruby) from a single UDL spec. Mozilla's approach; used by Bitwarden, Matrix SDK.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/uniffi/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "chisel-tool",
+      "description": "Use when an agent needs precision file edits with minimal token overhead — patch-based, kernel-confined paths. Pointer to the upstream Chisel MCP server.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/chisel-tool/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "tracing",
+      "description": "Use when adding logging, structured logs, spans, or live runtime introspection to a Rust app. Covers tracing, tracing-subscriber, tokio-console, OpenTelemetry.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/tracing/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "snapshot-testing",
+      "description": "Use when testing CLI output, API responses, rendered templates, error messages — anything where the assertion is \"output looks like this big chunk of text\". Covers cargo-insta.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/snapshot-testing/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cbindgen",
+      "description": "Use when exposing a Rust library to C/C++ — auto-generate C headers from a Rust crate so other languages can link to it.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cbindgen/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-basics",
+      "description": "Use when starting, building, running, testing, or generating docs for a Rust crate. Covers cargo new/init/check/build/run/test/doc and workspace scoping.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-basics/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "bindgen",
+      "description": "Use when calling C libraries from Rust — auto-generate FFI signatures from C headers instead of hand-typing extern blocks.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/bindgen/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-fuzz",
+      "description": "Use when fuzzing parsers, deserializers, FFI boundaries, or any code that takes untrusted bytes. libFuzzer integration via cargo-fuzz.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-fuzz/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-edit",
+      "description": "Use when adding, removing, or upgrading Rust dependencies, or auditing unused deps. Covers cargo add/rm/upgrade, cargo-outdated, cargo-machete, cargo-udeps.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-edit/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "no-std",
+      "description": "Use when writing Rust without the standard library — embedded, WASM, kernel, bootloader, or library code that must work in `no_std` consumers.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/no-std/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "ratatui-tui",
+      "description": "Use when building a Rust terminal UI (TUI) — dashboards, file managers, monitors. Covers ratatui (the standard) + crossterm.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/ratatui-tui/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-mutants",
+      "description": "Use when measuring test quality — mutation testing modifies your code and checks tests catch the change. Finds \"I have 90% coverage but tests assert nothing\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-mutants/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "cargo-expand",
+      "description": "Use when debugging Rust macros (proc-macros, derive, declarative) — see what code the macro actually generates.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-expand/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "serde",
+      "description": "Use when (de)serializing Rust data to JSON, TOML, YAML, MessagePack, etc. Covers derive macros, attributes, custom (de)serializers, common lifetime/Cow gotchas.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/serde/SKILL.md",
+      "category": "rust",
+      "tags": []
+    },
+    {
+      "name": "mirofish",
+      "description": "Use when running multi-agent prediction or simulation — digital sandbox rehearsals, social-trend forecasting, swarm-intelligence experiments, \"what if\" scenarios. Pointer to upstream 666ghj/MiroFish.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/predict-everything/mirofish/SKILL.md",
+      "category": "predict-everything",
+      "tags": []
+    },
+    {
+      "name": "cuopt-routing-api-python",
+      "description": "Vehicle routing (VRP, TSP, PDP) with cuOpt — Python API only. Use when the user is building or solving routing in Python.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/cuopt-routing-api-python/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "cuopt-user-rules",
+      "description": "Base rules for end users calling NVIDIA cuOpt (routing/LP/MILP/QP/install/server). Not for cuOpt internals — use cuopt-developer for those.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/cuopt-user-rules/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "cuopt-numerical-optimization-api-cli",
+      "description": "LP, MILP, and QP (beta) with cuOpt — CLI only (MPS files, cuopt_cli). Use when the user is solving LP, MILP, or QP from MPS via command line.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/cuopt-numerical-optimization-api-cli/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "aiq-research",
+      "description": "\"When user asks for deep research, multi-source synthesis, regulatory analysis, or enterprise document research, route through AI-Q server for structured reports with citations\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/aiq-research/SKILL.md",
+      "category": "nvidia",
+      "tags": [
+        "research",
+        "nvidia",
+        "aiq",
+        "deep-research",
+        "enterprise"
+      ]
+    },
+    {
+      "name": "numerical-optimization-formulation",
+      "description": "Numerical optimization (LP, MILP, QP) — concepts, problem-text parsing, and formulation patterns. What LP, MILP, and QP are, required formulation questions, modeling elements, common patterns, and how to parse problem statements (parameters, constraints, decisions, objective). Domain concepts; no API or interface.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/numerical-optimization-formulation/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "cuopt-numerical-optimization-api-python",
+      "description": "Solve Linear Programming (LP), Mixed-Integer Linear Programming (MILP), and Quadratic Programming (QP, beta) with the Python API. Use when the user asks about optimization with linear or quadratic objectives, linear constraints, integer variables, scheduling, resource allocation, facility location, production planning, portfolio optimization, or least squares.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/cuopt-numerical-optimization-api-python/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "cuopt-install",
+      "description": "Install cuOpt for Python, C, or as a server (pip, conda, Docker) — system requirements, install commands, and verification. Use when the user wants to install or verify cuOpt for any user-facing interface. For building cuOpt from source or contributing to cuOpt, see cuopt-developer.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/cuopt-install/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "skill-evolution",
+      "description": "After solving a non-trivial problem, detect generalizable learnings and propose skill updates so future interactions benefit automatically. Always active — applies to every interaction.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/skill-evolution/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "cuopt-server-common",
+      "description": "cuOpt REST server — what it does and how requests flow. Domain concepts; no deploy or client code.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/cuopt-server-common/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "routing-formulation",
+      "description": "Vehicle routing (VRP, TSP, PDP) — problem types and data requirements. Domain concepts; no API or interface.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/routing-formulation/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "cuopt-numerical-optimization-api-c",
+      "description": "LP, MILP, and QP (beta) with cuOpt — C API only. Use when the user is embedding LP, MILP, or QP in C/C++.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/cuopt-numerical-optimization-api-c/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "cuopt-developer",
+      "description": "Modify, build, test, debug, and contribute to NVIDIA cuOpt (C++/CUDA, Python, server, CI). Use for solver internals, PRs, DCO, and code conventions.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/cuopt-developer/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "cuopt-server-api-python",
+      "description": "cuOpt REST server — start server, endpoints, Python/curl client examples. Use when the user is deploying or calling the REST API.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/cuopt-server-api-python/SKILL.md",
+      "category": "nvidia",
+      "tags": []
+    },
+    {
+      "name": "full-output-enforcement",
+      "description": "Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged output.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/output-skill/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "design-taste-frontend",
+      "description": "Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the right design direction, and ships interfaces that do not look templated. Real design systems when applicable, audit-first on redesigns, strict pre-flight check.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/taste-skill/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "gpt-taste",
+      "description": "Use when user says \"GPT taste\", \"make this less generic\", or \"improve visual taste\". Taste checks, simplification, hierarchy.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/gpt-taste/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "design-taste-frontend-v1",
+      "description": "The original v1 taste-skill, preserved for projects depending on its exact behavior. The current default is `design-taste-frontend` (v2 experimental), which is a substantial rewrite. Use this v1 install name only if you need exact backward compatibility.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/taste-skill-v1/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "industrial-brutalist-ui",
+      "description": "Use when user asks for \"brutalist\", \"Swiss design\", \"terminal UI\", \"tactical/military HUD\", \"blueprint\", or \"industrial\" interfaces. Rigid grids, extreme type contrast, monospace, halftones/scanlines.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/industrial-brutalist-ui/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "kitty-visualize",
+      "description": "Use when user asks to \"visualize\", \"show me\", \"draw\", \"render\", \"diagram\", \"picture this\", \"layout\", or \"open in kitty/another window\" — for diagrams, ASCII layouts, tmux pictures, dependency graphs, or image previews. Renders to a temp file and opens detached kitty so it does NOT clutter the chat. Default visualization surface for this user.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/kitty-visualize/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "high-end-visual-design",
+      "description": "Use when user asks for \"agency-level\", \"expensive-looking\", \"Apple-tier\", or \"Linear-tier\" design. Bans Inter/Roboto; picks vetted archetypes (Ethereal Glass, Editorial Luxury, Asymmetrical Bento).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/high-end-visual-design/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "design-taste-frontend",
+      "description": "Use when user says \"improve the UI\", \"make it tasteful\", or \"design pass\". Hierarchy, spacing, polish, visual validation.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/design-taste-frontend/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "gpt-taste",
+      "description": "Elite UX/UI & Advanced GSAP Motion Engineer. Enforces Python-driven true randomization for layout variance, strict AIDA page structure, wide editorial typography (bans 6-line wraps), gapless bento grids, strict GSAP ScrollTriggers (pinning, stacking, scrubbing), inline micro-images, and massive section spacing.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/gpt-tasteskill/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "readme-svg-design",
+      "description": "\"When user asks to design a README, create SVG diagrams, or make documentation visually beautiful — generate publication-quality SVG assets and compose them into a well-structured README\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/readme-svg-design/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "brandkit",
+      "description": "Use when user says \"brand kit\", \"brand guidelines\", \"logo system\", \"identity deck\", or \"brand world\". Generates brand-guideline presentation boards: logo, typography, color, mockups across minimalist/editorial/luxury/gaming styles.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/brandkit/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "brandkit",
+      "description": "Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark-tech, luxury, cultural, security, gaming, developer-tool, and consumer-app brand systems. Optimized for intentional logo concepting, refined composition, sparse typography, strong symbolic meaning, premium mockups, art-directed imagery, and flexible grid layouts.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/brandkit/brandkit/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "image-to-code",
+      "description": "Elite website image-to-code skill for Codex. For visually important web tasks, it must first generate the design image(s) itself, deeply analyze them, then implement the website to match them as closely as possible. In Codex, it must prefer large, readable, section-specific images instead of tiny compressed boards, generate fresh standalone images for sections or detail views instead of cropping old ones, avoid lazy under-generation, avoid cards-inside-cards-inside-cards UI, and keep the hero clean, spacious, readable, and visible on a small laptop.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/image-to-code-skill/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "stitch-design-taste",
+      "description": "Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards — strict typography, calibrated color, asymmetric layouts, perpetual micro-motion, and hardware-accelerated performance.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/stitch-skill/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "industrial-brutalist-ui",
+      "description": "Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics. Rigid grids, extreme type scale contrast, utilitarian color, analog degradation effects. For data-heavy dashboards, portfolios, or editorial sites that need to feel like declassified blueprints.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/brutalist-skill/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "headless-gif-demo",
+      "description": "\"When user asks to record a high-quality CLI demo GIF that needs Kitty graphics protocol (real PNG icons inline) — use this headless cage/Wayland + Kitty + tmux + ffmpeg pipeline instead of vhs/asciinema which don't speak the Kitty protocol. Includes auto-redaction of moving text via tesseract OCR.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/headless-gif-demo/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "imagegen-frontend-web",
+      "description": "Use when user says \"web mockup\", \"generate website UI\", or \"imagegen web\". Web frontend visual generation.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/imagegen-frontend-web/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "imagegen-frontend-web",
+      "description": "Elite frontend image-direction skill for generating premium, conversion-aware website design references. CRITICAL OUTPUT RULE — generate ONE separate horizontal image FOR EVERY section. A landing page with 8 sections produces 8 images. Never compress multiple sections into one image. Enforces composition variety (not always left-text / right-image), background-image freedom, varied CTAs, varied hero scales (giant / mid / mini minimalist), narrative concept spine, second-read moments, and a single consistent palette across all images. Optimized for landing pages, marketing sites, and product comps that developers or coding models can accurately recreate.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/imagegen-frontend-web/imagegen-frontend-web/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "image-to-code",
+      "description": "Use when user says \"image to code\", \"match this screenshot\", or \"recreate this design\". Visual inspection, layout mapping, validation.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/image-to-code/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "stitch-design-taste",
+      "description": "Use when user mentions \"Google Stitch\", \"Stitch design\", or wants a DESIGN.md for Stitch screen generation. Produces DESIGN.md with atmosphere, palette, type, components, motion, anti-patterns.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/stitch-design-taste/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "\"screenshot\"",
+      "description": "Use when user says \"screenshot\", \"capture the page\", or \"visual proof\". Browser/window capture, artifacts, naming.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/screenshot/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "imagegen-frontend-mobile",
+      "description": "Use when user says \"mobile mockup\", \"generate mobile UI\", or \"imagegen mobile\". Mobile frontend visual generation.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/imagegen-frontend-mobile/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "imagegen-frontend-mobile",
+      "description": "Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows. Designed for iOS, Android, and cross-platform mobile products. Prioritizes clean hierarchy, comfortably readable text, strong multi-screen consistency, controlled color palettes, non-generic creative direction, textured surfaces, image-led composition, tasteful custom iconography, and clean phone mockup framing. By default, screens should be shown inside a subtle premium iPhone or similar phone mockup with a visible frame, while the main focus stays on the app content itself. This skill generates images only. It does not write code.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/imagegen-frontend-mobile/imagegen-frontend-mobile/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "high-end-visual-design",
+      "description": "Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/soft-skill/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "minimalist-ui",
+      "description": "Clean editorial-style interfaces. Warm monochrome palette, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/minimalist-skill/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "description": "Use when user asks to \"design\", \"build\", \"review\", or \"improve\" UI/UX with vetted recommendations. Queries Python DB of 67 styles, 96 palettes, 57 font pairings, 99 UX guidelines, 25 chart types across 13 stacks.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/ui-ux-pro-max/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "remotion-best-practices",
+      "description": "Use when user says \"Remotion\", \"video render\", or \"motion composition\". Composition structure, assets, timing, rendering.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/remotion-best-practices/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "redesign-existing-projects",
+      "description": "Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/redesign-skill/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "redesign-existing-projects",
+      "description": "Use when user says \"redesign\", \"upgrade this site\", \"make this look better\", or \"audit my UI\". Diagnoses generic AI patterns; applies in-place typography/spacing/color/motion fixes for Tailwind/CSS/styled-components.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/redesign-existing-projects/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "\"png-alpha-cleaner\"",
+      "description": "Use when user says \"clean PNG alpha\", \"remove transparent fringe\", or \"fix PNG edges\". Alpha-channel cleanup.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/png-alpha-cleaner/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "minimalist-ui",
+      "description": "Use when user asks for \"minimalist\", \"editorial\", \"Notion-style\", or \"ultra-flat\" interfaces. Warm monochrome, serif/sans contrast, bento, muted pastels. Bans Inter/Roboto, gradients, neon, glassmorphism.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/minimalist-ui/SKILL.md",
+      "category": "design",
+      "tags": []
+    },
+    {
+      "name": "worker",
+      "description": "\"[OMX] Team worker protocol (ACK, mailbox, task lifecycle) for tmux-based OMX teams\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/orchestration/worker/SKILL.md",
+      "category": "orchestration",
+      "tags": []
+    },
+    {
+      "name": "visual-ralph",
+      "description": "\"[OMX] Visual Ralph orchestration for frontend UI from generated references, static references, or live URL targets, using $ralph with built-in visual verdict and pixel-diff evidence until the implementation matches and leaves a reproducible design system.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/orchestration/visual-ralph/SKILL.md",
+      "category": "orchestration",
+      "tags": []
+    },
+    {
+      "name": "oh-my-agent",
+      "description": "Use when the user mentions \"oh-my-agent\", \"OMA\", a portable agent harness, vendor-agnostic skill bundles across Claude Code + Codex + Cursor, or asks how OMA compares to Colony/codex-fleet. Routes the user to the upstream tool and explains the cue-side trade-offs vs the parallel-agents stack they already run.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/orchestration/oh-my-agent/SKILL.md",
+      "category": "orchestration",
+      "tags": [
+        "orchestration",
+        "fleet",
+        "multi-agent"
+      ]
+    },
+    {
+      "name": "codex-fleet-login",
+      "description": "Use when user says \"codex fleet login\", \"open kitty and run codex login\", \"log into codex accounts\", \"/codex-fleet-login\", or wants to onboard one or more Codex CLI accounts by spawning kitty terminals (gx-fleet style), running `codex login`, capturing the OAuth URL, and opening it in the browser.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/orchestration/codex-fleet-login/SKILL.md",
+      "category": "orchestration",
+      "tags": []
+    },
+    {
+      "name": "pipeline",
+      "description": "\"[OMX] Configurable pipeline orchestrator for sequencing stages\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/orchestration/pipeline/SKILL.md",
+      "category": "orchestration",
+      "tags": []
+    },
+    {
+      "name": "authmux",
+      "description": "Use when the user mentions \"authmux\", \"agent-auth\", account switching, multi-account management for Codex/Claude/Kiro, rotating between API accounts, account health checks, or parallel Claude Code sessions with different accounts.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/orchestration/authmux/SKILL.md",
+      "category": "orchestration",
+      "tags": []
+    },
+    {
+      "name": "caveman-commit",
+      "description": "Use when user says \"write a commit\", \"commit message\", or \"/commit\". Conventional Commits, intent-first subject, body only when why is non-obvious.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/caveman/caveman-commit/SKILL.md",
+      "category": "caveman",
+      "tags": []
+    },
+    {
+      "name": "caveman-compress",
+      "description": "Use when user says \"compress this\", \"shorten prompt\", or \"/caveman-compress\". Token compression preserving intent.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/caveman/caveman-compress/SKILL.md",
+      "category": "caveman",
+      "tags": []
+    },
+    {
+      "name": "caveman",
+      "description": "Use when user says \"caveman mode\", \"be brief\", \"less tokens\", or \"/caveman\". Ultra-compressed replies (lite/full/ultra).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/caveman/caveman/SKILL.md",
+      "category": "caveman",
+      "tags": []
+    },
+    {
+      "name": "entroly",
+      "description": "Use when the user mentions \"entroly\", context compression, prompt-token reduction, hallucination detection, or asks how to cut Claude API spend on long sessions. Points at juyterman1000/entroly and explains how it composes with the caveman + RTK token-discipline lane the user already runs.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/caveman/entroly/SKILL.md",
+      "category": "caveman",
+      "tags": [
+        "caveman",
+        "context",
+        "tokens"
+      ]
+    },
+    {
+      "name": "caveman-review",
+      "description": "Use when user says \"review this PR\", \"code review\", or \"/caveman-review\". One-line PR comments: location, problem, fix.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/caveman/caveman-review/SKILL.md",
+      "category": "caveman",
+      "tags": []
+    },
+    {
+      "name": "caveman-help",
+      "description": "Use when user says \"caveman help\" or \"caveman commands\". Quick reference for Caveman modes, triggers, levels.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/caveman/caveman-help/SKILL.md",
+      "category": "caveman",
+      "tags": []
+    },
+    {
+      "name": "video-adapt",
+      "description": "Adapt a video from a link — swap product, swap character, or copy 1:1. Use when user says \"adapt this video\", \"swap the product in this video\", \"recreate this ad with my product\", \"copy this video style\", or provides a video URL and wants a variation.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/video/video-adapt/SKILL.md",
+      "category": "video",
+      "tags": [
+        "video",
+        "creative",
+        "adaptation",
+        "ugc"
+      ]
+    },
+    {
+      "name": "ugc-flow",
+      "description": "Generate UGC talking-head videos — script, avatar, and delivery. Use when user says \"make a UGC video\", \"talking head ad\", \"create testimonial video\", \"UGC creator content\", or wants authentic-looking user-generated content for ads or social media.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/video/ugc-flow/SKILL.md",
+      "category": "video",
+      "tags": [
+        "video",
+        "ugc",
+        "marketing",
+        "ads"
+      ]
+    },
+    {
+      "name": "amazon-product-listing",
+      "description": "Generate product images and video for Amazon listings — hero shots, lifestyle images, infographics, and A+ content. Use when user says \"Amazon listing\", \"product images for Amazon\", \"A+ content\", \"marketplace photos\", or wants e-commerce product visuals.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/video/amazon-product-listing/SKILL.md",
+      "category": "video",
+      "tags": [
+        "video",
+        "ecommerce",
+        "amazon",
+        "product"
+      ]
+    },
+    {
+      "name": "cinematic-flow",
+      "description": "Generate cinematic video — short (15s) and long format films using Higgsfield Cinema Studio 3.5 and MCSLA formula. Use when user says \"cinematic video\", \"film this\", \"short film\", \"commercial\", \"movie quality\", \"cinema studio\", or wants professional film-grade output.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/video/cinematic-flow/SKILL.md",
+      "category": "video",
+      "tags": [
+        "video",
+        "cinematic",
+        "film",
+        "production"
+      ]
+    },
+    {
+      "name": "tv-ad",
+      "description": "Create TV ads with a character — talking, off-camera narration, or crazy VFX. Use when user says \"TV ad\", \"commercial\", \"brand video with character\", \"ad with spokesperson\", \"VFX commercial\", or wants broadcast-quality advertising content.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/video/tv-ad/SKILL.md",
+      "category": "video",
+      "tags": [
+        "video",
+        "advertising",
+        "tv",
+        "commercial"
+      ]
+    },
+    {
+      "name": "motion-design-flow",
+      "description": "Motion design for product videos, reference images, logos, and infographics. Use when user says \"motion design\", \"animate this logo\", \"product animation\", \"animated infographic\", \"motion graphics\", or wants dynamic visual content that isn't live-action footage.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/video/motion-design-flow/SKILL.md",
+      "category": "video",
+      "tags": [
+        "video",
+        "motion-design",
+        "animation",
+        "graphics"
+      ]
+    },
+    {
+      "name": "podcast-flow",
+      "description": "Generate long-form podcast video content — talking heads, split screen, dynamic cuts. Use when user says \"podcast video\", \"interview format\", \"long-form video\", \"conversation video\", or wants multi-speaker dialogue content.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/video/podcast-flow/SKILL.md",
+      "category": "video",
+      "tags": [
+        "video",
+        "podcast",
+        "long-form",
+        "interview"
+      ]
+    },
+    {
+      "name": "gh-auth-doctor",
+      "description": "Use when user says \"gh auth doctor\", \"stale token\", \"gh pr create silently fails\", \"gx finish hung\", \"auth blocker\", or before `gx branch finish --via-pr`. Diagnoses stale `GH_TOKEN`/`GITHUB_TOKEN` env vars silently overriding `~/.git-credentials` (git push works but every `gh` call fails). Read-only.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/github/gh-auth-doctor/SKILL.md",
+      "category": "github",
+      "tags": []
+    },
+    {
+      "name": "github",
+      "description": "Use when user says \"check the PR\", \"open an issue\", \"view CI logs\", or \"merge this PR\". GitHub ops via gh: issues, PRs, checks, logs, reviews, API.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/github/github/SKILL.md",
+      "category": "github",
+      "tags": []
+    },
+    {
+      "name": "guardex-merge-skills-to-dev",
+      "description": "Use when user says \"merge skill updates\", \"promote SKILL.md changes\", or \"agent branch skills\". Merges SKILL.md updates from agent branches into base with multiagent-safety flow.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/github/guardex-merge-skills-to-dev/SKILL.md",
+      "category": "github",
+      "tags": []
+    },
+    {
+      "name": "\"gh-fix-ci\"",
+      "description": "Use when user says \"fix CI\", \"GitHub checks failed\", or \"debug PR checks\". Inspects failing Actions via gh; fix plan needs approval before implementation.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/github/gh-fix-ci/SKILL.md",
+      "category": "github",
+      "tags": []
+    },
+    {
+      "name": "gitguardex",
+      "description": "Use when user says \"gx doctor\", \"dirty worktree\", or \"finish the agent branch\". gitguardex guardrails for branch/worktree/lock/PR state. NOT for code-quality review (use code-review).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/github/gitguardex/SKILL.md",
+      "category": "github",
+      "tags": []
+    },
+    {
+      "name": "profile-optimizer",
+      "description": "Runs cue optimizer and rank commands, presents visual results, suggests removals and additions to slim the active profile. Use when user says \"optimize profile\", \"clean up skills\", \"what skills am I not using\", \"suggest skills for this repo\", or \"profile review\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/profile-optimizer/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "profiles",
+        "optimization"
+      ]
+    },
+    {
+      "name": "prompt-master",
+      "description": "Generates optimized prompts for AI tools (LLMs, Cursor, Claude Code, Midjourney, image/video/voice/3D AI, workflow tools). Use when user says \"write me a prompt\", \"build a prompt for\", \"fix this prompt\", \"improve this prompt\", \"adapt this prompt\", \"make a midjourney prompt\", \"claude code prompt\", \"/prompt-master\", \"sharper prompt\", or pastes a prompt to refine. Skip for general conversation, code edits, or document writing.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/prompt-master/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "profile-fit-monitor",
+      "description": "\"Notices when the active cue profile is a poor fit for the current work and suggests switching. Use when user says \\\"wrong profile\\\", \\\"switch profile\\\", \\\"this profile doesn't fit\\\", \\\"better profile for this\\\", or proactively when reaching for skills/tools that aren't loaded (e.g. backend work in a frontend profile).\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/profile-fit-monitor/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "kiro-powers",
+      "description": "Imports a Kiro Power (POWER.md + MCP config) from GitHub into a cue profile as a skill + MCP entry, bridging the Kiro Powers ecosystem into cue. Use when user says \"import kiro power\", \"add kiro power to profile\", \"use X power\", or \"convert kiro to cue\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/kiro-powers/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "kiro",
+        "powers",
+        "interop"
+      ]
+    },
+    {
+      "name": "acpx",
+      "description": "Delegate work to another coding agent (codex, claude, pi, openclaw, gemini, cursor, copilot, droid, etc.) over the Agent Client Protocol via acpx. Use when the user says \"delegate to <agent>\", \"run codex\", \"use claude code\", \"have <agent> do X\", \"spawn a sub-agent\", \"agent-to-agent\", mentions ACP, or when the work belongs in a different harness than the one you're in. Prefer this over PTY scraping or `tmux send-keys` to a foreign agent.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/acpx/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "plugin-creator",
+      "description": "Use when user says \"create a codex plugin\", \"scaffold plugin\", or \"register plugin\". Runs create_basic_plugin.py; writes/updates .agents/plugins/marketplace.json.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/plugin-creator/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "mcpproxy",
+      "description": "Use when the user mentions \"mcpproxy\", an MCP router/proxy, fronting many MCP servers behind one endpoint, MCP rate-limit or quarantine, or asks how to cut MCP startup cost when running 15+ servers. Points at smart-mcp-proxy/mcpproxy-go and explains how it fits cue's existing MCP materialization.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/mcpproxy/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "mcp",
+        "infra"
+      ]
+    },
+    {
+      "name": "smithery-usage",
+      "description": "\"Guides through smithery CLI and cue marketplace commands for finding, installing, and managing MCP servers from the Smithery registry. Use when user says \\\"find an MCP on smithery\\\", \\\"install smithery MCP\\\", \\\"search the MCP marketplace\\\", \\\"what MCPs are available\\\", or \\\"smithery help\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/smithery-usage/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "smithery",
+        "mcps",
+        "marketplace"
+      ]
+    },
+    {
+      "name": "skill-eval",
+      "description": "Scaffold evaluation scenarios for skills, run them, and measure activation rate and output quality. Use when user says \"test this skill\", \"eval skill\", \"does this skill work\", \"measure activation\", \"benchmark skill\", or \"create evals for this skill\". Implements Anthropic's evaluation-driven development approach.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/skill-eval/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "skills",
+        "testing",
+        "evals"
+      ]
+    },
+    {
+      "name": "ask-claude",
+      "description": "[OMX] Use when user says \"ask claude\", \"/ask-claude\", or \"second opinion from claude\". Runs local `claude -p` CLI; saves to .omx/artifacts/claude-*.md.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/ask-claude/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "cue-usage",
+      "description": "\"Guides through cue CLI commands for profiles, skills, MCPs, and marketplace operations. Use when user says \\\"cue help\\\", \\\"how do I use cue\\\", \\\"list profiles\\\", \\\"add an MCP\\\", \\\"manage my profile\\\", or asks anything about the cue CLI surface.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/cue-usage/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "profiles",
+        "skills",
+        "mcps"
+      ]
+    },
+    {
+      "name": "full-output-enforcement",
+      "description": "Use when user says \"no truncation\", \"full output\", \"don't skip\", or \"write the whole file\". Bans `// ...`, \"for brevity\", skeletons; pauses on token limit and resumes on `continue`.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/full-output-enforcement/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "builtin-manager",
+      "description": "\"Manage built-in skills shared across every cue profile — promote, demote, list. Use when user says \\\"make X built-in\\\", \\\"add X to all profiles\\\", \\\"remove from built-in\\\", \\\"promote skill to built-in\\\", or \\\"what skills are built-in\\\". Also activates proactively when a skill has fired across 3+ profiles and should be promoted.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/builtin-manager/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "builtin",
+        "optimization"
+      ]
+    },
+    {
+      "name": "profile-suggest",
+      "description": "Analyzes a repo on the first message and suggests the best cue profile when no .cue-profile is set, then self-removes from the project CLAUDE.md. Use when user says \"suggest a profile\", \"which profile\", \"auto-detect profile\", \"scan this repo\", or arrives in a directory with no .cue-profile.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/profile-suggest/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "profiles",
+        "onboarding"
+      ]
+    },
+    {
+      "name": "memory-pressure",
+      "description": "\"Use when user says 'free RAM', 'memory is full', 'compact memory', 'reclaim memory', 'my box is slow', 'high memory usage', or shows mem >85%. Pushes idle pages from app.slice into zstd-zram (~1 GB zram per ~3-4 GB RAM freed). NOT for OOM crashes — use diagnose.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/memory-pressure/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "note",
+      "description": "Use when user says \"note this\", \"save note\", or \"remember this\". Local note workflow: placement, concise capture, retrieval.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/note/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "mcp-finder",
+      "description": "Searches Smithery, GitHub, and the local registry to find and wire MCP servers into cue profiles. Use when user says \"find an MCP for this\", \"what MCP server does X\", \"add MCP to profile\", \"which MCP handles X\", or \"discover MCPs\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/mcp-finder/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "mcp",
+        "discovery"
+      ]
+    },
+    {
+      "name": "upgrade-stack",
+      "description": "\"Runs claude-stack-doctor.sh to upgrade bun/npm/cargo globals and re-apply --smol patches. Use when user says \\\"upgrade my stack\\\", \\\"update plugins\\\", \\\"upgrade claude-mem\\\", \\\"reapply patches\\\", or \\\"check for updates\\\". NOT for Claude Code itself — that's manual.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/upgrade-stack/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "soul",
+      "description": "Use when user says \"/soul\", \"new soul skill\", \"create soul skill\", or \"scaffold a skill\". Creates soul skills/MCPs under ~/Documents/soul with correct taxonomy.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/soul/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "help",
+      "description": "Use when user says \"help\", \"what can you do\", or \"skill help\". Available workflow guidance: commands, routing, skill discovery.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/help/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "integrity-tags",
+      "description": "\"Explains cue's 7-tag confidence system (VERIFIED, KNOWN, INFERRED, ASSUMED, GUESSED, STALE, UNKNOWN) used to label every research- or decision-relevant claim. Use when user says \\\"what does VERIFIED mean\\\", \\\"explain the colored tags\\\", \\\"what's the confidence system\\\", \\\"why is this yellow\\\", \\\"what does [ASSUMED] mean\\\", or asks about cue's integrity protocol.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/integrity-tags/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "integrity",
+        "calibration",
+        "confidence"
+      ]
+    },
+    {
+      "name": "description-optimizer",
+      "description": "Optimize a skill's description field for maximum activation rate. Generates 20 trigger/no-trigger eval queries, tests them mentally, iterates the description until activation is reliable. Use when user says \"optimize description\", \"fix triggering\", \"skill not activating\", \"improve activation\", or \"why doesn't this skill fire\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/description-optimizer/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "skills",
+        "optimization"
+      ]
+    },
+    {
+      "name": "save-profile",
+      "description": "Use when user says \"save as profile\", \"create profile from session\", or \"export this setup\". Captures current skills and MCPs into a new cue profile via `cue create-profile`.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/save-profile/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "skill-suggestion",
+      "description": "Use when user says \"find a skill\", \"which skill\", or \"suggest skill\". Catalog lookup, matching existing skills, avoiding duplicates.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/skill-suggestion/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "retro",
+      "description": "Engineering retrospective from git history + cue session log. Per-author shipping streaks, test-health trend, growth opportunities, and one one-paragraph \"what to do differently next week.\" Saves a markdown file under .cue/retros/<YYYY-WW>.md. Use when the user says \"weekly retro\", \"what did we ship\", \"engineering retrospective\", or at end-of-sprint.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/retro/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "awesome-list-submit",
+      "description": "When user says \"submit to awesome lists\", \"add to awesome repos\", \"promote on GitHub lists\", or \"find lists for this project\" — auto-detect project metadata, find relevant awesome-* repos, check for duplicates, match entry format, draft PRs, and track submissions.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/awesome-list-submit/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "marketing",
+        "github",
+        "promotion",
+        "outreach"
+      ]
+    },
+    {
+      "name": "analyze",
+      "description": "\"Runs read-only deep repository analysis and returns a ranked synthesis with explicit confidence, concrete file references, and clear evidence-vs-inference boundaries. Use when user says \\\"analyze\\\", \\\"investigate\\\", \\\"why does\\\", \\\"what's causing\\\", \\\"trace through\\\", or asks for a grounded cross-file explanation before any changes are proposed.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/analyze/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "skill-discovery",
+      "description": "Analyzes what was done manually in the current session and suggests skills that could automate it next time — an end-of-session retro for skill coverage gaps. Use when user says \"what skills would have helped\", \"session review\", \"skill discovery\", \"audit my session\", or \"missing skills\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/skill-discovery/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "optimization"
+      ]
+    },
+    {
+      "name": "doctor",
+      "description": "\"[OMX] Diagnose and fix oh-my-codex installation issues\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/doctor/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "smart-loader",
+      "description": "Use when the user mentions a tool, platform, or workflow (coolify, resend, hostinger, medusa, gh, sanity, etc.) and no currently loaded skill covers it. Also use when the user says \"smart load\", \"load that skill\", \"find a skill for X\", or \"is there a skill for X\". Locates the matching SKILL.md on disk and follows it inline, since Claude Code's loadable skill list is frozen at session start by the active cue profile.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/smart-loader/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "routing"
+      ]
+    },
+    {
+      "name": "just",
+      "description": "Use when user says \"just\", \"quick task\", or \"simple task\". Lightest direct execution path: scope control, minimal tooling.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/just/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "omx-setup",
+      "description": "\"[OMX] Setup and configure oh-my-codex using current CLI behavior\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/omx-setup/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "workspace-recipes",
+      "description": "Use when user says \"spawn a new shop\", \"new medusa shop\", \"clean disk\", \"agent tree\", or \"rebuild colony cli\". Workspace-specific recipes from ~/Documents/Justfile. For generic `just` syntax use the `just` skill.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/workspace-recipes/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "cli-writer",
+      "description": "Writes or updates entries in resources/cli-recipes.json and generates ## Prerequisites sections for SKILL.md files so skills document the CLIs they depend on. Use when user says \"write a CLI recipe\", \"add CLI to recipes\", \"this skill needs a CLI\", or \"add install instructions\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/cli-writer/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "cli",
+        "recipes"
+      ]
+    },
+    {
+      "name": "skill-reviewer",
+      "description": "Review, score, rewrite, and scaffold SKILL.md files for cue profiles. Use when user says \"review this skill\", \"improve skill\", \"write a skill\", \"skill audit\", \"check skill quality\", \"why isn't this skill triggering\", or \"make this skill better\". Also activates when writing new skills or auditing a profile's skill coverage.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/skill-reviewer/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "skills",
+        "quality"
+      ]
+    },
+    {
+      "name": "ask-gemini",
+      "description": "[OMX] Use when user says \"ask gemini\", \"/ask-gemini\", or \"second opinion from gemini\". Runs local `gemini -p` CLI; saves to .omx/artifacts/gemini-*.md.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/ask-gemini/SKILL.md",
+      "category": "meta",
+      "tags": []
+    },
+    {
+      "name": "liedetector",
+      "description": "\"🟢🟡🟠🔴 confidence tags + ~N% calibration on every claim. Use when user wants the agent to verify claims, flag uncertainty, stop fabricating, or asks \\\"how sure are you\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/liedetector/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "calibration",
+        "integrity",
+        "anti-hallucination",
+        "claude-code",
+        "codex",
+        "cursor"
+      ]
+    },
+    {
+      "name": "\"playwright\"",
+      "description": "Use when user says \"Playwright\", \"browser test\", or \"snapshot\". Navigation, locators, screenshots, assertions.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/playwright/SKILL.md",
+      "category": "content",
+      "tags": []
+    },
+    {
+      "name": "engagement-feedback",
+      "description": "Use when user says \"/engagement-report\", \"which posts worked\", \"engagement loop\", \"what's getting traction\", \"audit which voices land\", or wants Postiz analytics cross-referenced with article voice / preset / topic choices. Closes the loop between content choices and actual reader response.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/engagement-feedback/SKILL.md",
+      "category": "content",
+      "tags": []
+    },
+    {
+      "name": "trend-to-thread",
+      "description": "End-to-end pipeline that chains trendradar → article-writer → X thread → Higgsfield hero image → Postiz draft in a single shot, turning a current trend topic into a posted-ready social thread with a generated hero image. Use when user says \"/trend-to-thread\", \"post a trend thread\", \"build a thread from trends\", \"új X thread mai trendből\", or \"Postiz X poszt mai trendekből\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/trend-to-thread/SKILL.md",
+      "category": "content",
+      "tags": []
+    },
+    {
+      "name": "pdf",
+      "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/pdf/SKILL.md",
+      "category": "content",
+      "tags": []
+    },
+    {
+      "name": "article-writer",
+      "description": "Use when user says \"/article\", \"write me an article\", \"draft a long-form piece\", \"Q&A interview style article\", \"op-ed\", \"sector analysis\", \"listicle\", \"breaking news\", \"blog post about X\", or asks for any topic-agnostic long-form English/Hungarian content. Topic-agnostic. Pairs with /trend-to-thread for the article → thread → social pipeline.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/article-writer/SKILL.md",
+      "category": "content",
+      "tags": []
+    },
+    {
+      "name": "\"doc\"",
+      "description": "Use when user says \"write documentation\", \"make a DOCX\", or \"create a doc\". Document structure, formatting, export.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/doc/SKILL.md",
+      "category": "content",
+      "tags": []
+    },
+    {
+      "name": "article-to-everywhere",
+      "description": "Use when user says \"/article-to-everywhere\", \"repurpose this article\", \"make a thread + LinkedIn from this\", \"derive social copy\", \"send everywhere\", \"X+LinkedIn+Substack+Reddit\", or has a finished long-form article and wants the per-platform derivatives. Takes a markdown article, outputs platform-shaped copy + (where Postiz integration exists) draft posts.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/article-to-everywhere/SKILL.md",
+      "category": "content",
+      "tags": []
+    },
+    {
+      "name": "anti-formula",
+      "description": "Use when the user says \"/anti-formula\", \"check this for formulas\", \"is this draft mechanical\", \"lint my post\", \"audit recent posts for repetition\", or before scheduling any post drafted by article-writer / trend-to-thread. Detects mechanical writing patterns (duplicate sentence starts, forced ? closers, arrow-chain monotony, recycled closers, banned AI vocabulary) across one draft or a window of recent drafts. Gate, not suggestion.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/anti-formula/SKILL.md",
+      "category": "content",
+      "tags": [
+        "content",
+        "lint",
+        "writing",
+        "social",
+        "formula-detection"
+      ]
+    },
+    {
+      "name": "myvps",
+      "description": "Use when user says \"my VPS\", \"remote Supabase\", or \"server admin\". Private VPS: env-based access, safe commands, remote checks (no stored secrets).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/private/myvps/SKILL.md",
+      "category": "private",
+      "tags": []
+    },
+    {
+      "name": "security-review",
+      "description": "Use when user says \"security review\", \"security audit\", \"check for vulnerabilities\", \"OWASP review\", or \"/security-review\". Audits for OWASP Top 10, secrets, injection, auth flaws. NOT for general code quality — use code-review.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/security-review/SKILL.md",
+      "category": "review",
+      "tags": []
+    },
+    {
+      "name": "code-review",
+      "description": "\"Runs a comprehensive code review of the current diff or a specific PR — correctness bugs, security, simplification opportunities. Use when user says \\\"review my code\\\", \\\"code review\\\", \\\"review this diff\\\", \\\"check my PR\\\", \\\"/code-review\\\", or \\\"review before merge\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/code-review/SKILL.md",
+      "category": "review",
+      "tags": []
+    },
+    {
+      "name": "wtf",
+      "description": "Pre-launch and pre-commit audit for vibe coding projects — catches common AI-built app mistakes (committed secrets, env-var hygiene, schema drift, unsafe raw SQL, weak auth, build failures, deployment footguns). Use when user says \"wtf\", \"is this ready to ship\", \"pre-launch check\", \"pre-commit audit\", \"ship-ready\", or \"check before deploy\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/wtf/SKILL.md",
+      "category": "review",
+      "tags": []
+    },
+    {
+      "name": "\"security-best-practices\"",
+      "description": "Use when user asks \"security best practices\", \"secure coding for python/typescript/go\", or \"how to harden this\". Language/framework-specific secure-by-default guidance. NOT for auditing existing code — use security-review.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/security-best-practices/SKILL.md",
+      "category": "review",
+      "tags": []
+    },
+    {
+      "name": "code-review-deep",
+      "description": "Pre-landing two-pass diff review. Pass 1 (CRITICAL) catches SQL safety, race conditions, LLM trust-boundary violations, shell injection, and enum completeness. Pass 2 (INFORMATIONAL) covers everything else. Optionally launches parallel specialist sub-reviews (security, perf, testing, maintainability, api-contract, data-migration, red-team). Use when the user says \"deep review\", \"pre-landing review\", \"review my diff\", or before opening a PR.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/code-review-deep/SKILL.md",
+      "category": "review",
+      "tags": []
+    },
+    {
+      "name": "api-tester",
+      "description": "Use when user says \"test API\", \"API endpoint\", or \"curl this endpoint\". Request setup, auth, assertions, response checks.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/api-tester/SKILL.md",
+      "category": "review",
+      "tags": []
+    },
+    {
+      "name": "google-drive",
+      "description": "Use when user says \"upload to Drive\", \"create a doc\", \"share file\", \"search Drive\", \"create spreadsheet\", \"make a presentation\", \"list my files\", \"move file\", \"create folder\", \"calendar event\", \"schedule meeting\", \"Google Drive\", \"Google Docs\", \"Google Sheets\", or \"Google Slides\". Manages files, docs, sheets, slides, and calendar via google-drive-mcp and gws CLI.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/google-workspace/google-drive/SKILL.md",
+      "category": "google-workspace",
+      "tags": [
+        "google",
+        "drive",
+        "docs",
+        "sheets",
+        "slides",
+        "calendar",
+        "workspace"
+      ]
+    },
+    {
+      "name": "cloakbrowser",
+      "description": "Use when user says \"cloakbrowser\", \"stealth chromium\", \"bypass bot detection\", \"anti-bot scraping\", or \"fingerprint spoof\". Stealth Chromium for sites that block headless browsers (Cloudflare, FingerprintJS, reCAPTCHA). Verified 5/6 on the standard bot-detection battery — details in body.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/research/cloakbrowser/SKILL.md",
+      "category": "research",
+      "tags": []
+    },
+    {
+      "name": "keyword-research",
+      "description": "Use when user says \"keyword research\", \"SEO keywords\", \"search volume\", \"keyword difficulty\", or \"topic clusters\". Seed terms, intent, volume, difficulty, clustering.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/research/keyword-research/SKILL.md",
+      "category": "research",
+      "tags": []
+    },
+    {
+      "name": "find-skills",
+      "description": "When user says \"find skills for X\", \"search for skills\", \"what skills exist for Y\", or \"add SVG/diagram/testing/etc skills to my profile\" — search GitHub for open-source Claude Code skills, evaluate them, and add the best ones to the active profile.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/research/find-skills/SKILL.md",
+      "category": "research",
+      "tags": [
+        "meta",
+        "cue",
+        "research",
+        "skills"
+      ]
+    },
+    {
+      "name": "trendradar",
+      "description": "\"When user asks about news trends, hot topics, RSS feeds, or wants to analyze/search recent news — use the TrendRadar MCP tools\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/research/trendradar/SKILL.md",
+      "category": "research",
+      "tags": []
+    },
+    {
+      "name": "flight-search",
+      "description": "Use when user says \"find flights\", \"flight search\", or \"book travel\". Dates, airports, constraints, current-source checks.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/research/flight-search/SKILL.md",
+      "category": "research",
+      "tags": []
+    },
+    {
+      "name": "defuddle",
+      "description": "'Use when user says \"extract article\", \"clean webpage\", or \"defuddle\". Readable content extraction: fetching, cleanup, citation.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/research/defuddle/SKILL.md",
+      "category": "research",
+      "tags": []
+    },
+    {
+      "name": "\"openai-docs\"",
+      "description": "Use when user says \"OpenAI docs\", \"OpenAI API\", or \"ChatGPT API\". Official OpenAI docs lookup: current docs, examples, limits, citations.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/research/openai-docs/SKILL.md",
+      "category": "research",
+      "tags": []
+    },
+    {
+      "name": "awesome-rust-search",
+      "description": "Use when user says \"find a rust crate for X\", \"is there a rust library for X\", \"what's a good rust X\", \"search awesome-rust\", or \"/awesome-rust-search\". Searches rust-unofficial/awesome-rust to recommend crates, CLIs, or apps by topic. NOT for crates.io version/maintenance checks — use `gh` instead. NOT for idiomatic Rust patterns — use std/rustdoc.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/research/awesome-rust-search/SKILL.md",
+      "category": "research",
+      "tags": []
+    },
+    {
+      "name": "obscura",
+      "description": "Use when user says \"scrape\", \"headless browser\", \"puppeteer\", \"stealth scrape\", or needs JS-rendered content from a URL. Rust headless browser with anti-detection, 30 MB RAM, 85 ms page load. NOT for static pages — use defuddle.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/research/obscura/SKILL.md",
+      "category": "research",
+      "tags": []
+    },
+    {
+      "name": "investigate",
+      "description": "Systematic root-cause debugging. Four phases: investigate → analyze → hypothesize → implement. Iron Law: no fix without a root cause. Stops after 3 failed fixes and reassesses. Use when the user reports an error, 500, stack trace, \"it was working yesterday\", or asks to \"debug this\", \"fix this bug\", \"why is X broken\", or \"root cause analysis\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/plan/investigate/SKILL.md",
+      "category": "plan",
+      "tags": []
+    },
+    {
+      "name": "plan-ceo-review",
+      "description": "CEO/founder-tier scope review of a feature plan. Four modes — Expansion, Selective Expansion, Hold Scope, Reduction — and a 10-section challenge walking through demand, scope, simplest version, and metric. Reads the design doc from /office-hours; writes back recommended scope changes. Use when the user says \"ceo review\", \"scope review\", \"is this the right scope\", or before committing to build a feature.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/plan/plan-ceo-review/SKILL.md",
+      "category": "plan",
+      "tags": []
+    },
+    {
+      "name": "plan-eng-review",
+      "description": "Engineering-manager review of a feature plan before code. Locks in architecture, data flow, state machines, edge cases, and a test matrix. Forces hidden assumptions into the open via ASCII diagrams. Reads the design doc; writes back architectural decisions. Use when the user says \"eng review\", \"architecture review\", \"lock the plan\", or before exiting plan mode.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/plan/plan-eng-review/SKILL.md",
+      "category": "plan",
+      "tags": []
+    },
+    {
+      "name": "autoplan",
+      "description": "Compose the full plan-stage pipeline: /office-hours → /plan-ceo-review → /plan-eng-review. Auto-skips stages where the design doc already has a section, so it's safe to re-run. Surfaces only taste decisions for user approval; everything else runs straight through. Use when the user says \"autoplan\", \"run the full plan\", \"plan pipeline\", or has a fresh idea and wants the whole sprint up to code.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/plan/autoplan/SKILL.md",
+      "category": "plan",
+      "tags": []
+    },
+    {
+      "name": "office-hours",
+      "description": "Premise-questioning before code. Six forcing questions that reframe a product idea, expose hidden demand assumptions, and find the narrowest wedge to ship. Writes a design doc the user can hand to /plan-ceo-review or /plan-eng-review. Use when the user says \"brainstorm this\", \"I have an idea\", \"help me think through\", \"office hours\", \"is this worth building\", or describes a product idea before any code exists.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/plan/office-hours/SKILL.md",
+      "category": "plan",
+      "tags": []
+    },
+    {
+      "name": "coolify",
+      "description": "Use when user says \"Coolify\", \"deploy backend\", or \"check deploy logs\". Env vars, builds, restarts, logs, rollback.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/deployment/coolify/SKILL.md",
+      "category": "deployment",
+      "tags": []
+    },
+    {
+      "name": "pnpm",
+      "description": "Use when user says \"pnpm\", \"workspace install\", or \"pnpm build\". Installs, scripts, filters, lockfiles.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/deployment/pnpm/SKILL.md",
+      "category": "deployment",
+      "tags": []
+    },
+    {
+      "name": "supabase",
+      "description": "Use when user says \"Supabase\", \"Supabase DB\", or \"Supabase migration\". Envs, migrations, SQL checks, access.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/deployment/supabase/SKILL.md",
+      "category": "deployment",
+      "tags": []
+    },
+    {
+      "name": "envoult",
+      "description": "Use when managing env vars or secrets across multiple Coolify-deployed apps, when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, when reconciling local secrets with `coolify app env`, or when the user mentions \"envoult\", \"envoultd\", or the encrypted secret vault.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/secrets/envoult/SKILL.md",
+      "category": "secrets",
+      "tags": []
+    },
+    {
+      "name": "higgsfield-soul-id",
+      "description": "Use when user says \"train my face\", \"create my Soul\", \"digital twin\", or \"build my avatar\". One-time Soul Character training; returns reference_id for higgsfield-generate. NOT for one-shot face swaps.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/higgsfield/higgsfield-soul-id/SKILL.md",
+      "category": "higgsfield",
+      "tags": []
+    },
+    {
+      "name": "higgsfield-generate",
+      "description": "Use when user says \"generate image/video\", \"animate this photo\", \"image-to-video\", \"remix this\", or \"create an ad\". Higgsfield models + Marketing Studio. NOT for product photoshoots or marketplace cards.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/higgsfield/higgsfield-generate/SKILL.md",
+      "category": "higgsfield",
+      "tags": []
+    },
+    {
+      "name": "higgsfield-marketplace-cards",
+      "description": "Use when user asks for \"marketplace listing images\", \"product detail cards\", \"A+ content\", or \"Amazon/Shopee/eBay images\". Compliant main + secondary + A+ modules. NOT for brand photography.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/higgsfield/higgsfield-marketplace-cards/SKILL.md",
+      "category": "higgsfield",
+      "tags": []
+    },
+    {
+      "name": "higgsfield-product-photoshoot",
+      "description": "Use when user says \"product photo\", \"studio shot\", \"lifestyle image\", \"hero banner\", or \"virtual try-on\". Backend-enhanced prompts on GPT Image 2. NOT for marketplace cards or generic image-gen.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/higgsfield/higgsfield-product-photoshoot/SKILL.md",
+      "category": "higgsfield",
+      "tags": []
+    },
+    {
+      "name": "obsidian-cli",
+      "description": "Use when user says \"Obsidian CLI\", \"vault command\", or \"manage vault\". Command-line vault ops: files, links, search.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/obsidian/obsidian-cli/SKILL.md",
+      "category": "obsidian",
+      "tags": []
+    },
+    {
+      "name": "obsidian-bases",
+      "description": "Use when user says \"Obsidian Bases\", \"base view\", or \"vault database\". Bases schema, filters, views.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/obsidian/obsidian-bases/SKILL.md",
+      "category": "obsidian",
+      "tags": []
+    },
+    {
+      "name": "json-canvas",
+      "description": "Use when user says \"JSON canvas\", \"Obsidian canvas\", or \"canvas file\". Obsidian canvas node layout, edges, schema.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/obsidian/json-canvas/SKILL.md",
+      "category": "obsidian",
+      "tags": []
+    },
+    {
+      "name": "obsidian-markdown",
+      "description": "Use when user says \"Obsidian markdown\", \"vault note\", or \"markdown note\". Frontmatter, links, embeds, structure.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/obsidian/obsidian-markdown/SKILL.md",
+      "category": "obsidian",
+      "tags": []
+    },
+    {
+      "name": "colony-prompts",
+      "description": "Use when user says \"Colony prompts\" or \"Colony handoff\". Prompt boundaries, task readiness, handoff wording for Colony.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/colony/colony-prompts/SKILL.md",
+      "category": "colony",
+      "tags": []
+    },
+    {
+      "name": "colony",
+      "description": "Use when user says \"Colony\", \"Colony plan\", or \"Colony task\". Colony workflow: live plans, lanes, handoffs, completion evidence.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/colony/colony/SKILL.md",
+      "category": "colony",
+      "tags": []
+    },
+    {
+      "name": "polymarket-research",
+      "description": "Use when user says \"what's the Polymarket market doing\", \"research a Polymarket market\", \"BTC 5m snapshot\", \"look up a Polymarket market\", or \"what are the odds on X\". Live overview via `polymarket-live` MCP — bundles BTC 5m snapshot, market search, and order book. NOT for placing orders.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/polymarket/polymarket-research/SKILL.md",
+      "category": "polymarket",
+      "tags": []
+    },
+    {
+      "name": "polymarket-predictions-audit",
+      "description": "Use when user says \"audit my predictions\", \"how is the model doing\", \"show prediction accuracy\", \"why is the model wrong\", or \"review my Brier score\". Reads the local predictions.jsonl + Brier report via `polymarket-live` MCP and explains where the model agrees/disagrees with reality. NOT for opening or resolving predictions.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/polymarket/polymarket-predictions-audit/SKILL.md",
+      "category": "polymarket",
+      "tags": []
+    },
+    {
+      "name": "playwright",
+      "description": "Use when verifying storefront or admin UI changes visually, when the user asks \"does it work?\" / \"screenshot the page\" / \"show me the form\" / \"check the checkout flow\", when reproducing UI bugs reported by a user, when testing Medusa shop dev servers running on localhost ports, or when exploring a third-party site to understand its DOM/behavior.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/browser/playwright/SKILL.md",
+      "category": "browser",
+      "tags": []
+    },
+    {
+      "name": "cso",
+      "description": "OWASP Top 10 + STRIDE threat model audit of the current diff (or the whole repo on demand). Zero-noise: findings must pass an 8/10+ confidence gate AND include a concrete exploit scenario before they're surfaced. Use when the user says \"security audit\", \"OWASP review\", \"threat model\", \"cso\", \"is this secure\", or before shipping anything that touches auth, user input, secrets, or payments.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/security/cso/SKILL.md",
+      "category": "security",
+      "tags": []
+    },
+    {
+      "name": "agentshield",
+      "description": "Use when the user asks to scan or audit a Claude Code / agent configuration for security issues — hardcoded secrets, overly-permissive Bash allow rules, hook injection, risky MCP servers, agent prompt-injection vectors — or mentions \"agentshield\", \"scan my .claude\", \"audit my settings.json\", \"ecc-agentshield\", or \"miniclaw\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/security/agentshield/SKILL.md",
+      "category": "security",
+      "tags": []
     }
   ],
   "upstream": [],
   "mcps": [
-    {
-      "name": "colony",
-      "description": "Source URL: https://github.com/recodeee/colony",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/colony"
-    },
-    {
-      "name": "coolify",
-      "description": "",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/coolify"
-    },
-    {
-      "name": "gbrain",
-      "description": "",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/gbrain"
-    },
-    {
-      "name": "gitea",
-      "description": "",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/gitea"
-    },
-    {
-      "name": "higgsfield",
-      "description": "Source URL: https://mcp.higgsfield.ai/mcp",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/higgsfield"
-    },
-    {
-      "name": "hostinger-api",
-      "description": "",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/hostinger-api"
-    },
-    {
-      "name": "letsfg",
-      "description": "",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/letsfg"
-    },
-    {
-      "name": "medusadocs",
-      "description": "",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/medusadocs"
-    },
-    {
-      "name": "obsidian-vault",
-      "description": "",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/obsidian-vault"
-    },
-    {
-      "name": "omx",
-      "description": "Top-level folder for OMX-related MCP servers.",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/omx"
-    },
-    {
-      "name": "react-grab-mcp",
-      "description": "",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/react-grab-mcp"
-    },
-    {
-      "name": "recodee",
-      "description": "",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/recodee"
-    },
-    {
-      "name": "soul",
-      "description": "Source URL: (local — no remote MCP server; skill-driven workflow)",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/soul"
-    },
-    {
-      "name": "soul-skills",
-      "description": "Source URL: (local — `soul/mcps/mcps/soul-skills/server.py`)",
-      "source": "/home/deadpool/Documents/soul/mcps/mcps/soul-skills"
-    }
+    "codegraph",
+    "playwright",
+    "react-grab-mcp",
+    "polymarket-live",
+    "gitea",
+    "soul-skills",
+    "soul",
+    "ruflo",
+    "coolify",
+    "drawio",
+    "marva-blog",
+    "higgsfield",
+    "recodee",
+    "colony",
+    "envoult",
+    "obsidian-vault",
+    "kroschuorder",
+    "medusadocs",
+    "omx",
+    "hostinger-api",
+    "gbrain",
+    "letsfg"
   ]
 }
