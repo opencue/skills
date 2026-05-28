@@ -75,7 +75,32 @@ Don't load smart-loader when:
 bash ~/Documents/cue/resources/skills/skills/meta/smart-loader/scripts/smart-lookup.sh <keyword>
 ```
 
-Replace `<keyword>` with the topic word (`coolify`, `resend`, `dns`, etc.). The script tries the indexed catalog first (drops rows whose source path is stale), then falls back to a live filesystem grep. Output is tab-separated: `category/name`, absolute path to `SKILL.md`, description preview. Empty output means no match.
+Replace `<keyword>` with the topic word (`coolify`, `resend`, `dns`, etc.). Output is tab-separated, ranked by match score, capped at top 5:
+
+```
+<category/name>  <absolute path>  <score>  <description>  <mcp_status>
+```
+
+What the script does automatically:
+- Auto-rebuilds the catalog if any SKILL.md is newer than the index (throttled to once per 60s).
+- Tries the indexed catalog first, then a live filesystem grep, then a fuzzy fallback via `difflib.get_close_matches` if both return zero hits. Fuzzy matches carry score 10 and are tagged `(fuzzy)` in the description.
+- Drops rows whose source path is stale (catalog drift).
+
+Score legend: 100 exact name, 80 name substring, 60 description match, 20 body match, 10 fuzzy.
+
+Empty output means truly no match (no exact, no fuzzy, no body hit).
+
+### Step 1b, Read the mcp_status column before recommending
+
+The fifth column is critical. Values:
+
+- **empty**, skill declares no MCP requirements. Safe to soft-load.
+- **`ok`**, skill needs an MCP and it is loaded in the active profile. Safe to soft-load.
+- **`missing:<mcp1>,<mcp2>`**, skill needs MCPs that are NOT currently loaded. **Do not soft-load.** Tell the user to switch to a profile that has those MCPs:
+
+  > This skill needs MCP `<name>` which isn't loaded in your active profile `<active>`. Run `cue use <profile>` and restart Claude Code. The smart-loader skill cannot fake MCP tool calls.
+
+  Use the `meta/profile-suggest` skill (or grep `~/Documents/cue/profiles/*/profile.yaml` for the MCP name) to suggest the right profile.
 
 ### Step 2, Read the chosen SKILL.md
 
