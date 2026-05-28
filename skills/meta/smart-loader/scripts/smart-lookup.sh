@@ -75,12 +75,25 @@ active_profile=""
 resolve_active_profile() {
   [ -n "$active_profile" ] && return
   active_profile="${CUE_ACTIVE_PROFILE:-}"
+  # CLAUDE_CONFIG_DIR is the canonical signal: cue sets it at launch to
+  # ~/.config/cue/runtime/<profile>/claude. Trust it over heuristics.
+  if [ -z "$active_profile" ] && [ -n "${CLAUDE_CONFIG_DIR:-}" ]; then
+    case "$CLAUDE_CONFIG_DIR" in
+      *"/cue/runtime/"*"/claude")
+        active_profile="${CLAUDE_CONFIG_DIR#*/cue/runtime/}"
+        active_profile="${active_profile%/claude}"
+        ;;
+    esac
+  fi
   if [ -z "$active_profile" ]; then
     pin_file="$HOME/.config/cue/pins/$(pwd | sed 's|/|_|g')"
     [ -f "$pin_file" ] && active_profile=$(cat "$pin_file" 2>/dev/null)
   fi
+  # Last-resort: pick the most-recently-modified runtime (not the first
+  # alphabetical one — that's almost always the wrong answer when multiple
+  # runtimes exist from prior `cue use` invocations).
   if [ -z "$active_profile" ]; then
-    for d in "$HOME/.config/cue/runtime"/*/; do
+    for d in $(ls -1dt "$HOME/.config/cue/runtime"/*/ 2>/dev/null); do
       [ -d "$d/claude/skills" ] && active_profile=$(basename "$d") && break
     done
   fi
