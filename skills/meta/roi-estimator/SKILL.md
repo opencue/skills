@@ -9,7 +9,7 @@ description: >-
   proposed change would help.
 tags: [meta, calibration, output-format]
 category: meta
-version: 1.0.0
+version: 1.1.0
 requires_mcps: []
 allowed-tools: []
 triggers:
@@ -41,18 +41,19 @@ This skill rides on the same calibration discipline as `meta/liedetector`. ROI e
 4. **No additive stacking.** Five improvements at +20% each do not sum to +100%. Each row is independent. Do not compute a "total ROI" line unless you have evidence the gains actually compose (rare).
 5. **State the baseline.** "+30% accuracy" means "compared to the pre-change state on the task we just discussed." If the baseline is different (industry average, prior session, theoretical max), say so explicitly.
 6. **Be willing to write 🔴 unknown.** Refusing to estimate is the second-most-useful output this skill produces, after the calibrated numbers.
+7. **Pair every ROI with an effort estimate.** Raw ROI ranks by impact, not by what to do next: a +50% win that costs three weeks loses to a +30% win that costs ten minutes. Add an effort tier and, per dual-scale, show both the agent time (CC + skill) and the human-team time. The recommendation is ROI relative to effort, never raw ROI. Effort tiers: `XS` (minutes), `S` (under an hour), `M` (a few hours), `L` (a day-plus), `XL` (multi-day, flag as an ocean).
 
 ## Format
 
 ### Table form (preferred for 3+ items)
 
-Add `ROI` as the last column.
+Add `ROI` and `Effort` as the last two columns. Sort rows by ROI-relative-to-effort, not by ROI alone.
 
-| # | Improvement | Concrete payoff | ROI |
-|---|---|---|---|
-| 1 | Ranked lookup | top hit is now the right skill | accuracy +30% 🟡 ~70% |
-| 2 | --exclude-loaded | skips already-loaded skills | turn-efficiency +20% 🟠 ~40% |
-| 3 | Catalog regen | 257 live paths vs 100 dead | correctness +50% 🟢 measured |
+| # | Improvement | Concrete payoff | ROI | Effort |
+|---|---|---|---|---|
+| 1 | Ranked lookup | top hit is now the right skill | accuracy +30% 🟡 ~70% | S · 20m CC / 1d human |
+| 2 | --exclude-loaded | skips already-loaded skills | turn-efficiency +20% 🟠 ~40% | XS · 10m CC / 2h human |
+| 3 | Catalog regen | 257 live paths vs 100 dead | correctness +50% 🟢 measured | M · 1h CC / 1d human |
 
 ### Inline form (for 1-2 items or prose lists)
 
@@ -130,15 +131,15 @@ Skip when:
 
 Improvements from the smart-loader build session (recent context):
 
-| # | Improvement | Concrete payoff | ROI |
-|---|---|---|---|
-| 1 | Catalog regen (cue paths) | 257 live paths vs 100 dead | correctness +50% 🟢 measured |
-| 2 | Ranked lookup | exact-name hit at top, body-match noise at bottom | accuracy +30% 🟡 ~70% |
-| 3 | --exclude-loaded | drops already-loaded skills from results | turn-efficiency +10% 🟠 ~30% |
-| 4 | AGENTS.md path sweep | upstream phantoms gone | correctness +20% 🟡 ~80% |
-| 5 | Iron rule #6 (verify before recommend) | behavioral guard against fabrication | correctness +20% 🟡 ~60% |
+| # | Improvement | Concrete payoff | ROI | Effort |
+|---|---|---|---|---|
+| 1 | Catalog regen (cue paths) | 257 live paths vs 100 dead | correctness +50% 🟢 measured | M · 1h CC / 1d human |
+| 2 | Ranked lookup | exact-name hit at top, body-match noise at bottom | accuracy +30% 🟡 ~70% | S · 30m CC / 1d human |
+| 3 | --exclude-loaded | drops already-loaded skills from results | turn-efficiency +10% 🟠 ~30% | XS · 10m CC / 2h human |
+| 4 | AGENTS.md path sweep | upstream phantoms gone | correctness +20% 🟡 ~80% | S · 20m CC / 3h human |
+| 5 | Iron rule #6 (verify before recommend) | behavioral guard against fabrication | correctness +20% 🟡 ~60% | XS · 5m CC / 1h human |
 
-ROI audit: 1 measured, 3 inferred, 1 guessed. Stacking these naively would say "+130%", wrong, they overlap (rules 1 and 4 both target the same drift problem). Real composite: probably correctness ~+60-70% on this specific failure mode, accuracy ~+30%, the rest is gravy.
+ROI audit: 1 measured, 3 inferred, 1 guessed. Stacking these naively would say "+130%", wrong, they overlap (rules 1 and 4 both target the same drift problem). Real composite: probably correctness ~+60-70% on this specific failure mode, accuracy ~+30%, the rest is gravy. By ROI-relative-to-effort, rows 5 and 3 ship first (minutes of work), row 1 is the big measured win but costs the most.
 
 ## Linking
 
