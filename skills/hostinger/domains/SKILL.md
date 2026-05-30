@@ -10,6 +10,21 @@ doc_source: https://developers.hostinger.com
 
 The Domains API provides full domain lifecycle management — from checking availability and purchasing to configuring nameservers, forwarding, WHOIS profiles, domain locks, and privacy protection.
 
+## Tool surface — prefer MCP
+
+This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__domains_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable — they are not the primary interface.
+
+Available domain tools:
+
+- `domains_checkDomainAvailabilityV1` — pre-purchase availability + alternative TLD suggestions
+- `domains_getDomainListV1`, `domains_getDomainDetailsV1` — list and inspect portfolio
+- `domains_purchaseNewDomainV1` — buy a new domain (uses a WHOIS profile)
+- `domains_updateDomainNameserversV1` — change nameservers
+- `domains_getDomainForwardingV1`, `domains_createDomainForwardingV1`, `domains_deleteDomainForwardingV1` — 301/302 redirect CRUD
+- `domains_enableDomainLockV1`, `domains_disableDomainLockV1` — transfer-lock toggle
+- `domains_enablePrivacyProtectionV1`, `domains_disablePrivacyProtectionV1` — WHOIS privacy toggle
+- `domains_getWHOISProfileListV1`, `domains_getWHOISProfileV1`, `domains_createWHOISProfileV1`, `domains_deleteWHOISProfileV1`, `domains_getWHOISProfileUsageV1` — WHOIS profile CRUD + usage
+
 ## Table of Contents
 
 - [Core Concepts](#core-concepts)

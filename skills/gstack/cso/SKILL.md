@@ -8,6 +8,7 @@ description: |
   scan, 2/10 bar). Trend tracking across audit runs.
   Use when: "security audit", "threat model", "pentest review", "OWASP", "CSO review".
   Voice triggers (speech-to-text aliases): "see-so", "see so", "security review", "security check", "vulnerability scan", "run security".
+tags: [security, pentest, audit, compliance]
 allowed-tools: Bash(-:*), Bash(Bash:*)
   - Bash
   - Read

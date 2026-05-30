@@ -1,5 +1,5 @@
 ---
-description: "When user asks about cue profiles, skills, MCPs, marketplace, or managing their agent setup, guide them through cue CLI commands"
+description: "Guides through cue CLI commands for profiles, skills, MCPs, and marketplace operations. Use when user says \"cue help\", \"how do I use cue\", \"list profiles\", \"add an MCP\", \"manage my profile\", or asks anything about the cue CLI surface."
 tags: [meta, cue, profiles, skills, mcps]
 category: meta
 version: 1.0.0

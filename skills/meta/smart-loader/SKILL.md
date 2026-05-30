@@ -72,21 +72,45 @@ Don't load smart-loader when:
 ### Step 1, Run the lookup
 
 ```bash
-bash ~/Documents/cue/resources/skills/skills/meta/smart-loader/scripts/smart-lookup.sh <keyword>
+bash ~/Documents/cue/resources/skills/skills/meta/smart-loader/scripts/smart-lookup.sh <query...>
 ```
 
-Replace `<keyword>` with the topic word (`coolify`, `resend`, `dns`, etc.). Output is tab-separated, ranked by match score, capped at top 5:
+`<query>` can be one word (`coolify`) or several (`make this sound human`, `writing english coherent`, `fogalmazas`). Output is tab-separated, ranked by match score, capped at top 5 (strict) or 10 (loose):
 
 ```
-<category/name>  <absolute path>  <score>  <description>  <mcp_status>
+<category/name>  <absolute path>  <score>  <description>  <mcp_status>  [explain]
 ```
+
+Flags:
+- `--explain` — append a 6th column showing matched fields per token (`trigger=foo;name~bar;cooc=2x;feedback+15;cwd+10`). Use when ranking looks wrong and you need to see why.
+- `--mode loose` — return top 10 instead of top 5; for exploratory "what skills do I have around X" queries.
+- `--exclude-loaded` — drop skills already active in the current cue profile.
+- `--no-fuzzy` / `--no-embed` / `--no-cache` — disable individual fallbacks/boosts.
+- `--record-pick CAT/NAME <query>` — record an accept in the feedback log so future identical queries boost that skill by +15. Run this after the user confirms a soft-load was the right call.
 
 What the script does automatically:
-- Auto-rebuilds the catalog if any SKILL.md is newer than the index (throttled to once per 60s).
-- Tries the indexed catalog first, then a live filesystem grep, then a fuzzy fallback via `difflib.get_close_matches` if both return zero hits. Fuzzy matches carry score 10 and are tagged `(fuzzy)` in the description.
-- Drops rows whose source path is stale (catalog drift).
+- **Multi-keyword scoring** with co-occurrence bonus (×1.5 if ≥2 tokens hit the same skill).
+- **Trigger/tag indexing** — frontmatter `triggers:` and `tags:` are highest-signal fields and score above description.
+- **Multilingual aliases** — non-English tokens (Hungarian, German) are expanded via `aliases.json` before scoring.
+- **CWD-domain boost** — skills in categories that match `~/.config/cue/cwd-domains.json` rules for your current path get +10.
+- **Feedback boost** — skills previously recorded via `--record-pick` for the same query get +15.
+- **Negative cache** — repeated misses on the same query within 5 min skip the full pipeline.
+- **Scaffold hint** — emits a stderr `#`-line when the top score is `<60` or zero, suggesting `meta/skill-suggestion`.
+- **Catalog auto-rebuild** (throttled to once per 60s) with diff log at `~/.cache/cue/catalog-rebuild.log`.
+- **Fuzzy fallback** (difflib) → **semantic fallback** (embeddings, opt-in via `CUE_USE_EMBEDDINGS=1` after `python3 scripts/build-embeddings.py`).
 
-Score legend: 100 exact name, 80 name substring, 60 description match, 20 body match, 10 fuzzy.
+Score legend (per token, highest field wins, then summed across tokens):
+
+| Score | Field |
+|---|---|
+| 100 | exact name |
+| 90 | trigger phrase contains token |
+| 80 | name substring |
+| 70 | tag exact match |
+| 60 | description |
+| 40 | H1/H2 heading |
+| 20 | body |
+| 10 | fuzzy / semantic fallback |
 
 Empty output means truly no match (no exact, no fuzzy, no body hit).
 

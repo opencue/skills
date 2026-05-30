@@ -1,9 +1,10 @@
 ---
 name: cli-writer
 description: >-
-  When user says "write a CLI recipe", "add CLI to recipes", "this skill needs a CLI",
-  or "add install instructions for <tool>". Writes or updates entries in
-  resources/cli-recipes.json and generates ## Prerequisites sections for SKILL.md files.
+  Writes or updates entries in resources/cli-recipes.json and generates
+  ## Prerequisites sections for SKILL.md files so skills document the CLIs
+  they depend on. Use when user says "write a CLI recipe", "add CLI to
+  recipes", "this skill needs a CLI", or "add install instructions".
 tags: [meta, cue, cli, recipes]
 category: meta
 version: 1.1.0

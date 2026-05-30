@@ -1,5 +1,5 @@
 ---
-description: "When a skill is used frequently across multiple profiles/sessions, suggest promoting it to built-in. Also manage built-in skills when user asks to add/remove shared skills."
+description: "Manage built-in skills shared across every cue profile — promote, demote, list. Use when user says \"make X built-in\", \"add X to all profiles\", \"remove from built-in\", \"promote skill to built-in\", or \"what skills are built-in\". Also activates proactively when a skill has fired across 3+ profiles and should be promoted."
 tags: [meta, builtin, optimization]
 category: meta
 version: 1.0.0

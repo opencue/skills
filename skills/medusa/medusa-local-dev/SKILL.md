@@ -1,6 +1,6 @@
 ---
 name: medusa-local-dev
-description: Use when starting any Medusa shop locally (backend + storefront), when two shops collide on port 9000 or 3000, when "EADDRINUSE :::9000" appears, or when running multiple shops side-by-side under ~/Documents/medusa-shops/ and ~/Documents/recodee/.
+description: Use when user says "start medusa", "medusa local dev", "EADDRINUSE :::9000", "port collision", or "run multiple shops". Coordinates backend + storefront startup across many Medusa shops with stable per-shop ports from ~/Documents/medusa-shops/.dev-ports.yaml.
 ---
 
 # Running multiple Medusa shops locally

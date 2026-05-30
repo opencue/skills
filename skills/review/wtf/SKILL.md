@@ -1,7 +1,11 @@
 ---
 name: wtf
 description: >-
-  Pre-launch and pre-commit audit for vibe coding projects. Use when asked to check whether a project is ready to ship, deploy, merge, or commit, especially for common AI-built app mistakes: broken project structure, committed secrets or cache files, environment variable hygiene, database migrations, ORM/schema drift, unsafe raw SQL, unused legacy code, dead routes/components, weak auth, missing tests, build failures, and deployment footguns.
+  Pre-launch and pre-commit audit for vibe coding projects — catches common
+  AI-built app mistakes (committed secrets, env-var hygiene, schema drift,
+  unsafe raw SQL, weak auth, build failures, deployment footguns). Use
+  when user says "wtf", "is this ready to ship", "pre-launch check",
+  "pre-commit audit", "ship-ready", or "check before deploy".
 ---
 
 # WTF

@@ -1,9 +1,10 @@
 ---
 name: kiro-powers
 description: >-
-  When user says "import kiro power", "add power to profile", or "use X power" —
-  import a Kiro Power (POWER.md + MCP config) from GitHub into a cue profile as
-  a skill + MCP entry. Bridges the Kiro Powers ecosystem into cue.
+  Imports a Kiro Power (POWER.md + MCP config) from GitHub into a cue profile
+  as a skill + MCP entry, bridging the Kiro Powers ecosystem into cue. Use
+  when user says "import kiro power", "add kiro power to profile", "use X
+  power", or "convert kiro to cue".
 tags: [meta, cue, kiro, powers, interop]
 category: meta
 version: 1.0.0

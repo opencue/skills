@@ -1,9 +1,12 @@
 ---
 name: trend-to-thread
 description: >-
-  Use when user says "/trend-to-thread", "post a trend thread", "build a thread from trends",
-  "új X thread mai trendből", "Postiz X poszt mai trendekből", or asks to chain the full
-  pipeline trend → article → X thread → Higgsfield hero image → Postiz draft in one shot.
+  End-to-end pipeline that chains trendradar → article-writer → X thread →
+  Higgsfield hero image → Postiz draft in a single shot, turning a current
+  trend topic into a posted-ready social thread with a generated hero
+  image. Use when user says "/trend-to-thread", "post a trend thread",
+  "build a thread from trends", "új X thread mai trendből", or "Postiz X
+  poszt mai trendekből".
 allowed-tools:
   - mcp__trendradar__get_trending_topics
   - mcp__trendradar__get_latest_news

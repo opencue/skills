@@ -10,6 +10,20 @@ doc_source: https://developers.hostinger.com
 
 The DNS API enables full management of DNS zone records for domains hosted on Hostinger. You can create, update, delete, validate, and reset DNS records, as well as manage DNS snapshots for backup and restore operations.
 
+## Tool surface — prefer MCP
+
+This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__DNS_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable — they are not the primary interface.
+
+Available DNS tools:
+
+- `DNS_getDNSRecordsV1` — read current zone records
+- `DNS_updateDNSRecordsV1` — apply record changes (use `DNS_validateDNSRecordsV1` first)
+- `DNS_validateDNSRecordsV1` — dry-run validation before update
+- `DNS_deleteDNSRecordsV1` — remove specific records
+- `DNS_resetDNSRecordsV1` — restore zone to Hostinger defaults
+- `DNS_getDNSSnapshotListV1`, `DNS_getDNSSnapshotV1` — snapshot inventory + detail
+- `DNS_restoreDNSSnapshotV1` — roll back to a snapshot (the safety net before risky changes)
+
 ## Table of Contents
 
 - [Core Concepts](#core-concepts)

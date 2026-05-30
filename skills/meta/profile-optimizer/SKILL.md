@@ -1,9 +1,10 @@
 ---
 name: profile-optimizer
 description: >-
-  When user says "optimize profile", "clean up skills", "what skills am I not using",
-  "suggest skills for this repo", or "profile review". Runs cue optimizer and rank
-  commands, presents visual results, suggests removals and additions.
+  Runs cue optimizer and rank commands, presents visual results, suggests
+  removals and additions to slim the active profile. Use when user says
+  "optimize profile", "clean up skills", "what skills am I not using",
+  "suggest skills for this repo", or "profile review".
 tags: [meta, cue, profiles, optimization]
 category: meta
 version: 1.0.0

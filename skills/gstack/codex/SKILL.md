@@ -11,6 +11,7 @@ triggers:
   - codex review
   - second opinion
   - outside voice challenge
+tags: [security, review, audit]
 allowed-tools: Bash(-:*), Bash(Bash:*)
   - Bash
   - Read

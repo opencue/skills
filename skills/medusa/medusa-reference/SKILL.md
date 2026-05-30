@@ -1,7 +1,7 @@
 ---
 name: medusa-reference
 description: >-
-  Use when user says "Medusa workflow", "Medusa subscriber", "Medusa auth", "Medusa query", or builds/modifies API routes, models, jobs, backend logic, storefront integrations.
+  Use when user says "Medusa workflow", "Medusa subscriber", "Medusa auth", "Medusa query", or builds/modifies API routes, models, jobs, backend logic, storefront integrations. General reference for Medusa v2 backend and storefront patterns — routes module conventions, workflow signatures, subscriber events, query helpers, and admin SDK calls.
 ---
 
 # Medusa Reference

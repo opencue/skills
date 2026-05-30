@@ -1,9 +1,11 @@
 ---
 name: profile-suggest
 description: >-
-  FIRST MESSAGE ONLY. When no .cue-profile exists in the current directory,
-  analyze the repo and suggest the best profile. Runs once then self-removes
-  from the project CLAUDE.md.
+  Analyzes a repo on the first message and suggests the best cue profile
+  when no .cue-profile is set, then self-removes from the project CLAUDE.md.
+  Use when user says "suggest a profile", "which profile", "auto-detect
+  profile", "scan this repo", or arrives in a directory with no
+  .cue-profile.
 tags: [meta, cue, profiles, onboarding]
 category: meta
 version: 1.0.0

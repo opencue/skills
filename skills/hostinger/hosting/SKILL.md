@@ -10,6 +10,21 @@ doc_source: https://developers.hostinger.com
 
 The Hosting API manages shared hosting services — creating websites, listing orders, selecting datacenters, verifying domain ownership, and generating free subdomains.
 
+## Tool surface — prefer MCP
+
+This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__hosting_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable — they are not the primary interface.
+
+Available hosting tools:
+
+- `hosting_listOrdersV1`, `hosting_listWebsitesV1` — inventory of orders and sites
+- `hosting_createWebsiteV1` — provision a new website on an existing order
+- `hosting_listAvailableDatacentersV1` — pick a datacenter region before create
+- `hosting_generateAFreeSubdomainV1` — assign a free `.hstgr.io`-style subdomain
+- `hosting_verifyDomainOwnershipV1` — validate a custom domain points at Hostinger
+- `hosting_deployStaticWebsite` — static-site deploy (canonical Vite storefront pattern)
+- `hosting_deployJsApplication`, `hosting_listJsDeployments`, `hosting_showJsDeploymentLogs` — JS-app deploys + log/inventory
+- `hosting_deployWordpressPlugin`, `hosting_deployWordpressTheme`, `hosting_importWordpressWebsite` — WordPress workflows
+
 ## Table of Contents
 
 - [Core Concepts](#core-concepts)

@@ -7,7 +7,7 @@ description: |
   Use when the user says "security audit", "OWASP review", "threat model",
   "cso", "is this secure", or before shipping anything that touches auth,
   user input, secrets, or payments.
-allowed-tools: [Bash, Read, Grep, Glob, Write, AskUserQuestion, WebSearch]
+allowed-tools: [Bash, Read, Grep, Glob, Edit, MultiEdit, Write, AskUserQuestion, WebSearch]
 triggers:
   - security audit
   - owasp review
@@ -126,7 +126,39 @@ because no lockfile in diff">
 - ❌ Skipping the "what was fine" section. The user needs to know
   what's been ruled out.
 
+## Fix mode (opt-in `--fix`)
+
+The audit is read-only by default. When the user says `/cso --fix` (optionally
+`--fix --iterations N`), remediate the confirmed findings iteratively, one at a
+time, with a regression guard between each. This borrows the autoresearch
+guard pattern: git is the memory, one atomic change per step.
+
+Preconditions: a git repo with a clean working tree, and a guard command
+(tests or lint) you can run. If either is missing, ask the user before editing.
+
+Loop:
+
+1. Sort the surfaced findings by severity (Critical, then High, then Medium).
+   Only findings that already cleared the 8/10 + exploit-scenario gate are
+   eligible. Never auto-fix a finding you couldn't write the exploit for.
+2. For each finding, in order:
+   a. Apply one targeted fix. Keep it scoped to closing that finding's exploit
+      path, not a refactor.
+   b. Run the guard (tests / typecheck / lint). If it fails, revert the change
+      with `git restore` and stop, report the failure. Do not proceed.
+   c. Re-verify: confirm the original exploit scenario no longer reproduces.
+   d. Commit: `security(fix): <finding title>` so each fix is its own revertable
+      step.
+3. Cap total fixes at `--iterations N` when given (default: all eligible
+   findings). Stop early on the first guard failure.
+4. After the loop, re-run the audit on the same scope to confirm zero open
+   Critical/High findings, and report what changed.
+
+Never batch fixes into one commit, and never weaken a test to make the guard
+pass. A fix that needs the guard relaxed is not a fix.
+
 ## After this skill
 
-If findings are present, suggest: "Fix the criticals, then re-run
-`/cso` on the diff to verify they're closed."
+If findings are present and the user did not pass `--fix`, suggest: "Fix the
+criticals, then re-run `/cso` on the diff to verify they're closed" or "run
+`/cso --fix` to remediate them iteratively with a test guard between each."

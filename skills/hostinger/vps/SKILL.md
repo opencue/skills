@@ -10,6 +10,23 @@ doc_source: https://developers.hostinger.com
 
 The VPS API provides comprehensive management of virtual private servers — from purchasing and setup to Docker deployments, firewall configuration, SSH keys, backups, snapshots, OS reinstallation, recovery mode, malware scanning, and performance monitoring.
 
+## Tool surface — prefer MCP
+
+This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__VPS_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable — they are not the primary interface.
+
+Available VPS tools (61 total), grouped by job:
+
+- **Lifecycle:** `VPS_purchaseNewVirtualMachineV1`, `VPS_setupPurchasedVirtualMachineV1`, `VPS_recreateVirtualMachineV1`, `VPS_startVirtualMachineV1`, `VPS_stopVirtualMachineV1`, `VPS_restartVirtualMachineV1`
+- **Inventory:** `VPS_getVirtualMachinesV1`, `VPS_getVirtualMachineDetailsV1`, `VPS_getTemplatesV1`, `VPS_getTemplateDetailsV1`, `VPS_getDataCenterListV1`
+- **Firewall:** `VPS_createNewFirewallV1`, `VPS_createFirewallRuleV1`, `VPS_updateFirewallRuleV1`, `VPS_deleteFirewallRuleV1`, `VPS_activateFirewallV1`, `VPS_deactivateFirewallV1`, `VPS_syncFirewallV1`, `VPS_getFirewallListV1`, `VPS_getFirewallDetailsV1`, `VPS_deleteFirewallV1`
+- **SSH keys:** `VPS_createPublicKeyV1`, `VPS_attachPublicKeyV1`, `VPS_getPublicKeysV1`, `VPS_getAttachedPublicKeysV1`, `VPS_deletePublicKeyV1`
+- **Snapshots / backups:** `VPS_createSnapshotV1`, `VPS_getSnapshotV1`, `VPS_restoreSnapshotV1`, `VPS_deleteSnapshotV1`, `VPS_getBackupsV1`, `VPS_restoreBackupV1`
+- **Identity / DNS:** `VPS_setHostnameV1`, `VPS_resetHostnameV1`, `VPS_setNameserversV1`, `VPS_createPTRRecordV1`, `VPS_deletePTRRecordV1`, `VPS_setRootPasswordV1`, `VPS_setPanelPasswordV1`
+- **Post-install scripts:** `VPS_createPostInstallScriptV1`, `VPS_getPostInstallScriptsV1`, `VPS_getPostInstallScriptV1`, `VPS_updatePostInstallScriptV1`, `VPS_deletePostInstallScriptV1`
+- **Projects (Docker apps):** `VPS_createNewProjectV1`, `VPS_getProjectListV1`, `VPS_getProjectContainersV1`, `VPS_getProjectContentsV1`, `VPS_getProjectLogsV1`, `VPS_startProjectV1`, `VPS_stopProjectV1`, `VPS_restartProjectV1`, `VPS_updateProjectV1`, `VPS_deleteProjectV1`
+- **Monitoring / actions:** `VPS_getMetricsV1`, `VPS_getScanMetricsV1`, `VPS_getActionsV1`, `VPS_getActionDetailsV1`, `VPS_installMonarxV1`, `VPS_uninstallMonarxV1`
+- **Recovery:** `VPS_startRecoveryModeV1`, `VPS_stopRecoveryModeV1`
+
 ## Table of Contents
 
 - [Core Concepts](#core-concepts)

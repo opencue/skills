@@ -1,9 +1,11 @@
 ---
 name: skill-discovery
 description: >-
-  End-of-session analysis. When user says "what skills would have helped",
-  "session review", or when a long session ends, analyze what was done manually
-  and suggest skills that could automate it next time.
+  Analyzes what was done manually in the current session and suggests
+  skills that could automate it next time — an end-of-session retro for
+  skill coverage gaps. Use when user says "what skills would have helped",
+  "session review", "skill discovery", "audit my session", or "missing
+  skills".
 tags: [meta, cue, optimization]
 category: meta
 version: 1.0.0

@@ -32,7 +32,7 @@ User says any of:
 `<shop>` is a short slug, e.g. `compastor`, `lifted`, `munchi`. The skill uses
 it to:
 - locate the per-shop env file: `~/.config/medusa-image-pipeline/<shop>.env`
-- key the future bouncer-MCP scope: `mcp__recodee__vault_get_secret(scope="<shop>")`
+- scope the per-shop secret lookup by shop slug
 
 ### Required: a manifest
 

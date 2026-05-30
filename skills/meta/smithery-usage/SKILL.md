@@ -1,5 +1,5 @@
 ---
-description: "When user asks about finding, installing, or managing MCP servers via Smithery marketplace, guide them through smithery CLI and cue marketplace commands"
+description: "Guides through smithery CLI and cue marketplace commands for finding, installing, and managing MCP servers from the Smithery registry. Use when user says \"find an MCP on smithery\", \"install smithery MCP\", \"search the MCP marketplace\", \"what MCPs are available\", or \"smithery help\"."
 tags: [meta, smithery, mcps, marketplace]
 category: meta
 version: 1.0.0

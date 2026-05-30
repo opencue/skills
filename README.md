@@ -1,6 +1,6 @@
 # cue/skills — Skill Library
 
-> 127 skills across 21 categories. The source of truth for all local skills used by [cue](https://github.com/opencue/cue) profiles.
+> 127 skills across 21 categories. The source of truth for all local skills used by [cue](https://github.com/opencue/claude-code-skills) profiles.
 
 ## What's here
 
@@ -88,5 +88,5 @@ Or manually: create `skills/<category>/<slug>/SKILL.md` with the frontmatter for
 
 ## Related
 
-- [cue](https://github.com/opencue/cue) — the profile manager
+- [cue](https://github.com/opencue/claude-code-skills) — the profile manager
 - [resources/mcps](../mcps/) — MCP server registry

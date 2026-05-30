@@ -1,6 +1,6 @@
 ---
 name: playwright
-description: Use when verifying storefront or admin UI changes visually, when the user asks "does it work?" / "screenshot the page" / "show me the form" / "check the checkout flow", when reproducing UI bugs reported by a user, when testing Medusa shop dev servers running on localhost ports, or when exploring a third-party site to understand its DOM/behavior.
+description: Use when user says "does it work?", "screenshot the page", "show me the form", "check the checkout flow", or "open the browser". Drives Chromium/Firefox/WebKit via Playwright MCP to verify storefront/admin UI changes, reproduce reported UI bugs, test Medusa dev servers on localhost, or explore third-party sites.
 ---
 
 # Playwright MCP — driving a real browser

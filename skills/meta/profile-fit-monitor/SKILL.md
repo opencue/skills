@@ -1,6 +1,6 @@
 ---
 name: profile-fit-monitor
-description: Notice when the active cue profile is a poor fit for the current work and suggest switching. Use when you find yourself reaching for skills/tools that aren't loaded, or doing work clearly outside the profile's domain (e.g. backend work in a frontend profile).
+description: "Notices when the active cue profile is a poor fit for the current work and suggests switching. Use when user says \"wrong profile\", \"switch profile\", \"this profile doesn't fit\", \"better profile for this\", or proactively when reaching for skills/tools that aren't loaded (e.g. backend work in a frontend profile)."
 ---
 
 # Profile Fit Monitor
