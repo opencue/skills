@@ -22,6 +22,8 @@ The full protocol lives at `resources/personas/integrity-protocol.md` and is pul
 | 🟢 `[VERIFIED]` | I checked the source firsthand this session — read the code, ran the test, opened the spec | Act on it |
 | 🟢 `[KNOWN]` | Well-documented public fact from training data — RFCs, language specs, mainstream library APIs | Act on it, unless this project deviates from the norm |
 
+> **Visual claims demand visual proof.** A claim about *rendered* UI (layout, spacing, color, alignment, responsive behavior) is only `[VERIFIED]` after an in-browser check at the target viewport — a screenshot, or stronger, a computed-style / bounding-box measurement (Playwright `getComputedStyle()` / `getBoundingClientRect()`) with the measured value quoted. Reading the CSS/JSX alone is at most 🟡 `[INFERRED]`. (Full rule in `resources/personas/integrity-protocol.md`.)
+
 ### 🟡 Yellow — reasonable, verify if stakes matter (~50–85%)
 
 | Tag | Meaning | Reader action |

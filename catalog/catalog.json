@@ -1,11 +1,11 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-05-30T22:45:20Z",
+  "generated_at": "2026-06-01T15:09:41Z",
   "offline": true,
   "counts": {
-    "installed": 329,
+    "installed": 330,
     "upstream": 0,
-    "mcps": 22
+    "mcps": 26
   },
   "installed": [
     {
@@ -954,7 +954,7 @@
     },
     {
       "name": "design-shotgun",
-      "description": "Design shotgun: generate multiple AI design variants, open a comparison board, collect structured feedback, and iterate. (gstack)",
+      "description": "Generate multiple AI design variants at once, open a side-by-side comparison board, collect structured feedback, and iterate toward a winner. Use when the user says \"explore design variants\", \"show me design options\", \"visual design brainstorm\", \"design shotgun\", or \"give me a few directions\" for a UI, page, or component. NOT for auditing a single existing design — use design-review for that.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/design-shotgun/SKILL.md",
       "category": "gstack",
       "tags": [],
@@ -2292,7 +2292,7 @@
     },
     {
       "name": "opensrc",
-      "description": "Fetch dependency source code to give AI agents deeper implementation context. Use when the agent needs to understand how a library works internally, read source code for a package, fetch implementation details for a dependency, or explore how an npm/PyPI/crates.io package is built. Triggers include \"fetch source for\", \"read the source of\", \"how does X work internally\", \"get the implementation of\", \"opensrc path\", or any task requiring access to dependency source code beyond types and docs.",
+      "description": "Fetch dependency source code so agents read real implementations, not just types and docs — clones npm/PyPI/crates.io/GitHub packages at the right version and caches them locally. Use when the user says \"fetch source for\", \"read the source of\", \"get the implementation of\", \"how does X work internally\", or \"opensrc path\", or whenever a task needs to inspect a dependency's actual code beyond its public types.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/opensrc/SKILL.md",
       "category": "tools",
       "tags": [
@@ -3499,6 +3499,21 @@
       "links": []
     },
     {
+      "name": "agent-browser",
+      "description": "Use when you need to drive a real browser: open a page, fill forms, click, screenshot, scrape, or test a login flow. Triggers on \"automate the browser\", \"test the page\", \"scrape this site\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/browser/agent-browser/SKILL.md",
+      "category": "browser",
+      "tags": [
+        "browser",
+        "automation",
+        "scraping",
+        "testing",
+        "cdp"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "cso",
       "description": "OWASP Top 10 + STRIDE threat model audit of the current diff (or the whole repo on demand). Zero-noise: findings must pass an 8/10+ confidence gate AND include a concrete exploit scenario before they're surfaced. Use when the user says \"security audit\", \"OWASP review\", \"threat model\", \"cso\", \"is this secure\", or before shipping anything that touches auth, user input, secrets, or payments.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/security/cso/SKILL.md",
@@ -3525,16 +3540,20 @@
   ],
   "upstream": [],
   "mcps": [
+    "hexstrike-ai",
     "codegraph",
+    "postgres-pro",
     "playwright",
     "react-grab-mcp",
     "polymarket-live",
     "gitea",
     "soul-skills",
+    "github",
     "soul",
     "ruflo",
     "coolify",
     "drawio",
+    "supabase",
     "marva-blog",
     "higgsfield",
     "recodee",
