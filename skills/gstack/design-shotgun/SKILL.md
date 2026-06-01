@@ -2,7 +2,7 @@
 name: design-shotgun
 preamble-tier: 2
 version: 1.0.0
-description: Design shotgun: generate multiple AI design variants, open a comparison board, collect structured feedback, and iterate. (gstack)
+description: Generate multiple AI design variants at once, open a side-by-side comparison board, collect structured feedback, and iterate toward a winner. Use when the user says "explore design variants", "show me design options", "visual design brainstorm", "design shotgun", or "give me a few directions" for a UI, page, or component. NOT for auditing a single existing design — use design-review for that.
 triggers:
   - explore design variants
   - show me design options

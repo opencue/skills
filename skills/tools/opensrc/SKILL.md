@@ -1,6 +1,6 @@
 ---
 name: opensrc
-description: Fetch dependency source code to give AI agents deeper implementation context. Use when the agent needs to understand how a library works internally, read source code for a package, fetch implementation details for a dependency, or explore how an npm/PyPI/crates.io package is built. Triggers include "fetch source for", "read the source of", "how does X work internally", "get the implementation of", "opensrc path", or any task requiring access to dependency source code beyond types and docs.
+description: Fetch dependency source code so agents read real implementations, not just types and docs — clones npm/PyPI/crates.io/GitHub packages at the right version and caches them locally. Use when the user says "fetch source for", "read the source of", "get the implementation of", "how does X work internally", or "opensrc path", or whenever a task needs to inspect a dependency's actual code beyond its public types.
 allowed-tools: Bash(opensrc:*)
 category: tools
 tags: [tools, source-fetching, dependencies, npm, pypi, crates]

@@ -195,10 +195,19 @@ resolve_active_profile
 
 loaded_set=""
 if [ "$EXCLUDE_LOADED" -eq 1 ] && [ -n "$active_profile" ]; then
-  runtime="$HOME/.config/cue/runtime/$active_profile/claude/skills"
-  if [ -d "$runtime" ]; then
-    loaded_set=$(find "$runtime" -mindepth 2 -maxdepth 2 -name "*" -print 2>/dev/null \
-      | sed "s|^$runtime/||" | sort -u)
+  # Preferred: the materializer's manifest of loaded <category>/<slug> ids. The
+  # runtime skills/ dir is now flat (skills/<slug>), so the old depth-2 find no
+  # longer reflects category identity — the manifest does.
+  manifest="$HOME/.config/cue/runtime/$active_profile/claude/.cue-skills"
+  if [ -f "$manifest" ]; then
+    loaded_set=$(sort -u "$manifest" 2>/dev/null)
+  else
+    # Fallback for runtimes built before the manifest (nested <category>/<slug>).
+    runtime="$HOME/.config/cue/runtime/$active_profile/claude/skills"
+    if [ -d "$runtime" ]; then
+      loaded_set=$(find "$runtime" -mindepth 2 -maxdepth 2 -name "*" -print 2>/dev/null \
+        | sed "s|^$runtime/||" | sort -u)
+    fi
   fi
 fi
 is_loaded() {
