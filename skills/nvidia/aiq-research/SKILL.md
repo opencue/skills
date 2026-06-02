@@ -1,5 +1,5 @@
 ---
-description: "When user asks for deep research, multi-source synthesis, regulatory analysis, or enterprise document research, route through AI-Q server for structured reports with citations"
+description: "Use when user says \"deep research this\", \"research the regulatory landscape\", \"synthesize findings from our docs\", \"produce a cited memo\", \"multi-source research\". Routes deep research, multi-source synthesis, regulatory analysis, or enterprise document research through the NVIDIA AI-Q server for structured reports with citations."
 tags: [research, nvidia, aiq, deep-research, enterprise]
 category: nvidia
 version: 2.0.0

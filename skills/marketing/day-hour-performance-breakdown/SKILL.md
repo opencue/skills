@@ -1,6 +1,6 @@
 ---
 name: day-hour-performance-breakdown
-description: Analyzes performance by day of week and hour of day across your campaigns. Identifies when your ads perform best and worst, recommends ad schedule adjustments with estimated savings, and tells you exactly what you'd give up by restricting hours.
+description: 'Use when user says "best time to run ads", "ad schedule analysis", "day and hour performance", "when do my ads perform best", "dayparting recommendations". Analyzes performance by day of week and hour of day across your campaigns. Identifies when your ads perform best and worst, recommends ad schedule adjustments with estimated savings, and tells you exactly what you''d give up by restricting hours.'
 metadata:
   platform: Google and Meta
 ---

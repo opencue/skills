@@ -1,5 +1,5 @@
 ---
-description: "When user asks to design a README, create SVG diagrams, or make documentation visually beautiful — generate publication-quality SVG assets and compose them into a well-structured README"
+description: 'Use when user says "design a readme", "make my readme beautiful", "create an svg diagram", "architecture diagram for the readme", or "add a hero banner to the docs". Generates publication-quality SVG assets and composes them into a well-structured, GitHub-compatible README.'
 requires_mcps: []
 allowed-tools: Bash(python3:*), Bash(cairosvg:*), Read(*), Write(*)
 ---

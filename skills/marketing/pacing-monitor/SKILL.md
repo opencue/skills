@@ -1,6 +1,6 @@
 ---
 name: pacing-monitor
-description: Tracks daily spend against monthly budget targets across all campaigns and accounts. Tells you exactly where you'll land at current pace, flags campaigns that are over or underspending, and calculates the daily budget adjustments needed to hit your target by month end.
+description: 'Use when user says "check my pacing", "am i on budget", "will i hit my monthly target", "which campaigns are overspending", "how much should i spend per day", "budget pacing check". Tracks daily spend against monthly budget targets across all campaigns and accounts. Tells you exactly where you''ll land at current pace, flags campaigns that are over or underspending, and calculates the daily budget adjustments needed to hit your target by month end.'
 metadata:
   platform: Google and Meta
 ---

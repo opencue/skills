@@ -1,6 +1,6 @@
 ---
 name: meta-ads-audit
-description: Meta/Facebook/Instagram Ads campaign structure analysis detecting creative fatigue, audience overlap, scaling opportunities, and iOS tracking verification issues. Use when pasting Meta account data, analyzing Facebook ad performance, reviewing Instagram campaigns, or requesting audit of social advertising spend.
+description: 'Use when user says "audit my meta ads", "analyze facebook ad performance", "check creative fatigue", "review instagram campaigns", "find audience overlap", "audit my fb ad spend". Meta/Facebook/Instagram Ads campaign structure analysis detecting creative fatigue, audience overlap, scaling opportunities, and iOS tracking verification issues.'
 metadata:
   platform: Meta
 ---

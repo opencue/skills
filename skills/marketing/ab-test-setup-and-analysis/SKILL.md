@@ -1,6 +1,6 @@
 ---
 name: ab-test-setup-and-analysis
-description: Designs statistically valid split tests for ads, audiences, landing pages, or bid strategies. Calculates required sample sizes before you start, monitors results during the test, and calls winners when statistical significance is actually reached — not when you feel like one is winning.
+description: 'Use when user says "set up an a/b test", "design a split test", "how long should i run this test", "calculate sample size", "can i call a winner yet". Designs statistically valid split tests for ads, audiences, landing pages, or bid strategies. Calculates required sample sizes before you start, monitors results during the test, and calls winners when statistical significance is actually reached — not when you feel like one is winning.'
 metadata:
   platform: Google and Meta
 ---

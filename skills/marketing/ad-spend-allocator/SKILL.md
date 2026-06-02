@@ -1,6 +1,6 @@
 ---
 name: ad-spend-allocator
-description: Multi-channel budget optimization using MER, marginal ROAS, and diminishing returns analysis. Use when pasting multi-channel spend and results data, requesting reallocation recommendations, analyzing budget shift priorities, or optimizing marketing efficiency across Google, Meta, TikTok, and other channels.
+description: Use when user says "allocate my ad budget", "how should I split my spend", "reallocate budget across channels", "optimize my marketing budget", "where should I move spend", "budget shift recommendations". Multi-channel budget optimization using MER, marginal ROAS, and diminishing returns analysis across Google, Meta, TikTok, and other channels.
 metadata:
   platform: Google and Meta
 ---

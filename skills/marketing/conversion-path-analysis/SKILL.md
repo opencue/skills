@@ -1,6 +1,6 @@
 ---
 name: conversion-path-analysis
-description: Maps out how users move through your funnel from first ad click to conversion. Identifies where the biggest drop-offs happen, which campaigns contribute most at each stage, and how long the typical conversion path takes across different audience segments.
+description: 'Use when user says "analyze my conversion path", "where are users dropping off", "map my funnel", "multi-touch attribution analysis", "what is my conversion journey". Maps out how users move through your funnel from first ad click to conversion. Identifies where the biggest drop-offs happen, which campaigns contribute most at each stage, and how long the typical conversion path takes across different audience segments.'
 metadata:
   platform: Google and Meta
 ---

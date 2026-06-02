@@ -1,10 +1,10 @@
 ---
 name: awesome-list-submit
 description: >-
-  When user says "submit to awesome lists", "add to awesome repos",
-  "promote on GitHub lists", or "find lists for this project" — auto-detect
-  project metadata, find relevant awesome-* repos, check for duplicates,
-  match entry format, draft PRs, and track submissions.
+  Use when user says "submit to awesome lists", "add to awesome repos",
+  "promote on GitHub lists", "get listed", or "find lists for this project".
+  Auto-detect project metadata, find relevant awesome-* repos, check for
+  duplicates, match entry format, draft PRs, and track submissions.
 tags: [meta, marketing, github, promotion, outreach]
 category: meta
 version: 2.0.0

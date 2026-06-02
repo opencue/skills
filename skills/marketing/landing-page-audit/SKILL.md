@@ -1,6 +1,6 @@
 ---
 name: landing-page-audit
-description: CRO analysis for landing pages evaluating headline clarity, CTA placement, trust signals, mobile friction, and conversion killers. Use when uploading a landing page screenshot, pasting a URL for review, requesting conversion rate optimization feedback, or auditing page effectiveness prioritized by impact.
+description: Use when user says "audit my landing page", "review this landing page", "improve my conversion rate", "why isn't my page converting", "CRO feedback". CRO analysis for landing pages evaluating headline clarity, CTA placement, trust signals, mobile friction, and conversion killers. Use when uploading a landing page screenshot, pasting a URL for review, requesting conversion rate optimization feedback, or auditing page effectiveness prioritized by impact.
 metadata:
   platform: Google and Meta
 ---

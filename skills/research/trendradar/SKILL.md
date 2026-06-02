@@ -1,5 +1,5 @@
 ---
-description: "When user asks about news trends, hot topics, RSS feeds, or wants to analyze/search recent news — use the TrendRadar MCP tools"
+description: 'Use when user says "what''s trending", "news trends", "hot topics", "search recent news", "analyze a topic trend", or "daily news briefing". Uses the TrendRadar MCP tools for news aggregation, trend analysis, RSS feeds, and notifications.'
 allowed-tools:
   - mcp__trendradar__get_latest_news
   - mcp__trendradar__get_trending_topics

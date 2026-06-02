@@ -1,6 +1,6 @@
 ---
 name: roas-forecasting
-description: Projects your ROAS for the next 30, 60, and 90 days based on current performance trends, seasonality patterns from your historical data, and planned budget or campaign changes. Gives you a range with confidence intervals, not a single number pretending to be precise.
+description: 'Use when user says "forecast roas", "project roas", "roas next month", "predict ad performance", "model budget increase", "revenue projection". Projects your ROAS for the next 30, 60, and 90 days based on current performance trends, seasonality patterns from your historical data, and planned budget or campaign changes. Gives you a range with confidence intervals, not a single number pretending to be precise.'
 metadata:
   platform: Google and Meta
 ---

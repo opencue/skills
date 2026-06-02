@@ -1,6 +1,11 @@
 ---
 name: client-report-narratives
-description: Takes your raw campaign performance data and writes the executive summary paragraph that goes at the top of the report. The plain English explanation of what happened, why it happened, and what's being done about it. The part every client actually reads.
+description: >-
+  Use when user says "write the client report summary", "write an executive summary",
+  "explain these results to the client", "turn this data into a narrative", "report intro paragraph".
+  Takes your raw campaign performance data and writes the executive summary paragraph
+  that goes at the top of the report. The plain English explanation of what happened,
+  why it happened, and what's being done about it. The part every client actually reads.
 metadata:
   platform: Google and Meta
 ---

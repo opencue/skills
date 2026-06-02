@@ -1,6 +1,6 @@
 ---
 name: creative-fatigue-detection
-description: Monitors your ads for early signs of fatigue before performance fully collapses. Tracks frequency buildup, CTR decay, CPM increases, and engagement drops across all active creatives and tells you which ones need rotation now vs next week.
+description: 'Use when user says "check for creative fatigue", "which ads are fatiguing", "are my ads burning out", "do my ads need rotation", "detect ad fatigue". Monitors your ads for early signs of fatigue before performance fully collapses. Tracks frequency buildup, CTR decay, CPM increases, and engagement drops across all active creatives and tells you which ones need rotation now vs next week.'
 metadata:
   platform: Meta
 ---

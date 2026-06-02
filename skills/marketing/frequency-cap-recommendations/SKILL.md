@@ -1,6 +1,6 @@
 ---
 name: frequency-cap-recommendations
-description: Analyzes frequency data across your Meta campaigns, identifies where you're overserving ads to the same people, and recommends frequency caps by campaign objective. Tells you the point where additional impressions stop driving conversions and start burning money.
+description: 'Use when user says "set a frequency cap", "am i overserving ads", "ad fatigue check", "audience saturation", "recommend frequency caps". Analyzes frequency data across your Meta campaigns, identifies where you''re overserving ads to the same people, and recommends frequency caps by campaign objective. Tells you the point where additional impressions stop driving conversions and start burning money.'
 metadata:
   platform: Meta
 ---

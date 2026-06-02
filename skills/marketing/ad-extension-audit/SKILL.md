@@ -1,6 +1,6 @@
 ---
 name: ad-extension-audit
-description: Reviews all your Google Ads extensions — sitelinks, callouts, structured snippets, call extensions, image extensions, price extensions — across every campaign. Flags what's missing, what's underperforming, what's outdated, and writes replacements based on your best performing ads and landing pages.
+description: Use when user says "audit my ad extensions", "check my sitelinks", "review my callouts", "are my extensions outdated", "improve my ad assets", "fix my Google Ads extensions". Reviews all your Google Ads extensions — sitelinks, callouts, structured snippets, call extensions, image extensions, price extensions — across every campaign. Flags what's missing, what's underperforming, what's outdated, and writes replacements based on your best performing ads and landing pages.
 metadata:
   platform: Google
 ---

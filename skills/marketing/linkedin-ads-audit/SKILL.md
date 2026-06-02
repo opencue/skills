@@ -1,6 +1,6 @@
 ---
 name: linkedin-ads-audit
-description: LinkedIn Ads campaign analysis for B2B marketers detecting CTR issues, audience quality problems, lead gen form friction, and budget inefficiencies. Use when pasting LinkedIn campaign exports, analyzing B2B ad performance, or auditing LinkedIn advertising spend.
+description: Use when user says "audit my linkedin ads", "review my linkedin campaigns", "why is my CPL so high", "check my B2B ad performance", "linkedin lead gen not working". LinkedIn Ads campaign analysis for B2B marketers detecting CTR issues, audience quality problems, lead gen form friction, and budget inefficiencies. Use when pasting LinkedIn campaign exports, analyzing B2B ad performance, or auditing LinkedIn advertising spend.
 metadata:
   platform: LinkedIn
 ---

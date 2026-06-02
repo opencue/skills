@@ -1,6 +1,6 @@
 ---
 name: weekly-account-summary
-description: Generates a plain English summary of everything that happened across all your accounts this week. What improved, what declined, what needs immediate attention, and what to prioritize next week. The Monday morning briefing that saves you an hour of pulling reports and context-switching between platforms.
+description: 'Use when user says "weekly summary", "monday briefing", "account summary", "what happened this week", "weekly performance recap", "client weekly update". Generates a plain English summary of everything that happened across all your accounts this week. What improved, what declined, what needs immediate attention, and what to prioritize next week. The Monday morning briefing that saves you an hour of pulling reports and context-switching between platforms.'
 metadata:
   platform: Google and Meta
 ---

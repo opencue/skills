@@ -1,6 +1,6 @@
 ---
 name: landing-page-audit-quick
-description: Reviews your landing pages against the ads driving traffic to them. Checks for message match between ad copy and page content, CTA clarity, above-the-fold alignment, form friction, and flags any disconnects between what the ad promises and what the page delivers.
+description: Use when user says "does my page match my ad", "check message match", "quick landing page check", "ad to page mismatch", "why is my CVR dropping". Reviews your landing pages against the ads driving traffic to them. Checks for message match between ad copy and page content, CTA clarity, above-the-fold alignment, form friction, and flags any disconnects between what the ad promises and what the page delivers.
 metadata:
   platform: Google and Meta
 ---

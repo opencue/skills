@@ -1,6 +1,12 @@
 ---
 name: bid-strategy-recommendations
-description: Analyzes your campaign history, conversion volume, CPA targets, and auction dynamics, then recommends the right bid strategy for each campaign — manual CPC, target CPA, target ROAS, maximize conversions, or maximize conversion value. Not a blanket recommendation, but campaign-by-campaign based on the data.
+description: >-
+  Use when user says "which bid strategy should I use", "recommend a bid strategy",
+  "target cpa or maximize conversions", "should I switch to tROAS", "review my bidding".
+  Analyzes your campaign history, conversion volume, CPA targets, and auction dynamics,
+  then recommends the right bid strategy for each campaign — manual CPC, target CPA,
+  target ROAS, maximize conversions, or maximize conversion value. Not a blanket
+  recommendation, but campaign-by-campaign based on the data.
 metadata:
   platform: Google
 ---
