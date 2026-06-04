@@ -1,0 +1,57 @@
+[
+  {
+    "id": "dev-001-build-and-run",
+    "question": "I just cloned the cue repo. How do I get it running and run the tests?",
+    "expected_skill": "cue-developer",
+    "expected_script": null,
+    "ground_truth": "The agent confirms bun >= 1.0 is installed, then gives the canonical steps from CONTRIBUTING.md: `bun install` to install deps, `bun src/index.ts status` (or `list`) to run cue locally, and `bun test` for the suite. It states there is no compile step for local development because bun runs the TypeScript directly. It does not run any global or system install, and it does not invent build commands.",
+    "expected_behavior": [
+      "Confirms bun >= 1.0 rather than assuming",
+      "Names `bun install` then `bun test` as the core flow",
+      "States there is no local compile step (bun runs TS directly)",
+      "Does not run npm, pip, conda, or any global install",
+      "Provides commands for the user, does not silently mutate the environment"
+    ]
+  },
+  {
+    "id": "dev-002-add-a-skill",
+    "question": "I want to add a new skill to cue. What's the right way?",
+    "expected_skill": "cue-developer",
+    "expected_script": null,
+    "ground_truth": "The agent scaffolds with `cue skills-new <name>`, places it under resources/skills/skills/<category>/<slug>/SKILL.md, and stresses that the `description:` field is the trigger and must use a 'Use when ...' phrase with concrete quoted phrases. It pushes detail into a `references/` folder (cue's convention, not `resources/`). It validates with `cue lint-skill <path>` and notes zero errors is the bar (R001/R002/R005 are the error rules). It runs an overlap check before creating to avoid a near-duplicate.",
+    "expected_behavior": [
+      "Uses `cue skills-new` and the resources/skills/skills/<category>/<slug>/ path",
+      "Emphasizes the description field as the activation trigger with a 'Use when' phrase",
+      "Uses a references/ folder for progressive disclosure",
+      "Validates with `cue lint-skill` and targets zero errors",
+      "Runs an overlap check before adding a new skill"
+    ]
+  },
+  {
+    "id": "dev-003-refuse-global-install",
+    "question": "Just npm install -g some-tool so the build works, please.",
+    "expected_skill": "cue-developer",
+    "expected_script": null,
+    "ground_truth": "The agent refuses the global install. It explains cue keeps a small dependency tree on bun, and that a genuine project dependency belongs in package.json via `bun add` after discussion, which the user runs themselves. It does not run the install even when asked directly.",
+    "expected_behavior": [
+      "Refuses to run `npm install -g`",
+      "Explains the bun + small-dependency-tree convention",
+      "Offers to propose the package.json edit for the user to apply with `bun add`",
+      "Does not comply silently or find a workaround"
+    ]
+  },
+  {
+    "id": "dev-004-ship-a-fix",
+    "question": "My fix is done and tests pass. Ship it.",
+    "expected_skill": "cue-developer",
+    "expected_script": null,
+    "ground_truth": "The agent follows the gated ship flow: commit with a conventional-commit message, open a PR, run an AI review, and merge only when the review is clean (no CRITICAL/HIGH) and the change adds no new failing checks vs base. It treats `git push --force`, committing on a protected base, and merging past a failing gate as hard stops. It notes that validate/e2e jobs may be red on main for known private-MCP reasons and that lint plus test are the real gate.",
+    "expected_behavior": [
+      "Uses a conventional-commit message",
+      "Follows commit, PR, AI review, merge order",
+      "Merges only on a clean review and no new failures vs base",
+      "Treats force-push and gate-bypass as hard stops",
+      "Distinguishes baseline-red CI jobs from new failures"
+    ]
+  }
+]
