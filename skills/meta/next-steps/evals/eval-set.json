@@ -1,0 +1,92 @@
+{
+  "skill_name": "next-steps",
+  "skill_path": "resources/skills/skills/meta/next-steps/SKILL.md",
+  "created": "2026-06-02",
+  "notes": "Auto-fire output-format skill. 'Trigger' = does Claude append a ranked Next steps block + offer-the-top-one after the turn? should_trigger:true means the block should appear; false means a block would be noise. Edge cases test the collapse/say-nothing rules.",
+  "scenarios": [
+    {
+      "id": 1,
+      "prompt": "Add a --dry-run flag to scripts/deploy.sh so it prints the planned actions without executing, and update the existing bats tests to cover it.",
+      "should_trigger": true,
+      "expected_behavior": "After implementing + updating tests, close with <=3 ranked Next steps: e.g. (1) run the test suite to confirm green, (2) loose end: document the flag in the README, (3) optional: add --dry-run to the sibling rollback.sh. Offer the top one."
+    },
+    {
+      "id": 2,
+      "prompt": "Take a look at src/auth/middleware.ts and tell me what I should harden before this goes to production.",
+      "should_trigger": true,
+      "expected_behavior": "Produces a findings/recommendation list, then a Next steps block ranking the highest-risk fix first, tied to the specific findings (not generic 'add tests'). Offers to apply the top fix."
+    },
+    {
+      "id": 3,
+      "prompt": "ok that profile work looks good. what's next?",
+      "should_trigger": true,
+      "expected_behavior": "Explicit ask. Ranked <=3 follow-ups tied to the profile work just done; lead with the most-likely continuation; offer the top one as a do-it-now."
+    },
+    {
+      "id": 4,
+      "prompt": "the profile picker throws when the profile list comes back empty — repro is just running it in a dir with no profiles. fix it.",
+      "should_trigger": true,
+      "expected_behavior": "Fixes the crash, then Next steps: (1) continuation = verify with the empty-dir repro, (2) loose end = add a regression test for the empty case, (3) optional = audit other list consumers for the same gap. Offer to add the test."
+    },
+    {
+      "id": 5,
+      "prompt": "draft me a migration plan to move the repo from npm to bun — scripts, lockfile, CI, the works.",
+      "should_trigger": true,
+      "expected_behavior": "Delivers the plan, then a Next steps block: start with the lowest-risk first phase, name a loose end (CI cache invalidation), optional polish. Offers to begin phase 1."
+    },
+    {
+      "id": 6,
+      "prompt": "sweet, that works now. what shoudl i do now",
+      "should_trigger": true,
+      "expected_behavior": "Casual + typos, explicit ask. Same ranked block tied to the prior fix. Offer top one."
+    },
+    {
+      "id": 7,
+      "prompt": "what's the default port postgres listens on?",
+      "should_trigger": false,
+      "why_not": "Pure factual lookup, one-line answer. A Next steps block here is manufactured filler — the skill's 'skip trivial/factual' rule."
+    },
+    {
+      "id": 8,
+      "prompt": "wait, back up — why did you put that function on the edge runtime instead of node?",
+      "should_trigger": false,
+      "why_not": "Mid-conversation clarifying question. User wants the reasoning, not a roadmap. Skill explicitly skips mid-convo questions."
+    },
+    {
+      "id": 9,
+      "prompt": "rename getUser to fetchUser in src/lib/user.ts",
+      "should_trigger": false,
+      "why_not": "Trivial unambiguous one-liner. 'Trivial work doesn't need a roadmap' — just do it and stop."
+    },
+    {
+      "id": 10,
+      "prompt": "give me the raw JSON for the config schema. output only, no commentary or suggestions.",
+      "should_trigger": false,
+      "why_not": "User explicitly asked for output only. Skill's 'user asked for output only' skip condition."
+    },
+    {
+      "id": 11,
+      "prompt": "yes, do #1",
+      "should_trigger": false,
+      "why_not": "User is accepting a previously-offered next step. Executing it is the action; opening a second full block mid-execution violates 'don't stack two blocks this turn'. A fresh block is fine only once #1 is fully done."
+    },
+    {
+      "id": 12,
+      "prompt": "/caveman — the import path in cli.ts is wrong, points at ../lib instead of ../../lib. fix it.",
+      "should_trigger": "maybe",
+      "notes": "Caveman/brief mode active AND a real (non-trivial-ish) fix. Acceptable to collapse to a single terse line ('Next: run the build to confirm. Want it?') rather than a full block. Full multi-line block here would be wrong."
+    },
+    {
+      "id": 13,
+      "prompt": "merge the two duplicate helper functions in utils.ts into one and update both call sites.",
+      "should_trigger": "maybe",
+      "notes": "Substantive refactor, but the task may be genuinely closed once done. Acceptable to fire with an honest 'Nothing pressing — tests green, ready to commit' single line rather than manufacturing three follow-ups. Tests the say-nothing rule."
+    },
+    {
+      "id": 14,
+      "prompt": "fix the typo 'recieve' -> 'receive' in the README heading and that's it.",
+      "should_trigger": false,
+      "why_not": "Trivial single edit, and user signalled 'that's it'. No block. Acceptable either way but leaning skip — counts as graceful if no block appears."
+    }
+  ]
+}

@@ -4,7 +4,6 @@ version: "26.08.00"
 description: After solving a non-trivial problem, detect generalizable learnings and propose skill updates so future interactions benefit automatically. Always active — applies to every interaction.
 ---
 
-
 # Skill Evolution
 
 Skills improve through a single workflow: solve the user's problem, notice when a generalizable learning surfaced, score it if you can, then propose an update. The presence or absence of ground truth changes the *confidence* attached to a proposal, not the steps you take.
@@ -96,13 +95,13 @@ Choose the target using this priority:
 
 If a gotcha affects both Python and C users but is about the solver behavior (not the API), it belongs in the common formulation skill, not in both `api-python` and `api-c`.
 
-#### Size escape hatch — push to `references/` when the target is bloated
+#### Size escape hatch — push to `resources/` when the target is bloated
 
 A SKILL.md that grows past ~500 lines starts paying for itself in tokens on every invocation, and readers begin skimming. Before adding new prose to a target SKILL.md, check its current size:
 
 - **Under ~400 lines** — add the content inline as usual.
-- **Approaching ~500 lines** — propose a `skills/<name>/references/<topic>.md` file with the full content, and add a one-line pointer in SKILL.md (e.g. "For warmstart edge cases, see `references/warmstart.md`"). The reference file loads only when the model needs it.
-- **A dense table or long example** — even in a small SKILL.md, prefer a `references/` file when the content is reference material (lookup tables, full code listings) rather than guidance the reader needs every time.
+- **Approaching ~500 lines** — propose a `skills/<name>/resources/<topic>.md` file with the full content, and add a one-line pointer in SKILL.md (e.g. "For warmstart edge cases, see `resources/warmstart.md`"). The reference file loads only when the model needs it.
+- **A dense table or long example** — even in a small SKILL.md, prefer a `resources/` file when the content is reference material (lookup tables, full code listings) rather than guidance the reader needs every time.
 
 The goal is to keep SKILL.md focused on what the model needs *every* invocation, and put detail behind pointers.
 
@@ -137,7 +136,7 @@ When skill evolution creates an entirely new skill directory, add `origin: skill
 ```yaml
 ---
 name: new-skill-name
-version: "26.06.00"
+version: "26.08.00"
 description: ...
 origin: skill-evolution
 ---

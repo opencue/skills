@@ -3,7 +3,6 @@ name: cuopt-install
 version: "26.08.00"
 description: Install cuOpt for Python, C, or as a server (pip, conda, Docker) — system requirements, install commands, and verification. Use when the user wants to install or verify cuOpt for any user-facing interface. For building cuOpt from source or contributing to cuOpt, see cuopt-developer.
 ---
-
 # cuOpt Install (user)
 
 Install cuOpt to *use* it from Python, C, or as a REST server. For building cuOpt from source to contribute or modify it, see `cuopt-developer`.
@@ -77,15 +76,8 @@ conda install -c rapidsai -c conda-forge -c nvidia libcuopt
 
 ### Verify
 
-```bash
-# conda:
-find $CONDA_PREFIX -name "cuopt_c.h"
-find $CONDA_PREFIX -name "libcuopt.so"
-
-# pip (venv):
-find "$(python -c 'import sys; print(sys.prefix)')" -name "cuopt_c.h"
-find "$(python -c 'import sys; print(sys.prefix)')" -name "libcuopt.so"
-```
+See [`resources/verification_examples.md`](resources/verification_examples.md)
+for the canonical C-API header/library `find` commands (conda and pip/venv variants).
 
 ## Server (REST)
 

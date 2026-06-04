@@ -14,6 +14,12 @@ Cut a SKILL.md down to size without changing what it does. The safety net is
 a count-based integrity check: every functional element present before the
 edit must still be present after, or the change reverts.
 
+The gate is heuristic, not a parser. Both the before and after inventories are
+extracted by reading and counting, so a mis-count in either phase can pass a
+lost element (false PASS) or revert a safe edit (false FAIL). A PASS means the
+two manual counts agreed, not that a machine proved equivalence. Spot-check the
+diff on a high-stakes skill.
+
 Run three phases in order. Each phase has a detail file you read on demand,
 not up front:
 
