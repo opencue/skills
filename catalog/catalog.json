@@ -1,13 +1,68 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-06-04T08:03:18Z",
+  "generated_at": "2026-06-05T20:34:24Z",
   "offline": true,
   "counts": {
-    "installed": 352,
+    "installed": 363,
     "upstream": 0,
     "mcps": 28
   },
   "installed": [
+    {
+      "name": "ted-tender-search",
+      "description": "'Use when user says \"find EU tenders\", \"TED search\", \"public procurement\", \"közbeszerzés\", or wants EU procurement notices by CPV, country, or keyword. Queries the free official TED API (no key).'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/eu-funding/ted-tender-search/SKILL.md",
+      "category": "eu-funding",
+      "tags": [
+        "eu-funding",
+        "tenders",
+        "procurement",
+        "ted",
+        "hungary"
+      ],
+      "triggers": [],
+      "links": [
+        "hu-grant-finder"
+      ]
+    },
+    {
+      "name": "hu-grant-finder",
+      "description": "'Use when user says \"find grants\", \"pályázat\", \"támogatás\", \"GINOP\", \"DIMOP\", \"Hiventures\", \"EIC\", or what funding a HU/SK company can apply for. Maps grants, loans, VC, not tenders.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/eu-funding/hu-grant-finder/SKILL.md",
+      "category": "eu-funding",
+      "tags": [
+        "eu-funding",
+        "grants",
+        "palyazat",
+        "ginop",
+        "hungary",
+        "venture-capital"
+      ],
+      "triggers": [],
+      "links": [
+        "ted-tender-search",
+        "defuddle"
+      ]
+    },
+    {
+      "name": "grant-outreach",
+      "description": "'Use when user says \"grant outreach\", \"propose grants to companies by email\", \"grant brokerage\", or asks about HU/SK B2B cold-email rules. Matches a grant to a company, drafts a compliant pitch.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/eu-funding/grant-outreach/SKILL.md",
+      "category": "eu-funding",
+      "tags": [
+        "eu-funding",
+        "outreach",
+        "email",
+        "grants",
+        "compliance",
+        "hungary",
+        "slovakia"
+      ],
+      "triggers": [],
+      "links": [
+        "hu-grant-finder"
+      ]
+    },
     {
       "name": "domains",
       "description": "Use when user says \"Hostinger domain\", \"buy domain\", or \"domain settings\". Registration, nameservers, ownership, renewal.",
@@ -2291,6 +2346,23 @@
       "links": []
     },
     {
+      "name": "portless",
+      "description": "Named .localhost HTTPS URLs for local dev instead of port numbers. Use when the user says \"portless\", \"https on localhost\", \"named dev URL\", \"stop using port 3000\", or runs multiple dev servers (Next.js, Vite, Medusa) that collide on ports. Prefer it for Medusa shop local dev.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/portless/SKILL.md",
+      "category": "tools",
+      "tags": [
+        "tools",
+        "local-dev",
+        "https",
+        "proxy",
+        "dev-server",
+        "medusa",
+        "monorepo"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "opensrc",
       "description": "Fetch dependency source code so agents read real implementations, not just types and docs — clones npm/PyPI/crates.io/GitHub packages at the right version and caches them locally. Use when the user says \"fetch source for\", \"read the source of\", \"get the implementation of\", \"how does X work internally\", or \"opensrc path\", or whenever a task needs to inspect a dependency's actual code beyond its public types.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/opensrc/SKILL.md",
@@ -2450,6 +2522,24 @@
       "links": []
     },
     {
+      "name": "salary-negotiation-prep",
+      "description": "Research market comp bands, build a negotiation strategy, and write counter-offer scripts. Use when user says \"negotiate my offer\", \"salary negotiation\", \"counter offer\", \"what should I ask for\", \"is this offer fair\", \"they lowballed me\", or \"how much should I counter\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/career/salary-negotiation-prep/SKILL.md",
+      "category": "career",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "resume-version-manager",
+      "description": "Track resume versions, maintain one master resume, and manage per-job tailored copies. Use when user says \"manage my resumes\", \"track resume versions\", \"which resume did I send\", \"master resume\", \"organize my resumes\", or \"version of my resume for this job\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/career/resume-version-manager/SKILL.md",
+      "category": "career",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "gh-auth-doctor",
       "description": "Use when user says \"gh auth doctor\", \"stale token\", \"gh pr create silently fails\", \"gx finish hung\", \"auth blocker\", or before `gx branch finish --via-pr`. Diagnoses stale `GH_TOKEN`/`GITHUB_TOKEN` env vars silently overriding `~/.git-credentials` (git push works but every `gh` call fails). Read-only.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/github/gh-auth-doctor/SKILL.md",
@@ -2496,6 +2586,23 @@
       "category": "github",
       "tags": [],
       "triggers": [],
+      "links": []
+    },
+    {
+      "name": "gx-agents",
+      "description": "Use when several agents work in parallel and you need to see who is on which branch, worktree, or PR, or to avoid editing a file another agent already owns. Triggers: \"who's working on what\", \"show all agents\", \"is anyone else editing X\", \"agent collision\", \"which PR is each agent shipping\", \"who owns this file\", \"agent radar\". Drives the gx mcp tools (list_agents, who_owns, my_context) or the `gx mcp list-agents` / `gx mcp who-owns` CLI to read every agent's branch, worktree, dirty files, locks, and PR. Read-only. NOT for repo-safety repair (use gitguardex).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/github/gx-agents/SKILL.md",
+      "category": "github",
+      "tags": [],
+      "triggers": [
+        "who's working on what",
+        "show all agents",
+        "is anyone else editing",
+        "agent collision",
+        "which PR is each agent shipping",
+        "who owns this file",
+        "agent radar"
+      ],
       "links": []
     },
     {
@@ -2600,6 +2707,23 @@
       "links": []
     },
     {
+      "name": "cue-developer",
+      "description": "\"Build, test, debug, and contribute to cue itself, the TypeScript/Bun profile CLI for Claude Code and Codex. Use when developing cue: skills, MCPs, profiles, resolver/materializer, or PRs.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/cue-developer/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue-dev",
+        "contributing",
+        "typescript",
+        "bun",
+        "skills",
+        "mcp"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "cue-dashboard",
       "description": "Use to inspect or drive the running cue studio dashboard: resolve a profile's skills/MCPs, find trigger gaps, or add an MCP to a profile. Via the `cue dash` CLI or the cue-dashboard MCP.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/cue-dashboard/SKILL.md",
@@ -2670,6 +2794,23 @@
       "tags": [],
       "triggers": [],
       "links": []
+    },
+    {
+      "name": "focus",
+      "description": "'Use when user says \"focus\", \"which skill\", \"what skill should I use\", \"route this\", or faces a task in a profile with many loaded skills. Picks the best-fit loaded skill to invoke, fast.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/focus/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "routing",
+        "skills",
+        "focus"
+      ],
+      "triggers": [],
+      "links": [
+        "smart-loader",
+        "skill-suggestion"
+      ]
     },
     {
       "name": "cue-usage",
@@ -2903,6 +3044,32 @@
       ],
       "triggers": [],
       "links": []
+    },
+    {
+      "name": "profile-summon",
+      "description": "Use when a directory has no .cue-profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE session and pins it, no restart.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/profile-summon/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "routing",
+        "profile"
+      ],
+      "triggers": [
+        "summon a profile",
+        "load a profile",
+        "apply the vercel profile",
+        "pull in the X profile",
+        "no profile here",
+        "bind a profile",
+        "which profile for this repo"
+      ],
+      "links": [
+        "smart-loader",
+        "profile-suggest",
+        "focus"
+      ]
     },
     {
       "name": "retro",
@@ -3924,6 +4091,27 @@
         "threat model",
         "cso",
         "is this secure"
+      ],
+      "links": []
+    },
+    {
+      "name": "trivy-scan",
+      "description": "Scan the repo for dependency CVEs, leaked secrets, and IaC/Dockerfile misconfigs with Trivy, then hard-block HIGH/CRITICAL before a merge. Use when the user says \"trivy\", \"vuln scan\", \"scan dependencies\", \"supply chain scan\", \"scan for CVEs\", or \"security scan before merge\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/security/trivy-scan/SKILL.md",
+      "category": "security",
+      "tags": [
+        "security",
+        "supply-chain",
+        "vulnerability",
+        "gate",
+        "trivy"
+      ],
+      "triggers": [
+        "trivy",
+        "vuln scan",
+        "scan dependencies",
+        "supply chain scan",
+        "scan before merge"
       ],
       "links": []
     },
