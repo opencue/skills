@@ -43,6 +43,26 @@ Two non-negotiables:
    diff is > 2000 lines, warn the user — quality drops on huge diffs;
    suggest splitting.
 
+## Pass 0 — Supply-chain gate (Trivy, always run)
+
+Before reviewing the diff by hand, run the dependency/secret/misconfig
+scanner. Code review does not catch a known CVE in a transitive
+dependency or a leaked key. Trivy does.
+
+Invoke the `security/trivy-scan` skill (the single source of truth for
+the gate). In short:
+
+```bash
+trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --exit-code 1 --no-progress --skip-dirs "**/node_modules" --skip-dirs "**/_cache" --skip-dirs "**/dist" --skip-dirs "**/.next" --skip-dirs "**/vendor" .
+```
+
+- **Exit 1 (HIGH/CRITICAL found)** → this is a **CRITICAL review finding**.
+  Report the rows and **block the merge**, same as any Pass 1 critical.
+- **Exit 0** → note "Trivy: clean" and continue to Pass 1.
+- **Trivy missing / errored** → run `security/trivy-scan`'s installer; if
+  it still can't run, report that the gate could not run and treat as
+  block, not a silent pass.
+
 ## Pass 1 — CRITICAL (always run)
 
 Run the checks in [`checklist.md`](checklist.md), section "Pass 1".
