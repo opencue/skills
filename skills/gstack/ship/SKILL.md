@@ -1154,6 +1154,19 @@ Before reviewing code quality, check: **did they build what was requested — no
 
 Review the diff for structural issues that tests don't catch.
 
+0. **Supply-chain gate (Trivy, always first).** Run the `security/trivy-scan`
+   gate before the manual review. Code review does not catch a known CVE in a
+   transitive dependency, a committed secret, or a Dockerfile/IaC misconfig.
+
+   ```bash
+   trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --exit-code 1 --no-progress --skip-dirs "**/node_modules,**/_cache,**/dist,**/.next,**/vendor" .
+   ```
+
+   Exit 1 (HIGH/CRITICAL) is a **P0 ship blocker**: report the rows +
+   remediation and STOP, same as a critical review finding. Trivy missing →
+   install via `security/trivy-scan`'s `scripts/ensure-trivy.sh`; a gate that
+   could not run is a block, not a silent pass. Exit 0 → continue.
+
 1. Read `.claude/skills/review/checklist.md`. If the file cannot be read, **STOP** and report the error.
 
 2. Run `git diff origin/<base>` to get the full diff (scoped to feature changes against the freshly-fetched base branch).
