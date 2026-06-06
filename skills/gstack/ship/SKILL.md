@@ -1159,7 +1159,7 @@ Review the diff for structural issues that tests don't catch.
    transitive dependency, a committed secret, or a Dockerfile/IaC misconfig.
 
    ```bash
-   trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --exit-code 1 --no-progress --skip-dirs "**/node_modules,**/_cache,**/dist,**/.next,**/vendor" .
+   trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --exit-code 1 --no-progress --skip-dirs "**/node_modules" --skip-dirs "**/_cache" --skip-dirs "**/dist" --skip-dirs "**/.next" --skip-dirs "**/vendor" .
    ```
 
    Exit 1 (HIGH/CRITICAL) is a **P0 ship blocker**: report the rows +
