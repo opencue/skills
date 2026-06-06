@@ -52,7 +52,7 @@ installer fallback is cross-distro. Recipe lives in
 ## The gate, one command
 
 ```bash
-trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --exit-code 1 --no-progress --skip-dirs "**/node_modules,**/_cache,**/dist,**/.next,**/vendor" .
+trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --exit-code 1 --no-progress --skip-dirs "**/node_modules" --skip-dirs "**/_cache" --skip-dirs "**/dist" --skip-dirs "**/.next" --skip-dirs "**/vendor" .
 ```
 
 - **Exit 0** → no HIGH/CRITICAL findings → gate **PASS**, merge may proceed.
