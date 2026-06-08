@@ -106,7 +106,7 @@ After user picks which skills to add:
 
 ```bash
 # Check current profile
-PROFILE=$(cat .cue-profile 2>/dev/null || cue current --json 2>/dev/null | jq -r '.profile')
+PROFILE=$(cat .cue.profile 2>/dev/null || cue current --json 2>/dev/null | jq -r '.profile')
 
 # Show what will be added
 echo "Adding to profile: $PROFILE"

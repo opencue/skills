@@ -2851,7 +2851,7 @@
     },
     {
       "name": "profile-suggest",
-      "description": "Analyzes a repo on the first message and suggests the best cue profile when no .cue-profile is set, then self-removes from the project CLAUDE.md. Use when user says \"suggest a profile\", \"which profile\", \"auto-detect profile\", \"scan this repo\", or arrives in a directory with no .cue-profile.",
+      "description": "Analyzes a repo on the first message and suggests the best cue profile when no .cue.profile is set, then self-removes from the project CLAUDE.md. Use when user says \"suggest a profile\", \"which profile\", \"auto-detect profile\", \"scan this repo\", or arrives in a directory with no .cue.profile.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/profile-suggest/SKILL.md",
       "category": "meta",
       "tags": [
@@ -3047,7 +3047,7 @@
     },
     {
       "name": "profile-summon",
-      "description": "Use when a directory has no .cue-profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE session and pins it, no restart.",
+      "description": "Use when a directory has no .cue.profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE session and pins it, no restart.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/profile-summon/SKILL.md",
       "category": "meta",
       "tags": [

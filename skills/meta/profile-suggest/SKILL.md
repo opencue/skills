@@ -2,10 +2,10 @@
 name: profile-suggest
 description: >-
   Analyzes a repo on the first message and suggests the best cue profile
-  when no .cue-profile is set, then self-removes from the project CLAUDE.md.
+  when no .cue.profile is set, then self-removes from the project CLAUDE.md.
   Use when user says "suggest a profile", "which profile", "auto-detect
   profile", "scan this repo", or arrives in a directory with no
-  .cue-profile.
+  .cue.profile.
 tags: [meta, cue, profiles, onboarding]
 category: meta
 version: 1.0.0
@@ -15,7 +15,7 @@ allowed-tools: Bash
 
 # Profile Suggestion (First-Time Repo Setup)
 
-**This skill activates ONLY on the first message in a repo without a `.cue-profile`.**
+**This skill activates ONLY on the first message in a repo without a `.cue.profile`.**
 
 ## Trigger
 
@@ -58,13 +58,13 @@ I detected: [Next.js + Stripe + Supabase project]
 → Recommended: **🦋 frontend** — has ui-ux-pro-max, playwright, image-to-code
   Also relevant: stripe-webhooks, supabase (from backend profile)
 
-Pin it? I'll run: `echo frontend > .cue-profile` — or pick another with `cue list`
+Pin it? I'll run: `echo frontend > .cue.profile` — or pick another with `cue list`
 ```
 
 ### 4. If user agrees (or says nothing against it)
 
 ```bash
-echo "<profile-name>" > .cue-profile
+echo "<profile-name>" > .cue.profile
 ```
 
 Then tell them: "Done! Next time you run `claude` here, it'll boot with the **<name>** profile. Restart to activate, or continue — current session still works."
@@ -72,7 +72,7 @@ Then tell them: "Done! Next time you run `claude` here, it'll boot with the **<n
 ### 5. Remove the first-time marker
 
 After suggesting (whether accepted or not), the marker is gone next session
-because `.cue-profile` now exists (or user explicitly skipped).
+because `.cue.profile` now exists (or user explicitly skipped).
 
 ## Rules
 
@@ -80,7 +80,7 @@ because `.cue-profile` now exists (or user explicitly skipped).
 - **Don't block.** Show the suggestion, then immediately proceed with the user's actual request.
 - **One suggestion only.** Don't nag if they ignore it.
 - **If the repo is ambiguous** (could be frontend or backend), suggest the broader one and mention the alternative.
-- **If a profile already exists** (`.cue-profile` is present), do nothing — this skill shouldn't have fired.
+- **If a profile already exists** (`.cue.profile` is present), do nothing — this skill shouldn't have fired.
 
 ## Matching heuristics
 

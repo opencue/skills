@@ -30,7 +30,7 @@ Flags:
 - `--inherits` — parent profile (default `core`)
 - `--skills` — comma-separated `category/slug` paths
 - `--mcps` — comma-separated MCP IDs
-- `--pin` — also write `.cue-profile` in the cwd
+- `--pin` — also write `.cue.profile` in the cwd
 - `--force` — overwrite an existing profile
 
 ## Workflow inside Claude Code

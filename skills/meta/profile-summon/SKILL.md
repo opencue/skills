@@ -1,7 +1,7 @@
 ---
 name: profile-summon
 description: >-
-  Use when a directory has no .cue-profile, or the user says "summon",
+  Use when a directory has no .cue.profile, or the user says "summon",
   "load", "apply", or "pull in" a profile, or "no profile here". Soft-loads
   a profile's persona and skills into the LIVE session and pins it, no restart.
 tags: [meta, cue, routing, profile]
@@ -26,7 +26,7 @@ triggers:
 - `cue` CLI on PATH (the profile manager that ships this skill).
 - `jq` (`apt install jq` / `brew install jq`) to read `cue summon --json`.
 
-Open a directory with no `.cue-profile` and the right profile's skills and MCPs
+Open a directory with no `.cue.profile` and the right profile's skills and MCPs
 normally need a pin plus a full `claude` restart, because `CLAUDE_CONFIG_DIR`, the
 `Skill()` list, MCP servers, `/slash` commands, and plugins are all frozen at boot.
 This skill is the bridge: it binds a profile into the **running** session now and
@@ -38,7 +38,7 @@ hands back a warm re-exec for the parts a soft load cannot provide.
    each skill's `SKILL.md` path. You `Read` those paths and apply the persona plus
    the relevant skill playbooks inline. Same mechanism as `meta/smart-loader`, just
    whole-profile.
-2. **Durable plus full fidelity (warm re-exec).** `cue summon` pins `.cue-profile`
+2. **Durable plus full fidelity (warm re-exec).** `cue summon` pins `.cue.profile`
    so the next launch is correct, and prints `claude --continue`. Running that
    resumes THIS conversation under the fully materialized profile, the only path to
    its MCP servers and `/slash` commands.
@@ -62,11 +62,11 @@ hands back a warm re-exec for the parts a soft load cannot provide.
 
 Summon when **any** holds:
 
-- The directory has no `.cue-profile` (the first-time launch block points here).
+- The directory has no `.cue.profile` (the first-time launch block points here).
 - The user names a profile to load: "summon vercel", "apply the backend profile".
 - The user asks "which profile for this repo" and wants it active now, not later.
 
-Do not summon when a `.cue-profile` is already pinned and active, or when a loaded
+Do not summon when a `.cue.profile` is already pinned and active, or when a loaded
 skill already covers the task (use `Skill()` directly).
 
 ## The recipe
@@ -89,7 +89,7 @@ cue summon vercel --json | jq '{profile, detected, confidence,
   mcps, commands, plugins, reexec_cmd}'
 ```
 
-`--json` writes the `.cue-profile` pin by default. Add `--no-pin` to inspect first,
+`--json` writes the `.cue.profile` pin by default. Add `--no-pin` to inspect first,
 `--pick` to list candidates without acting, `--dry-run` to compute and write nothing.
 
 ### Step 2, propose
@@ -98,8 +98,8 @@ When you auto-detected (no profile named), show the user a short proposal before
 applying:
 
 ```
-No .cue-profile here. Detected: vercel (97% match: vercel.json, @vercel dep).
-Summon it? Soft-loads persona + N skills now, pins .cue-profile, no restart.
+No .cue.profile here. Detected: vercel (97% match: vercel.json, @vercel dep).
+Summon it? Soft-loads persona + N skills now, pins .cue.profile, no restart.
 The Vercel MCP and /deploy need `claude --continue` after.
 ```
 
@@ -115,7 +115,7 @@ after the warm re-exec.
 Close with the honest summary:
 
 > Soft-loaded the `vercel` persona plus N skill playbooks into this session and
-> pinned `.cue-profile`. The Vercel MCP (`mcp.vercel.com`) and `/deploy` `/env`
+> pinned `.cue.profile`. The Vercel MCP (`mcp.vercel.com`) and `/deploy` `/env`
 > commands ride in the plugin, which needs the harness. To get them, run
 > `claude --continue`: it resumes this exact conversation under the full profile.
 
@@ -132,7 +132,7 @@ Close with the honest summary:
 
 ## Example: Vercel summon
 
-User opens a Next.js plus Vercel repo (has `vercel.json`) with no `.cue-profile`.
+User opens a Next.js plus Vercel repo (has `vercel.json`) with no `.cue.profile`.
 
 ```bash
 cue summon --json | jq '{profile, confidence, reasons}'

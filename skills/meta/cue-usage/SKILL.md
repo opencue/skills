@@ -169,5 +169,5 @@ Or interactively: `cue init`
 - **Skills** are SKILL.md files that teach the agent specific tasks
 - **MCPs** are tool servers (local or remote via Smithery)
 - **Packs** group related skills for reuse
-- `.cue-profile` file pins a profile to a directory
+- `.cue.profile` file pins a profile to a directory
 - Changes require `/cue-reload` to take effect

@@ -37,7 +37,7 @@ the worst-possible failure mode for this skill.
 Run the optimizer for the active profile:
 
 ```bash
-cue optimizer $(cat .cue-profile 2>/dev/null || cue current 2>/dev/null | head -1)
+cue optimizer $(cat .cue.profile 2>/dev/null || cue current 2>/dev/null | head -1)
 ```
 
 Present the output to the user. Highlight:

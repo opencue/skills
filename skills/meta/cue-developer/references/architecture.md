@@ -20,8 +20,8 @@ allocation-light and avoid adding synchronous network or heavy parsing to it.
 ## Profile resolution order
 
 1. `--cue-profile X` flag (explicit).
-2. `.cue-profile` file in cwd, walking up to `$HOME`.
-3. Repo-level default (`.cue-profile` at the git root).
+2. `.cue.profile` file in cwd, walking up to `$HOME`.
+3. Repo-level default (`.cue.profile` at the git root).
 4. Global default (`~/.config/cue/default-profile`).
 5. TUI picker (interactive fallback).
 

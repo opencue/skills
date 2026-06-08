@@ -1,7 +1,7 @@
 [
   {
     "id": "summon-001-no-profile-vercel",
-    "question": "I just opened this Next.js app deployed on Vercel and there's no .cue-profile pinned. What profile should I use?",
+    "question": "I just opened this Next.js app deployed on Vercel and there's no .cue.profile pinned. What profile should I use?",
     "expected_skill": "profile-summon",
     "expected_script": null,
     "ground_truth": "The agent runs `cue summon --json` to auto-detect from the repo, sees the vercel profile detected from vercel.json plus the @vercel dependency, and proposes it in 3 to 4 lines before applying. On the user's OK it applies the vercel persona and reads the soft-loadable skill paths from the JSON, applying the ones the task needs. It states plainly which capabilities soft-loaded now (persona plus skill playbooks) and which need the harness (the hosted Vercel MCP and the /deploy, /env slash commands), and hands back `claude --continue` as the warm re-exec that resumes the conversation under the full profile. It does not pretend to call the Vercel MCP or run /deploy.",
@@ -19,17 +19,17 @@
     "question": "Summon the backend profile into this session.",
     "expected_skill": "profile-summon",
     "expected_script": null,
-    "ground_truth": "The agent treats this as an explicit summon, runs `cue summon backend --json`, applies the backend persona and the soft-loadable skill playbooks inline, pins .cue-profile to backend, and reports which MCPs or commands still need a warm re-exec. It does not require a restart for the persona and skill bodies.",
+    "ground_truth": "The agent treats this as an explicit summon, runs `cue summon backend --json`, applies the backend persona and the soft-loadable skill playbooks inline, pins .cue.profile to backend, and reports which MCPs or commands still need a warm re-exec. It does not require a restart for the persona and skill bodies.",
     "expected_behavior": [
       "Runs `cue summon backend --json` with the explicit profile name",
       "Applies persona plus soft-loadable skills inline, no restart",
-      "Confirms the .cue-profile pin was written",
+      "Confirms the .cue.profile pin was written",
       "Surfaces any MCP-gated skills or commands as needing claude --continue"
     ]
   },
   {
     "id": "summon-003-pinned-noop",
-    "question": "This repo already has .cue-profile set to medusa-dev and it's the active profile. Can you re-summon it?",
+    "question": "This repo already has .cue.profile set to medusa-dev and it's the active profile. Can you re-summon it?",
     "expected_skill": "profile-summon",
     "expected_script": null,
     "ground_truth": "The agent recognizes the profile is already pinned and active, so a summon is unnecessary. It says the active session already has medusa-dev loaded and does not re-inject the persona or re-read skills. It offers smart-loader only if the user needs an off-profile skill for a specific task.",
