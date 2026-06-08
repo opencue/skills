@@ -1,0 +1,8 @@
+# LinkedIn Profile URL
+
+Paste your LinkedIn profile URL below — just the URL, nothing else.
+
+Example: https://www.linkedin.com/in/yourname/
+
+YOUR URL:
+

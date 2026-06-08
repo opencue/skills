@@ -38,6 +38,9 @@ detail — load on demand, don't inline:
   expansion (R001–R008 + manual checks).
 - [references/roi-model.md](references/roi-model.md) — full ROI scoring
   model with the data-gathering commands.
+- [references/tdd-for-skills.md](references/tdd-for-skills.md): baseline-first
+  authoring (RED-GREEN-REFACTOR). Prove a skill changes behavior under pressure,
+  not just that it fires. Ported from obra/superpowers.
 
 Read the references when the workflow says "see references/X.md", not
 preemptively.
