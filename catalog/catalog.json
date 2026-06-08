@@ -1,13 +1,68 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-06-01T15:09:41Z",
+  "generated_at": "2026-06-05T20:34:24Z",
   "offline": true,
   "counts": {
-    "installed": 330,
+    "installed": 363,
     "upstream": 0,
-    "mcps": 26
+    "mcps": 28
   },
   "installed": [
+    {
+      "name": "ted-tender-search",
+      "description": "'Use when user says \"find EU tenders\", \"TED search\", \"public procurement\", \"közbeszerzés\", or wants EU procurement notices by CPV, country, or keyword. Queries the free official TED API (no key).'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/eu-funding/ted-tender-search/SKILL.md",
+      "category": "eu-funding",
+      "tags": [
+        "eu-funding",
+        "tenders",
+        "procurement",
+        "ted",
+        "hungary"
+      ],
+      "triggers": [],
+      "links": [
+        "hu-grant-finder"
+      ]
+    },
+    {
+      "name": "hu-grant-finder",
+      "description": "'Use when user says \"find grants\", \"pályázat\", \"támogatás\", \"GINOP\", \"DIMOP\", \"Hiventures\", \"EIC\", or what funding a HU/SK company can apply for. Maps grants, loans, VC, not tenders.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/eu-funding/hu-grant-finder/SKILL.md",
+      "category": "eu-funding",
+      "tags": [
+        "eu-funding",
+        "grants",
+        "palyazat",
+        "ginop",
+        "hungary",
+        "venture-capital"
+      ],
+      "triggers": [],
+      "links": [
+        "ted-tender-search",
+        "defuddle"
+      ]
+    },
+    {
+      "name": "grant-outreach",
+      "description": "'Use when user says \"grant outreach\", \"propose grants to companies by email\", \"grant brokerage\", or asks about HU/SK B2B cold-email rules. Matches a grant to a company, drafts a compliant pitch.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/eu-funding/grant-outreach/SKILL.md",
+      "category": "eu-funding",
+      "tags": [
+        "eu-funding",
+        "outreach",
+        "email",
+        "grants",
+        "compliance",
+        "hungary",
+        "slovakia"
+      ],
+      "triggers": [],
+      "links": [
+        "hu-grant-finder"
+      ]
+    },
     {
       "name": "domains",
       "description": "Use when user says \"Hostinger domain\", \"buy domain\", or \"domain settings\". Registration, nameservers, ownership, renewal.",
@@ -46,7 +101,7 @@
     },
     {
       "name": "icp-research-assistant",
-      "description": "Build detailed B2B buyer personas with pain points, objections, buying triggers, and messaging angles. Use when given a product and market to research ideal customer profiles, creating buyer personas, or needing to understand who you're selling to before launching campaigns.",
+      "description": "Use when user says \"build a buyer persona\", \"who is my ideal customer\", \"research my ICP\", \"define my target audience\", \"who am I selling to\". Build detailed B2B buyer personas with pain points, objections, buying triggers, and messaging angles. Use when given a product and market to research ideal customer profiles, creating buyer personas, or needing to understand who you're selling to before launching campaigns.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/icp-research-assistant/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -55,7 +110,7 @@
     },
     {
       "name": "creative-fatigue-detection",
-      "description": "Monitors your ads for early signs of fatigue before performance fully collapses. Tracks frequency buildup, CTR decay, CPM increases, and engagement drops across all active creatives and tells you which ones need rotation now vs next week.",
+      "description": "'Use when user says \"check for creative fatigue\", \"which ads are fatiguing\", \"are my ads burning out\", \"do my ads need rotation\", \"detect ad fatigue\". Monitors your ads for early signs of fatigue before performance fully collapses. Tracks frequency buildup, CTR decay, CPM increases, and engagement drops across all active creatives and tells you which ones need rotation now vs next week.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/creative-fatigue-detection/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -64,7 +119,7 @@
     },
     {
       "name": "e2e-seo-assistant",
-      "description": "Full SEO workflow covering technical audits, content gaps, backlink opportunities, on-page fixes, and content briefs. Use when given a site and target keywords to get complete SEO analysis and actionable content plans. End-to-end SEO in one skill.",
+      "description": "'Use when user says \"full seo audit\", \"do my seo\", \"audit my site for seo\", \"seo analysis and content plan\", \"end to end seo\". Full SEO workflow covering technical audits, content gaps, backlink opportunities, on-page fixes, and content briefs. Use when given a site and target keywords to get complete SEO analysis and actionable content plans. End-to-end SEO in one skill.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/e2e-seo-assistant/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -73,7 +128,7 @@
     },
     {
       "name": "day-hour-performance-breakdown",
-      "description": "Analyzes performance by day of week and hour of day across your campaigns. Identifies when your ads perform best and worst, recommends ad schedule adjustments with estimated savings, and tells you exactly what you'd give up by restricting hours.",
+      "description": "'Use when user says \"best time to run ads\", \"ad schedule analysis\", \"day and hour performance\", \"when do my ads perform best\", \"dayparting recommendations\". Analyzes performance by day of week and hour of day across your campaigns. Identifies when your ads perform best and worst, recommends ad schedule adjustments with estimated savings, and tells you exactly what you''d give up by restricting hours.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/day-hour-performance-breakdown/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -82,7 +137,7 @@
     },
     {
       "name": "landing-page-audit-quick",
-      "description": "Reviews your landing pages against the ads driving traffic to them. Checks for message match between ad copy and page content, CTA clarity, above-the-fold alignment, form friction, and flags any disconnects between what the ad promises and what the page delivers.",
+      "description": "Use when user says \"does my page match my ad\", \"check message match\", \"quick landing page check\", \"ad to page mismatch\", \"why is my CVR dropping\". Reviews your landing pages against the ads driving traffic to them. Checks for message match between ad copy and page content, CTA clarity, above-the-fold alignment, form friction, and flags any disconnects between what the ad promises and what the page delivers.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/landing-page-audit-quick/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -91,7 +146,7 @@
     },
     {
       "name": "ad-spend-allocator",
-      "description": "Multi-channel budget optimization using MER, marginal ROAS, and diminishing returns analysis. Use when pasting multi-channel spend and results data, requesting reallocation recommendations, analyzing budget shift priorities, or optimizing marketing efficiency across Google, Meta, TikTok, and other channels.",
+      "description": "Use when user says \"allocate my ad budget\", \"how should I split my spend\", \"reallocate budget across channels\", \"optimize my marketing budget\", \"where should I move spend\", \"budget shift recommendations\". Multi-channel budget optimization using MER, marginal ROAS, and diminishing returns analysis across Google, Meta, TikTok, and other channels.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/ad-spend-allocator/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -100,7 +155,7 @@
     },
     {
       "name": "bid-strategy-recommendations",
-      "description": "Analyzes your campaign history, conversion volume, CPA targets, and auction dynamics, then recommends the right bid strategy for each campaign — manual CPC, target CPA, target ROAS, maximize conversions, or maximize conversion value. Not a blanket recommendation, but campaign-by-campaign based on the data.",
+      "description": "Use when user says \"which bid strategy should I use\", \"recommend a bid strategy\", \"target cpa or maximize conversions\", \"should I switch to tROAS\", \"review my bidding\". Analyzes your campaign history, conversion volume, CPA targets, and auction dynamics, then recommends the right bid strategy for each campaign — manual CPC, target CPA, target ROAS, maximize conversions, or maximize conversion value. Not a blanket recommendation, but campaign-by-campaign based on the data.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/bid-strategy-recommendations/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -109,7 +164,7 @@
     },
     {
       "name": "content-repurposer",
-      "description": "Transform one long-form piece into multiple platform-specific content derivatives including LinkedIn posts, tweet threads, email snippets, ad hooks, and video scripts while maintaining voice consistency. Use when given a blog post, article, or pillar content to atomize across channels.",
+      "description": "'Use when user says \"repurpose this blog post\", \"turn this into a twitter thread\", \"atomize this content\", \"make linkedin posts from this article\", \"repurpose for social\". Transform one long-form piece into multiple platform-specific content derivatives including LinkedIn posts, tweet threads, email snippets, ad hooks, and video scripts while maintaining voice consistency. Use when given a blog post, article, or pillar content to atomize across channels.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/content-repurposer/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -118,7 +173,7 @@
     },
     {
       "name": "keyword-cannibalization-check",
-      "description": "Identifies where your own keywords and campaigns are competing against each other in Google Ads auctions. Finds duplicate keywords across campaigns, overlapping match types that trigger the same queries, and ad groups stealing traffic from each other — all of which inflate your CPCs and mess up your data.",
+      "description": "Use when user says \"are my keywords competing\", \"check keyword cannibalization\", \"find duplicate keywords\", \"why are my CPCs rising\", \"are my campaigns overlapping\". Identifies where your own keywords and campaigns are competing against each other in Google Ads auctions. Finds duplicate keywords across campaigns, overlapping match types that trigger the same queries, and ad groups stealing traffic from each other — all of which inflate your CPCs and mess up your data.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/keyword-cannibalization-check/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -127,7 +182,7 @@
     },
     {
       "name": "reddit-ads-audit",
-      "description": "Reddit Ads campaign analysis detecting community targeting issues, creative fatigue, bid inefficiencies, and subreddit performance problems. Use when pasting Reddit Ads data, analyzing subreddit targeting, or auditing Reddit advertising spend for B2B or B2C campaigns.",
+      "description": "'Use when user says \"audit my reddit ads\", \"analyze subreddit targeting\", \"check my reddit ad performance\", \"review reddit campaigns\", \"fix reddit ad spend\", \"is my reddit targeting working\". Reddit Ads campaign analysis detecting community targeting issues, creative fatigue, bid inefficiencies, and subreddit performance problems.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/reddit-ads-audit/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -136,7 +191,7 @@
     },
     {
       "name": "ad-extension-audit",
-      "description": "Reviews all your Google Ads extensions — sitelinks, callouts, structured snippets, call extensions, image extensions, price extensions — across every campaign. Flags what's missing, what's underperforming, what's outdated, and writes replacements based on your best performing ads and landing pages.",
+      "description": "Use when user says \"audit my ad extensions\", \"check my sitelinks\", \"review my callouts\", \"are my extensions outdated\", \"improve my ad assets\", \"fix my Google Ads extensions\". Reviews all your Google Ads extensions — sitelinks, callouts, structured snippets, call extensions, image extensions, price extensions — across every campaign. Flags what's missing, what's underperforming, what's outdated, and writes replacements based on your best performing ads and landing pages.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/ad-extension-audit/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -145,7 +200,7 @@
     },
     {
       "name": "frequency-cap-recommendations",
-      "description": "Analyzes frequency data across your Meta campaigns, identifies where you're overserving ads to the same people, and recommends frequency caps by campaign objective. Tells you the point where additional impressions stop driving conversions and start burning money.",
+      "description": "'Use when user says \"set a frequency cap\", \"am i overserving ads\", \"ad fatigue check\", \"audience saturation\", \"recommend frequency caps\". Analyzes frequency data across your Meta campaigns, identifies where you''re overserving ads to the same people, and recommends frequency caps by campaign objective. Tells you the point where additional impressions stop driving conversions and start burning money.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/frequency-cap-recommendations/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -154,7 +209,7 @@
     },
     {
       "name": "ab-test-setup-and-analysis",
-      "description": "Designs statistically valid split tests for ads, audiences, landing pages, or bid strategies. Calculates required sample sizes before you start, monitors results during the test, and calls winners when statistical significance is actually reached — not when you feel like one is winning.",
+      "description": "'Use when user says \"set up an a/b test\", \"design a split test\", \"how long should i run this test\", \"calculate sample size\", \"can i call a winner yet\". Designs statistically valid split tests for ads, audiences, landing pages, or bid strategies. Calculates required sample sizes before you start, monitors results during the test, and calls winners when statistical significance is actually reached — not when you feel like one is winning.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/ab-test-setup-and-analysis/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -163,7 +218,7 @@
     },
     {
       "name": "meta-ads-audit",
-      "description": "Meta/Facebook/Instagram Ads campaign structure analysis detecting creative fatigue, audience overlap, scaling opportunities, and iOS tracking verification issues. Use when pasting Meta account data, analyzing Facebook ad performance, reviewing Instagram campaigns, or requesting audit of social advertising spend.",
+      "description": "'Use when user says \"audit my meta ads\", \"analyze facebook ad performance\", \"check creative fatigue\", \"review instagram campaigns\", \"find audience overlap\", \"audit my fb ad spend\". Meta/Facebook/Instagram Ads campaign structure analysis detecting creative fatigue, audience overlap, scaling opportunities, and iOS tracking verification issues.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/meta-ads-audit/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -172,7 +227,7 @@
     },
     {
       "name": "pacing-monitor",
-      "description": "Tracks daily spend against monthly budget targets across all campaigns and accounts. Tells you exactly where you'll land at current pace, flags campaigns that are over or underspending, and calculates the daily budget adjustments needed to hit your target by month end.",
+      "description": "'Use when user says \"check my pacing\", \"am i on budget\", \"will i hit my monthly target\", \"which campaigns are overspending\", \"how much should i spend per day\", \"budget pacing check\". Tracks daily spend against monthly budget targets across all campaigns and accounts. Tells you exactly where you''ll land at current pace, flags campaigns that are over or underspending, and calculates the daily budget adjustments needed to hit your target by month end.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/pacing-monitor/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -181,7 +236,7 @@
     },
     {
       "name": "performance-benchmarking",
-      "description": "Compares your key metrics against industry benchmarks for your specific vertical, campaign type, and platform. Tells you where you're ahead, where you're behind, and where there's room to improve — adjusted for your account size and spend level, because a $10K/month account and a $500K/month account have different benchmark realities.",
+      "description": "'Use when user says \"is my cpa good\", \"benchmark my metrics\", \"how do i compare to industry\", \"is my ctr normal\", \"compare against benchmarks\", \"am i ahead or behind\". Compares your key metrics against industry benchmarks for your specific vertical, campaign type, and platform. Tells you where you''re ahead, where you''re behind, and where there''s room to improve — adjusted for your account size and spend level, because a $10K/month account and a $500K/month account have different benchmark realities.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/performance-benchmarking/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -190,7 +245,7 @@
     },
     {
       "name": "device-performance-split",
-      "description": "Analyzes how your campaigns perform across mobile, desktop, and tablet. Identifies where device performance diverges significantly and recommends bid adjustments, campaign splits, or creative/landing page changes to capture the gap.",
+      "description": "'Use when user says \"mobile vs desktop performance\", \"device performance split\", \"why is mobile cpa so high\", \"device bid adjustments\", \"break down by device\". Analyzes how your campaigns perform across mobile, desktop, and tablet. Identifies where device performance diverges significantly and recommends bid adjustments, campaign splits, or creative/landing page changes to capture the gap.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/device-performance-split/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -199,7 +254,7 @@
     },
     {
       "name": "google-ads-audit",
-      "description": "Comprehensive Google Ads account health analysis detecting wasted spend, search term leaks, negative keyword gaps, bid strategy issues, and Quality Score problems. Use when analyzing campaign data, pasting Google Ads exports, reviewing account performance, or requesting a full diagnostic of advertising spend efficiency.",
+      "description": "Use when user says \"audit my google ads\", \"review my ad spend\", \"find wasted spend\", \"check my campaigns\", \"where am I losing money on ads\". Comprehensive Google Ads account health analysis detecting wasted spend, search term leaks, negative keyword gaps, bid strategy issues, and Quality Score problems. Use when analyzing campaign data, pasting Google Ads exports, reviewing account performance, or requesting a full diagnostic of advertising spend efficiency.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/google-ads-audit/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -208,7 +263,7 @@
     },
     {
       "name": "roas-forecasting",
-      "description": "Projects your ROAS for the next 30, 60, and 90 days based on current performance trends, seasonality patterns from your historical data, and planned budget or campaign changes. Gives you a range with confidence intervals, not a single number pretending to be precise.",
+      "description": "'Use when user says \"forecast roas\", \"project roas\", \"roas next month\", \"predict ad performance\", \"model budget increase\", \"revenue projection\". Projects your ROAS for the next 30, 60, and 90 days based on current performance trends, seasonality patterns from your historical data, and planned budget or campaign changes. Gives you a range with confidence intervals, not a single number pretending to be precise.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/roas-forecasting/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -217,7 +272,7 @@
     },
     {
       "name": "search-term-mining",
-      "description": "Analyzes your search term reports across all campaigns and surfaces high-intent terms you're not bidding on yet. Groups them by theme, estimates their potential volume and CPA, and recommends match types and starting bids for each.",
+      "description": "'Use when user says \"mine search terms\", \"find new keywords\", \"search term report analysis\", \"keyword opportunities\", \"what should i bid on\", \"expand my keywords\". Analyzes your search term reports across all campaigns and surfaces high-intent terms you''re not bidding on yet. Groups them by theme, estimates their potential volume and CPA, and recommends match types and starting bids for each.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/search-term-mining/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -226,7 +281,7 @@
     },
     {
       "name": "ab-test-analyzer",
-      "description": "Statistical significance calculator for A/B test results with sample size requirements, segment breakdowns, and hypothesis generation. Use when feeding test results, checking statistical significance, calculating sample sizes, analyzing experiment outcomes, or generating next test ideas based on results.",
+      "description": "'Use when user says \"analyze this a/b test\", \"is this result significant\", \"check statistical significance\", \"what sample size do i need\", \"is this a winner\". Statistical significance calculator for A/B test results with sample size requirements, segment breakdowns, and hypothesis generation. Feed test results to check significance, calculate sample sizes, analyze experiment outcomes, or generate next test ideas based on results.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/ab-test-analyzer/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -235,7 +290,7 @@
     },
     {
       "name": "cpa-diagnostics",
-      "description": "When your CPA spikes, Claude breaks down exactly what caused it. It looks across your campaign data and isolates the contributing factors — audience fatigue, bid landscape shifts, creative decay, landing page conversion drops, budget distribution changes, or new competitor activity.",
+      "description": "'Use when user says \"why did my CPA spike\", \"diagnose my CPA\", \"my cost per acquisition jumped\", \"why did performance drop\", \"what is driving up my CPA\". When your CPA spikes, Claude breaks down exactly what caused it. It looks across your campaign data and isolates the contributing factors — audience fatigue, bid landscape shifts, creative decay, landing page conversion drops, budget distribution changes, or new competitor activity.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/cpa-diagnostics/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -244,7 +299,7 @@
     },
     {
       "name": "utm-tracking-generator",
-      "description": "Generate consistent UTM parameters, GA4 event naming, and conversion tracking specs following taxonomy best practices. Use when describing campaign structure, requesting UTM links, needing GA4 event names, or wanting to standardize tracking nomenclature across marketing channels.",
+      "description": "'Use when user says \"generate utm links\", \"build a utm\", \"tracking parameters\", \"ga4 event names\", \"standardize tracking\", \"utm naming convention\". Generate consistent UTM parameters, GA4 event naming, and conversion tracking specs following taxonomy best practices.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/utm-tracking-generator/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -279,7 +334,7 @@
     },
     {
       "name": "email-sequence-writer",
-      "description": "Write complete nurture email sequences with subject lines, preview text, and body copy using proven copywriting formulas. Use when given ICP, offer, and objections to generate full email flows, creating welcome sequences, writing promotional emails, or maintaining voice consistency throughout email campaigns.",
+      "description": "'Use when user says \"write an email sequence\", \"welcome email series\", \"nurture sequence\", \"drip campaign emails\", \"write subject lines\". Write complete nurture email sequences with subject lines, preview text, and body copy using proven copywriting formulas. Use when given ICP, offer, and objections to generate full email flows, creating welcome sequences, writing promotional emails, or maintaining voice consistency throughout email campaigns.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/email-sequence-writer/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -288,7 +343,7 @@
     },
     {
       "name": "programmatic-seo-builder",
-      "description": "Create scalable programmatic SEO page templates with title patterns, internal linking logic, schema markup, and thin content avoidance strategies. Use when given a niche and data source to build page templates, establishing programmatic SEO structure, or scaling content production with templates.",
+      "description": "'Use when user says \"build programmatic seo pages\", \"create page templates\", \"scale seo content\", \"set up pseo\", \"make a comparison page template\", \"avoid thin content at scale\". Create scalable programmatic SEO page templates with title patterns, internal linking logic, schema markup, and thin content avoidance strategies.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/programmatic-seo-builder/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -297,7 +352,7 @@
     },
     {
       "name": "anomaly-detection",
-      "description": "Catches unusual performance changes across your accounts — CPC spikes, CVR drops, spend surges, impression collapses, CTR shifts — and flags them with context about what likely changed. The goal is to catch problems in hours instead of discovering them days later during a routine check.",
+      "description": "Use when user says \"why did my CPC spike\", \"spot anomalies in my account\", \"what changed in my campaigns\", \"my conversions dropped\", \"detect performance issues\", \"flag unusual spend\". Catches unusual performance changes across your accounts — CPC spikes, CVR drops, spend surges, impression collapses, CTR shifts — and flags them with context about what likely changed. The goal is to catch problems in hours instead of discovering them days later during a routine check.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/anomaly-detection/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -306,7 +361,7 @@
     },
     {
       "name": "landing-page-audit",
-      "description": "CRO analysis for landing pages evaluating headline clarity, CTA placement, trust signals, mobile friction, and conversion killers. Use when uploading a landing page screenshot, pasting a URL for review, requesting conversion rate optimization feedback, or auditing page effectiveness prioritized by impact.",
+      "description": "Use when user says \"audit my landing page\", \"review this landing page\", \"improve my conversion rate\", \"why isn't my page converting\", \"CRO feedback\". CRO analysis for landing pages evaluating headline clarity, CTA placement, trust signals, mobile friction, and conversion killers. Use when uploading a landing page screenshot, pasting a URL for review, requesting conversion rate optimization feedback, or auditing page effectiveness prioritized by impact.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/landing-page-audit/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -315,7 +370,7 @@
     },
     {
       "name": "attribution-model-comparison",
-      "description": "Runs your conversion data through different attribution models side by side — last click, first click, linear, time decay, position based, and data-driven. Shows you how credit shifts between campaigns depending on the model so you can make better budget decisions instead of over-investing in last-touch campaigns.",
+      "description": "Use when user says \"compare attribution models\", \"last click vs first click\", \"which attribution model should I use\", \"am I over-crediting brand\", \"check my attribution\", \"compare conversion credit\". Runs your conversion data through different attribution models side by side — last click, first click, linear, time decay, position based, and data-driven. Shows you how credit shifts between campaigns depending on the model so you can make better budget decisions instead of over-investing in last-touch campaigns.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/attribution-model-comparison/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -324,7 +379,7 @@
     },
     {
       "name": "wasted-spend-finder",
-      "description": "Scans your Google and Meta accounts for money being spent on search terms, placements, audiences, and ads that produce zero or near-zero conversions. Delivers clean exclusion lists you can upload directly.",
+      "description": "'Use when user says \"find wasted spend\", \"where am i losing money\", \"negative keyword list\", \"cut wasted ad spend\", \"zero conversion terms\", \"exclusion list\". Scans your Google and Meta accounts for money being spent on search terms, placements, audiences, and ads that produce zero or near-zero conversions. Delivers clean exclusion lists you can upload directly.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/wasted-spend-finder/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -333,7 +388,7 @@
     },
     {
       "name": "geo-performance-analysis",
-      "description": "Breaks down campaign performance by geographic location at whatever level matters — country, state, city, DMA, zip code. Flags underperforming geos that are quietly eating budget and high-performing ones that deserve more spend. Recommends geo bid adjustments or campaign splits.",
+      "description": "'Use when user says \"performance by location\", \"geo performance analysis\", \"which regions perform best\", \"geo bid adjustments\", \"where should we focus spend\". Breaks down campaign performance by geographic location at whatever level matters — country, state, city, DMA, zip code. Flags underperforming geos that are quietly eating budget and high-performing ones that deserve more spend. Recommends geo bid adjustments or campaign splits.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/geo-performance-analysis/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -342,7 +397,7 @@
     },
     {
       "name": "retargeting-window-analysis",
-      "description": "Analyzes your conversion lag data to determine the optimal retargeting window for each audience segment. Tells you whether your 30-day retargeting window should actually be 7 days, 14 days, or 60 days based on when people actually convert after their first visit.",
+      "description": "'Use when user says \"optimize retargeting window\", \"how long to retarget\", \"best retargeting window\", \"conversion lag analysis\", \"when do people convert\", \"tighten retargeting audience\". Analyzes your conversion lag data to determine the optimal retargeting window for each audience segment. Tells you whether your 30-day retargeting window should actually be 7 days, 14 days, or 60 days based on when people actually convert after their first visit.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/retargeting-window-analysis/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -351,7 +406,7 @@
     },
     {
       "name": "budget-scenario-planner",
-      "description": "Models what happens to your CPA, ROAS, conversion volume, and impression share when you increase or decrease budget by any amount. Uses your actual account data and historical diminishing returns patterns, not generic industry assumptions.",
+      "description": "Use when user says \"what if I increase my budget\", \"model a budget change\", \"should I scale spend\", \"project cpa at higher budget\", \"budget scenario\". Models what happens to your CPA, ROAS, conversion volume, and impression share when you increase or decrease budget by any amount. Uses your actual account data and historical diminishing returns patterns, not generic industry assumptions.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/budget-scenario-planner/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -360,7 +415,7 @@
     },
     {
       "name": "competitor-creative-analysis",
-      "description": "Pulls competitor ads from Meta Ad Library and Google Ads Transparency Center, categorizes their messaging angles, formats, CTAs, and creative types, then identifies gaps in their approach you can exploit and patterns worth testing in your own campaigns.",
+      "description": "'Use when user says \"analyze competitor ads\", \"competitor creative analysis\", \"what ads are competitors running\", \"meta ad library teardown\", \"find messaging gaps\". Pulls competitor ads from Meta Ad Library and Google Ads Transparency Center, categorizes their messaging angles, formats, CTAs, and creative types, then identifies gaps in their approach you can exploit and patterns worth testing in your own campaigns.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/competitor-creative-analysis/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -369,7 +424,7 @@
     },
     {
       "name": "client-report-narratives",
-      "description": "Takes your raw campaign performance data and writes the executive summary paragraph that goes at the top of the report. The plain English explanation of what happened, why it happened, and what's being done about it. The part every client actually reads.",
+      "description": "Use when user says \"write the client report summary\", \"write an executive summary\", \"explain these results to the client\", \"turn this data into a narrative\", \"report intro paragraph\". Takes your raw campaign performance data and writes the executive summary paragraph that goes at the top of the report. The plain English explanation of what happened, why it happened, and what's being done about it. The part every client actually reads.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/client-report-narratives/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -378,7 +433,7 @@
     },
     {
       "name": "audience-overlap-analysis",
-      "description": "Compares your Meta ad sets and identifies where audiences overlap significantly, causing your ads to compete against each other in the same auctions. Tells you exactly which ad sets are cannibalizing each other and how much it's costing you in inflated CPMs.",
+      "description": "Use when user says \"check audience overlap\", \"are my ad sets competing\", \"why are my CPMs high\", \"find audience cannibalization\", \"meta ad set overlap\". Compares your Meta ad sets and identifies where audiences overlap significantly, causing your ads to compete against each other in the same auctions. Tells you exactly which ad sets are cannibalizing each other and how much it's costing you in inflated CPMs.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/audience-overlap-analysis/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -387,7 +442,7 @@
     },
     {
       "name": "campaign-naming-convention-builder",
-      "description": "Builds a consistent, filterable naming convention across your Google and Meta accounts based on your campaign types, objectives, targeting, and reporting needs. Makes filtering, reporting, and cross-platform analysis actually work instead of guessing what \"Campaign_v3_Final_NEW\" means.",
+      "description": "Use when user says \"build a campaign naming convention\", \"clean up my campaign names\", \"standardize naming\", \"naming taxonomy for ads\", \"fix messy campaign names\". Builds a consistent, filterable naming convention across your Google and Meta accounts based on your campaign types, objectives, targeting, and reporting needs. Makes filtering, reporting, and cross-platform analysis actually work instead of guessing what \"Campaign_v3_Final_NEW\" means.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/campaign-naming-convention-builder/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -396,7 +451,7 @@
     },
     {
       "name": "competitor-teardown",
-      "description": "Systematic competitive analysis covering positioning, messaging hierarchy, objection handling, and CTA strategy from landing page URLs or screenshots. Use when pasting a competitor URL, uploading competitor screenshots, requesting positioning analysis, or needing to understand competitive messaging and differentiation strategies.",
+      "description": "'Use when user says \"teardown this competitor\", \"analyze their landing page\", \"competitor positioning analysis\", \"how is this competitor messaging\", \"score this competitor page\". Systematic competitive analysis covering positioning, messaging hierarchy, objection handling, and CTA strategy from landing page URLs or screenshots. Use when pasting a competitor URL, uploading competitor screenshots, requesting positioning analysis, or needing to understand competitive messaging and differentiation strategies.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/competitor-teardown/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -405,7 +460,7 @@
     },
     {
       "name": "quality-score-breakdown",
-      "description": "Breaks down Quality Score components for your Google Ads keywords — expected CTR, ad relevance, and landing page experience — and tells you exactly which component is dragging each keyword down, with specific fixes ranked by potential CPC impact.",
+      "description": "'Use when user says \"improve my quality score\", \"why is my quality score low\", \"break down quality score\", \"fix my qs\", \"lower my cpc\", \"which keywords have bad quality score\". Breaks down Quality Score components for your Google Ads keywords — expected CTR, ad relevance, and landing page experience — and tells you exactly which component is dragging each keyword down, with specific fixes ranked by potential CPC impact.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/quality-score-breakdown/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -414,7 +469,7 @@
     },
     {
       "name": "account-structure-review",
-      "description": "Evaluates your campaign and ad set structure against your actual goals and budget. Flags over-segmentation that fragments your data, under-segmentation that hides performance differences, budget allocation issues, and consolidation opportunities that would improve algorithmic delivery and your ability to optimize.",
+      "description": "Use when user says \"review my account structure\", \"audit my campaign structure\", \"am I over-segmented\", \"consolidate my campaigns\", \"too many campaigns\", \"fix my ad account structure\". Evaluates your campaign and ad set structure against your actual goals and budget. Flags over-segmentation that fragments your data, under-segmentation that hides performance differences, budget allocation issues, and consolidation opportunities that would improve algorithmic delivery and your ability to optimize.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/account-structure-review/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -423,7 +478,7 @@
     },
     {
       "name": "weekly-account-summary",
-      "description": "Generates a plain English summary of everything that happened across all your accounts this week. What improved, what declined, what needs immediate attention, and what to prioritize next week. The Monday morning briefing that saves you an hour of pulling reports and context-switching between platforms.",
+      "description": "'Use when user says \"weekly summary\", \"monday briefing\", \"account summary\", \"what happened this week\", \"weekly performance recap\", \"client weekly update\". Generates a plain English summary of everything that happened across all your accounts this week. What improved, what declined, what needs immediate attention, and what to prioritize next week. The Monday morning briefing that saves you an hour of pulling reports and context-switching between platforms.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/weekly-account-summary/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -432,7 +487,7 @@
     },
     {
       "name": "channel-mix-optimizer",
-      "description": "Given your total budget, recommends the optimal split across Google Search, PMax, Meta prospecting, Meta retargeting, and any other active channels based on your last 60-90 days of marginal ROAS and CPA by channel. Tells you where each additional dollar produces the best return.",
+      "description": "Use when user says \"optimize my channel mix\", \"how should I split my budget\", \"best budget allocation across channels\", \"where should I spend more\", \"reallocate ad spend\". Given your total budget, recommends the optimal split across Google Search, PMax, Meta prospecting, Meta retargeting, and any other active channels based on your last 60-90 days of marginal ROAS and CPA by channel. Tells you where each additional dollar produces the best return.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/channel-mix-optimizer/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -441,7 +496,7 @@
     },
     {
       "name": "ad-copy-variant-generator",
-      "description": "Analyzes your top performing ads, identifies what's working in the hooks, CTAs, messaging angles, and formats, then generates new variants that follow the same winning patterns while introducing enough variation to test meaningfully.",
+      "description": "Use when user says \"generate ad copy variants\", \"write new ad variations\", \"give me ad copy to test\", \"more variants of my best ad\", \"RSA headlines\", \"fresh ad creative\". Analyzes your top performing ads, identifies what's working in the hooks, CTAs, messaging angles, and formats, then generates new variants that follow the same winning patterns while introducing enough variation to test meaningfully.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/ad-copy-variant-generator/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -450,7 +505,7 @@
     },
     {
       "name": "conversion-path-analysis",
-      "description": "Maps out how users move through your funnel from first ad click to conversion. Identifies where the biggest drop-offs happen, which campaigns contribute most at each stage, and how long the typical conversion path takes across different audience segments.",
+      "description": "'Use when user says \"analyze my conversion path\", \"where are users dropping off\", \"map my funnel\", \"multi-touch attribution analysis\", \"what is my conversion journey\". Maps out how users move through your funnel from first ad click to conversion. Identifies where the biggest drop-offs happen, which campaigns contribute most at each stage, and how long the typical conversion path takes across different audience segments.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/conversion-path-analysis/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -459,7 +514,7 @@
     },
     {
       "name": "linkedin-ads-audit",
-      "description": "LinkedIn Ads campaign analysis for B2B marketers detecting CTR issues, audience quality problems, lead gen form friction, and budget inefficiencies. Use when pasting LinkedIn campaign exports, analyzing B2B ad performance, or auditing LinkedIn advertising spend.",
+      "description": "Use when user says \"audit my linkedin ads\", \"review my linkedin campaigns\", \"why is my CPL so high\", \"check my B2B ad performance\", \"linkedin lead gen not working\". LinkedIn Ads campaign analysis for B2B marketers detecting CTR issues, audience quality problems, lead gen form friction, and budget inefficiencies. Use when pasting LinkedIn campaign exports, analyzing B2B ad performance, or auditing LinkedIn advertising spend.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/linkedin-ads-audit/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -468,7 +523,7 @@
     },
     {
       "name": "wedding-invitations",
-      "description": "Use when designing a wedding invitation, save-the-date, or RSVP card from a conversation — bespoke HTML rendered to a print-ready PNG, any language, any aesthetic, fully local. Pointer to upstream wyx-sg/wedding-invitation-skill.",
+      "description": "'Use when user says \"make a wedding invitation\", \"design a save-the-date\", \"create an RSVP card\", \"wedding menu card\", or \"place cards for our wedding\". Designs a bespoke wedding invitation from a conversation — bespoke HTML rendered to a print-ready PNG, any language, any aesthetic, fully local. Pointer to upstream wyx-sg/wedding-invitation-skill.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/event-design/wedding-invitations/SKILL.md",
       "category": "event-design",
       "tags": [],
@@ -1790,7 +1845,7 @@
     },
     {
       "name": "aiq-research",
-      "description": "\"When user asks for deep research, multi-source synthesis, regulatory analysis, or enterprise document research, route through AI-Q server for structured reports with citations\"",
+      "description": "\"Use when user says \\\"deep research this\\\", \\\"research the regulatory landscape\\\", \\\"synthesize findings from our docs\\\", \\\"produce a cited memo\\\", \\\"multi-source research\\\". Routes deep research, multi-source synthesis, regulatory analysis, or enterprise document research through the NVIDIA AI-Q server for structured reports with citations.\"",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/nvidia/aiq-research/SKILL.md",
       "category": "nvidia",
       "tags": [
@@ -1978,7 +2033,7 @@
     },
     {
       "name": "readme-svg-design",
-      "description": "\"When user asks to design a README, create SVG diagrams, or make documentation visually beautiful — generate publication-quality SVG assets and compose them into a well-structured README\"",
+      "description": "'Use when user says \"design a readme\", \"make my readme beautiful\", \"create an svg diagram\", \"architecture diagram for the readme\", or \"add a hero banner to the docs\". Generates publication-quality SVG assets and composes them into a well-structured, GitHub-compatible README.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/readme-svg-design/SKILL.md",
       "category": "design",
       "tags": [],
@@ -2032,7 +2087,7 @@
     },
     {
       "name": "headless-gif-demo",
-      "description": "\"When user asks to record a high-quality CLI demo GIF that needs Kitty graphics protocol (real PNG icons inline) — use this headless cage/Wayland + Kitty + tmux + ffmpeg pipeline instead of vhs/asciinema which don't speak the Kitty protocol. Includes auto-redaction of moving text via tesseract OCR.\"",
+      "description": "'Use when user says \"record a CLI demo gif\", \"make a terminal demo\", \"capture a tmux session as a gif\", \"demo gif with brand logos\", or \"redact text in a screen recording\". Headless cage/Wayland + Kitty + tmux + ffmpeg pipeline for high-quality CLI demo GIFs that need Kitty graphics protocol (real PNG icons inline) — instead of vhs/asciinema which don''t speak the Kitty protocol. Includes auto-redaction of moving text via tesseract OCR.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/headless-gif-demo/SKILL.md",
       "category": "design",
       "tags": [],
@@ -2291,6 +2346,23 @@
       "links": []
     },
     {
+      "name": "portless",
+      "description": "Named .localhost HTTPS URLs for local dev instead of port numbers. Use when the user says \"portless\", \"https on localhost\", \"named dev URL\", \"stop using port 3000\", or runs multiple dev servers (Next.js, Vite, Medusa) that collide on ports. Prefer it for Medusa shop local dev.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/portless/SKILL.md",
+      "category": "tools",
+      "tags": [
+        "tools",
+        "local-dev",
+        "https",
+        "proxy",
+        "dev-server",
+        "medusa",
+        "monorepo"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "opensrc",
       "description": "Fetch dependency source code so agents read real implementations, not just types and docs — clones npm/PyPI/crates.io/GitHub packages at the right version and caches them locally. Use when the user says \"fetch source for\", \"read the source of\", \"get the implementation of\", \"how does X work internally\", or \"opensrc path\", or whenever a task needs to inspect a dependency's actual code beyond its public types.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/opensrc/SKILL.md",
@@ -2332,6 +2404,21 @@
         "source-fetching",
         "patterns",
         "cue-dev"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "context7",
+      "description": "Fetch up-to-date, version-specific library/API docs to avoid outdated or hallucinated APIs. Use when the user says \"use context7\", \"latest docs for X\", or codes against a fast-moving library.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/context7/SKILL.md",
+      "category": "tools",
+      "tags": [
+        "tools",
+        "documentation",
+        "context7",
+        "mcp",
+        "libraries"
       ],
       "triggers": [],
       "links": []
@@ -2435,6 +2522,24 @@
       "links": []
     },
     {
+      "name": "salary-negotiation-prep",
+      "description": "Research market comp bands, build a negotiation strategy, and write counter-offer scripts. Use when user says \"negotiate my offer\", \"salary negotiation\", \"counter offer\", \"what should I ask for\", \"is this offer fair\", \"they lowballed me\", or \"how much should I counter\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/career/salary-negotiation-prep/SKILL.md",
+      "category": "career",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "resume-version-manager",
+      "description": "Track resume versions, maintain one master resume, and manage per-job tailored copies. Use when user says \"manage my resumes\", \"track resume versions\", \"which resume did I send\", \"master resume\", \"organize my resumes\", or \"version of my resume for this job\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/career/resume-version-manager/SKILL.md",
+      "category": "career",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "gh-auth-doctor",
       "description": "Use when user says \"gh auth doctor\", \"stale token\", \"gh pr create silently fails\", \"gx finish hung\", \"auth blocker\", or before `gx branch finish --via-pr`. Diagnoses stale `GH_TOKEN`/`GITHUB_TOKEN` env vars silently overriding `~/.git-credentials` (git push works but every `gh` call fails). Read-only.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/github/gh-auth-doctor/SKILL.md",
@@ -2481,6 +2586,23 @@
       "category": "github",
       "tags": [],
       "triggers": [],
+      "links": []
+    },
+    {
+      "name": "gx-agents",
+      "description": "Use when several agents work in parallel and you need to see who is on which branch, worktree, or PR, or to avoid editing a file another agent already owns. Triggers: \"who's working on what\", \"show all agents\", \"is anyone else editing X\", \"agent collision\", \"which PR is each agent shipping\", \"who owns this file\", \"agent radar\". Drives the gx mcp tools (list_agents, who_owns, my_context) or the `gx mcp list-agents` / `gx mcp who-owns` CLI to read every agent's branch, worktree, dirty files, locks, and PR. Read-only. NOT for repo-safety repair (use gitguardex).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/github/gx-agents/SKILL.md",
+      "category": "github",
+      "tags": [],
+      "triggers": [
+        "who's working on what",
+        "show all agents",
+        "is anyone else editing",
+        "agent collision",
+        "which PR is each agent shipping",
+        "who owns this file",
+        "agent radar"
+      ],
       "links": []
     },
     {
@@ -2585,6 +2707,45 @@
       "links": []
     },
     {
+      "name": "cue-developer",
+      "description": "\"Build, test, debug, and contribute to cue itself, the TypeScript/Bun profile CLI for Claude Code and Codex. Use when developing cue: skills, MCPs, profiles, resolver/materializer, or PRs.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/cue-developer/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue-dev",
+        "contributing",
+        "typescript",
+        "bun",
+        "skills",
+        "mcp"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "cue-dashboard",
+      "description": "Use to inspect or drive the running cue studio dashboard: resolve a profile's skills/MCPs, find trigger gaps, or add an MCP to a profile. Via the `cue dash` CLI or the cue-dashboard MCP.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/cue-dashboard/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "dashboard",
+        "mcp",
+        "profiles"
+      ],
+      "triggers": [
+        "ask the dashboard",
+        "query the cue dashboard",
+        "what does cue see",
+        "resolve this profile",
+        "trigger gaps",
+        "add an mcp to"
+      ],
+      "links": []
+    },
+    {
       "name": "skill-eval",
       "description": "Scaffold evaluation scenarios for skills, run them, and measure activation rate and output quality. Use when user says \"test this skill\", \"eval skill\", \"does this skill work\", \"measure activation\", \"benchmark skill\", or \"create evals for this skill\". Implements Anthropic's evaluation-driven development approach.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/skill-eval/SKILL.md",
@@ -2633,6 +2794,23 @@
       "tags": [],
       "triggers": [],
       "links": []
+    },
+    {
+      "name": "focus",
+      "description": "'Use when user says \"focus\", \"which skill\", \"what skill should I use\", \"route this\", or faces a task in a profile with many loaded skills. Picks the best-fit loaded skill to invoke, fast.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/focus/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "routing",
+        "skills",
+        "focus"
+      ],
+      "triggers": [],
+      "links": [
+        "smart-loader",
+        "skill-suggestion"
+      ]
     },
     {
       "name": "cue-usage",
@@ -2736,8 +2914,68 @@
       "links": []
     },
     {
+      "name": "next-steps",
+      "description": "Use when finishing a substantive task, or the user says \"what's next\" or \"next steps\". Close with a ranked Next steps block: <=3 specific items tied to what changed, and offer the top one.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/next-steps/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "output-format",
+        "workflow"
+      ],
+      "triggers": [
+        "what's next",
+        "next steps",
+        "what should i do now",
+        "follow ups",
+        "follow-up suggestions",
+        "what now"
+      ],
+      "links": [
+        "roi-estimator",
+        "retro"
+      ]
+    },
+    {
+      "name": "verify-council",
+      "description": "Use when finishing a visual or hard-to-reverse change, or the user says \"council\", \"panel of agents\", or \"visually verify\". Runs independent verifier lanes plus a real-screen proof, token-scaled.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/verify-council/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "verification",
+        "review",
+        "workflow"
+      ],
+      "triggers": [
+        "verify with a council",
+        "council of agents",
+        "panel of agents",
+        "verify harder",
+        "visually verify",
+        "prove it visually",
+        "second opinion on this change"
+      ],
+      "links": []
+    },
+    {
+      "name": "ralph-loop",
+      "description": "Use when user says \"run this in a loop\", \"work on it overnight\", \"keep going until done\", \"ralph loop\", \"autonomous loop\", \"make claude work longer\", or \"run until tests pass\". Runs an autonomous Ralph-Wiggum loop — re-feeds one goal prompt to the agent over and over until a stop condition (tests green / PRD done) or a budget/iteration cap, with checkpoints each round. NOT for one-shot tasks or interactive back-and-forth.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/ralph-loop/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "automation",
+        "autonomous",
+        "loop"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "help",
-      "description": "Use when user says \"help\", \"what can you do\", or \"skill help\". Available workflow guidance: commands, routing, skill discovery.",
+      "description": "Use when user says \"/help\", \"skill help\", \"what can you do\", or \"what skills do I have\". Available workflow guidance: commands, routing, skill discovery.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/help/SKILL.md",
       "category": "meta",
       "tags": [],
@@ -2792,6 +3030,48 @@
       "links": []
     },
     {
+      "name": "profile-from-docs",
+      "description": "'Use when the user says \"create a cue profile for X\", \"wire X into cue\", or \"build a profile from these docs\". Scaffolds an integration profile: profile.yaml, logo, skills, MCPs, and CLI recipes.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/profile-from-docs/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "profile",
+        "scaffolding",
+        "mcp",
+        "skills"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "profile-summon",
+      "description": "Use when a directory has no .cue-profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE session and pins it, no restart.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/profile-summon/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "routing",
+        "profile"
+      ],
+      "triggers": [
+        "summon a profile",
+        "load a profile",
+        "apply the vercel profile",
+        "pull in the X profile",
+        "no profile here",
+        "bind a profile",
+        "which profile for this repo"
+      ],
+      "links": [
+        "smart-loader",
+        "profile-suggest",
+        "focus"
+      ]
+    },
+    {
       "name": "retro",
       "description": "Engineering retrospective from git history + cue session log. Per-author shipping streaks, test-health trend, growth opportunities, and one one-paragraph \"what to do differently next week.\" Saves a markdown file under .cue/retros/<YYYY-WW>.md. Use when the user says \"weekly retro\", \"what did we ship\", \"engineering retrospective\", or at end-of-sprint.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/retro/SKILL.md",
@@ -2807,7 +3087,7 @@
     },
     {
       "name": "awesome-list-submit",
-      "description": "When user says \"submit to awesome lists\", \"add to awesome repos\", \"promote on GitHub lists\", or \"find lists for this project\" — auto-detect project metadata, find relevant awesome-* repos, check for duplicates, match entry format, draft PRs, and track submissions.",
+      "description": "Use when user says \"submit to awesome lists\", \"add to awesome repos\", \"promote on GitHub lists\", \"get listed\", or \"find lists for this project\". Auto-detect project metadata, find relevant awesome-* repos, check for duplicates, match entry format, draft PRs, and track submissions.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/awesome-list-submit/SKILL.md",
       "category": "meta",
       "tags": [
@@ -2893,6 +3173,36 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/omx-setup/SKILL.md",
       "category": "meta",
       "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "skill-simplify",
+      "description": "Use when the user says \"simplify skill\", \"optimize skill\", \"shrink this skill\", or \"skill-simplify\". Shrinks a SKILL.md without losing behavior, verified by a before/after functional count.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/skill-simplify/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "skills",
+        "quality",
+        "refactor"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "delegation-check",
+      "description": "'Lint that Agent()/subagent_type delegation prompts do not conflict with or duplicate the spawned agent role. Use when the user says \"check delegation\" or \"delegation conflict\".'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/delegation-check/SKILL.md",
+      "category": "meta",
+      "tags": [
+        "meta",
+        "cue",
+        "skills",
+        "delegation",
+        "quality"
+      ],
       "triggers": [],
       "links": []
     },
@@ -2991,6 +3301,15 @@
       "links": []
     },
     {
+      "name": "postiz-cards",
+      "description": "'Use when user says \"build a branded card\", \"make a postiz card\", \"schedule a branded post\", \"composite the logo on this card\", \"lint my post copy\". Brand-aware card pipeline for Postiz. Lints post copy (cashtag/em-dash/stat gates), composites the brand logo band onto Higgsfield cards (with OCR text-check), and pulls analytics. For building or scheduling branded image-card posts for ANY postizz brand (volaria, etc.). Pairs with /post-as.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/postiz-cards/SKILL.md",
+      "category": "content",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "engagement-feedback",
       "description": "Use when user says \"/engagement-report\", \"which posts worked\", \"engagement loop\", \"what's getting traction\", \"audit which voices land\", or wants Postiz analytics cross-referenced with article voice / preset / topic choices. Closes the loop between content choices and actual reader response.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/engagement-feedback/SKILL.md",
@@ -3010,7 +3329,7 @@
     },
     {
       "name": "pdf",
-      "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.",
+      "description": "Use when user says \"extract text from pdf\", \"merge pdfs\", \"split a pdf\", \"fill out a pdf form\", \"extract tables from pdf\", or \"create a pdf\". Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/pdf/SKILL.md",
       "category": "content",
       "tags": [],
@@ -3138,6 +3457,96 @@
       "links": []
     },
     {
+      "name": "strapi-deploy",
+      "description": "'Use when deploying a Strapi v5 backend: Strapi Cloud via the CLI, or self-hosting with NODE_ENV=production build/start, pm2, env vars, and a production database.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/strapi/strapi-deploy/SKILL.md",
+      "category": "strapi",
+      "tags": [
+        "strapi",
+        "deployment",
+        "strapi-cloud",
+        "self-host",
+        "pm2"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "strapi-mcp-setup",
+      "description": "'Use when connecting an AI client to Strapi over MCP: the built-in content-management MCP server and the Kapa-powered Strapi Docs MCP server. Covers enabling, tokens, wiring.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/strapi/strapi-mcp-setup/SKILL.md",
+      "category": "strapi",
+      "tags": [
+        "strapi",
+        "mcp",
+        "ai",
+        "content-management",
+        "claude-code"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "building-with-strapi",
+      "description": "'Use when building a Strapi v5 backend: project structure, content-types, components, dynamic zones, the Content-Type Builder, and Document Service queries in custom code.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/strapi/building-with-strapi/SKILL.md",
+      "category": "strapi",
+      "tags": [
+        "strapi",
+        "cms",
+        "content-types",
+        "document-service",
+        "backend"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "strapi-plugins",
+      "description": "'Use when developing a Strapi v5 plugin: scaffolding with @strapi/sdk-plugin, the server + admin panel structure, registering it, and building/publishing.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/strapi/strapi-plugins/SKILL.md",
+      "category": "strapi",
+      "tags": [
+        "strapi",
+        "plugins",
+        "sdk-plugin",
+        "backend",
+        "admin-panel"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "strapi-content-api",
+      "description": "'Use when consuming a Strapi v5 backend over HTTP: REST endpoints, the populate/filters/sort/pagination params, GraphQL setup, API tokens, and permissions.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/strapi/strapi-content-api/SKILL.md",
+      "category": "strapi",
+      "tags": [
+        "strapi",
+        "rest-api",
+        "graphql",
+        "content-api",
+        "headless-cms"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "strapi-cli",
+      "description": "'Use when user says \"Strapi CLI\", \"create a Strapi app\", \"strapi develop\", \"build/start Strapi\", or \"export/import Strapi data\". Scaffold and run a Strapi v5 project.'",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/strapi/strapi-cli/SKILL.md",
+      "category": "strapi",
+      "tags": [
+        "strapi",
+        "cli",
+        "cms",
+        "scaffolding",
+        "headless-cms"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "google-drive",
       "description": "Use when user says \"upload to Drive\", \"create a doc\", \"share file\", \"search Drive\", \"create spreadsheet\", \"make a presentation\", \"list my files\", \"move file\", \"create folder\", \"calendar event\", \"schedule meeting\", \"Google Drive\", \"Google Docs\", \"Google Sheets\", or \"Google Slides\". Manages files, docs, sheets, slides, and calendar via google-drive-mcp and gws CLI.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/google-workspace/google-drive/SKILL.md",
@@ -3188,7 +3597,7 @@
     },
     {
       "name": "trendradar",
-      "description": "\"When user asks about news trends, hot topics, RSS feeds, or wants to analyze/search recent news — use the TrendRadar MCP tools\"",
+      "description": "'Use when user says \"what''s trending\", \"news trends\", \"hot topics\", \"search recent news\", \"analyze a topic trend\", or \"daily news briefing\". Uses the TrendRadar MCP tools for news aggregation, trend analysis, RSS feeds, and notifications.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/research/trendradar/SKILL.md",
       "category": "research",
       "tags": [],
@@ -3353,7 +3762,7 @@
     },
     {
       "name": "envoult",
-      "description": "Use when managing env vars or secrets across multiple Coolify-deployed apps, when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, when reconciling local secrets with `coolify app env`, or when the user mentions \"envoult\", \"envoultd\", or the encrypted secret vault.",
+      "description": "'Use when user says \"envoult\", \"manage my secrets\", \"push env vars to coolify\", \"diff secrets against coolify\", \"rotate a secret\", \"open the vault\". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault — set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault.'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/secrets/envoult/SKILL.md",
       "category": "secrets",
       "tags": [],
@@ -3481,6 +3890,35 @@
       "links": []
     },
     {
+      "name": "operate",
+      "description": "Use when the user wants to run, drive, or supervise the x-growth-bot (the X / Twitter growth bot in ~/Documents/x-growth-bot) from inside Claude Code. Triggers: \"start the bot\", \"stop the bot\", \"bot status\", \"is the loop running\", \"pause the bot\", \"resume the bot\", \"draft a reply\", \"send a DM\", \"run a dry cycle\", \"show pending replies\", \"what's the bot doing\", \"check caps\", \"engage candidates\", \"growth report\". Routes every action to the right surface: the `xbot` MCP tools, the `./botctl` wrapper, or `python -m xbot.cli`, and enforces the loop-vs-MCP write-safety rule.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/xbot/operate/SKILL.md",
+      "category": "xbot",
+      "tags": [
+        "xbot",
+        "twitter",
+        "x",
+        "growth",
+        "social",
+        "bot",
+        "operate",
+        "mcp"
+      ],
+      "triggers": [
+        "start the bot",
+        "stop the bot",
+        "bot status",
+        "pause the bot",
+        "resume the bot",
+        "draft a reply",
+        "send a DM",
+        "run a dry cycle",
+        "show pending replies",
+        "growth report"
+      ],
+      "links": []
+    },
+    {
       "name": "playwright",
       "description": "Use when user says \"does it work?\", \"screenshot the page\", \"show me the form\", \"check the checkout flow\", or \"open the browser\". Drives Chromium/Firefox/WebKit via Playwright MCP to verify storefront/admin UI changes, reproduce reported UI bugs, test Medusa dev servers on localhost, or explore third-party sites.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/browser/playwright/SKILL.md",
@@ -3514,6 +3952,134 @@
       "links": []
     },
     {
+      "name": "ssh-paste-image",
+      "description": "Use when the user wants to paste a local clipboard image into Claude Code running over SSH, says \"paste image over ssh\", \"can't paste images on the remote\", \"send screenshot to remote claude\", or \"/paste-image\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/ssh/ssh-paste-image/SKILL.md",
+      "category": "ssh",
+      "tags": [
+        "ssh",
+        "clipboard",
+        "image",
+        "remote",
+        "paste"
+      ],
+      "triggers": [
+        "paste image over ssh",
+        "can't paste images on the remote",
+        "/paste-image",
+        "send screenshot to remote claude",
+        "paste clipboard image remote"
+      ],
+      "links": []
+    },
+    {
+      "name": "ssh-tunnel",
+      "description": "Use when the user wants SSH port forwarding: a local tunnel (-L) to reach a remote service, a reverse tunnel (-R) to expose a local one, or a dynamic SOCKS proxy (-D). Triggers: \"ssh tunnel\", \"forward a port\", \"reverse tunnel\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/ssh/ssh-tunnel/SKILL.md",
+      "category": "ssh",
+      "tags": [
+        "ssh",
+        "tunnel",
+        "port-forwarding",
+        "socks"
+      ],
+      "triggers": [
+        "ssh tunnel",
+        "forward a port",
+        "reverse tunnel",
+        "socks proxy",
+        "port forward over ssh",
+        "ssh -L",
+        "ssh -R"
+      ],
+      "links": []
+    },
+    {
+      "name": "ssh-config",
+      "description": "Use when the user wants to set up or edit ~/.ssh/config, add a Host alias, configure a ProxyJump/bastion hop, or speed up repeat connections with ControlMaster multiplexing. Triggers: \"ssh config\", \"host alias\", \"jump host\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/ssh/ssh-config/SKILL.md",
+      "category": "ssh",
+      "tags": [
+        "ssh",
+        "config",
+        "proxyjump",
+        "multiplexing"
+      ],
+      "triggers": [
+        "ssh config",
+        "host alias",
+        "jump host",
+        "proxyjump",
+        "ssh multiplexing",
+        "~/.ssh/config"
+      ],
+      "links": []
+    },
+    {
+      "name": "ssh-harden",
+      "description": "Use when the user wants to harden an SSH server: enforce key-only auth, disable root and password login, add fail2ban, or lock down sshd_config. Triggers: \"harden ssh\", \"disable password login\", \"secure sshd\", \"fail2ban\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/ssh/ssh-harden/SKILL.md",
+      "category": "ssh",
+      "tags": [
+        "ssh",
+        "security",
+        "hardening",
+        "sshd",
+        "fail2ban"
+      ],
+      "triggers": [
+        "harden ssh",
+        "disable password login",
+        "secure sshd",
+        "fail2ban",
+        "disable root login",
+        "ssh server hardening"
+      ],
+      "links": []
+    },
+    {
+      "name": "ssh-keys",
+      "description": "Use when the user wants to generate an SSH key (ed25519), copy a public key to a server with ssh-copy-id, load keys into ssh-agent, or set up passwordless / per-host key auth. Triggers: \"ssh key\", \"ssh-keygen\", \"passwordless ssh\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/ssh/ssh-keys/SKILL.md",
+      "category": "ssh",
+      "tags": [
+        "ssh",
+        "keys",
+        "ssh-agent",
+        "authentication"
+      ],
+      "triggers": [
+        "ssh key",
+        "ssh-keygen",
+        "passwordless ssh",
+        "ssh-copy-id",
+        "add key to agent",
+        "generate ssh key"
+      ],
+      "links": []
+    },
+    {
+      "name": "ssh-copy",
+      "description": "Use when the user wants to copy files over SSH: scp a file or directory, or rsync over ssh with resume, progress, and delete. Triggers: \"scp\", \"copy to the server\", \"rsync to remote\", \"download from the server\", \"sync a folder\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/ssh/ssh-copy/SKILL.md",
+      "category": "ssh",
+      "tags": [
+        "ssh",
+        "scp",
+        "rsync",
+        "file-transfer"
+      ],
+      "triggers": [
+        "scp",
+        "copy to the server",
+        "rsync to remote",
+        "download from the server",
+        "sync a folder",
+        "rsync over ssh"
+      ],
+      "links": []
+    },
+    {
       "name": "cso",
       "description": "OWASP Top 10 + STRIDE threat model audit of the current diff (or the whole repo on demand). Zero-noise: findings must pass an 8/10+ confidence gate AND include a concrete exploit scenario before they're surfaced. Use when the user says \"security audit\", \"OWASP review\", \"threat model\", \"cso\", \"is this secure\", or before shipping anything that touches auth, user input, secrets, or payments.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/security/cso/SKILL.md",
@@ -3525,6 +4091,27 @@
         "threat model",
         "cso",
         "is this secure"
+      ],
+      "links": []
+    },
+    {
+      "name": "trivy-scan",
+      "description": "Scan the repo for dependency CVEs, leaked secrets, and IaC/Dockerfile misconfigs with Trivy, then hard-block HIGH/CRITICAL before a merge. Use when the user says \"trivy\", \"vuln scan\", \"scan dependencies\", \"supply chain scan\", \"scan for CVEs\", or \"security scan before merge\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/security/trivy-scan/SKILL.md",
+      "category": "security",
+      "tags": [
+        "security",
+        "supply-chain",
+        "vulnerability",
+        "gate",
+        "trivy"
+      ],
+      "triggers": [
+        "trivy",
+        "vuln scan",
+        "scan dependencies",
+        "supply chain scan",
+        "scan before merge"
       ],
       "links": []
     },
@@ -3549,6 +4136,7 @@
     "gitea",
     "soul-skills",
     "github",
+    "context7",
     "soul",
     "ruflo",
     "coolify",
@@ -3557,6 +4145,7 @@
     "marva-blog",
     "higgsfield",
     "recodee",
+    "financial-datasets",
     "colony",
     "envoult",
     "obsidian-vault",

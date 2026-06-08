@@ -1,7 +1,7 @@
 ---
 name: help
 description: >-
-  Use when user says "help", "what can you do", or "skill help". Available workflow guidance: commands, routing, skill discovery.
+  Use when user says "/help", "skill help", "what can you do", or "what skills do I have". Available workflow guidance: commands, routing, skill discovery.
 ---
 
 # How OMX Works

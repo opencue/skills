@@ -199,7 +199,11 @@ from cuopt.linear_programming.problem import LinearExpression
 
 # Build as list of (vars, coeffs) instead of v1*c1 + v2*c2 + ...
 vars_list = [x, y, z]
-coeffs_list = [1.0, 2.0, 3.0]
+coeffs_list = [
+    1.0,
+    2.0,
+    3.0,
+]
 expr = LinearExpression(vars_list, coeffs_list, constant=0.0)
 problem.addConstraint(expr <= 100)
 ```
