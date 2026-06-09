@@ -1,11 +1,11 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-06-05T20:34:24Z",
+  "generated_at": "2026-06-08T20:22:22Z",
   "offline": true,
   "counts": {
-    "installed": 363,
+    "installed": 365,
     "upstream": 0,
-    "mcps": 28
+    "mcps": 30
   },
   "installed": [
     {
@@ -2005,6 +2005,15 @@
       "links": []
     },
     {
+      "name": "banana",
+      "description": "\"AI image generation Creative Director powered by Google Gemini Nano Banana models. Use this skill for ANY request involving image creation, editing, visual asset production, or creative direction. Triggers on: generate an image, create a photo, edit this picture, design a logo, make a banner, visual for my anything, and all /banana commands. Handles text-to-image, image editing, multi-turn creative sessions, batch workflows, and brand presets.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/banana/SKILL.md",
+      "category": "design",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "high-end-visual-design",
       "description": "Use when user asks for \"agency-level\", \"expensive-looking\", \"Apple-tier\", or \"Linear-tier\" design. Bans Inter/Roboto; picks vetted archetypes (Ethereal Glass, Editorial Luxury, Asymmetrical Bento).",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/high-end-visual-design/SKILL.md",
@@ -2536,6 +2545,21 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/career/resume-version-manager/SKILL.md",
       "category": "career",
       "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "job-hunter",
+      "description": "Run a whole job-search campaign, not a one-off document. Use when the user says \"find me jobs\", \"run my job search\", \"job hunt\", \"am I competitive for this role\", \"build my application package\", \"prep me for interviews\", or \"negotiate this offer\". Routes live search, fit-scoring, ATS resume and cover letter, interview prep, and offer negotiation across four stages. For a single resume rewrite use resume-tailor; for JD scoring use jdfit.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/career/job-hunter/SKILL.md",
+      "category": "career",
+      "tags": [
+        "career",
+        "job-search",
+        "resume",
+        "interview",
+        "recruiting"
+      ],
       "triggers": [],
       "links": []
     },
@@ -4133,9 +4157,11 @@
     "playwright",
     "react-grab-mcp",
     "polymarket-live",
+    "figma",
     "gitea",
     "soul-skills",
     "github",
+    "buywhere",
     "context7",
     "soul",
     "ruflo",
