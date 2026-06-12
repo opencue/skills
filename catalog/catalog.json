@@ -1,9 +1,9 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-06-08T20:22:22Z",
+  "generated_at": "2026-06-11T10:07:37Z",
   "offline": true,
   "counts": {
-    "installed": 365,
+    "installed": 427,
     "upstream": 0,
     "mcps": 30
   },
@@ -1942,6 +1942,555 @@
       ]
     },
     {
+      "name": "muapi-3d-logo-animation",
+      "description": "Transform a 2D logo into a premium 3D version and animate it with professional cinematic effects.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/3d-logo-animation/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-photo-pack-generator",
+      "description": "Generate a pack of professional or aesthetic photos from a single reference image while preserving the exact identity of the person.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/photo-pack-generator/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-platform",
+      "description": "Setup and utility scripts for muapi.ai — configure API keys, test connectivity, and poll for async generation results",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/core-platform/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-storyboard-to-cooking-video",
+      "description": "Turn a single photo of a person into a 15-second cinematic pasta-making (or other cuisine) tutorial video. First builds a composite reference sheet (character + kitchen + 9-step action board), then animates the full cooking sequence with audio in a single continuous shot.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/storyboard-to-cooking-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-chibi-collage-effect",
+      "description": "Turn a real lifestyle photo into a polished \"chibi clone sticker diary\" image — the original person stays photorealistic, surrounded by 5–8 kawaii chibi mini-clones, scrapbook doodles, and handwritten-style captions that match the scene.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/chibi-collage-effect/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-interior-design",
+      "description": "Create professional interior design visualizations — redesign existing rooms, generate new room concepts, or visualize specific furniture styles in a space.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/interior-design/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-multi-angle-reshoot",
+      "description": "Re-render a subject or scene from multiple dramatic camera angles, such as fish-eye, bird's-eye, low-angle, and macro, while maintaining consistent identity and detail.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/multi-angle-reshoot/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-ad-creative",
+      "description": "Generate a high-converting ad creative set — hero image, ad copy variations, and platform-optimized crops for Meta, Google Display, and LinkedIn.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/ad-creative/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-product-campaign",
+      "description": "Generate a full multi-channel product campaign — hero visuals, social media assets, short ad video, and platform-specific crops for an end-to-end launch campaign.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/product-campaign/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-cinema-director",
+      "description": "Direct high-fidelity cinematic video with AI — translates creative intent into technical cinematographic directives for Veo3, Kling, and Luma video models via muapi.ai",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/cinema-director/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-workflow",
+      "description": "Build, run, and visualize multi-step AI generation workflows. The AI architect translates natural language descriptions into connected node graphs — chain image generation, video creation, enhancement, and editing into automated pipelines.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/workflow/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-logo-branding",
+      "description": "Design a professional logo with full branding package — primary logo, variations (dark/light/icon-only), color palette, and real-world application mockups.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/logo-branding/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-one-shot-video",
+      "description": "Generate a single continuous cinematic shot video — no cuts, one seamless flowing scene with dramatic lighting and motion.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/one-shot-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-ugc-video-factory",
+      "description": "Turn a person photo + a product photo + an optional script into a vertical 9:16 UGC-style video ad. Generates a lifestyle hero image (Nano-Banana Pro Edit), then animates it with native audio using Seedance 2.0 VIP image-to-video.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/ugc-video-factory/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-amazon-product-listing",
+      "description": "Generate a complete Amazon product listing image set — hero image, lifestyle shot, infographic with features, and comparison/detail closeups optimized for Amazon standards.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/amazon-product-listing/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-logo-creator",
+      "description": "Engineer professional-grade brand logos using geometric primitives and negative space — generates minimalist, scalable vector-style marks via muapi.ai",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/logo-creator/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-product-ad-cinematic",
+      "description": "Cinematic 5–10s product ad from a product photo + brand brief.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/product-ad-cinematic/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-action-figure-generator",
+      "description": "Convert a photo of a person into a custom 3D action figure, complete with collectible toy packaging.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/action-figure-generator/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-blog-header",
+      "description": "Create a professional, eye-catching blog post header image sized for web (1200×628) with optional title composition guidance.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/blog-header/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-logo-generator",
+      "description": "Quickly generate a single polished logo for any brand — fast, focused, single output with clean vector aesthetic and accurate brand name text.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/logo-generator/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-storyboard",
+      "description": "Generate N keyframes for a short story or scene sequence (image only, no video).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/storyboard/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-ai-clipping",
+      "description": "Turn a long video into N viral-ready short clips with a single managed API call. Wraps muapi.ai's `/ai-clipping` endpoint, which handles transcription, highlight ranking through a virality framework (hook / emotional peak / opinion bomb / revelation / conflict / quotable / story peak / practical value), overlap dedupe, and vertical face-tracking auto-crop server-side. No local Whisper, no local LLM, no GPU.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/ai-clipping/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-rednote-cover",
+      "description": "Create a Xiaohongshu (RedNote/小红书) style cover image — vibrant, lifestyle-focused, with aesthetic typography overlay suitable for the Chinese social platform.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/rednote-cover/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-drone-style-video",
+      "description": "Generate aerial drone-perspective footage — sweeping bird's-eye views, orbit shots, and flyover sequences for landscapes, architecture, and events.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/drone-style-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-talking-baby-video",
+      "description": "Create a viral-style video of a talking baby with custom costumes and scripts.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/talking-baby-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-instagram-post",
+      "description": "Create a polished, on-brand Instagram post — square or portrait hero image with matching caption and hashtags.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/instagram-post/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-media-editing",
+      "description": "Edit and enhance images and videos with AI via muapi.ai — prompt-based editing, upscaling, background removal, face swap, lipsync, video effects, and more",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/core-edit/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-design-guide",
+      "description": "Create a comprehensive brand design guide — color palette, typography pairings, UI component previews, and visual identity rules with example mockups.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/design-guide/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-jewelry-product-video",
+      "description": "Create a luxury jewelry advertisement with high-end commercial cinematography and detailed macro animation.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/jewelry-product-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-award-ceremony-video",
+      "description": "Generate a 15-second cinematic awards-ceremony video — a host announces a winner from the stage, a spotlight finds them in the crowd, they walk up to the podium, receive the award, and the LED display reveals their name and \"THE BEST ACTOR\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/award-ceremony-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-character-story-video",
+      "description": "Create a multi-part animated story video by first establishing a consistent character and then generating sequential scenes and animating them.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/character-story-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-music-video",
+      "description": "Build a short music video from a song theme — N keyframes, animate each, generate matching music.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/music-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-interior-design-visualizer",
+      "description": "Visualize interior design by generating an empty room and filling it with stylish furniture and decor, or by redesigning an existing room.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/interior-design-visualizer/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-floor-plan-rendering",
+      "description": "Design a 2D floor plan and convert it into a realistic, high-quality 3D architectural rendering.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/floor-plan-rendering/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-multi-angle-shots",
+      "description": "Generate a complete set of multi-angle product shots — front, side, back, top-down, and 45-degree perspective — for comprehensive product visualization.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/multi-angle-shots/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-color-analysis-board",
+      "description": "Turn a portrait photo into a high-end editorial \"Color Analysis Board\" in a luxury fashion-magazine style (Dior / Ralph Lauren aesthetic) — best colors, undertone, makeup guide, capsule wardrobe, hair & jewelry recommendations, all laid out on a clean beige/ivory grid.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/color-analysis-board/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-giant-product-showcase",
+      "description": "Create a dramatic \"Giant Product\" visual where a regular item is showcased as a massive, building-sized object next to a person, then optionally animate the scene.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/giant-product-showcase/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-product-video-ad-maker",
+      "description": "Create a high-end cinematic product video advertisement starting from a simple product photo.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/product-video-ad-maker/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-selfie-with-celebrities",
+      "description": "Generate a realistic behind-the-scenes selfie of the user with a celebrity or main actor from a specific movie, followed by an option to generate a cinematic long-take video connecting multiple selfies.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/selfie-with-celebrities/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-product-showcase-video",
+      "description": "Create a dynamic product showcase with explosive ingredient arrangements, followed by a realistic motion animation.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/product-showcase-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-youtube-thumbnail",
+      "description": "Design a high-CTR YouTube thumbnail — striking imagery, bold text placement, and emotional face/subject if needed.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/youtube-thumbnail/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-ui-design",
+      "description": "Generate high-fidelity UI/UX mockups for mobile and web apps using Atomic Design principles — creates wireframes and design systems via muapi.ai",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/ui-design/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-ugc-lifestyle-try-on",
+      "description": "Generate UGC-style (User Generated Content) lifestyle photos of a person wearing or using your product — authentic, relatable, social-media-native imagery.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/ugc-lifestyle-try-on/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-nano-banana",
+      "description": "Reasoning-driven image generation using structured creative briefs (Gemini 3 style) — generates high-fidelity images via muapi.ai with logic-based prompting",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/nano-banana/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-keyboard-art-maker",
+      "description": "Generate artistic top-down photos of keyboard keycaps arranged to spell out custom text messages.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/keyboard-art-maker/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-seedance-2",
+      "description": "Expert Cinema Director skill for Seedance 2.0 (ByteDance) — high-fidelity video generation across Chinese, Global, and VIP tiers. Supports text-to-video, image-to-video, first-last-frame, omni reference, character training, omni-reference training, video editing, and watermark removal.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/seedance-2/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-couple-grid-creator",
+      "description": "Create a stylized 6-box grid featuring a couple in various romantic poses and outfits, with each pose framed inside a unique cardboard box packaging.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/couple-grid-creator/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "kdenlive",
+      "description": "Use when user says \"edit this video\", \"render the kdenlive project\", \"stitch clips together\", \"add a title card\", \"crossfade these\", \"cut a 9:16 version\", \"add background music\", or \"trim/concat\". Headless non-linear video editing and rendering with melt (the MLT engine behind Kdenlive) plus ffmpeg. Deterministic and local. NOT for AI text-to-video generation (use media/core-media).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/kdenlive/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-social-pack",
+      "description": "Re-render a hero image into Instagram, TikTok, YouTube-shorts and Twitter/X aspect ratios.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/social-pack/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-brochures",
+      "description": "Generate a professional multi-page brochure design — cover, inner spread, and back cover — for business, real estate, events, or product launches.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/brochures/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-social-media-video",
+      "description": "Brand-aware social media video creator. Reads brand-identity.md, ICP.md, and messaging.md to write a post/storyboard, craft an optimized Seedance 2.0 Director prompt, generate reference frames with the best available image model, and produce platform-ready video.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/social-media-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-animal-video-generator",
+      "description": "Create a hilarious and ultra-realistic video of an anthropomorphic animal acting like a human vlogger in a real-world setting.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/animal-video-generator/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-media-generation",
+      "description": "Generate AI images, videos, music, and audio from the terminal via muapi.ai — supports 100+ models including Flux, Midjourney v7, Kling 3.0, Veo3, and Suno V5",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/core-media/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-youtube-shorts",
+      "description": "Auto-generate viral 9:16 YouTube Shorts (or TikTok / Reels clips) from a long-form video. Thin platform-aware wrapper around the AI Clipping skill — picks sensible defaults for short-form social platforms (9:16, 30–60s sweet spot) and delegates the actual highlight extraction + crop to muapi.ai's `/ai-clipping` endpoint.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/youtube-shorts/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-ai-fight-scene",
+      "description": "Generate a high-cut-density action / fight scene by first composing a 16-cell storyboard image, then driving Seedance 2.0 image-to-video off that storyboard. Stacks GPT-Image-2 (character sheet + storyboard), Nano-Banana-2 (environment concept), and Seedance 2.0 i2v.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/ai-fight-scene/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-ugc-ads-workflow",
+      "description": "Create a User-Generated Content (UGC) video ad by combining a human selfie and a product image, then generating a video script and an animated ad.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/ugc-ads-workflow/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-url-to-design",
+      "description": "Analyze a website URL and generate a redesigned, improved UI — recreate the visual design with modern aesthetics, better hierarchy, and fresh brand direction.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/url-to-design/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-fashion-try-on",
+      "description": "Virtually try on different outfits by combining a person's photo and a clothing item, then optionally generate a professional fashion model video.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/fashion-try-on/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-freeze-effect-video",
+      "description": "Generate a cinematic \"freeze effect\" video where time stops mid-scene, the subject walks through the frozen world, then time resumes with a snap.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/freeze-effect-video/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-brand-kit",
+      "description": "Generate a cohesive brand visual kit — logo concept, color palette moodboard, and typography pairing suggestions.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/brand-kit/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "muapi-cartoon-dance-animation",
+      "description": "Convert a photo of a person into a Pixar-style 3D cartoon character, then animate it using a reference dance or motion video.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/cartoon-dance-animation/SKILL.md",
+      "category": "media",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "full-output-enforcement",
       "description": "Use when user says \"full output\", \"no truncation\", \"don't skip code\", \"complete file\", or \"no placeholders\". Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged output.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/design/output-skill/SKILL.md",
@@ -2413,6 +2962,23 @@
         "source-fetching",
         "patterns",
         "cue-dev"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "ccusage",
+      "description": "Analyze coding-agent CLI token usage and cost from local logs — Claude Code, Codex, Gemini, Copilot, OpenCode, Amp, Droid and more — as daily, weekly, monthly, or session reports. Use when the user says \"ccusage\", \"how much have I spent\", \"my token usage\", \"usage report\", \"cost breakdown\", \"how many tokens\", or \"which model do I use most\", or wants to audit AI coding spend. Reads existing logs; no setup.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/ccusage/SKILL.md",
+      "category": "tools",
+      "tags": [
+        "tools",
+        "usage",
+        "cost",
+        "tokens",
+        "observability",
+        "claude-code",
+        "codex"
       ],
       "triggers": [],
       "links": []
