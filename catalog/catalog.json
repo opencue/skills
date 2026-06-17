@@ -1,11 +1,11 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-06-11T10:07:37Z",
+  "generated_at": "2026-06-17T08:03:56Z",
   "offline": true,
   "counts": {
-    "installed": 427,
+    "installed": 428,
     "upstream": 0,
-    "mcps": 30
+    "mcps": 31
   },
   "installed": [
     {
@@ -2967,6 +2967,22 @@
       "links": []
     },
     {
+      "name": "headroom",
+      "description": "Compress everything an AI agent reads — tool outputs, logs, files, RAG chunks, conversation history — before it reaches the model, for 60–95% fewer tokens with the same answers. Use when the user says \"compress context\", \"reduce tokens\", \"headroom\", \"wrap claude with headroom\", \"cut my token usage\", or wants reversible context compression via library, proxy, or MCP tools (headroom_compress / headroom_retrieve / headroom_stats).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/headroom/SKILL.md",
+      "category": "tools",
+      "tags": [
+        "tools",
+        "context-compression",
+        "tokens",
+        "mcp",
+        "proxy",
+        "claude-code"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "ccusage",
       "description": "Analyze coding-agent CLI token usage and cost from local logs — Claude Code, Codex, Gemini, Copilot, OpenCode, Amp, Droid and more — as daily, weekly, monthly, or session reports. Use when the user says \"ccusage\", \"how much have I spent\", \"my token usage\", \"usage report\", \"cost breakdown\", \"how many tokens\", or \"which model do I use most\", or wants to audit AI coding spend. Reads existing logs; no setup.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/ccusage/SKILL.md",
@@ -4724,6 +4740,7 @@
     "react-grab-mcp",
     "polymarket-live",
     "figma",
+    "headroom",
     "gitea",
     "soul-skills",
     "github",
