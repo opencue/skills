@@ -1,6 +1,6 @@
 ---
 name: vps
-description: >-
+description: >
   Use when user says "Hostinger VPS", "server deploy", or "VPS access". SSH, services, Docker, logs, health, safe ops.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
@@ -9,7 +9,7 @@ category: hostinger
 
 # Hostinger VPS
 
-The VPS API provides comprehensive management of virtual private servers, from purchasing and setup to Docker deployments, firewall configuration, SSH keys, backups, snapshots, OS reinstallation, recovery mode, malware scanning, and performance monitoring.
+The VPS API provides complete management of virtual private servers, from purchasing and setup to Docker deployments, firewall configuration, SSH keys, backups, snapshots, OS reinstallation, recovery mode, malware scanning, and performance monitoring.
 
 ## Tool surface, prefer MCP
 

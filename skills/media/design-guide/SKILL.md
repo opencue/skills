@@ -2,7 +2,7 @@
 slug: muapi-design-guide
 name: muapi-design-guide
 version: "1.0.0"
-description: Create a comprehensive brand design guide — color palette, typography pairings, UI component previews, and visual identity rules with example mockups.
+description: Use when the user wants a full brand design guide — color palette, typography pairings, UI component previews, and visual identity rules with example mockups.
 acceptLicenseTerms: true
 category: media
 ---
@@ -10,7 +10,7 @@ category: media
 
 # Brand Design Guide
 
-**Create a comprehensive brand design guide, color palette, typography pairings, UI component previews, and visual identity rules with example mockups.**
+**Create a full brand design guide, color palette, typography pairings, UI component previews, and visual identity rules with example mockups.**
 
 ## Inputs
 

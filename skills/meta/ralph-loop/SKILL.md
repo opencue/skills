@@ -1,6 +1,6 @@
 ---
 name: ralph-loop
-description: >-
+description: >
   Use when user says "run this in a loop", "work on it overnight", "keep going
   until done", "ralph loop", "autonomous loop", "make claude work longer", or
   "run until tests pass". Runs an autonomous Ralph-Wiggum loop — re-feeds one

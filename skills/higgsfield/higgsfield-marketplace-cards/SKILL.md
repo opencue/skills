@@ -1,7 +1,7 @@
 ---
 version: 0.3.0
 name: higgsfield-marketplace-cards
-description: >-
+description: >
   Use when user asks for "marketplace listing images", "product detail cards", "A+ content", or "Amazon/Shopee/eBay images". Compliant main + secondary + A+ modules. NOT for brand photography.
 argument-hint: "[--scope main|product-images|aplus|full-set] [prompt]"
 allowed-tools: Bash(Bash:*)

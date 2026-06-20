@@ -678,7 +678,7 @@ Then present options: **A)** Add to TODOS.md **B)** Skip, not valuable enough **
 Do NOT just append vague bullet points. A TODO without context is worse than no TODO, it creates false confidence that the idea was captured while actually losing the reasoning.
 
 ### Diagrams
-The plan itself should use ASCII diagrams for any non-trivial data flow, state machine, or processing pipeline. Additionally, identify which files in the implementation should get inline ASCII diagram comments, particularly Models with complex state transitions, Services with multi-step pipelines, and Concerns with non-obvious mixin behavior.
+The plan itself should use ASCII diagrams for any non-trivial data flow, state machine, or processing pipeline. Also, identify which files in the implementation should get inline ASCII diagram comments, particularly Models with complex state transitions, Services with multi-step pipelines, and Concerns with non-obvious mixin behavior.
 
 ### Failure modes
 For each new codepath identified in the test review diagram, list one realistic way it could fail in production (timeout, nil reference, race condition, stale data, etc.) and whether:
@@ -870,7 +870,7 @@ Display:
 - **Eng Review (required by default):** The only review that gates shipping. Covers architecture, code quality, tests, performance. Can be disabled globally with \`gstack-config set skip_eng_review true\` (the "don't bother me" setting).
 - **CEO Review (optional):** Use your judgment. Recommend it for big product/business changes, new user-facing features, or scope decisions. Skip for bug fixes, refactors, infra, and cleanup.
 - **Design Review (optional):** Use your judgment. Recommend it for UI/UX changes. Skip for backend-only, infra, or prompt-only changes.
-- **Adversarial Review (automatic):** Always-on for every review. Every diff gets both Claude adversarial subagent and Codex adversarial challenge. Large diffs (200+ lines) additionally get Codex structured review with P1 gate. No configuration needed.
+- **Adversarial Review (automatic):** Always-on for every review. Every diff gets both Claude adversarial subagent and Codex adversarial challenge. Large diffs (200+ lines) also get Codex structured review with P1 gate. No configuration needed.
 - **Outside Voice (optional):** Independent plan review from a different AI model. Offered after all review sections complete in /plan-ceo-review and /plan-eng-review. Falls back to Claude subagent if Codex is unavailable. Never gates shipping.
 
 **Verdict logic:**
@@ -1001,17 +1001,17 @@ already knows. A good test: would this insight save time in a future session? If
 
 After displaying the Review Readiness Dashboard, check if additional reviews would be valuable. Read the dashboard output to see which reviews have already been run and whether they are stale.
 
-**Suggest /plan-design-review if UI changes exist and no design review has been run**, detect from the test diagram, architecture review, or any section that touched frontend components, CSS, views, or user-facing interaction flows. If an existing design review's commit hash shows it predates significant changes found in this eng review, note that it may be stale.
+**Suggest /plan-design-review if UI changes exist and no design review has been run**, detect from the test diagram, architecture review, or any section that touched frontend components, CSS, views, or user-facing interaction flows. If an existing design review's commit hash shows it predates major changes found in this eng review, note that it may be stale.
 
-**Mention /plan-ceo-review if this is a significant product change and no CEO review exists**, this is a soft suggestion, not a push. CEO review is optional. Only mention it if the plan introduces new user-facing features, changes product direction, or expands scope substantially.
+**Mention /plan-ceo-review if this is a major product change and no CEO review exists**, this is a soft suggestion, not a push. CEO review is optional. Only mention it if the plan introduces new user-facing features, changes product direction, or expands scope substantially.
 
-**Note staleness** of existing CEO or design reviews if this eng review found assumptions that contradict them, or if the commit hash shows significant drift.
+**Note staleness** of existing CEO or design reviews if this eng review found assumptions that contradict them, or if the commit hash shows notable drift.
 
 **If no additional reviews are needed** (or `skip_eng_review` is `true` in the dashboard config, meaning this eng review was optional): state "All relevant reviews complete. Run /ship when ready."
 
 Use AskUserQuestion with only the applicable options:
 - **A)** Run /plan-design-review (only if UI scope detected and no design review exists)
-- **B)** Run /plan-ceo-review (only if significant product change and no CEO review exists)
+- **B)** Run /plan-ceo-review (only if major product change and no CEO review exists)
 - **C)** Ready to implement, run /ship when done
 
 ## Unresolved decisions

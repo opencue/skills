@@ -1,7 +1,6 @@
 ---
 name: new-admin-via-api
-description: >-
-  Use when user says "create Medusa admin", "new admin via API", or "add admin user". API-based admin creation: auth, request, envs.
+description: 'Use when user says "create Medusa admin", "new admin via API", or "add admin user". API-based admin creation: auth, request, envs.'
 allowed-tools: Bash(curl:*)
 category: medusa
 ---

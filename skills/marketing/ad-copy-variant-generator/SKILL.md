@@ -1,6 +1,6 @@
 ---
 name: ad-copy-variant-generator
-description: Use when user says "generate ad copy variants", "write new ad variations", "give me ad copy to test", "more variants of my best ad", "RSA headlines", "fresh ad creative". Analyzes your top performing ads, identifies what's working in the hooks, CTAs, messaging angles, and formats, then generates new variants that follow the same winning patterns while introducing enough variation to test meaningfully.
+description: Use when user says "generate ad copy variants", "write new ad variations", or "fresh ad creative". Analyzes your top ads' hooks, CTAs, and angles, then generates new variants on winning patterns.
 metadata:
   platform: Google and Meta
 category: marketing

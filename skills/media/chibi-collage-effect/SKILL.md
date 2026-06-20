@@ -2,7 +2,7 @@
 slug: muapi-chibi-collage-effect
 name: muapi-chibi-collage-effect
 version: "1.0.0"
-description: Turn a real lifestyle photo into a polished "chibi clone sticker diary" image — the original person stays photorealistic, surrounded by 5–8 kawaii chibi mini-clones, scrapbook doodles, and handwritten-style captions that match the scene.
+description: Use when the user wants a "chibi clone sticker diary" image from a real photo — the person stays photorealistic, surrounded by kawaii chibi mini-clones, doodles, and handwritten captions.
 acceptLicenseTerms: true
 category: media
 ---

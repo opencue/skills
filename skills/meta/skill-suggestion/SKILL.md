@@ -1,6 +1,6 @@
 ---
 name: skill-suggestion
-description: >-
+description: >
   Use when user says "find a skill", "which skill", or "suggest skill". Catalog lookup, matching existing skills, avoiding duplicates.
 category: meta
 ---

@@ -1,6 +1,6 @@
 ---
 name: colony
-description: >-
+description: >
   Use when user says "Colony", "Colony plan", or "Colony task". Colony workflow: live plans, lanes, handoffs, completion evidence.
 category: colony
 ---

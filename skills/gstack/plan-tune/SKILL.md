@@ -107,7 +107,7 @@ Power-user shortcuts (one-word invocations), handle these too:
    Options: A) Terse, just do it (low ≈ 0.25) / B) Balanced /
    C) Verbose with reasoning (high ≈ 0.85)
 
-   **Q4, autonomy:** "Do you want to be consulted on every significant
+   **Q4, autonomy:** "Do you want to be consulted on every major
    decision, or delegate and let the agent pick for you?"
    Options: A) Consult me (low ≈ 0.25) / B) Balanced /
    C) Delegate, trust the agent (high ≈ 0.85)

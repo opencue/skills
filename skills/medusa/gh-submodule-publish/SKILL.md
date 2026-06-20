@@ -1,7 +1,6 @@
 ---
 name: gh-submodule-publish
-description: >-
-  Use when user says "publish submodule" or "Medusa submodule publish". Repo state, commits, push, references, validation.
+description: 'Use when user says "publish submodule" or "Medusa submodule publish". Repo state, commits, push, references, validation.'
 category: medusa
 ---
 

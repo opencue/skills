@@ -1,6 +1,6 @@
 ---
 name: kiro-powers
-description: >-
+description: >
   Imports a Kiro Power (POWER.md + MCP config) from GitHub into a cue profile
   as a skill + MCP entry, bridging the Kiro Powers ecosystem into cue. Use
   when user says "import kiro power", "add kiro power to profile", "use X

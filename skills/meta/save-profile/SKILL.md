@@ -1,6 +1,6 @@
 ---
 name: save-profile
-description: >-
+description: >
   Use when user says "save as profile", "create profile from session", or "export this setup". Captures current skills and MCPs into a new cue profile via `cue create-profile`.
 category: meta
 ---

@@ -475,5 +475,5 @@ Documentation generated:
 - **Cross-link everything.** Isolated docs are undiscoverable docs.
 - **Voice: friendly, concrete, user-forward.** Write like you're explaining to a smart person
   who hasn't seen the code. Never corporate, never academic.
-- **Completeness over minimalism.** AI makes comprehensive documentation cheap. Don't write
+- **Completeness over minimalism.** AI makes complete documentation cheap. Don't write
   "minimal viable docs", write complete docs. Boil the lake.

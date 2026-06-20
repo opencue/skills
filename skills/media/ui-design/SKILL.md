@@ -1,7 +1,7 @@
 ---
 name: muapi-ui-design
 version: 0.1.0
-description: Generate high-fidelity UI/UX mockups for mobile and web apps using Atomic Design principles — creates wireframes and design systems via muapi.ai
+description: Use when the user wants to generate high-fidelity UI/UX mockups for mobile and web apps using Atomic Design principles — creates wireframes and design systems via muapi.ai
 category: media
 ---
 

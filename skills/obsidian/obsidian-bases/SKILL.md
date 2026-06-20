@@ -1,6 +1,6 @@
 ---
 name: obsidian-bases
-description: >-
+description: >
   Use when user says "Obsidian Bases", "base view", or "vault database". Bases schema, filters, views.
 category: obsidian
 ---

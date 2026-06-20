@@ -2,7 +2,7 @@
 slug: muapi-3d-logo-animation
 name: muapi-3d-logo-animation
 version: "1.0.0"
-description: Transform a 2D logo into a premium 3D version and animate it with professional cinematic effects.
+description: Use when the user wants to turn a 2D logo into a premium 3D version and animate it with professional cinematic effects.
 acceptLicenseTerms: true
 category: media
 ---

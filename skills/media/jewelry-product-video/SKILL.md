@@ -2,7 +2,7 @@
 slug: muapi-jewelry-product-video
 name: muapi-jewelry-product-video
 version: "1.0.0"
-description: Create a luxury jewelry advertisement with high-end commercial cinematography and detailed macro animation.
+description: Use when the user wants a luxury jewelry advertisement with high-end commercial cinematography and detailed macro animation.
 acceptLicenseTerms: true
 category: media
 ---

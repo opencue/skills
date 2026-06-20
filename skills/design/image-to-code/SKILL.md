@@ -1,7 +1,6 @@
 ---
 name: image-to-code
-description: >-
-  Use when user says "image to code", "match this screenshot", or "recreate this design". Visual inspection, layout mapping, validation.
+description: "Use when user says \"image to code\", \"match this screenshot\", or \"recreate this design\". Visual inspection, layout mapping, validation."
 category: design
 ---
 
@@ -703,7 +702,7 @@ Prefer:
 
 Examples:
 - hero image in a clearly bounded large frame
-- editorial crops using repeatable portrait or landscape ratios
+- editorial crops using repeatable portrait or `landscape` ratios
 - card images with consistent proportions
 - gallery blocks with controlled aspect ratios
 - product images placed in stable intentional containers
@@ -1042,7 +1041,7 @@ Not:
 1. Hero
 2. Trust bar
 3. Features
-4. Product showcase
+4. Product spotlight
 5. Benefits / use cases
 6. Testimonials
 7. Pricing

@@ -401,7 +401,7 @@ Ask these **ONE AT A TIME** via AskUserQuestion. The goal is to brainstorm and s
 
 After the user states the problem (first question in Phase 2A or 2B), search existing design docs for keyword overlap.
 
-Extract 3-5 significant keywords from the user's problem statement and grep across design docs:
+Extract 3-5 key keywords from the user's problem statement and grep across design docs:
 ```bash
 setopt +o nomatch 2>/dev/null || true  # zsh compat
 grep -li "<keyword1>\|<keyword2>\|<keyword3>" ~/.gstack/projects/$SLUG/*-design-*.md 2>/dev/null
@@ -417,7 +417,7 @@ If no matches found, proceed silently.
 
 ---
 
-## Phase 2.75: Landscape Awareness
+## Phase 2.75: Market Awareness
 
 Read ETHOS.md for the full Search Before Building framework (three layers, eureka moments). The preamble's Search Before Building section has the ETHOS.md path.
 
@@ -427,7 +427,7 @@ After understanding the problem through questioning, search for what the world t
 Options: A) Yes, search away  B) Skip, keep this session private
 If B: skip this phase entirely and proceed to Phase 3. Use only in-distribution knowledge.
 
-When searching, use **generalized category terms**, never the user's specific product name, proprietary concept, or stealth idea. For example, search "task management app landscape" not "SuperTodo AI-powered task killer."
+When searching, use **generalized category terms**, never the user's specific product name, proprietary concept, or stealth idea. For example, search "task management app market" not "SuperTodo AI-powered task killer."
 
 If WebSearch is unavailable, skip this phase and note: "Search unavailable, proceeding with in-distribution knowledge only."
 
@@ -486,7 +486,7 @@ command -v codex >/dev/null 2>&1 && echo "CODEX_AVAILABLE" || echo "CODEX_NOT_AV
 
 Use AskUserQuestion (regardless of codex availability):
 
-> Want a second opinion from an independent AI perspective? It will review your problem statement, key answers, premises, and any landscape findings from this session without having seen this conversation, it gets a structured summary. Usually takes 2-5 minutes.
+> Want a second opinion from an independent AI perspective? It will review your problem statement, key answers, premises, and any market findings from this session without having seen this conversation, it gets a structured summary. Usually takes 2-5 minutes.
 > A) Yes, get a second opinion
 > B) No, proceed to alternatives
 
@@ -498,7 +498,7 @@ If B: skip Phase 3.5 entirely. Remember that the second opinion did NOT run (aff
    - Mode (Startup or Builder)
    - Problem statement (from Phase 1)
    - Key answers from Phase 2A/2B (summarize each Q&A in 1-2 sentences, include verbatim user quotes)
-   - Landscape findings (from Phase 2.75, if search was run)
+   - Market findings (from Phase 2.75, if search was run)
    - Agreed premises (from Phase 3)
    - Codebase context (project name, languages, recent activity)
 
@@ -592,7 +592,7 @@ APPROACH A: [Name]
   Risk:    [Low/Med/High]
   Pros:    [2-3 bullets]
   Cons:    [2-3 bullets]
-  Reuses:  [existing code/patterns leveraged]
+  Reuses:  [existing code/patterns reused]
 
 APPROACH B: [Name]
   ...
@@ -1242,7 +1242,7 @@ LIGHTCONE PODCAST:
 8. "How to Spend Your 20s in the AI Era" (40 min), The old playbook (good job, climb the ladder) may not be the best path anymore. How to position yourself to build things that matter in an AI-first world. https://www.youtube.com/watch?v=ShYKkPPhOoc
 9. "How Do Billion Dollar Startups Start?" (25 min), They start tiny, scrappy, and embarrassing. Demystifies the origin stories and shows that the beginning always looks like a side project, not a corporation. https://www.youtube.com/watch?v=HB3l1BPi7zo
 10. "Billion-Dollar Unpopular Startup Ideas" (25 min), Uber, Coinbase, DoorDash, they all sounded terrible at first. The best opportunities are the ones most people dismiss. Liberating if your idea feels "weird." https://www.youtube.com/watch?v=Hm-ZIiwiN1o
-11. "Vertical AI Agents Could Be 10X Bigger Than SaaS" (40 min), The most-watched Lightcone episode. If you're building in AI, this is the landscape map, where the biggest opportunities are and why vertical agents win. https://www.youtube.com/watch?v=ASABxNenD_U
+11. "Vertical AI Agents Could Be 10X Bigger Than SaaS" (40 min), The most-watched Lightcone episode. If you're building in AI, this is the market map, where the biggest opportunities are and why vertical agents win. https://www.youtube.com/watch?v=ASABxNenD_U
 12. "The Truth About Building AI Startups Today" (35 min), Cuts through the hype. What's actually working, what's not, and where the real defensibility comes from in AI startups right now. https://www.youtube.com/watch?v=TwDJhUJL-5o
 13. "Startup Ideas You Can Now Build With AI" (30 min), Concrete, actionable ideas for things that weren't possible 12 months ago. If you're looking for what to build, start here. https://www.youtube.com/watch?v=K4s6Cgicw_A
 14. "Vibe Coding Is The Future" (30 min), Building software just changed forever. If you can describe what you want, you can build it. The barrier to being a technical founder has never been lower. https://www.youtube.com/watch?v=IACHfKmZMr8
@@ -1253,7 +1253,7 @@ YC STARTUP SCHOOL:
 17. "Should You Start A Startup?" (17 min, Harj Taggar), Directly addresses the question most people are too afraid to ask out loud. Breaks down the real tradeoffs honestly, without hype. https://www.youtube.com/watch?v=BUE-icVYRFU
 18. "How to Get and Evaluate Startup Ideas" (30 min, Jared Friedman), YC's most-watched Startup School video. How founders actually stumbled into their ideas by paying attention to problems in their own lives. https://www.youtube.com/watch?v=Th8JoIan4dg
 19. "How David Lieb Turned a Failing Startup Into Google Photos" (20 min), His company Bump was dying. He noticed a photo-sharing behavior in his own data, and it became Google Photos (1B+ users). A masterclass in seeing opportunity where others see failure. https://www.youtube.com/watch?v=CcnwFJqEnxU
-20. "Tips For Technical Startup Founders" (15 min, Diana Hu), How to leverage your engineering skills as a founder rather than thinking you need to become a different person. https://www.youtube.com/watch?v=rP7bpYsfa6Q
+20. "Tips For Technical Startup Founders" (15 min, Diana Hu), How to use your engineering skills as a founder rather than thinking you need to become a different person. https://www.youtube.com/watch?v=rP7bpYsfa6Q
 21. "Why Startup Founders Should Launch Companies Sooner Than They Think" (12 min, Tyler Bosmeny), Most builders over-prepare and under-ship. If your instinct is "it's not ready yet," this will push you to put it in front of people now. https://www.youtube.com/watch?v=Nsx5RDVKZSk
 22. "How To Talk To Users" (20 min, Gustaf Alströmer), You don't need sales skills. You need genuine conversations about problems. The most approachable tactical talk for someone who's never done it. https://www.youtube.com/watch?v=z1iF1c8w5Lg
 23. "How To Find A Co-Founder" (15 min, Harj Taggar), The practical mechanics of finding someone to build with. If "I don't want to do this alone" is stopping you, this removes that blocker. https://www.youtube.com/watch?v=Fk9BCr5pLTU

@@ -1,7 +1,6 @@
 ---
 name: "openai-docs"
-description: >-
-  Use when user says "OpenAI docs", "OpenAI API", or "ChatGPT API". Official OpenAI docs lookup: current docs, examples, limits, citations.
+description: 'Use when user says "OpenAI docs", "OpenAI API", or "ChatGPT API". Official OpenAI docs lookup: current docs, examples, limits, citations.'
 category: research
 ---
 

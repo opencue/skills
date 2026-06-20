@@ -1,7 +1,7 @@
 ---
 name: cuopt-developer
 version: "26.08.00"
-description: Modify, build, test, debug, and contribute to NVIDIA cuOpt (C++/CUDA, Python, server, CI). Use for solver internals, PRs, DCO, and code conventions.
+description: Use when the user wants to modify, build, test, debug, or contribute to NVIDIA cuOpt (C++/CUDA, Python, server, CI). For solver internals, PRs, DCO, and code conventions.
 category: nvidia
 ---
 # cuOpt Developer Skill

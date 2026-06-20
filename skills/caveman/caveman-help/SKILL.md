@@ -1,7 +1,6 @@
 ---
 name: caveman-help
-description: >-
-  Use when user says "caveman help" or "caveman commands". Quick reference for Caveman modes, triggers, levels.
+description: 'Use when user says "caveman help" or "caveman commands". Quick reference for Caveman modes, triggers, levels.'
 category: caveman
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: visual-ralph
-description: "[OMX] Visual Ralph orchestration for frontend UI from generated references, static references, or live URL targets, using $ralph with built-in visual verdict and pixel-diff evidence until the implementation matches and leaves a reproducible design system."
+description: "[OMX] Use when the user wants Codex to build or restyle frontend UI through a Visual Ralph loop, matching a reference or live URL via $ralph with visual verdict and pixel-diff evidence."
 category: orchestration
 ---
 

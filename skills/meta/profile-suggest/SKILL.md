@@ -1,6 +1,6 @@
 ---
 name: profile-suggest
-description: >-
+description: >
   Analyzes a repo on the first message and suggests the best cue profile
   when no .cue.profile is set, then self-removes from the project CLAUDE.md.
   Use when user says "suggest a profile", "which profile", "auto-detect

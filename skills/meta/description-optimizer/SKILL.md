@@ -1,6 +1,6 @@
 ---
 name: description-optimizer
-description: >-
+description: >
   Optimize a skill's description field for maximum activation rate.
   Generates 20 trigger/no-trigger eval queries, tests them mentally,
   iterates the description until activation is reliable. Use when user

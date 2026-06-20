@@ -1,11 +1,6 @@
 ---
 name: article-to-everywhere
-description: >-
-  Use when user says "/article-to-everywhere", "repurpose this article",
-  "make a thread + LinkedIn from this", "derive social copy", "send everywhere",
-  "X+LinkedIn+Substack+Reddit", or has a finished long-form article and wants
-  the per-platform derivatives. Takes a markdown article, outputs platform-shaped
-  copy + (where Postiz integration exists) draft posts.
+description: 'Use when user says "/article-to-everywhere", "repurpose this article", or "send everywhere", or has a finished article and wants per-platform copy for X, LinkedIn, Substack, and Reddit.'
 allowed-tools: Read, Write, Edit, Bash(Bash:*)
 category: content
 ---

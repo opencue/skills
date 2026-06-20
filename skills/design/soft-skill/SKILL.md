@@ -1,6 +1,6 @@
 ---
 name: high-end-visual-design
-description: Use when user says "high-end design", "agency-tier UI", "expensive-looking site", "Awwwards style", or "premium visual design". Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic.
+description: Use when user says "high-end design", "agency-tier UI", "expensive-looking site", "Awwwards style", or "premium visual design". Defines fonts, spacing, shadows, and animations for a premium feel.
 category: design
 ---
 

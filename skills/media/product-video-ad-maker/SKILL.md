@@ -2,7 +2,7 @@
 slug: muapi-product-video-ad-maker
 name: muapi-product-video-ad-maker
 version: "1.0.0"
-description: Create a high-end cinematic product video advertisement starting from a simple product photo.
+description: Use when the user wants a product video ad — creates a high-end cinematic advertisement starting from a simple product photo.
 acceptLicenseTerms: true
 category: media
 ---

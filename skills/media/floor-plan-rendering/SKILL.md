@@ -2,7 +2,7 @@
 slug: muapi-floor-plan-rendering
 name: muapi-floor-plan-rendering
 version: "1.0.0"
-description: Design a 2D floor plan and convert it into a realistic, high-quality 3D architectural rendering.
+description: Use when the user wants to design a 2D floor plan and convert it into a realistic, high-quality 3D architectural rendering.
 acceptLicenseTerms: true
 category: media
 ---

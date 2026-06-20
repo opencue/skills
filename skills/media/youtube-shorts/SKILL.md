@@ -2,7 +2,7 @@
 slug: muapi-youtube-shorts
 name: muapi-youtube-shorts
 version: "2.0.0"
-description: Auto-generate viral 9:16 YouTube Shorts (or TikTok / Reels clips) from a long-form video. Thin platform-aware wrapper around the AI Clipping skill — picks sensible defaults for short-form social platforms (9:16, 30–60s sweet spot) and delegates the actual highlight extraction + crop to muapi.ai's `/ai-clipping` endpoint.
+description: Use when the user wants YouTube Shorts, TikTok, or Reels clips from a long video. Picks short-form defaults (9:16) and delegates highlight extraction and crop to muapi.ai's `/ai-clipping` endpoint.
 acceptLicenseTerms: true
 category: media
 ---

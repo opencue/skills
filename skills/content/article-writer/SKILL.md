@@ -1,10 +1,6 @@
 ---
 name: article-writer
-description: >-
-  Use when user says "/article", "write me an article", "draft a long-form piece",
-  "Q&A interview style article", "op-ed", "sector analysis", "listicle", "breaking news",
-  "blog post about X", or asks for any topic-agnostic long-form English/Hungarian content.
-  Topic-agnostic. Pairs with /trend-to-thread for the article → thread → social pipeline.
+description: 'Use when user says "/article", "write me an article", "draft a long-form piece", "op-ed", "listicle", "blog post about X", or wants topic-agnostic long-form English or Hungarian content.'
 allowed-tools: Read, Write, Edit, Bash(Bash:*)
 category: content
 ---

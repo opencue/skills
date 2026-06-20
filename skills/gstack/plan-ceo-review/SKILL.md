@@ -313,10 +313,10 @@ Analyze the plan. If it involves ANY of: new UI screens/pages, changes to existi
 Identify 2-3 files or patterns in the existing codebase that are particularly well-designed. Note them as style references for the review. Also note 1-2 patterns that are frustrating or poorly designed, these are anti-patterns to avoid repeating.
 Report findings before proceeding to Step 0.
 
-### Landscape Check
+### Market Check
 
-Read ETHOS.md for the Search Before Building framework (the preamble's Search Before Building section has the path). Before challenging scope, understand the landscape. WebSearch for:
-- "[product category] landscape {current year}"
+Read ETHOS.md for the Search Before Building framework (the preamble's Search Before Building section has the path). Before challenging scope, understand the market. WebSearch for:
+- "[product category] market {current year}"
 - "[key feature] alternatives"
 - "why [incumbent/conventional approach] [succeeds/fails]"
 
@@ -398,7 +398,7 @@ APPROACH A: [Name]
   Risk:    [Low/Med/High]
   Pros:    [2-3 bullets]
   Cons:    [2-3 bullets]
-  Reuses:  [existing code/patterns leveraged]
+  Reuses:  [existing code/patterns reused]
 
 APPROACH B: [Name]
   ...
@@ -776,7 +776,7 @@ Test ambition check (all modes): For each new feature, answer:
 
 Test pyramid check: Many unit, fewer integration, few E2E? Or inverted?
 Flakiness risk: Flag any test depending on time, randomness, external services, or ordering.
-Load/stress test requirements: For any new codepath called frequently or processing significant data.
+Load/stress test requirements: For any new codepath called frequently or processing large data.
 
 For LLM/prompt changes: Check CLAUDE.md for the "Prompt/LLM changes" file patterns. If this plan touches ANY of those patterns, state which eval suites must be run, which cases should be added, and what baselines to compare against.
 **STOP.** AskUserQuestion once per issue. Do NOT batch. Recommend + WHY. If this section turned up zero findings, state "No issues, moving on" and proceed. If the section has findings, you MUST call AskUserQuestion as a tool_use, a finding with an "obvious fix" is still a finding and still needs user approval before any change lands in the plan. Do NOT proceed until the user responds.
@@ -797,7 +797,7 @@ Evaluate:
 ### Section 8: Observability & Debuggability Review
 New systems break. This section ensures you can see why.
 Evaluate:
-* Logging. For every new codepath: structured log lines at entry, exit, and each significant branch?
+* Logging. For every new codepath: structured log lines at entry, exit, and each major branch?
 * Metrics. For every new feature: what metric tells you it's working? What tells you it's broken?
 * Tracing. For new cross-service or cross-job flows: trace IDs propagated?
 * Alerting. What new alerts should exist?
@@ -838,7 +838,7 @@ Evaluate:
 
 **EXPANSION and SELECTIVE EXPANSION additions:**
 * What comes after this ships? Phase 2? Phase 3? Does the architecture support that trajectory?
-* Platform potential. Does this create capabilities other features can leverage?
+* Platform potential. Does this create capabilities other features can build on?
 * (SELECTIVE EXPANSION only) Retrospective: Were the right cherry-picks accepted? Did any rejected expansions turn out to be load-bearing for the accepted ones?
 **STOP.** AskUserQuestion once per issue. Do NOT batch. Recommend + WHY. If this section turned up zero findings, state "No issues, moving on" and proceed. If the section has findings, you MUST call AskUserQuestion as a tool_use, a finding with an "obvious fix" is still a finding and still needs user approval before any change lands in the plan. Do NOT proceed until the user responds.
 **Reminder: Do NOT make any code changes. Review only.**
@@ -862,7 +862,7 @@ Evaluate:
 
 Required ASCII diagram: user flow showing screens/states and transitions.
 
-If this plan has significant UI scope, recommend: "Consider running /plan-design-review for a deep design review of this plan before implementation."
+If this plan has notable UI scope, recommend: "Consider running /plan-design-review for a deep design review of this plan before implementation."
 **STOP.** AskUserQuestion once per issue. Do NOT batch. Recommend + WHY. If this section turned up zero findings, state "No issues, moving on" and proceed. If the section has findings, you MUST call AskUserQuestion as a tool_use, a finding with an "obvious fix" is still a finding and still needs user approval before any change lands in the plan. Do NOT proceed until the user responds.
 **Reminder: Do NOT make any code changes. Review only.**
 
@@ -1259,7 +1259,7 @@ Display:
 - **Eng Review (required by default):** The only review that gates shipping. Covers architecture, code quality, tests, performance. Can be disabled globally with \`gstack-config set skip_eng_review true\` (the "don't bother me" setting).
 - **CEO Review (optional):** Use your judgment. Recommend it for big product/business changes, new user-facing features, or scope decisions. Skip for bug fixes, refactors, infra, and cleanup.
 - **Design Review (optional):** Use your judgment. Recommend it for UI/UX changes. Skip for backend-only, infra, or prompt-only changes.
-- **Adversarial Review (automatic):** Always-on for every review. Every diff gets both Claude adversarial subagent and Codex adversarial challenge. Large diffs (200+ lines) additionally get Codex structured review with P1 gate. No configuration needed.
+- **Adversarial Review (automatic):** Always-on for every review. Every diff gets both Claude adversarial subagent and Codex adversarial challenge. Large diffs (200+ lines) also get Codex structured review with P1 gate. No configuration needed.
 - **Outside Voice (optional):** Independent plan review from a different AI model. Offered after all review sections complete in /plan-ceo-review and /plan-eng-review. Falls back to Claude subagent if Codex is unavailable. Never gates shipping.
 
 **Verdict logic:**

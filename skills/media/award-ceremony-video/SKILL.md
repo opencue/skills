@@ -2,7 +2,7 @@
 slug: muapi-award-ceremony-video
 name: muapi-award-ceremony-video
 version: "1.0.0"
-description: Generate a 15-second cinematic awards-ceremony video — a host announces a winner from the stage, a spotlight finds them in the crowd, they walk up to the podium, receive the award, and the LED display reveals their name and "THE BEST ACTOR".
+description: Use when the user wants a 15-second cinematic awards-ceremony video where a host announces a winner, a spotlight finds them, they walk to the podium, and the LED display reveals their name.
 acceptLicenseTerms: true
 category: media
 ---

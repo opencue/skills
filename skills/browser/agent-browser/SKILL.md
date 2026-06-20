@@ -1,6 +1,6 @@
 ---
 name: agent-browser
-description: Use when you need to drive a real browser: open a page, fill forms, click, screenshot, scrape, or test a login flow. Triggers on "automate the browser", "test the page", "scrape this site".
+description: "Use when you need to drive a real browser: open a page, fill forms, click, screenshot, scrape, or test a login flow. Triggers on \"automate the browser\", \"test the page\", \"scrape this site\"."
 allowed-tools: Bash(agent-browser:*)
 category: browser
 tags: [browser, automation, scraping, testing, cdp]

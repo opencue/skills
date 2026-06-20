@@ -1,7 +1,6 @@
 ---
 name: cloakbrowser
-description: >-
-  Use when user says "cloakbrowser", "stealth chromium", "bypass bot detection", "anti-bot scraping", or "fingerprint spoof". Stealth Chromium for sites that block headless browsers (Cloudflare, FingerprintJS, reCAPTCHA). Verified 5/6 on the standard bot-detection battery — details in body.
+description: 'Use when user says "cloakbrowser", "stealth chromium", "bypass bot detection", or "anti-bot scraping". Stealth Chromium for sites that block headless browsers (Cloudflare, FingerprintJS, reCAPTCHA).'
 category: research
 ---
 

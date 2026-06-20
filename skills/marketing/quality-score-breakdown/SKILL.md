@@ -1,6 +1,6 @@
 ---
 name: quality-score-breakdown
-description: 'Use when user says "improve my quality score", "why is my quality score low", "break down quality score", "fix my qs", "lower my cpc", "which keywords have bad quality score". Breaks down Quality Score components for your Google Ads keywords — expected CTR, ad relevance, and landing page experience — and tells you exactly which component is dragging each keyword down, with specific fixes ranked by potential CPC impact.'
+description: 'Use when user says "improve my quality score", "why is my quality score low", or "fix my qs". Breaks down expected CTR, ad relevance, and landing page experience per keyword, fixes ranked by CPC.'
 metadata:
   platform: Google
 category: marketing

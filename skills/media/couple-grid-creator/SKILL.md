@@ -2,7 +2,7 @@
 slug: muapi-couple-grid-creator
 name: muapi-couple-grid-creator
 version: "1.0.0"
-description: Create a stylized 6-box grid featuring a couple in various romantic poses and outfits, with each pose framed inside a unique cardboard box packaging.
+description: Use when the user wants a stylized 6-box grid featuring a couple in various romantic poses and outfits, with each pose framed inside a unique cardboard box packaging.
 acceptLicenseTerms: true
 category: media
 ---

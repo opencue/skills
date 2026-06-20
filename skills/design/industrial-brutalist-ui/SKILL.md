@@ -1,7 +1,6 @@
 ---
 name: industrial-brutalist-ui
-description: >-
-  Use when user asks for "brutalist", "Swiss design", "terminal UI", "tactical/military HUD", "blueprint", or "industrial" interfaces. Rigid grids, extreme type contrast, monospace, halftones/scanlines.
+description: Use when user asks for "brutalist", "Swiss design", "terminal UI", "tactical/military HUD", "blueprint", or "industrial" interfaces. Rigid grids, extreme type contrast, monospace, halftones/scanlines.
 category: design
 ---
 

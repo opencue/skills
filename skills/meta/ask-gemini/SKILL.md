@@ -1,6 +1,6 @@
 ---
 name: ask-gemini
-description: >-
+description: >
   [OMX] Use when user says "ask gemini", "/ask-gemini", or "second opinion from gemini". Runs local `gemini -p` CLI; saves to .omx/artifacts/gemini-*.md.
 category: meta
 ---

@@ -2,7 +2,7 @@
 slug: muapi-selfie-with-celebrities
 name: muapi-selfie-with-celebrities
 version: "1.0.0"
-description: Generate a realistic behind-the-scenes selfie of the user with a celebrity or main actor from a specific movie, followed by an option to generate a cinematic long-take video connecting multiple selfies.
+description: Use when the user wants a selfie with a celebrity or movie actor — generates a realistic behind-the-scenes selfie, with an option to make a cinematic long-take video connecting multiple selfies.
 acceptLicenseTerms: true
 category: media
 ---

@@ -1,6 +1,6 @@
 ---
 name: skill-discovery
-description: >-
+description: >
   Analyzes what was done manually in the current session and suggests
   skills that could automate it next time — an end-of-session retro for
   skill coverage gaps. Use when user says "what skills would have helped",

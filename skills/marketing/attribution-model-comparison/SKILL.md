@@ -1,6 +1,6 @@
 ---
 name: attribution-model-comparison
-description: Use when user says "compare attribution models", "last click vs first click", "which attribution model should I use", "am I over-crediting brand", "check my attribution", "compare conversion credit". Runs your conversion data through different attribution models side by side — last click, first click, linear, time decay, position based, and data-driven. Shows you how credit shifts between campaigns depending on the model so you can make better budget decisions instead of over-investing in last-touch campaigns.
+description: Use when user says "compare attribution models", "last click vs first click", or "check my attribution". Runs conversions through last click, first click, linear, time decay, and data-driven models.
 metadata:
   platform: Google and Meta
 category: marketing

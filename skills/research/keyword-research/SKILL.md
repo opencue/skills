@@ -1,7 +1,6 @@
 ---
 name: keyword-research
-description: >-
-  Use when user says "keyword research", "SEO keywords", "search volume", "keyword difficulty", or "topic clusters". Seed terms, intent, volume, difficulty, clustering.
+description: 'Use when user says "keyword research", "SEO keywords", "search volume", "keyword difficulty", or "topic clusters". Covers seed terms, intent, volume, difficulty, and clustering.'
 license: Apache-2.0
 compatibility: "Claude Code ≥1.0, skills.sh marketplace, ClawHub marketplace, Vercel Labs skills ecosystem. No system packages required. Optional: MCP network access for SEO tool integrations."
 homepage: "https://github.com/aaron-he-zhu/seo-geo-claude-skills"
@@ -129,7 +128,7 @@ Use this when the conversation involves reusable market intelligence that should
 
 ## What This Skill Does
 
-1. **Keyword Discovery**: Generates comprehensive keyword lists from seed terms
+1. **Keyword Discovery**: Generates complete keyword lists from seed terms
 2. **Intent Classification**: Categorizes keywords by user intent (informational, navigational, commercial, transactional)
 3. **Difficulty Assessment**: Evaluates competition level and ranking difficulty
 4. **Opportunity Scoring**: Prioritizes keywords by potential ROI

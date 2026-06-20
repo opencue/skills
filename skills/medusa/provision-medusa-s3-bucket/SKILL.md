@@ -1,7 +1,6 @@
 ---
 name: provision-medusa-s3-bucket
-description: >-
-  Use when user says "Medusa S3", "provision bucket", or "file storage bucket". S3 provisioning: envs, provider, access.
+description: 'Use when user says "Medusa S3", "provision bucket", or "file storage bucket". S3 provisioning: envs, provider, access.'
 allowed-tools: Bash(aws:*)
 category: medusa
 ---

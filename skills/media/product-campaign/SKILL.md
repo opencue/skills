@@ -2,7 +2,7 @@
 slug: muapi-product-campaign
 name: muapi-product-campaign
 version: "1.0.0"
-description: Generate a full multi-channel product campaign — hero visuals, social media assets, short ad video, and platform-specific crops for an end-to-end launch campaign.
+description: Use when the user wants a full multi-channel product campaign — hero visuals, social media assets, short ad video, and platform-specific crops for an end-to-end launch campaign.
 acceptLicenseTerms: true
 category: media
 ---
@@ -19,7 +19,7 @@ category: media
 | `product_name` | text | yes |, | The product being launched or promoted (e.g. "Nova Pro Wireless Earbuds"). |
 | `campaign_message` | text | yes |, | Core campaign message or tagline (e.g. "Sound That Moves You", "Clean Beauty. Real Results."). |
 | `target_audience` | text | yes |, | Who the campaign targets (e.g. "tech enthusiasts 18-35", "wellness-focused women 28-45"). |
-| `visual_style` | text | no | modern, cinematic, premium | Campaign visual direction (e.g. "bold and vibrant", "soft pastel minimal", "dark luxury editorial"). |
+| `visual_style` | text | no | modern, cinematic, premium | Campaign visual direction (e.g. "bold and lively", "soft pastel minimal", "dark luxury editorial"). |
 | `product_image` | image_url | no |, | Optional product reference image. |
 
 

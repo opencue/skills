@@ -1,6 +1,6 @@
 ---
 name: industrial-brutalist-ui
-description: Use when user says "brutalist UI", "industrial design", "Swiss typography", "tactical telemetry", or "declassified blueprint". Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics. Rigid grids, extreme type scale contrast, utilitarian color, analog degradation effects. For data-heavy dashboards, portfolios, or editorial sites that need to feel like declassified blueprints.
+description: "Use when user says \"brutalist UI\", \"industrial design\", or \"Swiss typography\". Raw mechanical interfaces: rigid grids, extreme type contrast, analog decay."
 category: design
 ---
 

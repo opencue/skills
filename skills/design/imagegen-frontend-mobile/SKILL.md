@@ -1,7 +1,6 @@
 ---
 name: imagegen-frontend-mobile
-description: >-
-  Use when user says "mobile mockup", "generate mobile UI", or "imagegen mobile". Mobile frontend visual generation.
+description: Use when user says "mobile mockup", "generate mobile UI", or "imagegen mobile". Mobile frontend visual generation.
 category: design
 ---
 

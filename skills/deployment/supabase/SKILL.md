@@ -1,6 +1,6 @@
 ---
 name: supabase
-description: >-
+description: >
   Use when user says "Supabase", "Supabase DB", or "Supabase migration". Envs, migrations, SQL checks, access.
 metadata:
   author: supabase

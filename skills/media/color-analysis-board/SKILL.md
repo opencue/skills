@@ -2,7 +2,7 @@
 slug: muapi-color-analysis-board
 name: muapi-color-analysis-board
 version: "1.0.0"
-description: Turn a portrait photo into a high-end editorial "Color Analysis Board" in a luxury fashion-magazine style (Dior / Ralph Lauren aesthetic) — best colors, undertone, makeup guide, capsule wardrobe, hair & jewelry recommendations, all laid out on a clean beige/ivory grid.
+description: Use when the user wants to turn a portrait photo into a luxury editorial "Color Analysis Board" — best colors, undertone, makeup guide, capsule wardrobe, and hair & jewelry tips on a clean beige grid.
 acceptLicenseTerms: true
 category: media
 ---
@@ -29,7 +29,7 @@ Once the photo is available, submit ONE step to generate the color analysis boar
 
 1. **Color Analysis Board Generation**, `muapi image edit` (model=`gpt-image-2-image-to-image`):
    - Reference Image: `{{person_image}}`
-   - Image size: `3840x2160` (16:9 landscape), magazine-spread aspect ratio
+   - Image size: `3840x2160` (16:9 horizontal), magazine-spread aspect ratio
    - Background: `auto`
    - Output format: `png`
    - Quality: `auto`
@@ -69,4 +69,4 @@ Present the generated board to the user. Suggest variations they can try: a diff
 - For model IDs without a CLI alias yet, fall back to the raw endpoint via `curl -X POST https://api.muapi.ai/api/v1/<endpoint> -H "x-api-key: $MUAPI_API_KEY" -H 'content-type: application/json' -d '{...}'` and poll with `muapi predict wait <request_id>`.
 - Substitute `{{input_name}}` placeholders with the user's actual inputs before issuing each call.
 - Source schema reference: `gpt-image-v2-edit` (from the source workflow JSON) maps to `gpt-image-2-image-to-image` in the muapi catalog.
-- The output is intentionally 16:9 (3840×2160) so it reads as a magazine spread / desktop wallpaper / Pinterest landscape board. For IG-feed square or 9:16 vertical, request a re-crop or re-run with a different `image_size`.
+- The output is intentionally 16:9 (3840×2160) so it reads as a magazine spread / desktop wallpaper / Pinterest horizontal board. For IG-feed square or 9:16 vertical, request a re-crop or re-run with a different `image_size`.

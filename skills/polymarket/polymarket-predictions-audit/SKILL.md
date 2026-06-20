@@ -1,6 +1,6 @@
 ---
 name: polymarket-predictions-audit
-description: >-
+description: >
   Use when user says "audit my predictions", "how is the model doing", "show prediction accuracy", "why is the model wrong", or "review my Brier score". Reads the local predictions.jsonl + Brier report via `polymarket-live` MCP and explains where the model agrees/disagrees with reality. NOT for opening or resolving predictions.
 category: polymarket
 ---

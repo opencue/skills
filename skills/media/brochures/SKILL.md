@@ -2,7 +2,7 @@
 slug: muapi-brochures
 name: muapi-brochures
 version: "1.0.0"
-description: Generate a professional multi-page brochure design — cover, inner spread, and back cover — for business, real estate, events, or product launches.
+description: Use when the user wants a professional multi-page brochure design — cover, inner spread, and back cover — for business, real estate, events, or product launches.
 acceptLicenseTerms: true
 category: media
 ---
@@ -36,7 +36,7 @@ Submit the plan with THREE parallel steps (front, inside, back).
 
 2. **Inner spread / main content**, `muapi image generate` (model=`bytedance-seedream-v4.5`):
    - Prompt: `Professional {{format}} brochure INNER SPREAD for {{brand_name}} — {{topic}}. {{style}} interior layout with: headline section, 3 columns of body text placeholder, feature icons/images, pull quote, infographic element. {{color_scheme}} accents. Balanced grid layout, professional typography hierarchy. Print-ready design.`
-   - Aspect ratio: For tri-fold: 3:2 (landscape showing all 3 panels). For A4/bi-fold: 2:1 (landscape double spread).
+   - Aspect ratio: For tri-fold: 3:2 (`landscape` showing all 3 panels). For A4/bi-fold: 2:1 (`landscape` double spread).
 
 3. **Back cover**, `muapi image generate` (model=`bytedance-seedream-v4.5`):
    - Prompt: `Professional {{format}} brochure BACK COVER for {{brand_name}}. {{style}}, {{color_scheme}}. Includes: contact information section, QR code placeholder, address/website/social media icons area, subtle brand pattern or texture. Clean, minimal back cover design. A4 portrait format.`

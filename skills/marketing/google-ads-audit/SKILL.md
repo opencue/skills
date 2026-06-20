@@ -1,6 +1,6 @@
 ---
 name: google-ads-audit
-description: Use when user says "audit my google ads", "review my ad spend", "find wasted spend", "check my campaigns", "where am I losing money on ads". Comprehensive Google Ads account health analysis detecting wasted spend, search term leaks, negative keyword gaps, bid strategy issues, and Quality Score problems. Use when analyzing campaign data, pasting Google Ads exports, reviewing account performance, or requesting a full diagnostic of advertising spend efficiency.
+description: "Use when user says \"audit my google ads\" or \"find wasted spend\". Google Ads health analysis: wasted spend, search term leaks, negative keyword gaps, bid issues, Quality Score."
 metadata:
   platform: Google
 category: marketing

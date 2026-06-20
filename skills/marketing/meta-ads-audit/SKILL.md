@@ -1,6 +1,6 @@
 ---
 name: meta-ads-audit
-description: 'Use when user says "audit my meta ads", "analyze facebook ad performance", "check creative fatigue", "review instagram campaigns", "find audience overlap", "audit my fb ad spend". Meta/Facebook/Instagram Ads campaign structure analysis detecting creative fatigue, audience overlap, scaling opportunities, and iOS tracking verification issues.'
+description: 'Use when user says "audit my meta ads", "analyze facebook ad performance", or "audit my fb ad spend". Meta/Facebook/Instagram analysis: creative fatigue, audience overlap, iOS tracking.'
 metadata:
   platform: Meta
 category: marketing

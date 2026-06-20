@@ -1,12 +1,11 @@
 ---
 name: ui-ux-pro-max
-description: >-
-  Use when user asks to "design", "build", "review", or "improve" UI/UX with vetted recommendations. Queries Python DB of 67 styles, 96 palettes, 57 font pairings, 99 UX guidelines, 25 chart types across 13 stacks.
+description: Use when user asks to "design", "build", "review", or "improve" UI/UX. Queries Python DB of 67 styles, 96 palettes, 57 font pairings, 99 UX guidelines, 25 chart types across 13 stacks.
 category: design
 ---
 # ui-ux-pro-max
 
-Comprehensive design guide for web and mobile applications. Contains 67 styles, 96 color palettes, 57 font pairings, 99 UX guidelines, and 25 chart types across 13 technology stacks. Searchable database with priority-based recommendations.
+Full design guide for web and mobile applications. Contains 67 styles, 96 color palettes, 57 font pairings, 99 UX guidelines, and 25 chart types across 13 technology stacks. Searchable database with priority-based recommendations.
 
 ## Prerequisites
 
@@ -49,7 +48,7 @@ Extract key information from user request:
 
 ### Step 2: Generate Design System (REQUIRED)
 
-**Always start with `--design-system`** to get comprehensive recommendations with reasoning:
+**Always start with `--design-system`** to get full recommendations with reasoning:
 
 ```bash
 python3 skills/ui-ux-pro-max/scripts/search.py "<product_type> <industry> <keywords>" --design-system [-p "Project Name"]

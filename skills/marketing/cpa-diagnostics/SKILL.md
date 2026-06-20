@@ -1,6 +1,6 @@
 ---
 name: cpa-diagnostics
-description: 'Use when user says "why did my CPA spike", "diagnose my CPA", "my cost per acquisition jumped", "why did performance drop", "what is driving up my CPA". When your CPA spikes, Claude breaks down exactly what caused it. It looks across your campaign data and isolates the contributing factors — audience fatigue, bid landscape shifts, creative decay, landing page conversion drops, budget distribution changes, or new competitor activity.'
+description: 'Use when user says "why did my CPA spike", "diagnose my CPA", "my cost per acquisition jumped", or "why did performance drop". Isolates the factors behind a CPA spike and ranks them by impact.'
 metadata:
   platform: Google and Meta
 category: marketing
@@ -9,7 +9,7 @@ category: marketing
 # 1/ CPA Diagnostics, Google + Meta
 
 ## What it does
-When your CPA spikes, Claude breaks down exactly what caused it. It looks across your campaign data and isolates the contributing factors, audience fatigue, bid landscape shifts, creative decay, landing page conversion drops, budget distribution changes, or new competitor activity.
+When your CPA spikes, Claude breaks down exactly what caused it. It looks across your campaign data and isolates the contributing factors, audience fatigue, bid auction shifts, creative decay, landing page conversion drops, budget distribution changes, or new competitor activity.
 
 ## How it works
 Feed Claude your campaign data for the current period vs the previous period. It compares metrics at every level, campaign, ad set, ad, keyword, audience, placement, and identifies where the variance is coming from. Results are ranked by impact so you know what to fix first.

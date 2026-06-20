@@ -1,6 +1,6 @@
 ---
 name: omx-setup
-description: "[OMX] Setup and configure oh-my-codex using current CLI behavior"
+description: "[OMX] Use when user says \"set up oh-my-codex\", \"install OMX\", \"refresh OMX\", or \"configure oh-my-codex\". Sets up and configures oh-my-codex using current CLI behavior."
 category: meta
 ---
 

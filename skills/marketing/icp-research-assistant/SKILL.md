@@ -1,6 +1,6 @@
 ---
 name: icp-research-assistant
-description: Use when user says "build a buyer persona", "who is my ideal customer", "research my ICP", "define my target audience", "who am I selling to". Build detailed B2B buyer personas with pain points, objections, buying triggers, and messaging angles. Use when given a product and market to research ideal customer profiles, creating buyer personas, or needing to understand who you're selling to before launching campaigns.
+description: Use when user says "build a buyer persona", "who is my ideal customer", "research my ICP", or "who am I selling to". Builds B2B buyer personas with pain points, objections, and buying triggers.
 metadata:
   platform: Google and Meta
 category: marketing
@@ -8,7 +8,7 @@ category: marketing
 
 # ICP Research Assistant
 
-Build comprehensive ideal customer profiles for targeted marketing.
+Build complete ideal customer profiles for targeted marketing.
 
 ## Process
 

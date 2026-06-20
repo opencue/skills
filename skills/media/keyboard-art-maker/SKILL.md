@@ -2,7 +2,7 @@
 slug: muapi-keyboard-art-maker
 name: muapi-keyboard-art-maker
 version: "1.0.0"
-description: Generate artistic top-down photos of keyboard keycaps arranged to spell out custom text messages.
+description: Use when the user wants artistic top-down photos of keyboard keycaps arranged to spell out custom text messages.
 acceptLicenseTerms: true
 category: media
 ---

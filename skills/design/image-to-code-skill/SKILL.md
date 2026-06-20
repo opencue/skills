@@ -1,6 +1,6 @@
 ---
 name: image-to-code
-description: Use when user says "image to code", "design from image", "mockup to website", "implement this screenshot", or "match this design". Elite website image-to-code skill for Codex. For visually important web tasks, it must first generate the design image(s) itself, deeply analyze them, then implement the website to match them as closely as possible. In Codex, it must prefer large, readable, section-specific images instead of tiny compressed boards, generate fresh standalone images for sections or detail views instead of cropping old ones, avoid lazy under-generation, avoid cards-inside-cards-inside-cards UI, and keep the hero clean, spacious, readable, and visible on a small laptop.
+description: Use when user says "image to code", "design from image", "mockup to website", "implement this screenshot", or "match this design". Generates design images, analyzes them, then builds to match.
 category: design
 ---
 
@@ -702,7 +702,7 @@ Prefer:
 
 Examples:
 - hero image in a clearly bounded large frame
-- editorial crops using repeatable portrait or landscape ratios
+- editorial crops using repeatable portrait or `landscape` ratios
 - card images with consistent proportions
 - gallery blocks with controlled aspect ratios
 - product images placed in stable intentional containers
@@ -1041,7 +1041,7 @@ Not:
 1. Hero
 2. Trust bar
 3. Features
-4. Product showcase
+4. Product spotlight
 5. Benefits / use cases
 6. Testimonials
 7. Pricing

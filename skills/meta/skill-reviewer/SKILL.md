@@ -1,6 +1,6 @@
 ---
 name: skill-reviewer
-description: >-
+description: >
   Review, score, rewrite, and scaffold SKILL.md files for cue profiles.
   Use when user says "review this skill", "improve skill", "write a skill",
   "skill audit", "check skill quality", "why isn't this skill triggering",

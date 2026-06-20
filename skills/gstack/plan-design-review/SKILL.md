@@ -812,7 +812,7 @@ Each decision = one AskUserQuestion with recommendation + WHY + alternatives. Ed
 
 ### Post-Pass: Update Mockups (if generated)
 
-If mockups were generated in Step 0.5 and review passes changed significant design decisions (information architecture restructure, new states, layout changes), offer to regenerate (one-shot, not a loop):
+If mockups were generated in Step 0.5 and review passes changed major design decisions (information architecture restructure, new states, layout changes), offer to regenerate (one-shot, not a loop):
 
 AskUserQuestion: "The review passes changed [list major design changes]. Want me to regenerate mockups to reflect the updated plan? This ensures the visual reference matches what we're actually building."
 
@@ -1025,7 +1025,7 @@ Display:
 - **Eng Review (required by default):** The only review that gates shipping. Covers architecture, code quality, tests, performance. Can be disabled globally with \`gstack-config set skip_eng_review true\` (the "don't bother me" setting).
 - **CEO Review (optional):** Use your judgment. Recommend it for big product/business changes, new user-facing features, or scope decisions. Skip for bug fixes, refactors, infra, and cleanup.
 - **Design Review (optional):** Use your judgment. Recommend it for UI/UX changes. Skip for backend-only, infra, or prompt-only changes.
-- **Adversarial Review (automatic):** Always-on for every review. Every diff gets both Claude adversarial subagent and Codex adversarial challenge. Large diffs (200+ lines) additionally get Codex structured review with P1 gate. No configuration needed.
+- **Adversarial Review (automatic):** Always-on for every review. Every diff gets both Claude adversarial subagent and Codex adversarial challenge. Large diffs (200+ lines) also get Codex structured review with P1 gate. No configuration needed.
 - **Outside Voice (optional):** Independent plan review from a different AI model. Offered after all review sections complete in /plan-ceo-review and /plan-eng-review. Falls back to Claude subagent if Codex is unavailable. Never gates shipping.
 
 **Verdict logic:**
@@ -1155,9 +1155,9 @@ already knows. A good test: would this insight save time in a future session? If
 
 After displaying the Review Readiness Dashboard, recommend the next review(s) based on what this design review discovered. Read the dashboard output to see which reviews have already been run and whether they are stale.
 
-**Recommend /plan-eng-review if eng review is not skipped globally**, check the dashboard output for `skip_eng_review`. If it is `true`, eng review is opted out, do not recommend it. Otherwise, eng review is the required shipping gate. If this design review added significant interaction specifications, new user flows, or changed the information architecture, emphasize that eng review needs to validate the architectural implications. If an eng review already exists but the commit hash shows it predates this design review, note that it may be stale and should be re-run.
+**Recommend /plan-eng-review if eng review is not skipped globally**, check the dashboard output for `skip_eng_review`. If it is `true`, eng review is opted out, do not recommend it. Otherwise, eng review is the required shipping gate. If this design review added notable interaction specifications, new user flows, or changed the information architecture, emphasize that eng review needs to validate the architectural implications. If an eng review already exists but the commit hash shows it predates this design review, note that it may be stale and should be re-run.
 
-**Consider recommending /plan-ceo-review**, but only if this design review revealed fundamental product direction gaps. Specifically: if the overall design score started below 4/10, if the information architecture had major structural problems, or if the review surfaced questions about whether the right problem is being solved. AND no CEO review exists in the dashboard. This is a selective recommendation, most design reviews should NOT trigger a CEO review.
+**Consider recommending /plan-ceo-review**, but only if this design review revealed basic product direction gaps. Specifically: if the overall design score started below 4/10, if the information architecture had major structural problems, or if the review surfaced questions about whether the right problem is being solved. AND no CEO review exists in the dashboard. This is a selective recommendation, most design reviews should NOT trigger a CEO review.
 
 **If both are needed, recommend eng review first** (required gate).
 
@@ -1169,7 +1169,7 @@ need to be turned into working HTML, recommend /design-html.
 
 Use AskUserQuestion to present the next step. Include only applicable options:
 - **A)** Run /plan-eng-review next (required gate)
-- **B)** Run /plan-ceo-review (only if fundamental product gaps found)
+- **B)** Run /plan-ceo-review (only if basic product gaps found)
 - **C)** Run /design-shotgun, explore visual design variants for issues found
 - **D)** Run /design-html, generate Pretext-native HTML from approved mockups
 - **E)** Skip, I'll handle next steps manually

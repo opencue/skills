@@ -1,6 +1,6 @@
 ---
 name: gpt-taste
-description: Use when user says "gpt-taste", "GSAP motion", "AIDA structure", "Awwwards-level", or "editorial typography". Elite UX/UI & Advanced GSAP Motion Engineer. Enforces Python-driven true randomization for layout variance, strict AIDA page structure, wide editorial typography (bans 6-line wraps), gapless bento grids, strict GSAP ScrollTriggers (pinning, stacking, scrubbing), inline micro-images, and massive section spacing.
+description: Use when user says "gpt-taste", "GSAP motion", "AIDA structure", "Awwwards-level", or "editorial typography". Enforces layout variance, wide editorial type, gapless bento, and GSAP ScrollTriggers.
 category: design
 ---
 

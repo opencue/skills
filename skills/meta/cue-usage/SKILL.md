@@ -1,6 +1,6 @@
 ---
 name: cue-agent-profile-manager
-description: "Guides through cue CLI commands for profiles, skills, MCPs, and marketplace operations. Use when user says \"cue help\", \"how do I use cue\", \"list profiles\", \"add an MCP\", \"manage my profile\", or asks anything about the cue CLI surface."
+description: "cue CLI commands for profiles, skills, MCPs, and marketplace operations. Use when user says \"cue help\", \"how do I use cue\", \"list profiles\", \"add an MCP\", or \"manage my profile\"."
 tags: [meta, cue, profiles, skills, mcps]
 category: meta
 version: 1.0.0

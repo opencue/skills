@@ -2,7 +2,7 @@
 slug: muapi-fashion-try-on
 name: muapi-fashion-try-on
 version: "1.0.0"
-description: Virtually try on different outfits by combining a person's photo and a clothing item, then optionally generate a professional fashion model video.
+description: Use when the user wants to virtually try on different outfits by combining a person's photo and a clothing item, then optionally generate a professional fashion model video.
 acceptLicenseTerms: true
 category: media
 ---

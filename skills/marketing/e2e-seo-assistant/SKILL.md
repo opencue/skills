@@ -1,6 +1,6 @@
 ---
 name: e2e-seo-assistant
-description: 'Use when user says "full seo audit", "do my seo", "audit my site for seo", "seo analysis and content plan", "end to end seo". Full SEO workflow covering technical audits, content gaps, backlink opportunities, on-page fixes, and content briefs. Use when given a site and target keywords to get complete SEO analysis and actionable content plans. End-to-end SEO in one skill.'
+description: 'Use when user says "full seo audit", "do my seo", "audit my site for seo", or "end to end seo". Full SEO workflow: technical audits, content gaps, backlink opportunities, on-page fixes, briefs.'
 metadata:
   platform: Google
 category: marketing
@@ -70,7 +70,7 @@ Complete SEO workflow from audit to content brief in one pass.
 
 ### Content
 - [ ] Answers search intent
-- [ ] Comprehensive (vs competitors)
+- [ ] Complete (vs competitors)
 - [ ] Internal links to related pages
 - [ ] External links to authoritative sources
 - [ ] Images with alt text

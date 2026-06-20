@@ -1,6 +1,6 @@
 ---
 name: skill-eval
-description: >-
+description: >
   Scaffold evaluation scenarios for skills, run them, and measure
   activation rate and output quality. Use when user says "test this skill",
   "eval skill", "does this skill work", "measure activation", "benchmark

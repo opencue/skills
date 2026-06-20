@@ -510,7 +510,7 @@ codex-plan-review):
 git log --oneline STORED_COMMIT..HEAD
 ```
 If any commits after the review contain words like "fix", "refactor", "rewrite",
-"overhaul", or touch more than 5 files, flag as **STALE (significant changes
+"overhaul", or touch more than 5 files, flag as **STALE (large changes
 since review)**. The review was done on different code than what's about to merge.
 
 **Also check for adversarial review (`codex-review`).** If codex-review has been run
@@ -602,7 +602,7 @@ git log --oneline $(gh pr view --json baseRefName -q .baseRefName 2>/dev/null ||
 ```
 
 Compare the PR body against the actual commits. Check for:
-1. **Missing features**, commits that add significant functionality not mentioned in the PR
+1. **Missing features**, commits that add notable functionality not mentioned in the PR
 2. **Stale descriptions**, PR body mentions things that were later changed or reverted
 3. **Wrong version**, PR title or body references a version that doesn't match VERSION file
 
@@ -667,7 +667,7 @@ Build the full readiness report:
 
 If there are BLOCKERS (failing free tests): list them and recommend B.
 If there are WARNINGS but no blockers: list each warning and recommend A if
-warnings are minor, or B if warnings are significant.
+warnings are minor, or B if warnings are serious.
 If everything is green: recommend A.
 
 Use AskUserQuestion:
@@ -678,7 +678,7 @@ Use AskUserQuestion:
 - If there are warnings: List each one in plain English. E.g., "The engineering review
   was done 6 commits ago, the code has changed since then" not "STALE (6 commits)."
 - If there are blockers: "I found issues that need to be fixed before merging: {list}"
-- **RECOMMENDATION:** Choose A if green. Choose B if there are significant warnings.
+- **RECOMMENDATION:** Choose A if green. Choose B if there are serious warnings.
   Choose C only if the user understands the risks.
 - A) Merge it, everything looks good (Completeness: 10/10)
 - B) Hold off, I want to fix the warnings first (Completeness: 10/10)

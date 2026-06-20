@@ -1,6 +1,6 @@
 ---
 name: plugin-creator
-description: >-
+description: >
   Use when user says "create a codex plugin", "scaffold plugin", or "register plugin". Runs create_basic_plugin.py; writes/updates .agents/plugins/marketplace.json.
 category: meta
 ---

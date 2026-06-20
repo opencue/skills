@@ -171,7 +171,7 @@ Internalize these; don't enumerate them.
 |------|------|-----------------|
 | Champion | < 2 min | 3-4x higher adoption |
 | Competitive | 2-5 min | Baseline |
-| Needs Work | 5-10 min | Significant drop-off |
+| Needs Work | 5-10 min | Large drop-off |
 | Red Flag | > 10 min | 50-70% abandon |
 
 ## Hall of Fame Reference
@@ -382,7 +382,7 @@ Display:
 - **Eng Review (required by default):** The only review that gates shipping. Covers architecture, code quality, tests, performance. Can be disabled globally with \`gstack-config set skip_eng_review true\` (the "don't bother me" setting).
 - **CEO Review (optional):** Use your judgment. Recommend it for big product/business changes, new user-facing features, or scope decisions. Skip for bug fixes, refactors, infra, and cleanup.
 - **Design Review (optional):** Use your judgment. Recommend it for UI/UX changes. Skip for backend-only, infra, or prompt-only changes.
-- **Adversarial Review (automatic):** Always-on for every review. Every diff gets both Claude adversarial subagent and Codex adversarial challenge. Large diffs (200+ lines) additionally get Codex structured review with P1 gate. No configuration needed.
+- **Adversarial Review (automatic):** Always-on for every review. Every diff gets both Claude adversarial subagent and Codex adversarial challenge. Large diffs (200+ lines) also get Codex structured review with P1 gate. No configuration needed.
 - **Outside Voice (optional):** Independent plan review from a different AI model. Offered after all review sections complete in /plan-ceo-review and /plan-eng-review. Falls back to Claude subagent if Codex is unavailable. Never gates shipping.
 
 **Verdict logic:**
@@ -513,7 +513,7 @@ already knows. A good test: would this insight save time in a future session? If
 After the audit, recommend:
 - Fix the gaps found (specific, actionable fixes)
 - Re-run /devex-review after fixes to verify improvement
-- If boomerang showed significant gaps, re-run /plan-devex-review on the next feature plan
+- If boomerang showed notable gaps, re-run /plan-devex-review on the next feature plan
 
 ## Formatting Rules
 

@@ -1,6 +1,6 @@
 ---
 name: acpx
-description: Delegate work to another coding agent (codex, claude, pi, openclaw, gemini, cursor, copilot, droid, etc.) over the Agent Client Protocol via acpx. Use when the user says "delegate to <agent>", "run codex", "use claude code", "have <agent> do X", "spawn a sub-agent", "agent-to-agent", mentions ACP, or when the work belongs in a different harness than the one you're in. Prefer this over PTY scraping or `tmux send-keys` to a foreign agent.
+description: Delegate work to another coding agent (codex, claude, gemini, etc.) over the Agent Client Protocol via acpx. Use when the user says "delegate to <agent>", "spawn a sub-agent", or mentions ACP.
 category: meta
 ---
 

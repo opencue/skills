@@ -1,6 +1,6 @@
 ---
 name: competitor-teardown
-description: 'Use when user says "teardown this competitor", "analyze their landing page", "competitor positioning analysis", "how is this competitor messaging", "score this competitor page". Systematic competitive analysis covering positioning, messaging hierarchy, objection handling, and CTA strategy from landing page URLs or screenshots. Use when pasting a competitor URL, uploading competitor screenshots, requesting positioning analysis, or needing to understand competitive messaging and differentiation strategies.'
+description: 'Use when user says "teardown this competitor", "analyze their landing page", or "score this competitor page". Analyzes positioning, messaging, objections, and CTA strategy from a URL.'
 metadata:
   platform: Google and Meta
 category: marketing

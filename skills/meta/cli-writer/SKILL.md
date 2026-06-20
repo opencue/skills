@@ -1,6 +1,6 @@
 ---
 name: cli-writer
-description: >-
+description: >
   Writes or updates entries in resources/cli-recipes.json and generates
   ## Prerequisites sections for SKILL.md files so skills document the CLIs
   they depend on. Use when user says "write a CLI recipe", "add CLI to

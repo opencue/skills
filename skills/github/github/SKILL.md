@@ -1,6 +1,6 @@
 ---
 name: github
-description: >-
+description: >
   Use when user says "check the PR", "open an issue", "view CI logs", or "merge this PR". GitHub ops via gh: issues, PRs, checks, logs, reviews, API.
 metadata:
   {

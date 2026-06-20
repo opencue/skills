@@ -1,6 +1,6 @@
 ---
 name: awesome-list-submit
-description: >-
+description: >
   Use when user says "submit to awesome lists", "add to awesome repos",
   "promote on GitHub lists", "get listed", or "find lists for this project".
   Auto-detect project metadata, find relevant awesome-* repos, check for

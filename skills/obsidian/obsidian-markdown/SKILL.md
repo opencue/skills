@@ -1,6 +1,6 @@
 ---
 name: obsidian-markdown
-description: >-
+description: >
   Use when user says "Obsidian markdown", "vault note", or "markdown note". Frontmatter, links, embeds, structure.
 category: obsidian
 ---

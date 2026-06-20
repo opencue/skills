@@ -1,7 +1,6 @@
 ---
 name: obscura
-description: >-
-  Use when user says "scrape", "headless browser", "puppeteer", "stealth scrape", or needs JS-rendered content from a URL. Rust headless browser with anti-detection, 30 MB RAM, 85 ms page load. NOT for static pages — use defuddle.
+description: 'Use when user says "scrape", "headless browser", "puppeteer", or needs JS-rendered content from a URL. Rust headless browser with anti-detection. NOT for static pages — use defuddle.'
 category: research
 ---
 

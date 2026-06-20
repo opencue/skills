@@ -1,7 +1,7 @@
 ---
 name: prompt-master
 version: 1.6.0
-description: Generates optimized prompts for AI tools (LLMs, Cursor, Claude Code, Midjourney, image/video/voice/3D AI, workflow tools). Use when user says "write me a prompt", "build a prompt for", "fix this prompt", "improve this prompt", "adapt this prompt", "make a midjourney prompt", "claude code prompt", "/prompt-master", "sharper prompt", or pastes a prompt to refine. Skip for general conversation, code edits, or document writing.
+description: Generates optimized prompts for AI tools (LLMs, Cursor, Claude Code, Midjourney, image/video AI). Use when user says "write me a prompt", "fix this prompt", or "/prompt-master".
 category: meta
 ---
 

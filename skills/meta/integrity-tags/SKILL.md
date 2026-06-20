@@ -1,6 +1,6 @@
 ---
 name: integrity-tags
-description: "Explains cue's 7-tag confidence system (VERIFIED, KNOWN, INFERRED, ASSUMED, GUESSED, STALE, UNKNOWN) used to label every research- or decision-relevant claim. Use when user says \"what does VERIFIED mean\", \"explain the colored tags\", \"what's the confidence system\", \"why is this yellow\", \"what does [ASSUMED] mean\", or asks about cue's integrity protocol."
+description: "Explains cue's 7-tag confidence system (VERIFIED, INFERRED, ASSUMED, etc.). Use when user says \"what does VERIFIED mean\", \"explain the colored tags\", or \"what's the confidence system\"."
 tags: [meta, cue, integrity, calibration, confidence]
 category: meta
 version: 1.0.0

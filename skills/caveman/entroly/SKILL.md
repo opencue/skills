@@ -1,6 +1,6 @@
 ---
 name: entroly
-description: Use when the user mentions "entroly", context compression, prompt-token reduction, hallucination detection, or asks how to cut Claude API spend on long sessions. Points at juyterman1000/entroly and explains how it composes with the caveman + RTK token-discipline lane the user already runs.
+description: Use when the user mentions "entroly", context compression, prompt-token reduction, hallucination detection, or asks how to cut Claude API spend on long sessions. Points at juyterman1000/entroly.
 tags: [caveman, context, tokens]
 category: caveman
 version: 1.0.0

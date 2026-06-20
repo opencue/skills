@@ -1,13 +1,12 @@
 ---
 name: storefront-best-practices
-description: >-
-  Use when user says "storefront best practices" or "storefront architecture". Data fetching, UX, caching, errors.
+description: 'Use when user says "storefront best practices" or "storefront architecture". Data fetching, UX, caching, errors.'
 category: medusa
 ---
 
 # Ecommerce Storefront Best Practices
 
-Comprehensive guidance for building modern, high-converting ecommerce storefronts covering UI/UX patterns, component design, layout structures, SEO optimization, and mobile responsiveness.
+Complete guidance for building modern, high-converting ecommerce storefronts covering UI/UX patterns, component design, layout structures, SEO optimization, and mobile responsiveness.
 
 ## When to Apply
 

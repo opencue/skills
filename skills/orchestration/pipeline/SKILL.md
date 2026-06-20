@@ -1,6 +1,6 @@
 ---
 name: pipeline
-description: "[OMX] Configurable pipeline orchestrator for sequencing stages"
+description: "[OMX] Use when the user wants to sequence orchestration stages or run the $pipeline orchestrator with state persistence and resume support."
 category: orchestration
 ---
 

@@ -2,7 +2,7 @@
 slug: muapi-amazon-product-listing
 name: muapi-amazon-product-listing
 version: "1.0.0"
-description: Generate a complete Amazon product listing image set — hero image, lifestyle shot, infographic with features, and comparison/detail closeups optimized for Amazon standards.
+description: Use when the user wants a complete Amazon product listing image set — hero image, lifestyle shot, infographic with features, and comparison/detail closeups optimized for Amazon standards.
 acceptLicenseTerms: true
 category: media
 ---

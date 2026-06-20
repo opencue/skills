@@ -1,6 +1,6 @@
 ---
 name: wasted-spend-finder
-description: 'Use when user says "find wasted spend", "where am i losing money", "negative keyword list", "cut wasted ad spend", "zero conversion terms", "exclusion list". Scans your Google and Meta accounts for money being spent on search terms, placements, audiences, and ads that produce zero or near-zero conversions. Delivers clean exclusion lists you can upload directly.'
+description: 'Use when user says "find wasted spend", "where am i losing money", "zero conversion terms", or "exclusion list". Scans Google and Meta for spend on terms, placements, and ads with zero conversions.'
 metadata:
   platform: Google and Meta
 category: marketing

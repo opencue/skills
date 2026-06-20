@@ -2,7 +2,7 @@
 slug: muapi-logo-branding
 name: muapi-logo-branding
 version: "1.0.0"
-description: Design a professional logo with full branding package — primary logo, variations (dark/light/icon-only), color palette, and real-world application mockups.
+description: Use when the user wants a logo or branding package — designs a professional primary logo, variations (dark/light/icon-only), color palette, and real-world application mockups.
 acceptLicenseTerms: true
 category: media
 ---
@@ -19,7 +19,7 @@ category: media
 | `brand_name` | text | yes |, | The brand or company name to design a logo for. |
 | `industry` | text | yes |, | Industry or business type (e.g. "luxury spa", "AI SaaS startup", "organic food brand", "architecture firm"). |
 | `style_preference` | text | no | modern, minimal, versatile | Logo style direction (e.g. "wordmark only", "icon + text", "monogram", "abstract mark", "bold geometric"). |
-| `color_preference` | text | no |, | Optional preferred colors or palette direction (e.g. "navy and gold", "earthy greens", "vibrant purple and white"). |
+| `color_preference` | text | no |, | Optional preferred colors or palette direction (e.g. "navy and gold", "earthy greens", "lively purple and white"). |
 | `mood` | text | no | professional, trustworthy, premium | Brand personality (e.g. "playful and fun", "bold and disruptive", "calm and wellness-focused"). |
 
 

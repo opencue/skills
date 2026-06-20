@@ -459,7 +459,7 @@ Systematic review of all pages reachable from homepage. Visit 5-8 pages. Full ch
 Homepage + 2 key pages only. First Impression + Design System Extraction + abbreviated checklist. Fastest path to a design score.
 
 ### Deep (`--deep`)
-Comprehensive review: 10-15 pages, every interaction flow, exhaustive checklist. For pre-launch audits or major redesigns.
+Full review: 10-15 pages, every interaction flow, exhaustive checklist. For pre-launch audits or major redesigns.
 
 ### Diff-aware (automatic when on a feature branch with no URL)
 When on a feature branch, scope to pages affected by the branch changes:
@@ -785,7 +785,7 @@ Write to: `~/.gstack/projects/{slug}/{user}-{branch}-design-audit-{datetime}.md`
 - **B:** Solid fundamentals, minor inconsistencies. Looks professional.
 - **C:** Functional but generic. No major problems, no design point of view.
 - **D:** Noticeable problems. Feels unfinished or careless.
-- **F:** Actively hurting user experience. Needs significant rework.
+- **F:** Actively hurting user experience. Needs major rework.
 
 **Grade computation:** Each category starts at A. Each High-impact finding drops one letter grade. Each Medium-impact finding drops half a letter grade. Polish findings are noted but do not affect grade. Minimum is F.
 

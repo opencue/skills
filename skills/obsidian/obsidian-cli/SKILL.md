@@ -1,6 +1,6 @@
 ---
 name: obsidian-cli
-description: >-
+description: >
   Use when user says "Obsidian CLI", "vault command", or "manage vault". Command-line vault ops: files, links, search.
 category: obsidian
 ---

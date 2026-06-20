@@ -1,7 +1,6 @@
 ---
 name: gpt-taste
-description: >-
-  Use when user says "GPT taste", "make this less generic", or "improve visual taste". Taste checks, simplification, hierarchy.
+description: Use when user says "GPT taste", "make this less generic", or "improve visual taste". Taste checks, simplification, hierarchy.
 category: design
 ---
 

@@ -1,7 +1,6 @@
 ---
 name: codex-fleet-login
-description: >-
-  Use when user says "codex fleet login", "open kitty and run codex login", "log into codex accounts", "/codex-fleet-login", or wants to onboard one or more Codex CLI accounts by spawning kitty terminals (gx-fleet style), running `codex login`, capturing the OAuth URL, and opening it in the browser.
+description: 'Use when user says "codex fleet login", "log into codex accounts", or "/codex-fleet-login", or wants to onboard Codex CLI accounts via kitty terminals running codex login and the OAuth URL.'
 last_updated: "2026-05-13"
 category: orchestration
 ---

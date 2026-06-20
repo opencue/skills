@@ -1,6 +1,6 @@
 ---
 name: headless-gif-demos-with-cage-wayland-kitty-tmux-auto-redaction
-description: 'Use when user says "record a CLI demo gif", "make a terminal demo", "capture a tmux session as a gif", "demo gif with brand logos", or "redact text in a screen recording". Headless cage/Wayland + Kitty + tmux + ffmpeg pipeline for high-quality CLI demo GIFs that need Kitty graphics protocol (real PNG icons inline) — instead of vhs/asciinema which don''t speak the Kitty protocol. Includes auto-redaction of moving text via tesseract OCR.'
+description: 'Use when user says "record a CLI demo gif", "make a terminal demo", "capture a tmux session as a gif", or "redact a recording". Headless cage/Wayland + Kitty + tmux + ffmpeg with OCR redaction.'
 requires_mcps: [cue-tty-watch]
 allowed-tools: Bash(cage:*), Bash(weston:*), Bash(Xvfb:*), Bash(kitty:*), Bash(tmux:*), Bash(xdotool:*), Bash(wf-recorder:*), Bash(grim:*), Bash(ffmpeg:*), Bash(/usr/bin/ffmpeg:*), Bash(tesseract:*), Bash(convert:*), Read(*), Write(*), mcp__cue-tty-watch__*
 category: design

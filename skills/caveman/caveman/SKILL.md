@@ -1,7 +1,6 @@
 ---
 name: caveman
-description: >-
-  Use when user says "caveman mode", "be brief", "less tokens", or "/caveman". Ultra-compressed replies (lite/full/ultra).
+description: 'Use when user says "caveman mode", "be brief", "less tokens", or "/caveman". Ultra-compressed replies (lite/full/ultra).'
 category: caveman
 ---
 

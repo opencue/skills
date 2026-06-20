@@ -1,6 +1,6 @@
 ---
 name: authmux
-description: Use when the user mentions "authmux", "agent-auth", account switching, multi-account management for Codex/Claude/Kiro, rotating between API accounts, account health checks, or parallel Claude Code sessions with different accounts.
+description: Use when the user mentions "authmux", "agent-auth", account switching, multi-account management for Codex/Claude/Kiro, rotating between API accounts, or account health checks.
 category: orchestration
 ---
 

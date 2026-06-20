@@ -2,7 +2,7 @@
 slug: muapi-blog-header
 name: muapi-blog-header
 version: "1.0.0"
-description: Create a professional, eye-catching blog post header image sized for web (1200×628) with optional title composition guidance.
+description: Use when the user wants a blog post header or featured image — creates a professional, eye-catching header sized for web (1200×628) with optional title composition guidance.
 acceptLicenseTerms: true
 category: media
 ---

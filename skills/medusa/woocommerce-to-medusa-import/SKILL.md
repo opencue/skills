@@ -1,7 +1,6 @@
 ---
 name: woocommerce-to-medusa-import
-description: >-
-  Use when user says "WooCommerce import", "migrate products", or "Woo to Medusa". Extraction, mapping, assets, import.
+description: 'Use when user says "WooCommerce import", "migrate products", or "Woo to Medusa". Extraction, mapping, assets, import.'
 category: medusa
 ---
 

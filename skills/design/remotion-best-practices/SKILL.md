@@ -1,7 +1,6 @@
 ---
 name: remotion-best-practices
-description: >-
-  Use when user says "Remotion", "video render", or "motion composition". Composition structure, assets, timing, rendering.
+description: Use when user says "Remotion", "video render", or "motion composition". Composition structure, assets, timing, rendering.
 category: design
 ---
 

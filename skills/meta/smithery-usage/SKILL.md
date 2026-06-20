@@ -1,6 +1,6 @@
 ---
 name: smithery-mcp-marketplace
-description: "Guides through smithery CLI and cue marketplace commands for finding, installing, and managing MCP servers from the Smithery registry. Use when user says \"find an MCP on smithery\", \"install smithery MCP\", \"search the MCP marketplace\", \"what MCPs are available\", or \"smithery help\"."
+description: "smithery CLI and cue marketplace commands to find, install, and manage MCP servers from the Smithery registry. Use when user says \"find an MCP on smithery\" or \"install smithery MCP\"."
 tags: [meta, smithery, mcps, marketplace]
 category: meta
 version: 1.0.0

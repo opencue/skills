@@ -2,7 +2,7 @@
 slug: muapi-ad-creative
 name: muapi-ad-creative
 version: "1.0.0"
-description: Generate a high-converting ad creative set — hero image, ad copy variations, and platform-optimized crops for Meta, Google Display, and LinkedIn.
+description: Use when the user wants a high-converting ad creative set — hero image, ad copy variations, and platform-optimized crops for Meta, Google Display, and LinkedIn.
 acceptLicenseTerms: true
 category: media
 ---

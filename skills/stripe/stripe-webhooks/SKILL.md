@@ -1,6 +1,6 @@
 ---
 name: stripe-webhooks
-description: >-
+description: >
   Use when user says "Stripe webhook", "webhook signature", or "payment event". Endpoint setup, verification, idempotency, retries.
 metadata:
   author: hookdeck

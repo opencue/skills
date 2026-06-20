@@ -1,6 +1,6 @@
 ---
 name: agentshield
-description: Use when the user asks to scan or audit a Claude Code / agent configuration for security issues — hardcoded secrets, overly-permissive Bash allow rules, hook injection, risky MCP servers, agent prompt-injection vectors — or mentions "agentshield", "scan my .claude", "audit my settings.json", "ecc-agentshield", or "miniclaw".
+description: Use when the user asks to scan or audit a Claude Code / agent config for security, or mentions "agentshield", "scan my .claude", or "audit my settings.json". Covers secrets, Bash rules, hooks, MCP.
 category: security
 ---
 

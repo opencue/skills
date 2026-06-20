@@ -2,15 +2,15 @@
 slug: muapi-giant-product-showcase
 name: muapi-giant-product-showcase
 version: "1.0.0"
-description: Create a dramatic "Giant Product" visual where a regular item is showcased as a massive, building-sized object next to a person, then optionally animate the scene.
+description: Use when the user wants a dramatic "Giant Product" visual where a regular item appears as a massive, building-sized object next to a person, then optionally animate the scene.
 acceptLicenseTerms: true
 category: media
 ---
 
 
-# Giant Product Showcase
+# Giant Product `Showcase`
 
-**Create a dramatic "Giant Product" visual where a regular item is showcased as a massive, building-sized object next to a person, then optionally animate the scene.**
+**Create a dramatic "Giant Product" visual where a regular item appears as a massive, building-sized object next to a person, then optionally animate the scene.**
 
 ## Inputs
 
@@ -37,7 +37,7 @@ Present the generated giant product image to the user for approval.
 
 ### Phase B, Animation (Optional)
 
-After the image is generated, ask the user if they would like to animate the scene into a cinematic showcase video.
+After the image is generated, ask the user if they would like to animate the scene into a cinematic product video.
 
 If requested, submit the plan with ONE step:
 
@@ -46,7 +46,7 @@ If requested, submit the plan with ONE step:
    - Prompt: `Cinematic slow-motion camera movement around the giant product. The person next to it moves naturally, looking at the camera or adjusting their pose. Dynamic lighting, high-quality textures, professional commercial vibe.`
    - Aspect ratio: 9:16 or 4:5
 
-After generation, present the final product showcase video.
+After generation, present the final product ad video.
 
 ## Trigger Keywords
 

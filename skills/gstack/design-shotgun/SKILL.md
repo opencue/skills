@@ -2,7 +2,7 @@
 name: design-shotgun
 preamble-tier: 2
 version: 1.0.0
-description: Generate multiple AI design variants at once, open a side-by-side comparison board, collect structured feedback, and iterate toward a winner. Use when the user says "explore design variants", "show me design options", "visual design brainstorm", "design shotgun", or "give me a few directions" for a UI, page, or component. NOT for auditing a single existing design — use design-review for that.
+description: Generate multiple AI design variants side by side and iterate toward a winner. Use when the user says "explore design variants", "show me design options", "design shotgun", or "design brainstorm".
 triggers:
   - explore design variants
   - show me design options
@@ -571,7 +571,7 @@ GStack voice: Garry-shaped product and engineering judgment, compressed for runt
 - Be direct about quality. Bugs matter. Edge cases matter. Fix the whole thing, not the demo path.
 - Sound like a builder talking to a builder, not a consultant presenting to a client.
 - Never corporate, academic, PR, or hype. Avoid filler, throat-clearing, generic optimism, and founder cosplay.
-- No em dashes. No AI vocabulary: delve, crucial, robust, comprehensive, nuanced, multifaceted, furthermore, moreover, additionally, pivotal, landscape, tapestry, underscore, foster, showcase, intricate, vibrant, fundamental, significant.
+- No em dashes. No AI vocabulary: `delve`, `crucial`, `robust`, `comprehensive`, `nuanced`, `multifaceted`, `furthermore`, `moreover`, `additionally`, `pivotal`, `landscape`, `tapestry`, `underscore`, `foster`, `showcase`, `intricate`, `vibrant`, `fundamental`, `significant`.
 - The user has context you do not: domain knowledge, timing, relationships, taste. Cross-model agreement is a recommendation, not a decision. The user decides.
 
 Good: "auth.ts:47 returns undefined when the session cookie expires. Users hit a white screen. Fix: add a null check and redirect to /login. Two lines."

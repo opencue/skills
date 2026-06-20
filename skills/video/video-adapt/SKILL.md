@@ -1,10 +1,6 @@
 ---
 name: video-adapt
-description: >-
-  Adapt a video from a link — swap product, swap character, or copy 1:1.
-  Use when user says "adapt this video", "swap the product in this video",
-  "recreate this ad with my product", "copy this video style", or provides
-  a video URL and wants a variation.
+description: 'Use when user says "adapt this video", "swap the product in this video", "recreate this ad with my product", or "copy this video style", or provides a video URL and wants a variation.'
 tags: [video, creative, adaptation, ugc]
 category: video
 version: 1.0.0

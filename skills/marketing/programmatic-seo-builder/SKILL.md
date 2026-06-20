@@ -1,6 +1,6 @@
 ---
 name: programmatic-seo-builder
-description: 'Use when user says "build programmatic seo pages", "create page templates", "scale seo content", "set up pseo", "make a comparison page template", "avoid thin content at scale". Create scalable programmatic SEO page templates with title patterns, internal linking logic, schema markup, and thin content avoidance strategies.'
+description: 'Use when user says "build programmatic seo pages", "create page templates", "scale seo content", or "set up pseo". Builds pSEO templates with title patterns, internal linking, and schema markup.'
 metadata:
   platform: Google
 category: marketing

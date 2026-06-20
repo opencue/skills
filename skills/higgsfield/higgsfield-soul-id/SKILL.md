@@ -1,7 +1,7 @@
 ---
 version: 0.3.0
 name: higgsfield-soul-id
-description: >-
+description: >
   Use when user says "train my face", "create my Soul", "digital twin", or "build my avatar". One-time Soul Character training; returns reference_id for higgsfield-generate. NOT for one-shot face swaps.
 argument-hint: "[name] [photo paths...]"
 allowed-tools: Bash(Bash:*)

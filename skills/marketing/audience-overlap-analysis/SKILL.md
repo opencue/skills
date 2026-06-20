@@ -1,12 +1,6 @@
 ---
 name: audience-overlap-analysis
-description: >-
-  Use when user says "check audience overlap", "are my ad sets competing",
-  "why are my CPMs high", "find audience cannibalization", "meta ad set overlap".
-  Compares your Meta ad sets and identifies where audiences overlap significantly,
-  causing your ads to compete against each other in the same auctions. Tells you
-  exactly which ad sets are cannibalizing each other and how much it's costing you
-  in inflated CPMs.
+description: 'Use when user says "check audience overlap", "are my ad sets competing", "find audience cannibalization", "meta ad set overlap". Finds where Meta ad sets cannibalize each other and inflate CPMs.'
 metadata:
   platform: Meta
 category: marketing
@@ -24,7 +18,7 @@ Claude analyzes your ad set targeting parameters, custom audiences, lookalikes, 
 You're running 6 prospecting ad sets on Meta, each targeting different interest stacks. Claude identifies that ad sets 2, 4, and 6 have an estimated 60%+ audience overlap because the interest categories share the same underlying user pool. These three ad sets have CPMs 28% higher than the non-overlapping ones. Recommendation: consolidate into one ad set with broader targeting and let Meta's algorithm optimize, or use audience exclusions to create clean segments.
 
 ## What you get back
-- Overlap map showing which ad sets share significant audience pools
+- Overlap map showing which ad sets share large audience pools
 - Estimated CPM inflation from internal competition
 - Specific targeting overlaps causing the issue (which interests, lookalikes, or custom audiences)
 - Consolidation recommendations with projected CPM savings

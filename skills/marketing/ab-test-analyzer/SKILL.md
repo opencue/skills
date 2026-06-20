@@ -1,6 +1,6 @@
 ---
 name: ab-test-analyzer
-description: 'Use when user says "analyze this a/b test", "is this result significant", "check statistical significance", "what sample size do i need", "is this a winner". Statistical significance calculator for A/B test results with sample size requirements, segment breakdowns, and hypothesis generation. Feed test results to check significance, calculate sample sizes, analyze experiment outcomes, or generate next test ideas based on results.'
+description: 'Use when user says "analyze this a/b test", "is this result significant", or "is this a winner". Statistical significance calculator with sample size requirements and segment breakdowns.'
 metadata:
   platform: Google and Meta
 category: marketing

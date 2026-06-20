@@ -169,7 +169,7 @@ Use these definitions:
 
 The coverage map feeds into Steps 2-3 (what to audit and fix) and Step 9 (documentation debt
 summary in the PR body). Do NOT auto-generate missing documentation pages, flag gaps only.
-When significant gaps are found, suggest running `/document-generate` to fill them.
+When notable gaps are found, suggest running `/document-generate` to fill them.
 
 ---
 
@@ -330,7 +330,7 @@ git diff <base>...HEAD -- VERSION
 3. **If VERSION was NOT bumped:** Use AskUserQuestion:
    - RECOMMENDATION: Choose C (Skip) because docs-only changes rarely warrant a version bump
    - A) Bump PATCH (X.Y.Z+1), if doc changes ship alongside code changes
-   - B) Bump MINOR (X.Y+1.0), if this is a significant standalone release
+   - B) Bump MINOR (X.Y+1.0), if this is a notable standalone release
    - C) Skip, no version bump needed
 
 4. **If VERSION was already bumped:** Do NOT skip silently. Instead, check whether the bump
@@ -338,11 +338,11 @@ git diff <base>...HEAD -- VERSION
 
    a. Read the CHANGELOG entry for the current VERSION. What features does it describe?
    b. Read the full diff (`git diff <base>...HEAD --stat` and `git diff <base>...HEAD --name-only`).
-      Are there significant changes (new features, new skills, new commands, major refactors)
+      Are there notable changes (new features, new skills, new commands, major refactors)
       that are NOT mentioned in the CHANGELOG entry for the current version?
    c. **If the CHANGELOG entry covers everything:** Skip, output "VERSION: Already bumped to
       vX.Y.Z, covers all changes."
-   d. **If there are significant uncovered changes:** Use AskUserQuestion explaining what the
+   d. **If there are notable uncovered changes:** Use AskUserQuestion explaining what the
       current version covers vs what's new, and ask:
       - RECOMMENDATION: Choose A because the new changes warrant their own version
       - A) Bump to next patch (X.Y.Z+1), give the new changes their own version

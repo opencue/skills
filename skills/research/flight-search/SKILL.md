@@ -1,7 +1,6 @@
 ---
 name: flight-search
-description: >-
-  Use when user says "find flights", "flight search", or "book travel". Dates, airports, constraints, current-source checks.
+description: 'Use when user says "find flights", "flight search", or "book travel". Covers dates, airports, constraints, and current-source checks.'
 category: research
 ---
 

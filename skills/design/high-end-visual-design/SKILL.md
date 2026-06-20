@@ -1,7 +1,6 @@
 ---
 name: high-end-visual-design
-description: >-
-  Use when user asks for "agency-level", "expensive-looking", "Apple-tier", or "Linear-tier" design. Bans Inter/Roboto; picks vetted archetypes (Ethereal Glass, Editorial Luxury, Asymmetrical Bento).
+description: Use when user asks for "agency-level", "expensive-looking", "Apple-tier", or "Linear-tier" design. Bans Inter/Roboto; picks vetted archetypes (Ethereal Glass, Editorial Luxury, Asymmetrical Bento).
 category: design
 ---
 

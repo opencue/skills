@@ -1,6 +1,6 @@
 ---
 name: kitty-visualize
-description: Use when user asks to "visualize", "show me", "draw", "render", "diagram", "picture this", "layout", or "open in kitty/another window" — for diagrams, ASCII layouts, tmux pictures, dependency graphs, or image previews. Renders to a temp file and opens detached kitty so it does NOT clutter the chat. Default visualization surface for this user.
+description: Use when user asks to "visualize", "show me", "draw", "render", "diagram", or "open in kitty" — for diagrams, ASCII layouts, dependency graphs, or image previews. Renders to a temp file, opens kitty.
 metadata:
   type: design-tool
 category: design

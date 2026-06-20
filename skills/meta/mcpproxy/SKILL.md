@@ -1,6 +1,6 @@
 ---
 name: mcpproxy
-description: Use when the user mentions "mcpproxy", an MCP router/proxy, fronting many MCP servers behind one endpoint, MCP rate-limit or quarantine, or asks how to cut MCP startup cost when running 15+ servers. Points at smart-mcp-proxy/mcpproxy-go and explains how it fits cue's existing MCP materialization.
+description: Use when the user mentions "mcpproxy", an MCP router/proxy fronting many MCP servers behind one endpoint, MCP rate-limit or quarantine, or cutting MCP startup cost with 15+ servers.
 tags: [meta, mcp, infra]
 category: meta
 version: 1.0.0

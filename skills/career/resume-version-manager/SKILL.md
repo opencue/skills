@@ -1,6 +1,6 @@
 ---
 name: resume-version-manager
-description: Track resume versions, maintain one master resume, and manage per-job tailored copies. Use when user says "manage my resumes", "track resume versions", "which resume did I send", "master resume", "organize my resumes", or "version of my resume for this job".
+description: Use when user says "manage my resumes", "track resume versions", "which resume did I send", or "master resume". Tracks versions, maintains one master resume, manages per-job tailored copies.
 category: career
 ---
 
@@ -44,7 +44,7 @@ A systematic approach with:
 
 ### What is a Master Resume?
 
-A comprehensive document containing:
+A complete document containing:
 - ALL your experiences (not just recent)
 - ALL bullet points you've ever written
 - Every achievement, project, skill
@@ -166,7 +166,7 @@ Resume/
 
 **Enterprise/Corporate:**
 - Emphasizes: Scale, process, collaboration
-- Tone: Professional, structured, comprehensive
+- Tone: Professional, structured, thorough
 
 **Finance:**
 - Emphasizes: Analysis, compliance, accuracy
@@ -221,7 +221,7 @@ Resume/
 - New job or promotion
 - Completed major project
 - New skills or certifications
-- Significant achievements
+- Notable achievements
 - Awards or recognition
 
 **Quarterly Review:**

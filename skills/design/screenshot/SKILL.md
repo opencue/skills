@@ -1,7 +1,6 @@
 ---
 name: "screenshot"
-description: >-
-  Use when user says "screenshot", "capture the page", or "visual proof". Browser/window capture, artifacts, naming.
+description: Use when user says "screenshot", "capture the page", or "visual proof". Browser/window capture, artifacts, naming.
 category: design
 ---
 

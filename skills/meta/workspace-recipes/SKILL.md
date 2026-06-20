@@ -1,6 +1,6 @@
 ---
 name: workspace-recipes
-description: >-
+description: >
   Use when user says "spawn a new shop", "new medusa shop", "clean disk", "agent tree", or "rebuild colony cli". Workspace-specific recipes from ~/Documents/Justfile. For generic `just` syntax use the `just` skill.
 category: meta
 ---

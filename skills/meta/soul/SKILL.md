@@ -1,6 +1,6 @@
 ---
 name: soul
-description: >-
+description: >
   Use when user says "/soul", "new soul skill", "create soul skill", or "scaffold a skill". Creates soul skills/MCPs under ~/Documents/soul with correct taxonomy.
 category: meta
 ---

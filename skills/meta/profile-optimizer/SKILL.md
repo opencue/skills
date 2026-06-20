@@ -1,6 +1,6 @@
 ---
 name: profile-optimizer
-description: >-
+description: >
   Runs cue optimizer and rank commands, presents visual results, suggests
   removals and additions to slim the active profile. Use when user says
   "optimize profile", "clean up skills", "what skills am I not using",

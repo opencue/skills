@@ -2,7 +2,7 @@
 slug: muapi-ai-clipping
 name: muapi-ai-clipping
 version: "1.0.0"
-description: Turn a long video into N viral-ready short clips with a single managed API call. Wraps muapi.ai's `/ai-clipping` endpoint, which handles transcription, highlight ranking through a virality framework (hook / emotional peak / opinion bomb / revelation / conflict / quotable / story peak / practical value), overlap dedupe, and vertical face-tracking auto-crop server-side. No local Whisper, no local LLM, no GPU.
+description: Use when the user wants to turn a long video into N viral-ready vertical short clips with one API call. Wraps muapi.ai's `/ai-clipping` for transcription, highlight ranking, and face-tracking crop.
 acceptLicenseTerms: true
 category: media
 ---

@@ -1,6 +1,6 @@
 ---
 name: trendradar-news-trend-intelligence
-description: 'Use when user says "what''s trending", "news trends", "hot topics", "search recent news", "analyze a topic trend", or "daily news briefing". Uses the TrendRadar MCP tools for news aggregation, trend analysis, RSS feeds, and notifications.'
+description: 'Use when user says "what''s trending", "news trends", "hot topics", or "daily news briefing". Uses the TrendRadar MCP tools for news aggregation, trend analysis, RSS feeds, and notifications.'
 allowed-tools: mcp__trendradar__get_latest_news, mcp__trendradar__get_trending_topics, mcp__trendradar__search_news, mcp__trendradar__analyze_topic_trend, mcp__trendradar__analyze_data_insights, mcp__trendradar__analyze_sentiment, mcp__trendradar__find_related_news, mcp__trendradar__generate_summary_report, mcp__trendradar__get_latest_rss, mcp__trendradar__search_rss, mcp__trendradar__read_article, mcp__trendradar__read_articles_batch, mcp__trendradar__aggregate_news, mcp__trendradar__compare_periods, mcp__trendradar__send_notification, mcp__trendradar__trigger_crawl, mcp__trendradar__resolve_date_range
 category: research
 ---
@@ -24,7 +24,7 @@ Use the TrendRadar MCP server for all news aggregation, trend analysis, and noti
 - `analyze_sentiment`, Sentiment analysis on news topics
 - `find_related_news`, Find articles related to a topic
 - `compare_periods`, Compare news patterns between time periods
-- `generate_summary_report`, Generate a comprehensive trend report
+- `generate_summary_report`, Generate a full trend report
 
 ### RSS
 - `get_latest_rss`, Latest RSS feed entries

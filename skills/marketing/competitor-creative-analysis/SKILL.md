@@ -1,6 +1,6 @@
 ---
 name: competitor-creative-analysis
-description: 'Use when user says "analyze competitor ads", "competitor creative analysis", "what ads are competitors running", "meta ad library teardown", "find messaging gaps". Pulls competitor ads from Meta Ad Library and Google Ads Transparency Center, categorizes their messaging angles, formats, CTAs, and creative types, then identifies gaps in their approach you can exploit and patterns worth testing in your own campaigns.'
+description: 'Use when user says "analyze competitor ads", "what ads are competitors running", or "meta ad library teardown". Pulls competitor ads, categorizes angles, formats, and CTAs, and finds gaps.'
 metadata:
   platform: Meta
 category: marketing
@@ -27,5 +27,5 @@ Your three main SaaS competitors are all running 15-25 active ads each on Meta. 
 ## When to use it
 - Quarterly competitive reviews to stay ahead of messaging shifts
 - Before creative brainstorms to identify white space in the market
-- When entering a new market or vertical and you need to understand the landscape fast
+- When entering a new market or vertical and you need to understand the field fast
 - When your CPA rises and you suspect competitors are getting more aggressive

@@ -1,10 +1,6 @@
 ---
 name: cinematic-flow
-description: >-
-  Generate cinematic video — short (15s) and long format films using
-  Higgsfield Cinema Studio 3.5 and MCSLA formula. Use when user says
-  "cinematic video", "film this", "short film", "commercial", "movie
-  quality", "cinema studio", or wants professional film-grade output.
+description: 'Use when user says "cinematic video", "film this", "short film", "commercial", "movie quality", or "cinema studio", or wants professional film-grade output via Higgsfield Cinema Studio.'
 tags: [video, cinematic, film, production]
 category: video
 version: 1.0.0

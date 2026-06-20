@@ -1,7 +1,7 @@
 ---
 name: design-consultation
 description: |
-  Design consultation: understands your product, researches the landscape, proposes a
+  Design consultation: understands your product, researches the market, proposes a
   complete design system (aesthetic, typography, color, layout, spacing, motion), and
   generates font+color preview pages. Creates DESIGN.md as your project's design source
   of truth. For existing sites, use /plan-design-review to infer the system instead.
@@ -316,7 +316,7 @@ If browse is not available, rely on WebSearch results and your built-in design k
 **Eureka check:** If Layer 3 reasoning reveals a genuine design insight, a reason the category's visual language fails THIS product, name it: "EUREKA: Every [category] product does X because they assume [assumption]. But this product's users [evidence], so we should do Y instead." Log the eureka moment (see preamble).
 
 Summarize conversationally:
-> "I looked at what's out there. Here's the landscape: they converge on [patterns]. Most of them feel [observation, e.g., interchangeable, polished but generic, etc.]. The opportunity to stand out is [gap]. Here's where I'd play it safe and where I'd take a risk..."
+> "I looked at what's out there. Here's the market: they converge on [patterns]. Most of them feel [observation, e.g., interchangeable, polished but generic, etc.]. The opportunity to stand out is [gap]. Here's where I'd play it safe and where I'd take a risk..."
 
 **Graceful degradation:**
 - Browse available → screenshots + snapshots + WebSearch (richest research)

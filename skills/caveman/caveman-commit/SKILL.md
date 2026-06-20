@@ -1,7 +1,6 @@
 ---
 name: caveman-commit
-description: >-
-  Use when user says "write a commit", "commit message", or "/commit". Conventional Commits, intent-first subject, body only when why is non-obvious.
+description: 'Use when user says "write a commit", "commit message", or "/commit". Conventional Commits, intent-first subject, body only when why is non-obvious.'
 category: caveman
 ---
 

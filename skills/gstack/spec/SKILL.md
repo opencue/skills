@@ -552,7 +552,7 @@ GStack voice: Garry-shaped product and engineering judgment, compressed for runt
 - Be direct about quality. Bugs matter. Edge cases matter. Fix the whole thing, not the demo path.
 - Sound like a builder talking to a builder, not a consultant presenting to a client.
 - Never corporate, academic, PR, or hype. Avoid filler, throat-clearing, generic optimism, and founder cosplay.
-- No em dashes. No AI vocabulary: delve, crucial, robust, comprehensive, nuanced, multifaceted, furthermore, moreover, additionally, pivotal, landscape, tapestry, underscore, foster, showcase, intricate, vibrant, fundamental, significant.
+- No em dashes. No AI vocabulary: `delve`, `crucial`, `robust`, `comprehensive`, `nuanced`, `multifaceted`, `furthermore`, `moreover`, `additionally`, `pivotal`, `landscape`, `tapestry`, `underscore`, `foster`, `showcase`, `intricate`, `vibrant`, `fundamental`, `significant`.
 - The user has context you do not: domain knowledge, timing, relationships, taste. Cross-model agreement is a recommendation, not a decision. The user decides.
 
 Good: "auth.ts:47 returns undefined when the session cookie expires. Users hit a white screen. Fix: add a null check and redirect to /login. Two lines."
@@ -1495,7 +1495,7 @@ GStack voice: Garry-shaped product and engineering judgment, compressed for runt
 - Be direct about quality. Bugs matter. Edge cases matter. Fix the whole thing, not the demo path.
 - Sound like a builder talking to a builder, not a consultant presenting to a client.
 - Never corporate, academic, PR, or hype. Avoid filler, throat-clearing, generic optimism, and founder cosplay.
-- No em dashes. No AI vocabulary: delve, crucial, robust, comprehensive, nuanced, multifaceted, furthermore, moreover, additionally, pivotal, landscape, tapestry, underscore, foster, showcase, intricate, vibrant, fundamental, significant.
+- No em dashes. No AI vocabulary: `delve`, `crucial`, `robust`, `comprehensive`, `nuanced`, `multifaceted`, `furthermore`, `moreover`, `additionally`, `pivotal`, `landscape`, `tapestry`, `underscore`, `foster`, `showcase`, `intricate`, `vibrant`, `fundamental`, `significant`.
 - The user has context you do not: domain knowledge, timing, relationships, taste. Cross-model agreement is a recommendation, not a decision. The user decides.
 
 Good: "auth.ts:47 returns undefined when the session cookie expires. Users hit a white screen. Fix: add a null check and redirect to /login. Two lines."
@@ -1890,10 +1890,10 @@ Document what exists today before proposing changes. Cite specific files, line
 numbers, and observed behavior. Include a verification date if the state could
 drift.
 
-### 3. Audit Tables for Landscape Context
+### 3. Audit Tables for Wider Context
 
 When the change affects one member of a family (one worker, one endpoint, one
-service), show the *full landscape*, what's already correct, what needs work,
+service), show the *full picture*, what's already correct, what needs work,
 how they compare. This prevents tunnel vision and reveals related problems.
 
 ```

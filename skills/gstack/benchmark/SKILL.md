@@ -98,7 +98,7 @@ git diff $(gh pr view --json baseRefName -q .baseRefName 2>/dev/null || gh repo 
 
 ### Phase 3: Performance Data Collection
 
-For each page, collect comprehensive performance metrics:
+For each page, collect full performance metrics:
 
 ```bash
 $B goto <page-url>

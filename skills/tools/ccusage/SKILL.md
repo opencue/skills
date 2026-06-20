@@ -1,6 +1,6 @@
 ---
 name: ccusage
-description: Analyze coding-agent CLI token usage and cost from local logs — Claude Code, Codex, Gemini, Copilot, OpenCode, Amp, Droid and more — as daily, weekly, monthly, or session reports. Use when the user says "ccusage", "how much have I spent", "my token usage", "usage report", "cost breakdown", "how many tokens", or "which model do I use most", or wants to audit AI coding spend. Reads existing logs; no setup.
+description: Use when the user says "ccusage", "how much have I spent", "my token usage", or "cost breakdown". Analyzes coding-agent CLI token usage and cost from local logs as daily, weekly, or session reports.
 allowed-tools: Bash(bunx:*), Bash(npx:*), Bash(ccusage:*)
 category: tools
 tags: [tools, usage, cost, tokens, observability, claude-code, codex]

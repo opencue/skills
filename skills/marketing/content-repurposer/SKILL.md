@@ -1,6 +1,6 @@
 ---
 name: content-repurposer
-description: 'Use when user says "repurpose this blog post", "turn this into a twitter thread", "atomize this content", "make linkedin posts from this article", "repurpose for social". Transform one long-form piece into multiple platform-specific content derivatives including LinkedIn posts, tweet threads, email snippets, ad hooks, and video scripts while maintaining voice consistency. Use when given a blog post, article, or pillar content to atomize across channels.'
+description: 'Use when user says "repurpose this blog post", "turn this into a twitter thread", or "repurpose for social". Turns one long-form piece into LinkedIn posts, tweet threads, and email snippets.'
 metadata:
   platform: Google and Meta
 category: marketing

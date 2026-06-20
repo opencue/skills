@@ -1,7 +1,6 @@
 ---
 name: db-generate
-description: >-
-  Use when user says "medusa db:generate" or "generate migration". Medusa migration generation: model changes, commands, review.
+description: 'Use when user says "medusa db:generate" or "generate migration". Medusa migration generation: model changes, commands, review.'
 allowed-tools: Bash(npx medusa db:generate:*)
 category: medusa
 ---

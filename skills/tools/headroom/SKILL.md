@@ -1,6 +1,6 @@
 ---
 name: headroom
-description: Compress everything an AI agent reads — tool outputs, logs, files, RAG chunks, conversation history — before it reaches the model, for 60–95% fewer tokens with the same answers. Use when the user says "compress context", "reduce tokens", "headroom", "wrap claude with headroom", "cut my token usage", or wants reversible context compression via library, proxy, or MCP tools (headroom_compress / headroom_retrieve / headroom_stats).
+description: Use when the user says "compress context", "reduce tokens", "headroom", or "cut my token usage". Reversibly compresses what an agent reads (tool outputs, logs, files) via library, proxy, or MCP.
 allowed-tools: Bash(headroom:*), Bash(pip:*), Bash(pipx:*)
 category: tools
 tags: [tools, context-compression, tokens, mcp, proxy, claude-code]

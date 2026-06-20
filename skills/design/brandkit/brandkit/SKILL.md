@@ -1,6 +1,6 @@
 ---
 name: brandkit
-description: Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark-tech, luxury, cultural, security, gaming, developer-tool, and consumer-app brand systems. Optimized for intentional logo concepting, refined composition, sparse typography, strong symbolic meaning, premium mockups, art-directed imagery, and flexible grid layouts.
+description: "Use when user says \"brand kit\", \"brand guidelines\", \"logo system\", \"identity deck\", or \"brand world\". Generates brand boards: logo, typography, color, and mockups across styles."
 category: brandkit
 ---
 
@@ -301,7 +301,7 @@ Large type specimen, alphabet row, or primary/secondary type pairing.
 Card, folder, badge, poster, label, seal, packaging, or object mockup.
 
 ## 8. Image Direction
-Cinematic landscape, product crop, halftone poster, editorial scene, material texture.
+Cinematic scene, product crop, halftone poster, editorial scene, material texture.
 
 ## 9. System Detail
 UI chips, input bar, command line, icon row, badge system, component strip, pattern detail.
@@ -323,7 +323,7 @@ For boards like the uploaded references, use:
    - terminal, prompt bar, input state, install command, dashboard fragment
 
 4. **Atmosphere / Campaign Image**
-   - halftone landscape, cinematic image, product-world visual, or art-directed photo
+   - halftone scene, cinematic image, product-world visual, or art-directed photo
 
 5. **Symbol / Construction / Badge**
    - logo mark in target, seal, geometric frame, icon construction
