@@ -10,6 +10,7 @@ triggers:
   - scrape hn frontpage
   - get hn top stories
   - latest hacker news stories
+category: gstack
 ---
 # Hacker News front-page scraper
 

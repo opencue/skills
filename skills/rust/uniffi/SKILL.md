@@ -2,9 +2,10 @@
 name: uniffi
 description: Use when exposing one Rust library to multiple languages (Kotlin/Swift/Python/Ruby) from a single UDL spec. Mozilla's approach; used by Bitwarden, Matrix SDK.
 allowed-tools: Bash(cargo:*), Bash(uniffi-bindgen:*)
+category: rust
 ---
 
-# UniFFI — one Rust → many languages
+# UniFFI, one Rust → many languages
 
 Write the interface once (`.udl` or proc-macro), generate idiomatic Kotlin/Swift/Python/Ruby bindings. Avoids hand-writing JNI/JNA + Swift-C-bridge + ctypes for each platform.
 
@@ -33,6 +34,6 @@ Write the interface once (`.udl` or proc-macro), generate idiomatic Kotlin/Swift
 
 ## Notes
 - Mature & production-proven (Mozilla, Bitwarden, Matrix SDK ship UniFFI bindings).
-- Type support is opinionated — primitives, strings, Vec, Option, HashMap, custom records/enums. Closures and traits work but with caveats.
-- For one-target FFI (just Python), prefer PyO3 or just Node, prefer napi-rs — UniFFI shines when you need ≥2 targets from one codebase.
+- Type support is opinionated, primitives, strings, Vec, Option, HashMap, custom records/enums. Closures and traits work but with caveats.
+- For one-target FFI (just Python), prefer PyO3 or just Node, prefer napi-rs, UniFFI shines when you need ≥2 targets from one codebase.
 - The proc-macro flavor is now stable; new projects shouldn't use UDL files.

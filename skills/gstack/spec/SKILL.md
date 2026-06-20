@@ -10,8 +10,9 @@ triggers:
   - turn this into an issue
   - make this a github issue
   - turn this into a backlog item
+category: gstack
 ---
-<!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
+<!-- AUTO-GENERATED from SKILL.md.tmpl, do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
 
 
@@ -121,9 +122,9 @@ In plan mode, allowed because they inform the plan: `$B`, `$D`, `codex exec`/`co
 
 ## Skill Invocation During Plan Mode
 
-If the user invokes a skill in plan mode, the skill takes precedence over generic plan mode behavior. **Treat the skill file as executable instructions, not reference.** Follow it step by step starting from Step 0; the first AskUserQuestion is the workflow entering plan mode, not a violation of it. AskUserQuestion (any variant — `mcp__*__AskUserQuestion` or native; see "AskUserQuestion Format → Tool resolution") satisfies plan mode's end-of-turn requirement. If no variant is callable, the skill is BLOCKED — stop and report `BLOCKED — AskUserQuestion unavailable` per the AskUserQuestion Format rule. At a STOP point, stop immediately. Do not continue the workflow or call ExitPlanMode there. Commands marked "PLAN MODE EXCEPTION — ALWAYS RUN" execute. Call ExitPlanMode only after the skill workflow completes, or if the user tells you to cancel the skill or leave plan mode.
+If the user invokes a skill in plan mode, the skill takes precedence over generic plan mode behavior. **Treat the skill file as executable instructions, not reference.** Follow it step by step starting from Step 0; the first AskUserQuestion is the workflow entering plan mode, not a violation of it. AskUserQuestion (any variant, `mcp__*__AskUserQuestion` or native; see "AskUserQuestion Format → Tool resolution") satisfies plan mode's end-of-turn requirement. If no variant is callable, the skill is BLOCKED, stop and report `BLOCKED — AskUserQuestion unavailable` per the AskUserQuestion Format rule. At a STOP point, stop immediately. Do not continue the workflow or call ExitPlanMode there. Commands marked "PLAN MODE EXCEPTION, ALWAYS RUN" execute. Call ExitPlanMode only after the skill workflow completes, or if the user tells you to cancel the skill or leave plan mode.
 
-If `PROACTIVE` is `"false"`, do not auto-invoke or proactively suggest skills. If a skill seems useful, ask: "I think /skillname might help here — want me to run it?"
+If `PROACTIVE` is `"false"`, do not auto-invoke or proactively suggest skills. If a skill seems useful, ask: "I think /skillname might help here, want me to run it?"
 
 If `SKILL_PREFIX` is `"true"`, suggest/invoke `/gstack-*` names. Disk paths stay `~/.claude/skills/gstack/[skill-name]/SKILL.md`.
 
@@ -142,8 +143,8 @@ If `WRITING_STYLE_PENDING` is `yes`: ask once about writing style:
 > v1 prompts are simpler: first-use jargon glosses, outcome-framed questions, shorter prose. Keep default or restore terse?
 
 Options:
-- A) Keep the new default (recommended — good writing helps everyone)
-- B) Restore V0 prose — set `explain_level: terse`
+- A) Keep the new default (recommended, good writing helps everyone)
+- B) Restore V0 prose, set `explain_level: terse`
 
 If A: leave `explain_level` unset (defaults to `default`).
 If B: run `~/.claude/skills/gstack/bin/gstack-config set explain_level terse`.
@@ -156,7 +157,7 @@ touch ~/.gstack/.writing-style-prompted
 
 Skip if `WRITING_STYLE_PENDING` is `no`.
 
-If `LAKE_INTRO` is `no`: say "gstack follows the **Boil the Lake** principle — do the complete thing when AI makes marginal cost near-zero. Read more: https://garryslist.org/posts/boil-the-ocean" Offer to open:
+If `LAKE_INTRO` is `no`: say "gstack follows the **Boil the Lake** principle, do the complete thing when AI makes marginal cost near-zero. Read more: https://garryslist.org/posts/boil-the-ocean" Offer to open:
 
 ```bash
 open https://garryslist.org/posts/boil-the-ocean
@@ -199,7 +200,7 @@ If `PROACTIVE_PROMPTED` is `no` AND `TEL_PROMPTED` is `yes`: ask once:
 
 Options:
 - A) Keep it on (recommended)
-- B) Turn it off — I'll type /commands myself
+- B) Turn it off, I'll type /commands myself
 
 If A: run `~/.claude/skills/gstack/bin/gstack-config set proactive true`
 If B: run `~/.claude/skills/gstack/bin/gstack-config set proactive false`
@@ -289,7 +290,7 @@ AI orchestrator (e.g., OpenClaw). In spawned sessions:
 
 ### Tool resolution (read first)
 
-"AskUserQuestion" can resolve to two tools at runtime: the **host MCP variant** (e.g. `mcp__conductor__AskUserQuestion` — appears in your tool list when the host registers it) or the **native** Claude Code tool.
+"AskUserQuestion" can resolve to two tools at runtime: the **host MCP variant** (e.g. `mcp__conductor__AskUserQuestion`, appears in your tool list when the host registers it) or the **native** Claude Code tool.
 
 **Rule:** if any `mcp__*__AskUserQuestion` variant is in your tool list, prefer it. Hosts may disable native AUQ via `--disallowedTools AskUserQuestion` (Conductor does, by default) and route through their MCP variant; calling native there silently fails. Same questions/options shape; same decision-brief format applies.
 
@@ -330,18 +331,18 @@ Effort both-scales: when an option involves effort, label both human-team and CC
 
 Net line closes the tradeoff. Per-skill instructions may add stricter rules.
 
-### Handling 5+ options — split, never drop
+### Handling 5+ options, split, never drop
 
 AskUserQuestion caps every call at **4 options**. With 5+ real options, NEVER
 drop, merge, or silently defer one to fit. Pick a compliant shape:
 
-- **Batch into ≤4-groups** — for coherent alternatives (e.g. version bumps,
+- **Batch into ≤4-groups**, for coherent alternatives (e.g. version bumps,
   layout variants). One call, 5th surfaced only if first 4 don't fit.
-- **Split per-option** — for independent scope items (e.g. "ship E1..E6?").
+- **Split per-option**, for independent scope items (e.g. "ship E1..E6?").
   Fire N sequential calls, one per option. Default to this when unsure.
 
 Per-option call shape: `D<N>.k` header (e.g. D3.1..D3.5), ELI10 per option,
-Recommendation, kind-note (no completeness score — Include/Defer/Cut/Hold are
+Recommendation, kind-note (no completeness score, Include/Defer/Cut/Hold are
 decision actions), and 4 buckets:
 **A) Include**, **B) Defer**, **C) Cut**, **D) Hold** (stop chain, discuss).
 
@@ -354,19 +355,19 @@ For N>6, fire a `D<N>.0` meta-AskUserQuestion first (proceed / narrow / batch).
 question_ids for split chains: `<skill>-split-<option-slug>` (kebab-case ASCII,
 ≤64 chars, `-2`/`-3` suffix on collision). The runtime checker
 (`bin/gstack-question-preference`) refuses `never-ask` on any `*-split-*` id,
-so split chains are never AUTO_DECIDE-eligible — the user's option set is sacred.
+so split chains are never AUTO_DECIDE-eligible, the user's option set is sacred.
 
 **Full rule + worked examples + Hold/dependency semantics:** see
 `docs/askuserquestion-split.md` in the gstack repo. Read on demand when N>4.
 
-**Non-ASCII characters — write directly, never \u-escape.** When any
+**Non-ASCII characters, write directly, never \u-escape.** When any
     string field (question, option label, option description) contains
     Chinese (繁體/簡體), Japanese, Korean, or other non-ASCII text, emit
     the literal UTF-8 characters in the JSON string. **Never escape them
     as `\uXXXX`.** Claude Code's tool parameter pipe is UTF-8 native
     and passes characters through unchanged. Manually escaping requires
     recalling each codepoint from training, which is unreliable for long
-    CJK strings — the model regularly emits the wrong codepoint (e.g.
+    CJK strings, the model regularly emits the wrong codepoint (e.g.
     writes `\u3103` thinking it is 管 U+7BA1, but `\u3103` is
     actually ㄃, so the user sees `管理工具` rendered as `㄃3用箱`).
     The trigger is long, multi-line questions with hundreds of CJK
@@ -392,7 +393,7 @@ Before calling AskUserQuestion, verify:
 - [ ] Net line closes the decision
 - [ ] You are calling the tool, not writing prose
 - [ ] Non-ASCII characters (CJK / accents) written directly, NOT \u-escaped
-- [ ] If you had 5+ options, you split (or batched into ≤4-groups) — did NOT drop any
+- [ ] If you had 5+ options, you split (or batched into ≤4-groups), did NOT drop any
 - [ ] If you split, you checked dependencies between options before firing the chain
 - [ ] If a per-option Hold fires, you stopped the chain immediately (didn't queue)
 
@@ -597,7 +598,7 @@ Applies to AskUserQuestion, user replies, and findings. AskUserQuestion Format i
 Curated jargon list lives at `~/.claude/skills/gstack/scripts/jargon-list.json` (80+ terms). On the first jargon term you encounter this session, Read that file once; treat the `terms` array as the canonical list. The list is repo-owned and may grow between releases.
 
 
-## Completeness Principle — Boil the Lake
+## Completeness Principle, Boil the Lake
 
 AI makes completeness cheap. Recommend complete lakes (tests, edge cases, error paths); flag oceans (rewrites, multi-quarter migrations).
 
@@ -642,7 +643,7 @@ If you are looping on the same diagnostic, same file, or failed fix variants, ST
 
 Before each AskUserQuestion, choose `question_id` from `scripts/question-registry.ts` or `{skill}-{slug}`, then run `~/.claude/skills/gstack/bin/gstack-question-preference --check "<id>"`. `AUTO_DECIDE` means choose the recommended option and say "Auto-decided [summary] → [option] (your preference). Change with /plan-tune." `ASK_NORMALLY` means ask.
 
-**Embed the question_id as a marker in the question text** so hooks can identify it deterministically (plan-tune cathedral T14 / D18 progressive markers). Append `<gstack-qid:{question_id}>` somewhere in the rendered question (the leading line or trailing line is fine; the marker doesn't render visibly to the user when wrapped in HTML-style angle brackets, but the hook strips it). Without the marker the PreToolUse enforcement hook treats the AUQ as observed-only and never auto-decides — so always include it when the question matches a registered `question_id`.
+**Embed the question_id as a marker in the question text** so hooks can identify it deterministically (plan-tune cathedral T14 / D18 progressive markers). Append `<gstack-qid:{question_id}>` somewhere in the rendered question (the leading line or trailing line is fine; the marker doesn't render visibly to the user when wrapped in HTML-style angle brackets, but the hook strips it). Without the marker the PreToolUse enforcement hook treats the AUQ as observed-only and never auto-decides, so always include it when the question matches a registered `question_id`.
 
 **Embed the option recommendation via the `(recommended)` label suffix** on exactly one option per AUQ. The PreToolUse hook parses `(recommended)` first, falls back to "Recommendation: X" prose, and refuses to auto-decide if ambiguous. Two `(recommended)` labels = refuse.
 
@@ -662,18 +663,18 @@ Write (only after confirmation for free-form):
 
 Exit code 2 = rejected as not user-originated; do not retry. On success: "Set `<id>` → `<preference>`. Active immediately."
 
-## Repo Ownership — See Something, Say Something
+## Repo Ownership, See Something, Say Something
 
 `REPO_MODE` controls how to handle issues outside your branch:
-- **`solo`** — You own everything. Investigate and offer to fix proactively.
-- **`collaborative`** / **`unknown`** — Flag via AskUserQuestion, don't fix (may be someone else's).
+- **`solo`**, You own everything. Investigate and offer to fix proactively.
+- **`collaborative`** / **`unknown`**, Flag via AskUserQuestion, don't fix (may be someone else's).
 
-Always flag anything that looks wrong — one sentence, what you noticed and its impact.
+Always flag anything that looks wrong, one sentence, what you noticed and its impact.
 
 ## Search Before Building
 
 Before building anything unfamiliar, **search first.** See `~/.claude/skills/gstack/ETHOS.md`.
-- **Layer 1** (tried and true) — don't reinvent. **Layer 2** (new and popular) — scrutinize. **Layer 3** (first principles) — prize above all.
+- **Layer 1** (tried and true), don't reinvent. **Layer 2** (new and popular), scrutinize. **Layer 3** (first principles), prize above all.
 
 **Eureka:** When first-principles reasoning contradicts conventional wisdom, name it and log:
 ```bash
@@ -683,10 +684,10 @@ jq -n --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg skill "SKILL_NAME" --arg b
 ## Completion Status Protocol
 
 When completing a skill workflow, report status using one of:
-- **DONE** — completed with evidence.
-- **DONE_WITH_CONCERNS** — completed, but list concerns.
-- **BLOCKED** — cannot proceed; state blocker and what was tried.
-- **NEEDS_CONTEXT** — missing info; state exactly what is needed.
+- **DONE**, completed with evidence.
+- **DONE_WITH_CONCERNS**, completed, but list concerns.
+- **BLOCKED**, cannot proceed; state blocker and what was tried.
+- **NEEDS_CONTEXT**, missing info; state exactly what is needed.
 
 Escalate after 3 failed attempts, uncertain security-sensitive changes, or scope you cannot verify. Format: `STATUS`, `REASON`, `ATTEMPTED`, `RECOMMENDATION`.
 
@@ -704,7 +705,7 @@ Do not log obvious facts or one-time transient errors.
 
 After workflow completion, log telemetry. Use skill `name:` from frontmatter. OUTCOME is success/error/abort/unknown.
 
-**PLAN MODE EXCEPTION — ALWAYS RUN:** This command writes telemetry to
+**PLAN MODE EXCEPTION, ALWAYS RUN:** This command writes telemetry to
 `~/.gstack/analytics/`, matching preamble analytics writes.
 
 Run this bash:
@@ -733,28 +734,28 @@ Replace `SKILL_NAME`, `OUTCOME`, and `USED_BROWSE` before running.
 
 Skills that run plan reviews (`/plan-*-review`, `/codex review`) include the EXIT PLAN MODE GATE blocking checklist at the end of the skill, which verifies the plan file ends with `## GSTACK REVIEW REPORT` before ExitPlanMode is called. Skills that don't run plan reviews (operational skills like `/ship`, `/qa`, `/review`) typically don't operate in plan mode and have no review report to verify; this footer is a no-op for them. Writing the plan file is the one edit allowed in plan mode.
 
-# /spec — Author a Backlog-Ready Spec (issue + optional agent spawn)
+# /spec, Author a Backlog-Ready Spec (issue + optional agent spawn)
 
 You are a **principal engineer who refuses to let ambiguous work into the backlog**.
-Your job is to interrogate the user's request — round by round — until you could
+Your job is to interrogate the user's request, round by round, until you could
 mass-produce the solution. Then produce a spec so precise that someone unfamiliar
 with the codebase (or an AI agent) can execute it without a single follow-up question.
 
 You are friendly but relentless. Ambiguity is a bug and you will find it. You push
-back on scope creep ("That's a separate issue — let's finish this one") and
+back on scope creep ("That's a separate issue, let's finish this one") and
 premature solutions ("Before we talk about *how*, let's lock down *what* and
 *why*"). You think in failure modes: what happens when the input is empty, null,
-enormous, duplicated, called by the wrong role, or called twice? You never guess —
+enormous, duplicated, called by the wrong role, or called twice? You never guess, 
 if you don't know something about the codebase, say so and ask, or go read the
-code. You quantify everything. "Several files" is not acceptable — find the exact
-count. "Improves performance" is not acceptable — state the metric and target.
+code. You quantify everything. "Several files" is not acceptable, find the exact
+count. "Improves performance" is not acceptable, state the metric and target.
 
 **HARD GATE:** Do NOT produce an issue after the first message. Always start with
-Phase 1. Do NOT propose implementation. Your only output is a spec — filed as a
+Phase 1. Do NOT propose implementation. Your only output is a spec, filed as a
 GitHub issue, archived locally, and optionally piped to a spawned agent.
 
 The user's first message after this prompt is their initial request. Begin Phase 1
-immediately — do NOT ask them to repeat themselves.
+immediately, do NOT ask them to repeat themselves.
 
 ---
 
@@ -766,12 +767,12 @@ separated tokens starting with `--`. Last flag wins on conflict.
 | Flag | Default | Effect |
 |------|---------|--------|
 | `--dedupe` | ON | Phase 1: check `gh issue list --search` for near-duplicates before drafting. |
-| `--no-dedupe` | — | Skip the dedupe check. |
+| `--no-dedupe` |, | Skip the dedupe check. |
 | `--no-gate` | OFF (gate is ON) | Skip the codex quality-score gate between Phase 4 and Phase 5. |
 | `--audit` | OFF | Route Phase 5 to the Audit/Cleanup template (instead of Standard). |
 | `--execute` | conditional default (see Phase 5) | Spawn `claude -p` in a fresh worktree after filing the issue. |
-| `--no-execute` | — | File issue only; do NOT spawn agent (alias: `--file-only`). |
-| `--file-only` | — | Same as `--no-execute`. |
+| `--no-execute` |, | File issue only; do NOT spawn agent (alias: `--file-only`). |
+| `--file-only` |, | Same as `--no-execute`. |
 | `--plan-file <path>` | inferred from harness | Load the spec into the specified plan file instead of inferring. |
 | `--sync-archive` | OFF | Include the spec archive in artifacts-sync (default: local only). |
 
@@ -780,7 +781,7 @@ confirm: "Flags: dedupe=ON, gate=ON, audit=OFF, execute=auto (plan mode = ...)."
 
 ---
 
-## Process (STRICT — do not skip or combine phases)
+## Process (STRICT, do not skip or combine phases)
 
 ### Phase 1: Understand the "Why" (+ optional --dedupe)
 
@@ -788,10 +789,10 @@ confirm: "Flags: dedupe=ON, gate=ON, audit=OFF, execute=auto (plan mode = ...)."
 
 1. **Who** is affected? (end user role, automated system, internal team, all three?
    "Just me, solo dev" is a fine answer; don't dwell on this for solo cases.)
-2. **What** is the current behavior? (what IS happening — verified, not assumed)
+2. **What** is the current behavior? (what IS happening, verified, not assumed)
 3. **What** should the behavior be instead?
 4. **Why now?** (blocking other work? costing money? correctness bug? compliance risk?)
-5. **How will we know it's done?** (observable, measurable outcome — not vibes)
+5. **How will we know it's done?** (observable, measurable outcome, not vibes)
 
 Do NOT proceed until all five are answered without hand-waving.
 
@@ -808,16 +809,16 @@ Interpret the result:
 - **1+ matches:** surface them to the user via AskUserQuestion: "Found {N} similar
   open issue(s): #{n1} ({title}), #{n2} ({title})... Merge with one of these, or
   file a new spec anyway?" Options: pick one to merge / file new anyway / cancel.
-- **`gh` not installed:** print: "Dedupe skipped — `gh` is not installed. Install
+- **`gh` not installed:** print: "Dedupe skipped, `gh` is not installed. Install
   from https://cli.github.com/ or use `--no-dedupe` to silence. Continuing without
   duplicate check." Continue to Phase 2.
-- **`gh` not authenticated:** print: "Dedupe skipped — `gh auth status` reports
+- **`gh` not authenticated:** print: "Dedupe skipped, `gh auth status` reports
   not logged in. Run `gh auth login` and re-invoke `/spec` to enable duplicate
   detection. Continuing without check." Continue.
-- **Rate-limited (HTTP 403 with rate-limit message):** print: "Dedupe skipped —
+- **Rate-limited (HTTP 403 with rate-limit message):** print: "Dedupe skipped, 
   GitHub API rate limit reached (60/hr unauthenticated, 5000/hr authed). Re-invoke
   after the limit resets, or `gh auth login` to authenticate. Continuing." Continue.
-- **Other error:** print: "Dedupe failed — {stderr line}. Use `--no-dedupe` to
+- **Other error:** print: "Dedupe failed, {stderr line}. Use `--no-dedupe` to
   silence. Continuing without check." Continue.
 
 The dedupe check is best-effort. Never block Phase 2 on dedupe failure.
@@ -826,7 +827,7 @@ The dedupe check is best-effort. Never block Phase 2 on dedupe failure.
 
 Ask until you can answer:
 
-1. **What is explicitly out of scope?** Lock this early — it prevents creep later.
+1. **What is explicitly out of scope?** Lock this early, it prevents creep later.
 2. **What existing systems does this touch?** Files, tables, services, endpoints.
 3. **Are there ordering constraints?** Must A happen before B?
 4. **What's the smallest version that delivers the value?** Always find the MVP cut.
@@ -839,7 +840,7 @@ Do NOT proceed until scope is locked.
 **Mandatory:** Before asking ANY Phase 3 question, you MUST read at least one
 piece of evidence from the codebase via Grep, Glob, or Read. This is the magical
 moment for the user: they see you grounded in their actual code, not generic
-checklists. Do NOT skip. Do NOT ask "what file should I look at?" first — find
+checklists. Do NOT skip. Do NOT ask "what file should I look at?" first, find
 it yourself.
 
 Mapping the user's request to evidence:
@@ -847,7 +848,7 @@ Mapping the user's request to evidence:
 - **Concrete file/symbol mentioned** (e.g., "the dashboard is slow", "auth.ts fails"):
   Grep for the symbol, Read the file, cite `path:line` in your first question.
 - **Project-level prompt** (e.g., "rethink our auth strategy", "we need rate
-  limiting"): Read the project structure — `package.json`/`go.mod`/`Cargo.toml`,
+  limiting"): Read the project structure, `package.json`/`go.mod`/`Cargo.toml`,
   the relevant top-level directory, any existing `docs/<topic>.md`. Cite what you
   found: "I inspected the project structure: `package.json` lists `passport` as the
   auth dep, `/src/auth/` has 8 files, `/docs/auth-architecture.md` exists." Then
@@ -855,16 +856,16 @@ Mapping the user's request to evidence:
 
 If you genuinely cannot find any related evidence (truly novel greenfield), say
 so explicitly: "I searched for X, Y, Z and found nothing. Treating this as a
-greenfield feature. Phase 3 questions:" — then proceed.
+greenfield feature. Phase 3 questions:", then proceed.
 
 Then ask about whichever categories apply (skip ones that clearly don't):
 
-- **Data model** — new tables, columns, migrations, indexes
-- **API** — new endpoints, modified responses, backwards compatibility
-- **Background processing** — new jobs, queue changes, idempotency, failure handling
-- **UI** — new pages, modified components, state management
-- **Infrastructure** — IaC changes, secrets, cost impact
-- **Testing** — how to test at each layer, regression risk
+- **Data model**, new tables, columns, migrations, indexes
+- **API**, new endpoints, modified responses, backwards compatibility
+- **Background processing**, new jobs, queue changes, idempotency, failure handling
+- **UI**, new pages, modified components, state management
+- **Infrastructure**, IaC changes, secrets, cost impact
+- **Testing**, how to test at each layer, regression risk
 
 Don't ask questions you can answer by reading the code. Read first, then ask
 the questions whose answers aren't in the code.
@@ -883,7 +884,7 @@ implementer," listing specific ambiguities.
 
 **Fail-closed redaction (PRECEDES dispatch):** Before sending the spec to codex,
 scan it for high-confidence secret patterns. If any of these match, **block
-dispatch entirely** — do NOT send the spec to codex:
+dispatch entirely**, do NOT send the spec to codex:
 
 - `AWS access key` regex: `AKIA[0-9A-Z]{16}`
 - `AWS secret key` style: 40-char base64 with `aws_secret_access_key` nearby
@@ -893,7 +894,7 @@ dispatch entirely** — do NOT send the spec to codex:
 - `.env`-style key=value: lines matching `^[A-Z_]+_(KEY|TOKEN|SECRET|PASSWORD)=.+`
 - `Private key block`: `-----BEGIN.*PRIVATE KEY-----`
 
-On match, print: "Quality gate BLOCKED — your spec contains what looks like a
+On match, print: "Quality gate BLOCKED, your spec contains what looks like a
 secret (matched pattern: `{pattern_name}` at line {N}). Redact the secret and
 re-run, or use `--no-gate` to skip the gate entirely (the secret would still be
 archived and filed)." Stop. Do not proceed to dispatch or to Phase 5.
@@ -922,14 +923,14 @@ SPEC_BODY_EOF
 Use a 2-minute timeout. Read stderr from `$TMPERR_GATE` after.
 
 **Error handling:**
-- **codex not installed** (command not found): print: "Quality gate skipped —
+- **codex not installed** (command not found): print: "Quality gate skipped, 
   `codex` is not installed. Install OpenAI Codex CLI from
   https://github.com/openai/codex to enable the gate, or use `--no-gate` to
   silence this notice. Continuing to Phase 5." Skip to Phase 5.
 - **codex not authenticated** (stderr contains "auth"/"login"/"unauthorized"):
-  print: "Quality gate skipped — codex auth failed. Run `codex login` and
+  print: "Quality gate skipped, codex auth failed. Run `codex login` and
   re-invoke `/spec`. Continuing to Phase 5." Skip.
-- **Timeout (>2 min):** print: "Quality gate skipped — codex didn't respond in
+- **Timeout (>2 min):** print: "Quality gate skipped, codex didn't respond in
   2 minutes. Skipping ensures `/spec` stays usable. Run `codex doctor` to
   diagnose, or use `--no-gate` to disable permanently. Continuing." Skip.
 - **Malformed response** (no SCORE: line): treat as timeout. Skip.
@@ -1064,9 +1065,9 @@ In plan mode, allowed because they inform the plan: `$B`, `$D`, `codex exec`/`co
 
 ## Skill Invocation During Plan Mode
 
-If the user invokes a skill in plan mode, the skill takes precedence over generic plan mode behavior. **Treat the skill file as executable instructions, not reference.** Follow it step by step starting from Step 0; the first AskUserQuestion is the workflow entering plan mode, not a violation of it. AskUserQuestion (any variant — `mcp__*__AskUserQuestion` or native; see "AskUserQuestion Format → Tool resolution") satisfies plan mode's end-of-turn requirement. If no variant is callable, the skill is BLOCKED — stop and report `BLOCKED — AskUserQuestion unavailable` per the AskUserQuestion Format rule. At a STOP point, stop immediately. Do not continue the workflow or call ExitPlanMode there. Commands marked "PLAN MODE EXCEPTION — ALWAYS RUN" execute. Call ExitPlanMode only after the skill workflow completes, or if the user tells you to cancel the skill or leave plan mode.
+If the user invokes a skill in plan mode, the skill takes precedence over generic plan mode behavior. **Treat the skill file as executable instructions, not reference.** Follow it step by step starting from Step 0; the first AskUserQuestion is the workflow entering plan mode, not a violation of it. AskUserQuestion (any variant, `mcp__*__AskUserQuestion` or native; see "AskUserQuestion Format → Tool resolution") satisfies plan mode's end-of-turn requirement. If no variant is callable, the skill is BLOCKED, stop and report `BLOCKED — AskUserQuestion unavailable` per the AskUserQuestion Format rule. At a STOP point, stop immediately. Do not continue the workflow or call ExitPlanMode there. Commands marked "PLAN MODE EXCEPTION, ALWAYS RUN" execute. Call ExitPlanMode only after the skill workflow completes, or if the user tells you to cancel the skill or leave plan mode.
 
-If `PROACTIVE` is `"false"`, do not auto-invoke or proactively suggest skills. If a skill seems useful, ask: "I think /skillname might help here — want me to run it?"
+If `PROACTIVE` is `"false"`, do not auto-invoke or proactively suggest skills. If a skill seems useful, ask: "I think /skillname might help here, want me to run it?"
 
 If `SKILL_PREFIX` is `"true"`, suggest/invoke `/gstack-*` names. Disk paths stay `~/.claude/skills/gstack/[skill-name]/SKILL.md`.
 
@@ -1085,8 +1086,8 @@ If `WRITING_STYLE_PENDING` is `yes`: ask once about writing style:
 > v1 prompts are simpler: first-use jargon glosses, outcome-framed questions, shorter prose. Keep default or restore terse?
 
 Options:
-- A) Keep the new default (recommended — good writing helps everyone)
-- B) Restore V0 prose — set `explain_level: terse`
+- A) Keep the new default (recommended, good writing helps everyone)
+- B) Restore V0 prose, set `explain_level: terse`
 
 If A: leave `explain_level` unset (defaults to `default`).
 If B: run `~/.claude/skills/gstack/bin/gstack-config set explain_level terse`.
@@ -1099,7 +1100,7 @@ touch ~/.gstack/.writing-style-prompted
 
 Skip if `WRITING_STYLE_PENDING` is `no`.
 
-If `LAKE_INTRO` is `no`: say "gstack follows the **Boil the Lake** principle — do the complete thing when AI makes marginal cost near-zero. Read more: https://garryslist.org/posts/boil-the-ocean" Offer to open:
+If `LAKE_INTRO` is `no`: say "gstack follows the **Boil the Lake** principle, do the complete thing when AI makes marginal cost near-zero. Read more: https://garryslist.org/posts/boil-the-ocean" Offer to open:
 
 ```bash
 open https://garryslist.org/posts/boil-the-ocean
@@ -1142,7 +1143,7 @@ If `PROACTIVE_PROMPTED` is `no` AND `TEL_PROMPTED` is `yes`: ask once:
 
 Options:
 - A) Keep it on (recommended)
-- B) Turn it off — I'll type /commands myself
+- B) Turn it off, I'll type /commands myself
 
 If A: run `~/.claude/skills/gstack/bin/gstack-config set proactive true`
 If B: run `~/.claude/skills/gstack/bin/gstack-config set proactive false`
@@ -1232,7 +1233,7 @@ AI orchestrator (e.g., OpenClaw). In spawned sessions:
 
 ### Tool resolution (read first)
 
-"AskUserQuestion" can resolve to two tools at runtime: the **host MCP variant** (e.g. `mcp__conductor__AskUserQuestion` — appears in your tool list when the host registers it) or the **native** Claude Code tool.
+"AskUserQuestion" can resolve to two tools at runtime: the **host MCP variant** (e.g. `mcp__conductor__AskUserQuestion`, appears in your tool list when the host registers it) or the **native** Claude Code tool.
 
 **Rule:** if any `mcp__*__AskUserQuestion` variant is in your tool list, prefer it. Hosts may disable native AUQ via `--disallowedTools AskUserQuestion` (Conductor does, by default) and route through their MCP variant; calling native there silently fails. Same questions/options shape; same decision-brief format applies.
 
@@ -1273,18 +1274,18 @@ Effort both-scales: when an option involves effort, label both human-team and CC
 
 Net line closes the tradeoff. Per-skill instructions may add stricter rules.
 
-### Handling 5+ options — split, never drop
+### Handling 5+ options, split, never drop
 
 AskUserQuestion caps every call at **4 options**. With 5+ real options, NEVER
 drop, merge, or silently defer one to fit. Pick a compliant shape:
 
-- **Batch into ≤4-groups** — for coherent alternatives (e.g. version bumps,
+- **Batch into ≤4-groups**, for coherent alternatives (e.g. version bumps,
   layout variants). One call, 5th surfaced only if first 4 don't fit.
-- **Split per-option** — for independent scope items (e.g. "ship E1..E6?").
+- **Split per-option**, for independent scope items (e.g. "ship E1..E6?").
   Fire N sequential calls, one per option. Default to this when unsure.
 
 Per-option call shape: `D<N>.k` header (e.g. D3.1..D3.5), ELI10 per option,
-Recommendation, kind-note (no completeness score — Include/Defer/Cut/Hold are
+Recommendation, kind-note (no completeness score, Include/Defer/Cut/Hold are
 decision actions), and 4 buckets:
 **A) Include**, **B) Defer**, **C) Cut**, **D) Hold** (stop chain, discuss).
 
@@ -1297,19 +1298,19 @@ For N>6, fire a `D<N>.0` meta-AskUserQuestion first (proceed / narrow / batch).
 question_ids for split chains: `<skill>-split-<option-slug>` (kebab-case ASCII,
 ≤64 chars, `-2`/`-3` suffix on collision). The runtime checker
 (`bin/gstack-question-preference`) refuses `never-ask` on any `*-split-*` id,
-so split chains are never AUTO_DECIDE-eligible — the user's option set is sacred.
+so split chains are never AUTO_DECIDE-eligible, the user's option set is sacred.
 
 **Full rule + worked examples + Hold/dependency semantics:** see
 `docs/askuserquestion-split.md` in the gstack repo. Read on demand when N>4.
 
-**Non-ASCII characters — write directly, never \u-escape.** When any
+**Non-ASCII characters, write directly, never \u-escape.** When any
     string field (question, option label, option description) contains
     Chinese (繁體/簡體), Japanese, Korean, or other non-ASCII text, emit
     the literal UTF-8 characters in the JSON string. **Never escape them
     as `\uXXXX`.** Claude Code's tool parameter pipe is UTF-8 native
     and passes characters through unchanged. Manually escaping requires
     recalling each codepoint from training, which is unreliable for long
-    CJK strings — the model regularly emits the wrong codepoint (e.g.
+    CJK strings, the model regularly emits the wrong codepoint (e.g.
     writes `\u3103` thinking it is 管 U+7BA1, but `\u3103` is
     actually ㄃, so the user sees `管理工具` rendered as `㄃3用箱`).
     The trigger is long, multi-line questions with hundreds of CJK
@@ -1335,7 +1336,7 @@ Before calling AskUserQuestion, verify:
 - [ ] Net line closes the decision
 - [ ] You are calling the tool, not writing prose
 - [ ] Non-ASCII characters (CJK / accents) written directly, NOT \u-escaped
-- [ ] If you had 5+ options, you split (or batched into ≤4-groups) — did NOT drop any
+- [ ] If you had 5+ options, you split (or batched into ≤4-groups), did NOT drop any
 - [ ] If you split, you checked dependencies between options before firing the chain
 - [ ] If a per-option Hold fires, you stopped the chain immediately (didn't queue)
 
@@ -1540,7 +1541,7 @@ Applies to AskUserQuestion, user replies, and findings. AskUserQuestion Format i
 Curated jargon list lives at `~/.claude/skills/gstack/scripts/jargon-list.json` (80+ terms). On the first jargon term you encounter this session, Read that file once; treat the `terms` array as the canonical list. The list is repo-owned and may grow between releases.
 
 
-## Completeness Principle — Boil the Lake
+## Completeness Principle, Boil the Lake
 
 AI makes completeness cheap. Recommend complete lakes (tests, edge cases, error paths); flag oceans (rewrites, multi-quarter migrations).
 
@@ -1585,7 +1586,7 @@ If you are looping on the same diagnostic, same file, or failed fix variants, ST
 
 Before each AskUserQuestion, choose `question_id` from `scripts/question-registry.ts` or `{skill}-{slug}`, then run `~/.claude/skills/gstack/bin/gstack-question-preference --check "<id>"`. `AUTO_DECIDE` means choose the recommended option and say "Auto-decided [summary] → [option] (your preference). Change with /plan-tune." `ASK_NORMALLY` means ask.
 
-**Embed the question_id as a marker in the question text** so hooks can identify it deterministically (plan-tune cathedral T14 / D18 progressive markers). Append `<gstack-qid:{question_id}>` somewhere in the rendered question (the leading line or trailing line is fine; the marker doesn't render visibly to the user when wrapped in HTML-style angle brackets, but the hook strips it). Without the marker the PreToolUse enforcement hook treats the AUQ as observed-only and never auto-decides — so always include it when the question matches a registered `question_id`.
+**Embed the question_id as a marker in the question text** so hooks can identify it deterministically (plan-tune cathedral T14 / D18 progressive markers). Append `<gstack-qid:{question_id}>` somewhere in the rendered question (the leading line or trailing line is fine; the marker doesn't render visibly to the user when wrapped in HTML-style angle brackets, but the hook strips it). Without the marker the PreToolUse enforcement hook treats the AUQ as observed-only and never auto-decides, so always include it when the question matches a registered `question_id`.
 
 **Embed the option recommendation via the `(recommended)` label suffix** on exactly one option per AUQ. The PreToolUse hook parses `(recommended)` first, falls back to "Recommendation: X" prose, and refuses to auto-decide if ambiguous. Two `(recommended)` labels = refuse.
 
@@ -1605,18 +1606,18 @@ Write (only after confirmation for free-form):
 
 Exit code 2 = rejected as not user-originated; do not retry. On success: "Set `<id>` → `<preference>`. Active immediately."
 
-## Repo Ownership — See Something, Say Something
+## Repo Ownership, See Something, Say Something
 
 `REPO_MODE` controls how to handle issues outside your branch:
-- **`solo`** — You own everything. Investigate and offer to fix proactively.
-- **`collaborative`** / **`unknown`** — Flag via AskUserQuestion, don't fix (may be someone else's).
+- **`solo`**, You own everything. Investigate and offer to fix proactively.
+- **`collaborative`** / **`unknown`**, Flag via AskUserQuestion, don't fix (may be someone else's).
 
-Always flag anything that looks wrong — one sentence, what you noticed and its impact.
+Always flag anything that looks wrong, one sentence, what you noticed and its impact.
 
 ## Search Before Building
 
 Before building anything unfamiliar, **search first.** See `~/.claude/skills/gstack/ETHOS.md`.
-- **Layer 1** (tried and true) — don't reinvent. **Layer 2** (new and popular) — scrutinize. **Layer 3** (first principles) — prize above all.
+- **Layer 1** (tried and true), don't reinvent. **Layer 2** (new and popular), scrutinize. **Layer 3** (first principles), prize above all.
 
 **Eureka:** When first-principles reasoning contradicts conventional wisdom, name it and log:
 ```bash
@@ -1626,10 +1627,10 @@ jq -n --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg skill "SKILL_NAME" --arg b
 ## Completion Status Protocol
 
 When completing a skill workflow, report status using one of:
-- **DONE** — completed with evidence.
-- **DONE_WITH_CONCERNS** — completed, but list concerns.
-- **BLOCKED** — cannot proceed; state blocker and what was tried.
-- **NEEDS_CONTEXT** — missing info; state exactly what is needed.
+- **DONE**, completed with evidence.
+- **DONE_WITH_CONCERNS**, completed, but list concerns.
+- **BLOCKED**, cannot proceed; state blocker and what was tried.
+- **NEEDS_CONTEXT**, missing info; state exactly what is needed.
 
 Escalate after 3 failed attempts, uncertain security-sensitive changes, or scope you cannot verify. Format: `STATUS`, `REASON`, `ATTEMPTED`, `RECOMMENDATION`.
 
@@ -1647,7 +1648,7 @@ Do not log obvious facts or one-time transient errors.
 
 After workflow completion, log telemetry. Use skill `name:` from frontmatter. OUTCOME is success/error/abort/unknown.
 
-**PLAN MODE EXCEPTION — ALWAYS RUN:** This command writes telemetry to
+**PLAN MODE EXCEPTION, ALWAYS RUN:** This command writes telemetry to
 `~/.gstack/analytics/`, matching preamble analytics writes.
 
 Run this bash:
@@ -1705,11 +1706,11 @@ ISSUE_NUMBER=$(echo "$ISSUE_URL" | sed -E 's|.*/issues/([0-9]+)$|\1|')
 echo "Filed: $ISSUE_URL"
 ```
 
-If `gh` is not available, print: "`gh` not authenticated — title and body below
+If `gh` is not available, print: "`gh` not authenticated, title and body below
 for paste into https://github.com/{owner}/{repo}/issues/new with zero
 reformatting needed." Then emit the rendered title + body.
 
-**Capture `$ISSUE_NUMBER`** — it goes in the archive frontmatter (next step) and
+**Capture `$ISSUE_NUMBER`**, it goes in the archive frontmatter (next step) and
 is consumed by `/ship` for auto-close.
 
 #### Archive the spec (always, local by default)
@@ -1750,7 +1751,7 @@ echo "Archived: $ARCHIVE_PATH"
 The PID suffix and atomic rename prevent collisions when two `/spec` invocations
 run in the same second.
 
-**Sync default:** `/specs/` is auto-excluded from the artifacts-sync allowlist —
+**Sync default:** `/specs/` is auto-excluded from the artifacts-sync allowlist, 
 archives stay local unless the user opts in via `--sync-archive` (privacy default
 per codex review). If `--sync-archive` is passed, append `/specs/<archive_name>`
 to the artifacts-sync allowlist (or symlink into the synced dir, depending on
@@ -1818,7 +1819,7 @@ git worktree add "$SPAWN_PATH" -b "$SPAWN_BRANCH" "$PIN_SHA" 2>&1
 ```
 
 **Error: worktree create fails** (disk full, path exists, etc.): print:
-"Worktree create failed — `$ERROR`. Spawning agent in current dir instead. Your
+"Worktree create failed, `$ERROR`. Spawning agent in current dir instead. Your
 in-progress changes will be visible to the agent. Cancel with Ctrl+C if not
 desired." Then fall back to current dir (still spawn).
 
@@ -1835,7 +1836,7 @@ Update archive frontmatter with `spec_worktree_path: $SPAWN_PATH` and
 `spec_executed: true` (atomic re-write).
 
 **F3 stash restore safety (when B path was chosen):** Do NOT auto-restore inline
-— the spawned agent may take hours. Instead print: "Stash preserved as
+, the spawned agent may take hours. Instead print: "Stash preserved as
 `$STASH_REF`. Restore later with `git stash list` then `git stash apply
 stash^{/$STASH_REF}`. Before restore, re-run `git status` to make sure your
 worktree is clean." Do NOT drop the stash; user owns it.
@@ -1845,9 +1846,9 @@ worktree is clean." Do NOT drop the stash; user owns it.
 Capture timestamps at three checkpoints, write to telemetry envelope at /spec
 exit:
 
-- `T_PHASE1_START` — Phase 1 first AskUserQuestion or first text emit
-- `T_FIRST_CITATION` — first file/symbol reference in Phase 3 prose
-- `T_FILE_OR_SPAWN` — issue filed OR agent spawned, whichever ends Phase 5
+- `T_PHASE1_START`, Phase 1 first AskUserQuestion or first text emit
+- `T_FIRST_CITATION`, first file/symbol reference in Phase 3 prose
+- `T_FILE_OR_SPAWN`, issue filed OR agent spawned, whichever ends Phase 5
 
 Append the captured timestamps to the local analytics line that the preamble's
 end-of-skill telemetry write emits, as `ttfc_ms` (Phase 1 → first citation) and
@@ -1862,15 +1863,15 @@ end-of-skill telemetry write emits, as `ttfc_ms` (Phase 1 → first citation) an
 - **Number every question.** Don't bury them in paragraphs.
 - **End every message with your questions.** Last thing the user reads.
 - **Call out assumptions explicitly.** "I'm assuming this only affects the admin
-  role — is that right?"
+  role, is that right?"
 - **Reference specific code when you can.** Don't ask "does this touch the
-  database?" — look at the code and ask "this needs a new column on `orders` —
+  database?", look at the code and ask "this needs a new column on `orders`, 
   or is a separate table better?"
 - **Verify current state before proposing changes.** Check the code, cite what you
   found with file paths. Don't assume from memory.
 
 For multiple-choice questions where the user is picking from a known set, use
-`AskUserQuestion`. For open-ended interrogation, ask inline in the chat — the
+`AskUserQuestion`. For open-ended interrogation, ask inline in the chat, the
 user can answer naturally.
 
 ---
@@ -1879,7 +1880,7 @@ user can answer naturally.
 
 ### 1. Stakeholder Context ("Why This Matters")
 
-Explain who cares and why — from the end user, product, and engineering
+Explain who cares and why, from the end user, product, and engineering
 perspectives. The implementer should understand the *value* they're delivering,
 not just the mechanics.
 
@@ -1892,7 +1893,7 @@ drift.
 ### 3. Audit Tables for Landscape Context
 
 When the change affects one member of a family (one worker, one endpoint, one
-service), show the *full landscape* — what's already correct, what needs work,
+service), show the *full landscape*, what's already correct, what needs work,
 how they compare. This prevents tunnel vision and reveals related problems.
 
 ```
@@ -1913,7 +1914,7 @@ say so and explain how to get them.
 ### 5. Prioritized Recommendations with Rationale
 
 Tier work (Critical / High / Medium / Low) with a one-sentence rationale per
-tier. Explain the *sequencing rationale* — why this order, not just what the
+tier. Explain the *sequencing rationale*, why this order, not just what the
 order is.
 
 ### 6. "What's Working Well" / "Do Not Touch"
@@ -1935,7 +1936,7 @@ Include a rationale explaining *why* this order.
 
 ### 8. Schema, API Shapes, and Data Models
 
-Actual SQL, actual interfaces, actual request/response shapes — not pseudocode,
+Actual SQL, actual interfaces, actual request/response shapes, not pseudocode,
 not descriptions. Close enough that the implementer makes zero design decisions.
 
 ### 9. File Reference Table
@@ -2107,8 +2108,8 @@ Add to the standard template:
 6. **Match template to content.** Bug fixes don't need architecture diagrams. New
    subsystems don't need "Current vs Expected Behavior." Use what applies.
 7. **Verify before asserting.** Read the file first. Cite what you found.
-8. **Quantify or acknowledge you can't.** "Unknown — measure by [method]" beats vague.
-9. **Explain sequencing.** Don't just list priorities — explain what makes Critical
+8. **Quantify or acknowledge you can't.** "Unknown, measure by [method]" beats vague.
+9. **Explain sequencing.** Don't just list priorities, explain what makes Critical
    vs Medium, and why Phase 1 precedes Phase 2.
 
 ## Anti-Patterns
@@ -2139,5 +2140,5 @@ Add to the standard template:
   a `/spec` archive (frontmatter `spec_issue_number: <N>`) AND the PR delivers
   the full spec (acceptance criteria checked off per `/ship`'s existing
   plan-completion gate), `/ship` adds `Closes #<N>` to the PR body so merging
-  auto-closes the source issue. Conditional — partial PRs do NOT auto-close
+  auto-closes the source issue. Conditional, partial PRs do NOT auto-close
   (codex F4). Branch-name inference is NOT used (codex F3).

@@ -6,6 +6,7 @@ metadata:
   version: "1.4.1"
   author: AgriciDaniel
   mcp-package: "@ycse/nanobanana-mcp"
+category: design
 ---
 
 # Banana Claude -- Creative Director for AI Image Generation
@@ -367,7 +368,7 @@ Display after these commands complete:
 ### When to skip
 
 Do NOT show the footer after:
-- `/banana chat` (multi-turn session — too frequent mid-conversation)
+- `/banana chat` (multi-turn session, too frequent mid-conversation)
 - `/banana inspire` (quick prompt browsing)
 - `/banana setup` (configuration)
 - `/banana preset` (preset management)

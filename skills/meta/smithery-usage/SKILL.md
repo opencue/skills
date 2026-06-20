@@ -1,4 +1,5 @@
 ---
+name: smithery-mcp-marketplace
 description: "Guides through smithery CLI and cue marketplace commands for finding, installing, and managing MCP servers from the Smithery registry. Use when user says \"find an MCP on smithery\", \"install smithery MCP\", \"search the MCP marketplace\", \"what MCPs are available\", or \"smithery help\"."
 tags: [meta, smithery, mcps, marketplace]
 category: meta
@@ -6,7 +7,7 @@ version: 1.0.0
 requires_mcps: []
 ---
 
-# Smithery — MCP Marketplace
+# Smithery, MCP Marketplace
 
 Smithery is the largest MCP registry (100K+ tools). Use it to discover and connect MCP servers.
 
@@ -57,7 +58,7 @@ smithery auth whoami                      # check auth
 
 ## Remote vs Local MCPs
 
-- **Smithery MCPs** run remotely on `server.smithery.ai` — no local process
+- **Smithery MCPs** run remotely on `server.smithery.ai`, no local process
 - **Local MCPs** (in `resources/mcps/`) run on your machine
 - Both work in cue profiles; Smithery MCPs need internet
 

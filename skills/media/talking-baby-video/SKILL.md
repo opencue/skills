@@ -4,6 +4,7 @@ name: muapi-talking-baby-video
 version: "1.0.0"
 description: Create a viral-style video of a talking baby with custom costumes and scripts.
 acceptLicenseTerms: true
+category: media
 ---
 
 
@@ -22,21 +23,21 @@ acceptLicenseTerms: true
 
 ## Steps
 
-### Phase A — Baby Character Generation
+### Phase A, Baby Character Generation
 
 Submit the plan with ONE step to create the baby character:
 
-1. **Baby Image Generation** — `muapi image generate` (model=`nano-banana` or `wan2.5-text-to-image`):
+1. **Baby Image Generation**, `muapi image generate` (model=`nano-banana` or `wan2.5-text-to-image`):
    - Prompt: `{{baby_description}} sitting and wearing {{baby_costume}}. High-quality photography, soft natural lighting, adorable expression, detailed fabric textures, shallow depth of field, Pixar-like charm but realistic.`
    - Aspect ratio: 9:16 or 1:1
 
 Present the baby image to the user for approval.
 
-### Phase B — Talking Animation
+### Phase B, Talking Animation
 
 Once the image is approved, submit the plan to animate the baby talking:
 
-1. **Talking Animation** — `muapi video from-image` (model=`grok-imagine-image-to-video`):
+1. **Talking Animation**, `muapi video from-image` (model=`grok-imagine-image-to-video`):
    - Reference Image: The baby image from Phase A.
    - Prompt: `A viral-style talking baby video. The baby is expressive, moving their mouth and head naturally while speaking the following lines: "{{dialogue}}". Subtle facial expressions like blinking and smiling. High-quality animation, smooth movements.`
    - Aspect ratio: 9:16 or 1:1

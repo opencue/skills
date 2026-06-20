@@ -4,7 +4,7 @@ description: Use when the user mentions "oh-my-agent", "OMA", a portable agent h
 tags: [orchestration, fleet, multi-agent]
 category: orchestration
 version: 1.0.0
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # oh-my-agent
@@ -13,18 +13,18 @@ allowed-tools: Bash
 
 cue does not bundle this. It points at it because the user runs the
 parallel-agents tier (Colony + `gx`) and OMA is the closest sibling in
-that design space — same goal, different mechanism.
+that design space, same goal, different mechanism.
 
 ## When to recommend it
 
 - User asks for a portable skill bundle that works the same on Claude Code,
-  Codex, Cursor, Gemini CLI, and Copilot — without rewriting per host.
+  Codex, Cursor, Gemini CLI, and Copilot, without rewriting per host.
 - User is evaluating alternatives to Colony's task graph for project-scoped
   rules and wants something lighter.
 - User wants `.oma/` style per-project config rather than per-host
   `.claude/` and `.codex/` dirs.
 
-Do not recommend it if the user is happy with Colony — OMA does NOT cover
+Do not recommend it if the user is happy with Colony, OMA does NOT cover
 Colony's live task-graph + multi-agent handoff + spec-delta coordination.
 It is a project-scoped rules harness, not a hivemind.
 
@@ -46,7 +46,7 @@ cd ~/oh-my-agent && bash install.sh
 | Cross-host portability | yes | partial (cue handles per-host materialization) |
 
 If the user is choosing fresh, OMA is the lower-overhead path. If they
-already run Colony, OMA is a sidegrade — don't migrate without a reason.
+already run Colony, OMA is a sidegrade, don't migrate without a reason.
 
 ## Rules
 

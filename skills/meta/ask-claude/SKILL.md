@@ -2,6 +2,7 @@
 name: ask-claude
 description: >-
   [OMX] Use when user says "ask claude", "/ask-claude", or "second opinion from claude". Runs local `claude -p` CLI; saves to .omx/artifacts/claude-*.md.
+category: meta
 ---
 
 # Ask Claude (Local CLI)

@@ -27,29 +27,29 @@ triggers:
 When the user types `/cso`, run this skill.
 
 ## Arguments
-- `/cso` — full daily audit (all phases, 8/10 confidence gate)
-- `/cso --comprehensive` — monthly deep scan (all phases, 2/10 bar — surfaces more)
-- `/cso --infra` — infrastructure-only (Phases 0-6, 12-14)
-- `/cso --code` — code-only (Phases 0-1, 7, 9-11, 12-14)
-- `/cso --skills` — skill supply chain only (Phases 0, 8, 12-14)
-- `/cso --diff` — branch changes only (combinable with any above)
-- `/cso --supply-chain` — dependency audit only (Phases 0, 3, 12-14)
-- `/cso --owasp` — OWASP Top 10 only (Phases 0, 9, 12-14)
-- `/cso --scope auth` — focused audit on a specific domain
+- `/cso`, full daily audit (all phases, 8/10 confidence gate)
+- `/cso --comprehensive`, monthly deep scan (all phases, 2/10 bar, surfaces more)
+- `/cso --infra`, infrastructure-only (Phases 0-6, 12-14)
+- `/cso --code`, code-only (Phases 0-1, 7, 9-11, 12-14)
+- `/cso --skills`, skill supply chain only (Phases 0, 8, 12-14)
+- `/cso --diff`, branch changes only (combinable with any above)
+- `/cso --supply-chain`, dependency audit only (Phases 0, 3, 12-14)
+- `/cso --owasp`, OWASP Top 10 only (Phases 0, 9, 12-14)
+- `/cso --scope auth`, focused audit on a specific domain
 
 ## Mode Resolution
 
 1. If no flags → run ALL phases 0-14, daily mode (8/10 confidence gate).
 2. If `--comprehensive` → run ALL phases 0-14, comprehensive mode (2/10 confidence gate). Combinable with scope flags.
-3. Scope flags (`--infra`, `--code`, `--skills`, `--supply-chain`, `--owasp`, `--scope`) are **mutually exclusive**. If multiple scope flags are passed, **error immediately**: "Error: --infra and --code are mutually exclusive. Pick one scope flag, or run `/cso` with no flags for a full audit." Do NOT silently pick one — security tooling must never ignore user intent.
+3. Scope flags (`--infra`, `--code`, `--skills`, `--supply-chain`, `--owasp`, `--scope`) are **mutually exclusive**. If multiple scope flags are passed, **error immediately**: "Error: --infra and --code are mutually exclusive. Pick one scope flag, or run `/cso` with no flags for a full audit." Do NOT silently pick one, security tooling must never ignore user intent.
 4. `--diff` is combinable with ANY scope flag AND with `--comprehensive`.
 5. When `--diff` is active, each phase constrains scanning to files/configs changed on the current branch vs the base branch. For git history scanning (Phase 2), `--diff` limits to commits on the current branch only.
 6. Phases 0, 1, 12, 13, 14 ALWAYS run regardless of scope flag.
-7. If WebSearch is unavailable, skip checks that require it and note: "WebSearch unavailable — proceeding with local-only analysis."
+7. If WebSearch is unavailable, skip checks that require it and note: "WebSearch unavailable, proceeding with local-only analysis."
 
 ## Important: Use the Grep tool for all code searches
 
-The bash blocks throughout this skill show WHAT patterns to search for, not HOW to run them. Use Claude Code's Grep tool (which handles permissions and access correctly) rather than raw bash grep. The bash blocks are illustrative examples — do NOT copy-paste them into a terminal. Do NOT use `| head` to truncate results.
+The bash blocks throughout this skill show WHAT patterns to search for, not HOW to run them. Use Claude Code's Grep tool (which handles permissions and access correctly) rather than raw bash grep. The bash blocks are illustrative examples, do NOT copy-paste them into a terminal. Do NOT use `| head` to truncate results.
 
 ## Instructions
 
@@ -84,7 +84,7 @@ grep -q "spring-boot" pom.xml build.gradle 2>/dev/null && echo "FRAMEWORK: Sprin
 grep -q "laravel" composer.json 2>/dev/null && echo "FRAMEWORK: Laravel"
 ```
 
-**Soft gate, not hard gate:** Stack detection determines scan PRIORITY, not scan SCOPE. In subsequent phases, PRIORITIZE scanning for detected languages/frameworks first and most thoroughly. However, do NOT skip undetected languages entirely — after the targeted scan, run a brief catch-all pass with high-signal patterns (SQL injection, command injection, hardcoded secrets, SSRF) across ALL file types. A Python service nested in `ml/` that wasn't detected at root still gets basic coverage.
+**Soft gate, not hard gate:** Stack detection determines scan PRIORITY, not scan SCOPE. In subsequent phases, PRIORITIZE scanning for detected languages/frameworks first and most thoroughly. However, do NOT skip undetected languages entirely, after the targeted scan, run a brief catch-all pass with high-signal patterns (SQL injection, command injection, hardcoded secrets, SSRF) across ALL file types. A Python service nested in `ml/` that wasn't detected at root still gets basic coverage.
 
 **Mental model:**
 - Read CLAUDE.md, README, key config files
@@ -93,7 +93,7 @@ grep -q "laravel" composer.json 2>/dev/null && echo "FRAMEWORK: Laravel"
 - Document invariants and assumptions the code relies on
 - Express the mental model as a brief architecture summary before proceeding
 
-This is NOT a checklist — it's a reasoning phase. The output is understanding, not findings.
+This is NOT a checklist, it's a reasoning phase. The output is understanding, not findings.
 
 ## Prior Learnings
 
@@ -135,7 +135,7 @@ smarter on their codebase over time.
 
 ### Phase 1: Attack Surface Census
 
-Map what an attacker sees — both code surface and infrastructure surface.
+Map what an attacker sees, both code surface and infrastructure surface.
 
 **Code surface:** Use the Grep tool to find endpoints, auth boundaries, external integrations, file upload paths, admin routes, webhook handlers, background jobs, and WebSocket channels. Scope file extensions to detected stacks from Phase 0. Count each category.
 
@@ -175,7 +175,7 @@ INFRASTRUCTURE SURFACE
 
 Scan git history for leaked credentials, check tracked `.env` files, find CI configs with inline secrets.
 
-**Git history — known secret prefixes:**
+**Git history, known secret prefixes:**
 ```bash
 git log -p --all -S "AKIA" --diff-filter=A -- "*.env" "*.yml" "*.yaml" "*.json" "*.toml" 2>/dev/null
 git log -p --all -S "sk-" --diff-filter=A -- "*.env" "*.yml" "*.json" "*.ts" "*.js" "*.py" 2>/dev/null
@@ -216,7 +216,7 @@ Goes beyond `npm audit`. Checks actual supply chain risk.
 [ -f go.mod ] && echo "DETECTED: go"
 ```
 
-**Standard vulnerability scan:** Run whichever package manager's audit tool is available. Each tool is optional — if not installed, note it in the report as "SKIPPED — tool not installed" with install instructions. This is informational, NOT a finding. The audit continues with whatever tools ARE available.
+**Standard vulnerability scan:** Run whichever package manager's audit tool is available. Each tool is optional, if not installed, note it in the report as "SKIPPED, tool not installed" with install instructions. This is informational, NOT a finding. The audit continues with whatever tools ARE available.
 
 **Install scripts in production deps (supply chain attack vector):** For Node.js projects with hydrated `node_modules`, check production dependencies for `preinstall`, `postinstall`, or `install` scripts.
 
@@ -231,7 +231,7 @@ Goes beyond `npm audit`. Checks actual supply chain risk.
 Check who can modify workflows and what secrets they can access.
 
 **GitHub Actions analysis:** For each workflow file, check for:
-- Unpinned third-party actions (not SHA-pinned) — use Grep for `uses:` lines missing `@[sha]`
+- Unpinned third-party actions (not SHA-pinned), use Grep for `uses:` lines missing `@[sha]`
 - `pull_request_target` (dangerous: fork PRs get write access)
 - Script injection via `${{ github.event.* }}` in `run:` steps
 - Secrets as env vars (could leak in logs)
@@ -265,25 +265,25 @@ Find inbound endpoints that accept anything.
 
 **OAuth scope analysis:** Use Grep to find OAuth configurations and check for overly broad scopes.
 
-**Verification approach (code-tracing only — NO live requests):** For webhook findings, trace the handler code to determine if signature verification exists anywhere in the middleware chain (parent router, middleware stack, API gateway config). Do NOT make actual HTTP requests to webhook endpoints.
+**Verification approach (code-tracing only, NO live requests):** For webhook findings, trace the handler code to determine if signature verification exists anywhere in the middleware chain (parent router, middleware stack, API gateway config). Do NOT make actual HTTP requests to webhook endpoints.
 
 **Severity:** CRITICAL for webhooks without any signature verification. HIGH for TLS verification disabled in prod code / overly broad OAuth scopes. MEDIUM for undocumented outbound data flows to third parties.
 
-**FP rules:** TLS disabled in test code excluded. Internal service-to-service webhooks on private networks = MEDIUM max. Webhook endpoints behind API gateway that handles signature verification upstream are NOT findings — but require evidence.
+**FP rules:** TLS disabled in test code excluded. Internal service-to-service webhooks on private networks = MEDIUM max. Webhook endpoints behind API gateway that handles signature verification upstream are NOT findings, but require evidence.
 
 ### Phase 7: LLM & AI Security
 
 Check for AI/LLM-specific vulnerabilities. This is a new attack class.
 
 Use Grep to search for these patterns:
-- **Prompt injection vectors:** User input flowing into system prompts or tool schemas — look for string interpolation near system prompt construction
+- **Prompt injection vectors:** User input flowing into system prompts or tool schemas, look for string interpolation near system prompt construction
 - **Unsanitized LLM output:** `dangerouslySetInnerHTML`, `v-html`, `innerHTML`, `.html()`, `raw()` rendering LLM responses
 - **Tool/function calling without validation:** `tool_choice`, `function_call`, `tools=`, `functions=`
 - **AI API keys in code (not env vars):** `sk-` patterns, hardcoded API key assignments
 - **Eval/exec of LLM output:** `eval()`, `exec()`, `Function()`, `new Function` processing AI responses
 
 **Key checks (beyond grep):**
-- Trace user content flow — does it enter system prompts or tool schemas?
+- Trace user content flow, does it enter system prompts or tool schemas?
 - RAG poisoning: can external documents influence AI behavior via retrieval?
 - Tool calling permissions: are LLM tool calls validated before execution?
 - Output sanitization: is LLM output treated as trusted (rendered as HTML, executed as code)?
@@ -297,7 +297,7 @@ Use Grep to search for these patterns:
 
 Scan installed Claude Code skills for malicious patterns. 36% of published skills have security flaws, 13.4% are outright malicious (Snyk ToxicSkills research).
 
-**Tier 1 — repo-local (automatic):** Scan the repo's local skills directory for suspicious patterns:
+**Tier 1, repo-local (automatic):** Scan the repo's local skills directory for suspicious patterns:
 
 ```bash
 ls -la .claude/skills/ 2>/dev/null
@@ -308,19 +308,19 @@ Use Grep to search all local skill SKILL.md files for suspicious patterns:
 - `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `env.`, `process.env` (credential access)
 - `IGNORE PREVIOUS`, `system override`, `disregard`, `forget your instructions` (prompt injection)
 
-**Tier 2 — global skills (requires permission):** Before scanning globally installed skills or user settings, use AskUserQuestion:
+**Tier 2, global skills (requires permission):** Before scanning globally installed skills or user settings, use AskUserQuestion:
 "Phase 8 can scan your globally installed AI coding agent skills and hooks for malicious patterns. This reads files outside the repo. Want to include this?"
-Options: A) Yes — scan global skills too  B) No — repo-local only
+Options: A) Yes, scan global skills too  B) No, repo-local only
 
 If approved, run the same Grep patterns on globally installed skill files and check hooks in user settings.
 
 **Severity:** CRITICAL for credential exfiltration attempts / prompt injection in skill files. HIGH for suspicious network calls / overly broad tool permissions. MEDIUM for skills from unverified sources without review.
 
-**FP rules:** gstack's own skills are trusted (check if skill path resolves to a known repo). Skills that use `curl` for legitimate purposes (downloading tools, health checks) need context — only flag when the target URL is suspicious or when the command includes credential variables.
+**FP rules:** gstack's own skills are trusted (check if skill path resolves to a known repo). Skills that use `curl` for legitimate purposes (downloading tools, health checks) need context, only flag when the target URL is suspicious or when the command includes credential variables.
 
 ### Phase 9: OWASP Top 10 Assessment
 
-For each OWASP category, perform targeted analysis. Use the Grep tool for all searches — scope file extensions to detected stacks from Phase 0.
+For each OWASP category, perform targeted analysis. Use the Grep tool for all searches, scope file extensions to detected stacks from Phase 0.
 
 #### A01: Broken Access Control
 - Check for missing auth on controllers/routes (skip_before_action, skip_authorization, public, no_auth)
@@ -426,24 +426,24 @@ Before producing findings, run every candidate through this filter.
 
 **Comprehensive mode (`/cso --comprehensive`):** 2/10 confidence gate. Filter true noise only (test fixtures, documentation, placeholders) but include anything that MIGHT be a real issue. Flag these as `TENTATIVE` to distinguish from confirmed findings.
 
-**Hard exclusions — automatically discard findings matching these:**
+**Hard exclusions, automatically discard findings matching these:**
 
-1. Denial of Service (DOS), resource exhaustion, or rate limiting issues — **EXCEPTION:** LLM cost/spend amplification findings from Phase 7 (unbounded LLM calls, missing cost caps) are NOT DoS — they are financial risk and must NOT be auto-discarded under this rule.
+1. Denial of Service (DOS), resource exhaustion, or rate limiting issues, **EXCEPTION:** LLM cost/spend amplification findings from Phase 7 (unbounded LLM calls, missing cost caps) are NOT DoS, they are financial risk and must NOT be auto-discarded under this rule.
 2. Secrets or credentials stored on disk if otherwise secured (encrypted, permissioned)
 3. Memory consumption, CPU exhaustion, or file descriptor leaks
 4. Input validation concerns on non-security-critical fields without proven impact
-5. GitHub Action workflow issues unless clearly triggerable via untrusted input — **EXCEPTION:** Never auto-discard CI/CD pipeline findings from Phase 4 (unpinned actions, `pull_request_target`, script injection, secrets exposure) when `--infra` is active or when Phase 4 produced findings. Phase 4 exists specifically to surface these.
-6. Missing hardening measures — flag concrete vulnerabilities, not absent best practices. **EXCEPTION:** Unpinned third-party actions and missing CODEOWNERS on workflow files ARE concrete risks, not merely "missing hardening" — do not discard Phase 4 findings under this rule.
+5. GitHub Action workflow issues unless clearly triggerable via untrusted input, **EXCEPTION:** Never auto-discard CI/CD pipeline findings from Phase 4 (unpinned actions, `pull_request_target`, script injection, secrets exposure) when `--infra` is active or when Phase 4 produced findings. Phase 4 exists specifically to surface these.
+6. Missing hardening measures, flag concrete vulnerabilities, not absent best practices. **EXCEPTION:** Unpinned third-party actions and missing CODEOWNERS on workflow files ARE concrete risks, not merely "missing hardening", do not discard Phase 4 findings under this rule.
 7. Race conditions or timing attacks unless concretely exploitable with a specific path
 8. Vulnerabilities in outdated third-party libraries (handled by Phase 3, not individual findings)
 9. Memory safety issues in memory-safe languages (Rust, Go, Java, C#)
 10. Files that are only unit tests or test fixtures AND not imported by non-test code
-11. Log spoofing — outputting unsanitized input to logs is not a vulnerability
+11. Log spoofing, outputting unsanitized input to logs is not a vulnerability
 12. SSRF where attacker only controls the path, not the host or protocol
 13. User content in the user-message position of an AI conversation (NOT prompt injection)
 14. Regex complexity in code that does not process untrusted input (ReDoS on user strings IS real)
-15. Security concerns in documentation files (*.md) — **EXCEPTION:** SKILL.md files are NOT documentation. They are executable prompt code (skill definitions) that control AI agent behavior. Findings from Phase 8 (Skill Supply Chain) in SKILL.md files must NEVER be excluded under this rule.
-16. Missing audit logs — absence of logging is not a vulnerability
+15. Security concerns in documentation files (*.md), **EXCEPTION:** SKILL.md files are NOT documentation. They are executable prompt code (skill definitions) that control AI agent behavior. Findings from Phase 8 (Skill Supply Chain) in SKILL.md files must NEVER be excluded under this rule.
+16. Missing audit logs, absence of logging is not a vulnerability
 17. Insecure randomness in non-security contexts (e.g., UI element IDs)
 18. Git history secrets committed AND removed in the same initial-setup PR
 19. Dependency CVEs with CVSS < 4.0 and no known exploit
@@ -454,13 +454,13 @@ Before producing findings, run every candidate through this filter.
 **Precedents:**
 
 1. Logging secrets in plaintext IS a vulnerability. Logging URLs is safe.
-2. UUIDs are unguessable — don't flag missing UUID validation.
+2. UUIDs are unguessable, don't flag missing UUID validation.
 3. Environment variables and CLI flags are trusted input.
 4. React and Angular are XSS-safe by default. Only flag escape hatches.
-5. Client-side JS/TS does not need auth — that's the server's job.
+5. Client-side JS/TS does not need auth, that's the server's job.
 6. Shell script command injection needs a concrete untrusted input path.
 7. Subtle web vulnerabilities only if extremely high confidence with concrete exploit.
-8. iPython notebooks — only flag if untrusted input can trigger the vulnerability.
+8. iPython notebooks, only flag if untrusted input can trigger the vulnerability.
 9. Logging non-PII data is not a vulnerability.
 10. Lockfile not tracked by git IS a finding for app repos, NOT for library repos.
 11. `pull_request_target` without PR ref checkout is safe.
@@ -474,13 +474,13 @@ For each finding that survives the confidence gate, attempt to PROVE it where sa
 2. **Webhooks:** Trace handler code to verify whether signature verification exists anywhere in the middleware chain. Do NOT make HTTP requests.
 3. **SSRF:** Trace the code path to check if URL construction from user input can reach an internal service. Do NOT make requests.
 4. **CI/CD:** Parse workflow YAML to confirm whether `pull_request_target` actually checks out PR code.
-5. **Dependencies:** Check if the vulnerable function is directly imported/called. If it IS called, mark VERIFIED. If NOT directly called, mark UNVERIFIED with note: "Vulnerable function not directly called — may still be reachable via framework internals, transitive execution, or config-driven paths. Manual verification recommended."
+5. **Dependencies:** Check if the vulnerable function is directly imported/called. If it IS called, mark VERIFIED. If NOT directly called, mark UNVERIFIED with note: "Vulnerable function not directly called, may still be reachable via framework internals, transitive execution, or config-driven paths. Manual verification recommended."
 6. **LLM Security:** Trace data flow to confirm user input actually reaches system prompt construction.
 
 Mark each finding as:
-- `VERIFIED` — actively confirmed via code tracing or safe testing
-- `UNVERIFIED` — pattern match only, couldn't confirm
-- `TENTATIVE` — comprehensive mode finding below 8/10 confidence
+- `VERIFIED`, actively confirmed via code tracing or safe testing
+- `UNVERIFIED`, pattern match only, couldn't confirm
+- `TENTATIVE`, comprehensive mode finding below 8/10 confidence
 
 **Variant Analysis:**
 
@@ -491,7 +491,7 @@ When a finding is VERIFIED, search the entire codebase for the same vulnerabilit
 
 **Parallel Finding Verification:**
 
-For each candidate finding, launch an independent verification sub-task using the Agent tool. The verifier has fresh context and cannot see the initial scan's reasoning — only the finding itself and the FP filtering rules.
+For each candidate finding, launch an independent verification sub-task using the Agent tool. The verifier has fresh context and cannot see the initial scan's reasoning, only the finding itself and the FP filtering rules.
 
 Prompt each verifier with:
 - The file path and line number ONLY (avoid anchoring)
@@ -500,11 +500,11 @@ Prompt each verifier with:
 
 Launch all verifiers in parallel. Discard findings where the verifier scores below 8 (daily mode) or below 2 (comprehensive mode).
 
-If the Agent tool is unavailable, self-verify by re-reading code with a skeptic's eye. Note: "Self-verified — independent sub-task unavailable."
+If the Agent tool is unavailable, self-verify by re-reading code with a skeptic's eye. Note: "Self-verified, independent sub-task unavailable."
 
 ### Phase 13: Findings Report + Trend Tracking + Remediation
 
-**Exploit scenario requirement:** Every finding MUST include a concrete exploit scenario — a step-by-step attack path an attacker would follow. "This pattern is insecure" is not a finding.
+**Exploit scenario requirement:** Every finding MUST include a concrete exploit scenario, a step-by-step attack path an attacker would follow. "This pattern is insecure" is not a finding.
 
 **Findings table:**
 ```
@@ -520,7 +520,7 @@ SECURITY FINDINGS
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
 ## Confidence Calibration
@@ -543,11 +543,11 @@ Example:
 \`[P1] (confidence: 9/10) app/models/user.rb:42 — SQL injection via string interpolation in where clause\`
 \`[P2] (confidence: 5/10) app/controllers/api/v1/users_controller.rb:18 — Possible N+1 query, verify with production logs\`
 
-### Pre-emit verification gate (#1539 — kills the "field doesn't exist" FP class)
+### Pre-emit verification gate (#1539, kills the "field doesn't exist" FP class)
 
 Before any finding is promoted to the report, the gate requires:
 
-1. **Quote the specific code line that motivates the finding** — file:line plus
+1. **Quote the specific code line that motivates the finding**, file:line plus
    the verbatim text of the line(s) that triggered it. If the finding is "field
    X doesn't exist on model Y", quote the lines of class Y where the field
    would live. If "dict.get() might return None", quote the dict initialization.
@@ -557,7 +557,7 @@ Before any finding is promoted to the report, the gate requires:
    Force its confidence to 4-5 (suppressed from the main report). It still goes
    into the appendix so reviewers can audit calibration, but the user does NOT
    see it in the critical-pass output. Do not work around this by inventing
-   speculative confidence 7+ — that defeats the gate.
+   speculative confidence 7+, that defeats the gate.
 
 **Framework-meta nudge:** When the symbol is generated by a framework
 metaclass, descriptor, ORM Meta inner-class, or migration history (Django
@@ -568,7 +568,7 @@ the schema file) instead of expecting the literal name in the class body.
 The verification is "I read the source that creates this symbol", not "I
 grep'd for the name and didn't find it." Deeper framework-aware verification
 (model introspection, migration-history-aware checks, ORM dialect detection)
-is deliberately out of scope for the lighter gate — see the deferred
+is deliberately out of scope for the lighter gate, see the deferred
 `~/.gstack-dev/plans/1539-framework-aware-review.md` design doc.
 
 The FP classes the gate kills (measured against Django Sprint 2.5 #1539):
@@ -602,11 +602,11 @@ For each finding:
 
 **Incident Response Playbooks:** When a leaked secret is found, include:
 1. **Revoke** the credential immediately
-2. **Rotate** — generate a new credential
-3. **Scrub history** — `git filter-repo` or BFG Repo-Cleaner
+2. **Rotate**, generate a new credential
+3. **Scrub history**, `git filter-repo` or BFG Repo-Cleaner
 4. **Force-push** the cleaned history
-5. **Audit exposure window** — when committed? When removed? Was repo public?
-6. **Check for abuse** — review provider's audit logs
+5. **Audit exposure window**, when committed? When removed? Was repo public?
+6. **Check for abuse**, review provider's audit logs
 
 **Trend Tracking:** If prior reports exist in `.gstack/security-reports/`:
 ```
@@ -628,9 +628,9 @@ Match findings across reports using the `fingerprint` field (sha256 of category 
 1. Context: The vulnerability, its severity, exploitation scenario
 2. RECOMMENDATION: Choose [X] because [reason]
 3. Options:
-   - A) Fix now — [specific code change, effort estimate]
-   - B) Mitigate — [workaround that reduces risk]
-   - C) Accept risk — [document why, set review date]
+   - A) Fix now, [specific code change, effort estimate]
+   - B) Mitigate, [workaround that reduces risk]
+   - C) Accept risk, [document why, set review date]
    - D) Defer to TODOS.md with security label
 
 ### Phase 14: Save Report
@@ -692,7 +692,7 @@ Write findings to `.gstack/security-reports/{date}-{HHMMSS}.json` using this sch
 }
 ```
 
-If `.gstack/` is not in `.gitignore`, note it in findings — security reports should stay local.
+If `.gstack/` is not in `.gitignore`, note it in findings, security reports should stay local.
 
 ## Capture Learnings
 
@@ -736,11 +736,11 @@ already knows. A good test: would this insight save time in a future session? If
 ## Disclaimer
 
 **This tool is not a substitute for a professional security audit.** /cso is an AI-assisted
-scan that catches common vulnerability patterns — it is not comprehensive, not guaranteed, and
+scan that catches common vulnerability patterns, it is not comprehensive, not guaranteed, and
 not a replacement for hiring a qualified security firm. LLMs can miss subtle vulnerabilities,
 misunderstand complex auth flows, and produce false negatives. For production systems handling
 sensitive data, payments, or PII, engage a professional penetration testing firm. Use /cso as
 a first pass to catch low-hanging fruit and improve your security posture between professional
-audits — not as your only line of defense.
+audits, not as your only line of defense.
 
 **Always include this disclaimer at the end of every /cso report output.**

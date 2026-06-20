@@ -18,6 +18,7 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
   - Glob
   - Grep
   - AskUserQuestion
+category: gstack
 ---
 ## User-invocable
 When the user types `/health`, run this skill.
@@ -147,7 +148,7 @@ Score each category on a 0-10 scale using this rubric:
 composite = (typecheck_score * 0.22) + (lint_score * 0.18) + (test_score * 0.28) + (deadcode_score * 0.13) + (shell_score * 0.09) + (gbrain_score * 0.10)
 ```
 
-If a category is skipped (tool not available — includes GBrain when gbrain
+If a category is skipped (tool not available, includes GBrain when gbrain
 is not installed), redistribute its weight proportionally among the
 remaining categories.
 
@@ -235,7 +236,7 @@ Fields:
 - `duration_s` -- total time for all tools in seconds
 
 If a category was skipped, set its value to `null`. Pre-D6 history entries
-won't have a `gbrain` field — treat them as `null` for trend comparison
+won't have a `gbrain` field, treat them as `null` for trend comparison
 and start new tracking from the first post-D6 run.
 
 ---

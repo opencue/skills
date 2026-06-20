@@ -1,6 +1,7 @@
 ---
 name: pipeline
 description: "[OMX] Configurable pipeline orchestrator for sequencing stages"
+category: orchestration
 ---
 
 # Pipeline Skill

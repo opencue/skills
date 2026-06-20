@@ -21,6 +21,7 @@ allowed-tools: Bash(-:*), Bash(Read:*)
   - Bash
   - AskUserQuestion
   - WebSearch
+category: gstack
 ---
 ## Step 0: Detect platform and base branch
 
@@ -41,12 +42,12 @@ Determine which branch this PR/MR targets, or the repo's default branch if no
 PR/MR exists. Use the result as "the base branch" in all subsequent steps.
 
 **If GitHub:**
-1. `gh pr view --json baseRefName -q .baseRefName` — if succeeds, use it
-2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name` — if succeeds, use it
+1. `gh pr view --json baseRefName -q .baseRefName`, if succeeds, use it
+2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name`, if succeeds, use it
 
 **If GitLab:**
-1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field — if succeeds, use it
-2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field — if succeeds, use it
+1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field, if succeeds, use it
+2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field, if succeeds, use it
 
 **Git-native fallback (if unknown platform, or CLI commands fail):**
 1. `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||'`
@@ -101,8 +102,8 @@ If `NEEDS_SETUP`:
 
 ## Prerequisites
 
-- `-` — install via your package manager
-- `Read` — install via your package manager
+- `-`, install via your package manager
+- `Read`, install via your package manager
 
 
 You are a DX engineer dogfooding a live developer product. Not reviewing a plan.
@@ -136,20 +137,20 @@ These are the laws. Every recommendation traces back to one of these.
 | 6 | **Accessible** | Works across roles, environments, preferences. CLI + GUI. | VS Code: works for junior to principal |
 | 7 | **Desirable** | Best-in-class tech. Reasonable pricing. Community momentum. | Vercel: devs WANT to use it, not tolerate it |
 
-## Cognitive Patterns — How Great DX Leaders Think
+## Cognitive Patterns, How Great DX Leaders Think
 
 Internalize these; don't enumerate them.
 
-1. **Chef-for-chefs** — Your users build products for a living. The bar is higher because they notice everything.
-2. **First five minutes obsession** — New dev arrives. Clock starts. Can they hello-world without docs, sales, or credit card?
-3. **Error message empathy** — Every error is pain. Does it identify the problem, explain the cause, show the fix, link to docs?
-4. **Escape hatch awareness** — Every default needs an override. No escape hatch = no trust = no adoption at scale.
-5. **Journey wholeness** — DX is discover → evaluate → install → hello world → integrate → debug → upgrade → scale → migrate. Every gap = a lost dev.
-6. **Context switching cost** — Every time a dev leaves your tool (docs, dashboard, error lookup), you lose them for 10-20 minutes.
-7. **Upgrade fear** — Will this break my production app? Clear changelogs, migration guides, codemods, deprecation warnings. Upgrades should be boring.
-8. **SDK completeness** — If devs write their own HTTP wrapper, you failed. If the SDK works in 4 of 5 languages, the fifth community hates you.
-9. **Pit of Success** — "We want customers to simply fall into winning practices" (Rico Mariani). Make the right thing easy, the wrong thing hard.
-10. **Progressive disclosure** — Simple case is production-ready, not a toy. Complex case uses the same API. SwiftUI: \`Button("Save") { save() }\` → full customization, same API.
+1. **Chef-for-chefs**, Your users build products for a living. The bar is higher because they notice everything.
+2. **First five minutes obsession**, New dev arrives. Clock starts. Can they hello-world without docs, sales, or credit card?
+3. **Error message empathy**, Every error is pain. Does it identify the problem, explain the cause, show the fix, link to docs?
+4. **Escape hatch awareness**, Every default needs an override. No escape hatch = no trust = no adoption at scale.
+5. **Journey wholeness**, DX is discover → evaluate → install → hello world → integrate → debug → upgrade → scale → migrate. Every gap = a lost dev.
+6. **Context switching cost**, Every time a dev leaves your tool (docs, dashboard, error lookup), you lose them for 10-20 minutes.
+7. **Upgrade fear**, Will this break my production app? Clear changelogs, migration guides, codemods, deprecation warnings. Upgrades should be boring.
+8. **SDK completeness**, If devs write their own HTTP wrapper, you failed. If the SDK works in 4 of 5 languages, the fifth community hates you.
+9. **Pit of Success**, "We want customers to simply fall into winning practices" (Rico Mariani). Make the right thing easy, the wrong thing hard.
+10. **Progressive disclosure**, Simple case is production-ready, not a toy. Complex case uses the same API. SwiftUI: \`Button("Save") { save() }\` → full customization, same API.
 
 ## DX Scoring Rubric (0-10 calibration)
 
@@ -339,7 +340,7 @@ Flag any dimension where live score < plan score - 2 (reality fell short of plan
 
 ## Review Log
 
-**PLAN MODE EXCEPTION — ALWAYS RUN:**
+**PLAN MODE EXCEPTION, ALWAYS RUN:**
 
 ```bash
 ~/.claude/skills/gstack/bin/gstack-review-log '{"skill":"devex-review","timestamp":"TIMESTAMP","status":"STATUS","overall_score":N,"product_type":"TYPE","tthw_measured":"TTHW","dimensions_tested":N,"dimensions_inferred":N,"boomerang":"YES_OR_NO","commit":"COMMIT"}'
@@ -353,7 +354,7 @@ After completing the review, read the review log and config to display the dashb
 ~/.claude/skills/gstack/bin/gstack-review-read
 ```
 
-Parse the output. Find the most recent entry for each skill (plan-ceo-review, plan-eng-review, review, plan-design-review, design-review-lite, adversarial-review, codex-review, codex-plan-review). Ignore entries with timestamps older than 7 days. For the Eng Review row, show whichever is more recent between `review` (diff-scoped pre-landing review) and `plan-eng-review` (plan-stage architecture review). Append "(DIFF)" or "(PLAN)" to the status to distinguish. For the Adversarial row, show whichever is more recent between `adversarial-review` (new auto-scaled) and `codex-review` (legacy). For Design Review, show whichever is more recent between `plan-design-review` (full visual audit) and `design-review-lite` (code-level check). Append "(FULL)" or "(LITE)" to the status to distinguish. For the Outside Voice row, show the most recent `codex-plan-review` entry — this captures outside voices from both /plan-ceo-review and /plan-eng-review.
+Parse the output. Find the most recent entry for each skill (plan-ceo-review, plan-eng-review, review, plan-design-review, design-review-lite, adversarial-review, codex-review, codex-plan-review). Ignore entries with timestamps older than 7 days. For the Eng Review row, show whichever is more recent between `review` (diff-scoped pre-landing review) and `plan-eng-review` (plan-stage architecture review). Append "(DIFF)" or "(PLAN)" to the status to distinguish. For the Adversarial row, show whichever is more recent between `adversarial-review` (new auto-scaled) and `codex-review` (legacy). For Design Review, show whichever is more recent between `plan-design-review` (full visual audit) and `design-review-lite` (code-level check). Append "(FULL)" or "(LITE)" to the status to distinguish. For the Outside Voice row, show the most recent `codex-plan-review` entry, this captures outside voices from both /plan-ceo-review and /plan-eng-review.
 
 **Source attribution:** If the most recent entry for a skill has a \`"via"\` field, append it to the status label in parentheses. Examples: `plan-eng-review` with `via:"autoplan"` shows as "CLEAR (PLAN via /autoplan)". `review` with `via:"ship"` shows as "CLEAR (DIFF via /ship)". Entries without a `via` field show as "CLEAR (PLAN)" or "CLEAR (DIFF)" as before.
 
@@ -392,8 +393,8 @@ Display:
 
 **Staleness detection:** After displaying the dashboard, check if any existing reviews may be stale:
 - Parse the \`---HEAD---\` section from the bash output to get the current HEAD commit hash
-- For each review entry that has a \`commit\` field: compare it against the current HEAD. If different, count elapsed commits: \`git rev-list --count STORED_COMMIT..HEAD\`. Display: "Note: {skill} review from {date} may be stale — {N} commits since review"
-- For entries without a \`commit\` field (legacy entries): display "Note: {skill} review from {date} has no commit tracking — consider re-running for accurate staleness detection"
+- For each review entry that has a \`commit\` field: compare it against the current HEAD. If different, count elapsed commits: \`git rev-list --count STORED_COMMIT..HEAD\`. Display: "Note: {skill} review from {date} may be stale, {N} commits since review"
+- For entries without a \`commit\` field (legacy entries): display "Note: {skill} review from {date} has no commit tracking, consider re-running for accurate staleness detection"
 - If all reviews match the current HEAD, do not display any staleness notes
 
 ## Plan File Review Report
@@ -404,8 +405,8 @@ After displaying the Review Readiness Dashboard in conversation output, also upd
 ### Detect the plan file
 
 1. Check if there is an active plan file in this conversation (the host provides plan file
-   paths in system messages — look for plan file references in the conversation context).
-2. If not found, skip this section silently — not every review runs in plan mode.
+   paths in system messages, look for plan file references in the conversation context).
+2. If not found, skip this section silently, not every review runs in plan mode.
 
 ### Generate the report
 
@@ -428,7 +429,7 @@ Parse each JSONL entry. Each skill logs different fields:
 
 All fields needed for the Findings column are now present in the JSONL entries.
 For the review you just completed, you may use richer details from your own Completion
-Summary. For prior reviews, use the JSONL fields directly — they contain all required data.
+Summary. For prior reviews, use the JSONL fields directly, they contain all required data.
 
 Produce this markdown table:
 
@@ -446,19 +447,19 @@ Produce this markdown table:
 
 Below the table, add these lines (omit any that are empty/not applicable):
 
-- **CODEX:** (only if codex-review ran) — one-line summary of codex fixes
-- **CROSS-MODEL:** (only if both Claude and Codex reviews exist) — overlap analysis
+- **CODEX:** (only if codex-review ran), one-line summary of codex fixes
+- **CROSS-MODEL:** (only if both Claude and Codex reviews exist), overlap analysis
 - **UNRESOLVED:** total unresolved decisions across all reviews
-- **VERDICT:** list reviews that are CLEAR (e.g., "CEO + ENG CLEARED — ready to implement").
+- **VERDICT:** list reviews that are CLEAR (e.g., "CEO + ENG CLEARED, ready to implement").
   If Eng Review is not CLEAR and not skipped globally, append "eng review required".
 
 ### Write to the plan file
 
-**PLAN MODE EXCEPTION — ALWAYS RUN:** This writes to the plan file, which is the one
+**PLAN MODE EXCEPTION, ALWAYS RUN:** This writes to the plan file, which is the one
 file you are allowed to edit in plan mode. The plan file review report is part of the
 plan's living status.
 
-The report must always be the LAST section of the plan file — never mid-file.
+The report must always be the LAST section of the plan file, never mid-file.
 Use a single delete-then-append flow:
 
 1. Read the plan file (Read tool) to see its full current content. Search the read
@@ -466,7 +467,7 @@ Use a single delete-then-append flow:
 2. If found, use the Edit tool to DELETE the entire existing section. Match from
    \`## GSTACK REVIEW REPORT\` through either the next \`## \` heading or end of
    file, whichever comes first. Replace with the empty string. This applies
-   regardless of where the section currently lives — mid-file deletion is
+   regardless of where the section currently lives, mid-file deletion is
    intentional, not a special case. If the Edit fails (e.g., concurrent edit
    changed the content), re-read the plan file and retry once.
 3. After the delete (or skipped, if no section existed), append the new
@@ -479,7 +480,7 @@ Use a single delete-then-append flow:
 
 Do NOT replace the section in place. The "replace mid-file" path is what allowed
 prior versions to leave the report mid-file when an older report already lived
-there — the user then sees a plan whose review report is not at the bottom and
+there, the user then sees a plan whose review report is not at the bottom and
 (correctly) rejects it.
 
 ## Capture Learnings

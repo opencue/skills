@@ -7,7 +7,7 @@ triggers:
   - build the design
   - code the mockup
   - make design real
-allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, Agent, AskUserQuestion, --
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, Agent, AskUserQuestion
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
 
@@ -888,6 +888,7 @@ If `NEEDS_SETUP`:
    fi
    ```
 
+category: gstack
 ---
 
 ## Step 0: Input Detection
@@ -936,8 +937,8 @@ system-level values (fonts, brand colors, spacing scale).
 Then check for prior finalized.html. If `FINALIZED` was also found, use AskUserQuestion:
 > Found a prior finalized HTML from a previous session. Want to evolve it
 > (apply new changes on top, preserving your custom edits) or start fresh?
-> A) Evolve — iterate on the existing HTML
-> B) Start fresh — regenerate from the approved mockup
+> A) Evolve, iterate on the existing HTML
+> B) Start fresh, regenerate from the approved mockup
 
 If evolve: read the existing HTML. Apply changes on top during Step 3.
 If fresh or no finalized.html: proceed to Step 1 with the approved PNG as the
@@ -955,9 +956,9 @@ Read whichever context exists:
 Use AskUserQuestion:
 > Found [CEO plan from /plan-ceo-review | design review variants from /plan-design-review | both]
 > but no approved design mockup.
-> A) Run /design-shotgun — explore design variants based on the existing plan context
-> B) Skip mockups — I'll design the HTML directly from the plan context
-> C) I have a PNG — let me provide the path
+> A) Run /design-shotgun, explore design variants based on the existing plan context
+> B) Skip mockups, I'll design the HTML directly from the plan context
+> C) I have a PNG, let me provide the path
 
 If A: tell the user to run /design-shotgun, then come back to /design-html.
 If B: proceed to Step 1 in "plan-driven mode." There is no approved PNG, the plan is
@@ -971,10 +972,10 @@ If none of the above produced any context:
 
 Use AskUserQuestion:
 > No design context found for this project. How do you want to start?
-> A) Run /plan-ceo-review first — think through the product strategy before designing
-> B) Run /plan-design-review first — design review with visual mockups
-> C) Run /design-shotgun — jump straight to visual design exploration
-> D) Just describe it — tell me what you want and I'll design the HTML live
+> A) Run /plan-ceo-review first, think through the product strategy before designing
+> B) Run /plan-design-review first, design review with visual mockups
+> C) Run /design-shotgun, jump straight to visual design exploration
+> D) Just describe it, tell me what you want and I'll design the HTML live
 
 If A, B, or C: tell the user to run that skill, then come back to /design-html.
 If D: proceed to Step 1 in "freeform mode." Ask the user for a screen name.
@@ -1048,8 +1049,8 @@ Check if the user's project uses a frontend framework:
 
 If a framework is detected, use AskUserQuestion:
 > Detected [React/Svelte/Vue] in your project. What format should the output be?
-> A) Vanilla HTML — self-contained preview file (recommended for first pass)
-> B) [React/Svelte/Vue] component — framework-native with Pretext hooks
+> A) Vanilla HTML, self-contained preview file (recommended for first pass)
+> B) [React/Svelte/Vue] component, framework-native with Pretext hooks
 
 If the user chooses framework output, ask one follow-up:
 > A) TypeScript
@@ -1388,7 +1389,7 @@ Use AskUserQuestion:
 > and create a DESIGN.md for your project. This means future /design-shotgun and
 > /design-html runs will be style-consistent automatically.
 > A) Create DESIGN.md from these tokens
-> B) Skip — I'll handle the design system later
+> B) Skip, I'll handle the design system later
 
 If A: write `DESIGN.md` to the repo root with the extracted tokens.
 
@@ -1414,9 +1415,9 @@ Write `finalized.json` alongside the HTML:
 
 Use AskUserQuestion:
 > Design finalized with Pretext-native layout. What's next?
-> A) Copy to project — copy the HTML/component into your codebase
-> B) Iterate more — keep refining
-> C) Done — I'll use this as a reference
+> A) Copy to project, copy the HTML/component into your codebase
+> B) Iterate more, keep refining
+> C) Done, I'll use this as a reference
 
 ---
 

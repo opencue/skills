@@ -2,9 +2,10 @@
 name: pyo3
 description: Use when exposing Rust code to Python — write a CPython extension module in Rust, ship as a wheel via maturin.
 allowed-tools: Bash(cargo:*), Bash(maturin:*), Bash(python:*), Bash(pip:*)
+category: rust
 ---
 
-# PyO3 + maturin — Rust → Python
+# PyO3 + maturin, Rust → Python
 
 Used by `cryptography`, `polars`, `tokenizers`, `pydantic-core`. The path for "Rust speed in Python".
 
@@ -34,7 +35,7 @@ Used by `cryptography`, `polars`, `tokenizers`, `pydantic-core`. The path for "R
 - maturin (`pipx install maturin`)
 
 ## Notes
-- Use a venv — `maturin develop` installs INTO whatever Python is active. Wrong env = wrong wheel installed.
+- Use a venv, `maturin develop` installs INTO whatever Python is active. Wrong env = wrong wheel installed.
 - For multi-Python-version wheels: `maturin build --release --interpreter python3.10 python3.11 python3.12` or use `cibuildwheel` in CI.
 - GIL handling: `Python::with_gil(|py| ...)` for any PyObject work. Release the GIL during pure Rust compute with `py.allow_threads(|| ...)`.
 - Distribute as `abi3` (stable ABI) via `pyo3 = { features = ["abi3-py38"] }` so ONE wheel covers Python 3.8+.

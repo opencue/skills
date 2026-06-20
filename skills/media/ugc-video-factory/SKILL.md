@@ -4,6 +4,7 @@ name: muapi-ugc-video-factory
 version: "1.0.0"
 description: Turn a person photo + a product photo + an optional script into a vertical 9:16 UGC-style video ad. Generates a lifestyle hero image (Nano-Banana Pro Edit), then animates it with native audio using Seedance 2.0 VIP image-to-video.
 acceptLicenseTerms: true
+category: media
 ---
 
 
@@ -20,9 +21,9 @@ A three-stage pipeline:
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `person` | image_url | yes | — | Photo of the person who will appear in the ad (face + upper body works best). |
-| `product` | image_url | yes | — | Clear photo of the product (preferably on neutral background, logo/text legible). |
-| `script` | text | no | `Okay… first of all, ship happens. And this hat is honestly my favorite. It also comes in navy and black, so you can pick your vibe.` | The exact line the on-screen person will say (kept short — 1–2 sentences fit 10s comfortably). |
+| `person` | image_url | yes |, | Photo of the person who will appear in the ad (face + upper body works best). |
+| `product` | image_url | yes |, | Clear photo of the product (preferably on neutral background, logo/text legible). |
+| `script` | text | no | `Okay… first of all, ship happens. And this hat is honestly my favorite. It also comes in navy and black, so you can pick your vibe.` | The exact line the on-screen person will say (kept short, 1–2 sentences fit 10s comfortably). |
 | `environment` | text | no | `study room, laptop in front of it` | Scene / context where the person is using the product (e.g. "bathroom mirror, morning routine", "coffee shop window seat"). |
 
 If `person` or `product` is missing, ask the user to upload them (`muapi upload file <path>`) or offer to generate placeholders before continuing.
@@ -30,9 +31,9 @@ If `person` or `product` is missing, ask the user to upload them (`muapi upload 
 
 ## Steps
 
-Run the three steps sequentially — each step's output feeds the next.
+Run the three steps sequentially, each step's output feeds the next.
 
-### Step 1 — Director Prompt (GPT)
+### Step 1, Director Prompt (GPT)
 
 Use a GPT model (`gpt-5.1` or whichever chat model is available to the executing agent) with **temperature 0** and **max ~200 tokens** to produce the hero-image prompt.
 
@@ -60,11 +61,11 @@ Style: high-end commercial lifestyle photography, realistic textures, 4K quality
 
 Capture the GPT response as `{{step1_prompt}}`.
 
-### Step 2 — Hero Image (Nano-Banana Pro Edit)
+### Step 2, Hero Image (Nano-Banana Pro Edit)
 
 Submit a `muapi image edit` call against the `nano-banana-pro-edit` model:
 
-- **Reference images** (`image_urls`): `[ {{person}}, {{product}} ]` — order matters; person first.
+- **Reference images** (`image_urls`): `[ {{person}}, {{product}} ]`, order matters; person first.
 - **Prompt**: `{{step1_prompt}}` from Step 1.
 - **Aspect ratio**: `9:16`
 - **Num images**: `1`
@@ -73,7 +74,7 @@ Submit a `muapi image edit` call against the `nano-banana-pro-edit` model:
 
 Capture the resulting image URL as `{{hero_image}}`. Briefly show it to the user for approval before kicking off the video step.
 
-### Step 3 — UGC Video (Seedance 2.0 VIP Image-to-Video)
+### Step 3, UGC Video (Seedance 2.0 VIP Image-to-Video)
 
 Submit a `muapi video from-image` call against **`seedance-2-vip-image-to-video`** (or the `-fast` variant if the executing agent wants lower latency).
 
@@ -114,10 +115,10 @@ Poll the result with `muapi predict wait <request_id>` and download to the user'
 ## Notes
 
 - VIP tier supports 9:16 and durations 4–15s; 10s is the sweet spot for a 1–2 sentence script.
-- Keep the script short — Seedance 2.0 will compress longer scripts and clip words.
+- Keep the script short, Seedance 2.0 will compress longer scripts and clip words.
 - Seedance VIP tolerates realistic human faces in references (unlike Chinese tier), making it the right choice for UGC.
 - If you want lower latency at the same quality, swap to `seedance-2-vip-image-to-video-fast`.
-- For multi-shot ads, generate several `{{hero_image}}` variations in Step 2 and animate each independently — Seedance VIP does not multi-image i2v at 9:16 + audio.
+- For multi-shot ads, generate several `{{hero_image}}` variations in Step 2 and animate each independently, Seedance VIP does not multi-image i2v at 9:16 + audio.
 
 ## Trigger Keywords
 

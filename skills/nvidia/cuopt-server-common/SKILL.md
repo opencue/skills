@@ -2,6 +2,7 @@
 name: cuopt-server-common
 version: "26.08.00"
 description: cuOpt REST server — what it does and how requests flow. Domain concepts; no deploy or client code.
+category: nvidia
 ---
 
 
@@ -35,9 +36,9 @@ Domain concepts for the cuOpt REST server. No deploy commands or client code her
 
 Ask these if not already clear:
 
-1. **Problem type** — Routing or LP/MILP? (QP not available.)
-2. **Deployment** — Local, Docker, Kubernetes, or cloud?
-3. **Client** — Which language or tool will call the API (e.g. Python, curl, another service)?
+1. **Problem type**, Routing or LP/MILP? (QP not available.)
+2. **Deployment**, Local, Docker, Kubernetes, or cloud?
+3. **Client**, Which language or tool will call the API (e.g. Python, curl, another service)?
 
 ## Key endpoints (conceptual)
 

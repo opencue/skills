@@ -4,6 +4,7 @@ name: muapi-action-figure-generator
 version: "1.0.0"
 description: Convert a photo of a person into a custom 3D action figure, complete with collectible toy packaging.
 acceptLicenseTerms: true
+category: media
 ---
 
 
@@ -15,19 +16,19 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `user_image` | image_url | yes | — | A clear photo of the person to be turned into an action figure. |
+| `user_image` | image_url | yes |, | A clear photo of the person to be turned into an action figure. |
 | `toy_theme` | text | no | superhero | The theme of the action figure (e.g. superhero, doctor, explorer, sci-fi). |
 
 
 ## Steps
 
-### Phase A — Action Figure Creation
+### Phase A, Action Figure Creation
 
 If `{{user_image}}` is not provided, ask the user to upload their photo.
 
 Once the photo is available, submit the plan with ONE step to generate the action figure:
 
-1. **Action Figure Generation** — `muapi image edit` (model=`nano-banana-2-edit`):
+1. **Action Figure Generation**, `muapi image edit` (model=`nano-banana-2-edit`):
    - Reference Image: `{{user_image}}`
    - Prompt: `A high-quality 3D stylized action figure based on the person in the input image. The action figure should maintain the person's likeness (face, hairstyle, skin tone) but be rendered as a plastic toy with visible joints and a semi-glossy finish. The character is dressed in a {{toy_theme}} outfit. The figure is displayed inside its original collectible cardboard and plastic blister packaging. The packaging has the person's name printed on it and features clean, modern graphic design. Soft studio lighting, realistic plastic textures, 8k resolution, cinematic look.`
    - Aspect ratio: 1:1 or 4:5

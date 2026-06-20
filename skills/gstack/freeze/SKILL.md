@@ -26,12 +26,13 @@ hooks:
         - type: command
           command: "bash ${CLAUDE_SKILL_DIR}/bin/check-freeze.sh"
           statusMessage: "Checking freeze boundary..."
+category: gstack
 ---
-# /freeze — Restrict Edits to a Directory
+# /freeze, Restrict Edits to a Directory
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
 Lock file edits to a specific directory. Any Edit or Write operation targeting
@@ -43,7 +44,7 @@ a file outside the allowed path will be **blocked** (not just warned).
 Ask the user which directory to restrict edits to. Use AskUserQuestion:
 
 - Question: "Which directory should I restrict edits to? Files outside this path will be blocked from editing."
-- Text input (not multiple choice) — the user types a path.
+- Text input (not multiple choice), the user types a path.
 
 Once the user provides a directory path:
 
@@ -79,6 +80,6 @@ script reads it on every Edit/Write invocation.
 ## Notes
 
 - The trailing `/` on the freeze directory prevents `/src` from matching `/src-old`
-- Freeze applies to Edit and Write tools only — Read, Bash, Glob, Grep are unaffected
-- This prevents accidental edits, not a security boundary — Bash commands like `sed` can still modify files outside the boundary
+- Freeze applies to Edit and Write tools only, Read, Bash, Glob, Grep are unaffected
+- This prevents accidental edits, not a security boundary, Bash commands like `sed` can still modify files outside the boundary
 - To deactivate, run `/unfreeze` or end the conversation

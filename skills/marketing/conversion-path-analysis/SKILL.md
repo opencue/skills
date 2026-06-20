@@ -3,9 +3,10 @@ name: conversion-path-analysis
 description: 'Use when user says "analyze my conversion path", "where are users dropping off", "map my funnel", "multi-touch attribution analysis", "what is my conversion journey". Maps out how users move through your funnel from first ad click to conversion. Identifies where the biggest drop-offs happen, which campaigns contribute most at each stage, and how long the typical conversion path takes across different audience segments.'
 metadata:
   platform: Google and Meta
+category: marketing
 ---
 
-# 16/ Conversion Path Analysis — Google + Meta
+# 16/ Conversion Path Analysis, Google + Meta
 
 ## What it does
 Maps out how users move through your funnel from first ad click to conversion. Identifies where the biggest drop-offs happen, which campaigns contribute most at each stage, and how long the typical conversion path takes across different audience segments.
@@ -14,7 +15,7 @@ Maps out how users move through your funnel from first ad click to conversion. I
 Claude analyzes your conversion data, assisted conversions, and multi-touch paths to show the full journey. It looks at first-touch vs last-touch attribution, identifies common paths (e.g., Meta prospecting → Google brand → conversion), and flags where users are falling out of the funnel at higher-than-expected rates.
 
 ## Practical example
-Your ecommerce account shows that 62% of conversions involve 2+ touchpoints. The most common path is Meta prospecting ad → Google branded search → purchase. But Claude also discovers that users who see a Meta retargeting ad between those two steps convert at 3.2x the rate. Meanwhile, users who click PMax ads rarely convert on the first visit and almost never return — suggesting PMax is driving low-intent traffic. Claude recommends increasing retargeting budget for Meta-sourced traffic and re-evaluating PMax targeting.
+Your ecommerce account shows that 62% of conversions involve 2+ touchpoints. The most common path is Meta prospecting ad → Google branded search → purchase. But Claude also discovers that users who see a Meta retargeting ad between those two steps convert at 3.2x the rate. Meanwhile, users who click PMax ads rarely convert on the first visit and almost never return, suggesting PMax is driving low-intent traffic. Claude recommends increasing retargeting budget for Meta-sourced traffic and re-evaluating PMax targeting.
 
 ## What you get back
 - Most common conversion paths ranked by volume and conversion rate

@@ -1,7 +1,9 @@
 ---
+name: headless-gif-demos-with-cage-wayland-kitty-tmux-auto-redaction
 description: 'Use when user says "record a CLI demo gif", "make a terminal demo", "capture a tmux session as a gif", "demo gif with brand logos", or "redact text in a screen recording". Headless cage/Wayland + Kitty + tmux + ffmpeg pipeline for high-quality CLI demo GIFs that need Kitty graphics protocol (real PNG icons inline) — instead of vhs/asciinema which don''t speak the Kitty protocol. Includes auto-redaction of moving text via tesseract OCR.'
 requires_mcps: [cue-tty-watch]
 allowed-tools: Bash(cage:*), Bash(weston:*), Bash(Xvfb:*), Bash(kitty:*), Bash(tmux:*), Bash(xdotool:*), Bash(wf-recorder:*), Bash(grim:*), Bash(ffmpeg:*), Bash(/usr/bin/ffmpeg:*), Bash(tesseract:*), Bash(convert:*), Read(*), Write(*), mcp__cue-tty-watch__*
+category: design
 ---
 
 # Headless GIF demos with Cage (Wayland) + Kitty + tmux + auto-redaction
@@ -10,7 +12,7 @@ allowed-tools: Bash(cage:*), Bash(weston:*), Bash(Xvfb:*), Bash(kitty:*), Bash(t
 > Kitty graphics protocol works through wf-recorder → real brand-icon PNGs render in the GIF.
 > Tesseract OCR + `redact_video` MCP tool handles moving-text redaction automatically.
 
-When you need a demo GIF of a CLI tool that uses **Kitty graphics protocol** (e.g. cue's brand-logo PNGs in `cue optimizer`), `vhs` and `asciinema` won't work — they render in `ttyd` which doesn't speak the protocol. Logos show as garbled placeholder boxes or fall back to emoji.
+When you need a demo GIF of a CLI tool that uses **Kitty graphics protocol** (e.g. cue's brand-logo PNGs in `cue optimizer`), `vhs` and `asciinema` won't work, they render in `ttyd` which doesn't speak the protocol. Logos show as garbled placeholder boxes or fall back to emoji.
 
 This skill captures the working pipeline: spin up a virtual X display, run real Kitty inside it (no monitor needed), drive the demo with `tmux send-keys`, and screen-record with `ffmpeg x11grab`.
 
@@ -26,12 +28,12 @@ This skill captures the working pipeline: spin up a virtual X display, run real 
 
 | Tool | Purpose | Install |
 |---|---|---|
-| `cage` | Headless wlroots compositor (preferred over weston — speaks `wlr-screencopy`) | `sudo apt install cage` |
+| `cage` | Headless wlroots compositor (preferred over weston, speaks `wlr-screencopy`) | `sudo apt install cage` |
 | `wf-recorder` | Wayland screen capture (needs wlroots compositor) | `sudo apt install wf-recorder` |
 | `grim` | Wayland screenshot (for preflight checks) | `sudo apt install grim` |
-| `kitty` | Terminal with graphics protocol — renders brand PNGs inline | already there |
+| `kitty` | Terminal with graphics protocol, renders brand PNGs inline | already there |
 | `tmux` | Drives the demo via `send-keys` (works on any display protocol) | already there |
-| `/usr/bin/ffmpeg` (apt) | Used to convert mp4→gif. Nix's `ffmpeg` lacks `x11grab`/`palettegen` features sometimes — apt build is safer. | `sudo apt install ffmpeg` |
+| `/usr/bin/ffmpeg` (apt) | Used to convert mp4→gif. Nix's `ffmpeg` lacks `x11grab`/`palettegen` features sometimes, apt build is safer. | `sudo apt install ffmpeg` |
 | `tesseract` | OCR for auto-redaction. Returns bounding boxes per word/line. | `sudo apt install tesseract-ocr tesseract-ocr-eng` |
 | `ollama` + `moondream` | Optional: fast vision Q&A ("is the splash visible yet?") | `ollama pull moondream` |
 | `opencv-python`, `scenedetect`, `numpy`, `pillow` | Vision scripting in `~/.venvs/video` (or similar) | `pip install opencv-python-headless scenedetect numpy pillow` |
@@ -52,9 +54,9 @@ Xvfb :99 → kitty (--start-as=fullscreen, attached to tmux session)
 
 ## Key parameters that matter
 
-1. **Strip cue/claude env vars before launching the inner shell** — `unset CUE_LAUNCHING CLAUDE_CONFIG_DIR CLAUDECODE CLAUDE_CODE_SESSION_ID CLAUDE_EFFORT AI_AGENT CODEX_HOME`. Otherwise the shim's recursion guard fires the moment you type `claude`.
+1. **Strip cue/claude env vars before launching the inner shell**, `unset CUE_LAUNCHING CLAUDE_CONFIG_DIR CLAUDECODE CLAUDE_CODE_SESSION_ID CLAUDE_EFFORT AI_AGENT CODEX_HOME`. Otherwise the shim's recursion guard fires the moment you type `claude`.
 
-2. **PATH ordering inside the inner shell.** `~/.local/bin` (shim) must come first so `claude` resolves to the shim; the real binary (e.g. `~/.nvm/versions/node/<v>/bin`) must come next so `cue launch` can `exec` it. nvm-installed binaries are NOT inherited by ttyd's bash — set PATH explicitly.
+2. **PATH ordering inside the inner shell.** `~/.local/bin` (shim) must come first so `claude` resolves to the shim; the real binary (e.g. `~/.nvm/versions/node/<v>/bin`) must come next so `cue launch` can `exec` it. nvm-installed binaries are NOT inherited by ttyd's bash, set PATH explicitly.
 
 3. **tmux passthrough for Kitty graphics.** Inner tmux config needs:
    ```
@@ -64,9 +66,9 @@ Xvfb :99 → kitty (--start-as=fullscreen, attached to tmux session)
    ```
    Plus `export TERM=xterm-kitty` and `export CUE_KITTY=1` inside the tmux pane so cue uses the kitty path through tmux.
 
-4. **Kitty must fill the Xvfb display.** Use `--start-as=fullscreen` (no WM needed). If that fails on a minimal Xvfb, `xdotool search --class <cls> windowsize <W> <H>` as a fallback. Without this, kitty opens at 80×24 in a corner and ffmpeg captures mostly blank pixels — the GIF comes out ~20 KB instead of ~1 MB.
+4. **Kitty must fill the Xvfb display.** Use `--start-as=fullscreen` (no WM needed). If that fails on a minimal Xvfb, `xdotool search --class <cls> windowsize <W> <H>` as a fallback. Without this, kitty opens at 80×24 in a corner and ffmpeg captures mostly blank pixels, the GIF comes out ~20 KB instead of ~1 MB.
 
-5. **Kitty option values are raw — never `px`.** `--override initial_window_width=1500`, not `1500px`. The parser rejects the suffix and kitty silently fails to start; xdotool then finds no window and ffmpeg records the empty Xvfb root.
+5. **Kitty option values are raw, never `px`.** `--override initial_window_width=1500`, not `1500px`. The parser rejects the suffix and kitty silently fails to start; xdotool then finds no window and ffmpeg records the empty Xvfb root.
 
 6. **Verify before recording.** After kitty launches, grab a single frame:
    ```bash
@@ -170,10 +172,10 @@ Pathological capture (means kitty didn't render to Xvfb):
 ## Workflow
 
 1. Verify tools: `which Xvfb xdotool kitty tmux && /usr/bin/ffmpeg -devices | grep x11`
-2. Copy the skeleton from [`scripts/record-demo-kitty.sh`](../../../../../scripts/record-demo-kitty.sh) — adapt the demo commands
+2. Copy the skeleton from [`scripts/record-demo-kitty.sh`](../../../../../scripts/record-demo-kitty.sh), adapt the demo commands
 3. Test-run; check the preflight screenshot is non-empty
-4. Iterate on timing — pickers and Claude Code splash both need 2–3 s headroom
-5. Commit both the script and the resulting GIF — re-running gives byte-identical output for a fixed tape
+4. Iterate on timing, pickers and Claude Code splash both need 2–3 s headroom
+5. Commit both the script and the resulting GIF, re-running gives byte-identical output for a fixed tape
 
 ## Auto-redaction with the cue-tty-watch MCP
 
@@ -209,5 +211,5 @@ Then convert the redacted mp4 → gif with the standard 2-pass palette pipeline.
 Why this beats the manual approach:
 - No more 3-phase time-gated drawboxes that leak at transitions
 - Adapts automatically to any future demo (different fonts, scroll speeds, splash layouts)
-- Handles boundaries cleanly — text disappears one frame, box disappears the next
+- Handles boundaries cleanly, text disappears one frame, box disappears the next
 - Works for ANY moving sensitive text, not just the email row

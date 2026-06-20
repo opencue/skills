@@ -2,6 +2,7 @@
 name: "playwright"
 description: >-
   Use when user says "Playwright", "browser test", or "snapshot". Navigation, locators, screenshots, assertions.
+category: content
 ---
 
 

@@ -20,12 +20,13 @@ hooks:
         - type: command
           command: "bash ${CLAUDE_SKILL_DIR}/bin/check-careful.sh"
           statusMessage: "Checking for destructive commands..."
+category: gstack
 ---
-# /careful — Destructive Command Guardrails
+# /careful, Destructive Command Guardrails
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
 Safety mode is now **active**. Every bash command will be checked for destructive

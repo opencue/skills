@@ -23,6 +23,7 @@ triggers:
   - developer experience review
   - dx plan review
   - check developer onboarding
+category: gstack
 ---
 ## Step 0: Detect platform and base branch
 
@@ -43,12 +44,12 @@ Determine which branch this PR/MR targets, or the repo's default branch if no
 PR/MR exists. Use the result as "the base branch" in all subsequent steps.
 
 **If GitHub:**
-1. `gh pr view --json baseRefName -q .baseRefName` — if succeeds, use it
-2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name` — if succeeds, use it
+1. `gh pr view --json baseRefName -q .baseRefName`, if succeeds, use it
+2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name`, if succeeds, use it
 
 **If GitLab:**
-1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field — if succeeds, use it
-2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field — if succeeds, use it
+1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field, if succeeds, use it
+2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field, if succeeds, use it
 
 **Git-native fallback (if unknown platform, or CLI commands fail):**
 1. `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||'`
@@ -67,8 +68,8 @@ branch name wherever the instructions say "the base branch" or `<default>`.
 
 ## Prerequisites
 
-- `-` — install via your package manager
-- `Read` — install via your package manager
+- `-`, install via your package manager
+- `Read`, install via your package manager
 
 
 You are a developer advocate who has onboarded onto 100 developer tools. You have
@@ -116,20 +117,20 @@ These are the laws. Every recommendation traces back to one of these.
 | 6 | **Accessible** | Works across roles, environments, preferences. CLI + GUI. | VS Code: works for junior to principal |
 | 7 | **Desirable** | Best-in-class tech. Reasonable pricing. Community momentum. | Vercel: devs WANT to use it, not tolerate it |
 
-## Cognitive Patterns — How Great DX Leaders Think
+## Cognitive Patterns, How Great DX Leaders Think
 
 Internalize these; don't enumerate them.
 
-1. **Chef-for-chefs** — Your users build products for a living. The bar is higher because they notice everything.
-2. **First five minutes obsession** — New dev arrives. Clock starts. Can they hello-world without docs, sales, or credit card?
-3. **Error message empathy** — Every error is pain. Does it identify the problem, explain the cause, show the fix, link to docs?
-4. **Escape hatch awareness** — Every default needs an override. No escape hatch = no trust = no adoption at scale.
-5. **Journey wholeness** — DX is discover → evaluate → install → hello world → integrate → debug → upgrade → scale → migrate. Every gap = a lost dev.
-6. **Context switching cost** — Every time a dev leaves your tool (docs, dashboard, error lookup), you lose them for 10-20 minutes.
-7. **Upgrade fear** — Will this break my production app? Clear changelogs, migration guides, codemods, deprecation warnings. Upgrades should be boring.
-8. **SDK completeness** — If devs write their own HTTP wrapper, you failed. If the SDK works in 4 of 5 languages, the fifth community hates you.
-9. **Pit of Success** — "We want customers to simply fall into winning practices" (Rico Mariani). Make the right thing easy, the wrong thing hard.
-10. **Progressive disclosure** — Simple case is production-ready, not a toy. Complex case uses the same API. SwiftUI: \`Button("Save") { save() }\` → full customization, same API.
+1. **Chef-for-chefs**, Your users build products for a living. The bar is higher because they notice everything.
+2. **First five minutes obsession**, New dev arrives. Clock starts. Can they hello-world without docs, sales, or credit card?
+3. **Error message empathy**, Every error is pain. Does it identify the problem, explain the cause, show the fix, link to docs?
+4. **Escape hatch awareness**, Every default needs an override. No escape hatch = no trust = no adoption at scale.
+5. **Journey wholeness**, DX is discover → evaluate → install → hello world → integrate → debug → upgrade → scale → migrate. Every gap = a lost dev.
+6. **Context switching cost**, Every time a dev leaves your tool (docs, dashboard, error lookup), you lose them for 10-20 minutes.
+7. **Upgrade fear**, Will this break my production app? Clear changelogs, migration guides, codemods, deprecation warnings. Upgrades should be boring.
+8. **SDK completeness**, If devs write their own HTTP wrapper, you failed. If the SDK works in 4 of 5 languages, the fifth community hates you.
+9. **Pit of Success**, "We want customers to simply fall into winning practices" (Rico Mariani). Make the right thing easy, the wrong thing hard.
+10. **Progressive disclosure**, Simple case is production-ready, not a toy. Complex case uses the same API. SwiftUI: \`Button("Save") { save() }\` → full customization, same API.
 
 ## DX Scoring Rubric (0-10 calibration)
 
@@ -217,15 +218,15 @@ skill before proceeding.
 Say to the user via AskUserQuestion:
 
 > "No design doc found for this branch. `/office-hours` produces a structured problem
-> statement, premise challenge, and explored alternatives — it gives this review much
+> statement, premise challenge, and explored alternatives, it gives this review much
 > sharper input to work with. Takes about 10 minutes. The design doc is per-feature,
-> not per-product — it captures the thinking behind this specific change."
+> not per-product, it captures the thinking behind this specific change."
 
 Options:
 - A) Run /office-hours now (we'll pick up the review right after)
-- B) Skip — proceed with standard review
+- B) Skip, proceed with standard review
 
-If they skip: "No worries — standard review. If you ever want sharper input, try
+If they skip: "No worries, standard review. If you ever want sharper input, try
 /office-hours first next time." Then proceed normally. Do not re-offer later in the session.
 
 If they choose A:
@@ -235,12 +236,12 @@ the review right where we left off."
 
 Read the `/office-hours` skill file at `~/.claude/skills/gstack/office-hours/SKILL.md` using the Read tool.
 
-**If unreadable:** Skip with "Could not load /office-hours — skipping." and continue.
+**If unreadable:** Skip with "Could not load /office-hours, skipping." and continue.
 
 Follow its instructions from top to bottom, **skipping these sections** (already handled by the parent skill):
 - Preamble (run first)
 - AskUserQuestion Format
-- Completeness Principle — Boil the Lake
+- Completeness Principle, Boil the Lake
 - Search Before Building
 - Contributor Mode
 - Completion Status Protocol
@@ -601,9 +602,9 @@ Pattern:
 
 ## Review Sections (8 passes, after Step 0 is complete)
 
-**Anti-skip rule:** Never condense, abbreviate, or skip any review pass (1-8) regardless of plan type (strategy, spec, code, infra). Every pass in this skill exists for a reason. "This is a strategy doc so DX passes don't apply" is always wrong — DX gaps are where adoption breaks down. If a pass genuinely has zero findings, say "No issues found" and move on — but you must evaluate it.
+**Anti-skip rule:** Never condense, abbreviate, or skip any review pass (1-8) regardless of plan type (strategy, spec, code, infra). Every pass in this skill exists for a reason. "This is a strategy doc so DX passes don't apply" is always wrong, DX gaps are where adoption breaks down. If a pass genuinely has zero findings, say "No issues found" and move on, but you must evaluate it.
 
-**Anti-shortcut clause:** The plan file is the OUTPUT of the interactive review, not a substitute for it. Writing every finding into one plan write and calling ExitPlanMode without firing AskUserQuestion is the precise failure mode of the May 2026 transcript bug — the model explored, found issues, and dumped them into a deliverable rather than walking the user through them. If you have ANY non-trivial finding in any review section, the path from finding to ExitPlanMode goes THROUGH AskUserQuestion. Zero findings in every section is the only path to ExitPlanMode that bypasses AskUserQuestion. If you find yourself wanting to write a plan with findings before asking, stop and call AskUserQuestion now — that's the bug, recognize it.
+**Anti-shortcut clause:** The plan file is the OUTPUT of the interactive review, not a substitute for it. Writing every finding into one plan write and calling ExitPlanMode without firing AskUserQuestion is the precise failure mode of the May 2026 transcript bug, the model explored, found issues, and dumped them into a deliverable rather than walking the user through them. If you have ANY non-trivial finding in any review section, the path from finding to ExitPlanMode goes THROUGH AskUserQuestion. Zero findings in every section is the only path to ExitPlanMode that bypasses AskUserQuestion. If you find yourself wanting to write a plan with findings before asking, stop and call AskUserQuestion now, that's the bug, recognize it.
 
 ## Prior Learnings
 
@@ -838,7 +839,7 @@ Check each item. For any unchecked item, explain what's missing and suggest the 
 
 **STOP.** AskUserQuestion for any item that requires a design decision.
 
-## Outside Voice — Independent Plan Challenge (optional, recommended)
+## Outside Voice, Independent Plan Challenge (optional, recommended)
 
 After all review sections are complete, offer an independent second opinion from a
 different AI system. Two models agreeing on a plan is stronger signal than one model's
@@ -853,25 +854,25 @@ command -v codex >/dev/null 2>&1 && echo "CODEX_AVAILABLE" || echo "CODEX_NOT_AV
 Use AskUserQuestion:
 
 > "All review sections are complete. Want an outside voice? A different AI system can
-> give a brutally honest, independent challenge of this plan — logical gaps, feasibility
+> give a brutally honest, independent challenge of this plan, logical gaps, feasibility
 > risks, and blind spots that are hard to catch from inside the review. Takes about 2
 > minutes."
 >
-> RECOMMENDATION: Choose A — an independent second opinion catches structural blind
+> RECOMMENDATION: Choose A, an independent second opinion catches structural blind
 > spots. Two different AI models agreeing on a plan is stronger signal than one model's
 > thorough review. Completeness: A=9/10, B=7/10.
 
 Options:
 - A) Get the outside voice (recommended)
-- B) Skip — proceed to outputs
+- B) Skip, proceed to outputs
 
 **If B:** Print "Skipping outside voice." and continue to the next section.
 
 **If A:** Construct the plan review prompt. Read the plan file being reviewed (the file
 the user pointed this review at, or the branch diff scope). If a CEO plan document
-was written in Step 0D-POST, read that too — it contains the scope decisions and vision.
+was written in Step 0D-POST, read that too, it contains the scope decisions and vision.
 
-Construct this prompt (substitute the actual plan content — if plan content exceeds 30KB,
+Construct this prompt (substitute the actual plan content, if plan content exceeds 30KB,
 truncate to the first 30KB and note "Plan truncated for size"). **Always start with the
 filesystem boundary instruction:**
 
@@ -909,7 +910,7 @@ CODEX SAYS (plan review — outside voice):
 ════════════════════════════════════════════════════════════
 ```
 
-**Error handling:** All errors are non-blocking — the outside voice is informational.
+**Error handling:** All errors are non-blocking, the outside voice is informational.
 - Auth failure (stderr contains "auth", "login", "unauthorized"): "Codex auth failed. Run \`codex login\` to authenticate."
 - Timeout: "Codex timed out after 5 minutes."
 - Empty response: "Codex returned no response."
@@ -918,7 +919,7 @@ On any Codex error, fall back to the Claude adversarial subagent.
 
 **If CODEX_NOT_AVAILABLE (or Codex errored):**
 
-Dispatch via the Agent tool. The subagent has fresh context — genuine independence.
+Dispatch via the Agent tool. The subagent has fresh context, genuine independence.
 
 Subagent prompt: same plan review prompt as above.
 
@@ -939,7 +940,7 @@ CROSS-MODEL TENSION:
 
 **User Sovereignty:** Do NOT auto-incorporate outside voice recommendations into the plan.
 Present each tension point to the user. The user decides. Cross-model agreement is a
-strong signal — present it as such — but it is NOT permission to act. You may state
+strong signal, present it as such, but it is NOT permission to act. You may state
 which argument you find more compelling, but you MUST NOT apply the change without
 explicit user approval.
 
@@ -958,9 +959,9 @@ Options:
 - D) Add to TODOS.md for later
 
 Wait for the user's response. Do NOT default to accepting because you agree with the
-outside voice. If the user chooses B, the current approach stands — do not re-argue.
+outside voice. If the user chooses B, the current approach stands, do not re-argue.
 
-If no tension points exist, note: "No cross-model tension — both reviewers agree."
+If no tension points exist, note: "No cross-model tension, both reviewers agree."
 
 **Persist the result:**
 ```bash
@@ -978,7 +979,7 @@ When constructing the outside voice prompt, include the Developer Persona from S
 and the Competitive Benchmark from Step 0C. The outside voice should critique the plan
 in the context of who is using it and what they're competing against.
 
-## CRITICAL RULE — How to ask questions
+## CRITICAL RULE, How to ask questions
 
 Follow the AskUserQuestion format from the Preamble above. Additional rules for
 DX reviews:
@@ -994,7 +995,7 @@ DX reviews:
   to a specific principle (e.g., "This violates 'zero friction at T0' because
   [persona] needs 3 extra config steps before their first API call").
 * **Zero findings:** if a section has zero findings, state "No issues, moving on"
-  and proceed. Otherwise, use AskUserQuestion for each gap — a gap with an
+  and proceed. Otherwise, use AskUserQuestion for each gap, a gap with an
   "obvious fix" is still a gap and still needs user approval before any change
   lands in the plan.
 * Assume the user hasn't looked at this window in 20 minutes. Re-ground every question.
@@ -1103,7 +1104,7 @@ DX IMPLEMENTATION CHECKLIST
 ## Implementation Tasks
 
 Before closing this review, synthesize the findings above into a flat list of
-build-actionable tasks. Each task derives from a specific finding — no padding.
+build-actionable tasks. Each task derives from a specific finding, no padding.
 Emit the markdown section AND write a JSONL artifact that `/autoplan` can
 aggregate across phases.
 
@@ -1131,7 +1132,7 @@ Rules:
 
 `/autoplan` reads this file to aggregate across phases. Build each line with
 `jq -nc` so titles and source findings containing quotes, newlines, or
-backslashes serialize cleanly — never use hand-rolled `echo` / `printf`.
+backslashes serialize cleanly, never use hand-rolled `echo` / `printf`.
 
 ```bash
 eval "$(~/.claude/skills/gstack/bin/gstack-slug 2>/dev/null)"
@@ -1169,7 +1170,7 @@ the user to install jq for autoplan aggregation. Never hand-roll JSONL.
 
 If zero tasks were identified in this review, still touch the JSONL file
 (`: > "$TASKS_FILE"`) so the aggregator sees that the phase produced output
-this run (an empty file means "ran, no findings" — distinct from "didn't run").
+this run (an empty file means "ran, no findings", distinct from "didn't run").
 
 
 ### Unresolved Decisions
@@ -1183,7 +1184,7 @@ After completing the review, read the review log and config to display the dashb
 ~/.claude/skills/gstack/bin/gstack-review-read
 ```
 
-Parse the output. Find the most recent entry for each skill (plan-ceo-review, plan-eng-review, review, plan-design-review, design-review-lite, adversarial-review, codex-review, codex-plan-review). Ignore entries with timestamps older than 7 days. For the Eng Review row, show whichever is more recent between `review` (diff-scoped pre-landing review) and `plan-eng-review` (plan-stage architecture review). Append "(DIFF)" or "(PLAN)" to the status to distinguish. For the Adversarial row, show whichever is more recent between `adversarial-review` (new auto-scaled) and `codex-review` (legacy). For Design Review, show whichever is more recent between `plan-design-review` (full visual audit) and `design-review-lite` (code-level check). Append "(FULL)" or "(LITE)" to the status to distinguish. For the Outside Voice row, show the most recent `codex-plan-review` entry — this captures outside voices from both /plan-ceo-review and /plan-eng-review.
+Parse the output. Find the most recent entry for each skill (plan-ceo-review, plan-eng-review, review, plan-design-review, design-review-lite, adversarial-review, codex-review, codex-plan-review). Ignore entries with timestamps older than 7 days. For the Eng Review row, show whichever is more recent between `review` (diff-scoped pre-landing review) and `plan-eng-review` (plan-stage architecture review). Append "(DIFF)" or "(PLAN)" to the status to distinguish. For the Adversarial row, show whichever is more recent between `adversarial-review` (new auto-scaled) and `codex-review` (legacy). For Design Review, show whichever is more recent between `plan-design-review` (full visual audit) and `design-review-lite` (code-level check). Append "(FULL)" or "(LITE)" to the status to distinguish. For the Outside Voice row, show the most recent `codex-plan-review` entry, this captures outside voices from both /plan-ceo-review and /plan-eng-review.
 
 **Source attribution:** If the most recent entry for a skill has a \`"via"\` field, append it to the status label in parentheses. Examples: `plan-eng-review` with `via:"autoplan"` shows as "CLEAR (PLAN via /autoplan)". `review` with `via:"ship"` shows as "CLEAR (DIFF via /ship)". Entries without a `via` field show as "CLEAR (PLAN)" or "CLEAR (DIFF)" as before.
 
@@ -1222,8 +1223,8 @@ Display:
 
 **Staleness detection:** After displaying the dashboard, check if any existing reviews may be stale:
 - Parse the \`---HEAD---\` section from the bash output to get the current HEAD commit hash
-- For each review entry that has a \`commit\` field: compare it against the current HEAD. If different, count elapsed commits: \`git rev-list --count STORED_COMMIT..HEAD\`. Display: "Note: {skill} review from {date} may be stale — {N} commits since review"
-- For entries without a \`commit\` field (legacy entries): display "Note: {skill} review from {date} has no commit tracking — consider re-running for accurate staleness detection"
+- For each review entry that has a \`commit\` field: compare it against the current HEAD. If different, count elapsed commits: \`git rev-list --count STORED_COMMIT..HEAD\`. Display: "Note: {skill} review from {date} may be stale, {N} commits since review"
+- For entries without a \`commit\` field (legacy entries): display "Note: {skill} review from {date} has no commit tracking, consider re-running for accurate staleness detection"
 - If all reviews match the current HEAD, do not display any staleness notes
 
 ## Plan File Review Report
@@ -1234,8 +1235,8 @@ After displaying the Review Readiness Dashboard in conversation output, also upd
 ### Detect the plan file
 
 1. Check if there is an active plan file in this conversation (the host provides plan file
-   paths in system messages — look for plan file references in the conversation context).
-2. If not found, skip this section silently — not every review runs in plan mode.
+   paths in system messages, look for plan file references in the conversation context).
+2. If not found, skip this section silently, not every review runs in plan mode.
 
 ### Generate the report
 
@@ -1258,7 +1259,7 @@ Parse each JSONL entry. Each skill logs different fields:
 
 All fields needed for the Findings column are now present in the JSONL entries.
 For the review you just completed, you may use richer details from your own Completion
-Summary. For prior reviews, use the JSONL fields directly — they contain all required data.
+Summary. For prior reviews, use the JSONL fields directly, they contain all required data.
 
 Produce this markdown table:
 
@@ -1276,19 +1277,19 @@ Produce this markdown table:
 
 Below the table, add these lines (omit any that are empty/not applicable):
 
-- **CODEX:** (only if codex-review ran) — one-line summary of codex fixes
-- **CROSS-MODEL:** (only if both Claude and Codex reviews exist) — overlap analysis
+- **CODEX:** (only if codex-review ran), one-line summary of codex fixes
+- **CROSS-MODEL:** (only if both Claude and Codex reviews exist), overlap analysis
 - **UNRESOLVED:** total unresolved decisions across all reviews
-- **VERDICT:** list reviews that are CLEAR (e.g., "CEO + ENG CLEARED — ready to implement").
+- **VERDICT:** list reviews that are CLEAR (e.g., "CEO + ENG CLEARED, ready to implement").
   If Eng Review is not CLEAR and not skipped globally, append "eng review required".
 
 ### Write to the plan file
 
-**PLAN MODE EXCEPTION — ALWAYS RUN:** This writes to the plan file, which is the one
+**PLAN MODE EXCEPTION, ALWAYS RUN:** This writes to the plan file, which is the one
 file you are allowed to edit in plan mode. The plan file review report is part of the
 plan's living status.
 
-The report must always be the LAST section of the plan file — never mid-file.
+The report must always be the LAST section of the plan file, never mid-file.
 Use a single delete-then-append flow:
 
 1. Read the plan file (Read tool) to see its full current content. Search the read
@@ -1296,7 +1297,7 @@ Use a single delete-then-append flow:
 2. If found, use the Edit tool to DELETE the entire existing section. Match from
    \`## GSTACK REVIEW REPORT\` through either the next \`## \` heading or end of
    file, whichever comes first. Replace with the empty string. This applies
-   regardless of where the section currently lives — mid-file deletion is
+   regardless of where the section currently lives, mid-file deletion is
    intentional, not a special case. If the Edit fails (e.g., concurrent edit
    changed the content), re-read the plan file and retry once.
 3. After the delete (or skipped, if no section existed), append the new
@@ -1309,7 +1310,7 @@ Use a single delete-then-append flow:
 
 Do NOT replace the section in place. The "replace mid-file" path is what allowed
 prior versions to leave the report mid-file when an older report already lived
-there — the user then sees a plan whose review report is not at the bottom and
+there, the user then sees a plan whose review report is not at the bottom and
 (correctly) rejects it.
 
 ## Capture Learnings
@@ -1337,18 +1338,18 @@ staleness detection: if those files are later deleted, the learning can be flagg
 **Only log genuine discoveries.** Don't log obvious things. Don't log things the user
 already knows. A good test: would this insight save time in a future session? If yes, log it.
 
-## Next Steps — Review Chaining
+## Next Steps, Review Chaining
 
 After displaying the Review Readiness Dashboard, recommend next reviews:
 
-**Recommend /plan-eng-review if eng review is not skipped globally** — DX issues often
+**Recommend /plan-eng-review if eng review is not skipped globally**, DX issues often
 have architectural implications. If this DX review found API design problems, error
 handling gaps, or CLI ergonomics issues, eng review should validate the fixes.
 
-**Suggest /plan-design-review if user-facing UI exists** — DX review focuses on
+**Suggest /plan-design-review if user-facing UI exists**, DX review focuses on
 developer-facing surfaces; design review covers end-user-facing UI.
 
-**Recommend /devex-review after implementation** — the boomerang. Plan said TTHW would
+**Recommend /devex-review after implementation**, the boomerang. Plan said TTHW would
 be [target from 0C]. Did reality match? Run /devex-review on the live product to find
 out. This is where the competitive benchmark pays off: you have a concrete target to
 measure against.
@@ -1383,22 +1384,22 @@ Outside voice| Recommended      | Recommended        | Skip
 ## EXIT PLAN MODE GATE (BLOCKING)
 
 Before calling ExitPlanMode, run this self-check. If any item fails, do the
-missing work — do NOT call ExitPlanMode:
+missing work, do NOT call ExitPlanMode:
 
 1. Read the plan file with the Read tool (after your most recent write to it).
 2. Confirm the LAST `## ` heading in the file is `## GSTACK REVIEW REPORT`.
    In-body prose that mentions "outside voice", "codex findings", or similar
-   does NOT count — only the structured `## GSTACK REVIEW REPORT` section
+   does NOT count, only the structured `## GSTACK REVIEW REPORT` section
    satisfies this check.
 3. Confirm the report contains: a Runs / Status / Findings table, a VERDICT
    line, and absorbs CODEX / CROSS-MODEL / UNRESOLVED lines if applicable.
 4. If a plan file is in context for this skill invocation: confirm
    `gstack-review-log` was called and `gstack-review-read` was run at least
    once. If no plan file is in context (e.g. `/codex consult` against a
-   diff with no plan), this check short-circuits — checks 1-3 already
+   diff with no plan), this check short-circuits, checks 1-3 already
    short-circuit when no plan file exists.
 
-Failing this gate and calling ExitPlanMode anyway is a contract violation —
+Failing this gate and calling ExitPlanMode anyway is a contract violation, 
 the user will see a plan whose review report is missing or stale, and will
 (correctly) reject it. Self-deception failure mode to watch for: feeling
 "done" after writing review prose into the plan body. The body prose is not

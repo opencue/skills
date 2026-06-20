@@ -9,7 +9,7 @@ tags: [video, cinematic, film, production]
 category: video
 version: 1.0.0
 requires_mcps: [Higgsfield]
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # Cinematic Flow
@@ -23,7 +23,7 @@ Generate professional cinematic video using Higgsfield Cinema Studio 3.5.
 - User wants professional production-quality video
 - User mentions specific camera movements or film techniques
 
-## Step 1 — Scene breakdown
+## Step 1, Scene breakdown
 
 Decompose the concept into shots:
 
@@ -33,7 +33,7 @@ Decompose the concept into shots:
 | **Duration** | 15s (social), 30s (ad), 60s (short), 3-5min (film) |
 | **Aspect** | 16:9 (cinema), 2.39:1 (anamorphic), 9:16 (vertical) |
 
-## Step 2 — Apply MCSLA formula per shot
+## Step 2, Apply MCSLA formula per shot
 
 For each shot, define:
 
@@ -54,13 +54,13 @@ bokeh behind. Action: She turns to face camera, expression shifts from
 worry to determination.
 ```
 
-## Step 3 — Character consistency via Soul ID
+## Step 3, Character consistency via Soul ID
 
 - Create character sheet (front, side, back views)
 - Lock Soul ID before generating any shots
 - Reference Soul ID in every prompt for the same character
 
-## Step 4 — Production settings
+## Step 4, Production settings
 
 ```
 Cinema Studio 3.5 settings:
@@ -70,7 +70,7 @@ Cinema Studio 3.5 settings:
   Motion: Cinematic (24fps feel, natural motion blur)
 ```
 
-## Step 5 — Sequence assembly
+## Step 5, Sequence assembly
 
 Output a shot list with timing:
 

@@ -3,18 +3,19 @@ name: account-structure-review
 description: Use when user says "review my account structure", "audit my campaign structure", "am I over-segmented", "consolidate my campaigns", "too many campaigns", "fix my ad account structure". Evaluates your campaign and ad set structure against your actual goals and budget. Flags over-segmentation that fragments your data, under-segmentation that hides performance differences, budget allocation issues, and consolidation opportunities that would improve algorithmic delivery and your ability to optimize.
 metadata:
   platform: Google and Meta
+category: marketing
 ---
 
-# 17/ Account Structure Review — Google + Meta
+# 17/ Account Structure Review, Google + Meta
 
 ## What it does
 Evaluates your campaign and ad set structure against your actual goals and budget. Flags over-segmentation that fragments your data, under-segmentation that hides performance differences, budget allocation issues, and consolidation opportunities that would improve algorithmic delivery and your ability to optimize.
 
 ## How it works
-Claude maps your entire account structure — campaigns, ad sets/ad groups, targeting, budgets, and bid strategies — and evaluates it against best practices for your specific situation. It considers conversion volume per campaign (enough for algorithms to learn), budget distribution (too many campaigns splitting too little budget), targeting overlap, and whether your structure supports clean testing and reporting.
+Claude maps your entire account structure, campaigns, ad sets/ad groups, targeting, budgets, and bid strategies, and evaluates it against best practices for your specific situation. It considers conversion volume per campaign (enough for algorithms to learn), budget distribution (too many campaigns splitting too little budget), targeting overlap, and whether your structure supports clean testing and reporting.
 
 ## Practical example
-Your Google Ads account has 34 search campaigns. Claude finds that 19 of them have fewer than 10 conversions per month — not enough for automated bidding to work. Twelve campaigns have daily budgets under $15, meaning they run out by noon. Three campaigns target nearly identical keyword sets in different geographies but could be consolidated with geo bid adjustments. Recommendation: consolidate down to 14 campaigns, which would give each campaign 25+ monthly conversions and $40+ daily budgets while maintaining clean reporting segments.
+Your Google Ads account has 34 search campaigns. Claude finds that 19 of them have fewer than 10 conversions per month, not enough for automated bidding to work. Twelve campaigns have daily budgets under $15, meaning they run out by noon. Three campaigns target nearly identical keyword sets in different geographies but could be consolidated with geo bid adjustments. Recommendation: consolidate down to 14 campaigns, which would give each campaign 25+ monthly conversions and $40+ daily budgets while maintaining clean reporting segments.
 
 ## What you get back
 - Full account structure map with performance metrics at each level

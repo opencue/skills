@@ -4,6 +4,7 @@ name: muapi-seedance-2
 version: "0.3.0"
 description: Expert Cinema Director skill for Seedance 2.0 (ByteDance) — high-fidelity video generation across Chinese, Global, and VIP tiers. Supports text-to-video, image-to-video, first-last-frame, omni reference, character training, omni-reference training, video editing, and watermark removal.
 acceptLicenseTerms: true
+category: media
 ---
 
 # 🎬 Seedance 2.0 Cinema Expert
@@ -13,8 +14,8 @@ Seedance 2.0 is not a descriptive model; it is an *instructional* model. It resp
 
 ## Core Competencies
 
-1.  **Text-to-Video (t2v)**: Generate cinematic video from a Director Brief — Chinese, Global, or VIP tier.
-2.  **Image-to-Video (i2v)**: Animate 1–9 reference images — Chinese, Global (smart mode), or VIP tier.
+1.  **Text-to-Video (t2v)**: Generate cinematic video from a Director Brief, Chinese, Global, or VIP tier.
+2.  **Image-to-Video (i2v)**: Animate 1–9 reference images, Chinese, Global (smart mode), or VIP tier.
 3.  **Video Extension (extend)**: Seamlessly continue an existing Seedance 2.0 video (Chinese tier).
 4.  **First & Last Frame (first-last)**: Interpolate a fluid video between a start image and end image (Global/VIP).
 5.  **Omni Reference (omni)**: Full multimodal reference with images + audio + character refs (all tiers).
@@ -44,8 +45,8 @@ Add `--fast` to any Global or VIP call to use the fast-queue variant (lower late
 | Images | ≤ 9 | ≤ 9 | jpeg, png, webp | 30 MB each |
 | Videos | ≤ 3 (omni only) | Not supported | mp4, mov | 50 MB each |
 | Audio | ≤ 3 | ≤ 3 | mp3, wav | 15 MB each |
-| **First-Last** | — | 1–2 images | jpeg, png, webp | 30 MB each |
-| **Video Edit** | 1 video + ≤ 9 imgs | — | mp4 ≤ 10 MB / 15s | — |
+| **First-Last** |, | 1–2 images | jpeg, png, webp | 30 MB each |
+| **Video Edit** | 1 video + ≤ 9 imgs |, | mp4 ≤ 10 MB / 15s |, |
 
 **Output**: 4–15 seconds, auto-generated sound, 480p–720p.
 
@@ -112,7 +113,7 @@ and action choreography, BGM references @Audio1, scene references @Image2
 
 ## 🏗️ Technical Specification: The Director Brief
 
-Structure prompts using this six-component hierarchy. Order matters — composition first, texture and micro-motion last:
+Structure prompts using this six-component hierarchy. Order matters, composition first, texture and micro-motion last:
 
 | Component | Instruction Type | Example |
 |:---|:---|:---|
@@ -121,9 +122,9 @@ Structure prompts using this six-component hierarchy. Order matters — composit
 | **Action** | Fluid Interaction | "Walking forward through the crowd, coat billowing slightly in the wind." |
 | **Camera** | Movement + Lens + Speed | "Medium tracking shot, 35mm lens, slow dolly backward over 6s. Subtle handheld jitter." |
 | **Audio** | Music + SFX + Ambience | "Low ambient hum, distant traffic, single piano note at 5s. No dialogue." |
-| **Pacing/Style** | Timing + Mood + Grade | "Cinematic epic, warm color grade, shallow DOF. Slow build — single action only, no scene cuts." |
+| **Pacing/Style** | Timing + Mood + Grade | "Cinematic epic, warm color grade, shallow DOF. Slow build, single action only, no scene cuts." |
 
-> **Seedance 2.0 generates audio natively.** Always include an Audio directive — even one sentence. Without it the model generates random ambient sound that may not match your scene.
+> **Seedance 2.0 generates audio natively.** Always include an Audio directive, even one sentence. Without it the model generates random ambient sound that may not match your scene.
 
 ### Time-Segmented Prompts (Recommended for 10s+ videos)
 Break prompts into timed segments for precise control:
@@ -168,13 +169,13 @@ Common negative additions:
 ### Advanced Techniques
 | Term | Description |
 |:---|:---|
-| Hitchcock zoom (dolly zoom) | Push in + zoom out — creates vertigo effect |
+| Hitchcock zoom (dolly zoom) | Push in + zoom out, creates vertigo effect |
 | Fisheye lens | Ultra-wide distorted lens |
 | Low angle / High angle | Camera below/above subject |
 | Bird's eye / Overhead | Top-down view |
-| First-person POV (FPV) | Immersive subjective camera from character/object's eyes — GoPro-style wide angle, forward motion, no cuts |
-| Drone flythrough | Cinematic aerial descent — gimbal-stabilized, sweeping lateral arc, DJI Inspire aesthetic |
-| Architectural flythrough | Ground-level continuous dolly through connected spaces — one-take, practical lighting |
+| First-person POV (FPV) | Immersive subjective camera from character/object's eyes, GoPro-style wide angle, forward motion, no cuts |
+| Drone flythrough | Cinematic aerial descent, gimbal-stabilized, sweeping lateral arc, DJI Inspire aesthetic |
+| Architectural flythrough | Ground-level continuous dolly through connected spaces, one-take, practical lighting |
 | Whip pan | Very fast horizontal pan with motion blur |
 | Crane shot | Vertical movement like a crane arm |
 
@@ -200,7 +201,7 @@ Common negative additions:
 4.  **Tag References**: If files provided, use: *"Replicate the camera movement of @video1 while maintaining the visual style of @image1."* (lowercase, 1-based index)
 5.  **ORDER MATTERS**: Tokens at the start define composition; tokens at the end define texture and micro-motion.
 6.  **Multi-Image i2v**: Provide up to 9 reference images. The model blends aspects (style, identity, environment) across all inputs.
-7.  **Audio is mandatory**: Seedance 2.0 generates audio natively. Always include an Audio line — music genre/tone, key SFX, ambient texture. Silent direction = random audio.
+7.  **Audio is mandatory**: Seedance 2.0 generates audio natively. Always include an Audio line, music genre/tone, key SFX, ambient texture. Silent direction = random audio.
 8.  **Single-beat discipline**: Each timed segment = one action. Cramming two narrative beats into 4s degrades physics and motion consistency.
 
 ---
@@ -412,19 +413,19 @@ and music tempo for beat-synced editing.
 
 ## ❌ Common Mistakes to Avoid
 
-1. **Vague references**: Don't say "reference @Video1" — specify WHAT to reference (camera? action? effects? rhythm?)
+1. **Vague references**: Don't say "reference @Video1", specify WHAT to reference (camera? action? effects? rhythm?)
 2. **Conflicting instructions**: Don't ask for "static camera" and "orbit shot" in the same segment.
-3. **Overloading**: Don't pack too many scenes into 4–5 seconds — keep it physically plausible.
+3. **Overloading**: Don't pack too many scenes into 4–5 seconds, keep it physically plausible.
 4. **Missing @ assignments**: If you upload 5 images, make sure each one is referenced with a clear purpose.
-5. **Ignoring audio**: Sound design dramatically improves output — always include audio direction.
+5. **Ignoring audio**: Sound design dramatically improves output, always include audio direction.
 6. **Forgetting duration**: Match prompt complexity to the selected generation length.
-7. **Real faces**: Don't upload real human photos — the system will block them.
+7. **Real faces**: Don't upload real human photos, the system will block them.
 8. **Keyword soup**: DO NOT use "8k, masterpiece, trending." Use technical descriptions instead.
 9. **Discontinuous action**: Avoid "The man runs and then he stops." Use fluid transitional language.
-10. **Missing audio direction**: Seedance 2.0 generates audio natively — always specify music tone, SFX, or ambience. Skipping it produces random sound.
+10. **Missing audio direction**: Seedance 2.0 generates audio natively, always specify music tone, SFX, or ambience. Skipping it produces random sound.
 11. **Narrative overload per segment**: Each timed segment should contain one action beat. Multiple scene changes in 4s produce degraded physics and motion artifacts.
-12. **FPV without continuous motion**: FPV requires a motion-rich environment to work — a static room with FPV intent will not trigger the immersive effect. Pair FPV with corridors, streets, natural terrain, or product flyovers.
-13. **Drone without a destination**: Drone shots need a resolve point — specify what the camera descends toward or arrives at. "Drone shot" alone produces aimless floating.
+12. **FPV without continuous motion**: FPV requires a motion-rich environment to work, a static room with FPV intent will not trigger the immersive effect. Pair FPV with corridors, streets, natural terrain, or product flyovers.
+13. **Drone without a destination**: Drone shots need a resolve point, specify what the camera descends toward or arrives at. "Drone shot" alone produces aimless floating.
 
 ---
 
@@ -616,7 +617,7 @@ bash ../../../../core/media/generate-video.sh --result "$REQUEST_ID"
 | `omni-train` | any | `seedance-2-omni-reference-train` |
 | `character` | any | `seedance-2-character` |
 | `video-edit` | chinese | `seedance-v2.0-video-edit` |
-| `watermark-remove` | — | `seedance-2.0-watermark-remover` / `seedance-2-video-watermark-remover-pro` |
+| `watermark-remove` |, | `seedance-2.0-watermark-remover` / `seedance-2-video-watermark-remover-pro` |
 
 ### Parameter Differences by Tier
 
@@ -624,7 +625,7 @@ bash ../../../../core/media/generate-video.sh --result "$REQUEST_ID"
 |:---|:---|:---|:---|
 | `aspect_ratio` | 16:9, 9:16, 4:3, 3:4 | + 21:9, 1:1 | + 21:9, 1:1 |
 | `duration` | 5 / 10 / 15 (enum) | 4–15 (any int) | 4–15 (any int) |
-| `quality` | basic / high | — (not supported) | — (not supported) |
+| `quality` | basic / high |, (not supported) |, (not supported) |
 | `video_files` (omni) | ✅ up to 3 | ❌ | ❌ |
 | `audio_files` (omni) | ✅ up to 3 | ✅ up to 3 | ✅ up to 3 |
 | Fast variant | ❌ | ✅ (`--fast`) | ✅ (`--fast`) |

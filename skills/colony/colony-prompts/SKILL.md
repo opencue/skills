@@ -2,6 +2,7 @@
 name: colony-prompts
 description: >-
   Use when user says "Colony prompts" or "Colony handoff". Prompt boundaries, task readiness, handoff wording for Colony.
+category: colony
 ---
 
 # Colony Planner Prompts
@@ -21,7 +22,7 @@ Direct triggers:
 - "wave plan for colony"
 - "scaffold prompts for the colony planner"
 
-Indirect — implies this skill:
+Indirect, implies this skill:
 - User just got a feature-integration recommendation (e.g. "best of mempalace
   → colony") and says "do a plan with N agents that can run in parallel"
 - "Can you add prompts so the planner can dispatch this work?"
@@ -31,14 +32,14 @@ Indirect — implies this skill:
 - Single-agent work, single-file fix, typo, version bump.
 - The user wants an OpenSpec change but no agent dispatch.
 - The user wants a doc, not executable agent prompts.
-- The work fits one `T0` lane — adding 15 prompts for a one-line fix is noise.
+- The work fits one `T0` lane, adding 15 prompts for a one-line fix is noise.
 
 ## Canonical paths
 
 - Planner prompts directory:
   `/home/deadpool/Documents/recodee/apps/frontend/public/colony-planner/prompts/`
 - File name shape: `agent-NN.md` (zero-padded only when ≤ 99; flat decimal
-  after that — match what's already there).
+  after that, match what's already there).
 - Status marker (read by the planner UI):
   `<!-- colony-planner-status: todo -->` flips to `done` only when the agent
   has merged proof.
@@ -85,9 +86,9 @@ Do not invent extra sections. The planner UI parses this shape literally.
 
 1. Read the directory once: list `agent-*.md` and find the highest number.
 2. Continue from `next = highest + 1`.
-3. Numbers are global across all themes — never reuse, never renumber.
+3. Numbers are global across all themes, never reuse, never renumber.
 4. The just-finished mempalace track lives at 230–244. Pick after the
-   current highest (verify before writing — other sessions may have added
+   current highest (verify before writing, other sessions may have added
    prompts since).
 
 ## Parallel-safety model
@@ -124,22 +125,22 @@ For an N-agent feature port (typical N = 10–20), default to 5 waves:
 | W5 | Conformance gate (single sequential agent) | 1 |
 
 The gate prompt is always last and always sequential. Model it on
-`scripts/check-symphony-conformance.ts` — the colony repo already has the
+`scripts/check-symphony-conformance.ts`, the colony repo already has the
 pattern.
 
 ## Required content per prompt
 
-- **Goal** — one verifiable outcome. Not "improve search" but "wire
+- **Goal**, one verifiable outcome. Not "improve search" but "wire
   applyTimeDecay into search/index.ts gated by `search.timeDecay.enabled`".
-- **Read** — the actual file paths the agent must read first. Include the
+- **Read**, the actual file paths the agent must read first. Include the
   upstream source file under `examples/<thing>/` when porting.
-- **Implement** — concrete file paths. Every line is an action. Include
+- **Implement**, concrete file paths. Every line is an action. Include
   explicit `DO NOT touch <file>` lines for any shared file claimed by a
   sibling agent in the same wave.
-- **Constraints** — `File ownership:` line listing exact paths, then the
+- **Constraints**, `File ownership:` line listing exact paths, then the
   invariants (perf budgets, backward-compat, local-first, no network calls,
   CLAUDE.md rule numbers).
-- **Proof** — exact commands. At minimum: one `pnpm --filter <pkg> test ...`
+- **Proof**, exact commands. At minimum: one `pnpm --filter <pkg> test ...`
   matching the agent's owned tests; one typecheck or build; one
   `git diff <owned-paths>`.
 
@@ -186,21 +187,21 @@ When the user invokes this skill:
    exists. List existing prompts to find the next number.
 2. **Read the source.** If the user references `examples/<thing>/`, read
    the README, CLAUDE.md, MISSION.md, ROADMAP.md (whichever exist) before
-   proposing a breakdown. Do not skim — the breakdown depends on
+   proposing a breakdown. Do not skim, the breakdown depends on
    understanding what's actually portable.
 3. **Propose a breakdown** in the chat first: list the candidate features,
    the ones to reject, and the ones to adopt. Group adopted features into
    waves with file-ownership invariants. Surface conflicts before writing
    files.
-4. **Get a quick confirm or proceed** — if the user already said "without
+4. **Get a quick confirm or proceed**, if the user already said "without
    stopping" or "just do it", continue.
 5. **Write all N prompts** in parallel `Write` tool calls (they're
    path-disjoint). Each file goes to
    `apps/frontend/public/colony-planner/prompts/agent-NN.md`.
 6. **Verify** with one `ls` confirming all files landed and sizes are
-   reasonable (1–3 KB each — much larger means the prompt is bloated).
+   reasonable (1–3 KB each, much larger means the prompt is bloated).
 7. **Reply with a wave map table** and the file-ownership invariants list.
-   Do not paste the prompts back — they're durable on disk.
+   Do not paste the prompts back, they're durable on disk.
 
 ## Working state
 

@@ -4,6 +4,7 @@ name: muapi-keyboard-art-maker
 version: "1.0.0"
 description: Generate artistic top-down photos of keyboard keycaps arranged to spell out custom text messages.
 acceptLicenseTerms: true
+category: media
 ---
 
 
@@ -15,16 +16,16 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `display_text` | text | yes | — | The text you want to spell out with keycaps (e.g., "WORKFLOWS ON VADOO AI"). |
+| `display_text` | text | yes |, | The text you want to spell out with keycaps (e.g., "WORKFLOWS ON VADOO AI"). |
 
 
 ## Steps
 
-### Phase A — Keyboard Art Generation
+### Phase A, Keyboard Art Generation
 
 Submit the plan with ONE step to generate the artistic keyboard image:
 
-1. **Keyboard Art Generation** — `muapi image generate` (model=`ideogram-v3-t2i`):
+1. **Keyboard Art Generation**, `muapi image generate` (model=`ideogram-v3-t2i`):
    - Prompt: `The photograph captures white keycaps, arranged neatly on a dusty black surface to spell "{{display_text}}". Each keycap displays a crisp black letter, with soft, diffused lighting highlighting the subtle shadows, creating a harmonious contrast between the keycaps and their backdrop, while the top-down shot ensures the phrase is clear and in perfect focus. There should be adequate spacing between words. Cinematic quality, professional studio lighting, 8k resolution.`
    - Aspect ratio: 1:1 or 4:3
 

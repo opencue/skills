@@ -1,16 +1,17 @@
 ---
 name: agentshield
 description: Use when the user asks to scan or audit a Claude Code / agent configuration for security issues — hardcoded secrets, overly-permissive Bash allow rules, hook injection, risky MCP servers, agent prompt-injection vectors — or mentions "agentshield", "scan my .claude", "audit my settings.json", "ecc-agentshield", or "miniclaw".
+category: security
 ---
 
-# AgentShield — security auditor for AI agent configurations
+# AgentShield, security auditor for AI agent configurations
 
 `ecc-agentshield` is a CLI scanner from [affaan-m/agentshield](https://github.com/affaan-m/agentshield) that audits `.claude/` directories, `settings.json`, `mcp.json`, hook scripts, and agent definitions for secrets, permission misconfigs, hook injection, MCP supply-chain risks, and prompt-injection vectors. Output is a graded report (A–F, 0–100) with severity-tagged findings.
 
 ## When to use
 
 - The user wants to **vet a Claude Code / Codex / agent config** before sharing, committing, or deploying it.
-- After installing a community plugin / skill / MCP — to verify the new surface didn't introduce a vulnerability.
+- After installing a community plugin / skill / MCP, to verify the new surface didn't introduce a vulnerability.
 - In CI on a PR that touches `.claude/`, `.codex/`, `settings.json`, `mcp.json`, hook scripts, or an `agents/` directory.
 - The user mentions the recent agent-marketplace incidents (12% malicious skills, 1.5M leaked tokens) and wants a baseline scan.
 
@@ -69,7 +70,7 @@ jobs:
 
 A GitHub App ([`ecc-tools`](https://github.com/apps/ecc-tools)) also exists for org-wide PR commenting.
 
-## MiniClaw — sandboxed agent execution server
+## MiniClaw, sandboxed agent execution server
 
 AgentShield ships a separate sub-tool (`miniclaw`) that runs Claude Code in a hardened HTTP sandbox with tool whitelisting, prompt sanitization, rate limiting, and CORS. Use when the user wants to expose Claude as an internal HTTP API without giving it full shell.
 
@@ -84,7 +85,7 @@ API + dashboard docs: `src/miniclaw/README.md` in the upstream repo.
 
 1. **Critical / high findings** are the only ones that should block a merge. Medium/low surface during a baseline audit.
 2. **Active-runtime** findings (`mcp.json`, `.claude/mcp.json`, `.claude.json`, active `settings.json`) are real exposure. **Template-example** findings (`mcp-configs/`, `config/mcp/`) are catalog risks, not active runtime.
-3. For hardcoded secrets, prefer `--fix` to auto-replace with `${ENV_VAR}` references — then move the actual value to a real env vault (e.g. envoult for Coolify projects).
+3. For hardcoded secrets, prefer `--fix` to auto-replace with `${ENV_VAR}` references, then move the actual value to a real env vault (e.g. envoult for Coolify projects).
 4. For `Bash(*)` rules, replace with narrow patterns: `Bash(git *)`, `Bash(npm *)`, `Bash(node *)`.
 5. For risky MCPs (`npx`-launched servers without pinned versions, broad filesystem access), pin a tag or sha and tighten the allowed root path.
 
@@ -109,7 +110,7 @@ Score Breakdown
 
 - General OWASP / web-app security review of application code → use the `security-review` skill instead.
 - Secret-scanning of arbitrary repos that have nothing to do with agent configs → use `gitleaks` / `trufflehog`.
-- Running it against `node_modules/` or generated dirs — AgentShield already skips these; don't override unless you have a reason.
+- Running it against `node_modules/` or generated dirs, AgentShield already skips these; don't override unless you have a reason.
 
 ## Upstream
 

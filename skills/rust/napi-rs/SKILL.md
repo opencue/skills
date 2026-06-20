@@ -2,9 +2,10 @@
 name: napi-rs
 description: Use when exposing Rust to Node.js — write a native addon via N-API. The path NextSwc, Parcel, and Prisma's query engine take.
 allowed-tools: Bash(cargo:*), Bash(napi:*), Bash(npm:*), Bash(node:*)
+category: rust
 ---
 
-# napi-rs — Rust → Node.js native addons
+# napi-rs, Rust → Node.js native addons
 
 Stable ABI (N-API), no rebuild on Node version bumps. Cross-platform binaries shipped via per-platform npm packages.
 
@@ -27,6 +28,6 @@ Stable ABI (N-API), no rebuild on Node version bumps. Cross-platform binaries sh
 - `@napi-rs/cli` (npm install -g or via npx)
 
 ## Notes
-- Async functions return Promises automatically — no manual `napi::JsFunction` wrapping needed.
+- Async functions return Promises automatically, no manual `napi::JsFunction` wrapping needed.
 - The N-API surface is small but stable; you don't get full V8 access (use `neon` if you need that, but neon is less stable across Node versions).
-- For pure-JS interop without native addons, look at `wasm-bindgen` + `wasm-pack --target nodejs` — slower but no per-platform binaries.
+- For pure-JS interop without native addons, look at `wasm-bindgen` + `wasm-pack --target nodejs`, slower but no per-platform binaries.

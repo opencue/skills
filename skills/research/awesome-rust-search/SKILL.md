@@ -6,6 +6,7 @@ description: >-
   Searches rust-unofficial/awesome-rust to recommend crates, CLIs, or apps by
   topic. NOT for crates.io version/maintenance checks — use `gh` instead. NOT
   for idiomatic Rust patterns — use std/rustdoc.
+category: research
 ---
 
 <!--
@@ -21,7 +22,7 @@ Recommend Rust open-source projects by searching the curated
 `rust-unofficial/awesome-rust` catalog. The list is a single markdown file
 (~2.3k lines) organized by top-level category (`Applications`, `Libraries`,
 `Development tools`, `Resources`) and sub-section (`Database`, `HTTP Client`,
-`TUI`, `Cryptography`, ...). Entries are one-line bullets — perfect for
+`TUI`, `Cryptography`, ...). Entries are one-line bullets, perfect for
 grep-and-shortlist.
 
 ## When to use
@@ -73,7 +74,7 @@ the same raw URL and grep its returned body.
 
 The catalog has a table of contents at the top with anchor links like
 `#http-client`, `#tui`, `#database`, `#machine-learning`. Glance at the
-TOC to pick the right section before grepping the whole file — entries
+TOC to pick the right section before grepping the whole file, entries
 appear under unambiguous headers and you'll get cleaner hits.
 
 ```sh
@@ -90,7 +91,7 @@ Entries are one bullet per line; surrounding context distinguishes
 rg -n --no-heading -i -B2 -A1 '<keyword>' "$CATALOG"
 ```
 
-For multi-intent searches, run several greps and merge — every match is
+For multi-intent searches, run several greps and merge, every match is
 a candidate. Look at the nearest preceding `##` or `*` header to know
 which section the bullet lives in.
 
@@ -136,7 +137,7 @@ If they say "I want a CLI to test HTTP endpoints" → applications section.
   GitHub repo via `gh repo view <owner>/<name>` instead of trusting the
   badge in the README.
 - The catalog skews toward popular and battle-tested projects. Very new
-  crates (under ~6 months old or low-star) may not be listed yet — fall
+  crates (under ~6 months old or low-star) may not be listed yet, fall
   back to `lib.rs` keyword search if the catalog comes up empty.
 
 ## Refreshing the cache

@@ -7,16 +7,17 @@ description: |
   Use when the user says "brainstorm this", "I have an idea", "help me think
   through", "office hours", "is this worth building", or describes a product
   idea before any code exists.
-allowed-tools: [Bash, Read, Grep, Glob, Write, Edit, AskUserQuestion, WebSearch]
+allowed-tools: Bash(Bash:*), Read, Grep, Glob, Write, Edit, AskUserQuestion, WebSearch
 triggers:
   - brainstorm this
   - is this worth building
   - help me think through
   - office hours
   - I have an idea
+category: plan
 ---
 
-# /office-hours — premise-questioning before code
+# /office-hours, premise-questioning before code
 
 Adapted from YC Office Hours methodology. Two modes:
 
@@ -39,7 +40,7 @@ AI. The model's job is to surface that mismatch.
 4. **Generate alternatives.** End with 3 implementation approaches at
    different scope levels, not just one.
 
-## Step 0 — detect mode
+## Step 0, detect mode
 
 Ask which mode applies:
 
@@ -48,13 +49,13 @@ Ask which mode applies:
 
 The questions are similar; tone shifts (startup is harsher on demand).
 
-## Step 1 — the six questions
+## Step 1, the six questions
 
 Ask one at a time, in order. Skip any the user already answered upstream.
 
 ### Q1. Demand reality
 > "Who specifically asked for this? Name the person or paste the message.
-> If nobody asked — what makes you sure the demand is real?"
+> If nobody asked, what makes you sure the demand is real?"
 
 If the answer is hypothetical ("I think people would want X"), push back:
 "That's a guess. What's the smallest version you could ship to find out
@@ -65,7 +66,7 @@ if you're right?"
 > step by step."
 
 If there is no workaround, demand may be weak. If the workaround is
-"nothing — they just live with it," the pain may not be real.
+"nothing, they just live with it," the pain may not be real.
 
 ### Q3. Desperate specificity
 > "Tell me the last specific incident. When, what triggered it, what did
@@ -85,7 +86,7 @@ too big.
 > "Once it's shipped, how do you know it's working? What's the one number
 > you'd check?"
 
-If there's no number, success is undefined — and the project will drift.
+If there's no number, success is undefined, and the project will drift.
 
 ### Q6. Future-fit
 > "If this works for 100 users, what breaks? Is the next thing on the
@@ -94,7 +95,7 @@ If there's no number, success is undefined — and the project will drift.
 
 Catch the "and-then-it-becomes-a-platform" hand-wave.
 
-## Step 2 — reframe back to the user
+## Step 2, reframe back to the user
 
 After Q6, summarize what you heard. Then **state the mismatch** if there
 is one:
@@ -104,11 +105,11 @@ is one:
 
 Three possible outcomes:
 
-1. **User agrees** — the reframe is the new working spec.
-2. **User disagrees** — they explain why X is right; you update your model.
-3. **User adjusts** — they pick something between X and Y.
+1. **User agrees**, the reframe is the new working spec.
+2. **User disagrees**, they explain why X is right; you update your model.
+3. **User adjusts**, they pick something between X and Y.
 
-## Step 3 — generate three implementation alternatives
+## Step 3, generate three implementation alternatives
 
 After the reframe, write three approaches at different scopes:
 
@@ -121,7 +122,7 @@ After the reframe, write three approaches at different scopes:
 For each: one sentence on what's in, one sentence on what's out, one
 sentence on the risk.
 
-## Step 4 — write the design doc
+## Step 4, write the design doc
 
 Save to `.cue/design-docs/<slug>-<YYYYMMDD>.md`. Format:
 
@@ -162,7 +163,7 @@ Save to `.cue/design-docs/<slug>-<YYYYMMDD>.md`. Format:
 <list any premises the user couldn't answer — these become followups>
 ```
 
-## Step 5 — hand off
+## Step 5, hand off
 
 After writing the doc, tell the user:
 

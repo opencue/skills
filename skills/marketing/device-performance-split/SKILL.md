@@ -3,9 +3,10 @@ name: device-performance-split
 description: 'Use when user says "mobile vs desktop performance", "device performance split", "why is mobile cpa so high", "device bid adjustments", "break down by device". Analyzes how your campaigns perform across mobile, desktop, and tablet. Identifies where device performance diverges significantly and recommends bid adjustments, campaign splits, or creative/landing page changes to capture the gap.'
 metadata:
   platform: Google and Meta
+category: marketing
 ---
 
-# 25/ Device Performance Split — Google + Meta
+# 25/ Device Performance Split, Google + Meta
 
 ## What it does
 Analyzes how your campaigns perform across mobile, desktop, and tablet. Identifies where device performance diverges significantly and recommends bid adjustments, campaign splits, or creative/landing page changes to capture the gap.

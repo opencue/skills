@@ -16,10 +16,11 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
   - Bash
   - Read
   - AskUserQuestion
+category: gstack
 ---
 ## Core patterns
 
-### 80% case — memo/letter
+### 80% case, memo/letter
 
 One command, no flags. Gets a clean PDF with running header + page numbers
 + CONFIDENTIAL footer by default.
@@ -29,7 +30,7 @@ $P generate letter.md                 # writes /tmp/letter.pdf
 $P generate letter.md letter.pdf      # explicit output path
 ```
 
-### Publication mode — cover + TOC + chapter breaks
+### Publication mode, cover + TOC + chapter breaks
 
 ```bash
 $P generate --cover --toc --author "Garry Tan" --title "On Horizons" \
@@ -134,9 +135,9 @@ exit code: 0 success / 1 bad args / 2 render error / 3 Paged.js timeout
            / 4 browse unavailable
 ```
 
-Capture the path: `PDF=$($P generate letter.md)` — then use `$PDF`.
+Capture the path: `PDF=$($P generate letter.md)`, then use `$PDF`.
 
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager

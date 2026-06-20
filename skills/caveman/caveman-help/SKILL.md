@@ -2,11 +2,12 @@
 name: caveman-help
 description: >-
   Use when user says "caveman help" or "caveman commands". Quick reference for Caveman modes, triggers, levels.
+category: caveman
 ---
 
 # Caveman Help
 
-Display this reference card when invoked. One-shot — do NOT change mode, write flag files, or persist anything. Output in caveman style.
+Display this reference card when invoked. One-shot, do NOT change mode, write flag files, or persist anything. Output in caveman style.
 
 ## Modes
 

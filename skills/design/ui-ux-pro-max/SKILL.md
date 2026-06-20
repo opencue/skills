@@ -2,6 +2,7 @@
 name: ui-ux-pro-max
 description: >-
   Use when user asks to "design", "build", "review", or "improve" UI/UX with vetted recommendations. Queries Python DB of 67 styles, 96 palettes, 57 font pairings, 99 UX guidelines, 25 chart types across 13 stacks.
+category: design
 ---
 # ui-ux-pro-max
 
@@ -74,8 +75,8 @@ python3 skills/ui-ux-pro-max/scripts/search.py "<query>" --design-system --persi
 ```
 
 This creates:
-- `design-system/MASTER.md` — Global Source of Truth with all design rules
-- `design-system/pages/` — Folder for page-specific overrides
+- `design-system/MASTER.md`, Global Source of Truth with all design rules
+- `design-system/pages/`, Folder for page-specific overrides
 
 **With page-specific override:**
 ```bash
@@ -83,7 +84,7 @@ python3 skills/ui-ux-pro-max/scripts/search.py "<query>" --design-system --persi
 ```
 
 This also creates:
-- `design-system/pages/dashboard.md` — Page-specific deviations from Master
+- `design-system/pages/dashboard.md`, Page-specific deviations from Master
 
 **How hierarchical retrieval works:**
 1. When building a specific page (e.g., "Checkout"), first check `design-system/pages/checkout.md`

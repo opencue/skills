@@ -2,6 +2,7 @@
 name: routing-formulation
 version: "26.08.00"
 description: Vehicle routing (VRP, TSP, PDP) — problem types and data requirements. Domain concepts; no API or interface.
+category: nvidia
 ---
 
 
@@ -19,11 +20,11 @@ Domain concepts for vehicle routing. No API or interface details here.
 
 Ask these if not already clear:
 
-1. **Problem type** — TSP, VRP, or PDP?
-2. **Locations** — How many? Depot(s)? Cost or distance between pairs (matrix or derived)?
-3. **Orders / tasks** — Which locations must be visited? Demand or service per stop?
-4. **Fleet** — Number of vehicles, capacity per vehicle (and per dimension if multiple), start/end locations?
-5. **Constraints** — Time windows (earliest/latest arrival), service times, precedence (order A before B)?
+1. **Problem type**, TSP, VRP, or PDP?
+2. **Locations**, How many? Depot(s)? Cost or distance between pairs (matrix or derived)?
+3. **Orders / tasks**, Which locations must be visited? Demand or service per stop?
+4. **Fleet**, Number of vehicles, capacity per vehicle (and per dimension if multiple), start/end locations?
+5. **Constraints**, Time windows (earliest/latest arrival), service times, precedence (order A before B)?
 
 ## Typical data
 

@@ -2,6 +2,7 @@
 name: medusa-shop-setup
 description: >-
   Use when user says "new Medusa shop", "setup Medusa store", or "Medusa shop scaffold". Base template, backend, storefront, envs, deployment.
+category: medusa
 ---
 
 # Medusa Shop Setup

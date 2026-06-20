@@ -2,9 +2,10 @@
 name: cuopt-numerical-optimization-api-c
 version: "26.08.00"
 description: LP, MILP, and QP (beta) with cuOpt — C API only. Use when the user is embedding LP, MILP, or QP in C/C++.
+category: nvidia
 ---
 
-# cuOpt Numerical Optimization — C API
+# cuOpt Numerical Optimization, C API
 
 Solve LP, MILP, and QP problems via the cuOpt C API. The same library, headers, build pattern, and core calls (`cuOptCreate*Problem`, `cuOptSolve`, `cuOptGetObjectiveValue`) apply across all three; QP extends the API with quadratic-objective creation calls.
 
@@ -18,11 +19,11 @@ For LP/MILP, the ordered C entry points are: `cuOptCreateRangedProblem` (sense `
 
 ## QP via C API (beta)
 
-QP uses the same library, include/lib paths, and build pattern as LP/MILP — only the problem-creation call differs (it accepts a quadratic objective). See the cuOpt C headers (`cpp/include/cuopt/linear_programming/`) for the QP-specific creation/solve calls and the repo docs at `docs/cuopt/source/cuopt-c/lp-qp-milp/` for end-to-end QP examples.
+QP uses the same library, include/lib paths, and build pattern as LP/MILP, only the problem-creation call differs (it accepts a quadratic objective). See the cuOpt C headers (`cpp/include/cuopt/linear_programming/`) for the QP-specific creation/solve calls and the repo docs at `docs/cuopt/source/cuopt-c/lp-qp-milp/` for end-to-end QP examples.
 
 **QP rules:**
 - **MINIMIZE only** (`CUOPT_MINIMIZE`). To maximize `f(x)`, negate objective coefficients and Q entries.
-- **Continuous variables only** — set `CUOPT_CONTINUOUS` for every variable; integer QP is not supported.
+- **Continuous variables only**, set `CUOPT_CONTINUOUS` for every variable; integer QP is not supported.
 - **Q should be PSD** for a convex problem.
 
 ## Debugging (MPS / C)
@@ -33,14 +34,14 @@ QP uses the same library, include/lib paths, and build pattern as LP/MILP — on
 
 ## Examples
 
-- [examples.md](resources/examples.md) — LP/MILP with build instructions
-- [assets/README.md](assets/README.md) — Build commands for all reference code below
-- [lp_basic](assets/lp_basic/) — Simple LP: create problem, solve, get solution
-- [lp_duals](assets/lp_duals/) — Dual values and reduced costs
-- [lp_warmstart](assets/lp_warmstart/) — PDLP warmstart (see README)
-- [milp_basic](assets/milp_basic/) — Simple MILP with integer variable
-- [milp_production_planning](assets/milp_production_planning/) — Production planning with resource constraints
-- [mps_solver](assets/mps_solver/) — Solve from MPS file via `cuOptReadProblem`
+- [examples.md](resources/examples.md), LP/MILP with build instructions
+- [assets/README.md](assets/README.md), Build commands for all reference code below
+- [lp_basic](assets/lp_basic/), Simple LP: create problem, solve, get solution
+- [lp_duals](assets/lp_duals/), Dual values and reduced costs
+- [lp_warmstart](assets/lp_warmstart/), PDLP warmstart (see README)
+- [milp_basic](assets/milp_basic/), Simple MILP with integer variable
+- [milp_production_planning](assets/milp_production_planning/), Production planning with resource constraints
+- [mps_solver](assets/mps_solver/), Solve from MPS file via `cuOptReadProblem`
 
 For **CLI** (MPS files), use `cuopt_cli` and product docs.
 

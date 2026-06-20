@@ -2,6 +2,7 @@
 name: coolify
 description: >-
   Use when user says "Coolify", "deploy backend", or "check deploy logs". Env vars, builds, restarts, logs, rollback.
+category: deployment
 ---
 
 # Coolify CLI Skill

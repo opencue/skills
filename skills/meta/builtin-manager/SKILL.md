@@ -1,4 +1,5 @@
 ---
+name: built-in-skill-manager
 description: "Manage built-in skills shared across every cue profile — promote, demote, list. Use when user says \"make X built-in\", \"add X to all profiles\", \"remove from built-in\", \"promote skill to built-in\", or \"what skills are built-in\". Also activates proactively when a skill has fired across 3+ profiles and should be promoted."
 tags: [meta, builtin, optimization]
 category: meta
@@ -29,7 +30,7 @@ A skill should be built-in if ALL of these are true:
 - Used in **3+ different profiles** (not just one)
 - Referenced in **10+ sessions** (check `cue skills rank`)
 - Is **generic** (not domain-specific like medusa/ or nvidia/)
-- Is **small** (<1500 tokens — built-ins add overhead to every session)
+- Is **small** (<1500 tokens, built-ins add overhead to every session)
 
 ## How to promote
 
@@ -60,7 +61,7 @@ Run `cue builtin` to see the list. These are in the `core` profile and inherited
 
 ## Rules
 
-- Never remove `nvidia/skill-evolution` — it's the self-improvement engine
-- Never remove `caveman/caveman` — it's the terse mode toggle
-- Ask the user before promoting/demoting — don't auto-modify
+- Never remove `nvidia/skill-evolution`, it's the self-improvement engine
+- Never remove `caveman/caveman`, it's the terse mode toggle
+- Ask the user before promoting/demoting, don't auto-modify
 - After changes, remind: "Run `/cue-reload` to apply"

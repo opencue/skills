@@ -31,12 +31,13 @@ hooks:
         - type: command
           command: "bash ${CLAUDE_SKILL_DIR}/../freeze/bin/check-freeze.sh"
           statusMessage: "Checking freeze boundary..."
+category: gstack
 ---
-# /guard — Full Safety Mode
+# /guard, Full Safety Mode
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
 Activates both destructive command warnings and directory-scoped edit restrictions.
@@ -52,7 +53,7 @@ by the gstack setup script).
 Ask the user which directory to restrict edits to. Use AskUserQuestion:
 
 - Question: "Guard mode: which directory should edits be restricted to? Destructive command warnings are always on. Files outside the chosen path will be blocked from editing."
-- Text input (not multiple choice) — the user types a path.
+- Text input (not multiple choice), the user types a path.
 
 Once the user provides a directory path:
 
@@ -74,8 +75,8 @@ echo "Freeze boundary set: $FREEZE_DIR"
 
 Tell the user:
 - "**Guard mode active.** Two protections are now running:"
-- "1. **Destructive command warnings** — rm -rf, DROP TABLE, force-push, etc. will warn before executing (you can override)"
-- "2. **Edit boundary** — file edits restricted to `<path>/`. Edits outside this directory are blocked."
+- "1. **Destructive command warnings**, rm -rf, DROP TABLE, force-push, etc. will warn before executing (you can override)"
+- "2. **Edit boundary**, file edits restricted to `<path>/`. Edits outside this directory are blocked."
 - "To remove the edit boundary, run `/unfreeze`. To deactivate everything, end the session."
 
 ## What's protected

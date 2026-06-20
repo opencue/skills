@@ -3,6 +3,7 @@ name: new-user
 description: >-
   Use when user says "new Medusa user", "create first admin", or "add user". CLI/API user creation, credentials.
 allowed-tools: Bash(npx medusa user:*)
+category: medusa
 ---
 
 # Create Admin User

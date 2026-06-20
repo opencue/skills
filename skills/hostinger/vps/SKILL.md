@@ -4,15 +4,16 @@ description: >-
   Use when user says "Hostinger VPS", "server deploy", or "VPS access". SSH, services, Docker, logs, health, safe ops.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
+category: hostinger
 ---
 
 # Hostinger VPS
 
-The VPS API provides comprehensive management of virtual private servers — from purchasing and setup to Docker deployments, firewall configuration, SSH keys, backups, snapshots, OS reinstallation, recovery mode, malware scanning, and performance monitoring.
+The VPS API provides comprehensive management of virtual private servers, from purchasing and setup to Docker deployments, firewall configuration, SSH keys, backups, snapshots, OS reinstallation, recovery mode, malware scanning, and performance monitoring.
 
-## Tool surface — prefer MCP
+## Tool surface, prefer MCP
 
-This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__VPS_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable — they are not the primary interface.
+This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__VPS_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable, they are not the primary interface.
 
 Available VPS tools (61 total), grouped by job:
 
@@ -52,7 +53,7 @@ Deploy and manage Docker Compose projects directly on VPS instances. Supports cr
 
 ### Firewalls
 
-Network security rules that control inbound traffic. By default, all incoming traffic is dropped — you must explicitly add accept rules. Only one firewall can be active per VM at a time. Changes require manual sync to take effect.
+Network security rules that control inbound traffic. By default, all incoming traffic is dropped, you must explicitly add accept rules. Only one firewall can be active per VM at a time. Changes require manual sync to take effect.
 
 ### SSH Public Keys
 
@@ -69,7 +70,7 @@ Automation scripts that run after VM installation. Saved to `/post_install` with
 ### Backups & Snapshots
 
 - **Backups**: Automatic periodic backups managed by Hostinger
-- **Snapshots**: User-initiated point-in-time captures. Only one snapshot per VM — creating a new one overwrites the existing one
+- **Snapshots**: User-initiated point-in-time captures. Only one snapshot per VM, creating a new one overwrites the existing one
 
 ### Recovery Mode
 
@@ -408,9 +409,9 @@ curl -X GET "https://developers.hostinger.com/api/vps/v1/virtual-machines/12345/
 
 ### Security
 - Always attach SSH keys and disable password auth when possible
-- Configure firewalls — default drops all traffic, add only needed ports
-- **Sync firewalls** after any rule change — changes don't auto-apply
-- Only one firewall per VM — plan rules in a single firewall
+- Configure firewalls, default drops all traffic, add only needed ports
+- **Sync firewalls** after any rule change, changes don't auto-apply
+- Only one firewall per VM, plan rules in a single firewall
 - Install Monarx malware scanner on production servers
 - Use strong passwords (12+ chars, mixed case, numbers, not leaked)
 
@@ -418,17 +419,17 @@ curl -X GET "https://developers.hostinger.com/api/vps/v1/virtual-machines/12345/
 - Take a **snapshot before** destructive operations (recreate, major changes)
 - Remember: creating a new snapshot **overwrites** the existing one
 - Backup restores **overwrite all data** on the VM
-- Use recovery mode for filesystem repair — original disk is at `/mnt`
+- Use recovery mode for filesystem repair, original disk is at `/mnt`
 
 ### Docker
-- Docker Manager endpoints are **experimental** — expect changes
+- Docker Manager endpoints are **experimental**, expect changes
 - GitHub URLs auto-resolve to `docker-compose.yaml` in master branch
 - Deploying a project with an existing name **replaces** it
 - Use logs endpoint for debugging container issues
 
 ### Performance
 - Monitor metrics to right-size your VPS plan
-- Set custom nameservers only if you know what you're doing — wrong config breaks DNS resolution
+- Set custom nameservers only if you know what you're doing, wrong config breaks DNS resolution
 
 ### Post-Install Scripts
 - Maximum script size: 48KB
@@ -439,8 +440,8 @@ curl -X GET "https://developers.hostinger.com/api/vps/v1/virtual-machines/12345/
 
 ### VM Not Starting
 - Check action history for error details
-- VM may be in recovery mode — stop recovery first
-- Check if VM is in `initial` state — run setup first
+- VM may be in recovery mode, stop recovery first
+- Check if VM is in `initial` state, run setup first
 
 ### Cannot SSH Into VM
 - Verify SSH key is attached (not just in account)
@@ -451,7 +452,7 @@ curl -X GET "https://developers.hostinger.com/api/vps/v1/virtual-machines/12345/
 ### Firewall Rules Not Taking Effect
 - Rules require **manual sync** after changes: `POST .../firewall/{id}/sync/{vmId}`
 - Only one firewall can be active per VM
-- Default policy is DROP — ensure accept rules exist for needed ports
+- Default policy is DROP, ensure accept rules exist for needed ports
 
 ### Docker Project Not Starting
 - Check project logs: `GET .../docker/{name}/logs`
@@ -473,10 +474,10 @@ curl -X GET "https://developers.hostinger.com/api/vps/v1/virtual-machines/12345/
 
 The following deep-dive guides are available in this skill directory:
 
-- `deployment-workflow.md` — SSH-first deployment workflow for Dockerized apps (7-step process, rollback strategy, verification levels)
-- `docker-patterns.md` — Docker Compose deployment patterns (WordPress, Node+Redis+Postgres, Traefik SSL, lifecycle management)
-- `firewall-patterns.md` — Common firewall configurations (web server, database, Docker host, mail server, TypeScript/PHP examples)
-- `terraform-examples.md` — Infrastructure as Code with the Hostinger Terraform Provider (VPS provisioning, SSH keys, firewalls, complete infra example)
+- `deployment-workflow.md`, SSH-first deployment workflow for Dockerized apps (7-step process, rollback strategy, verification levels)
+- `docker-patterns.md`, Docker Compose deployment patterns (WordPress, Node+Redis+Postgres, Traefik SSL, lifecycle management)
+- `firewall-patterns.md`, Common firewall configurations (web server, database, Docker host, mail server, TypeScript/PHP examples)
+- `terraform-examples.md`, Infrastructure as Code with the Hostinger Terraform Provider (VPS provisioning, SSH keys, firewalls, complete infra example)
 
 ## References
 

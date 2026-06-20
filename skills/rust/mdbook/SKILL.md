@@ -2,6 +2,7 @@
 name: mdbook
 description: Use when authoring Rust project documentation as a static site — Rust Book / The Cargo Book / clap docs style.
 allowed-tools: Bash(mdbook:*)
+category: rust
 ---
 
 # mdbook
@@ -19,7 +20,7 @@ Markdown → static HTML site. The standard for Rust ecosystem long-form docs.
 - mdbook
 
 ## Notes
-- Chapter list lives in `src/SUMMARY.md` — order there controls sidebar order.
+- Chapter list lives in `src/SUMMARY.md`, order there controls sidebar order.
 - Code fences default to `rust` and get `mdbook test`'ed when language is `rust` (not `rust,ignore`).
-- For API-reference style docs, prefer `cargo doc` — mdbook is for prose / tutorials.
+- For API-reference style docs, prefer `cargo doc`, mdbook is for prose / tutorials.
 - Deploy `book/` directly to GitHub Pages, Netlify, or any static host.

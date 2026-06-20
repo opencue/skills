@@ -2,6 +2,7 @@
 name: "security-best-practices"
 description: >-
   Use when user asks "security best practices", "secure coding for python/typescript/go", or "how to harden this". Language/framework-specific secure-by-default guidance. NOT for auditing existing code — use security-review.
+category: review
 ---
 
 # Security Best Practices

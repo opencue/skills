@@ -6,7 +6,7 @@ description: |
   after 3 failed fixes and reassesses. Use when the user reports an
   error, 500, stack trace, "it was working yesterday", or asks to "debug
   this", "fix this bug", "why is X broken", or "root cause analysis".
-allowed-tools: [Bash, Read, Write, Edit, Grep, Glob, AskUserQuestion, WebSearch]
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Grep, Glob, AskUserQuestion, WebSearch
 triggers:
   - debug this
   - fix this bug
@@ -14,9 +14,10 @@ triggers:
   - root cause analysis
   - investigate this error
   - it was working yesterday
+category: plan
 ---
 
-# /investigate — root-cause debugging
+# /investigate, root-cause debugging
 
 The single most common failure mode in AI-assisted debugging is the agent
 jumping to a fix before understanding the cause. This skill enforces the
@@ -26,20 +27,20 @@ opposite: **investigate first, hypothesize second, fix third.**
 
 > No fix is committed without a stated root cause and a stated reason
 > the fix addresses it. If the agent can't articulate the cause, the
-> agent isn't fixing yet — it's guessing.
+> agent isn't fixing yet, it's guessing.
 
 ## Stop-after-3 rule
 
 After **3 failed fix attempts** on the same bug, stop. Reassess. The
-working hypothesis is wrong. Don't keep patching — go back to Phase 1.
+working hypothesis is wrong. Don't keep patching, go back to Phase 1.
 
 ## Optional: scope-lock the investigation
 
 Before diving in, ask: "Should I lock edits to one module while I
-investigate? (`/freeze <dir>`)" — prevents the agent from "helpfully"
+investigate? (`/freeze <dir>`)", prevents the agent from "helpfully"
 modifying unrelated code mid-investigation. Decline is fine.
 
-## Phase 1 — investigate (no fixes yet)
+## Phase 1, investigate (no fixes yet)
 
 Goal: a concrete, reproducible failure. No "it probably is the cache."
 
@@ -52,7 +53,7 @@ Goal: a concrete, reproducible failure. No "it probably is the cache."
    shape are they in this case vs. the working case?
 4. **Diff against working.** If the user said "it was working
    yesterday," run `git log --since='2 days ago'` on the affected paths.
-   Read the diffs. Don't assume — read.
+   Read the diffs. Don't assume, read.
 
 Output of Phase 1: a one-paragraph **observation** in your reply.
 Example: "Endpoint `POST /api/x` 500s when `body.tier == 'mega'`. Trace
@@ -60,7 +61,7 @@ points at `compute_tier_price` (`src/pricing.py:142`), which assumes
 `tier in ('quick','lfg')`. 'mega' was added to the enum yesterday in
 `schema.py:34` but `compute_tier_price` was not updated."
 
-## Phase 2 — analyze
+## Phase 2, analyze
 
 Now that you have an observation, ask: **why does this specific code
 produce this specific failure for this specific input?**
@@ -72,27 +73,27 @@ produce this specific failure for this specific input?**
 - Update your mental model: when you find data that contradicts your
   hypothesis, the hypothesis loses, not the data.
 
-## Phase 3 — hypothesize the root cause
+## Phase 3, hypothesize the root cause
 
 State the root cause in **one sentence**. Examples:
 
 - ✅ "`compute_tier_price` switches on tier name and falls through to
   the `KeyError` default when an unrecognized tier reaches it; the
   'mega' enum value was added without updating the switch."
-- ❌ "Something about tier handling is broken." — not a root cause.
-- ❌ "The cache was stale." — say *why* it was stale and how the code
+- ❌ "Something about tier handling is broken.", not a root cause.
+- ❌ "The cache was stale.", say *why* it was stale and how the code
   permitted stale data in this case.
 
 Then state how the fix addresses the cause:
 - "Add 'mega' to the switch in `compute_tier_price`, returning the
   price formula from the spec at `docs/pricing-tiers.md:18`."
 
-## Phase 4 — implement
+## Phase 4, implement
 
 Now and only now: write the fix.
 
 - **Smallest change.** Don't refactor on the way through.
-- **Add a test that reproduces the bug.** Run it first — confirm it
+- **Add a test that reproduces the bug.** Run it first, confirm it
   fails for the right reason. Then apply the fix and confirm it passes.
 - **Run the full test suite, not just the new test.** Look for
   regressions.
@@ -115,7 +116,7 @@ Now and only now: write the fix.
 - ❌ Skipping the failing-test-first step.
 - ❌ Closing the investigation when the test passes but the cause is
   still "probably the cache."
-- ❌ Treating a stack trace as a wishlist — only fix what the trace
+- ❌ Treating a stack trace as a wishlist, only fix what the trace
   actually implicates.
 
 ## Hand-off

@@ -27,6 +27,7 @@ metadata:
           ],
       },
   }
+category: github
 ---
 
 # GitHub Skill

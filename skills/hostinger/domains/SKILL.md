@@ -4,26 +4,27 @@ description: >-
   Use when user says "Hostinger domain", "buy domain", or "domain settings". Registration, nameservers, ownership, renewal.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
+category: hostinger
 ---
 
 # Hostinger Domains
 
-The Domains API provides full domain lifecycle management — from checking availability and purchasing to configuring nameservers, forwarding, WHOIS profiles, domain locks, and privacy protection.
+The Domains API provides full domain lifecycle management, from checking availability and purchasing to configuring nameservers, forwarding, WHOIS profiles, domain locks, and privacy protection.
 
-## Tool surface — prefer MCP
+## Tool surface, prefer MCP
 
-This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__domains_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable — they are not the primary interface.
+This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__domains_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable, they are not the primary interface.
 
 Available domain tools:
 
-- `domains_checkDomainAvailabilityV1` — pre-purchase availability + alternative TLD suggestions
-- `domains_getDomainListV1`, `domains_getDomainDetailsV1` — list and inspect portfolio
-- `domains_purchaseNewDomainV1` — buy a new domain (uses a WHOIS profile)
-- `domains_updateDomainNameserversV1` — change nameservers
-- `domains_getDomainForwardingV1`, `domains_createDomainForwardingV1`, `domains_deleteDomainForwardingV1` — 301/302 redirect CRUD
-- `domains_enableDomainLockV1`, `domains_disableDomainLockV1` — transfer-lock toggle
-- `domains_enablePrivacyProtectionV1`, `domains_disablePrivacyProtectionV1` — WHOIS privacy toggle
-- `domains_getWHOISProfileListV1`, `domains_getWHOISProfileV1`, `domains_createWHOISProfileV1`, `domains_deleteWHOISProfileV1`, `domains_getWHOISProfileUsageV1` — WHOIS profile CRUD + usage
+- `domains_checkDomainAvailabilityV1`, pre-purchase availability + alternative TLD suggestions
+- `domains_getDomainListV1`, `domains_getDomainDetailsV1`, list and inspect portfolio
+- `domains_purchaseNewDomainV1`, buy a new domain (uses a WHOIS profile)
+- `domains_updateDomainNameserversV1`, change nameservers
+- `domains_getDomainForwardingV1`, `domains_createDomainForwardingV1`, `domains_deleteDomainForwardingV1`, 301/302 redirect CRUD
+- `domains_enableDomainLockV1`, `domains_disableDomainLockV1`, transfer-lock toggle
+- `domains_enablePrivacyProtectionV1`, `domains_disablePrivacyProtectionV1`, WHOIS privacy toggle
+- `domains_getWHOISProfileListV1`, `domains_getWHOISProfileV1`, `domains_createWHOISProfileV1`, `domains_deleteWHOISProfileV1`, `domains_getWHOISProfileUsageV1`, WHOIS profile CRUD + usage
 
 ## Table of Contents
 
@@ -285,7 +286,7 @@ curl -X DELETE "https://developers.hostinger.com/api/domains/v1/whois/741288" \
 ### Registration
 - Always check availability before attempting to purchase
 - Ensure WHOIS profile exists for the target TLD before registering
-- Some TLDs require `additional_details` — check requirements per TLD
+- Some TLDs require `additional_details`, check requirements per TLD
 - Keep domain lock enabled to prevent unauthorized transfers
 
 ### Security
@@ -327,7 +328,7 @@ curl -X DELETE "https://developers.hostinger.com/api/domains/v1/whois/741288" \
 
 The following deep-dive guide is available in this skill directory:
 
-- `transfer-guide.md` — Domain purchase workflow, nameserver configuration, transfer procedures, WHOIS management, and bulk operations (TypeScript/PHP examples)
+- `transfer-guide.md`, Domain purchase workflow, nameserver configuration, transfer procedures, WHOIS management, and bulk operations (TypeScript/PHP examples)
 
 ## References
 

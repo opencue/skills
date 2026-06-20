@@ -82,20 +82,20 @@ bash ~/Documents/cue/resources/skills/skills/meta/smart-loader/scripts/smart-loo
 ```
 
 Flags:
-- `--explain` — append a 6th column showing matched fields per token (`trigger=foo;name~bar;cooc=2x;feedback+15;cwd+10`). Use when ranking looks wrong and you need to see why.
-- `--mode loose` — return top 10 instead of top 5; for exploratory "what skills do I have around X" queries.
-- `--exclude-loaded` — drop skills already active in the current cue profile.
-- `--no-fuzzy` / `--no-embed` / `--no-cache` — disable individual fallbacks/boosts.
-- `--record-pick CAT/NAME <query>` — record an accept in the feedback log so future identical queries boost that skill by +15. Run this after the user confirms a soft-load was the right call.
+- `--explain`, append a 6th column showing matched fields per token (`trigger=foo;name~bar;cooc=2x;feedback+15;cwd+10`). Use when ranking looks wrong and you need to see why.
+- `--mode loose`, return top 10 instead of top 5; for exploratory "what skills do I have around X" queries.
+- `--exclude-loaded`, drop skills already active in the current cue profile.
+- `--no-fuzzy` / `--no-embed` / `--no-cache`, disable individual fallbacks/boosts.
+- `--record-pick CAT/NAME <query>`, record an accept in the feedback log so future identical queries boost that skill by +15. Run this after the user confirms a soft-load was the right call.
 
 What the script does automatically:
 - **Multi-keyword scoring** with co-occurrence bonus (×1.5 if ≥2 tokens hit the same skill).
-- **Trigger/tag indexing** — frontmatter `triggers:` and `tags:` are highest-signal fields and score above description.
-- **Multilingual aliases** — non-English tokens (Hungarian, German) are expanded via `aliases.json` before scoring.
-- **CWD-domain boost** — skills in categories that match `~/.config/cue/cwd-domains.json` rules for your current path get +10.
-- **Feedback boost** — skills previously recorded via `--record-pick` for the same query get +15.
-- **Negative cache** — repeated misses on the same query within 5 min skip the full pipeline.
-- **Scaffold hint** — emits a stderr `#`-line when the top score is `<60` or zero, suggesting `meta/skill-suggestion`.
+- **Trigger/tag indexing**, frontmatter `triggers:` and `tags:` are highest-signal fields and score above description.
+- **Multilingual aliases**, non-English tokens (Hungarian, German) are expanded via `aliases.json` before scoring.
+- **CWD-domain boost**, skills in categories that match `~/.config/cue/cwd-domains.json` rules for your current path get +10.
+- **Feedback boost**, skills previously recorded via `--record-pick` for the same query get +15.
+- **Negative cache**, repeated misses on the same query within 5 min skip the full pipeline.
+- **Scaffold hint**, emits a stderr `#`-line when the top score is `<60` or zero, suggesting `meta/skill-suggestion`.
 - **Catalog auto-rebuild** (throttled to once per 60s) with diff log at `~/.cache/cue/catalog-rebuild.log`.
 - **Fuzzy fallback** (difflib) → **semantic fallback** (embeddings, opt-in via `CUE_USE_EMBEDDINGS=1` after `python3 scripts/build-embeddings.py`).
 

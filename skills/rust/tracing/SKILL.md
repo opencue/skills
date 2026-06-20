@@ -2,9 +2,10 @@
 name: tracing
 description: Use when adding logging, structured logs, spans, or live runtime introspection to a Rust app. Covers tracing, tracing-subscriber, tokio-console, OpenTelemetry.
 allowed-tools: Bash(cargo:*), Bash(tokio-console:*)
+category: rust
 ---
 
-# tracing — modern Rust observability
+# tracing, modern Rust observability
 
 Replaces `log` for new code. Structured + async-aware (spans cross await points).
 
@@ -31,6 +32,6 @@ Replaces `log` for new code. Structured + async-aware (spans cross await points)
 
 ## Notes
 - `%value` = use Display; `?value` = use Debug; bare `value` = use the trait it implements.
-- Spans propagate across `.await` only if you `.instrument(span)` the future explicitly — otherwise context is lost at the suspend point.
-- Don't `#[instrument]` hot-path fns — span overhead adds up. Reserve for request-level boundaries.
+- Spans propagate across `.await` only if you `.instrument(span)` the future explicitly, otherwise context is lost at the suspend point.
+- Don't `#[instrument]` hot-path fns, span overhead adds up. Reserve for request-level boundaries.
 - For libraries: emit tracing events, don't init a subscriber. Subscriber init is the binary's job.

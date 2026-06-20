@@ -12,12 +12,13 @@ triggers:
 allowed-tools: Bash(-:*), Bash(Bash:*)
   - Bash
   - Read
+category: gstack
 ---
-# /unfreeze — Clear Freeze Boundary
+# /unfreeze, Clear Freeze Boundary
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
 Remove the edit restriction set by `/freeze`, allowing edits to all directories.
@@ -38,5 +39,5 @@ fi
 ```
 
 Tell the user the result. Note that `/freeze` hooks are still registered for the
-session — they will just allow everything since no state file exists. To re-freeze,
+session, they will just allow everything since no state file exists. To re-freeze,
 run `/freeze` again.

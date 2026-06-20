@@ -3,6 +3,7 @@ name: provision-medusa-s3-bucket
 description: >-
   Use when user says "Medusa S3", "provision bucket", or "file storage bucket". S3 provisioning: envs, provider, access.
 allowed-tools: Bash(aws:*)
+category: medusa
 ---
 
 # Provision Medusa S3 Bucket
@@ -14,11 +15,11 @@ path in this codebase, with AWS endpoint + region set).
 
 ## Bouncer migration: out of scope
 
-This skill operates at AWS-account admin tier — `s3:CreateBucket`,
+This skill operates at AWS-account admin tier, `s3:CreateBucket`,
 `s3:PutBucketPolicy`, `s3:PutBucketCORS`, `s3:PutBucketLifecycle`,
 `s3:PutEncryptionConfiguration`, `s3:PutBucketVersioning`. The recodee
 bouncer MCP (`tools/secret-mcp/`) intentionally does NOT wrap these
-operations — see PR #1660's design.md §"What this design does NOT settle":
+operations, see PR #1660's design.md §"What this design does NOT settle":
 
 > AWS-account admin operations (CreateBucket, PutBucketPolicy, etc.).
 > Bucket provisioning is rare, admin-tier, and currently scripted via the
@@ -36,7 +37,7 @@ serves to the agent at object-tier (`PutObject`/`GetObject`/`HeadObject`/
 `DeleteObject` on the specific bucket, scoped via
 `AWS_S3_BUCKETS_ALLOWED`).
 
-This skill therefore stays **shell-driven only** — Mode B in the
+This skill therefore stays **shell-driven only**, Mode B in the
 nomenclature of `higgsfield-to-medusa-products`. There is no Mode A
 alternative for it.
 
@@ -77,17 +78,17 @@ bash ~/Documents/soul/skills/skills/medusa/provision-medusa-s3-bucket/scripts/pr
 
 ## Output env vars
 
-The script prints two blocks — for the importer env file and for Coolify
-backend app — pre-filled with the bucket's `https://<bucket>.s3.<region>.amazonaws.com`
+The script prints two blocks, for the importer env file and for Coolify
+backend app, pre-filled with the bucket's `https://<bucket>.s3.<region>.amazonaws.com`
 URL and the supplied prefix.
 
 ## CORS origins
 
 Default origins in the CORS rule:
-- `https://admin.<shop-domain>` — admin UI uploads (you'll need to edit the
+- `https://admin.<shop-domain>`, admin UI uploads (you'll need to edit the
   script's `--cors-allowed-origins` list per shop or pass `CORS_ORIGINS` env
   var).
-- `http://localhost:9000`, `http://localhost:5173` — dev.
+- `http://localhost:9000`, `http://localhost:5173`, dev.
 
 Override via env when running:
 
@@ -109,7 +110,7 @@ CORS_ORIGINS="https://admin.compastor.hu,http://localhost:9000,http://localhost:
 - Public read on product images means anyone with the URL can fetch them. This
   is exactly what storefronts need for `<img src="...">`. Don't put non-public
   product files (e.g. licensed assets) under the `<prefix>products/*` path.
-- Versioning is on by default — every overwrite keeps the previous version,
+- Versioning is on by default, every overwrite keeps the previous version,
   growing storage cost slowly. Add a noncurrent-version lifecycle rule if that
   becomes an issue.
 - `AmazonS3FullAccess` covers all needed actions. Tighter least-privilege

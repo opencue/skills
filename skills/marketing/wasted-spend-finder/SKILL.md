@@ -3,15 +3,16 @@ name: wasted-spend-finder
 description: 'Use when user says "find wasted spend", "where am i losing money", "negative keyword list", "cut wasted ad spend", "zero conversion terms", "exclusion list". Scans your Google and Meta accounts for money being spent on search terms, placements, audiences, and ads that produce zero or near-zero conversions. Delivers clean exclusion lists you can upload directly.'
 metadata:
   platform: Google and Meta
+category: marketing
 ---
 
-# 2/ Wasted Spend Finder — Google + Meta
+# 2/ Wasted Spend Finder, Google + Meta
 
 ## What it does
 Scans your Google and Meta accounts for money being spent on search terms, placements, audiences, and ads that produce zero or near-zero conversions. Delivers clean exclusion lists you can upload directly.
 
 ## How it works
-Claude analyzes your search term reports, placement reports, and audience segment data over a time window you choose (typically 30-90 days). It flags anything with meaningful spend but no conversions, and groups the results into actionable categories — negative keywords by theme, placement exclusions by type, and audience segments to remove.
+Claude analyzes your search term reports, placement reports, and audience segment data over a time window you choose (typically 30-90 days). It flags anything with meaningful spend but no conversions, and groups the results into actionable categories, negative keywords by theme, placement exclusions by type, and audience segments to remove.
 
 ## Practical example
 Across 12 campaigns over 60 days, Claude finds $6,800 spent on 340 search terms with zero conversions. It groups them into 8 negative keyword themes (competitor names, informational queries, wrong intent, geographic mismatches). It also flags 23 mobile app placements on Meta eating $1,200 with a 0.02% CTR and zero conversions. Total recoverable spend: $8,000/month.

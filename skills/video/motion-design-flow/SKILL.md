@@ -9,12 +9,12 @@ tags: [video, motion-design, animation, graphics]
 category: video
 version: 1.0.0
 requires_mcps: [Higgsfield]
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # Motion Design Flow
 
-Create motion design content — product animations, logo reveals, infographics, and reference image animations.
+Create motion design content, product animations, logo reveals, infographics, and reference image animations.
 
 ## When to activate
 
@@ -23,7 +23,7 @@ Create motion design content — product animations, logo reveals, infographics,
 - User has a static image and wants it animated
 - User wants dynamic visual content (not live-action)
 
-## Step 1 — Identify motion type
+## Step 1, Identify motion type
 
 | Type | Input | Output |
 |------|-------|--------|
@@ -32,7 +32,7 @@ Create motion design content — product animations, logo reveals, infographics,
 | **Infographic** | Data/text | Animated charts, counters, transitions |
 | **Reference animate** | Static image | Subtle motion (parallax, cinemagraph) |
 
-## Step 2 — Define motion language
+## Step 2, Define motion language
 
 ```
 Easing: ease-in-out (default), spring (playful), linear (mechanical)
@@ -41,7 +41,7 @@ Stagger: 100-200ms between elements
 Direction: Left-to-right (reading flow), center-out (impact), top-down (gravity)
 ```
 
-## Step 3 — Generate prompts
+## Step 3, Generate prompts
 
 **Product animation:**
 ```
@@ -57,7 +57,7 @@ Background: [solid/gradient]. Style: [minimal/energetic/elegant].
 Camera: static. Duration: 3s with 1s hold at end.
 ```
 
-## Step 4 — Output specifications
+## Step 4, Output specifications
 
 ```
 📐 Motion Design Specs:
@@ -71,7 +71,7 @@ Camera: static. Duration: 3s with 1s hold at end.
 
 ## Rules
 
-- Motion design is NOT live-action — no characters walking/talking
+- Motion design is NOT live-action, no characters walking/talking
 - Keep animations under 10s for social, under 30s for presentations
 - Always provide loop-friendly versions for social media
 - Match motion energy to brand (luxury = slow/elegant, tech = fast/sharp)

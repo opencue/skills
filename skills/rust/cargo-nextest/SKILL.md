@@ -2,6 +2,7 @@
 name: cargo-nextest
 description: Use when running Rust tests slowly with cargo test, or when CI test time hurts. Drop-in faster runner with better output, retries, and JUnit XML.
 allowed-tools: Bash(cargo:*), Bash(cargo-nextest:*)
+category: rust
 ---
 
 # cargo-nextest
@@ -19,6 +20,6 @@ Faster, prettier `cargo test` replacement. ~60% faster on most workspaces.
 - cargo-nextest (`cargo install cargo-nextest --locked`)
 
 ## Notes
-- Does NOT run doctests — keep `cargo test --doc` in CI alongside nextest.
+- Does NOT run doctests, keep `cargo test --doc` in CI alongside nextest.
 - Parallelism is per-test, not per-binary, which is the speedup source.
 - Stable test IDs make flake tracking easy: `<crate>::<test_path>`.

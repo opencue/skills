@@ -13,6 +13,7 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
   - Bash
   - Read
   - AskUserQuestion
+category: gstack
 ---
 ## CDP mode check
 
@@ -20,7 +21,7 @@ First, check if browse is already connected to the user's real browser:
 ```bash
 $B status 2>/dev/null | grep -q "Mode: cdp" && echo "CDP_MODE=true" || echo "CDP_MODE=false"
 ```
-If `CDP_MODE=true`: tell the user "Not needed — you're connected to your real browser via CDP. Your cookies and sessions are already available." and stop. No cookie import needed.
+If `CDP_MODE=true`: tell the user "Not needed, you're connected to your real browser via CDP. Your cookies and sessions are already available." and stop. No cookie import needed.
 
 ## How it works
 
@@ -82,7 +83,7 @@ an interactive picker UI in your default browser where you can:
 - Click "+" to import a domain's cookies
 - Click trash to remove imported cookies
 
-Tell the user: **"Cookie picker opened — select the domains you want to import in your browser, then tell me when you're done."**
+Tell the user: **"Cookie picker opened, select the domains you want to import in your browser, then tell me when you're done."**
 
 ### 3. Direct import (alternative)
 
@@ -106,13 +107,13 @@ Show the user a summary of imported cookies (domain counts).
 
 ## Notes
 
-- On macOS, the first import per browser may trigger a Keychain dialog — click "Allow" / "Always Allow"
+- On macOS, the first import per browser may trigger a Keychain dialog, click "Allow" / "Always Allow"
 - On Linux, `v11` cookies may require `secret-tool`/libsecret access; `v10` cookies use Chromium's standard fallback key
 - Cookie picker is served on the same port as the browse server (no extra process)
-- Only domain names and cookie counts are shown in the UI — no cookie values are exposed
+- Only domain names and cookie counts are shown in the UI, no cookie values are exposed
 - The browse session persists cookies between commands, so imported cookies work immediately
 
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager

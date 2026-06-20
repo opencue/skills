@@ -4,6 +4,7 @@ name: muapi-blog-header
 version: "1.0.0"
 description: Create a professional, eye-catching blog post header image sized for web (1200×628) with optional title composition guidance.
 acceptLicenseTerms: true
+category: media
 ---
 
 
@@ -15,14 +16,14 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `topic` | text | yes | — | The blog post topic or title (e.g. "10 productivity hacks for remote developers"). |
+| `topic` | text | yes |, | The blog post topic or title (e.g. "10 productivity hacks for remote developers"). |
 | `publication_style` | text | no | clean, editorial, modern, professional | Visual style matching the blog's brand (e.g. "dark tech blog", "warm lifestyle", "minimalist corporate"). |
-| `dominant_color` | text | no | — | Optional primary color direction (e.g. "deep blue", "warm amber", "monochrome"). |
+| `dominant_color` | text | no |, | Optional primary color direction (e.g. "deep blue", "warm amber", "monochrome"). |
 
 
 ## Steps
 
-Generate a single, publication-quality blog header in one shot — no plan needed unless the user requests variants.
+Generate a single, publication-quality blog header in one shot, no plan needed unless the user requests variants.
 
 1. Derive a strong visual metaphor for `{{topic}}`:
    - Avoid cliché stock photo compositions (handshake, lightbulb alone).

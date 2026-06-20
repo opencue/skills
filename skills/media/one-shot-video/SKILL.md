@@ -4,31 +4,32 @@ name: muapi-one-shot-video
 version: "1.0.0"
 description: Generate a single continuous cinematic shot video — no cuts, one seamless flowing scene with dramatic lighting and motion.
 acceptLicenseTerms: true
+category: media
 ---
 
 
 # One-Shot Video
 
-**Generate a single continuous cinematic shot video — no cuts, one seamless flowing scene with dramatic lighting and motion.**
+**Generate a single continuous cinematic shot video, no cuts, one seamless flowing scene with dramatic lighting and motion.**
 
 ## Inputs
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `scene` | text | yes | — | The scene to render (e.g. "a chef plating food in a moody Michelin-star kitchen"). |
+| `scene` | text | yes |, | The scene to render (e.g. "a chef plating food in a moody Michelin-star kitchen"). |
 | `style` | text | no | cinematic, anamorphic lens, shallow depth of field, dramatic lighting | Visual tone and style (e.g. "noir, handheld, golden hour"). |
 | `duration` | text | no | 10s | Target duration (e.g. "5s", "10s"). |
-| `aspect_ratio` | text | no | 16:9 | Output aspect ratio — "16:9", "9:16", or "1:1". |
-| `reference_image` | image_url | no | — | Optional reference image for subject/scene anchoring. |
+| `aspect_ratio` | text | no | 16:9 | Output aspect ratio, "16:9", "9:16", or "1:1". |
+| `reference_image` | image_url | no |, | Optional reference image for subject/scene anchoring. |
 
 
 ## Steps
 
-### Phase A — Generate the One-Shot Video
+### Phase A, Generate the One-Shot Video
 
 Submit the plan with ONE step:
 
-1. **One-shot video** — If `{{reference_image}}` is provided, use `muapi video generate` (model=`veo3.1-image-to-video`); otherwise use `muapi video generate` (model=`veo3.1-text-to-video`).
+1. **One-shot video**, If `{{reference_image}}` is provided, use `muapi video generate` (model=`veo3.1-image-to-video`); otherwise use `muapi video generate` (model=`veo3.1-text-to-video`).
    - Prompt: `{{scene}}, one continuous uncut shot, no transitions, camera slowly moves through scene, {{style}}, ultra cinematic, film grain, 4K quality`
    - Aspect ratio: `{{aspect_ratio}}`
    - Duration: `{{duration}}`

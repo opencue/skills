@@ -9,12 +9,12 @@ tags: [video, ugc, marketing, ads]
 category: video
 version: 1.0.0
 requires_mcps: [Higgsfield]
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # UGC Flow
 
-Generate authentic UGC talking-head videos — from script to final delivery.
+Generate authentic UGC talking-head videos, from script to final delivery.
 
 ## When to activate
 
@@ -23,7 +23,7 @@ Generate authentic UGC talking-head videos — from script to final delivery.
 - User wants authentic-looking video for social ads
 - User mentions "hook + body + CTA" video structure
 
-## Step 1 — Script generation
+## Step 1, Script generation
 
 Structure the UGC script:
 
@@ -44,21 +44,21 @@ CTA (20-30s): Call to action
   → "Comment [word] for the link"
 ```
 
-## Step 2 — Avatar/character setup
+## Step 2, Avatar/character setup
 
 - Select or create avatar via Soul ID for consistency
 - Match avatar to target demographic (age, style, energy)
-- Set environment (bedroom, kitchen, office, outdoor — authentic settings)
+- Set environment (bedroom, kitchen, office, outdoor, authentic settings)
 
-## Step 3 — Shot direction
+## Step 3, Shot direction
 
 UGC-specific camera rules:
-- **Handheld feel** — slight movement, not locked tripod
-- **Eye-level or slightly above** — phone selfie angle
-- **Natural lighting** — window light, ring light visible is OK
+- **Handheld feel**, slight movement, not locked tripod
+- **Eye-level or slightly above**, phone selfie angle
+- **Natural lighting**, window light, ring light visible is OK
 - **Portrait orientation** (9:16) for TikTok/Reels/Shorts
 
-## Step 4 — Generate with Higgsfield
+## Step 4, Generate with Higgsfield
 
 Construct prompt using UGC-specific parameters:
 - Camera: Handheld, slight shake
@@ -66,7 +66,7 @@ Construct prompt using UGC-specific parameters:
 - Style: Authentic, not polished
 - Audio: Direct-to-camera speech
 
-## Step 5 — Variations
+## Step 5, Variations
 
 Generate 3-5 hook variations for A/B testing:
 - Different opening lines

@@ -2,6 +2,7 @@
 name: obsidian-cli
 description: >-
   Use when user says "Obsidian CLI", "vault command", or "manage vault". Command-line vault ops: files, links, search.
+category: obsidian
 ---
 
 # Obsidian CLI
@@ -32,8 +33,8 @@ For multiline content use `\n` for newline and `\t` for tab.
 
 Many commands accept `file` or `path` to target a file. Without either, the active file is used.
 
-- `file=<name>` — resolves like a wikilink (name only, no path or extension needed)
-- `path=<path>` — exact path from vault root, e.g. `folder/note.md`
+- `file=<name>`, resolves like a wikilink (name only, no path or extension needed)
+- `path=<path>`, exact path from vault root, e.g. `folder/note.md`
 
 ## Vault targeting
 
@@ -70,7 +71,7 @@ After making code changes to a plugin or theme, follow this workflow:
    ```bash
    obsidian plugin:reload id=my-plugin
    ```
-2. **Check for errors** — if errors appear, fix and repeat from step 1:
+2. **Check for errors**, if errors appear, fix and repeat from step 1:
    ```bash
    obsidian dev:errors
    ```

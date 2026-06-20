@@ -2,13 +2,14 @@
 name: polymarket-research
 description: >-
   Use when user says "what's the Polymarket market doing", "research a Polymarket market", "BTC 5m snapshot", "look up a Polymarket market", or "what are the odds on X". Live overview via `polymarket-live` MCP — bundles BTC 5m snapshot, market search, and order book. NOT for placing orders.
+category: polymarket
 ---
 
 # Polymarket research
 
 Use this skill any time the user asks what a Polymarket market is doing
 right now, what the crowd thinks, or to look up a specific market. It
-leans entirely on the `polymarket-live` MCP — no shelling out, no
+leans entirely on the `polymarket-live` MCP, no shelling out, no
 guessing from training data.
 
 ## When to use it
@@ -45,7 +46,7 @@ guessing from training data.
 ### B. "Look up a market"
 
 1. Use `mcp__polymarket-live__markets_search(query, limit=5)` first.
-   List the top 3 — for each row include slug + question + last price +
+   List the top 3, for each row include slug + question + last price +
    24h volume + end_date.
 2. If the user points at a specific row, call
    `mcp__polymarket-live__markets_get(id_or_slug)` for full detail
@@ -57,7 +58,7 @@ guessing from training data.
 
 1. `clob_midpoints([yes_token, no_token])` for a quick snapshot.
 2. If they want a time series, point them at `polymarket predict watch`
-   for live charts — this skill does not poll a series itself (would
+   for live charts, this skill does not poll a series itself (would
    blow up tokens).
 
 ## Reporting style
@@ -67,7 +68,7 @@ guessing from training data.
   re-look-up later.
 - Quote prices to 3 decimals (`0.485`), volumes to 0 or 1 decimal
   ($24.3M not $24,322,109).
-- If `market_status()` reports anything non-OK, surface that first —
+- If `market_status()` reports anything non-OK, surface that first, 
   every other tool is going to be junk.
 
 ## Failure modes

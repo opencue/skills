@@ -4,33 +4,34 @@ name: muapi-award-ceremony-video
 version: "1.0.0"
 description: Generate a 15-second cinematic awards-ceremony video — a host announces a winner from the stage, a spotlight finds them in the crowd, they walk up to the podium, receive the award, and the LED display reveals their name and "THE BEST ACTOR".
 acceptLicenseTerms: true
+category: media
 ---
 
 
 # Award Ceremony Video
 
-**Generate a 15-second cinematic awards-ceremony video — a host announces a winner from the stage, a spotlight finds them in the crowd, they walk up to the podium, receive the award, and the LED display reveals their name and "THE BEST ACTOR".**
+**Generate a 15-second cinematic awards-ceremony video, a host announces a winner from the stage, a spotlight finds them in the crowd, they walk up to the podium, receive the award, and the LED display reveals their name and "THE BEST ACTOR".**
 
 ## Inputs
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `winner_image` | image_url | yes | — | A clear photo of the winner. Becomes `@image_1` — their identity is strict-locked across the video. |
-| `host_image` | image_url | yes | — | A clear photo of the host. Becomes `@image_2` — sole presenter on stage at the podium. |
+| `winner_image` | image_url | yes |, | A clear photo of the winner. Becomes `@image_1`, their identity is strict-locked across the video. |
+| `host_image` | image_url | yes |, | A clear photo of the host. Becomes `@image_2`, sole presenter on stage at the podium. |
 | `winner_name` | text | no | Olivia | The name announced by the host and shown on the LED stage display under "THE BEST ACTOR". |
 
 
 ## Steps
 
-### Phase A — Confirm Inputs
+### Phase A, Confirm Inputs
 
-If either `{{winner_image}}` or `{{host_image}}` is missing, ask the user to upload them. Confirm `{{winner_name}}` before generation — it appears spoken in the audio and rendered on the LED display.
+If either `{{winner_image}}` or `{{host_image}}` is missing, ask the user to upload them. Confirm `{{winner_name}}` before generation, it appears spoken in the audio and rendered on the LED display.
 
-### Phase B — Generate the Ceremony Video
+### Phase B, Generate the Ceremony Video
 
-Submit the plan with ONE step using the Seedance 2.0 image-to-video fast variant (multi-reference). Pass the images in this exact order — order maps to `@image_1` then `@image_2`:
+Submit the plan with ONE step using the Seedance 2.0 image-to-video fast variant (multi-reference). Pass the images in this exact order, order maps to `@image_1` then `@image_2`:
 
-1. **Award Ceremony Video** — `muapi video from-image` (model=`seedance-2-image-to-video-fast`, or fall back to raw endpoint `bytedance-seedance-2-0-reference-to-video-fast`):
+1. **Award Ceremony Video**, `muapi video from-image` (model=`seedance-2-image-to-video-fast`, or fall back to raw endpoint `bytedance-seedance-2-0-reference-to-video-fast`):
    - Reference images (in order): `{{winner_image}}`, `{{host_image}}`
    - Aspect ratio: `16:9`
    - Duration: `15`

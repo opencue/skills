@@ -2,6 +2,7 @@
 name: api-tester
 description: >-
   Use when user says "test API", "API endpoint", or "curl this endpoint". Request setup, auth, assertions, response checks.
+category: review
 ---
 
 # api-tester
@@ -38,7 +39,7 @@ by key prefix, retries on transient errors, masks output by default.
   any file that might be pushed. Pass them through stdin or a gitignored
   `keys.txt`.
 - **Never** commit `keys.txt`, `keys-*.txt`, `*.keys`, or `.env*` from inside
-  the api-tester repo (`.gitignore` blocks them — don't override).
+  the api-tester repo (`.gitignore` blocks them, don't override).
 - A `valid` line for a key the user does not recognize ⇒ **rotate immediately**
   via the provider's console (links in the repo README).
 - Default to masked output. Only pass `--show-full` if the user explicitly
@@ -75,7 +76,7 @@ python3 ~/Documents/api-tester/api_tester.py keys.txt
 | `AIza`          | gemini        | `x-goog-api-key`                    |
 | `sk-` (other)   | openai *      | `Authorization: Bearer`             |
 
-`*` ambiguous — `sk-` could be openai/deepseek/siliconcloud. Default is openai;
+`*` ambiguous, `sk-` could be openai/deepseek/siliconcloud. Default is openai;
 override with `--default-sk` or per-line `provider:key`:
 
 ```text
@@ -88,9 +89,9 @@ openai:sk-...
 
 Three input modes:
 
-- **inline** — `api-tester sk-... [more keys ...]`
-- **file** — `api-tester <path>` (any absolute or relative path)
-- **stdin** — pipe / heredoc / paste
+- **inline**, `api-tester sk-... [more keys ...]`
+- **file**, `api-tester <path>` (any absolute or relative path)
+- **stdin**, pipe / heredoc / paste
 
 ```bash
 # inline — single key, fastest path for "is this key live?"
@@ -134,10 +135,10 @@ api-tester keys.txt --model gemini-1.5-flash-latest
 
 | Status         | Meaning                                                          |
 | -------------- | ---------------------------------------------------------------- |
-| `valid`        | Endpoint returned 2xx — key works.                               |
-| `invalid`      | 400/401/403/404 — key is bad, revoked, wrong-tenant, or wrong endpoint. |
-| `rate_limited` | 429 after retries exhausted — key may be live, can't tell now.   |
-| `error`        | Network failure or 5xx after retries — try again later.          |
+| `valid`        | Endpoint returned 2xx, key works.                               |
+| `invalid`      | 400/401/403/404, key is bad, revoked, wrong-tenant, or wrong endpoint. |
+| `rate_limited` | 429 after retries exhausted, key may be live, can't tell now.   |
+| `error`        | Network failure or 5xx after retries, try again later.          |
 
 ## Decision tree for the agent
 
@@ -153,9 +154,9 @@ api-tester keys.txt --model gemini-1.5-flash-latest
 
 ## Sister skills
 
-- `security-review` — pre-step: find leaked keys in the repo first.
-- `gh-fix-ci` — if a leaked key trips a secret-scanning push protection check.
-- `obscura` / `defuddle` — unrelated, but live in the same skill catalog.
+- `security-review`, pre-step: find leaked keys in the repo first.
+- `gh-fix-ci`, if a leaked key trips a secret-scanning push protection check.
+- `obscura` / `defuddle`, unrelated, but live in the same skill catalog.
 
 ## Provenance
 

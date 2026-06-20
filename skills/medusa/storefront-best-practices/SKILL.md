@@ -2,6 +2,7 @@
 name: storefront-best-practices
 description: >-
   Use when user says "storefront best practices" or "storefront architecture". Data fetching, UX, caching, errors.
+category: medusa
 ---
 
 # Ecommerce Storefront Best Practices

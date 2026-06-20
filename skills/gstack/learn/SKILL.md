@@ -7,7 +7,7 @@ triggers:
   - show learnings
   - what have we learned
   - manage project learnings
-allowed-tools: Bash(Bash:*), Read, Write, Edit, AskUserQuestion, Glob, Grep, --
+allowed-tools: Bash(Bash:*), Read, Write, Edit, AskUserQuestion, Glob, Grep
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
 
@@ -721,6 +721,7 @@ knowledge, and prune stale or contradictory entries.
 
 **HARD GATE:** Do NOT implement code changes. This skill manages learnings only.
 
+category: gstack
 ---
 
 ## Detect command
@@ -778,7 +779,7 @@ For each learning in the output:
    "STALE: [key] references deleted file [path]"
 
 2. **Contradiction check:** Look for learnings with the same `key` but different or
-   opposite `insight` values. Flag: "CONFLICT: [key] has contradicting entries —
+   opposite `insight` values. Flag: "CONFLICT: [key] has contradicting entries, 
    [insight A] vs [insight B]"
 
 Present each flagged entry via AskUserQuestion:

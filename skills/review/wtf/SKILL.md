@@ -6,6 +6,7 @@ description: >-
   unsafe raw SQL, weak auth, build failures, deployment footguns). Use
   when user says "wtf", "is this ready to ship", "pre-launch check",
   "pre-commit audit", "ship-ready", or "check before deploy".
+category: review
 ---
 
 # WTF

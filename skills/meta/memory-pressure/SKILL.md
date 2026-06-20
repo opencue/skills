@@ -1,9 +1,10 @@
 ---
 name: memory-pressure
 description: "Use when user says 'free RAM', 'memory is full', 'compact memory', 'reclaim memory', 'my box is slow', 'high memory usage', or shows mem >85%. Pushes idle pages from app.slice into zstd-zram (~1 GB zram per ~3-4 GB RAM freed). NOT for OOM crashes — use diagnose."
+category: meta
 ---
 
-# Memory pressure — push idle pages to zram
+# Memory pressure, push idle pages to zram
 
 The user's box is tuned for aggressive zstd-zram swap (see memory note `project-memory-tuning`). When RAM crosses ~85% used, you can free real RAM by forcing the kernel to reclaim idle anonymous pages into zram. zstd compression ~3-4× → 4 GB reclaimed costs ~1.2 GB zram.
 
@@ -13,9 +14,9 @@ The user's box is tuned for aggressive zstd-zram swap (see memory note `project-
 
 - Default: `swap-out` → 5 GiB from `app.slice` (claude, codex, next-server, rust-analyzer, etc.)
 - Scopes: `app` (app.slice only), `user` (whole user@.service), `session` (session.slice / desktop bits)
-- No sudo needed — user owns the cgroup `memory.reclaim` file.
+- No sudo needed, user owns the cgroup `memory.reclaim` file.
 
-The tool writes to `memory.reclaim` via the cgroup v2 interface. The kernel pages out *only what it considers idle*; active pages stay resident. If insufficient idle pages exist the kernel returns "partial" — safe, no thrashing, no OOM risk.
+The tool writes to `memory.reclaim` via the cgroup v2 interface. The kernel pages out *only what it considers idle*; active pages stay resident. If insufficient idle pages exist the kernel returns "partial", safe, no thrashing, no OOM risk.
 
 ## Auto-pressure timer
 
@@ -51,13 +52,13 @@ User: "memory is high / slow box"
 
 ## Don't
 
-- Don't run `swap-out` reactively after every command — the auto timer handles steady-state pressure.
+- Don't run `swap-out` reactively after every command, the auto timer handles steady-state pressure.
 - Don't bump it past 8 GiB in one shot; kernel may stall briefly while reclaiming large batches.
-- Don't touch `vm.swappiness` or `memory.high` to "force" more swap — already set to 100. Use `memory.reclaim` instead.
+- Don't touch `vm.swappiness` or `memory.high` to "force" more swap, already set to 100. Use `memory.reclaim` instead.
 - Don't suggest killing claude/codex sessions as the FIRST option. Reclaim is cheaper. Only suggest closing sessions if zram is already saturated.
 
 ## Related
 
-- Memory note: `project-memory-tuning` — full tuning record (sysctl, zram, slice caps, wrappers, claude-mem patches).
-- `gbrain-janitor.timer` — kills orphaned `bun gbrain serve` procs (PPID=1 or systemd-user).
-- `nextdev` — caps Next.js dev V8 heap to prevent slow leaks.
+- Memory note: `project-memory-tuning`, full tuning record (sysctl, zram, slice caps, wrappers, claude-mem patches).
+- `gbrain-janitor.timer`, kills orphaned `bun gbrain serve` procs (PPID=1 or systemd-user).
+- `nextdev`, caps Next.js dev V8 heap to prevent slow leaks.

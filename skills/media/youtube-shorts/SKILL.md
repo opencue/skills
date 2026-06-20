@@ -4,6 +4,7 @@ name: muapi-youtube-shorts
 version: "2.0.0"
 description: Auto-generate viral 9:16 YouTube Shorts (or TikTok / Reels clips) from a long-form video. Thin platform-aware wrapper around the AI Clipping skill — picks sensible defaults for short-form social platforms (9:16, 30–60s sweet spot) and delegates the actual highlight extraction + crop to muapi.ai's `/ai-clipping` endpoint.
 acceptLicenseTerms: true
+category: media
 ---
 
 # YouTube Shorts Generator
@@ -29,29 +30,29 @@ Underlying API: https://muapi.ai/playground/ai-clipping
 
 ## Agent Execution Protocol
 
-### Step 1 — Collect Inputs
+### Step 1, Collect Inputs
 
 | Input | Default | Notes |
 |:---|:---|:---|
-| `--source` | — | YouTube URL, hosted mp4 URL, or local file |
+| `--source` |, | YouTube URL, hosted mp4 URL, or local file |
 | `--platform` | `shorts` | `shorts` \| `tiktok` \| `reels` \| `feed` (sets ratio + count defaults) |
 | `--num-clips` | platform default | Override clip count |
 | `--aspect-ratio` | platform default | Override aspect ratio |
 
-If the user gave only a URL, run with platform defaults — don't block.
+If the user gave only a URL, run with platform defaults, don't block.
 
 ---
 
-### Step 2 — Verify Prerequisites
+### Step 2, Verify Prerequisites
 
 - `muapi-cli` installed and authed (`muapi auth configure`)
 - `MUAPI_API_KEY` available
 
-That's it. Transcription, highlight ranking, dedupe, and cropping all run server-side — no `ffmpeg`, no Python, no Whisper, no LLM keys needed locally.
+That's it. Transcription, highlight ranking, dedupe, and cropping all run server-side, no `ffmpeg`, no Python, no Whisper, no LLM keys needed locally.
 
 ---
 
-### Step 3 — Run the Pipeline
+### Step 3, Run the Pipeline
 
 ```bash
 bash library/social/youtube-shorts/scripts/run-youtube-shorts.sh \
@@ -74,7 +75,7 @@ The script:
 The `/ai-clipping` endpoint runs the full pipeline:
 
 - **Transcribes** the audio.
-- **Ranks highlights** through a virality framework — hook moments, emotional peaks, opinion bombs, revelation moments, conflict, quotable lines, story peaks, practical value.
+- **Ranks highlights** through a virality framework, hook moments, emotional peaks, opinion bombs, revelation moments, conflict, quotable lines, story peaks, practical value.
 - **Dedupes** overlapping candidates by score.
 - **Top-N selects** and **face-tracks** vertical crops.
 
@@ -102,7 +103,7 @@ Override any default with `--aspect-ratio` / `--num-clips`.
 bash run-youtube-shorts.sh --source "https://youtube.com/watch?v=VIDEO_ID"
 ```
 
-**TikTok preset — 5 clips, view in player:**
+**TikTok preset, 5 clips, view in player:**
 ```bash
 bash run-youtube-shorts.sh --source "<URL>" --platform tiktok --view
 ```
@@ -112,7 +113,7 @@ bash run-youtube-shorts.sh --source "<URL>" --platform tiktok --view
 bash run-youtube-shorts.sh --source "<URL>" --platform feed --num-clips 3
 ```
 
-**Batch — `urls.txt` with one URL per line:**
+**Batch, `urls.txt` with one URL per line:**
 ```bash
 xargs -a urls.txt -I{} bash run-youtube-shorts.sh --source "{}"
 ```
@@ -150,18 +151,18 @@ When reporting back, surface for each clip: rank, score, time range, title, hook
 
 ## Common Mistakes to Avoid
 
-1. **Wrong aspect ratio for the platform** — Shorts / TikTok / Reels are `9:16`. The platform preset handles this; only override if you know why.
-2. **Padding to hit `--num-clips`** — if the API returns fewer survivors, return what you have. Don't ship low-score filler.
-3. **Re-running on a 404'd clip URL** — re-fetch the same `request_id` with `muapi predict wait <id>` rather than re-clipping.
+1. **Wrong aspect ratio for the platform**, Shorts / TikTok / Reels are `9:16`. The platform preset handles this; only override if you know why.
+2. **Padding to hit `--num-clips`**, if the API returns fewer survivors, return what you have. Don't ship low-score filler.
+3. **Re-running on a 404'd clip URL**, re-fetch the same `request_id` with `muapi predict wait <id>` rather than re-clipping.
 
 ---
 
 ## Failure Modes
 
-- **API key missing or rejected** — surface the error; don't fabricate a key.
-- **Job timed out** — bump `--poll-timeout` and retry.
-- **Source URL not reachable** — upload the file via `muapi upload file` and pass the returned URL.
-- **Fewer clips returned than requested** — source had fewer rankable highlights. Return what came back with a note.
+- **API key missing or rejected**, surface the error; don't fabricate a key.
+- **Job timed out**, bump `--poll-timeout` and retry.
+- **Source URL not reachable**, upload the file via `muapi upload file` and pass the returned URL.
+- **Fewer clips returned than requested**, source had fewer rankable highlights. Return what came back with a note.
 
 ---
 

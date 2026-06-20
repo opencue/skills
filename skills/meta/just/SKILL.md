@@ -2,6 +2,7 @@
 name: just
 description: >-
   Use when user says "just", "quick task", or "simple task". Lightest direct execution path: scope control, minimal tooling.
+category: meta
 ---
 
 # just
@@ -12,18 +13,18 @@ Reference for `just`, the command runner. Use when working in a project with a `
 
 ## Discovery
 
-- `just --dump` — Print justfile
-- `just --evaluate` — Print variable values
-- `just --help` — Print detailed command-line syntax help
-- `just --list` — Print recipes with descriptions
-- `just --show <RECIPE>` — Print recipe source
-- `just --summary` — Print recipes without descriptions
+- `just --dump`, Print justfile
+- `just --evaluate`, Print variable values
+- `just --help`, Print detailed command-line syntax help
+- `just --list`, Print recipes with descriptions
+- `just --show <RECIPE>`, Print recipe source
+- `just --summary`, Print recipes without descriptions
 
 ## Execution
 
-- `just` — Run default recipe
-- `just <RECIPE>` — Run specific recipe
-- `just <RECIPE> <ARG1> <ARG2>` — Run recipe with arguments
+- `just`, Run default recipe
+- `just <RECIPE>`, Run specific recipe
+- `just <RECIPE> <ARG1> <ARG2>`, Run recipe with arguments
 
 ## Syntax
 

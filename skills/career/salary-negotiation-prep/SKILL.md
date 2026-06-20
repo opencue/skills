@@ -1,6 +1,7 @@
 ---
 name: salary-negotiation-prep
 description: Research market comp bands, build a negotiation strategy, and write counter-offer scripts. Use when user says "negotiate my offer", "salary negotiation", "counter offer", "what should I ask for", "is this offer fair", "they lowballed me", or "how much should I counter".
+category: career
 ---
 
 # Salary Negotiation Prep

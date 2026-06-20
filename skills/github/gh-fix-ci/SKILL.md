@@ -2,6 +2,7 @@
 name: "gh-fix-ci"
 description: >-
   Use when user says "fix CI", "GitHub checks failed", or "debug PR checks". Inspects failing Actions via gh; fix plan needs approval before implementation.
+category: github
 ---
 
 

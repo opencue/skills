@@ -2,9 +2,10 @@
 name: ratatui-tui
 description: Use when building a Rust terminal UI (TUI) — dashboards, file managers, monitors. Covers ratatui (the standard) + crossterm.
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
-# ratatui — Rust TUI framework
+# ratatui, Rust TUI framework
 
 Successor to `tui-rs`. Powers `bottom`, `gitui`, `atuin`, `oha`, `lazygit`'s Rust clones, etc.
 
@@ -22,7 +23,7 @@ Successor to `tui-rs`. Powers `bottom`, `gitui`, `atuin`, `oha`, `lazygit`'s Rus
   ```
 - **Widgets**: `Block`, `Paragraph`, `List`, `Table`, `Gauge`, `Chart`, `Tabs`, `Sparkline`, `Canvas`
 - **Layout**: `Layout::new(Direction::Vertical, [Constraint::Length(3), Constraint::Min(0)])`
-- **State**: stateful widgets (`ListState`, `TableState`) — pass `&mut state` to `render_stateful_widget`
+- **State**: stateful widgets (`ListState`, `TableState`), pass `&mut state` to `render_stateful_widget`
 - **Async**: spawn a `tokio` task that pushes events into an mpsc; the render loop selects between input + tick + app events
 
 ## Prerequisites
@@ -30,7 +31,7 @@ Successor to `tui-rs`. Powers `bottom`, `gitui`, `atuin`, `oha`, `lazygit`'s Rus
 - crates: `ratatui`, `crossterm`
 
 ## Notes
-- Always pair `ratatui::init()` with `ratatui::restore()` — set a panic hook to call `restore()` or your terminal stays in raw mode after a crash.
-- Don't redraw every event — throttle to ~30-60 fps or only on dirty state. Otherwise input latency degrades on slow terminals.
+- Always pair `ratatui::init()` with `ratatui::restore()`, set a panic hook to call `restore()` or your terminal stays in raw mode after a crash.
+- Don't redraw every event, throttle to ~30-60 fps or only on dirty state. Otherwise input latency degrades on slow terminals.
 - For complex apps, look at `tui-realm` (component model) or `cursive` (different paradigm, less popular).
-- Test renders with `ratatui::backend::TestBackend` — captures the buffer for snapshot assertions.
+- Test renders with `ratatui::backend::TestBackend`, captures the buffer for snapshot assertions.

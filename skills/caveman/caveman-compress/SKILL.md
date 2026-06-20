@@ -2,6 +2,7 @@
 name: caveman-compress
 description: >-
   Use when user says "compress this", "shorten prompt", or "/caveman-compress". Token compression preserving intent.
+category: caveman
 ---
 
 # Caveman Compress

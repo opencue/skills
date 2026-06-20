@@ -4,6 +4,7 @@ name: muapi-social-pack
 version: "1.0.0"
 description: Re-render a hero image into Instagram, TikTok, YouTube-shorts and Twitter/X aspect ratios.
 acceptLicenseTerms: true
+category: media
 ---
 
 
@@ -15,8 +16,8 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `source_image` | image_url | yes | — | URL of the hero image (or asset_id from this session). |
-| `caption_idea` | text | no | — | Optional caption / overlay direction (kept short). |
+| `source_image` | image_url | yes |, | URL of the hero image (or asset_id from this session). |
+| `caption_idea` | text | no |, | Optional caption / overlay direction (kept short). |
 | `formats` | list | no | 1:1, 9:16, 4:5, 16:9 | Aspect ratios to produce. |
 
 
@@ -40,7 +41,7 @@ Use the plan to fan out one node per format.
    - 21:9  → cinematic banner
 
 ## Notes
-- Don't generate fresh images — only reframe / re-edit the source.
+- Don't generate fresh images, only reframe / re-edit the source.
 - If the source already matches a format, skip that node and surface the
   original asset id for it.
 

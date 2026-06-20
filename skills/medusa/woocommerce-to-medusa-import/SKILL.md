@@ -2,6 +2,7 @@
 name: woocommerce-to-medusa-import
 description: >-
   Use when user says "WooCommerce import", "migrate products", or "Woo to Medusa". Extraction, mapping, assets, import.
+category: medusa
 ---
 
 # WooCommerce to Medusa Import
@@ -24,7 +25,7 @@ Never commit secrets, generated `.env` files, or credential screenshots.
 This skill spans up to four providers per run: WooCommerce (read), Medusa
 admin API (write), AWS S3 (optional image rehost), and the local DB if
 the import is run via `medusa exec`. Bouncer-MCP coverage is partial as
-of 2026-05-10 — pick a mode per leg.
+of 2026-05-10, pick a mode per leg.
 
 ### Mode A: Agent-driven (Claude / Codex with `secret-mcp` registered)
 
@@ -37,7 +38,7 @@ of 2026-05-10 — pick a mode per leg.
 Use Mode A specifically for the image rehost path (when the importer
 chooses to copy Woo images into the shop's S3 bucket rather than
 referencing them in place). The bouncer holds `AWS_SECRET_ACCESS_KEY`;
-the agent passes the Woo URL and gets back the S3 public URL — bytes
+the agent passes the Woo URL and gets back the S3 public URL, bytes
 traverse the MCP server but **NOT** the agent context.
 
 The `aws_s3_copy_from_url` tool requires the source host to be in

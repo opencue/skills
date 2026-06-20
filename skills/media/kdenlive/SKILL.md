@@ -8,6 +8,7 @@ description: >-
   rendering with melt (the MLT engine behind Kdenlive) plus ffmpeg. Deterministic
   and local. NOT for AI text-to-video generation (use media/core-media).
 allowed-tools: Bash(melt:*), Bash(ffmpeg:*), Bash(ffprobe:*), Bash(mediainfo:*), Bash(bash:*)
+category: media
 ---
 
 # 🎬 Kdenlive / MLT headless video editing

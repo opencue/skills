@@ -29,6 +29,7 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
   - AskUserQuestion
   - Glob
   - Grep
+category: gstack
 ---
 ## Step 0: Detect what the user wants
 
@@ -47,11 +48,11 @@ Read the user's message. Route based on plain-English intent, not keywords:
 6. **"Show the gap" / "how far off is my profile"** → run `Show gap`.
 7. **"Turn it off" / "disable"** → `~/.claude/skills/gstack/bin/gstack-config set question_tuning false`
 8. **"Turn it on" / "enable"** → `~/.claude/skills/gstack/bin/gstack-config set question_tuning true`
-9. **Clear ambiguity** — if you can't tell what the user wants, ask plainly:
+9. **Clear ambiguity**, if you can't tell what the user wants, ask plainly:
    "Do you want to (a) see your profile, (b) review recent questions, (c) set
    a preference, (d) update your declared profile, or (e) turn it off?"
 
-Power-user shortcuts (one-word invocations) — handle these too:
+Power-user shortcuts (one-word invocations), handle these too:
 `profile`, `vibe`, `gap`, `stats`, `review`, `enable`, `disable`, `setup`.
 
 ---
@@ -72,7 +73,7 @@ Power-user shortcuts (one-word invocations) — handle these too:
 2. If `false`, use AskUserQuestion:
 
    > Question tuning is off. gstack can learn which of its prompts you find
-   > valuable vs noisy — so over time, gstack stops asking questions you've
+   > valuable vs noisy, so over time, gstack stops asking questions you've
    > already answered the same way. It takes about 2 minutes to set up your
    > initial profile. v1 is observational: gstack tracks your preferences
    > and shows you a profile, but doesn't silently change skill behavior yet.
@@ -81,7 +82,7 @@ Power-user shortcuts (one-word invocations) — handle these too:
    >
    > A) Enable + set up (recommended, ~2 min)
    > B) Enable but skip setup (I'll fill it in later)
-   > C) Cancel — I'm not ready
+   > C) Cancel, I'm not ready
 
 3. If A or B: enable:
    ```bash
@@ -91,27 +92,27 @@ Power-user shortcuts (one-word invocations) — handle these too:
 4. If A (full setup), ask FIVE one-per-dimension declaration questions via
    individual AskUserQuestion calls (one at a time). Use plain English, no jargon:
 
-   **Q1 — scope_appetite:** "When you're planning a feature, do you lean toward
+   **Q1, scope_appetite:** "When you're planning a feature, do you lean toward
    shipping the smallest useful version fast, or building the complete, edge-
    case-covered version?"
    Options: A) Ship small, iterate (low scope_appetite ≈ 0.25) /
-   B) Balanced / C) Boil the ocean — ship the complete version (high ≈ 0.85)
+   B) Balanced / C) Boil the ocean, ship the complete version (high ≈ 0.85)
 
-   **Q2 — risk_tolerance:** "Would you rather move fast and fix bugs later, or
+   **Q2, risk_tolerance:** "Would you rather move fast and fix bugs later, or
    check things carefully before acting?"
    Options: A) Check carefully (low ≈ 0.25) / B) Balanced / C) Move fast (high ≈ 0.85)
 
-   **Q3 — detail_preference:** "Do you want terse, 'just do it' answers or
+   **Q3, detail_preference:** "Do you want terse, 'just do it' answers or
    verbose explanations with tradeoffs and reasoning?"
    Options: A) Terse, just do it (low ≈ 0.25) / B) Balanced /
    C) Verbose with reasoning (high ≈ 0.85)
 
-   **Q4 — autonomy:** "Do you want to be consulted on every significant
+   **Q4, autonomy:** "Do you want to be consulted on every significant
    decision, or delegate and let the agent pick for you?"
    Options: A) Consult me (low ≈ 0.25) / B) Balanced /
    C) Delegate, trust the agent (high ≈ 0.85)
 
-   **Q5 — architecture_care:** "When there's a tradeoff between 'ship now'
+   **Q5, architecture_care:** "When there's a tradeoff between 'ship now'
    and 'get the design right', which side do you usually fall on?"
    Options: A) Ship now (low ≈ 0.25) / B) Balanced /
    C) Get the design right (high ≈ 0.85)
@@ -163,7 +164,7 @@ Parse the JSON. Present in **plain English**, not raw floats:
   - 0.3-0.7 → "balanced"
   - 0.7-1.0 → "high" (e.g., `scope_appetite` high = "boil the ocean")
 
-  Format: "**scope_appetite:** 0.8 (boil the ocean — you prefer the complete
+  Format: "**scope_appetite:** 0.8 (boil the ocean, you prefer the complete
   version with edge cases covered)"
 
 - If `inferred.diversity` passes the calibration gate (`sample_size >= 20 AND
@@ -172,11 +173,11 @@ Parse the JSON. Present in **plain English**, not raw floats:
   "**scope_appetite:** declared 0.8 (boil the ocean) ↔ observed 0.72 (close)"
   Use words for the gap: 0.0-0.1 "close", 0.1-0.3 "drift", 0.3+ "mismatch".
 
-- If the calibration gate isn't met, say: "Not enough observed data yet —
+- If the calibration gate isn't met, say: "Not enough observed data yet, 
   need N more events across M more skills before we can show your observed
   profile."
 
-- Show the vibe (archetype) from `gstack-developer-profile --vibe` — the
+- Show the vibe (archetype) from `gstack-developer-profile --vibe`, the
   one-word label + one-line description. Only if calibration gate met OR
   if declared is filled (so there's something to match against).
 
@@ -216,7 +217,7 @@ If `NO_LOG`, tell the user: "No questions logged yet. As you use gstack skills,
 gstack will log them here."
 
 Otherwise, present in plain English with counts and follow-rate. Highlight
-questions the user overrode frequently — those are candidates for setting a
+questions the user overrode frequently, those are candidates for setting a
 `never-ask` preference.
 
 After showing, offer: "Want to set a preference on any of these? Say which
@@ -234,9 +235,9 @@ scope expansion comes up", etc).
    "Which question? Here are recent ones: [list top 5 from the log]."
 
 2. Normalize the intent to one of:
-   - `never-ask` — "stop asking", "unnecessary", "ask less", "auto-decide this"
-   - `always-ask` — "ask every time", "don't auto-decide", "I want to decide"
-   - `ask-only-for-one-way` — "only on destructive stuff", "only on one-way doors"
+   - `never-ask`, "stop asking", "unnecessary", "ask less", "auto-decide this"
+   - `always-ask`, "ask every time", "don't auto-decide", "I want to decide"
+   - `ask-only-for-one-way`, "only on destructive stuff", "only on one-way doors"
 
 3. If the user's phrasing is clear, write directly. If ambiguous, confirm:
    > "I read '<user's words>' as `<preference>` on `<question-id>`. Apply? [Y/n]"
@@ -249,7 +250,7 @@ scope expansion comes up", etc).
    ```
 
 5. Confirm: "Set `<id>` → `<preference>`. Active immediately. One-way doors
-   still override never-ask for safety — I'll note it when that happens."
+   still override never-ask for safety, I'll note it when that happens."
 
 6. If the user was responding to an inline `tune:` during another skill, note
    the **user-origin gate**: only write if the `tune:` prefix came from the
@@ -276,7 +277,7 @@ is a trust boundary (Codex #15 in the design doc).
    - Specific number ("set scope to 0.8") → use it directly
 
 2. Confirm via AskUserQuestion:
-   > "Got it — update `declared.<dimension>` from `<old>` to `<new>`? [Y/n]"
+   > "Got it, update `declared.<dimension>` from `<old>` to `<new>`? [Y/n]"
 
 3. After Y, write:
    ```bash
@@ -306,13 +307,13 @@ is a trust boundary (Codex #15 in the design doc).
 
 Parse the JSON. For each dimension where both declared and inferred exist:
 
-- `gap < 0.1` → "close — your actions match what you said"
-- `gap 0.1-0.3` → "drift — some mismatch, not dramatic"
-- `gap > 0.3` → "mismatch — your behavior disagrees with your self-description.
+- `gap < 0.1` → "close, your actions match what you said"
+- `gap 0.1-0.3` → "drift, some mismatch, not dramatic"
+- `gap > 0.3` → "mismatch, your behavior disagrees with your self-description.
   Consider updating your declared value, or reflect on whether your behavior
   is actually what you want."
 
-Never auto-update declared based on the gap. In v1 the gap is reporting only —
+Never auto-update declared based on the gap. In v1 the gap is reporting only, 
 the user decides whether declared is wrong or behavior is wrong.
 
 ---
@@ -358,12 +359,12 @@ events across 2 more skills and you'll be calibrated" or "you're calibrated").
   skills currently read the profile to change defaults. That's v2 work, gated
   on the registry proving durable.
 - **Completion status:**
-  - DONE — did what the user asked (enable/inspect/set/update/disable)
-  - DONE_WITH_CONCERNS — action taken but flagging something (e.g., "your
-    profile shows a large gap — worth reviewing")
-  - NEEDS_CONTEXT — couldn't disambiguate the user's intent
+  - DONE, did what the user asked (enable/inspect/set/update/disable)
+  - DONE_WITH_CONCERNS, action taken but flagging something (e.g., "your
+    profile shows a large gap, worth reviewing")
+  - NEEDS_CONTEXT, couldn't disambiguate the user's intent
 
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager

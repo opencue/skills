@@ -2,6 +2,7 @@
 name: obsidian-markdown
 description: >-
   Use when user says "Obsidian markdown", "vault note", or "markdown note". Frontmatter, links, embeds, structure.
+category: obsidian
 ---
 
 # Obsidian Flavored Markdown Skill

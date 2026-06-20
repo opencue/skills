@@ -6,7 +6,7 @@ triggers:
   - upgrade gstack
   - update gstack version
   - get latest gstack
-allowed-tools: Bash(Bash:*), Read, Write, AskUserQuestion, --
+allowed-tools: Bash(Bash:*), Read, Write, AskUserQuestion
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
 
@@ -244,6 +244,7 @@ Happy shipping!
 
 After showing What's New, continue with whatever skill the user originally invoked. The upgrade is done — no further action needed.
 
+category: gstack
 ---
 
 ## Standalone usage

@@ -18,8 +18,9 @@ triggers:
   - codify this scrape
   - save this scrape
   - make this permanent
+category: gstack
 ---
-## Iron contract — never write a half-broken skill to disk
+## Iron contract, never write a half-broken skill to disk
 
 Skills are user-trust artifacts. A broken skill in `$B skill list` makes
 agents reach for the wrong tool and erodes confidence. This skill writes
@@ -30,7 +31,7 @@ shipped" state.
 
 ---
 
-## Step 1 — Provenance guard (D1)
+## Step 1, Provenance guard (D1)
 
 Walk back through the conversation, **at most 10 agent turns**, looking
 for the most recent `/scrape` invocation that:
@@ -46,7 +47,7 @@ If you cannot find one, refuse with exactly this message:
 > <intent> first, then say /skillify."
 
 Stop. Do not synthesize from chat fragments. Do not synthesize from a
-match-path /scrape result (matched skills are already codified — there's
+match-path /scrape result (matched skills are already codified, there's
 nothing to skillify).
 
 If you find a candidate but the user is currently three turns past it
@@ -57,7 +58,7 @@ discussing something unrelated, ask once before proceeding:
 
 A "yes" lets you continue. Anything else: refuse with the message above.
 
-## Step 2 — Propose name + triggers
+## Step 2, Propose name + triggers
 
 From the prototype intent, extract:
 
@@ -97,7 +98,7 @@ question:
 > the same tier collides and will be refused at write time. Pick a
 > different name to coexist."
 
-## Step 3 — Synthesize `script.ts` (D2)
+## Step 3, Synthesize `script.ts` (D2)
 
 **Use only the final-attempt `$B` calls** that produced the JSON the
 user accepted, plus the user's intent string. Drop:
@@ -142,7 +143,7 @@ calls (e.g., goto + click "Next" + html), keep all of them in `main()`
 but extract the parsing into pure helpers. The fixture-replay tests in
 step 5 only exercise the pure parts.
 
-## Step 4 — Capture the fixture
+## Step 4, Capture the fixture
 
 ```bash
 $B goto "<TARGET_URL>"
@@ -156,11 +157,11 @@ E.g. `fixtures/lobste-rs-2026-04-27.html`.
 Read the file you wrote, store its contents in a variable, and use it
 when staging in step 7.
 
-## Step 5 — Write `script.test.ts`
+## Step 5, Write `script.test.ts`
 
 Mirror `browser-skills/hackernews-frontpage/script.test.ts`. The test
-must include at least one ★★ assertion — parsed output has the expected
-shape AND non-empty key fields — not a smoke ★ assertion. Smoke tests
+must include at least one ★★ assertion, parsed output has the expected
+shape AND non-empty key fields, not a smoke ★ assertion. Smoke tests
 that only check `parseFromHtml` doesn't throw are insufficient.
 
 ```ts
@@ -187,14 +188,14 @@ describe('<name> parser', () => {
 });
 ```
 
-## Step 6 — Resolve the canonical SDK path + read it
+## Step 6, Resolve the canonical SDK path + read it
 
 The canonical SDK lives at `<gstack-install>/browse/src/browse-client.ts`.
 The bundled-skill loader walks the install tree to find it; mirror that.
 
 Resolve the gstack install dir. Two reliable signals (in order):
 
-1. The bundled `hackernews-frontpage` skill — look at its tier path from
+1. The bundled `hackernews-frontpage` skill, look at its tier path from
    `$B skill list` (the `bundled` row). The skill dir is
    `<gstack-install>/browser-skills/hackernews-frontpage/`, so the install
    dir is two `dirname` calls above its `_lib/browse-client.ts`.
@@ -227,9 +228,9 @@ const sdkContents = fs.readFileSync(resolveSdkPath(), 'utf-8');
 
 Read the SDK contents into a variable. The staging step writes it as
 `_lib/browse-client.ts` byte-identical to the canonical. Phase 1 decision
-#4 — each skill is fully self-contained, no version drift possible.
+#4, each skill is fully self-contained, no version drift possible.
 
-## Step 7 — Stage the skill (D3 atomic write)
+## Step 7, Stage the skill (D3 atomic write)
 
 Use the helper at `browse/src/browser-skill-write.ts`. Construct an inline
 TypeScript snippet (or shell out to a small Bun one-liner) that calls:
@@ -290,7 +291,7 @@ $ $B skill run <name>
 Capture `stagedDir` (the path returned by `stageSkill`). You'll pass it
 to `$B skill test` next, then to `commitSkill` or `discardStaged`.
 
-## Step 8 — Run `$B skill test` against the staged dir
+## Step 8, Run `$B skill test` against the staged dir
 
 ```bash
 $B skill test "<name>" --dir "<stagedDir>"
@@ -307,7 +308,7 @@ If the test fails:
 
 1. Read the test output. If the failure is a fixable parser bug,
    rewrite `script.ts` and `script.test.ts` (still inside the staged
-   dir) and retry — at most twice. Show the diff to the user before
+   dir) and retry, at most twice. Show the diff to the user before
    each retry.
 2. If still failing after two retries, OR the failure is an
    environmental issue (SDK import, daemon connection):
@@ -320,7 +321,7 @@ If the test fails:
    Report the failure to the user, show them the staged `script.ts` for
    reference, and stop. No on-disk artifact.
 
-## Step 9 — Approval gate
+## Step 9, Approval gate
 
 Tests passed. Now ask the user before committing:
 
@@ -344,9 +345,9 @@ C) Discard — don't commit
 
 If the user picks B, print the staged `SKILL.md` and `script.ts` (NOT
 the fixture or _lib/), then re-ask the same A/B/C question (without B
-this time — they already saw it).
+this time, they already saw it).
 
-## Step 10 — Commit (atomic) or discard
+## Step 10, Commit (atomic) or discard
 
 If the user approved:
 
@@ -376,7 +377,7 @@ discardStaged('<stagedDir>');
 
 Report: "Discarded. No skill was written to disk."
 
-## Step 11 — Confirm + verify
+## Step 11, Confirm + verify
 
 After a successful commit, run one verification:
 
@@ -386,7 +387,7 @@ $B skill run <name>    # should match the JSON the prototype produced
 ```
 
 If the post-commit run does not match the prototype output, something
-in synthesis drifted. Surface this to the user — they may want to
+in synthesis drifted. Surface this to the user, they may want to
 `$B skill rm <name>` and retry. Do NOT silently roll back; the user
 deserves to see the discrepancy.
 
@@ -410,16 +411,16 @@ End the skill with one line: "Skill '<name>' committed at <tier>. Future
   hydration, lazy load) the codified script may need a hand-edit before
   it's reliable. The post-commit verify step catches obvious drift.
 - **Single-target only.** One `$B goto` URL per skill. Multi-page
-  crawls are out of scope — write a separate skill per target, or
+  crawls are out of scope, write a separate skill per target, or
   parameterize via `args:` if the URL pattern is regular.
 
 ## What this skill does NOT do
 
 - Codify match-path /scrape results (matched skills are already codified)
-- Codify mutating flows (those are /automate's job — Phase 2 P0)
-- Run skills (that's `$B skill run` — codified skills are run via /scrape's
+- Codify mutating flows (those are /automate's job, Phase 2 P0)
+- Run skills (that's `$B skill run`, codified skills are run via /scrape's
   match path or directly)
-- Edit existing skills ($EDITOR + the skill dir is the surface — `$B skill
+- Edit existing skills ($EDITOR + the skill dir is the surface, `$B skill
   show <name>` finds the path)
 - Tombstone or remove ($B skill rm)
 

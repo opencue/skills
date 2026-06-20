@@ -2,13 +2,14 @@
 name: obscura
 description: >-
   Use when user says "scrape", "headless browser", "puppeteer", "stealth scrape", or needs JS-rendered content from a URL. Rust headless browser with anti-detection, 30 MB RAM, 85 ms page load. NOT for static pages — use defuddle.
+category: research
 ---
 
 # obscura
 
 Headless browser engine in Rust. Replaces headless Chrome / Puppeteer / Playwright for scraping and agent browsing. Implements the Chrome DevTools Protocol so existing Puppeteer/Playwright clients work unchanged.
 
-> No upstream SKILL.md found at h4ckf0r0day/obscura on 2026-05-09. Authored locally from the project README. Re-check upstream periodically — adopt theirs if/when they publish one.
+> No upstream SKILL.md found at h4ckf0r0day/obscura on 2026-05-09. Authored locally from the project README. Re-check upstream periodically, adopt theirs if/when they publish one.
 >
 > Source: <https://github.com/h4ckf0r0day/obscura> · License: Apache-2.0
 
@@ -20,9 +21,9 @@ Headless browser engine in Rust. Replaces headless Chrome / Puppeteer / Playwrig
 
 ## When NOT to load
 
-- Static HTML pages — use `WebFetch` + `defuddle` instead (cheaper, no browser).
-- One-off URL inspection — `curl -sL <url>` is enough.
-- Reading a known-good markdown file — direct `WebFetch`.
+- Static HTML pages, use `WebFetch` + `defuddle` instead (cheaper, no browser).
+- One-off URL inspection, `curl -sL <url>` is enough.
+- Reading a known-good markdown file, direct `WebFetch`.
 
 ## Why Obscura over headless Chrome
 
@@ -65,10 +66,10 @@ obscura fetch https://example.com --selector ".product-grid"
 | Flag | Default | Notes |
 |------|---------|-------|
 | `--dump` | `html` | `html` / `text` / `links` |
-| `--eval` | — | JS expression to evaluate inside page |
+| `--eval` |, | JS expression to evaluate inside page |
 | `--wait-until` | `load` | `load` / `domcontentloaded` / `networkidle0` |
 | `--timeout` | `30` | Max navigation seconds |
-| `--selector` | — | Wait for CSS selector |
+| `--selector` |, | Wait for CSS selector |
 | `--stealth` | off | Anti-detection mode |
 | `--quiet` | off | Suppress banner |
 
@@ -84,7 +85,7 @@ obscura scrape url1 url2 url3 \
 | Flag | Default | Notes |
 |------|---------|-------|
 | `--concurrency` | `10` | Parallel workers |
-| `--eval` | — | JS expression per page |
+| `--eval` |, | JS expression per page |
 | `--format` | `json` | `json` / `text` |
 
 ### CDP server (for Puppeteer/Playwright)
@@ -97,7 +98,7 @@ obscura serve --port 9222 --stealth
 | Flag | Default | Notes |
 |------|---------|-------|
 | `--port` | `9222` | WebSocket port |
-| `--proxy` | — | HTTP/SOCKS5 URL |
+| `--proxy` |, | HTTP/SOCKS5 URL |
 | `--stealth` | off | Anti-detect + tracker blocking |
 | `--workers` | `1` | Parallel worker processes |
 | `--obey-robots` | off | Respect robots.txt |
@@ -144,7 +145,7 @@ Built from source with `cargo build --release --features stealth` OR pass `--ste
 
 Use stealth for sites that fingerprint or rate-limit. Skip it for benign internal scraping (faster).
 
-## Decision tree — which tool for which scrape
+## Decision tree, which tool for which scrape
 
 | Page type | Tool |
 |-----------|------|
@@ -158,9 +159,9 @@ Use stealth for sites that fingerprint or rate-limit. Skip it for benign interna
 
 ## Sister skills
 
-- `defuddle` — clean HTML → readable markdown (use AFTER obscura returns HTML)
-- `playwright` — Playwright-CLI wrapper (works with obscura's CDP server)
-- `keyword-research` — feed scraped content into SEO analysis
+- `defuddle`, clean HTML → readable markdown (use AFTER obscura returns HTML)
+- `playwright`, Playwright-CLI wrapper (works with obscura's CDP server)
+- `keyword-research`, feed scraped content into SEO analysis
 
 ## Common workflows
 

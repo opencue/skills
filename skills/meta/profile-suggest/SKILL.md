@@ -10,7 +10,7 @@ tags: [meta, cue, profiles, onboarding]
 category: meta
 version: 1.0.0
 requires_mcps: []
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # Profile Suggestion (First-Time Repo Setup)
@@ -46,7 +46,7 @@ ls .env* terraform/ ansible/ k8s/ helm/ 2>/dev/null
 cue list 2>/dev/null
 ```
 
-### 3. Present your suggestion (CONCISE — max 6 lines)
+### 3. Present your suggestion (CONCISE, max 6 lines)
 
 Format exactly like this:
 
@@ -67,7 +67,7 @@ Pin it? I'll run: `echo frontend > .cue.profile` — or pick another with `cue l
 echo "<profile-name>" > .cue.profile
 ```
 
-Then tell them: "Done! Next time you run `claude` here, it'll boot with the **<name>** profile. Restart to activate, or continue — current session still works."
+Then tell them: "Done! Next time you run `claude` here, it'll boot with the **<name>** profile. Restart to activate, or continue, current session still works."
 
 ### 5. Remove the first-time marker
 
@@ -76,11 +76,11 @@ because `.cue.profile` now exists (or user explicitly skipped).
 
 ## Rules
 
-- **Be fast.** Don't spend more than 1-2 tool calls scanning. The user asked a question — answer it after the suggestion.
+- **Be fast.** Don't spend more than 1-2 tool calls scanning. The user asked a question, answer it after the suggestion.
 - **Don't block.** Show the suggestion, then immediately proceed with the user's actual request.
 - **One suggestion only.** Don't nag if they ignore it.
 - **If the repo is ambiguous** (could be frontend or backend), suggest the broader one and mention the alternative.
-- **If a profile already exists** (`.cue.profile` is present), do nothing — this skill shouldn't have fired.
+- **If a profile already exists** (`.cue.profile` is present), do nothing, this skill shouldn't have fired.
 
 ## Matching heuristics
 

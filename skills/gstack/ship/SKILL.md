@@ -21,6 +21,7 @@ triggers:
   - create a pr
   - push to main
   - deploy this
+category: gstack
 ---
 ## Step 0: Detect platform and base branch
 
@@ -41,12 +42,12 @@ Determine which branch this PR/MR targets, or the repo's default branch if no
 PR/MR exists. Use the result as "the base branch" in all subsequent steps.
 
 **If GitHub:**
-1. `gh pr view --json baseRefName -q .baseRefName` — if succeeds, use it
-2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name` — if succeeds, use it
+1. `gh pr view --json baseRefName -q .baseRefName`, if succeeds, use it
+2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name`, if succeeds, use it
 
 **If GitLab:**
-1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field — if succeeds, use it
-2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field — if succeeds, use it
+1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field, if succeeds, use it
+2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field, if succeeds, use it
 
 **Git-native fallback (if unknown platform, or CLI commands fail):**
 1. `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||'`
@@ -66,7 +67,7 @@ branch name wherever the instructions say "the base branch" or `<default>`.
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
 You are running the `/ship` workflow. This is a **non-interactive, fully automated** workflow. Do NOT ask for confirmation at any step. The user said `/ship` which means DO IT. Run straight through and output the PR URL at the end.
@@ -76,22 +77,22 @@ You are running the `/ship` workflow. This is a **non-interactive, fully automat
 - Merge conflicts that can't be auto-resolved (stop, show conflicts)
 - In-branch test failures (pre-existing failures are triaged, not auto-blocking)
 - Pre-landing review finds ASK items that need user judgment
-- MINOR or MAJOR version bump needed (ask — see Step 12)
+- MINOR or MAJOR version bump needed (ask, see Step 12)
 - Greptile review comments that need user decision (complex fixes, false positives)
-- AI-assessed coverage below minimum threshold (hard gate with user override — see Step 7)
+- AI-assessed coverage below minimum threshold (hard gate with user override, see Step 7)
 - Plan items NOT DONE with no user override (see Step 8)
 - Plan verification failures (see Step 8.1)
-- TODOS.md missing and user wants to create one (ask — see Step 14)
-- TODOS.md disorganized and user wants to reorganize (ask — see Step 14)
+- TODOS.md missing and user wants to create one (ask, see Step 14)
+- TODOS.md disorganized and user wants to reorganize (ask, see Step 14)
 
 **Never stop for:**
 - Uncommitted changes (always include them)
-- Version bump choice (auto-pick MICRO or PATCH — see Step 12)
+- Version bump choice (auto-pick MICRO or PATCH, see Step 12)
 - CHANGELOG content (auto-generate from diff)
 - Commit message approval (auto-commit)
 - Multi-file changesets (auto-split into bisectable commits)
 - TODOS.md completed-item detection (auto-mark)
-- Auto-fixable review findings (dead code, N+1, stale comments — fixed automatically)
+- Auto-fixable review findings (dead code, N+1, stale comments, fixed automatically)
 - Test coverage gaps within target threshold (auto-generate and commit, or flag in PR body)
 
 **Re-run behavior (idempotency):**
@@ -110,7 +111,7 @@ Never skip a verification step because a prior `/ship` run already performed it.
 
 1. Check the current branch. If on the base branch or the repo's default branch, **abort**: "You're on the base branch. Ship from a feature branch."
 
-2. Run `git status` (never use `-uall`). Uncommitted changes are always included — no need to ask.
+2. Run `git status` (never use `-uall`). Uncommitted changes are always included, no need to ask.
 
 3. Run `git diff <base>...HEAD --stat` and `git log <base>..HEAD --oneline` to understand what's being shipped.
 
@@ -124,7 +125,7 @@ After completing the review, read the review log and config to display the dashb
 ~/.claude/skills/gstack/bin/gstack-review-read
 ```
 
-Parse the output. Find the most recent entry for each skill (plan-ceo-review, plan-eng-review, review, plan-design-review, design-review-lite, adversarial-review, codex-review, codex-plan-review). Ignore entries with timestamps older than 7 days. For the Eng Review row, show whichever is more recent between `review` (diff-scoped pre-landing review) and `plan-eng-review` (plan-stage architecture review). Append "(DIFF)" or "(PLAN)" to the status to distinguish. For the Adversarial row, show whichever is more recent between `adversarial-review` (new auto-scaled) and `codex-review` (legacy). For Design Review, show whichever is more recent between `plan-design-review` (full visual audit) and `design-review-lite` (code-level check). Append "(FULL)" or "(LITE)" to the status to distinguish. For the Outside Voice row, show the most recent `codex-plan-review` entry — this captures outside voices from both /plan-ceo-review and /plan-eng-review.
+Parse the output. Find the most recent entry for each skill (plan-ceo-review, plan-eng-review, review, plan-design-review, design-review-lite, adversarial-review, codex-review, codex-plan-review). Ignore entries with timestamps older than 7 days. For the Eng Review row, show whichever is more recent between `review` (diff-scoped pre-landing review) and `plan-eng-review` (plan-stage architecture review). Append "(DIFF)" or "(PLAN)" to the status to distinguish. For the Adversarial row, show whichever is more recent between `adversarial-review` (new auto-scaled) and `codex-review` (legacy). For Design Review, show whichever is more recent between `plan-design-review` (full visual audit) and `design-review-lite` (code-level check). Append "(FULL)" or "(LITE)" to the status to distinguish. For the Outside Voice row, show the most recent `codex-plan-review` entry, this captures outside voices from both /plan-ceo-review and /plan-eng-review.
 
 **Source attribution:** If the most recent entry for a skill has a \`"via"\` field, append it to the status label in parentheses. Examples: `plan-eng-review` with `via:"autoplan"` shows as "CLEAR (PLAN via /autoplan)". `review` with `via:"ship"` shows as "CLEAR (DIFF via /ship)". Entries without a `via` field show as "CLEAR (PLAN)" or "CLEAR (DIFF)" as before.
 
@@ -163,28 +164,28 @@ Display:
 
 **Staleness detection:** After displaying the dashboard, check if any existing reviews may be stale:
 - Parse the \`---HEAD---\` section from the bash output to get the current HEAD commit hash
-- For each review entry that has a \`commit\` field: compare it against the current HEAD. If different, count elapsed commits: \`git rev-list --count STORED_COMMIT..HEAD\`. Display: "Note: {skill} review from {date} may be stale — {N} commits since review"
-- For entries without a \`commit\` field (legacy entries): display "Note: {skill} review from {date} has no commit tracking — consider re-running for accurate staleness detection"
+- For each review entry that has a \`commit\` field: compare it against the current HEAD. If different, count elapsed commits: \`git rev-list --count STORED_COMMIT..HEAD\`. Display: "Note: {skill} review from {date} may be stale, {N} commits since review"
+- For entries without a \`commit\` field (legacy entries): display "Note: {skill} review from {date} has no commit tracking, consider re-running for accurate staleness detection"
 - If all reviews match the current HEAD, do not display any staleness notes
 
 If the Eng Review is NOT "CLEAR":
 
-Print: "No prior eng review found — ship will run its own pre-landing review in Step 9."
+Print: "No prior eng review found, ship will run its own pre-landing review in Step 9."
 
 Check diff size: `git diff <base>...HEAD --stat | tail -1`. If the diff is >200 lines, add: "Note: This is a large diff. Consider running `/plan-eng-review` or `/autoplan` for architecture-level review before shipping."
 
-If CEO Review is missing, mention as informational ("CEO Review not run — recommended for product changes") but do NOT block.
+If CEO Review is missing, mention as informational ("CEO Review not run, recommended for product changes") but do NOT block.
 
-For Design Review: run `source <(~/.claude/skills/gstack/bin/gstack-diff-scope <base> 2>/dev/null)`. If `SCOPE_FRONTEND=true` and no design review (plan-design-review or design-review-lite) exists in the dashboard, mention: "Design Review not run — this PR changes frontend code. The lite design check will run automatically in Step 9, but consider running /design-review for a full visual audit post-implementation." Still never block.
+For Design Review: run `source <(~/.claude/skills/gstack/bin/gstack-diff-scope <base> 2>/dev/null)`. If `SCOPE_FRONTEND=true` and no design review (plan-design-review or design-review-lite) exists in the dashboard, mention: "Design Review not run, this PR changes frontend code. The lite design check will run automatically in Step 9, but consider running /design-review for a full visual audit post-implementation." Still never block.
 
-Continue to Step 2 — do NOT block or ask. Ship runs its own review in Step 9.
+Continue to Step 2, do NOT block or ask. Ship runs its own review in Step 9.
 
 ---
 
 ## Step 2: Distribution Pipeline Check
 
-If the diff introduces a new standalone artifact (CLI binary, library package, tool) — not a web
-service with existing deployment — verify that a distribution pipeline exists.
+If the diff introduces a new standalone artifact (CLI binary, library package, tool), not a web
+service with existing deployment, verify that a distribution pipeline exists.
 
 1. Check if the diff adds a new `cmd/` directory, `main.go`, or `bin/` entry point:
    ```bash
@@ -200,9 +201,9 @@ service with existing deployment — verify that a distribution pipeline exists.
 3. **If no release pipeline exists and a new artifact was added:** Use AskUserQuestion:
    - "This PR adds a new binary/tool but there's no CI/CD pipeline to build and publish it.
      Users won't be able to download the artifact after merge."
-   - A) Add a release workflow now (CI/CD release pipeline — GitHub Actions or GitLab CI depending on platform)
-   - B) Defer — add to TODOS.md
-   - C) Not needed — this is internal/web-only, existing deployment covers it
+   - A) Add a release workflow now (CI/CD release pipeline, GitHub Actions or GitLab CI depending on platform)
+   - B) Defer, add to TODOS.md
+   - C) Not needed, this is internal/web-only, existing deployment covers it
 
 4. **If release pipeline exists:** Continue silently.
 5. **If no new artifact detected:** Skip silently.
@@ -254,14 +255,14 @@ Print "Test framework detected: {name} ({N} existing tests). Skipping bootstrap.
 Read 2-3 existing test files to learn conventions (naming, imports, assertion style, setup patterns).
 Store conventions as prose context for use in Phase 8e.5 or Step 7. **Skip the rest of bootstrap.**
 
-**If BOOTSTRAP_DECLINED** appears: Print "Test bootstrap previously declined — skipping." **Skip the rest of bootstrap.**
+**If BOOTSTRAP_DECLINED** appears: Print "Test bootstrap previously declined, skipping." **Skip the rest of bootstrap.**
 
 **If NO runtime detected** (no config files found): Use AskUserQuestion:
 "I couldn't detect your project's language. What runtime are you using?"
 Options: A) Node.js/TypeScript B) Ruby/Rails C) Python D) Go E) Rust F) PHP G) Elixir H) This project doesn't need tests.
 If user picks H → write `.gstack/no-test-bootstrap` and continue without tests.
 
-**If runtime detected but no test framework — bootstrap:**
+**If runtime detected but no test framework, bootstrap:**
 
 ### B2. Research best practices
 
@@ -278,17 +279,17 @@ If WebSearch is unavailable, use this built-in knowledge table:
 | Next.js | vitest + @testing-library/react + playwright | jest + cypress |
 | Python | pytest + pytest-cov | unittest |
 | Go | stdlib testing + testify | stdlib only |
-| Rust | cargo test (built-in) + mockall | — |
+| Rust | cargo test (built-in) + mockall |, |
 | PHP | phpunit + mockery | pest |
-| Elixir | ExUnit (built-in) + ex_machina | — |
+| Elixir | ExUnit (built-in) + ex_machina |, |
 
 ### B3. Framework selection
 
 Use AskUserQuestion:
 "I detected this is a [Runtime/Framework] project with no test framework. I researched current best practices. Here are the options:
-A) [Primary] — [rationale]. Includes: [packages]. Supports: unit, integration, smoke, e2e
-B) [Alternative] — [rationale]. Includes: [packages]
-C) Skip — don't set up testing right now
+A) [Primary], [rationale]. Includes: [packages]. Supports: unit, integration, smoke, e2e
+B) [Alternative], [rationale]. Includes: [packages]
+C) Skip, don't set up testing right now
 RECOMMENDATION: Choose A because [reason based on project context]"
 
 If user picks C → write `.gstack/no-test-bootstrap`. Tell user: "If you change your mind later, delete `.gstack/no-test-bootstrap` and re-run." Continue without tests.
@@ -310,7 +311,7 @@ Generate 3-5 real tests for existing code:
 
 1. **Find recently changed files:** `git log --since=30.days --name-only --format="" | sort | uniq -c | sort -rn | head -10`
 2. **Prioritize by risk:** Error handlers > business logic with conditionals > API endpoints > pure functions
-3. **For each file:** Write one test that tests real behavior with meaningful assertions. Never `expect(x).toBeDefined()` — test what the code DOES.
+3. **For each file:** Write one test that tests real behavior with meaningful assertions. Never `expect(x).toBeDefined()`, test what the code DOES.
 4. Run each test. Passes → keep. Fails → fix once. Still fails → delete silently.
 5. Generate at least 1 test, cap at 5.
 
@@ -333,21 +334,21 @@ ls -d .github/ 2>/dev/null && echo "CI:github"
 ls .gitlab-ci.yml .circleci/ bitrise.yml 2>/dev/null
 ```
 
-If `.github/` exists (or no CI detected — default to GitHub Actions):
+If `.github/` exists (or no CI detected, default to GitHub Actions):
 Create `.github/workflows/test.yml` with:
 - `runs-on: ubuntu-latest`
 - Appropriate setup action for the runtime (setup-node, setup-ruby, setup-python, etc.)
 - The same test command verified in B5
 - Trigger: push + pull_request
 
-If non-GitHub CI detected → skip CI generation with note: "Detected {provider} — CI pipeline generation supports GitHub Actions only. Add test step to your existing pipeline manually."
+If non-GitHub CI detected → skip CI generation with note: "Detected {provider}, CI pipeline generation supports GitHub Actions only. Add test step to your existing pipeline manually."
 
 ### B6. Create TESTING.md
 
 First check: If TESTING.md already exists → read it and update/append rather than overwriting. Never destroy existing content.
 
 Write TESTING.md with:
-- Philosophy: "100% test coverage is the key to great vibe coding. Tests let you move fast, trust your instincts, and ship with confidence — without them, vibe coding is just yolo coding. With tests, it's a superpower."
+- Philosophy: "100% test coverage is the key to great vibe coding. Tests let you move fast, trust your instincts, and ship with confidence, without them, vibe coding is just yolo coding. With tests, it's a superpower."
 - Framework name and version
 - How to run tests (the verified command from B5)
 - Test layers: Unit tests (what, where, when), Integration tests, Smoke tests, E2E tests
@@ -361,7 +362,7 @@ Append a `## Testing` section:
 - Run command and test directory
 - Reference to TESTING.md
 - Test expectations:
-  - 100% test coverage is the goal — tests make vibe coding safe
+  - 100% test coverage is the goal, tests make vibe coding safe
   - When writing new functions, write a corresponding test
   - When fixing a bug, write a regression test
   - When adding error handling, write a test that triggers the error
@@ -383,7 +384,7 @@ Only commit if there are changes. Stage all bootstrap files (config, test direct
 
 ## Step 5: Run tests (on merged code)
 
-**Do NOT run `RAILS_ENV=test bin/rails db:migrate`** — `bin/test-lane` already calls
+**Do NOT run `RAILS_ENV=test bin/rails db:migrate`**, `bin/test-lane` already calls
 `db:test:prepare` internally, which loads the schema into the correct lane database.
 Running bare test migrations without INSTANCE hits an orphan DB and corrupts structure.sql.
 
@@ -417,7 +418,7 @@ For each failing test:
    - **Likely pre-existing** if: neither the test file nor the code it tests was modified on this branch, AND the failure is unrelated to any branch change you can identify.
    - **When ambiguous, default to in-branch.** It is safer to stop the developer than to let a broken test ship. Only classify as pre-existing when you are confident.
 
-   This classification is heuristic — use your judgment reading the diff and the test output. You do not have a programmatic dependency graph.
+   This classification is heuristic, use your judgment reading the diff and the test output. You do not have a programmatic dependency graph.
 
 ### Step T2: Handle in-branch failures
 
@@ -437,10 +438,10 @@ Use AskUserQuestion:
 >
 > Since this is a solo repo, you're the only one who will fix these.
 >
-> RECOMMENDATION: Choose A — fix now while the context is fresh. Completeness: 9/10.
-> A) Investigate and fix now (human: ~2-4h / CC: ~15min) — Completeness: 10/10
-> B) Add as P0 TODO — fix after this branch lands — Completeness: 7/10
-> C) Skip — I know about this, ship anyway — Completeness: 3/10
+> RECOMMENDATION: Choose A, fix now while the context is fresh. Completeness: 9/10.
+> A) Investigate and fix now (human: ~2-4h / CC: ~15min), Completeness: 10/10
+> B) Add as P0 TODO, fix after this branch lands, Completeness: 7/10
+> C) Skip, I know about this, ship anyway, Completeness: 3/10
 
 **If REPO_MODE is `collaborative` or `unknown`:**
 
@@ -450,13 +451,13 @@ Use AskUserQuestion:
 >
 > [list each failure with file:line and brief error description]
 >
-> This is a collaborative repo — these may be someone else's responsibility.
+> This is a collaborative repo, these may be someone else's responsibility.
 >
-> RECOMMENDATION: Choose B — assign it to whoever broke it so the right person fixes it. Completeness: 9/10.
-> A) Investigate and fix now anyway — Completeness: 10/10
-> B) Blame + assign GitHub issue to the author — Completeness: 9/10
-> C) Add as P0 TODO — Completeness: 7/10
-> D) Skip — ship anyway — Completeness: 3/10
+> RECOMMENDATION: Choose B, assign it to whoever broke it so the right person fixes it. Completeness: 9/10.
+> A) Investigate and fix now anyway, Completeness: 10/10
+> B) Blame + assign GitHub issue to the author, Completeness: 9/10
+> C) Add as P0 TODO, Completeness: 7/10
+> D) Skip, ship anyway, Completeness: 3/10
 
 ### Step T4: Execute the chosen action
 
@@ -470,7 +471,7 @@ Use AskUserQuestion:
 - If `TODOS.md` exists, add the entry following the format in `review/TODOS-format.md` (or `.claude/skills/review/TODOS-format.md`).
 - If `TODOS.md` does not exist, create it with the standard header and add the entry.
 - Entry should include: title, the error output, which branch it was noticed on, and priority P0.
-- Continue with the workflow — treat the pre-existing failure as non-blocking.
+- Continue with the workflow, treat the pre-existing failure as non-blocking.
 
 **If "Blame + assign GitHub issue" (collaborative only):**
 - Find who likely broke it. Check BOTH the test file AND the production code it tests:
@@ -480,7 +481,7 @@ Use AskUserQuestion:
   # Who last touched the production code the test covers? (often the actual breaker)
   git log --format="%an (%ae)" -1 -- <source-file-under-test>
   ```
-  If these are different people, prefer the production code author — they likely introduced the regression.
+  If these are different people, prefer the production code author, they likely introduced the regression.
 - Create an issue assigned to that person (use the platform detected in Step 0):
   - **If GitHub:**
     ```bash
@@ -505,7 +506,7 @@ Use AskUserQuestion:
 
 **After triage:** If any in-branch failures remain unfixed, **STOP**. Do not proceed. If all failures were pre-existing and handled (fixed, TODOed, assigned, or skipped), continue to Step 6.
 
-**If all pass:** Continue silently — just note the counts briefly.
+**If all pass:** Continue silently, just note the counts briefly.
 
 ---
 
@@ -528,7 +529,7 @@ Match against these patterns (from CLAUDE.md):
 - `config/system_prompts/*.txt`
 - `test/evals/**/*` (eval infrastructure changes affect all suites)
 
-**If no matches:** Print "No prompt-related files changed — skipping evals." and continue to Step 9.
+**If no matches:** Print "No prompt-related files changed, skipping evals." and continue to Step 9.
 
 **2. Identify affected eval suites:**
 
@@ -542,7 +543,7 @@ Map runner → test file: `post_generation_eval_runner.rb` → `post_generation_
 
 **Special cases:**
 - Changes to `test/evals/judges/*.rb`, `test/evals/support/*.rb`, or `test/evals/fixtures/` affect ALL suites that use those judges/support files. Check imports in the eval test files to determine which.
-- Changes to `config/system_prompts/*.txt` — grep eval runners for the prompt filename to find affected suites.
+- Changes to `config/system_prompts/*.txt`, grep eval runners for the prompt filename to find affected suites.
 - If unsure which suites are affected, run ALL suites that could plausibly be impacted. Over-testing is better than missing a regression.
 
 **3. Run affected suites at `EVAL_JUDGE_TIER=full`:**
@@ -553,16 +554,16 @@ Map runner → test file: `post_generation_eval_runner.rb` → `post_generation_
 EVAL_JUDGE_TIER=full EVAL_VERBOSE=1 bin/test-lane --eval test/evals/<suite>_eval_test.rb 2>&1 | tee /tmp/ship_evals.txt
 ```
 
-If multiple suites need to run, run them sequentially (each needs a test lane). If the first suite fails, stop immediately — don't burn API cost on remaining suites.
+If multiple suites need to run, run them sequentially (each needs a test lane). If the first suite fails, stop immediately, don't burn API cost on remaining suites.
 
 **4. Check results:**
 
 - **If any eval fails:** Show the failures, the cost dashboard, and **STOP**. Do not proceed.
 - **If all pass:** Note pass counts and cost. Continue to Step 9.
 
-**5. Save eval output** — include eval results and cost dashboard in the PR body (Step 19).
+**5. Save eval output**, include eval results and cost dashboard in the PR body (Step 19).
 
-**Tier reference (for context — /ship always uses `full`):**
+**Tier reference (for context, /ship always uses `full`):**
 | Tier | When | Speed (cached) | Cost |
 |------|------|----------------|------|
 | `fast` (Haiku) | Dev iteration, smoke tests | ~5s (14x faster) | ~$0.07/run |
@@ -573,19 +574,19 @@ If multiple suites need to run, run them sequentially (each needs a test lane). 
 
 ## Step 7: Test Coverage Audit
 
-**Dispatch this step as a subagent** using the Agent tool with `subagent_type: "general-purpose"`. The subagent runs the coverage audit in a fresh context window — the parent only sees the conclusion, not intermediate file reads. This is context-rot defense.
+**Dispatch this step as a subagent** using the Agent tool with `subagent_type: "general-purpose"`. The subagent runs the coverage audit in a fresh context window, the parent only sees the conclusion, not intermediate file reads. This is context-rot defense.
 
 **Subagent prompt:** Pass the following instructions to the subagent, with `<base>` substituted with the base branch:
 
-> You are running a ship-workflow test coverage audit. Run `git diff <base>...HEAD` as needed. Do not commit or push — report only.
+> You are running a ship-workflow test coverage audit. Run `git diff <base>...HEAD` as needed. Do not commit or push, report only.
 >
-> 100% coverage is the goal — every untested path is a path where bugs hide and vibe coding becomes yolo coding. Evaluate what was ACTUALLY coded (from the diff), not what was planned.
+> 100% coverage is the goal, every untested path is a path where bugs hide and vibe coding becomes yolo coding. Evaluate what was ACTUALLY coded (from the diff), not what was planned.
 
 ### Test Framework Detection
 
 Before analyzing coverage, detect the project's test framework:
 
-1. **Read CLAUDE.md** — look for a `## Testing` section with test command and framework name. If found, use that as the authoritative source.
+1. **Read CLAUDE.md**, look for a `## Testing` section with test command and framework name. If found, use that as the authoritative source.
 2. **If CLAUDE.md has no testing section, auto-detect:**
 
 ```bash
@@ -614,7 +615,7 @@ Store this number for the PR body.
 
 **1. Trace every codepath changed** using `git diff origin/<base>...HEAD`:
 
-Read every changed file. For each one, trace how data flows through the code — don't just list functions, actually follow the execution:
+Read every changed file. For each one, trace how data flows through the code, don't just list functions, actually follow the execution:
 
 1. **Read the diff.** For each changed file, read the full file (not just the diff hunk) to understand context.
 2. **Trace data flow.** Starting from each entry point (route handler, exported function, event listener, component render), follow the data through every branch:
@@ -626,21 +627,21 @@ Read every changed file. For each one, trace how data flows through the code —
    - Every function/method that was added or modified
    - Every conditional branch (if/else, switch, ternary, guard clause, early return)
    - Every error path (try/catch, rescue, error boundary, fallback)
-   - Every call to another function (trace into it — does IT have untested branches?)
+   - Every call to another function (trace into it, does IT have untested branches?)
    - Every edge: what happens with null input? Empty array? Invalid type?
 
-This is the critical step — you're building a map of every line of code that can execute differently based on input. Every branch in this diagram needs a test.
+This is the critical step, you're building a map of every line of code that can execute differently based on input. Every branch in this diagram needs a test.
 
 **2. Map user flows, interactions, and error states:**
 
-Code coverage isn't enough — you need to cover how real users interact with the changed code. For each changed feature, think through:
+Code coverage isn't enough, you need to cover how real users interact with the changed code. For each changed feature, think through:
 
 - **User flows:** What sequence of actions does a user take that touches this code? Map the full journey (e.g., "user clicks 'Pay' → form validates → API call → success/failure screen"). Each step in the journey needs a test.
 - **Interaction edge cases:** What happens when the user does something unexpected?
   - Double-click/rapid resubmit
   - Navigate away mid-operation (back button, close tab, click another link)
   - Submit with stale data (page sat open for 30 minutes, session expired)
-  - Slow connection (API takes 10 seconds — what does the user see?)
+  - Slow connection (API takes 10 seconds, what does the user see?)
   - Concurrent actions (two tabs, same form)
 - **Error states the user can see:** For every error the code handles, what does the user actually experience?
   - Is there a clear error message or a silent failure?
@@ -652,7 +653,7 @@ Add these to your diagram alongside the code branches. A user flow with no test 
 
 **3. Check each branch against existing tests:**
 
-Go through your diagram branch by branch — both code paths AND user flows. For each one, search for a test that exercises it:
+Go through your diagram branch by branch, both code paths AND user flows. For each one, search for a test that exercises it:
 - Function `processPayment()` → look for `billing.test.ts`, `billing.spec.ts`, `test/billing_test.rb`
 - An if/else → look for tests covering BOTH the true AND false path
 - An error handler → look for a test that triggers that specific error condition
@@ -672,7 +673,7 @@ When checking each branch, also determine whether a unit test or E2E/integration
 **RECOMMEND E2E (mark as [→E2E] in the diagram):**
 - Common user flow spanning 3+ components/services (e.g., signup → verify email → first login)
 - Integration point where mocking hides real failures (e.g., API → queue → worker → DB)
-- Auth/payment/data-destruction flows — too important to trust unit tests alone
+- Auth/payment/data-destruction flows, too important to trust unit tests alone
 
 **RECOMMEND EVAL (mark as [→EVAL] in the diagram):**
 - Critical LLM call that needs a quality eval (e.g., prompt change → test output still meets quality bar)
@@ -686,7 +687,7 @@ When checking each branch, also determine whether a unit test or E2E/integration
 
 ### REGRESSION RULE (mandatory)
 
-**IRON RULE:** When the coverage audit identifies a REGRESSION — code that previously worked but the diff broke — a regression test is written immediately. No AskUserQuestion. No skipping. Regressions are the highest-priority test because they prove something broke.
+**IRON RULE:** When the coverage audit identifies a REGRESSION, code that previously worked but the diff broke, a regression test is written immediately. No AskUserQuestion. No skipping. Regressions are the highest-priority test because they prove something broke.
 
 A regression is when:
 - The diff modifies existing behavior (not new code)
@@ -737,7 +738,7 @@ If test framework detected (or bootstrapped in Step 4):
 
 Caps: 30 code paths max, 20 tests generated max (code + user flow combined), 2-min per-test exploration cap.
 
-If no test framework AND user declined bootstrap → diagram only, no generation. Note: "Test generation skipped — no test framework configured."
+If no test framework AND user declined bootstrap → diagram only, no generation. Note: "Test generation skipped, no test framework configured."
 
 **Diff is test-only changes:** Skip Step 7 entirely: "No new application code paths to audit."
 
@@ -763,22 +764,22 @@ Using the coverage percentage from the diagram in substep 4 (the `COVERAGE: X/Y 
   - RECOMMENDATION: Choose A because untested code paths are where production bugs hide.
   - Options:
     A) Generate more tests for remaining gaps (recommended)
-    B) Ship anyway — I accept the coverage risk
-    C) These paths don't need tests — mark as intentionally uncovered
+    B) Ship anyway, I accept the coverage risk
+    C) These paths don't need tests, mark as intentionally uncovered
   - If A: Loop back to substep 5 (generate tests) targeting the remaining gaps. After second pass, if still below target, present AskUserQuestion again with updated numbers. Maximum 2 generation passes total.
-  - If B: Continue. Include in PR body: "Coverage gate: {X}% — user accepted risk."
-  - If C: Continue. Include in PR body: "Coverage gate: {X}% — {N} paths intentionally uncovered."
+  - If B: Continue. Include in PR body: "Coverage gate: {X}%, user accepted risk."
+  - If C: Continue. Include in PR body: "Coverage gate: {X}%, {N} paths intentionally uncovered."
 
 - **< minimum:** Use AskUserQuestion:
   - "AI-assessed coverage is critically low ({X}%). {N} of {M} code paths have no tests. Minimum threshold is {minimum}%."
   - RECOMMENDATION: Choose A because less than {minimum}% means more code is untested than tested.
   - Options:
     A) Generate tests for remaining gaps (recommended)
-    B) Override — ship with low coverage (I understand the risk)
+    B) Override, ship with low coverage (I understand the risk)
   - If A: Loop back to substep 5. Maximum 2 passes. If still below minimum after 2 passes, present the override choice again.
   - If B: Continue. Include in PR body: "Coverage gate: OVERRIDDEN at {X}%."
 
-**Coverage percentage undetermined:** If the coverage diagram doesn't produce a clear numeric percentage (ambiguous output, parse error), **skip the gate** with: "Coverage gate: could not determine percentage — skipping." Do not default to 0% or block.
+**Coverage percentage undetermined:** If the coverage diagram doesn't produce a clear numeric percentage (ambiguous output, parse error), **skip the gate** with: "Coverage gate: could not determine percentage, skipping." Do not default to 0% or block.
 
 **Test-only diffs:** Skip the gate (same as the existing fast-path).
 
@@ -825,7 +826,7 @@ Repo: {owner/repo}
 3. Embed `diagram` verbatim in the PR body's `## Test Coverage` section (Step 19).
 4. Print a one-line summary: `Coverage: {coverage_pct}%, {gaps} gaps. {tests_added.length} tests added.`
 
-**If the subagent fails, times out, or returns invalid JSON:** Fall back to running the audit inline in the parent. Do not block /ship on subagent failure — partial results are better than none.
+**If the subagent fails, times out, or returns invalid JSON:** Fall back to running the audit inline in the parent. Do not block /ship on subagent failure, partial results are better than none.
 
 ---
 
@@ -835,11 +836,11 @@ Repo: {owner/repo}
 
 **Subagent prompt:** Pass these instructions to the subagent:
 
-> You are running a ship-workflow plan completion audit. The base branch is `<base>`. Use `git diff <base>...HEAD` to see what shipped. Do not commit or push — report only.
+> You are running a ship-workflow plan completion audit. The base branch is `<base>`. Use `git diff <base>...HEAD` to see what shipped. Do not commit or push, report only.
 >
 > ### Plan File Discovery
 
-1. **Conversation context (primary):** Check if there is an active plan file in this conversation. The host agent's system messages include plan file paths when in plan mode. If found, use it directly — this is the most reliable signal.
+1. **Conversation context (primary):** Check if there is an active plan file in this conversation. The host agent's system messages include plan file paths when in plan mode. If found, use it directly, this is the most reliable signal.
 
 2. **Content-based search (fallback):** If no plan file is referenced in conversation context, search by content:
 
@@ -864,12 +865,12 @@ done
 3. **Validation:** If a plan file was found via content-based search (not conversation context), read the first 20 lines and verify it is relevant to the current branch's work. If it appears to be from a different project or feature, treat as "no plan file found."
 
 **Error handling:**
-- No plan file found → skip with "No plan file detected — skipping."
-- Plan file found but unreadable (permissions, encoding) → skip with "Plan file found but unreadable — skipping."
+- No plan file found → skip with "No plan file detected, skipping."
+- Plan file found but unreadable (permissions, encoding) → skip with "Plan file found but unreadable, skipping."
 
 ### Actionable Item Extraction
 
-Read the plan file. Extract every actionable item — anything that describes work to be done. Look for:
+Read the plan file. Extract every actionable item, anything that describes work to be done. Look for:
 
 - **Checkbox items:** `- [ ] ...` or `- [x] ...`
 - **Numbered steps** under implementation headings: "1. Create ...", "2. Add ...", "3. Modify ..."
@@ -885,9 +886,9 @@ Read the plan file. Extract every actionable item — anything that describes wo
 - Explicitly deferred items ("Future:", "Out of scope:", "NOT in scope:", "P2:", "P3:", "P4:")
 - CEO Review Decisions sections (these record choices, not work items)
 
-**Cap:** Extract at most 50 items. If the plan has more, note: "Showing top 50 of N plan items — full list in plan file."
+**Cap:** Extract at most 50 items. If the plan has more, note: "Showing top 50 of N plan items, full list in plan file."
 
-**No items found:** If the plan contains no extractable actionable items, skip with: "Plan file contains no actionable items — skipping completion audit."
+**No items found:** If the plan contains no extractable actionable items, skip with: "Plan file contains no actionable items, skipping completion audit."
 
 For each item, note:
 - The item text (verbatim or concise summary)
@@ -897,10 +898,10 @@ For each item, note:
 
 Before judging completion, classify HOW each item can be verified. The diff alone cannot prove every kind of work. Items outside the current repo or system are structurally invisible to `git diff`.
 
-- **DIFF-VERIFIABLE** — A code change in this repo would manifest in `git diff <base>...HEAD`. Examples: "add UserService" (file appears), "validate input X" (validation logic appears), "create users table" (migration file appears).
-- **CROSS-REPO** — Item names a file or change in a sibling repo (e.g., `domain-hq/docs/dashboard.md`, `~/Development/<other-repo>/...`). The current diff CANNOT prove this.
-- **EXTERNAL-STATE** — Item names state in an external system: Supabase config/RLS, Cloudflare DNS, Vercel env vars, OAuth provider allowlists, third-party SaaS, DNS records. The current diff CANNOT prove this.
-- **CONTENT-SHAPE** — Item requires a file to follow a specific convention. If the file is in this repo: diff-verifiable. If in another repo or system: see CROSS-REPO / EXTERNAL-STATE.
+- **DIFF-VERIFIABLE**, A code change in this repo would manifest in `git diff <base>...HEAD`. Examples: "add UserService" (file appears), "validate input X" (validation logic appears), "create users table" (migration file appears).
+- **CROSS-REPO**, Item names a file or change in a sibling repo (e.g., `domain-hq/docs/dashboard.md`, `~/Development/<other-repo>/...`). The current diff CANNOT prove this.
+- **EXTERNAL-STATE**, Item names state in an external system: Supabase config/RLS, Cloudflare DNS, Vercel env vars, OAuth provider allowlists, third-party SaaS, DNS records. The current diff CANNOT prove this.
+- **CONTENT-SHAPE**, Item requires a file to follow a specific convention. If the file is in this repo: diff-verifiable. If in another repo or system: see CROSS-REPO / EXTERNAL-STATE.
 
 **Verification dispatch:**
 
@@ -913,7 +914,7 @@ Before judging completion, classify HOW each item can be verified. The diff alon
 
 **Validator detection.** Before falling back to UNVERIFIABLE on a CONTENT-SHAPE item, scan the target repo's `package.json` for any script matching `validate-*`, `lint-wiki`, `check-docs`, or similar. If found, invoke it with the relevant path argument (e.g., `npm run validate-wiki -- <path>`). For multi-target validators (e.g., `validate-wiki --all`), run once and reconcile per-item from the output. A passing validator promotes the item from UNVERIFIABLE to DONE; a failing one demotes to NOT DONE.
 
-**Honesty rule.** Do NOT classify an item as DONE just because related code shipped. Code that *handles* a deliverable is not the deliverable. Shipping a markdown-extraction library is not the same as shipping the markdown file. When in doubt between DONE and UNVERIFIABLE, prefer UNVERIFIABLE — better to surface a confirmation prompt than silently miss a deliverable.
+**Honesty rule.** Do NOT classify an item as DONE just because related code shipped. Code that *handles* a deliverable is not the deliverable. Shipping a markdown-extraction library is not the same as shipping the markdown file. When in doubt between DONE and UNVERIFIABLE, prefer UNVERIFIABLE, better to surface a confirmation prompt than silently miss a deliverable.
 
 ### Cross-Reference Against Diff
 
@@ -921,15 +922,15 @@ Run `git diff origin/<base>...HEAD` and `git log origin/<base>..HEAD --oneline` 
 
 For each extracted plan item, run the verification dispatch from the previous section, then classify:
 
-- **DONE** — Clear evidence the item shipped. Cite the specific file(s) changed in the diff for DIFF-VERIFIABLE items, or the verified path that exists for CROSS-REPO items with a reachable sibling repo.
-- **PARTIAL** — Some work toward this item exists but is incomplete (e.g., model created but controller missing, function exists but edge cases not handled).
-- **NOT DONE** — Verification ran and produced negative evidence (file missing, code absent in diff, sibling-repo file confirmed absent).
-- **CHANGED** — The item was implemented using a different approach than the plan described, but the same goal is achieved. Note the difference.
-- **UNVERIFIABLE** — The diff and any reachable sibling-repo checks cannot prove or disprove this. Always applies to EXTERNAL-STATE items and to CROSS-REPO items where the sibling repo isn't reachable. Cite the specific manual verification the user must perform (e.g., "check Cloudflare DNS shows DNS-only mode for dashboard.example.com", "confirm /docs/dashboard.md exists in domain-hq repo").
+- **DONE**, Clear evidence the item shipped. Cite the specific file(s) changed in the diff for DIFF-VERIFIABLE items, or the verified path that exists for CROSS-REPO items with a reachable sibling repo.
+- **PARTIAL**, Some work toward this item exists but is incomplete (e.g., model created but controller missing, function exists but edge cases not handled).
+- **NOT DONE**, Verification ran and produced negative evidence (file missing, code absent in diff, sibling-repo file confirmed absent).
+- **CHANGED**, The item was implemented using a different approach than the plan described, but the same goal is achieved. Note the difference.
+- **UNVERIFIABLE**, The diff and any reachable sibling-repo checks cannot prove or disprove this. Always applies to EXTERNAL-STATE items and to CROSS-REPO items where the sibling repo isn't reachable. Cite the specific manual verification the user must perform (e.g., "check Cloudflare DNS shows DNS-only mode for dashboard.example.com", "confirm /docs/dashboard.md exists in domain-hq repo").
 
-**Be conservative with DONE** — require clear evidence. A file being touched is not enough; the specific functionality described must be present.
-**Be generous with CHANGED** — if the goal is met by different means, that counts as addressed.
-**Be honest with UNVERIFIABLE** — better to surface 5 items the user must manually confirm than silently classify them DONE.
+**Be conservative with DONE**, require clear evidence. A file being touched is not enough; the specific functionality described must be present.
+**Be generous with CHANGED**, if the goal is met by different means, that counts as addressed.
+**Be honest with UNVERIFIABLE**, better to surface 5 items the user must manually confirm than silently classify them DONE.
 
 ### Output Format
 
@@ -965,28 +966,28 @@ COMPLETION: 5/9 DONE, 1 PARTIAL, 1 NOT DONE, 1 CHANGED, 2 UNVERIFIABLE
 
 After producing the completion checklist, evaluate in priority order:
 
-1. **Any NOT DONE items** (highest priority — known missing work). Use AskUserQuestion:
+1. **Any NOT DONE items** (highest priority, known missing work). Use AskUserQuestion:
    - Show the completion checklist above
    - "{N} items from the plan are NOT DONE. These were part of the original plan but are missing from the implementation."
    - RECOMMENDATION: depends on item count and severity. If 1-2 minor items (docs, config), recommend B. If core functionality is missing, recommend A.
    - Options:
-     A) Stop — implement the missing items before shipping
-     B) Ship anyway — defer these to a follow-up (will create P1 TODOs in Step 5.5)
-     C) These items were intentionally dropped — remove from scope
+     A) Stop, implement the missing items before shipping
+     B) Ship anyway, defer these to a follow-up (will create P1 TODOs in Step 5.5)
+     C) These items were intentionally dropped, remove from scope
    - If A: STOP. List the missing items for the user to implement.
    - If B: Continue. For each NOT DONE item, create a P1 TODO in Step 5.5 with "Deferred from plan: {plan file path}".
    - If C: Continue. Note in PR body: "Plan items intentionally dropped: {list}."
 
-2. **Any UNVERIFIABLE items** (silent gaps — the diff cannot prove them either way). Only fires after NOT DONE is resolved or absent.
+2. **Any UNVERIFIABLE items** (silent gaps, the diff cannot prove them either way). Only fires after NOT DONE is resolved or absent.
 
    **Per-item confirmation is mandatory.** Do NOT use a single AskUserQuestion to blanket-confirm all UNVERIFIABLE items. Blanket confirmation is the failure mode that surfaced in VAS-449 (user clicks A without opening any file). Instead:
 
    - Loop through UNVERIFIABLE items one at a time.
    - For each item, use AskUserQuestion with the item's *specific* manual check (e.g., "Confirm: does `~/Development/domain-hq/docs/dashboard.md` exist?", not "Have you checked all items?").
    - Options per item:
-     Y) Confirmed done — cite what you verified (free-text, embedded in PR body)
-     N) Not done — block ship; treat as NOT DONE and re-enter the priority-1 gate
-     D) Intentionally dropped — note in PR body: "Plan item intentionally dropped: {item}"
+     Y) Confirmed done, cite what you verified (free-text, embedded in PR body)
+     N) Not done, block ship; treat as NOT DONE and re-enter the priority-1 gate
+     D) Intentionally dropped, note in PR body: "Plan item intentionally dropped: {item}"
    - RECOMMENDATION per item: Y if the item is concrete and easily verified; N if it's critical-path (auth, DNS, deliverables to other repos) and the user shows hesitation.
 
    **Exit conditions:**
@@ -997,9 +998,9 @@ After producing the completion checklist, evaluate in priority order:
 
 3. **Only PARTIAL items (no NOT DONE, no UNVERIFIABLE):** Continue with a note in the PR body. Not blocking.
 
-4. **All DONE or CHANGED:** Pass. "Plan completion: PASS — all items addressed." Continue.
+4. **All DONE or CHANGED:** Pass. "Plan completion: PASS, all items addressed." Continue.
 
-**No plan file found:** Skip entirely. "No plan file detected — skipping plan completion audit."
+**No plan file found:** Skip entirely. "No plan file detected, skipping plan completion audit."
 
 **Include in PR body (Step 8):** Add a `## Plan Completion` section with the checklist summary.
 >
@@ -1013,7 +1014,7 @@ After producing the completion checklist, evaluate in priority order:
 3. If `deferred > 0` or `unverifiable > 0` and no user override, present the items via the appropriate AskUserQuestion (see Gate Logic priority order above) before continuing.
 4. Embed `summary` in PR body's `## Plan Completion` section (Step 19). If `unverifiable > 0` and the user picked option A in the UNVERIFIABLE gate, also embed `## Plan Completion — Manual Verifications` listing each user-confirmed item.
 
-**If the subagent fails or returns invalid JSON:** Fall back to running the audit inline (parent processes the same plan-extraction + classification logic). If the inline fallback also fails (e.g., plan file unreadable, parser error), do NOT silently pass — surface the failure as an explicit AskUserQuestion: "Plan Completion audit could not run ({reason}). Options: (A) Skip audit and ship anyway — record that the audit was skipped in PR body and Step 20 metrics; (B) Stop and fix the audit." Default and recommended option is (B). Silent fail-open is the failure shape that VAS-449 surfaced.
+**If the subagent fails or returns invalid JSON:** Fall back to running the audit inline (parent processes the same plan-extraction + classification logic). If the inline fallback also fails (e.g., plan file unreadable, parser error), do NOT silently pass, surface the failure as an explicit AskUserQuestion: "Plan Completion audit could not run ({reason}). Options: (A) Skip audit and ship anyway, record that the audit was skipped in PR body and Step 20 metrics; (B) Stop and fix the audit." Default and recommended option is (B). Silent fail-open is the failure shape that VAS-449 surfaced.
 
 ---
 
@@ -1025,7 +1026,7 @@ Automatically verify the plan's testing/verification steps using the `/qa-only` 
 
 Using the plan file already discovered in Step 8, look for a verification section. Match any of these headings: `## Verification`, `## Test plan`, `## Testing`, `## How to test`, `## Manual testing`, or any section with verification-flavored items (URLs to visit, things to check visually, interactions to test).
 
-**If no verification section found:** Skip with "No verification steps found in plan — skipping auto-verification."
+**If no verification section found:** Skip with "No verification steps found in plan, skipping auto-verification."
 **If no plan file was found in Step 8:** Skip (already handled).
 
 ### 2. Check for running dev server
@@ -1039,7 +1040,7 @@ curl -s -o /dev/null -w '%{http_code}' http://localhost:5173 2>/dev/null || \
 curl -s -o /dev/null -w '%{http_code}' http://localhost:4000 2>/dev/null || echo "NO_SERVER"
 ```
 
-**If NO_SERVER:** Skip with "No dev server detected — skipping plan verification. Run /qa separately after deploying."
+**If NO_SERVER:** Skip with "No dev server detected, skipping plan verification. Run /qa separately after deploying."
 
 ### 3. Invoke /qa-only inline
 
@@ -1049,14 +1050,14 @@ Read the `/qa-only` skill from disk:
 cat ${CLAUDE_SKILL_DIR}/../qa-only/SKILL.md
 ```
 
-**If unreadable:** Skip with "Could not load /qa-only — skipping plan verification."
+**If unreadable:** Skip with "Could not load /qa-only, skipping plan verification."
 
 Follow the /qa-only workflow with these modifications:
 - **Skip the preamble** (already handled by /ship)
-- **Use the plan's verification section as the primary test input** — treat each verification item as a test case
+- **Use the plan's verification section as the primary test input**, treat each verification item as a test case
 - **Use the detected dev server URL** as the base URL
-- **Skip the fix loop** — this is report-only verification during /ship
-- **Cap at the verification items from the plan** — do not expand into general site QA
+- **Skip the fix loop**, this is report-only verification during /ship
+- **Cap at the verification items from the plan**, do not expand into general site QA
 
 ### 4. Gate logic
 
@@ -1066,7 +1067,7 @@ Follow the /qa-only workflow with these modifications:
   - RECOMMENDATION: Choose A if failures indicate broken functionality. Choose B if cosmetic only.
   - Options:
     A) Fix the failures before shipping (recommended for functional issues)
-    B) Ship anyway — known issues (acceptable for cosmetic issues)
+    B) Ship anyway, known issues (acceptable for cosmetic issues)
 - **No verification section / no server / unreadable skill:** Skip (non-blocking).
 
 ### 5. Include in PR body
@@ -1115,12 +1116,12 @@ smarter on their codebase over time.
 
 ## Step 8.2: Scope Drift Detection
 
-Before reviewing code quality, check: **did they build what was requested — nothing more, nothing less?**
+Before reviewing code quality, check: **did they build what was requested, nothing more, nothing less?**
 
 1. Read `TODOS.md` (if it exists). Read PR description (`gh pr view --json body --jq .body 2>/dev/null || true`).
    Read commit messages (`git log origin/<base>..HEAD --oneline`).
-   **If no PR exists:** rely on commit messages and TODOS.md for stated intent — this is the common case since /review runs before /ship creates the PR.
-2. Identify the **stated intent** — what was this branch supposed to accomplish?
+   **If no PR exists:** rely on commit messages and TODOS.md for stated intent, this is the common case since /review runs before /ship creates the PR.
+2. Identify the **stated intent**, what was this branch supposed to accomplish?
 3. Run `DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff "$DIFF_BASE" --stat` and compare the files changed against the stated intent.
 
 4. Evaluate with skepticism (incorporating plan completion results if available from an earlier step or adjacent section):
@@ -1144,7 +1145,7 @@ Before reviewing code quality, check: **did they build what was requested — no
    [If missing: list each unaddressed requirement]
    \`\`\`
 
-6. This is **INFORMATIONAL** — does not block the review. Proceed to the next step.
+6. This is **INFORMATIONAL**, does not block the review. Proceed to the next step.
 
 ---
 
@@ -1195,11 +1196,11 @@ Example:
 \`[P1] (confidence: 9/10) app/models/user.rb:42 — SQL injection via string interpolation in where clause\`
 \`[P2] (confidence: 5/10) app/controllers/api/v1/users_controller.rb:18 — Possible N+1 query, verify with production logs\`
 
-### Pre-emit verification gate (#1539 — kills the "field doesn't exist" FP class)
+### Pre-emit verification gate (#1539, kills the "field doesn't exist" FP class)
 
 Before any finding is promoted to the report, the gate requires:
 
-1. **Quote the specific code line that motivates the finding** — file:line plus
+1. **Quote the specific code line that motivates the finding**, file:line plus
    the verbatim text of the line(s) that triggered it. If the finding is "field
    X doesn't exist on model Y", quote the lines of class Y where the field
    would live. If "dict.get() might return None", quote the dict initialization.
@@ -1209,7 +1210,7 @@ Before any finding is promoted to the report, the gate requires:
    Force its confidence to 4-5 (suppressed from the main report). It still goes
    into the appendix so reviewers can audit calibration, but the user does NOT
    see it in the critical-pass output. Do not work around this by inventing
-   speculative confidence 7+ — that defeats the gate.
+   speculative confidence 7+, that defeats the gate.
 
 **Framework-meta nudge:** When the symbol is generated by a framework
 metaclass, descriptor, ORM Meta inner-class, or migration history (Django
@@ -1220,7 +1221,7 @@ the schema file) instead of expecting the literal name in the class body.
 The verification is "I read the source that creates this symbol", not "I
 grep'd for the name and didn't find it." Deeper framework-aware verification
 (model introspection, migration-history-aware checks, ORM dialect detection)
-is deliberately out of scope for the lighter gate — see the deferred
+is deliberately out of scope for the lighter gate, see the deferred
 `~/.gstack-dev/plans/1539-framework-aware-review.md` design doc.
 
 The FP classes the gate kills (measured against Django Sprint 2.5 #1539):
@@ -1249,16 +1250,16 @@ source <(~/.claude/skills/gstack/bin/gstack-diff-scope <base> 2>/dev/null)
 
 **If `SCOPE_FRONTEND=true`:**
 
-1. **Check for DESIGN.md.** If `DESIGN.md` or `design-system.md` exists in the repo root, read it. All design findings are calibrated against it — patterns blessed in DESIGN.md are not flagged. If not found, use universal design principles.
+1. **Check for DESIGN.md.** If `DESIGN.md` or `design-system.md` exists in the repo root, read it. All design findings are calibrated against it, patterns blessed in DESIGN.md are not flagged. If not found, use universal design principles.
 
-2. **Read `.claude/skills/review/design-checklist.md`.** If the file cannot be read, skip design review with a note: "Design checklist not found — skipping design review."
+2. **Read `.claude/skills/review/design-checklist.md`.** If the file cannot be read, skip design review with a note: "Design checklist not found, skipping design review."
 
 3. **Read each changed frontend file** (full file, not just diff hunks). Frontend files are identified by the patterns listed in the checklist.
 
 4. **Apply the design checklist** against the changed files. For each item:
    - **[HIGH] mechanical CSS fix** (`outline: none`, `!important`, `font-size < 16px`): classify as AUTO-FIX
    - **[HIGH/MEDIUM] design judgment needed**: classify as ASK
-   - **[LOW] intent-based detection**: present as "Possible — verify visually or run /design-review"
+   - **[LOW] intent-based detection**: present as "Possible, verify visually or run /design-review"
 
 5. **Include findings** in the review output under a "Design Review" header, following the output format in the checklist. Design findings merge with code review findings into the same Fix-First flow.
 
@@ -1289,13 +1290,13 @@ Use a 5-minute timeout (`timeout: 300000`). After the command completes, read st
 cat "$TMPERR_DRL" && rm -f "$TMPERR_DRL"
 ```
 
-**Error handling:** All errors are non-blocking. On auth failure, timeout, or empty response — skip with a brief note and continue.
+**Error handling:** All errors are non-blocking. On auth failure, timeout, or empty response, skip with a brief note and continue.
 
 Present Codex output under a `CODEX (design):` header, merged with the checklist findings above.
 
    Include any design findings alongside the code review findings. They follow the same Fix-First flow below.
 
-## Step 9.1: Review Army — Specialist Dispatch
+## Step 9.1: Review Army, Specialist Dispatch
 
 ### Detect stack and scope
 
@@ -1335,17 +1336,17 @@ echo "TEST_FW: ${TEST_FW:-unknown}"
 Based on the scope signals above, select which specialists to dispatch.
 
 **Always-on (dispatch on every review with 50+ changed lines):**
-1. **Testing** — read `~/.claude/skills/gstack/review/specialists/testing.md`
-2. **Maintainability** — read `~/.claude/skills/gstack/review/specialists/maintainability.md`
+1. **Testing**, read `~/.claude/skills/gstack/review/specialists/testing.md`
+2. **Maintainability**, read `~/.claude/skills/gstack/review/specialists/maintainability.md`
 
-**If DIFF_LINES < 50:** Skip all specialists. Print: "Small diff ($DIFF_LINES lines) — specialists skipped." Continue to the Fix-First flow (item 4).
+**If DIFF_LINES < 50:** Skip all specialists. Print: "Small diff ($DIFF_LINES lines), specialists skipped." Continue to the Fix-First flow (item 4).
 
 **Conditional (dispatch if the matching scope signal is true):**
-3. **Security** — if SCOPE_AUTH=true, OR if SCOPE_BACKEND=true AND DIFF_LINES > 100. Read `~/.claude/skills/gstack/review/specialists/security.md`
-4. **Performance** — if SCOPE_BACKEND=true OR SCOPE_FRONTEND=true. Read `~/.claude/skills/gstack/review/specialists/performance.md`
-5. **Data Migration** — if SCOPE_MIGRATIONS=true. Read `~/.claude/skills/gstack/review/specialists/data-migration.md`
-6. **API Contract** — if SCOPE_API=true. Read `~/.claude/skills/gstack/review/specialists/api-contract.md`
-7. **Design** — if SCOPE_FRONTEND=true. Use the existing design review checklist at `~/.claude/skills/gstack/review/design-checklist.md`
+3. **Security**, if SCOPE_AUTH=true, OR if SCOPE_BACKEND=true AND DIFF_LINES > 100. Read `~/.claude/skills/gstack/review/specialists/security.md`
+4. **Performance**, if SCOPE_BACKEND=true OR SCOPE_FRONTEND=true. Read `~/.claude/skills/gstack/review/specialists/performance.md`
+5. **Data Migration**, if SCOPE_MIGRATIONS=true. Read `~/.claude/skills/gstack/review/specialists/data-migration.md`
+6. **API Contract**, if SCOPE_API=true. Read `~/.claude/skills/gstack/review/specialists/api-contract.md`
+7. **Design**, if SCOPE_FRONTEND=true. Use the existing design review checklist at `~/.claude/skills/gstack/review/design-checklist.md`
 
 ### Adaptive gating
 
@@ -1353,7 +1354,7 @@ After scope-based selection, apply adaptive gating based on specialist hit rates
 
 For each conditional specialist that passed scope gating, check the `gstack-specialist-stats` output above:
 - If tagged `[GATE_CANDIDATE]` (0 findings in 10+ dispatches): skip it. Print: "[specialist] auto-gated (0 findings in N reviews)."
-- If tagged `[NEVER_GATE]`: always dispatch regardless of hit rate. Security and data-migration are insurance policy specialists — they should run even when silent.
+- If tagged `[NEVER_GATE]`: always dispatch regardless of hit rate. Security and data-migration are insurance policy specialists, they should run even when silent.
 
 **Force flags:** If the user's prompt includes `--security`, `--performance`, `--testing`, `--maintainability`, `--data-migration`, `--api-contract`, `--design`, or `--all-specialists`, force-include that specialist regardless of gating.
 
@@ -1366,7 +1367,7 @@ Note which specialists were selected, gated, and skipped. Print the selection:
 
 For each selected specialist, launch an independent subagent via the Agent tool.
 **Launch ALL selected specialists in a single message** (multiple Agent tool calls)
-so they run in parallel. Each subagent has fresh context — no prior review bias.
+so they run in parallel. Each subagent has fresh context, no prior review bias.
 
 **Each specialist subagent prompt:**
 
@@ -1394,11 +1395,11 @@ Required fields: severity, confidence, path, category, summary, specialist.
 Optional: line, fix, fingerprint, evidence, test_stub.
 
 If you can write a test that would catch this issue, include it in the `test_stub` field.
-Use the detected test framework ({TEST_FW}). Write a minimal skeleton — describe/it/test
+Use the detected test framework ({TEST_FW}). Write a minimal skeleton, describe/it/test
 blocks with clear intent. Skip test_stub for architectural or design-only findings.
 
 If no findings: output `NO FINDINGS` and nothing else.
-Do not output anything else — no preamble, no summary, no commentary.
+Do not output anything else, no preamble, no summary, no commentary.
 
 Stack context: {STACK}
 Past learnings: {learnings or 'none'}
@@ -1408,8 +1409,8 @@ CHECKLIST:
 
 **Subagent configuration:**
 - Use `subagent_type: "general-purpose"`
-- Do NOT use `run_in_background` — all specialists must complete before merge
-- If any specialist subagent fails or times out, log the failure and continue with results from successful specialists. Specialists are additive — partial results are better than no results.
+- Do NOT use `run_in_background`, all specialists must complete before merge
+- If any specialist subagent fails or times out, log the failure and continue with results from successful specialists. Specialists are additive, partial results are better than no results.
 
 ---
 
@@ -1419,7 +1420,7 @@ After all specialist subagents complete, collect their outputs.
 
 **Parse findings:**
 For each specialist's output:
-1. If output is "NO FINDINGS" — skip, this specialist found nothing
+1. If output is "NO FINDINGS", skip, this specialist found nothing
 2. Otherwise, parse each line as a JSON object. Skip lines that are not valid JSON.
 3. Collect all parsed findings into a single list, tagged with their specialist name.
 
@@ -1436,7 +1437,7 @@ Group findings by fingerprint. For findings sharing the same fingerprint:
 
 **Apply confidence gates:**
 - Confidence 7+: show normally in the findings output
-- Confidence 5-6: show with caveat "Medium confidence — verify this is actually an issue"
+- Confidence 5-6: show with caveat "Medium confidence, verify this is actually an issue"
 - Confidence 3-4: move to appendix (suppress from main findings)
 - Confidence 1-2: suppress entirely
 
@@ -1460,7 +1461,7 @@ PR Quality Score: X/10
 ```
 
 These findings flow into the Fix-First flow (item 4) alongside the checklist pass (Step 9).
-The Fix-First heuristic applies identically — specialist findings follow the same AUTO-FIX vs ASK classification.
+The Fix-First heuristic applies identically, specialist findings follow the same AUTO-FIX vs ASK classification.
 
 **Compile per-specialist stats:**
 After merging findings, compile a `specialists` object for the review-log persist.
@@ -1471,7 +1472,7 @@ For each specialist (testing, maintainability, security, performance, data-migra
 - If not applicable (e.g., red-team not activated): omit from the object
 
 Include the Design specialist even though it uses `design-checklist.md` instead of the specialist schema files.
-Remember these stats — you will need them for the review-log entry in Step 5.8.
+Remember these stats, you will need them for the review-log entry in Step 5.8.
 
 ---
 
@@ -1507,7 +1508,7 @@ Before classifying findings, check if any were previously skipped by the user in
 ~/.claude/skills/gstack/bin/gstack-review-read
 ```
 
-Parse the output: only lines BEFORE `---CONFIG---` are JSONL entries (the output also contains `---CONFIG---` and `---HEAD---` footer sections that are not JSONL — ignore those).
+Parse the output: only lines BEFORE `---CONFIG---` are JSONL entries (the output also contains `---CONFIG---` and `---HEAD---` footer sections that are not JSONL, ignore those).
 
 For each JSONL entry that has a `findings` array:
 1. Collect all fingerprints where `action: "skipped"`
@@ -1527,7 +1528,7 @@ If both conditions are true: suppress the finding. It was intentionally skipped 
 
 Print: "Suppressed N findings from prior reviews (previously skipped by user)"
 
-**Only suppress `skipped` findings — never `fixed` or `auto-fixed`** (those might regress and should be re-checked).
+**Only suppress `skipped` findings, never `fixed` or `auto-fixed`** (those might regress and should be re-checked).
 
 If no prior reviews exist or none have a `findings` array, skip this step silently.
 
@@ -1563,7 +1564,7 @@ and N values from the summary counts above. The `via:"ship"` distinguishes from 
 - `specialists` = the per-specialist stats object compiled in Step 9.2. Each specialist that was considered gets an entry: `{"dispatched":true/false,"findings":N,"critical":N,"informational":N}` if dispatched, or `{"dispatched":false,"reason":"scope|gated"}` if skipped. Example: `{"testing":{"dispatched":true,"findings":2,"critical":0,"informational":2},"security":{"dispatched":false,"reason":"scope"}}`
 - `findings` = array of per-finding records. For each finding (from checklist pass and specialists), include: `{"fingerprint":"path:line:category","severity":"CRITICAL|INFORMATIONAL","action":"ACTION"}`. ACTION is `"auto-fixed"`, `"fixed"` (user approved), or `"skipped"` (user chose Skip).
 
-Save the review output — it goes into the PR body in Step 19.
+Save the review output, it goes into the PR body in Step 19.
 
 ---
 
@@ -1573,7 +1574,7 @@ Save the review output — it goes into the PR body in Step 19.
 
 **Subagent prompt:**
 
-> You are classifying Greptile review comments for a /ship workflow. Read `.claude/skills/review/greptile-triage.md` and follow the fetch, filter, classify, and **escalation detection** steps. Do NOT fix code, do NOT reply to comments, do NOT commit — report only.
+> You are classifying Greptile review comments for a /ship workflow. Read `.claude/skills/review/greptile-triage.md` and follow the fetch, filter, classify, and **escalation detection** steps. Do NOT fix code, do NOT reply to comments, do NOT commit, report only.
 >
 > For each comment, assign: `classification` (`valid_actionable`, `already_fixed`, `false_positive`, `suppressed`), `escalation_tier` (1 or 2), the file:line or [top-level] tag, body summary, and permalink URL.
 >
@@ -1599,7 +1600,7 @@ For each comment in `comments`:
 - If user chooses A: apply the fix, commit the fixed files (`git add <fixed-files> && git commit -m "fix: address Greptile review — <brief description>"`), reply using the **Fix reply template** from greptile-triage.md (include inline diff + explanation), and save to both per-project and global greptile-history (type: fix).
 - If user chooses C: reply using the **False Positive reply template** from greptile-triage.md (include evidence + suggested re-rank), save to both per-project and global greptile-history (type: fp).
 
-**VALID BUT ALREADY FIXED:** Reply using the **Already Fixed reply template** from greptile-triage.md — no AskUserQuestion needed:
+**VALID BUT ALREADY FIXED:** Reply using the **Already Fixed reply template** from greptile-triage.md, no AskUserQuestion needed:
 - Include what was done and the fixing commit SHA
 - Save to both per-project and global greptile-history (type: already-fixed)
 
@@ -1611,7 +1612,7 @@ For each comment in `comments`:
   - C) Ignore silently
 - If user chooses A: reply using the **False Positive reply template** from greptile-triage.md (include evidence + suggested re-rank), save to both per-project and global greptile-history (type: fp)
 
-**SUPPRESSED:** Skip silently — these are known false positives from previous triage.
+**SUPPRESSED:** Skip silently, these are known false positives from previous triage.
 
 **After all comments are resolved:** If any fixes were applied, the tests from Step 5 are now stale. **Re-run tests** (Step 5) before continuing to Step 12. If no fixes were applied, continue to Step 12.
 
@@ -1619,7 +1620,7 @@ For each comment in `comments`:
 
 ## Step 11: Adversarial review (always-on)
 
-Every diff gets adversarial review from both Claude and Codex. LOC is not a proxy for risk — a 5-line auth change can be critical.
+Every diff gets adversarial review from both Claude and Codex. LOC is not a proxy for risk, a 5-line auth change can be critical.
 
 **Detect diff size and tool availability:**
 
@@ -1643,10 +1644,10 @@ If `OLD_CFG` is `disabled`: skip Codex passes only. Claude adversarial subagent 
 
 ### Claude adversarial subagent (always runs)
 
-Dispatch via the Agent tool. The subagent has fresh context — no checklist bias from the structured review. This genuine independence catches things the primary reviewer is blind to.
+Dispatch via the Agent tool. The subagent has fresh context, no checklist bias from the structured review. This genuine independence catches things the primary reviewer is blind to.
 
 Subagent prompt:
-"Read the diff for this branch with `DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff "$DIFF_BASE"`. Think like an attacker and a chaos engineer. Your job is to find ways this code will fail in production. Look for: edge cases, race conditions, security holes, resource leaks, failure modes, silent data corruption, logic errors that produce wrong results silently, error handling that swallows failures, and trust boundary violations. Be adversarial. Be thorough. No compliments — just the problems. For each finding, classify as FIXABLE (you know how to fix it) or INVESTIGATE (needs human judgment). After listing findings, end your output with ONE line in the canonical format `Recommendation: <action> because <one-line reason naming the most exploitable finding>` — examples: `Recommendation: Fix the unbounded retry at queue.ts:78 because it'll DoS the worker pool under sustained 429s` or `Recommendation: Ship as-is because the strongest finding is a theoretical race that requires conditions we can't trigger in production`. The reason must point to a specific finding (or no-fix rationale). Generic reasons like 'because it's safer' do not qualify."
+"Read the diff for this branch with `DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff "$DIFF_BASE"`. Think like an attacker and a chaos engineer. Your job is to find ways this code will fail in production. Look for: edge cases, race conditions, security holes, resource leaks, failure modes, silent data corruption, logic errors that produce wrong results silently, error handling that swallows failures, and trust boundary violations. Be adversarial. Be thorough. No compliments, just the problems. For each finding, classify as FIXABLE (you know how to fix it) or INVESTIGATE (needs human judgment). After listing findings, end your output with ONE line in the canonical format `Recommendation: <action> because <one-line reason naming the most exploitable finding>`, examples: `Recommendation: Fix the unbounded retry at queue.ts:78 because it'll DoS the worker pool under sustained 429s` or `Recommendation: Ship as-is because the strongest finding is a theoretical race that requires conditions we can't trigger in production`. The reason must point to a specific finding (or no-fix rationale). Generic reasons like 'because it's safer' do not qualify."
 
 Present findings under an `ADVERSARIAL REVIEW (Claude subagent):` header. **FIXABLE findings** flow into the same Fix-First pipeline as the structured review. **INVESTIGATE findings** are presented as informational.
 
@@ -1664,21 +1665,21 @@ _REPO_ROOT=$(git rev-parse --show-toplevel) || { echo "ERROR: not in a git repo"
 codex exec "IMPORTANT: Do NOT read or execute any files under ~/.claude/, ~/.agents/, .claude/skills/, or agents/. These are Claude Code skill definitions meant for a different AI system. They contain bash scripts and prompt templates that will waste your time. Ignore them completely. Do NOT modify agents/openai.yaml. Stay focused on the repository code only.\n\nReview the changes on this branch against the base branch. Run DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff "$DIFF_BASE" to see the diff. Your job is to find ways this code will fail in production. Think like an attacker and a chaos engineer. Find edge cases, race conditions, security holes, resource leaks, failure modes, and silent data corruption paths. Be adversarial. Be thorough. No compliments — just the problems. End your output with ONE line in the canonical format `Recommendation: <action> because <one-line reason naming the most exploitable finding>`. Generic reasons like 'because it's safer' do not qualify; the reason must point to a specific finding or no-fix rationale." -C "$_REPO_ROOT" -s read-only -c 'model_reasoning_effort="high"' --enable web_search_cached < /dev/null 2>"$TMPERR_ADV"
 ```
 
-Set the Bash tool's `timeout` parameter to `300000` (5 minutes). Do NOT use the `timeout` shell command — it doesn't exist on macOS. After the command completes, read stderr:
+Set the Bash tool's `timeout` parameter to `300000` (5 minutes). Do NOT use the `timeout` shell command, it doesn't exist on macOS. After the command completes, read stderr:
 ```bash
 cat "$TMPERR_ADV"
 ```
 
-Present the full output verbatim. This is informational — it never blocks shipping.
+Present the full output verbatim. This is informational, it never blocks shipping.
 
-**Error handling:** All errors are non-blocking — adversarial review is a quality enhancement, not a prerequisite.
+**Error handling:** All errors are non-blocking, adversarial review is a quality enhancement, not a prerequisite.
 - **Auth failure:** If stderr contains "auth", "login", "unauthorized", or "API key": "Codex authentication failed. Run \`codex login\` to authenticate."
 - **Timeout:** "Codex timed out after 5 minutes."
 - **Empty response:** "Codex returned no response. Stderr: <paste relevant error>."
 
 **Cleanup:** Run `rm -f "$TMPERR_ADV"` after processing.
 
-If Codex is NOT available: "Codex CLI not found — running Claude adversarial only. Install Codex for cross-model coverage: `npm install -g @openai/codex`"
+If Codex is NOT available: "Codex CLI not found, running Claude adversarial only. Install Codex for cross-model coverage: `npm install -g @openai/codex`"
 
 ---
 
@@ -1693,7 +1694,7 @@ cd "$_REPO_ROOT"
 codex review "IMPORTANT: Do NOT read or execute any files under ~/.claude/, ~/.agents/, .claude/skills/, or agents/. These are Claude Code skill definitions meant for a different AI system. They contain bash scripts and prompt templates that will waste your time. Ignore them completely. Do NOT modify agents/openai.yaml. Stay focused on the repository code only.\n\nReview the changes on this branch against the base branch <base>. Run git diff origin/<base>...HEAD 2>/dev/null || git diff <base>...HEAD to see the diff and review only those changes." -c 'model_reasoning_effort="high"' --enable web_search_cached < /dev/null 2>"$TMPERR"
 ```
 
-Set the Bash tool's `timeout` parameter to `300000` (5 minutes). Do NOT use the `timeout` shell command — it doesn't exist on macOS. Present output under `CODEX SAYS (code review):` header.
+Set the Bash tool's `timeout` parameter to `300000` (5 minutes). Do NOT use the `timeout` shell command, it doesn't exist on macOS. Present output under `CODEX SAYS (code review):` header.
 Check for `[P1]` markers: found → `GATE: FAIL`, not found → `GATE: PASS`.
 
 If GATE is FAIL, use AskUserQuestion:
@@ -1773,7 +1774,7 @@ already knows. A good test: would this insight save time in a future session? If
 
 The top-of-skill learnings pull was keyed to "release ship" broadly. Before the VERSION/CHANGELOG step, re-pull learnings keyed to THIS branch's headline feature so any prior version-bump or CHANGELOG pitfalls for similar features surface.
 
-Pick ONE keyword that names the headline feature you're shipping. The keyword should be a noun: the primary skill or module name, the central feature noun, or the binary you changed. The keyword MUST be alphanumeric or hyphen only — no quotes, slashes, dots, colons, or whitespace. If your candidate has any of those, simplify to just the alphanumeric stem.
+Pick ONE keyword that names the headline feature you're shipping. The keyword should be a noun: the primary skill or module name, the central feature noun, or the binary you changed. The keyword MUST be alphanumeric or hyphen only, no quotes, slashes, dots, colons, or whitespace. If your candidate has any of those, simplify to just the alphanumeric stem.
 
 Worked examples (ship-specific): good keywords are `learnings-search`, `pacing`, `worktree-ship`. Bad: `the branch headline`, `v1.31.1.0`, `feat: token-or search`.
 
@@ -1781,7 +1782,7 @@ Worked examples (ship-specific): good keywords are `learnings-search`, `pacing`,
 ~/.claude/skills/gstack/bin/gstack-learnings-search --query "<your-keyword>" --limit 5 2>/dev/null || true
 ```
 
-If any learnings come back, name which one applies to the version bump or CHANGELOG framing in one sentence. If none come back, continue without reference — the absence is itself useful information.
+If any learnings come back, name which one applies to the version bump or CHANGELOG framing in one sentence. If none come back, continue without reference, the absence is itself useful information.
 
 ## Step 12: Version bump (auto-decide)
 
@@ -1838,7 +1839,7 @@ fi
 Read the `STATE:` line and dispatch:
 
 - **FRESH** → proceed with the bump action below (steps 1–4).
-- **ALREADY_BUMPED** → skip the bump by default, BUT check for queue drift first: call `bin/gstack-next-version` with the implied bump level (derived from `CURRENT_VERSION` vs `BASE_VERSION`), compare its `.version` against `CURRENT_VERSION`. If they differ (queue moved since last ship), use **AskUserQuestion**: "VERSION drift detected: you claim v<CURRENT> but next available is v<NEW> (queue moved). A) Rebump to v<NEW> and rewrite CHANGELOG header + PR title (recommended), B) Keep v<CURRENT> — will be rejected by CI version-gate until resolved." If A, treat this as FRESH with `NEW_VERSION=<new>` and run steps 1-4 (which will also trigger Step 13 CHANGELOG header rewrite and Step 19 PR title rewrite). If B, reuse `CURRENT_VERSION` and warn that CI will likely reject. If util is offline, warn and reuse `CURRENT_VERSION`.
+- **ALREADY_BUMPED** → skip the bump by default, BUT check for queue drift first: call `bin/gstack-next-version` with the implied bump level (derived from `CURRENT_VERSION` vs `BASE_VERSION`), compare its `.version` against `CURRENT_VERSION`. If they differ (queue moved since last ship), use **AskUserQuestion**: "VERSION drift detected: you claim v<CURRENT> but next available is v<NEW> (queue moved). A) Rebump to v<NEW> and rewrite CHANGELOG header + PR title (recommended), B) Keep v<CURRENT>, will be rejected by CI version-gate until resolved." If A, treat this as FRESH with `NEW_VERSION=<new>` and run steps 1-4 (which will also trigger Step 13 CHANGELOG header rewrite and Step 19 PR title rewrite). If B, reuse `CURRENT_VERSION` and warn that CI will likely reject. If util is offline, warn and reuse `CURRENT_VERSION`.
 - **DRIFT_STALE_PKG** → a prior `/ship` bumped `VERSION` but failed to update `package.json`. Run the sync-only repair block below (after step 4). Do NOT re-bump. Reuse `CURRENT_VERSION` for CHANGELOG and PR body. (Queue check still runs in ALREADY_BUMPED terms after repair.)
 - **DRIFT_UNEXPECTED** → `/ship` has halted (exit 1). Resolve manually; /ship cannot tell which file is authoritative.
 
@@ -1850,9 +1851,9 @@ Read the `STATE:` line and dispatch:
    - **MICRO** (4th digit): < 50 lines changed, trivial tweaks, typos, config
    - **PATCH** (3rd digit): 50+ lines changed, no feature signals detected
    - **MINOR** (2nd digit): **ASK the user** if ANY feature signal is detected, OR 500+ lines changed, OR new modules/packages added
-   - **MAJOR** (1st digit): **ASK the user** — only for milestones or breaking changes
+   - **MAJOR** (1st digit): **ASK the user**, only for milestones or breaking changes
 
-   Save the chosen level as `BUMP_LEVEL` (one of `major`, `minor`, `patch`, `micro`). This is the user-intended level. The next step decides *placement* — the level stays the same even if queue-aware allocation has to advance past a claimed slot.
+   Save the chosen level as `BUMP_LEVEL` (one of `major`, `minor`, `patch`, `micro`). This is the user-intended level. The next step decides *placement*, the level stays the same even if queue-aware allocation has to advance past a claimed slot.
 
 3. **Queue-aware version pick (workspace-aware ship, v1.6.4.0+).** Call `bin/gstack-next-version` to see what's already claimed by open PRs + active sibling Conductor worktrees, then render the queue state to the user:
 
@@ -1906,7 +1907,7 @@ if [ -f package.json ]; then
 fi
 ```
 
-**DRIFT_STALE_PKG repair path** — runs when idempotency reports `STATE: DRIFT_STALE_PKG`. No re-bump; sync `package.json.version` to the current `VERSION` and continue. Reuse `CURRENT_VERSION` for CHANGELOG and PR body.
+**DRIFT_STALE_PKG repair path**, runs when idempotency reports `STATE: DRIFT_STALE_PKG`. No re-bump; sync `package.json.version` to the current `VERSION` and continue. Reuse `CURRENT_VERSION` for CHANGELOG and PR body.
 
 ```bash
 REPAIR_VERSION=$(cat VERSION | tr -d '\r\n[:space:]')
@@ -1956,10 +1957,10 @@ echo "Drift repaired: package.json synced to $REPAIR_VERSION. No version bump pe
 5. **Write the CHANGELOG entry** covering ALL groups:
    - If existing CHANGELOG entries on the branch already cover some commits, replace them with one unified entry for the new version
    - Categorize changes into applicable sections:
-     - `### Added` — new features
-     - `### Changed` — changes to existing functionality
-     - `### Fixed` — bug fixes
-     - `### Removed` — removed features
+     - `### Added`, new features
+     - `### Changed`, changes to existing functionality
+     - `### Fixed`, bug fixes
+     - `### Removed`, removed features
    - Write concise, descriptive bullet points
    - Insert after the file header (line 5), dated today
    - Format: `## [X.Y.Z.W] - YYYY-MM-DD`
@@ -1998,12 +1999,12 @@ Read TODOS.md and verify it follows the recommended structure:
 **If disorganized** (missing priority fields, no component groupings, no Completed section): Use AskUserQuestion:
 - Message: "TODOS.md doesn't follow the recommended structure (skill/component groupings, P0-P4 priority, Completed section). Would you like to reorganize it?"
 - Options: A) Reorganize now (recommended), B) Leave as-is
-- If A: Reorganize in-place following TODOS-format.md. Preserve all content — only restructure, never delete items.
+- If A: Reorganize in-place following TODOS-format.md. Preserve all content, only restructure, never delete items.
 - If B: Continue to step 3 without restructuring.
 
 **3. Detect completed TODOs:**
 
-This step is fully automatic — no user interaction.
+This step is fully automatic, no user interaction.
 
 Use the diff and commit history already gathered in earlier steps:
 - `git diff <base>...HEAD` (full diff against the base branch)
@@ -2025,7 +2026,7 @@ For each TODO item, check if the changes in this PR complete it by:
 
 **6. Defensive:** If TODOS.md cannot be written (permission error, disk full), warn the user and continue. Never stop the ship workflow for a TODOS failure.
 
-Save this summary — it goes into the PR body in Step 19.
+Save this summary, it goes into the PR body in Step 19.
 
 ---
 
@@ -2075,7 +2076,7 @@ git rebase -i $(git merge-base HEAD origin/<base>) \
   }
 ```
 
-Option 2 (simpler, if the branch is ALL WIP commits so far — no landed work):
+Option 2 (simpler, if the branch is ALL WIP commits so far, no landed work):
 ```bash
 # Branch contains only WIP commits. Reset-soft is safe here because there's
 # nothing non-WIP to preserve. Verify first.
@@ -2091,7 +2092,7 @@ user via AskUserQuestion rather than destroying non-WIP commits.
 
 **Anti-footgun rules:**
 - NEVER blind `git reset --soft` if there are non-WIP commits. Codex flagged this
-  as destructive — it would uncommit real landed work and turn the push step into
+  as destructive, it would uncommit real landed work and turn the push step into
   a non-fast-forward push for anyone who already pushed.
 - Only proceed to Step 15.1 after WIP commits are successfully squashed/absorbed
   or the branch has been verified to contain only WIP work.
@@ -2100,7 +2101,7 @@ user via AskUserQuestion rather than destroying non-WIP commits.
 
 **Goal:** Create small, logical commits that work well with `git bisect` and help LLMs understand what changed.
 
-1. Analyze the diff and group changes into logical commits. Each commit should represent **one coherent change** — not one file, but one logical unit.
+1. Analyze the diff and group changes into logical commits. Each commit should represent **one coherent change**, not one file, but one logical unit.
 
 2. **Commit ordering** (earlier commits first):
    - **Infrastructure:** migrations, config changes, route additions
@@ -2116,7 +2117,7 @@ user via AskUserQuestion rather than destroying non-WIP commits.
    - Config/route changes can group with the feature they enable
    - If the total diff is small (< 50 lines across < 4 files), a single commit is fine
 
-4. **Each commit must be independently valid** — no broken imports, no references to code that doesn't exist yet. Order commits so dependencies come first.
+4. **Each commit must be independently valid**, no broken imports, no references to code that doesn't exist yet. Order commits so dependencies come first.
 
 5. Compose each commit message:
    - First line: `<type>: <summary>` (type = feat/fix/chore/refactor/docs)
@@ -2180,13 +2181,13 @@ git push -u origin <branch-name>
 
 ## Step 18: Documentation sync (via subagent, before PR creation)
 
-**Dispatch /document-release as a subagent** using the Agent tool with `subagent_type: "general-purpose"`. The subagent gets a fresh context window — zero rot from the preceding 17 steps. It also runs the **full** `/document-release` workflow (with CHANGELOG clobber protection, doc exclusions, risky-change gates, named staging, race-safe PR body editing) rather than a weaker reimplementation.
+**Dispatch /document-release as a subagent** using the Agent tool with `subagent_type: "general-purpose"`. The subagent gets a fresh context window, zero rot from the preceding 17 steps. It also runs the **full** `/document-release` workflow (with CHANGELOG clobber protection, doc exclusions, risky-change gates, named staging, race-safe PR body editing) rather than a weaker reimplementation.
 
 **Sequencing:** This step runs AFTER Step 17 (Push) and BEFORE Step 19 (Create PR). The PR is created once from final HEAD with the `## Documentation` section baked into the initial body. No create-then-re-edit dance.
 
 **Subagent prompt:**
 
-> You are executing the /document-release workflow after a code push. Read the full skill file `${HOME}/.claude/skills/gstack/document-release/SKILL.md` and execute its complete workflow end-to-end, including CHANGELOG clobber protection, doc exclusions, risky-change gates, and named staging. Do NOT attempt to edit the PR body — no PR exists yet. Branch: `<branch>`, base: `<base>`.
+> You are executing the /document-release workflow after a code push. Read the full skill file `${HOME}/.claude/skills/gstack/document-release/SKILL.md` and execute its complete workflow end-to-end, including CHANGELOG clobber protection, doc exclusions, risky-change gates, and named staging. Do NOT attempt to edit the PR body, no PR exists yet. Branch: `<branch>`, base: `<base>`.
 >
 > After completing the workflow, output a single JSON object on the LAST LINE of your response (no other text after it):
 > `{"files_updated":["README.md","CLAUDE.md",...],"commit_sha":"abc1234","pushed":true,"documentation_section":"<markdown block for PR body's ## Documentation section>"}`
@@ -2197,7 +2198,7 @@ git push -u origin <branch-name>
 **Parent processing:**
 
 1. Parse the LAST line of the subagent's output as JSON.
-2. Store `documentation_section` — Step 19 embeds it in the PR body (or omits the section if null).
+2. Store `documentation_section`, Step 19 embeds it in the PR body (or omits the section if null).
 3. If `files_updated` is non-empty, print: `Documentation synced: {files_updated.length} files updated, committed as {commit_sha}`.
 4. If `files_updated` is empty, print: `Documentation is current — no updates needed.`
 
@@ -2221,7 +2222,7 @@ glab mr view -F json 2>/dev/null | jq -r 'if .state == "opened" then "MR_EXISTS"
 
 If an **open** PR/MR already exists: **update** the PR body using `gh pr edit --body "..."` (GitHub) or `glab mr update -d "..."` (GitLab). Always regenerate the PR body from scratch using this run's fresh results (test output, coverage audit, review findings, adversarial review, TODOS summary, documentation_section from Step 18). Never reuse stale PR body content from a prior run.
 
-**Always update the PR title to start with `v$NEW_VERSION`.** PR titles use the workspace-aware format `v<NEW_VERSION> <type>: <summary>` — version ALWAYS first, no exceptions, no "custom title kept intentionally" escape hatch. The shared helper `bin/gstack-pr-title-rewrite.sh` is the single source of truth for the rule.
+**Always update the PR title to start with `v$NEW_VERSION`.** PR titles use the workspace-aware format `v<NEW_VERSION> <type>: <summary>`, version ALWAYS first, no exceptions, no "custom title kept intentionally" escape hatch. The shared helper `bin/gstack-pr-title-rewrite.sh` is the single source of truth for the rule.
 
 1. Read the current title: `CURRENT=$(gh pr view --json title -q .title)` (or `glab mr view -F json | jq -r .title`).
 2. Compute the corrected title: `NEW_TITLE=$(~/.claude/skills/gstack/bin/gstack-pr-title-rewrite.sh "$NEW_VERSION" "$CURRENT")`. The helper handles three cases: title already correct (no-op), title has a different `v<X.Y.Z.W>` prefix (replace it), or title has no version prefix (prepend one).
@@ -2318,9 +2319,9 @@ EOF
 ```
 
 **If neither CLI is available:**
-Print the branch name, remote URL, and instruct the user to create the PR/MR manually via the web UI. Do not stop — the code is pushed and ready.
+Print the branch name, remote URL, and instruct the user to create the PR/MR manually via the web UI. Do not stop, the code is pushed and ready.
 
-**Output the PR/MR URL** — then proceed to Step 20.
+**Output the PR/MR URL**, then proceed to Step 20.
 
 ---
 
@@ -2346,7 +2347,7 @@ Substitute from earlier steps:
 - **VERSION**: from the VERSION file
 - **BRANCH**: current branch name
 
-This step is automatic — never skip it, never ask for confirmation.
+This step is automatic, never skip it, never ask for confirmation.
 
 ---
 
@@ -2358,7 +2359,7 @@ This step is automatic — never skip it, never ask for confirmation.
 - **Never ask for trivial confirmations** (e.g., "ready to push?", "create PR?"). DO stop for: version bumps (MINOR/MAJOR), pre-landing review findings (ASK items), and Codex structured review [P1] findings (large diffs only).
 - **Always use the 4-digit version format** from the VERSION file.
 - **Date format in CHANGELOG:** `YYYY-MM-DD`
-- **Split commits for bisectability** — each commit = one logical change.
+- **Split commits for bisectability**, each commit = one logical change.
 - **TODOS.md completion detection must be conservative.** Only mark items as completed when the diff clearly shows the work is done.
 - **Use Greptile reply templates from greptile-triage.md.** Every reply includes evidence (inline diff, code references, re-rank suggestion). Never post vague replies.
 - **Never push without fresh verification evidence.** If code changed after Step 5 tests, re-run before pushing.

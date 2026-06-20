@@ -6,6 +6,7 @@ metadata:
   author: Anthony Fu
   version: "2026.1.28"
   source: Generated from https://github.com/pnpm/pnpm, scripts located at https://github.com/antfu/skills
+category: deployment
 ---
 
 # Pnpm

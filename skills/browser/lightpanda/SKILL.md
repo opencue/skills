@@ -5,6 +5,7 @@ metadata:
   category: browser
   domain: browser-automation
   tags: [browser, headless, cdp, scraping, mcp, lightpanda]
+category: browser
 ---
 
 # Lightpanda: fast headless browser for agents

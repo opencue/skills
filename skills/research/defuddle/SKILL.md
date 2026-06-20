@@ -1,11 +1,12 @@
 ---
 name: defuddle
 description: 'Use when user says "extract article", "clean webpage", or "defuddle". Readable content extraction: fetching, cleanup, citation.'
+category: research
 ---
 
 # Defuddle
 
-Use Defuddle CLI to extract clean readable content from web pages. Prefer over WebFetch for standard web pages — it removes navigation, ads, and clutter, reducing token usage.
+Use Defuddle CLI to extract clean readable content from web pages. Prefer over WebFetch for standard web pages, it removes navigation, ads, and clutter, reducing token usage.
 
 If not installed: `npm install -g defuddle`
 

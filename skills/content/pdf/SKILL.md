@@ -8,6 +8,7 @@ description: >-
   programmatically process, generate, or analyze PDF documents at scale.
 license: Proprietary. LICENSE.txt has complete terms
 companions: [scripts/, forms.md, reference.md]
+category: content
 ---
 
 # PDF Processing Guide

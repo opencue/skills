@@ -2,6 +2,7 @@
 name: gh-auth-doctor
 description: >-
   Use when user says "gh auth doctor", "stale token", "gh pr create silently fails", "gx finish hung", "auth blocker", or before `gx branch finish --via-pr`. Diagnoses stale `GH_TOKEN`/`GITHUB_TOKEN` env vars silently overriding `~/.git-credentials` (git push works but every `gh` call fails). Read-only.
+category: github
 ---
 
 # Gh Auth Doctor
@@ -42,20 +43,20 @@ Root cause is almost always: stale `GH_TOKEN` or `GITHUB_TOKEN` env var was rota
 bash "$(dirname "$0")/scripts/diagnose.sh"
 ```
 
-The script writes a structured diagnosis to stdout and exits 0 (healthy), 1 (env-stale, store-fresh — the bug above), or 2 (both broken).
+The script writes a structured diagnosis to stdout and exits 0 (healthy), 1 (env-stale, store-fresh, the bug above), or 2 (both broken).
 
 ## Workflow
 
 1. Run the diagnose script (see Quick start).
 2. Read the verdict block. It will be one of:
 
-   - **HEALTHY** — `gh auth status` ok, env-stripped `git ls-remote origin` ok. Proceed.
-   - **ENV_STALE_STORE_FRESH** — `gh` fails, but `env -u GH_TOKEN -u GITHUB_TOKEN git ls-remote origin` works. This is the silent-finish-hang bug. Three repair paths:
-     - **Refresh both** (recommended for interactive shells): user runs `gh auth login -h github.com --web` — fixes `gh` and rewrites `~/.git-credentials` in one step.
+   - **HEALTHY**, `gh auth status` ok, env-stripped `git ls-remote origin` ok. Proceed.
+   - **ENV_STALE_STORE_FRESH**, `gh` fails, but `env -u GH_TOKEN -u GITHUB_TOKEN git ls-remote origin` works. This is the silent-finish-hang bug. Three repair paths:
+     - **Refresh both** (recommended for interactive shells): user runs `gh auth login -h github.com --web`, fixes `gh` and rewrites `~/.git-credentials` in one step.
      - **Strip env for one command**: prefix the failing automation with `env -u GH_TOKEN -u GITHUB_TOKEN`. Useful when refresh is not immediately possible.
-     - **Unset for the session**: `unset GH_TOKEN GITHUB_TOKEN` in the current shell — only affects this shell, not parent processes that launched it.
-   - **BOTH_BROKEN** — neither `gh` nor env-stripped git works. The credential store also needs refreshing. Same fix: `gh auth login -h github.com --web` rewrites both.
-   - **UNUSUAL** — `gh` works but env-stripped git does not. Rare; usually a credential-helper config issue. Inspect `git config --get-all credential.helper`.
+     - **Unset for the session**: `unset GH_TOKEN GITHUB_TOKEN` in the current shell, only affects this shell, not parent processes that launched it.
+   - **BOTH_BROKEN**, neither `gh` nor env-stripped git works. The credential store also needs refreshing. Same fix: `gh auth login -h github.com --web` rewrites both.
+   - **UNUSUAL**, `gh` works but env-stripped git does not. Rare; usually a credential-helper config issue. Inspect `git config --get-all credential.helper`.
 
 3. After repair, re-run the diagnose script to confirm HEALTHY before proceeding to the original automation.
 
@@ -85,6 +86,6 @@ Running this skill before `gx branch finish --via-pr` would have caught the env/
 
 ## Related
 
-- [[gitguardex]] — for worktree/branch state recovery after the failure does happen
-- [[gh-fix-ci]] — for Actions/CI debugging via `gh` (assumes gh auth is healthy)
-- [[github]] — general `gh` ops
+- [[gitguardex]], for worktree/branch state recovery after the failure does happen
+- [[gh-fix-ci]], for Actions/CI debugging via `gh` (assumes gh auth is healthy)
+- [[github]], general `gh` ops

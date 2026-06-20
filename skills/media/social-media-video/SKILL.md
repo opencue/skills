@@ -4,38 +4,39 @@ name: muapi-social-media-video
 version: "1.0.0"
 description: Brand-aware social media video creator. Reads brand-identity.md, ICP.md, and messaging.md to write a post/storyboard, craft an optimized Seedance 2.0 Director prompt, generate reference frames with the best available image model, and produce platform-ready video.
 acceptLicenseTerms: true
+category: media
 ---
 
 # Social Media Video Creator
 
 **End-to-end pipeline: Brand Files → Storyboard → Reference Images → Seedance 2.0 Video.**
 
-Reads your brand identity, ICP, and messaging documents to produce on-brand social video — fully optimized for Seedance 2.0's instructional prompt grammar and your target platform.
+Reads your brand identity, ICP, and messaging documents to produce on-brand social video, fully optimized for Seedance 2.0's instructional prompt grammar and your target platform.
 
 ---
 
 ## Agent Execution Protocol
 
-### Step 1 — Read Brand Files
+### Step 1, Read Brand Files
 
 Before writing anything, the agent MUST read all available brand files. Look for them in the working directory or any `brand/` subdirectory:
 
 | File | What to extract |
 |:---|:---|
 | `brand-identity.md` | Visual style, color palette, tone, logo/product aesthetics, brand personality |
-| `ICP.md` | Target audience — who they are, their pain points, what motivates them |
+| `ICP.md` | Target audience, who they are, their pain points, what motivates them |
 | `messaging.md` | Core value props, hooks, CTAs, campaign themes, taglines |
 
 If a file is missing, proceed with what's available and note the gap.
 
 ---
 
-### Step 2 — Write the Social Post + Storyboard
+### Step 2, Write the Social Post + Storyboard
 
 Use brand context to produce:
 
 **Social Post Copy** (for caption/copy):
-- Hook line (first 1–2 sentences — must stop the scroll)
+- Hook line (first 1–2 sentences, must stop the scroll)
 - Body (3–5 sentences: problem → solution → proof → CTA)
 - Hashtags (5–8 relevant tags)
 - CTA (one clear action)
@@ -53,7 +54,7 @@ If brand is premium → slow reveals, dark luxury aesthetic, moody lighting.
 
 ---
 
-### Step 3 — Craft the Seedance 2.0 Director Prompt
+### Step 3, Craft the Seedance 2.0 Director Prompt
 
 Transform the storyboard into a **technical Director Brief** for Seedance 2.0.
 
@@ -62,7 +63,7 @@ Transform the storyboard into a **technical Director Brief** for Seedance 2.0.
 2. Always specify camera movement, lens type, and lighting physically.
 3. For 10s+ videos, use timecode segments: `0–3s: [...] 3–7s: [...] 7–10s: [...]`
 4. Integrate `@image1`, `@image2` reference tags if images are provided.
-5. Always include sound direction (even brief) — Seedance generates audio.
+5. Always include sound direction (even brief), Seedance generates audio.
 6. Lead with composition, end with texture and micro-motion.
 
 **Director Brief Template:**
@@ -78,19 +79,19 @@ Transform the storyboard into a **technical Director Brief** for Seedance 2.0.
 
 ---
 
-### Step 4 — Generate Reference Images (If Needed)
+### Step 4, Generate Reference Images (If Needed)
 
 **When to generate reference images:**
 
 | Scenario | Mode | Images Needed |
 |:---|:---|:---|
 | Product showcase | `i2v` | 1 product shot as first frame |
-| Scene transition | `first-last` | 2 images — opening and closing frame |
+| Scene transition | `first-last` | 2 images, opening and closing frame |
 | Brand character | `i2v` | 1 character reference |
-| Pure concept | `t2v` | None — text only |
+| Pure concept | `t2v` | None, text only |
 | Mood/style anchor | `i2v` | 1 style reference image |
 
-**Image generation — best models by use case:**
+**Image generation, best models by use case:**
 
 | Use Case | Recommended Model | Why |
 |:---|:---|:---|
@@ -119,7 +120,7 @@ bash core/media/generate-image.sh \
 
 ---
 
-### Step 5 — Generate the Video
+### Step 5, Generate the Video
 
 Choose mode, tier, and camera based on content type and available assets.
 
@@ -182,9 +183,9 @@ bash library/social/social-media-video/scripts/run-social-video.sh \
 
 | Intent | Description | Best For |
 |:---|:---|:---|
-| `fpv` | First-person subjective POV — immersive GoPro-style, continuous forward motion, peripheral detail close-ups | Action brands, travel, sports, tech demos |
-| `drone` | Aerial cinematic flythrough — smooth gimbal-stabilized, sweeping laterals, descend from high altitude into scene | Real estate, luxury, outdoor brands, epic reveals |
-| `flythrough` | Ground-level architectural flythrough — continuous dolly through space, seamless portal transitions | Architecture, interior design, venue showcases |
+| `fpv` | First-person subjective POV, immersive GoPro-style, continuous forward motion, peripheral detail close-ups | Action brands, travel, sports, tech demos |
+| `drone` | Aerial cinematic flythrough, smooth gimbal-stabilized, sweeping laterals, descend from high altitude into scene | Real estate, luxury, outdoor brands, epic reveals |
+| `flythrough` | Ground-level architectural flythrough, continuous dolly through space, seamless portal transitions | Architecture, interior design, venue showcases |
 
 **FPV Prompt Enrichment:**
 ```
@@ -217,7 +218,7 @@ Before finalizing the Seedance prompt, verify:
 - [ ] Timecodes used for 10s+ videos
 - [ ] `@image1` etc. referenced if images are provided
 - [ ] Brand CTA or tagline included in final seconds
-- [ ] No vague adjectives ("amazing", "beautiful", "stunning") — replaced with technical terms
+- [ ] No vague adjectives ("amazing", "beautiful", "stunning"), replaced with technical terms
 
 ---
 
@@ -225,9 +226,9 @@ Before finalizing the Seedance prompt, verify:
 
 **User**: "Make an Instagram Reel for our cold brew coffee brand, drone shot, premium feel"
 
-**Step 1 — Brand read**: Read `brand-identity.md` (minimalist packaging, dark roast, black + gold palette), `ICP.md` (urban professionals 25–40, values quality), `messaging.md` ("Precision Brewed. Zero Compromise.")
+**Step 1, Brand read**: Read `brand-identity.md` (minimalist packaging, dark roast, black + gold palette), `ICP.md` (urban professionals 25–40, values quality), `messaging.md` ("Precision Brewed. Zero Compromise.")
 
-**Step 2 — Storyboard**:
+**Step 2, Storyboard**:
 ```
 0–2s:  Drone descends over rooftop terrace at sunrise, fog below.
 2–5s:  Drone swoops down toward coffee cup on white marble, steam rising.
@@ -236,7 +237,7 @@ Before finalizing the Seedance prompt, verify:
 Sound: Minimal lounge beat, coffee pour sound effect at 5s.
 ```
 
-**Step 3 — Seedance Director Prompt**:
+**Step 3, Seedance Director Prompt**:
 ```
 0–2s: Cinematic aerial drone shot. Camera descends at 30° angle toward a rooftop terrace at sunrise.
 Golden hour atmosphere, San Francisco bay fog below horizon. Gimbal-stabilized smooth descent.
@@ -249,9 +250,9 @@ Sound: Minimal ambient beat, single piano note, coffee liquid sound effect at 5s
 Maintain cinematic color grade — deep blacks, warm gold midtones throughout.
 ```
 
-**Step 4 — Generate reference**: `google-imagen4-ultra` → cold brew bottle product shot (9:16)
+**Step 4, Generate reference**: `google-imagen4-ultra` → cold brew bottle product shot (9:16)
 
-**Step 5 — Generate video**:
+**Step 5, Generate video**:
 ```bash
 bash library/social/social-media-video/scripts/run-social-video.sh \
   --prompt "0–2s: Cinematic aerial drone shot..." \
@@ -268,10 +269,10 @@ bash library/social/social-media-video/scripts/run-social-video.sh \
 
 ## Common Mistakes to Avoid
 
-1. **Reading brand files and ignoring them** — the storyboard must visually match the brand palette and tone.
-2. **Generic prompts** — "a nice video of a product" produces generic output. Every token must direct.
-3. **Wrong tier for aspect ratio** — 1:1 and 21:9 require `--tier global` or `--tier vip`.
-4. **Forgetting sound** — Seedance generates audio. Direct it, or you get random results.
-5. **FPV with static subject** — FPV requires continuous motion in the scene. Pair with movement-rich environments.
-6. **Drone without establishing shot** — drone works best when it resolves INTO something (a product, a scene, a subject).
-7. **Too many scene changes in 5s** — match complexity to duration. 5s = 1 beat. 15s = 3–4 beats.
+1. **Reading brand files and ignoring them**, the storyboard must visually match the brand palette and tone.
+2. **Generic prompts**, "a nice video of a product" produces generic output. Every token must direct.
+3. **Wrong tier for aspect ratio**, 1:1 and 21:9 require `--tier global` or `--tier vip`.
+4. **Forgetting sound**, Seedance generates audio. Direct it, or you get random results.
+5. **FPV with static subject**, FPV requires continuous motion in the scene. Pair with movement-rich environments.
+6. **Drone without establishing shot**, drone works best when it resolves INTO something (a product, a scene, a subject).
+7. **Too many scene changes in 5s**, match complexity to duration. 5s = 1 beat. 15s = 3–4 beats.

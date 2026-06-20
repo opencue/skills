@@ -2,12 +2,13 @@
 name: polymarket-predictions-audit
 description: >-
   Use when user says "audit my predictions", "how is the model doing", "show prediction accuracy", "why is the model wrong", or "review my Brier score". Reads the local predictions.jsonl + Brier report via `polymarket-live` MCP and explains where the model agrees/disagrees with reality. NOT for opening or resolving predictions.
+category: polymarket
 ---
 
 # Polymarket predictions audit
 
 Use this skill when the user wants to know how well their paper-trading
-predictions are tracking — accuracy, Brier vs the Polymarket baseline,
+predictions are tracking, accuracy, Brier vs the Polymarket baseline,
 calibration, direction bias, and which recent predictions were the worst
 misses.
 
@@ -54,7 +55,7 @@ misses.
 
 5. **Optional: cross-check with current model thinking.** Call
    `mcp__polymarket-live__predict_think(models=["polymarket","momentum","blend"])`
-   so the user sees what each model would say *right now* — useful to
+   so the user sees what each model would say *right now*, useful to
    tell apart "model has changed since the bad call" from "model
    systematically wrong".
 
@@ -65,7 +66,7 @@ misses.
   Δ−0.012)."
 - Then breakdown: UP-call accuracy vs DOWN-call accuracy. A skew
   (e.g. 70% UP-calls / 30% DOWN-calls) is the smoking gun for "why is
-  it always UP" complaints — when the model name is `polymarket` and
+  it always UP" complaints, when the model name is `polymarket` and
   the market is trading at 0.505 the loop will always pick UP. Surface
   that and suggest `--auto-model momentum` or `--auto-model blend`.
 - For the misses, format as a tiny markdown table; do NOT dump raw JSON.

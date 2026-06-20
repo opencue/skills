@@ -8,22 +8,23 @@ description: |
   testing, maintainability, api-contract, data-migration, red-team).
   Use when the user says "deep review", "pre-landing review", "review
   my diff", or before opening a PR.
-allowed-tools: [Bash, Read, Edit, Write, Grep, Glob, Agent, AskUserQuestion]
+allowed-tools: Bash(Bash:*), Read, Edit, Write, Grep, Glob, Agent, AskUserQuestion
 triggers:
   - deep review
   - pre-landing review
   - review my diff
   - check my pr
   - review before merge
+category: review
 ---
 
-# /code-review-deep — pre-landing diff review
+# /code-review-deep, pre-landing diff review
 
 This is the heavyweight cousin of `/code-review`. It runs two passes
 against `git diff <base-branch>` and produces a structured findings
 report with auto-fixes for the mechanical issues.
 
-## Iron contract — every finding is grounded; CRITICAL is never auto-fixed silently
+## Iron contract, every finding is grounded; CRITICAL is never auto-fixed silently
 
 Two non-negotiables:
 
@@ -40,10 +41,10 @@ Two non-negotiables:
 1. **Determine base branch.** Default to `main`. If the repo uses
    `master` or a release branch, ask once via `AskUserQuestion`.
 2. **Capture diff.** `git diff <base>...HEAD --no-color | wc -l`. If
-   diff is > 2000 lines, warn the user — quality drops on huge diffs;
+   diff is > 2000 lines, warn the user, quality drops on huge diffs;
    suggest splitting.
 
-## Pass 0 — Supply-chain gate (Trivy, always run)
+## Pass 0, Supply-chain gate (Trivy, always run)
 
 Before reviewing the diff by hand, run the dependency/secret/misconfig
 scanner. Code review does not catch a known CVE in a transitive
@@ -63,7 +64,7 @@ trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --exit-code 1
   it still can't run, report that the gate could not run and treat as
   block, not a silent pass.
 
-## Pass 1 — CRITICAL (always run)
+## Pass 1, CRITICAL (always run)
 
 Run the checks in [`checklist.md`](checklist.md), section "Pass 1".
 
@@ -79,9 +80,9 @@ For each finding, output:
 - One-line description of the problem
 - One-line recommended fix
 
-## Pass 2 — INFORMATIONAL
+## Pass 2, INFORMATIONAL
 
-Same checklist, section "Pass 2". Lower-severity issues — async/sync
+Same checklist, section "Pass 2". Lower-severity issues, async/sync
 mixing, column-name safety, dead code, magic numbers, etc.
 
 ## Optional: parallel specialist sub-reviews
@@ -139,7 +140,7 @@ Everything else gets batched into one `AskUserQuestion` at the end.
 - ❌ "Looks good overall." → either flag something or output the
   "No issues found" line.
 - ❌ Per-issue back-and-forth. Batch the input prompts at the end.
-- ❌ Refactoring on the way through. Flag opportunities — don't take
+- ❌ Refactoring on the way through. Flag opportunities, don't take
   them yourself.
 - ❌ Skipping Pass 1 because Pass 2 caught some things.
 

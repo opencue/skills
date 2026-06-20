@@ -10,33 +10,33 @@ tags: [meta, cue, skills, quality]
 category: meta
 version: 2.1.0
 requires_mcps: []
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # Skill Reviewer
 
 You review, improve, and write SKILL.md files using proven patterns from
 Anthropic's official best practices, the anthropics/skills repo (141k★),
-gstack's skill-authoring conventions (`vendor/gstack/`, study target —
+gstack's skill-authoring conventions (`vendor/gstack/`, study target, 
 not source of truth), and community research (200+ prompt activation tests).
 
 ## How to use this skill
 
 This skill body holds the workflow. Three reference files carry the heavier
-detail — load on demand, don't inline:
+detail, load on demand, don't inline:
 
-- [references/decision-brief-format.md](references/decision-brief-format.md) —
+- [references/decision-brief-format.md](references/decision-brief-format.md), 
   D-numbered AskUserQuestion format with ELI10, Recommendation, Pros/Cons,
   Net. Use before any non-trivial rewrite.
-- [references/voice.md](references/voice.md) — banned vocabulary, em-dash
+- [references/voice.md](references/voice.md), banned vocabulary, em-dash
   ban, compression examples, effort dual-scale.
-- [references/completeness.md](references/completeness.md) — 0–10
+- [references/completeness.md](references/completeness.md), 0–10
   completeness scoring across 7 axes, lake-vs-ocean framing.
-- [references/learnings.md](references/learnings.md) — when and how to
+- [references/learnings.md](references/learnings.md), when and how to
   log discoveries via `bin/cue-learnings` so future sessions compound.
-- [references/checklist.md](references/checklist.md) — line-by-line lint
+- [references/checklist.md](references/checklist.md), line-by-line lint
   expansion (R001–R008 + manual checks).
-- [references/roi-model.md](references/roi-model.md) — full ROI scoring
+- [references/roi-model.md](references/roi-model.md), full ROI scoring
   model with the data-gathering commands.
 - [references/tdd-for-skills.md](references/tdd-for-skills.md): baseline-first
   authoring (RED-GREEN-REFACTOR). Prove a skill changes behavior under pressure,
@@ -45,15 +45,15 @@ detail — load on demand, don't inline:
 Read the references when the workflow says "see references/X.md", not
 preemptively.
 
-## Iron contract — what makes a skill work
+## Iron contract, what makes a skill work
 
-Skills route via **pure LLM reasoning** — no embeddings, no keyword matching.
+Skills route via **pure LLM reasoning**, no embeddings, no keyword matching.
 Claude reads the `description` field from all available skills (~15,000 char
 budget total) and decides which to load. This means:
 
 1. **Description is THE trigger mechanism.** A bad description = a dead skill.
 2. **Claude undertriggers by default.** Make descriptions slightly "pushy".
-3. **Only SKILL.md body loads on trigger** — referenced files load on-demand.
+3. **Only SKILL.md body loads on trigger**, referenced files load on-demand.
 4. **Conciseness wins.** Every token competes with conversation history.
 
 ## Activation rate benchmarks (community-tested, 200+ prompts)
@@ -75,7 +75,7 @@ budget total) and decides which to load. This means:
 
 ---
 
-## Step 1 — Diagnose the problem
+## Step 1, Diagnose the problem
 
 ### For existing skills: Lint + manual review
 
@@ -89,10 +89,10 @@ Then check what the linter misses:
 |-------|-----------------|----------------|
 | **Description: 3rd person** | No "I can" or "You can use" | Injected into system prompt; POV mismatch breaks discovery |
 | **Description: WHAT + WHEN** | Both capability AND trigger conditions | Claude needs both to route correctly |
-| **Description: pushy enough** | Includes "Use when..." with specific keywords | Claude undertriggers — be explicit about when to activate |
+| **Description: pushy enough** | Includes "Use when..." with specific keywords | Claude undertriggers, be explicit about when to activate |
 | **Body: under 500 lines** | Count with `wc -l` | Longer = competes with conversation context |
 | **Body: concrete steps** | Bash commands, not "consider doing X" | Vague prose doesn't produce reliable behavior |
-| **Body: one job** | Does it try to do >3 distinct workflows? | Split if so — focused skills activate more reliably |
+| **Body: one job** | Does it try to do >3 distinct workflows? | Split if so, focused skills activate more reliably |
 | **References: one level deep** | No SKILL.md → file.md → details.md chains | Claude partially reads nested refs with `head -100` |
 | **Examples: present** | Input/output pairs for key behaviors | Examples improve activation from 50% → 72-90% |
 | **Boundaries: explicit** | "What this skill does NOT do" section | Prevents false-positive activation |
@@ -117,7 +117,7 @@ description: |
   "fill out this form", or "combine these documents".
 ```
 
-## Step 2 — Score the skill (1–5 activation + 0–10 completeness)
+## Step 2, Score the skill (1–5 activation + 0–10 completeness)
 
 Two scores, two purposes. Activation tells you whether the skill *fires*;
 completeness tells you whether it does the whole job once it does.
@@ -132,7 +132,7 @@ completeness tells you whether it does the whole job once it does.
 
 For the completeness score (0–10 across 7 axes), see
 [references/completeness.md](references/completeness.md). A skill can be
-4/5 on activation but 5/10 on completeness — that's the common pattern
+4/5 on activation but 5/10 on completeness, that's the common pattern
 for skills that fire reliably but only cover the happy path.
 
 Present both:
@@ -142,12 +142,12 @@ Score: 3/5 activation, 6/10 completeness — fires for the obvious phrasings
 but no should-not-trigger guards and no examples.
 ```
 
-## Step 3 — Rewrite using the proven patterns
+## Step 3, Rewrite using the proven patterns
 
 Before rewriting anything non-trivial (description rewrite, scope split,
 exclusion removal), surface the choice as a **D-numbered decision brief**
 to the user. The format is in
-[references/decision-brief-format.md](references/decision-brief-format.md) —
+[references/decision-brief-format.md](references/decision-brief-format.md), 
 ELI10 paragraph, Recommendation, Pros/Cons (✅/❌), Net line. Do not
 rewrite silently; the user owns scope and trigger surface decisions.
 
@@ -167,7 +167,7 @@ Rules for descriptions:
 - **Always 3rd person** ("Processes files" not "I process files")
 - **Under 1024 chars** (hard limit)
 - **Include 5+ specific trigger keywords** from real user requests
-- **Be slightly pushy** — "Make sure to use this skill whenever..."
+- **Be slightly pushy**, "Make sure to use this skill whenever..."
 - **Mention file types/formats** if applicable (.xlsx, .pdf, etc.)
 
 ### Pattern B: Body structure (progressive disclosure)
@@ -232,7 +232,7 @@ Match specificity to task fragility:
 4. Only proceed when validation passes
 ```
 
-## Step 4 — Scaffold new skills
+## Step 4, Scaffold new skills
 
 ```bash
 mkdir -p resources/skills/skills/<category>/<skill-name>
@@ -295,13 +295,13 @@ Output: <expected result>
 
 ### Key principles when writing:
 
-1. **Explain WHY, not heavy-handed MUSTs** — Claude is smart, reasoning > commands
-2. **Generalize, don't overfit** — skill will be used across many prompts
-3. **Keep it lean** — remove anything not pulling its weight
-4. **Bundle repeated work as scripts** — if every invocation writes the same helper, pre-bundle it
-5. **Test with real requests** — not abstract "process data" but "ok so my boss sent me this xlsx..."
+1. **Explain WHY, not heavy-handed MUSTs**, Claude is smart, reasoning > commands
+2. **Generalize, don't overfit**, skill will be used across many prompts
+3. **Keep it lean**, remove anything not pulling its weight
+4. **Bundle repeated work as scripts**, if every invocation writes the same helper, pre-bundle it
+5. **Test with real requests**, not abstract "process data" but "ok so my boss sent me this xlsx..."
 
-## Step 5 — Audit a profile's skills
+## Step 5, Audit a profile's skills
 
 ```bash
 # List skills in the profile
@@ -319,13 +319,13 @@ done
 ```
 
 Report:
-- **Missing skills** — referenced but no SKILL.md
-- **Dead skills** (score 1-2) — won't activate reliably
-- **Overlapping skills** — two skills covering same triggers
-- **Gap analysis** — what the profile needs based on its description
-- **Token budget** — total description chars across all skills (budget: 15,000 chars shared)
+- **Missing skills**, referenced but no SKILL.md
+- **Dead skills** (score 1-2), won't activate reliably
+- **Overlapping skills**, two skills covering same triggers
+- **Gap analysis**, what the profile needs based on its description
+- **Token budget**, total description chars across all skills (budget: 15,000 chars shared)
 
-## Step 6 — ROI analysis + next-step suggestions
+## Step 6, ROI analysis + next-step suggestions
 
 After any review, rewrite, or audit, calculate the **ROI of each possible improvement** and present the user with a ranked action list. See [references/roi-model.md](references/roi-model.md) for the full scoring model.
 
@@ -340,7 +340,7 @@ ROI = (frequency × impact × reach) / effort
 | **Frequency** | How often this skill/profile is used per week | 1-10 |
 | **Impact** | How much better the output gets if fixed | 1-10 |
 | **Reach** | How many profiles/users benefit from the fix | 1-10 |
-| **Effort** | Time to implement (inverse — lower = easier) | 1-10 |
+| **Effort** | Time to implement (inverse, lower = easier) | 1-10 |
 
 When the effort estimate involves more than ~10 minutes of CC time,
 also report the human-team-equivalent: e.g. "10 min CC / ~half a day
@@ -405,12 +405,12 @@ Always end with **one concrete next action** the user can say yes to:
 ## Rules
 
 - Never approve a skill without a clear WHAT + WHEN in `description:`
-- Skills that say "consider" or "you might want to" are weak — rewrite with concrete actions
+- Skills that say "consider" or "you might want to" are weak, rewrite with concrete actions
 - A skill >500 lines needs splitting into SKILL.md + reference files
 - Always check for overlap before creating a new skill
 - Prefer updating an existing skill over creating a near-duplicate
 - Run `cue lint-skill` after any rewrite to verify R001-R008 compliance
-- Explain WHY behind rules — Claude responds better to reasoning than commands
+- Explain WHY behind rules, Claude responds better to reasoning than commands
 - Include at least one input/output example for any skill that produces output
 - Test descriptions mentally: "would a user typing X cause Claude to pick this skill?"
 - Surface every non-trivial rewrite as a decision brief (see
@@ -453,5 +453,5 @@ bin/cue-learnings log --type pitfall \
 ```
 
 Convention: [references/learnings.md](references/learnings.md). Don't log
-findings from a single skill — those belong in the review output. Log
+findings from a single skill, those belong in the review output. Log
 patterns that span 2+ skills or 2+ review sessions.

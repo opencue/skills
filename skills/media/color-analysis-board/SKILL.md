@@ -4,31 +4,32 @@ name: muapi-color-analysis-board
 version: "1.0.0"
 description: Turn a portrait photo into a high-end editorial "Color Analysis Board" in a luxury fashion-magazine style (Dior / Ralph Lauren aesthetic) — best colors, undertone, makeup guide, capsule wardrobe, hair & jewelry recommendations, all laid out on a clean beige/ivory grid.
 acceptLicenseTerms: true
+category: media
 ---
 
 
 # Color Analysis Board
 
-**Turn a portrait photo into a high-end editorial "Color Analysis Board" in a luxury fashion-magazine style (Dior / Ralph Lauren aesthetic) — best colors, undertone, makeup guide, capsule wardrobe, hair & jewelry recommendations, all laid out on a clean beige/ivory grid.**
+**Turn a portrait photo into a high-end editorial "Color Analysis Board" in a luxury fashion-magazine style (Dior / Ralph Lauren aesthetic), best colors, undertone, makeup guide, capsule wardrobe, hair & jewelry recommendations, all laid out on a clean beige/ivory grid.**
 
 ## Inputs
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `person_image` | image_url | yes | — | A clear, well-lit portrait of the person. Front-facing, neutral background, and natural lighting give the strongest color reads (undertone, hair, eyes). Avoid heavy filters or makeup that masks the natural complexion. |
+| `person_image` | image_url | yes |, | A clear, well-lit portrait of the person. Front-facing, neutral background, and natural lighting give the strongest color reads (undertone, hair, eyes). Avoid heavy filters or makeup that masks the natural complexion. |
 
 
 ## Steps
 
-### Phase A — Color Analysis Board Generation
+### Phase A, Color Analysis Board Generation
 
-If `{{person_image}}` is not provided, ask the user to upload a clear front-facing portrait. Make sure the face is well-lit with natural color (no heavy filters, color-cast lighting, or sunglasses) — the model needs accurate skin, hair, and eye color to pick the right palette.
+If `{{person_image}}` is not provided, ask the user to upload a clear front-facing portrait. Make sure the face is well-lit with natural color (no heavy filters, color-cast lighting, or sunglasses), the model needs accurate skin, hair, and eye color to pick the right palette.
 
 Once the photo is available, submit ONE step to generate the color analysis board:
 
-1. **Color Analysis Board Generation** — `muapi image edit` (model=`gpt-image-2-image-to-image`):
+1. **Color Analysis Board Generation**, `muapi image edit` (model=`gpt-image-2-image-to-image`):
    - Reference Image: `{{person_image}}`
-   - Image size: `3840x2160` (16:9 landscape) — magazine-spread aspect ratio
+   - Image size: `3840x2160` (16:9 landscape), magazine-spread aspect ratio
    - Background: `auto`
    - Output format: `png`
    - Quality: `auto`

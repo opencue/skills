@@ -4,26 +4,27 @@ description: >-
   Use when user says "Hostinger hosting", "upload site", or "shared hosting". Static deploys, files, domains, SSL.
 last_updated: "2026-03-20"
 doc_source: https://developers.hostinger.com
+category: hostinger
 ---
 
 # Hostinger Hosting
 
-The Hosting API manages shared hosting services — creating websites, listing orders, selecting datacenters, verifying domain ownership, and generating free subdomains.
+The Hosting API manages shared hosting services, creating websites, listing orders, selecting datacenters, verifying domain ownership, and generating free subdomains.
 
-## Tool surface — prefer MCP
+## Tool surface, prefer MCP
 
-This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__hosting_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable — they are not the primary interface.
+This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__hosting_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable, they are not the primary interface.
 
 Available hosting tools:
 
-- `hosting_listOrdersV1`, `hosting_listWebsitesV1` — inventory of orders and sites
-- `hosting_createWebsiteV1` — provision a new website on an existing order
-- `hosting_listAvailableDatacentersV1` — pick a datacenter region before create
-- `hosting_generateAFreeSubdomainV1` — assign a free `.hstgr.io`-style subdomain
-- `hosting_verifyDomainOwnershipV1` — validate a custom domain points at Hostinger
-- `hosting_deployStaticWebsite` — static-site deploy (canonical Vite storefront pattern)
-- `hosting_deployJsApplication`, `hosting_listJsDeployments`, `hosting_showJsDeploymentLogs` — JS-app deploys + log/inventory
-- `hosting_deployWordpressPlugin`, `hosting_deployWordpressTheme`, `hosting_importWordpressWebsite` — WordPress workflows
+- `hosting_listOrdersV1`, `hosting_listWebsitesV1`, inventory of orders and sites
+- `hosting_createWebsiteV1`, provision a new website on an existing order
+- `hosting_listAvailableDatacentersV1`, pick a datacenter region before create
+- `hosting_generateAFreeSubdomainV1`, assign a free `.hstgr.io`-style subdomain
+- `hosting_verifyDomainOwnershipV1`, validate a custom domain points at Hostinger
+- `hosting_deployStaticWebsite`, static-site deploy (canonical Vite storefront pattern)
+- `hosting_deployJsApplication`, `hosting_listJsDeployments`, `hosting_showJsDeploymentLogs`, JS-app deploys + log/inventory
+- `hosting_deployWordpressPlugin`, `hosting_deployWordpressTheme`, `hosting_importWordpressWebsite`, WordPress workflows
 
 ## Table of Contents
 
@@ -42,7 +43,7 @@ Websites are the core hosting resource. Each website is associated with a domain
 
 ### Orders
 
-Hosting orders represent purchased hosting plans. Orders can be filtered by status and ID. Shared access is supported — you can see orders from other accounts that have granted you access.
+Hosting orders represent purchased hosting plans. Orders can be filtered by status and ID. Shared access is supported, you can see orders from other accounts that have granted you access.
 
 ### Datacenters
 
@@ -215,8 +216,8 @@ curl -X GET "https://developers.hostinger.com/api/hosting/v1/orders?statuses=act
 ### Website Creation
 - Always select the recommended datacenter (first in the list) unless you have geographic requirements
 - `datacenter_code` is only required for the **first** website on a new hosting plan
-- Domain name cannot start with `www.` — use the bare domain
-- Website creation takes up to a few minutes — poll the list endpoint to check status
+- Domain name cannot start with `www.`, use the bare domain
+- Website creation takes up to a few minutes, poll the list endpoint to check status
 
 ### Domain Verification
 - Skip verification for Hostinger free subdomains (`*.hostingersite.com`)

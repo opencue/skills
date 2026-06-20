@@ -2,15 +2,16 @@
 name: cuopt-numerical-optimization-api-python
 version: "26.08.00"
 description: Solve Linear Programming (LP), Mixed-Integer Linear Programming (MILP), and Quadratic Programming (QP, beta) with the Python API. Use when the user asks about optimization with linear or quadratic objectives, linear constraints, integer variables, scheduling, resource allocation, facility location, production planning, portfolio optimization, or least squares.
+category: nvidia
 ---
 
 # cuOpt Numerical Optimization Skill (Python)
 
-Model and solve LP, MILP, and QP problems using NVIDIA cuOpt's GPU-accelerated solver. The Python API surface (`Problem`, `SolverSettings`, `solve`) is shared across all three problem classes — only the objective form and a few rules change.
+Model and solve LP, MILP, and QP problems using NVIDIA cuOpt's GPU-accelerated solver. The Python API surface (`Problem`, `SolverSettings`, `solve`) is shared across all three problem classes, only the objective form and a few rules change.
 
 ## Before You Start
 
-Use a formulation summary (parameters, constraints, decisions, objective) if available; otherwise ask for decision variables, objective, and constraints. Then confirm **problem type** (LP / MILP / QP — see below) and **variable types**.
+Use a formulation summary (parameters, constraints, decisions, objective) if available; otherwise ask for decision variables, objective, and constraints. Then confirm **problem type** (LP / MILP / QP, see below) and **variable types**.
 
 ## Choosing LP vs MILP vs QP
 
@@ -110,7 +111,7 @@ if problem.Status.name in ["Optimal", "FeasibleFound"]:
     print(f"Production: {production.getValue()}")
 ```
 
-### QP Example (beta — MINIMIZE only)
+### QP Example (beta, MINIMIZE only)
 
 ```python
 from cuopt.linear_programming.problem import Problem, CONTINUOUS, MINIMIZE
@@ -139,10 +140,10 @@ if problem.Status.name in ["Optimal", "PrimalFeasible"]:
 ```
 
 **QP rules:**
-- **MINIMIZE only** — solver rejects MAXIMIZE for quadratic objectives. To maximize `f(x)`, minimize `-f(x)`.
-- **Continuous variables only** — integer QP is not supported.
+- **MINIMIZE only**, solver rejects MAXIMIZE for quadratic objectives. To maximize `f(x)`, minimize `-f(x)`.
+- **Continuous variables only**, integer QP is not supported.
 - **Q should be PSD** (positive semi-definite) for a convex problem; otherwise the solver may return a non-optimal stationary point.
-- **Beta** — API may evolve; treat as production-capable for typical convex QP but expect occasional changes.
+- **Beta**, API may evolve; treat as production-capable for typical convex QP but expect occasional changes.
 
 See `resources/qp_examples.md` for least-squares, maximization-workaround, and matrix-form examples.
 

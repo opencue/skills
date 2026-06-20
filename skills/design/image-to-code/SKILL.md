@@ -2,6 +2,7 @@
 name: image-to-code
 description: >-
   Use when user says "image to code", "match this screenshot", or "recreate this design". Visual inspection, layout mapping, validation.
+category: design
 ---
 
 # CORE DIRECTIVE: IMAGE-FIRST WEBSITE DESIGN TO CODE

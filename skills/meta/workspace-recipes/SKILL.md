@@ -2,9 +2,10 @@
 name: workspace-recipes
 description: >-
   Use when user says "spawn a new shop", "new medusa shop", "clean disk", "agent tree", or "rebuild colony cli". Workspace-specific recipes from ~/Documents/Justfile. For generic `just` syntax use the `just` skill.
+category: meta
 ---
 
-# workspace-recipes — `~/Documents/Justfile`
+# workspace-recipes, `~/Documents/Justfile`
 
 Workspace-level recipes the user maintains in `~/Documents/Justfile`. Run any of these from anywhere via `cd ~/Documents && just <recipe>`. The Justfile uses absolute paths internally so `cwd` doesn't matter.
 
@@ -16,17 +17,17 @@ For the underlying `just` tool itself (discovery flags, syntax), see the `just` 
 
 | Command | What it does |
 |---------|--------------|
-| `just new-shop NAME` | Spawn a new Medusa shop from `medusa-shops/base-template/` — copies dir, `git init`, copies `.env.example` → `.env` for backend + storefront, runs `pnpm install`. After: edit the two `.env` files, then `just shop-backend NAME`. |
+| `just new-shop NAME` | Spawn a new Medusa shop from `medusa-shops/base-template/`, copies dir, `git init`, copies `.env.example` → `.env` for backend + storefront, runs `pnpm install`. After: edit the two `.env` files, then `just shop-backend NAME`. |
 | `just shop-backend SHOP` | `pnpm --filter backend dev` in the shop |
 | `just shop-storefront SHOP` | `pnpm --filter storefront dev` in the shop |
-| `just shop-build-storefront SHOP` | `pnpm hostinger:build && pnpm hostinger:finalize:static` — produces `dist/client/` ready to upload to `<shop>.hu` Hostinger document root |
+| `just shop-build-storefront SHOP` | `pnpm hostinger:build && pnpm hostinger:finalize:static`, produces `dist/client/` ready to upload to `<shop>.hu` Hostinger document root |
 
 ### Disk / cleanup
 
 | Command | What it does |
 |---------|--------------|
 | `just clean` | Wipes ALL `node_modules`, `.next`, `dist`, `build`, `target`, `.turbo`, `.venv` across the workspace. Reports before/after `df`. Run `pnpm install` (or equivalent) per project to restore. **Recovered 35 GB the first time.** |
-| `just clean-dry` | Same find, no delete — shows what would go |
+| `just clean-dry` | Same find, no delete, shows what would go |
 | `just disk` | Top 20 largest dirs (depth 3) |
 | `just df` | Free / used space on `/home` |
 
@@ -42,7 +43,7 @@ For the underlying `just` tool itself (discovery flags, syntax), see the `just` 
 
 | Command | What it does |
 |---------|--------------|
-| `just colony-rebuild` | `pnpm install && pnpm --filter colonyq build` in `recodee/colony/`. Run this if the colony Stop/SessionStart hooks start failing with `Cannot find module '/home/deadpool/Documents/recodee/colony/apps/cli/dist/index.js'` — usually after `just clean` wipes `dist/`. |
+| `just colony-rebuild` | `pnpm install && pnpm --filter colonyq build` in `recodee/colony/`. Run this if the colony Stop/SessionStart hooks start failing with `Cannot find module '/home/deadpool/Documents/recodee/colony/apps/cli/dist/index.js'`, usually after `just clean` wipes `dist/`. |
 
 ## When to invoke
 
@@ -54,10 +55,10 @@ For the underlying `just` tool itself (discovery flags, syntax), see the `just` 
 
 ## Reading the Justfile
 
-Always check `~/Documents/Justfile` for the canonical, current recipe list — recipes get added over time. `just --list --unsorted` from any directory inside `~/Documents/` shows the menu.
+Always check `~/Documents/Justfile` for the canonical, current recipe list, recipes get added over time. `just --list --unsorted` from any directory inside `~/Documents/` shows the menu.
 
 ## Caveats
 
 - Recipes assume cwd is somewhere under `~/Documents/`; they `cd` to absolute paths internally so safe to invoke from anywhere.
-- `just clean` is destructive but reversible — the categories it wipes are listed in `~/Documents/.gitignore` and are all rebuildable from source.
+- `just clean` is destructive but reversible, the categories it wipes are listed in `~/Documents/.gitignore` and are all rebuildable from source.
 - `just new-shop` requires `pnpm` installed and assumes the `base-template/` is up to date.

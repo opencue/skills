@@ -2,6 +2,7 @@
 name: cargo-flamegraph
 description: Use when profiling Rust performance, benchmarking, or analysing binary size. Covers cargo-flamegraph, cargo-criterion, cargo-bloat.
 allowed-tools: Bash(cargo:*), Bash(cargo-flamegraph:*), Bash(cargo-criterion:*), Bash(cargo-bloat:*), Bash(perf:*)
+category: rust
 ---
 
 # Rust Performance Toolkit
@@ -21,6 +22,6 @@ CPU profiling, benchmark frontend, binary-size analysis.
 - Linux: `linux-tools-common` + `linux-tools-generic` for `perf`. macOS: dtrace (root).
 
 ## Notes
-- Always profile `--release` — debug builds are useless for perf.
+- Always profile `--release`, debug builds are useless for perf.
 - Add `[profile.release] debug = true` to Cargo.toml so flamegraphs have symbols (doesn't slow runtime, just enlarges the binary).
 - Criterion benches need the `criterion` crate as a dev-dep and `[[bench]]` entries with `harness = false`.

@@ -2,6 +2,7 @@
 name: "doc"
 description: >-
   Use when user says "write documentation", "make a DOCX", or "create a doc". Document structure, formatting, export.
+category: content
 ---
 
 

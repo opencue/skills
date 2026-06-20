@@ -23,6 +23,7 @@ triggers:
   - write a how-to
   - explain this module
   - docs for this project
+category: gstack
 ---
 ## Step 0: Detect platform and base branch
 
@@ -43,12 +44,12 @@ Determine which branch this PR/MR targets, or the repo's default branch if no
 PR/MR exists. Use the result as "the base branch" in all subsequent steps.
 
 **If GitHub:**
-1. `gh pr view --json baseRefName -q .baseRefName` — if succeeds, use it
-2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name` — if succeeds, use it
+1. `gh pr view --json baseRefName -q .baseRefName`, if succeeds, use it
+2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name`, if succeeds, use it
 
 **If GitLab:**
-1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field — if succeeds, use it
-2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field — if succeeds, use it
+1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field, if succeeds, use it
+2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field, if succeeds, use it
 
 **Git-native fallback (if unknown platform, or CLI commands fail):**
 1. `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||'`
@@ -70,15 +71,15 @@ structured documentation** for features, modules, or an entire project. You rese
 the code thoroughly before writing a single line of documentation.
 
 This skill can be invoked two ways:
-1. **Standalone** — the user points you at a feature, module, or project and says "document this"
-2. **From /document-release** — the coverage map identified gaps; you fill them
+1. **Standalone**, the user points you at a feature, module, or project and says "document this"
+2. **From /document-release**, the coverage map identified gaps; you fill them
 
-You follow the **Diataxis framework** — four quadrants of documentation, each serving a
+You follow the **Diataxis framework**, four quadrants of documentation, each serving a
 different reader need:
-- **Tutorial** — learning-oriented, walks a newcomer through a working example step-by-step
-- **How-to** — task-oriented, shows how to accomplish a specific goal (assumes basic familiarity)
-- **Reference** — information-oriented, complete and accurate technical description
-- **Explanation** — understanding-oriented, explains why things work the way they do
+- **Tutorial**, learning-oriented, walks a newcomer through a working example step-by-step
+- **How-to**, task-oriented, shows how to accomplish a specific goal (assumes basic familiarity)
+- **Reference**, information-oriented, complete and accurate technical description
+- **Explanation**, understanding-oriented, explains why things work the way they do
 
 **Philosophy: research the whole, then write the parts.** Like an architect who surveys the
 entire site before drawing a single room, you read the full codebase surface before writing
@@ -97,7 +98,7 @@ any documentation. This prevents the "documentation that describes half the feat
 
    - A) Write documentation inline in existing files (README, ARCHITECTURE, etc.)
    - B) Create standalone documentation files (e.g., `docs/` directory)
-   - C) Both — inline summaries in existing files + deep docs in standalone files
+   - C) Both, inline summaries in existing files + deep docs in standalone files
 
    RECOMMENDATION: Choose C because it maximizes both discoverability and depth.
 
@@ -127,7 +128,7 @@ find . -type f -not -path "./.git/*" -not -path "./node_modules/*" -not -path ".
 
 3. **Read the source code for each target entity.** For each feature/module you're documenting:
    - Read the implementation files end-to-end (not just signatures)
-   - Read the tests — they reveal intended behavior, edge cases, and usage patterns
+   - Read the tests, they reveal intended behavior, edge cases, and usage patterns
    - Read related modules that the target depends on or is depended upon by
    - Read any existing inline comments, especially `// NOTE:`, `// DESIGN:`, `// WHY:`
 
@@ -213,10 +214,10 @@ would actually compile/run.]
 
 **Rules for reference docs:**
 - Accuracy over elegance. Every claim must be traceable to code.
-- Include types, defaults, and constraints. "Accepts a string" is insufficient — "Accepts a
+- Include types, defaults, and constraints. "Accepts a string" is insufficient, "Accepts a
   string (max 256 chars, must match `^[a-z-]+$`)" is reference-grade.
 - Show real examples that would actually work if copy-pasted.
-- Do not explain *why* — that belongs in explanation docs.
+- Do not explain *why*, that belongs in explanation docs.
 
 ---
 
@@ -256,7 +257,7 @@ rejected and why.]
 - Lead with the problem, not the solution.
 - Use ASCII diagrams for architecture. They're grep-able, diff-friendly, and render everywhere.
 - Name trade-offs explicitly. "We chose X over Y because Z" is the gold standard.
-- Do not repeat reference material — link to it.
+- Do not repeat reference material, link to it.
 
 ---
 
@@ -299,8 +300,8 @@ config state.]
 ```
 
 **Rules for how-to docs:**
-- Title starts with "How to" — no exceptions. This is the reader's entry point.
-- Every step must be actionable. No "consider whether..." — instead "Run X" or "Add Y to Z".
+- Title starts with "How to", no exceptions. This is the reader's entry point.
+- Every step must be actionable. No "consider whether...", instead "Run X" or "Add Y to Z".
 - Include verification. The reader should never wonder "did it work?"
 - Troubleshooting section is mandatory if the task can fail.
 
@@ -357,7 +358,7 @@ for deeper exploration. Suggest next steps.]
   what changes.
 - Use the exact commands the reader will type. No "run the appropriate command" abstractions.
 - Error paths: if a step commonly fails, show the error and the fix inline.
-- End with "What you built" — connect the tutorial back to the real use case.
+- End with "What you built", connect the tutorial back to the real use case.
 
 ---
 
@@ -369,8 +370,8 @@ After writing all documents:
    Every how-to should link to its reference. Tutorials should link to both.
 
 2. **Update entry-point files.** Add references to new docs in:
-   - README.md — add to documentation section or table of contents
-   - CLAUDE.md / AGENTS.md — add to project structure if relevant
+   - README.md, add to documentation section or table of contents
+   - CLAUDE.md / AGENTS.md, add to project structure if relevant
    - Any existing docs index or sidebar config
 
 3. **Verify discoverability.** Every new document must be reachable within 2 clicks from
@@ -466,7 +467,7 @@ Documentation generated:
 - **Research before writing.** Step 1 is not optional. Read the code, read the tests, read the
   existing docs. Insufficient research produces surface-level documentation.
 - **Accuracy is non-negotiable.** Every code example must work. Every API description must match
-  the actual code. If you're unsure about a detail, read the source again — do not guess.
+  the actual code. If you're unsure about a detail, read the source again, do not guess.
 - **Diataxis quadrants serve different readers.** Do not mix tutorial content into reference docs
   or reference content into how-tos. Each quadrant has a specific reader in a specific mode.
 - **Time to first result in tutorials.** If a reader can't see something working by step 3,
@@ -475,4 +476,4 @@ Documentation generated:
 - **Voice: friendly, concrete, user-forward.** Write like you're explaining to a smart person
   who hasn't seen the code. Never corporate, never academic.
 - **Completeness over minimalism.** AI makes comprehensive documentation cheap. Don't write
-  "minimal viable docs" — write complete docs. Boil the lake.
+  "minimal viable docs", write complete docs. Boil the lake.

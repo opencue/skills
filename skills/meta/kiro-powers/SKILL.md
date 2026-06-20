@@ -15,7 +15,7 @@ allowed-tools: Bash(curl:*), Bash(gh:*), Bash(git:*), Read(*), Write(*)
 # Kiro Powers → cue Profile Importer
 
 Import Kiro Powers (from kiro.dev or GitHub) into cue profiles. A Kiro Power is:
-- `POWER.md` — steering file with activation keywords + workflow instructions
+- `POWER.md`, steering file with activation keywords + workflow instructions
 - MCP server configuration
 - Optional hooks and slash commands
 
@@ -145,9 +145,9 @@ cue doctor --profile <profile>
 
 ## Rules
 
-- Always preserve the original POWER.md content — it contains the expertise
+- Always preserve the original POWER.md content, it contains the expertise
 - Map `keywords` to the skill `description` for cue's matching
 - Add `requires_mcps` so cue warns if the MCP isn't configured
-- Keep the MCP env vars as `${PLACEHOLDER}` — user fills them in
+- Keep the MCP env vars as `${PLACEHOLDER}`, user fills them in
 - If the power has multiple steering files, create one skill per workflow OR bundle them as references/
 - Confirm with user before writing to the MCP registry

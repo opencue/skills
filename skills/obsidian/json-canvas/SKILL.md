@@ -2,6 +2,7 @@
 name: json-canvas
 description: >-
   Use when user says "JSON canvas", "Obsidian canvas", or "canvas file". Obsidian canvas node layout, edges, schema.
+category: obsidian
 ---
 
 # JSON Canvas Skill

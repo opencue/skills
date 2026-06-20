@@ -7,15 +7,16 @@ description: |
   .cue/context/<branch>-<YYYYMMDD-HHMM>.md. Pair with /context-restore.
   Use when the user says "save progress", "save state", "context save", or
   "save my work".
-allowed-tools: [Bash, Read, Write, Glob, Grep, AskUserQuestion]
+allowed-tools: Bash(Bash:*), Read, Write, Glob, Grep, AskUserQuestion
 triggers:
   - save progress
   - save state
   - save my work
   - context save
+category: gstack
 ---
 
-# /context-save — capture state for later resume
+# /context-save, capture state for later resume
 
 A session-survival snapshot. Designed to be readable by both a human and a
 future model session.
@@ -24,19 +25,19 @@ future model session.
 
 1. **Git state**
    - Current branch, upstream, ahead/behind.
-   - `git status -s` — staged, unstaged, untracked.
+   - `git status -s`, staged, unstaged, untracked.
    - Last 5 commits on this branch (`git log -5 --oneline`).
-   - If there's an open PR (`gh pr view --json number,title,state,url` —
+   - If there's an open PR (`gh pr view --json number,title,state,url`, 
      skip silently if `gh` is unauthenticated), record number + title + URL.
 2. **Working summary** (write this yourself)
    - Task in one sentence.
-   - What was just done (1–3 bullets — what changed and why).
+   - What was just done (1–3 bullets, what changed and why).
    - Next concrete step (one actionable sentence).
    - Decisions made that won't be re-derivable from the diff (1–3 bullets).
    - Failed approaches to avoid next time (1–3 bullets).
-3. **Hot paths** — files touched in the last 10 commits or unstaged.
+3. **Hot paths**, files touched in the last 10 commits or unstaged.
    List as `<path> — <one-line role>`.
-4. **Verification status** — tests / lint / build = pass / fail / not run.
+4. **Verification status**, tests / lint / build = pass / fail / not run.
 
 ## Output path
 
@@ -86,7 +87,7 @@ Tell the user: "Saved to `<path>`. Resume later with `/context-restore`."
 
 ## Anti-patterns
 
-- ❌ Saving "I worked on stuff." Be specific — paths, sha, decision.
+- ❌ Saving "I worked on stuff." Be specific, paths, sha, decision.
 - ❌ Skipping the failed-approaches section. Highest-value field for the
   next session.
 - ❌ Re-saving when nothing meaningful changed. Tell the user "no material

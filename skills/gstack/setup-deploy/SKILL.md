@@ -19,6 +19,7 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
   - Glob
   - Grep
   - AskUserQuestion
+category: gstack
 ---
 ## User-invocable
 When the user types `/setup-deploy`, run this skill.
@@ -37,7 +38,7 @@ If configuration already exists, show it and ask:
 - **RECOMMENDATION:** Choose A to update if your setup changed.
 - A) Reconfigure from scratch (overwrite existing)
 - B) Edit specific fields (show current config, let me change one thing)
-- C) Done — configuration looks correct
+- C) Done, configuration looks correct
 
 If the user picks C, stop.
 
@@ -93,10 +94,10 @@ If `render.yaml` detected:
 1. Extract service name and type from render.yaml
 2. Check for Render API key: `echo $RENDER_API_KEY | head -c 4` (don't expose the full key)
 3. Infer URL: `https://{service-name}.onrender.com`
-4. Render deploys automatically on push to the connected branch — no deploy workflow needed
+4. Render deploys automatically on push to the connected branch, no deploy workflow needed
 5. Set health check: the inferred URL
 
-Ask the user to confirm. Render uses auto-deploy from the connected git branch — after
+Ask the user to confirm. Render uses auto-deploy from the connected git branch, after
 merge to main, Render picks it up automatically. The "deploy wait" in /land-and-deploy
 should poll the Render URL until it responds with the new version.
 
@@ -106,7 +107,7 @@ If vercel.json or .vercel detected:
 
 1. Check for `vercel` CLI: `which vercel 2>/dev/null`
 2. If installed: `vercel ls --prod 2>/dev/null | head -3`
-3. Vercel deploys automatically on push — preview on PR, production on merge to main
+3. Vercel deploys automatically on push, preview on PR, production on merge to main
 4. Set health check: the production URL from vercel project settings
 
 #### Netlify
@@ -138,13 +139,13 @@ Use AskUserQuestion to gather the information:
    - D) Manually (SSH, dashboard, etc.)
    - E) This project doesn't deploy (library, CLI, tool)
 
-2. **What's the production URL?** (Free text — the URL where the app runs)
+2. **What's the production URL?** (Free text, the URL where the app runs)
 
 3. **How can gstack check if a deploy succeeded?**
    - A) HTTP health check at a specific URL (e.g., /health, /api/status)
    - B) CLI command (e.g., `fly status`, `kubectl rollout status`)
    - C) Check the GitHub Actions workflow status
-   - D) No automated way — just check the URL loads
+   - D) No automated way, just check the URL loads
 
 4. **Any pre-merge or post-merge hooks?**
    - Commands to run before merging (e.g., `bun run build`)
@@ -186,7 +187,7 @@ curl -sf "{health-check-url}" -o /dev/null -w "%{http_code}" 2>/dev/null || echo
 {deploy-status-command} 2>/dev/null | head -5 || echo "COMMAND_FAILED"
 ```
 
-Report results. If anything failed, note it but don't block — the config is still
+Report results. If anything failed, note it but don't block, the config is still
 useful even if the health check is temporarily unreachable.
 
 ### Step 6: Summary
@@ -212,6 +213,6 @@ Next steps:
 
 - **Never expose secrets.** Don't print full API keys, tokens, or passwords.
 - **Confirm with the user.** Always show the detected config and ask for confirmation before writing.
-- **CLAUDE.md is the source of truth.** All configuration lives there — not in a separate config file.
+- **CLAUDE.md is the source of truth.** All configuration lives there, not in a separate config file.
 - **Idempotent.** Running /setup-deploy multiple times overwrites the previous config cleanly.
 - **Platform CLIs are optional.** If `fly` or `vercel` CLI isn't installed, fall back to URL-based health checks.

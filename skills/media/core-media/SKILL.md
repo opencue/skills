@@ -2,6 +2,7 @@
 name: muapi-media-generation
 version: 0.1.0
 description: Generate AI images, videos, music, and audio from the terminal via muapi.ai — supports 100+ models including Flux, Midjourney v7, Kling 3.0, Veo3, and Suno V5
+category: media
 ---
 
 # 🎨 MuAPI Media Generation
@@ -18,7 +19,7 @@ Generate professional-grade media directly from the terminal using 100+ state-of
 | `generate-video.sh` | Text-to-video generation | `minimax-pro` |
 | `image-to-video.sh` | Animate a static image into video | `kling-pro` |
 | `create-music.sh` | Music creation, remix, extend, text/video-to-audio | Suno V5 |
-| `upload.sh` | Upload local files to CDN for use with other skills | — |
+| `upload.sh` | Upload local files to CDN for use with other skills |, |
 
 ## Quick Start
 

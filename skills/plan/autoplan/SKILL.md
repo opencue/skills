@@ -7,26 +7,27 @@ description: |
   user approval; everything else runs straight through.
   Use when the user says "autoplan", "run the full plan", "plan
   pipeline", or has a fresh idea and wants the whole sprint up to code.
-allowed-tools: [Read, Write, Edit, Skill, AskUserQuestion]
+allowed-tools: Read(*), Write, Edit, Skill, AskUserQuestion
 triggers:
   - autoplan
   - run the full plan
   - plan pipeline
   - full plan review
+category: plan
 ---
 
-# /autoplan — chained plan review
+# /autoplan, chained plan review
 
 The plan-stage pipeline in one command:
 
-1. **`/office-hours`** — premise-question + write design doc
-2. **`/plan-ceo-review`** — scope challenge, four-mode framework
-3. **`/plan-eng-review`** — architecture, data flow, tests, blockers
+1. **`/office-hours`**, premise-question + write design doc
+2. **`/plan-ceo-review`**, scope challenge, four-mode framework
+3. **`/plan-eng-review`**, architecture, data flow, tests, blockers
 
 Each stage reads what the previous stage wrote. Each stage skips itself
 if its section already exists in the design doc (idempotent re-runs).
 
-## Step 1 — find or create the design doc
+## Step 1, find or create the design doc
 
 Look for `.cue/design-docs/*.md` modified in the last 7 days. If one or
 more exist, ask via `AskUserQuestion`:
@@ -34,11 +35,11 @@ more exist, ask via `AskUserQuestion`:
 > Which design doc should autoplan run against?
 > - <doc1> (most recent, <age>)
 > - <doc2>
-> - Start fresh — run /office-hours first
+> - Start fresh, run /office-hours first
 
 If none exist, start with `/office-hours`.
 
-## Step 2 — orchestrate
+## Step 2, orchestrate
 
 Invoke each skill via the `Skill` tool in order. Between stages:
 
@@ -49,7 +50,7 @@ Invoke each skill via the `Skill` tool in order. Between stages:
 - If the previous stage produced blockers, stop and surface them. Do
   not chain into the next stage on top of unresolved blockers.
 
-## Step 3 — final hand-off
+## Step 3, final hand-off
 
 After all three stages, summarize:
 
@@ -69,7 +70,7 @@ Ready to build? (Yes → exit plan mode. No → resolve blockers above.)
 - ❌ Running the pipeline silently. Tell the user where you are at
   each stage transition.
 - ❌ Forcing the user through `/office-hours` when they already have
-  a design doc — ask first.
+  a design doc, ask first.
 - ❌ Skipping the blocker check between stages. An unresolved scope
   ambiguity should stop the eng review, not feed it bad input.
 - ❌ Writing code at the end. `/autoplan` ends *before* implementation.

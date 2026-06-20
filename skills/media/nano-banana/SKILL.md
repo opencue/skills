@@ -2,6 +2,7 @@
 name: muapi-nano-banana
 version: 0.1.0
 description: Reasoning-driven image generation using structured creative briefs (Gemini 3 style) — generates high-fidelity images via muapi.ai with logic-based prompting
+category: media
 ---
 
 # 🍌 Nano-Banana Expert Skill (Gemini 3 Style)

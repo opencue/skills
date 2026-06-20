@@ -4,14 +4,15 @@ name: higgsfield-product-photoshoot
 description: >-
   Use when user says "product photo", "studio shot", "lifestyle image", "hero banner", or "virtual try-on". Backend-enhanced prompts on GPT Image 2. NOT for marketplace cards or generic image-gen.
 argument-hint: "[--mode <mode>] [--count N] [prompt]"
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
+category: higgsfield
 ---
 
 # Product Photoshoot
 
 Brand-image generation via the `higgsfield product-photoshoot create` command. The CLI calls a backend prompt enhancer that holds mode-specific photography vocabulary and structural templates, then submits to `gpt_image_2` and returns image URLs.
 
-## Step 0 — Bootstrap
+## Step 0, Bootstrap
 
 Before any other command:
 
@@ -27,7 +28,7 @@ Before any other command:
 2. Detect language, respond in it. Mode names and CLI flags stay English.
 3. Ask at most 4 short questions before submitting. Use labeled options, never open-ended.
 4. Skip questions whose answer is obvious from context (uploaded image, prior turn, brand memory).
-5. Never write the gpt_image_2 prompt yourself — backend assembles it.
+5. Never write the gpt_image_2 prompt yourself, backend assembles it.
 6. Polling is silent. Wait until URLs are ready, then deliver.
 
 ## Modes
@@ -36,7 +37,7 @@ Before any other command:
 |---|---|
 | `product_shot` | Product on neutral / studio / catalog background |
 | `lifestyle_scene` | Product in real-world environment, hands, action, atmosphere |
-| `closeup_product_with_person` | Tight crop with hands / partial face — beauty application, holding, demonstrating |
+| `closeup_product_with_person` | Tight crop with hands / partial face, beauty application, holding, demonstrating |
 | `moodboard_pin` | Vertical 2:3 Pinterest-native aesthetic, moodboard feel |
 | `hero_banner` | Wide-format website / email / campaign header |
 | `social_carousel` | 3–10 connected slides for IG / LinkedIn / Facebook |
@@ -58,7 +59,7 @@ Pick by intent, not surface keyword. When two modes could apply, prefer the more
 - ads, ad pack, paid social, Meta / TikTok / Pinterest ads → `ad_creative_pack`
 - model wearing, virtual try-on, on body, fashion shoot, lookbook → `virtual_model_tryout`
 - levitating, floating, splash, frozen motion, surreal, CGI, sculptural → `conceptual_product`
-- modify EXISTING image's aesthetic, mood, season — without changing subject → `restyle`
+- modify EXISTING image's aesthetic, mood, season, without changing subject → `restyle`
 
 Tie-breakers:
 - "Pinterest pin of my product on a kitchen counter" → `moodboard_pin` (Pinterest is the platform)
@@ -70,14 +71,14 @@ Tie-breakers:
 
 Ask 3–4 short questions before submitting. Always labeled options, never open-ended. Skip a question whose answer is obvious from context.
 
-### Type A — uploaded a product photo, "make me images / photoshoots"
+### Type A, uploaded a product photo, "make me images / photoshoots"
 
 1. How many? `[1 / 3 / 5]`
 2. What style/mood? `[Clean studio / Lifestyle / Conceptual / With a model / Other]`
 3. Where will you use them? `[Shopify / Instagram / Pinterest / Paid ads / Website hero]`
 4. Brand colors to match? (skip if obvious)
 
-### Type B — uploaded a product photo, named a use case
+### Type B, uploaded a product photo, named a use case
 
 E.g. "make ads for my product", "make a Pinterest pin", "make a hero banner". Mode is obvious. Ask only the gaps:
 
@@ -85,14 +86,14 @@ E.g. "make ads for my product", "make a Pinterest pin", "make a hero banner". Mo
 2. What's the offer / mood / hook?
 3. Anything in particular to emphasize?
 
-### Type C — text only, no product photo
+### Type C, text only, no product photo
 
-1. Can you upload a product photo? (preferred — much higher fidelity)
-2. If not, describe the product — category, packaging, color, distinctive features.
+1. Can you upload a product photo? (preferred, much higher fidelity)
+2. If not, describe the product, category, packaging, color, distinctive features.
 3. What style? (same options as Type A)
 4. Where will you use it?
 
-### Type D — uploaded existing image, "redo / change vibe / different version"
+### Type D, uploaded existing image, "redo / change vibe / different version"
 
 → `restyle`
 
@@ -100,7 +101,7 @@ E.g. "make ads for my product", "make a Pinterest pin", "make a hero banner". Mo
 2. Seasonal context? `[Christmas / Valentine's / Halloween / Black Friday / None]`
 3. What to preserve, what to change? (only if ambiguous)
 
-### Type E — model wearing a product (fashion, accessories)
+### Type E, model wearing a product (fashion, accessories)
 
 → `virtual_model_tryout`
 
@@ -108,7 +109,7 @@ E.g. "make ads for my product", "make a Pinterest pin", "make a hero banner". Mo
 2. Environment? `[Studio clean / Outdoor natural / Street style / Editorial / Home cozy]`
 3. Framing? `[Full body / Three-quarter / Waist up / Closeup on product area]`
 
-### Type F — vague request, unclear subject
+### Type F, vague request, unclear subject
 
 E.g. "make me something cool for my brand".
 
@@ -161,7 +162,7 @@ higgsfield product-photoshoot create \
 
 ## Multi-variant
 
-`--count 3` returns 3 distinct image URLs. Backend asks the enhancer to vary preset, lighting, angle, and palette across variants — they will not be paraphrased copies of one another.
+`--count 3` returns 3 distinct image URLs. Backend asks the enhancer to vary preset, lighting, angle, and palette across variants, they will not be paraphrased copies of one another.
 
 For `social_carousel` and `ad_creative_pack`, count = number of slides / variants in the pack. Backend locks the visual system across all slides automatically.
 
@@ -195,6 +196,6 @@ Print the image URLs as a short bulleted list. No JSON, no IDs, no internal mode
 
 - Asking more than 4 interview questions in a single message.
 - Picking the wrong mode (e.g. `product_shot` when the user wants a Pinterest pin).
-- Calling `higgsfield generate create gpt_image_2 --prompt ...` directly instead of `higgsfield product-photoshoot create` — bypasses the prompt enhancer and produces noticeably worse output.
-- Pasting the assembled prompt back to the user — they want the URLs.
+- Calling `higgsfield generate create gpt_image_2 --prompt ...` directly instead of `higgsfield product-photoshoot create`, bypasses the prompt enhancer and produces noticeably worse output.
+- Pasting the assembled prompt back to the user, they want the URLs.
 - Using a `--mode` value not in the table above.
