@@ -1,5 +1,6 @@
 ---
 name: "openai-docs"
+requires_mcps: [openaiDeveloperDocs]
 description: >-
   Use when user says "OpenAI docs", "OpenAI API", or "ChatGPT API". Official OpenAI docs lookup: current docs, examples, limits, citations.
 ---

@@ -7,7 +7,7 @@ metadata:
 
 # ICP Research Assistant
 
-Build comprehensive ideal customer profiles for targeted marketing.
+Build complete ideal customer profiles for targeted marketing.
 
 ## Process
 

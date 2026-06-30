@@ -1,15 +1,17 @@
 ---
 name: setup-gbrain
+requires_mcps: [gbrain]
 preamble-tier: 2
 version: 1.0.0
-description: Set up gbrain for this coding agent: install the CLI, initialize a local PGLite or Supabase brain, register MCP, capture per-remote trust policy. (gstack)
+description: Set up gbrain for this coding agent by installing the CLI, initializing a local PGLite or Supabase brain, registering MCP, and capturing per-remote trust policy. (gstack)
 triggers:
   - setup gbrain
   - install gbrain
   - connect gbrain
   - start gbrain
   - configure gbrain
-allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, AskUserQuestion, --
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, AskUserQuestion
+---
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
 

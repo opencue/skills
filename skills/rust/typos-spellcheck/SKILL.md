@@ -1,6 +1,10 @@
 ---
 name: typos-spellcheck
 description: Use when spell-checking Rust source, docs, comments — `typos` CLI catches common misspellings without false positives on code identifiers.
+triggers:
+  - "spell check rust"
+  - "typos"
+  - "find typos in code"
 allowed-tools: Bash(typos:*)
 ---
 

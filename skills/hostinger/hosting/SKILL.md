@@ -1,5 +1,6 @@
 ---
 name: hosting
+requires_mcps: [hostinger-api]
 description: >-
   Use when user says "Hostinger hosting", "upload site", or "shared hosting". Static deploys, files, domains, SSL.
 last_updated: "2026-03-20"

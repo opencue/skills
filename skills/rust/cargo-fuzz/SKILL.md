@@ -1,6 +1,10 @@
 ---
 name: cargo-fuzz
 description: Use when fuzzing parsers, deserializers, FFI boundaries, or any code that takes untrusted bytes. libFuzzer integration via cargo-fuzz.
+triggers:
+  - "fuzz rust"
+  - "cargo fuzz"
+  - "fuzz a parser"
 allowed-tools: Bash(cargo:*), Bash(cargo-fuzz:*), Bash(rustup:*)
 ---
 

@@ -1,6 +1,10 @@
 ---
 name: cargo-chef
 description: Use when building a Docker image of a Rust app and the dep compile step keeps invalidating cache. Splits dep compilation into a cacheable layer.
+triggers:
+  - "rust docker cache"
+  - "cargo chef"
+  - "cache rust docker build"
 allowed-tools: Bash(cargo:*), Bash(cargo-chef:*), Bash(docker:*)
 ---
 

@@ -1,6 +1,10 @@
 ---
 name: ratatui-tui
 description: Use when building a Rust terminal UI (TUI) — dashboards, file managers, monitors. Covers ratatui (the standard) + crossterm.
+triggers:
+  - "rust tui"
+  - "ratatui"
+  - "terminal ui in rust"
 allowed-tools: Bash(cargo:*)
 ---
 

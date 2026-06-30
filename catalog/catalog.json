@@ -1,11 +1,11 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-06-11T10:07:37Z",
+  "generated_at": "2026-06-30T01:11:38Z",
   "offline": true,
   "counts": {
-    "installed": 427,
+    "installed": 452,
     "upstream": 0,
-    "mcps": 30
+    "mcps": 32
   },
   "installed": [
     {
@@ -254,7 +254,7 @@
     },
     {
       "name": "google-ads-audit",
-      "description": "Use when user says \"audit my google ads\", \"review my ad spend\", \"find wasted spend\", \"check my campaigns\", \"where am I losing money on ads\". Comprehensive Google Ads account health analysis detecting wasted spend, search term leaks, negative keyword gaps, bid strategy issues, and Quality Score problems. Use when analyzing campaign data, pasting Google Ads exports, reviewing account performance, or requesting a full diagnostic of advertising spend efficiency.",
+      "description": "Use when user says \"audit my google ads\", \"review my ad spend\", \"find wasted spend\", \"check my campaigns\", \"where am I losing money on ads\". Full Google Ads account health analysis detecting wasted spend, search term leaks, negative keyword gaps, bid strategy issues, and Quality Score problems. Use when analyzing campaign data, pasting Google Ads exports, reviewing account performance, or requesting a full diagnostic of advertising spend efficiency.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/marketing/google-ads-audit/SKILL.md",
       "category": "marketing",
       "tags": [],
@@ -968,7 +968,7 @@
     },
     {
       "name": "setup-gbrain",
-      "description": "Set up gbrain for this coding agent: install the CLI, initialize a local PGLite or Supabase brain, register MCP, capture per-remote trust policy. (gstack)",
+      "description": "Set up gbrain for this coding agent by installing the CLI, initializing a local PGLite or Supabase brain, registering MCP, and capturing per-remote trust policy. (gstack)",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/setup-gbrain/SKILL.md",
       "category": "gstack",
       "tags": [],
@@ -1049,7 +1049,7 @@
     },
     {
       "name": "design-html",
-      "description": "Design finalization: generates production-quality Pretext-native HTML/CSS. (gstack)",
+      "description": "Design finalization that generates production-quality Pretext-native HTML/CSS. (gstack)",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/gstack/design-html/SKILL.md",
       "category": "gstack",
       "tags": [],
@@ -1435,12 +1435,198 @@
       "links": []
     },
     {
+      "name": "custom-nda-generator",
+      "description": "\"Generates a customized NDA (mutual, one-way, employee, or vendor) with plain-English notes. Use when the user says \\\"/legal nda\\\", \\\"generate an NDA\\\", or \\\"draft a non-disclosure agreement\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-nda/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "nda",
+        "generator"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "terms-of-service-generator",
+      "description": "\"Generates GDPR/CCPA-compliant Terms of Service with plain-English section summaries. Use when the user says \\\"/legal terms\\\", \\\"generate terms of service\\\", or \\\"write a ToS\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-terms/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "tos",
+        "generator"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "missing-protections-finder",
+      "description": "\"Finds critical clauses missing from a contract, with urgency ratings and ready-to-insert language. Use when the user says \\\"/legal missing\\\" or \\\"what protections am I missing\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-missing/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "contracts",
+        "gaps"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "legal",
+      "description": "\"Orchestrator and router for contract review and legal-document generation. Not legal advice. Use when the user says \\\"/legal\\\", \\\"review a contract\\\", or \\\"generate a legal document\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "contracts",
+        "router"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "plain-english-translation",
+      "description": "\"Translates contract clauses from legalese into plain English and flags confusing language. Use when the user says \\\"/legal plain\\\", \\\"explain in plain English\\\", or \\\"what does this clause mean\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-plain/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "contracts",
+        "plain-english"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "counter-proposal-generator",
+      "description": "\"Generates counter-proposals for unfavorable clauses with replacement language and talking points. Use when the user says \\\"/legal negotiate\\\", \\\"write a counter-proposal\\\", or \\\"redline this\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-negotiate/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "contracts",
+        "negotiation"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "freelancer-contract-review",
+      "description": "\"Reviews a contract from the freelancer perspective, flagging traps with a fairness score. Use when the user says \\\"/legal freelancer\\\" or \\\"review this client contract\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-freelancer/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "contracts",
+        "freelance"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "contract-comparison",
+      "description": "\"Side-by-side comparison of two contracts with change tracking and favorability analysis. Use when the user says \\\"/legal compare\\\", \\\"compare these contracts\\\", or \\\"what changed\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-compare/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "contracts",
+        "diff"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "contract-review",
+      "description": "\"Full contract review via 5 parallel subagents: a Contract Safety Score, clause-by-clause analysis, prioritized fixes. Use when the user says \\\"/legal review\\\" or \\\"review this contract\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-review/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "contracts",
+        "review"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "privacy-policy-generator",
+      "description": "\"Scans a site to detect data collection, then generates a GDPR/CCPA-compliant privacy policy. Use when the user says \\\"/legal privacy\\\" or \\\"generate a privacy policy\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-privacy/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "privacy",
+        "gdpr"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "business-agreement-generator",
+      "description": "\"Generates business agreements (freelancer, partnership, SOW, MSA, service) with annotations. Use when the user says \\\"/legal agreement\\\", \\\"draft an SOW\\\", or \\\"create an MSA\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-agreement/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "agreements",
+        "generator"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "compliance-gap-analysis",
+      "description": "\"Scans a site for gaps across GDPR, CCPA, ADA, PCI-DSS, CAN-SPAM, and SOC 2 with a scored audit. Use when the user says \\\"/legal compliance\\\" or \\\"run a compliance audit\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-compliance/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "compliance",
+        "audit"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "legal-report-pdf",
+      "description": "\"Turns the latest contract-review analysis into a branded PDF report with score gauges and risk charts. Use when the user says \\\"/legal report-pdf\\\" or \\\"export the review as PDF\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-report-pdf/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "pdf",
+        "report"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "deep-risk-analysis",
+      "description": "\"Clause-by-clause risk analysis with severity scores and financial-exposure estimates. Use when the user says \\\"/legal risks\\\", \\\"what are the risks\\\", or \\\"find dangerous clauses\\\".\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/legal/legal-risks/SKILL.md",
+      "category": "legal",
+      "tags": [
+        "legal",
+        "contracts",
+        "risk"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "error-handling",
       "description": "Use when designing Rust error types — choosing between thiserror (libraries) and anyhow (apps), wrapping foreign errors, returning Result from main.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/error-handling/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust error handling",
+        "thiserror vs anyhow",
+        "rust error types"
+      ],
       "links": []
     },
     {
@@ -1449,7 +1635,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/mdbook/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "mdbook",
+        "rust docs site",
+        "rust book"
+      ],
       "links": []
     },
     {
@@ -1458,7 +1648,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/async-tokio/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "async rust",
+        "use tokio",
+        "tokio runtime",
+        "debug async deadlock"
+      ],
       "links": []
     },
     {
@@ -1467,7 +1662,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/clap-cli/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust cli",
+        "build a cli in rust",
+        "clap",
+        "command line tool in rust"
+      ],
       "links": []
     },
     {
@@ -1476,7 +1676,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-readme/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "generate rust readme",
+        "cargo readme",
+        "sync readme with docs"
+      ],
       "links": []
     },
     {
@@ -1485,7 +1689,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-flamegraph/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "profile rust",
+        "rust flamegraph",
+        "benchmark rust",
+        "rust binary size"
+      ],
       "links": [
         "bench"
       ]
@@ -1496,7 +1705,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/axum-api/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust web api",
+        "build an api in rust",
+        "axum",
+        "rust http server"
+      ],
       "links": []
     },
     {
@@ -1505,7 +1719,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-hack/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "test feature combinations",
+        "cargo hack",
+        "check all features"
+      ],
       "links": []
     },
     {
@@ -1514,7 +1732,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-chef/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust docker cache",
+        "cargo chef",
+        "cache rust docker build"
+      ],
       "links": []
     },
     {
@@ -1523,7 +1745,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/pyo3/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust python module",
+        "pyo3",
+        "expose rust to python",
+        "maturin"
+      ],
       "links": []
     },
     {
@@ -1532,7 +1759,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/bacon-watch/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust watch mode",
+        "auto rerun rust",
+        "bacon",
+        "cargo watch"
+      ],
       "links": []
     },
     {
@@ -1541,7 +1773,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/just-runner/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "justfile",
+        "just runner",
+        "rust task runner",
+        "replace make"
+      ],
       "links": []
     },
     {
@@ -1550,7 +1787,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-msrv/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "minimum rust version",
+        "msrv",
+        "cargo msrv"
+      ],
       "links": []
     },
     {
@@ -1559,7 +1800,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/release-plz/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "automate crates.io release",
+        "release-plz",
+        "rust changelog automation"
+      ],
       "links": [
         "package"
       ]
@@ -1570,7 +1815,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/wasm-rust/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust wasm",
+        "wasm-pack",
+        "rust to webassembly",
+        "rust frontend"
+      ],
       "links": []
     },
     {
@@ -1579,7 +1829,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/clippy-and-fmt/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust lint",
+        "cargo clippy",
+        "cargo fmt",
+        "format rust"
+      ],
       "links": []
     },
     {
@@ -1588,7 +1843,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-audit/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust security audit",
+        "cargo audit",
+        "check rust vulnerabilities",
+        "cargo deny"
+      ],
       "links": []
     },
     {
@@ -1597,7 +1857,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/sqlx-cli/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust database migrations",
+        "sqlx",
+        "diesel migrations",
+        "sea-orm"
+      ],
       "links": []
     },
     {
@@ -1606,7 +1871,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/napi-rs/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust node addon",
+        "napi-rs",
+        "expose rust to node"
+      ],
       "links": []
     },
     {
@@ -1615,7 +1884,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-nextest/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "faster rust tests",
+        "nextest",
+        "cargo nextest",
+        "speed up rust tests"
+      ],
       "links": []
     },
     {
@@ -1624,7 +1898,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/bevy/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust game",
+        "bevy",
+        "rust game engine",
+        "ecs game"
+      ],
       "links": []
     },
     {
@@ -1633,7 +1912,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/embedded/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "embedded rust",
+        "rust microcontroller",
+        "flash rust",
+        "probe-rs"
+      ],
       "links": []
     },
     {
@@ -1642,7 +1926,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/property-testing/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "property testing rust",
+        "proptest",
+        "quickcheck",
+        "property based tests"
+      ],
       "links": []
     },
     {
@@ -1651,7 +1940,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cross-compile/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "cross compile rust",
+        "rust for arm",
+        "rust musl build",
+        "build rust for windows"
+      ],
       "links": []
     },
     {
@@ -1660,7 +1954,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/sccache/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "speed up rust builds",
+        "sccache",
+        "rust compiler cache"
+      ],
       "links": []
     },
     {
@@ -1669,7 +1967,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/reqwest/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "http request rust",
+        "reqwest",
+        "rust http client",
+        "download file rust"
+      ],
       "links": []
     },
     {
@@ -1678,7 +1981,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/typos-spellcheck/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "spell check rust",
+        "typos",
+        "find typos in code"
+      ],
       "links": []
     },
     {
@@ -1687,7 +1994,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/uniffi/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust to multiple languages",
+        "uniffi",
+        "rust kotlin swift bindings"
+      ],
       "links": []
     },
     {
@@ -1696,7 +2007,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/chisel-tool/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "chisel",
+        "precision file edits",
+        "patch based edits"
+      ],
       "links": []
     },
     {
@@ -1705,7 +2020,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/tracing/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust logging",
+        "tracing",
+        "structured logs rust",
+        "rust spans"
+      ],
       "links": []
     },
     {
@@ -1714,7 +2034,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/snapshot-testing/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "snapshot testing rust",
+        "cargo insta",
+        "insta snapshots"
+      ],
       "links": []
     },
     {
@@ -1723,7 +2047,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cbindgen/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "expose rust to c",
+        "cbindgen",
+        "generate c headers from rust"
+      ],
       "links": []
     },
     {
@@ -1732,7 +2060,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-basics/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "new rust crate",
+        "cargo build",
+        "cargo test",
+        "rust workspace"
+      ],
       "links": []
     },
     {
@@ -1741,7 +2074,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/bindgen/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "call c from rust",
+        "rust ffi to c",
+        "bindgen",
+        "generate ffi bindings"
+      ],
       "links": []
     },
     {
@@ -1750,7 +2088,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-fuzz/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "fuzz rust",
+        "cargo fuzz",
+        "fuzz a parser"
+      ],
       "links": []
     },
     {
@@ -1759,7 +2101,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-edit/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "add rust dependency",
+        "cargo add",
+        "upgrade rust deps",
+        "find unused deps"
+      ],
       "links": []
     },
     {
@@ -1768,7 +2115,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/no-std/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "no_std rust",
+        "rust without std",
+        "no-std"
+      ],
       "links": []
     },
     {
@@ -1777,7 +2128,11 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/ratatui-tui/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "rust tui",
+        "ratatui",
+        "terminal ui in rust"
+      ],
       "links": []
     },
     {
@@ -1786,7 +2141,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-mutants/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "mutation testing",
+        "cargo mutants",
+        "test quality",
+        "are my tests any good"
+      ],
       "links": []
     },
     {
@@ -1795,7 +2155,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/cargo-expand/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "expand rust macro",
+        "cargo expand",
+        "debug a macro",
+        "see macro output"
+      ],
       "links": []
     },
     {
@@ -1804,7 +2169,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/rust/serde/SKILL.md",
       "category": "rust",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "serialize rust",
+        "serde",
+        "rust json",
+        "deserialize rust"
+      ],
       "links": []
     },
     {
@@ -2186,7 +2556,7 @@
     },
     {
       "name": "muapi-design-guide",
-      "description": "Create a comprehensive brand design guide — color palette, typography pairings, UI component previews, and visual identity rules with example mockups.",
+      "description": "Create a complete brand design guide — color palette, typography pairings, UI component previews, and visual identity rules with example mockups.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/design-guide/SKILL.md",
       "category": "media",
       "tags": [],
@@ -2249,7 +2619,7 @@
     },
     {
       "name": "muapi-multi-angle-shots",
-      "description": "Generate a complete set of multi-angle product shots — front, side, back, top-down, and 45-degree perspective — for comprehensive product visualization.",
+      "description": "Generate a complete set of multi-angle product shots — front, side, back, top-down, and 45-degree perspective — for full product visualization.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/media/multi-angle-shots/SKILL.md",
       "category": "media",
       "tags": [],
@@ -2967,6 +3337,22 @@
       "links": []
     },
     {
+      "name": "headroom",
+      "description": "Compress everything an AI agent reads — tool outputs, logs, files, RAG chunks, conversation history — before it reaches the model, for 60–95% fewer tokens with the same answers. Use when the user says \"compress context\", \"reduce tokens\", \"headroom\", \"wrap claude with headroom\", \"cut my token usage\", or wants reversible context compression via library, proxy, or MCP tools (headroom_compress / headroom_retrieve / headroom_stats).",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/headroom/SKILL.md",
+      "category": "tools",
+      "tags": [
+        "tools",
+        "context-compression",
+        "tokens",
+        "mcp",
+        "proxy",
+        "claude-code"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "ccusage",
       "description": "Analyze coding-agent CLI token usage and cost from local logs — Claude Code, Codex, Gemini, Copilot, OpenCode, Amp, Droid and more — as daily, weekly, monthly, or session reports. Use when the user says \"ccusage\", \"how much have I spent\", \"my token usage\", \"usage report\", \"cost breakdown\", \"how many tokens\", or \"which model do I use most\", or wants to audit AI coding spend. Reads existing logs; no setup.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/tools/ccusage/SKILL.md",
@@ -3201,7 +3587,12 @@
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/meta/autoresearch/SKILL.md",
       "category": "meta",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "autoresearch",
+        "optimize this metric",
+        "run experiments to improve",
+        "autonomous optimization loop"
+      ],
       "links": []
     },
     {
@@ -3919,7 +4310,7 @@
     },
     {
       "name": "pdf",
-      "description": "Use when user says \"extract text from pdf\", \"merge pdfs\", \"split a pdf\", \"fill out a pdf form\", \"extract tables from pdf\", or \"create a pdf\". Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.",
+      "description": "Use when user says \"extract text from pdf\", \"merge pdfs\", \"split a pdf\", \"fill out a pdf form\", \"extract tables from pdf\", or \"create a pdf\". Complete PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/content/pdf/SKILL.md",
       "category": "content",
       "tags": [],
@@ -3997,7 +4388,7 @@
     },
     {
       "name": "code-review",
-      "description": "\"Runs a comprehensive code review of the current diff or a specific PR — correctness bugs, security, simplification opportunities. Use when user says \\\"review my code\\\", \\\"code review\\\", \\\"review this diff\\\", \\\"check my PR\\\", \\\"/code-review\\\", or \\\"review before merge\\\".\"",
+      "description": "\"Runs a full code review of the current diff or a specific PR — correctness bugs, security, simplification opportunities. Use when user says \\\"review my code\\\", \\\"code review\\\", \\\"review this diff\\\", \\\"check my PR\\\", \\\"/code-review\\\", or \\\"review before merge\\\".\"",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/code-review/SKILL.md",
       "category": "review",
       "tags": [],
@@ -4042,6 +4433,87 @@
       "description": "Use when user says \"test API\", \"API endpoint\", or \"curl this endpoint\". Request setup, auth, assertions, response checks.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/api-tester/SKILL.md",
       "category": "review",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/vercel/react-best-practices/SKILL.md",
+      "category": "vercel",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "vercel-optimize",
+      "description": "\"Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit, Nuxt, and limited Astro apps. Collect Vercel metrics, usage, project config, and code scan results first; investigate only metric-backed candidates; produce ranked recommendations grounded in verified files and version-aware Vercel/framework docs. Trigger for Vercel bill reduction, slow or expensive routes, caching opportunities, Function Invocations, Build Minutes, Fast Data Transfer, Core Web Vitals, Bot Management, Fluid compute, or cost breakdown requests.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/vercel/vercel-optimize/SKILL.md",
+      "category": "vercel",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "vercel-cli-with-tokens",
+      "description": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/vercel/vercel-cli-with-tokens/SKILL.md",
+      "category": "vercel",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "vercel-react-native-skills",
+      "description": "",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/vercel/react-native-skills/SKILL.md",
+      "category": "vercel",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "deploy-to-vercel",
+      "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/vercel/deploy-to-vercel/SKILL.md",
+      "category": "vercel",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "writing-guidelines",
+      "description": "Review docs/prose for Writing Guidelines compliance. Use when asked to \"review my docs\", \"check writing style\", \"audit prose\", \"review docs voice and tone\", or \"check this page against the writing handbook\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/vercel/writing-guidelines/SKILL.md",
+      "category": "vercel",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "vercel-react-view-transitions",
+      "description": "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/vercel/react-view-transitions/SKILL.md",
+      "category": "vercel",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "web-design-guidelines",
+      "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/vercel/web-design-guidelines/SKILL.md",
+      "category": "vercel",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "name": "vercel-composition-patterns",
+      "description": "",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/vercel/composition-patterns/SKILL.md",
+      "category": "vercel",
       "tags": [],
       "triggers": [],
       "links": []
@@ -4396,12 +4868,31 @@
       "links": []
     },
     {
+      "name": "ros-skill",
+      "description": "\"Controls ROS/ROS2 robots via rosbridge WebSocket CLI. Use when user says \\\"check ROS topics\\\", \\\"echo a topic\\\", \\\"call a ROS service\\\", \\\"list nodes\\\", \\\"set a parameter\\\", \\\"send a goal\\\", \\\"move the robot\\\", \\\"read sensor data\\\", or asks about any ROS/ROS2 robot interaction.\"",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/robotics/ros-skill/SKILL.md",
+      "category": "robotics",
+      "tags": [
+        "ros",
+        "ros2",
+        "robotics",
+        "rosbridge"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "scenario-explorer",
       "description": "'Generate edge cases and test scenarios by decomposing a feature across 12 dimensions. Use when planning or testing a feature, or when user says \"what could go wrong\" or \"find the edge cases\".'",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/test/scenario-explorer/SKILL.md",
       "category": "test",
       "tags": [],
-      "triggers": [],
+      "triggers": [
+        "what could go wrong",
+        "find the edge cases",
+        "generate test scenarios",
+        "edge case analysis"
+      ],
       "links": []
     },
     {
@@ -4528,7 +5019,7 @@
     },
     {
       "name": "agent-browser",
-      "description": "Use when you need to drive a real browser: open a page, fill forms, click, screenshot, scrape, or test a login flow. Triggers on \"automate the browser\", \"test the page\", \"scrape this site\".",
+      "description": "Use when you need to drive a real browser to open a page, fill forms, click, screenshot, scrape, or test a login flow. Triggers on \"automate the browser\", \"test the page\", \"scrape this site\".",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/browser/agent-browser/SKILL.md",
       "category": "browser",
       "tags": [
@@ -4538,7 +5029,12 @@
         "testing",
         "cdp"
       ],
-      "triggers": [],
+      "triggers": [
+        "automate the browser",
+        "test the page",
+        "scrape this site",
+        "drive a browser"
+      ],
       "links": []
     },
     {
@@ -4723,7 +5219,9 @@
     "playwright",
     "react-grab-mcp",
     "polymarket-live",
+    "ros-mcp",
     "figma",
+    "headroom",
     "gitea",
     "soul-skills",
     "github",

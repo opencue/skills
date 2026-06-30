@@ -1,6 +1,11 @@
 ---
 name: cargo-nextest
 description: Use when running Rust tests slowly with cargo test, or when CI test time hurts. Drop-in faster runner with better output, retries, and JUnit XML.
+triggers:
+  - "faster rust tests"
+  - "nextest"
+  - "cargo nextest"
+  - "speed up rust tests"
 allowed-tools: Bash(cargo:*), Bash(cargo-nextest:*)
 ---
 

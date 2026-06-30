@@ -1,6 +1,10 @@
 ---
 name: uniffi
 description: Use when exposing one Rust library to multiple languages (Kotlin/Swift/Python/Ruby) from a single UDL spec. Mozilla's approach; used by Bitwarden, Matrix SDK.
+triggers:
+  - "rust to multiple languages"
+  - "uniffi"
+  - "rust kotlin swift bindings"
 allowed-tools: Bash(cargo:*), Bash(uniffi-bindgen:*)
 ---
 

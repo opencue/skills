@@ -54,7 +54,7 @@ The Logo Creator skill translates brand vision into minimalist, scalable, and ic
 Provide the agent with a brand name, core values, and industry.
 
 ### Step 2: Invoke the Script
-The `create-logo.sh` script generates a comprehensive branding brief.
+The `create-logo.sh` script generates a complete branding brief.
 
 ```bash
 # Designing a Fintech Logo

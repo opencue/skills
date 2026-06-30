@@ -1,6 +1,11 @@
 ---
 name: cargo-flamegraph
 description: Use when profiling Rust performance, benchmarking, or analysing binary size. Covers cargo-flamegraph, cargo-criterion, cargo-bloat.
+triggers:
+  - "profile rust"
+  - "rust flamegraph"
+  - "benchmark rust"
+  - "rust binary size"
 allowed-tools: Bash(cargo:*), Bash(cargo-flamegraph:*), Bash(cargo-criterion:*), Bash(cargo-bloat:*), Bash(perf:*)
 ---
 

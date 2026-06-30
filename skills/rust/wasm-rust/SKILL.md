@@ -1,6 +1,11 @@
 ---
 name: wasm-rust
 description: Use when building Rust → WASM — modules with JS bindings (wasm-pack), full SPA frontends (trunk + Yew/Leptos/Sycamore), or Dioxus apps.
+triggers:
+  - "rust wasm"
+  - "wasm-pack"
+  - "rust to webassembly"
+  - "rust frontend"
 allowed-tools: Bash(cargo:*), Bash(wasm-pack:*), Bash(trunk:*), Bash(dioxus:*), Bash(rustup:*)
 ---
 

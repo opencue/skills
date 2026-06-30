@@ -1,6 +1,11 @@
 ---
 name: clap-cli
 description: Use when building a command-line tool in Rust. Covers clap derive (subcommands, args, env), dialoguer for prompts, indicatif for progress bars/spinners.
+triggers:
+  - "rust cli"
+  - "build a cli in rust"
+  - "clap"
+  - "command line tool in rust"
 allowed-tools: Bash(cargo:*)
 ---
 

@@ -1,6 +1,11 @@
 ---
 name: pyo3
 description: Use when exposing Rust code to Python — write a CPython extension module in Rust, ship as a wheel via maturin.
+triggers:
+  - "rust python module"
+  - "pyo3"
+  - "expose rust to python"
+  - "maturin"
 allowed-tools: Bash(cargo:*), Bash(maturin:*), Bash(python:*), Bash(pip:*)
 ---
 

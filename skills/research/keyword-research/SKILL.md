@@ -128,7 +128,7 @@ Use this when the conversation involves reusable market intelligence that should
 
 ## What This Skill Does
 
-1. **Keyword Discovery**: Generates comprehensive keyword lists from seed terms
+1. **Keyword Discovery**: Generates complete keyword lists from seed terms
 2. **Intent Classification**: Categorizes keywords by user intent (informational, navigational, commercial, transactional)
 3. **Difficulty Assessment**: Evaluates competition level and ranking difficulty
 4. **Opportunity Scoring**: Prioritizes keywords by potential ROI

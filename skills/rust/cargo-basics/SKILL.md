@@ -1,6 +1,11 @@
 ---
 name: cargo-basics
 description: Use when starting, building, running, testing, or generating docs for a Rust crate. Covers cargo new/init/check/build/run/test/doc and workspace scoping.
+triggers:
+  - "new rust crate"
+  - "cargo build"
+  - "cargo test"
+  - "rust workspace"
 allowed-tools: Bash(cargo:*), Bash(rustc:*), Bash(rustup:*)
 ---
 

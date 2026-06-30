@@ -1,6 +1,11 @@
 ---
 name: cargo-mutants
 description: Use when measuring test quality — mutation testing modifies your code and checks tests catch the change. Finds "I have 90% coverage but tests assert nothing".
+triggers:
+  - "mutation testing"
+  - "cargo mutants"
+  - "test quality"
+  - "are my tests any good"
 allowed-tools: Bash(cargo:*), Bash(cargo-mutants:*)
 ---
 

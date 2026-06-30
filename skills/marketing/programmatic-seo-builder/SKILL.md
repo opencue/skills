@@ -41,7 +41,7 @@ Design scalable page templates that rank without appearing thin or auto-generate
 ## Internal Linking: Hub & Spoke Model
 
 ```
-Hub Page: "Marketing Tools" (comprehensive guide)
+Hub Page: "Marketing Tools" (complete guide)
     │
     ├── Spoke: "Email Marketing Tools" 
     │   └── Links to: Hub, SEO Tools, Social Tools

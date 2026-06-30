@@ -1,6 +1,11 @@
 ---
 name: scenario-explorer
 description: 'Generate edge cases and test scenarios by decomposing a feature across 12 dimensions. Use when planning or testing a feature, or when user says "what could go wrong" or "find the edge cases".'
+triggers:
+  - "what could go wrong"
+  - "find the edge cases"
+  - "generate test scenarios"
+  - "edge case analysis"
 category: test
 license: MIT
 metadata:

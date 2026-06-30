@@ -1,6 +1,11 @@
 ---
 name: autoresearch
 description: 'Autonomous loop that optimizes a measurable metric (coverage, bundle size, lint errors) one change at a time. Use when repeated experiments can be judged by a mechanical score.'
+triggers:
+  - "autoresearch"
+  - "optimize this metric"
+  - "run experiments to improve"
+  - "autonomous optimization loop"
 category: meta
 license: MIT
 metadata:

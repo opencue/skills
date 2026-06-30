@@ -1,6 +1,11 @@
 ---
 name: async-tokio
 description: Use when writing async Rust with tokio — picking a runtime flavor, structuring tasks, choosing sync vs async primitives, debugging deadlocks.
+triggers:
+  - "async rust"
+  - "use tokio"
+  - "tokio runtime"
+  - "debug async deadlock"
 allowed-tools: Bash(cargo:*)
 ---
 

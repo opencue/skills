@@ -1,6 +1,11 @@
 ---
 name: cargo-audit
 description: Use when checking a Rust project for known vulnerabilities, license violations, or supply-chain risk. Covers cargo-audit, cargo-deny, cargo-geiger, cargo-vet, cargo-crev.
+triggers:
+  - "rust security audit"
+  - "cargo audit"
+  - "check rust vulnerabilities"
+  - "cargo deny"
 allowed-tools: Bash(cargo:*), Bash(cargo-audit:*), Bash(cargo-deny:*), Bash(cargo-geiger:*), Bash(cargo-vet:*), Bash(cargo-crev:*)
 ---
 
