@@ -1,6 +1,10 @@
 ---
 name: cargo-readme
 description: Use when keeping README.md in sync with lib.rs doc comments — generate the README from `//!` crate-level docs.
+triggers:
+  - "generate rust readme"
+  - "cargo readme"
+  - "sync readme with docs"
 allowed-tools: Bash(cargo:*), Bash(cargo-readme:*)
 ---
 

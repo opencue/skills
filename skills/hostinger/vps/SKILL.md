@@ -1,5 +1,6 @@
 ---
 name: vps
+requires_mcps: [hostinger-api]
 description: >-
   Use when user says "Hostinger VPS", "server deploy", or "VPS access". SSH, services, Docker, logs, health, safe ops.
 last_updated: "2026-03-20"

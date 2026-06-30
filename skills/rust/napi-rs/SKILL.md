@@ -1,6 +1,10 @@
 ---
 name: napi-rs
 description: Use when exposing Rust to Node.js — write a native addon via N-API. The path NextSwc, Parcel, and Prisma's query engine take.
+triggers:
+  - "rust node addon"
+  - "napi-rs"
+  - "expose rust to node"
 allowed-tools: Bash(cargo:*), Bash(napi:*), Bash(npm:*), Bash(node:*)
 ---
 

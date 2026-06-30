@@ -1,6 +1,11 @@
 ---
 name: cross-compile
 description: Use when building a Rust binary for a different target — ARM, musl, Windows, Android — without setting up native toolchains.
+triggers:
+  - "cross compile rust"
+  - "rust for arm"
+  - "rust musl build"
+  - "build rust for windows"
 allowed-tools: Bash(cargo:*), Bash(cross:*), Bash(rustup:*), Bash(docker:*)
 ---
 

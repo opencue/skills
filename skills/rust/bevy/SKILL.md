@@ -1,6 +1,11 @@
 ---
 name: bevy
 description: Use when building a game or interactive simulation in Rust with the Bevy engine — ECS-first, data-driven, hot-reloading, cross-platform (desktop + wasm).
+triggers:
+  - "rust game"
+  - "bevy"
+  - "rust game engine"
+  - "ecs game"
 allowed-tools: Bash(cargo:*)
 ---
 

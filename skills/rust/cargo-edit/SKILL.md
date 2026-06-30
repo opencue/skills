@@ -1,6 +1,11 @@
 ---
 name: cargo-edit
 description: Use when adding, removing, or upgrading Rust dependencies, or auditing unused deps. Covers cargo add/rm/upgrade, cargo-outdated, cargo-machete, cargo-udeps.
+triggers:
+  - "add rust dependency"
+  - "cargo add"
+  - "upgrade rust deps"
+  - "find unused deps"
 allowed-tools: Bash(cargo:*), Bash(cargo-edit:*), Bash(cargo-outdated:*), Bash(cargo-machete:*), Bash(cargo-udeps:*)
 ---
 

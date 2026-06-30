@@ -1,5 +1,6 @@
 ---
 name: dns
+requires_mcps: [hostinger-api]
 description: >-
   Use when user says "Hostinger DNS", "DNS record", or "point domain". Records, propagation, verification, rollback risk.
 last_updated: "2026-03-20"

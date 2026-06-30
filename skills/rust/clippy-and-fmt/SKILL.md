@@ -1,6 +1,11 @@
 ---
 name: clippy-and-fmt
 description: Use when linting or formatting Rust code, or when CI complains about style. Covers cargo clippy with -D warnings, cargo fmt --check, and per-crate config files.
+triggers:
+  - "rust lint"
+  - "cargo clippy"
+  - "cargo fmt"
+  - "format rust"
 allowed-tools: Bash(cargo:*), Bash(rustfmt:*), Bash(clippy:*)
 ---
 

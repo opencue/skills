@@ -1,6 +1,10 @@
 ---
 name: release-plz
 description: Use when automating crates.io releases for a workspace — version bumps, CHANGELOG generation, GitHub Release PRs based on Conventional Commits.
+triggers:
+  - "automate crates.io release"
+  - "release-plz"
+  - "rust changelog automation"
 allowed-tools: Bash(cargo:*), Bash(release-plz:*), Bash(git:*), Bash(gh:*)
 ---
 

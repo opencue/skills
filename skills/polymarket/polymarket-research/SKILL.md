@@ -1,5 +1,6 @@
 ---
 name: polymarket-research
+requires_mcps: [polymarket-live]
 description: >-
   Use when user says "what's the Polymarket market doing", "research a Polymarket market", "BTC 5m snapshot", "look up a Polymarket market", or "what are the odds on X". Live overview via `polymarket-live` MCP — bundles BTC 5m snapshot, market search, and order book. NOT for placing orders.
 ---

@@ -43,7 +43,7 @@ A systematic approach with:
 
 ### What is a Master Resume?
 
-A comprehensive document containing:
+A complete document containing:
 - ALL your experiences (not just recent)
 - ALL bullet points you've ever written
 - Every achievement, project, skill
@@ -165,7 +165,7 @@ Resume/
 
 **Enterprise/Corporate:**
 - Emphasizes: Scale, process, collaboration
-- Tone: Professional, structured, comprehensive
+- Tone: Professional, structured, thorough
 
 **Finance:**
 - Emphasizes: Analysis, compliance, accuracy

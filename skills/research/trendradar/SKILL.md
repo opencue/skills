@@ -1,4 +1,5 @@
 ---
+requires_mcps: [trendradar]
 description: 'Use when user says "what''s trending", "news trends", "hot topics", "search recent news", "analyze a topic trend", or "daily news briefing". Uses the TrendRadar MCP tools for news aggregation, trend analysis, RSS feeds, and notifications.'
 allowed-tools:
   - mcp__trendradar__get_latest_news
@@ -39,7 +40,7 @@ Use the TrendRadar MCP server for all news aggregation, trend analysis, and noti
 - `analyze_sentiment` — Sentiment analysis on news topics
 - `find_related_news` — Find articles related to a topic
 - `compare_periods` — Compare news patterns between time periods
-- `generate_summary_report` — Generate a comprehensive trend report
+- `generate_summary_report` — Generate a full trend report
 
 ### RSS
 - `get_latest_rss` — Latest RSS feed entries

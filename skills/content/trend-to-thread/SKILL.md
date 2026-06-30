@@ -1,5 +1,6 @@
 ---
 name: trend-to-thread
+requires_mcps: [higgsfield, trendradar]
 description: >-
   End-to-end pipeline that chains trendradar → article-writer → X thread →
   Higgsfield hero image → Postiz draft in a single shot, turning a current

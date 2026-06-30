@@ -1,6 +1,10 @@
 ---
 name: error-handling
 description: Use when designing Rust error types — choosing between thiserror (libraries) and anyhow (apps), wrapping foreign errors, returning Result from main.
+triggers:
+  - "rust error handling"
+  - "thiserror vs anyhow"
+  - "rust error types"
 allowed-tools: Bash(cargo:*)
 ---
 

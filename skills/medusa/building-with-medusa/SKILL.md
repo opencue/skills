@@ -6,7 +6,7 @@ description: >-
 
 # Medusa Backend Development
 
-Comprehensive backend development guide for Medusa applications. Contains patterns across 6 categories covering architecture, type safety, business logic placement, and common pitfalls.
+Complete backend development guide for Medusa applications. Contains patterns across 6 categories covering architecture, type safety, business logic placement, and common pitfalls.
 
 ## When to Apply
 

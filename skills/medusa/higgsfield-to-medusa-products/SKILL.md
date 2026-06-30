@@ -1,5 +1,6 @@
 ---
 name: higgsfield-to-medusa-products
+requires_mcps: [secret-mcp]
 description: >-
   Use when user says "Higgsfield to Medusa", "generate product photos", or "import AI product assets". Asset generation → product mapping → import.
 allowed-tools: Bash(aws:*), Bash(curl:*), Bash(higgsfield:*), Bash(jq:*)

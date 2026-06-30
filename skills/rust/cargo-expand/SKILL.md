@@ -1,6 +1,11 @@
 ---
 name: cargo-expand
 description: Use when debugging Rust macros (proc-macros, derive, declarative) — see what code the macro actually generates.
+triggers:
+  - "expand rust macro"
+  - "cargo expand"
+  - "debug a macro"
+  - "see macro output"
 allowed-tools: Bash(cargo:*), Bash(cargo-expand:*)
 ---
 

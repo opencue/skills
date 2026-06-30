@@ -2,12 +2,13 @@
 name: design-html
 preamble-tier: 2
 version: 1.0.0
-description: Design finalization: generates production-quality Pretext-native HTML/CSS. (gstack)
+description: Design finalization that generates production-quality Pretext-native HTML/CSS. (gstack)
 triggers:
   - build the design
   - code the mockup
   - make design real
-allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, Agent, AskUserQuestion, --
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, Agent, AskUserQuestion
+---
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
 

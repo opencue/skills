@@ -1,5 +1,6 @@
 ---
 name: marva-blog-author
+requires_mcps: [Higgsfield]
 description: >-
   Use when user says "write a MARVA blog post", "marvahome blog", "publish MARVA blog", "generate Hungarian blog for marvahome", "MARVA Home cikk", or asks to draft, author, push, or publish an SEO blog post for marvahome.com. End-to-end: Hungarian SEO+GEO authoring → marva-blog MCP push → Higgsfield thumbnail.
 ---

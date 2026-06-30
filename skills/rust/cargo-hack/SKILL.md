@@ -1,6 +1,10 @@
 ---
 name: cargo-hack
 description: Use when a Rust crate has multiple feature flags and you need to verify every combination compiles + tests cleanly. Catches "works on default features only" bugs.
+triggers:
+  - "test feature combinations"
+  - "cargo hack"
+  - "check all features"
 allowed-tools: Bash(cargo:*), Bash(cargo-hack:*)
 ---
 

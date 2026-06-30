@@ -1,6 +1,11 @@
 ---
 name: tracing
 description: Use when adding logging, structured logs, spans, or live runtime introspection to a Rust app. Covers tracing, tracing-subscriber, tokio-console, OpenTelemetry.
+triggers:
+  - "rust logging"
+  - "tracing"
+  - "structured logs rust"
+  - "rust spans"
 allowed-tools: Bash(cargo:*), Bash(tokio-console:*)
 ---
 

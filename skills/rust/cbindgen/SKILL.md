@@ -1,6 +1,10 @@
 ---
 name: cbindgen
 description: Use when exposing a Rust library to C/C++ — auto-generate C headers from a Rust crate so other languages can link to it.
+triggers:
+  - "expose rust to c"
+  - "cbindgen"
+  - "generate c headers from rust"
 allowed-tools: Bash(cargo:*), Bash(cbindgen:*)
 ---
 

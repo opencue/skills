@@ -1,5 +1,6 @@
 ---
 name: coolify
+requires_mcps: [coolify]
 description: >-
   Use when user says "Coolify", "deploy backend", or "check deploy logs". Env vars, builds, restarts, logs, rollback.
 ---
@@ -112,6 +113,13 @@ coolify database list
 coolify service list
 coolify server list
 ```
+
+## Gotchas (Coolify Cloud v4.1.x, verified)
+
+- **No `dockercompose` application route.** `POST /api/v1/applications/dockercompose` returns 404 on Cloud. Create compose stacks as a Service: `POST /api/v1/services` with `docker_compose_raw` **base64-encoded** (raw YAML fails validation).
+- **Coolify doubles `$` in Traefik labels at deploy** (no later collapse), so an inline `traefik.http.middlewares.X.basicauth.users=user:$apr1$...` lands on the container as `$$apr1$$...` and basic auth returns 401 for every login. Fix: write a file-provider middleware on the worker instead. Mount path is host `/data/coolify/proxy/dynamic/` to in-container `/traefik/dynamic/` (watched). Put a single-`$` htpasswd file there plus a yaml defining `http.middlewares.<name>.basicAuth.usersFile: /traefik/dynamic/<file>`, then reference it from the compose label as `<name>@file` (the `@file` suffix is required; a bare name resolves to `@docker`).
+- **Token is not on the worker.** In a Cloud-plus-remote-worker setup, the API token lives only in the Cloud UI (`<url>/security/api-tokens`), not on the deploy-target VPS. Do not try to fish it from the worker over SSH.
+- **`services/{uuid}/restart` recreates the container.** When polling for a redeploy, capture the container start-time before triggering, or you mistake the freshly-recreated container for the old one.
 
 ## Bundled Script
 

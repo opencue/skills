@@ -1,6 +1,11 @@
 ---
 name: reqwest
 description: Use when making HTTP requests from Rust — JSON APIs, file downloads, streaming. Covers reqwest (async), reqwest-middleware for retries, blocking variant, hyper for low-level.
+triggers:
+  - "http request rust"
+  - "reqwest"
+  - "rust http client"
+  - "download file rust"
 allowed-tools: Bash(cargo:*)
 ---
 

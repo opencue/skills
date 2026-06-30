@@ -1,5 +1,6 @@
 ---
 name: domains
+requires_mcps: [hostinger-api]
 description: >-
   Use when user says "Hostinger domain", "buy domain", or "domain settings". Registration, nameservers, ownership, renewal.
 last_updated: "2026-03-20"

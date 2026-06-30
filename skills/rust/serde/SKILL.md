@@ -1,6 +1,11 @@
 ---
 name: serde
 description: Use when (de)serializing Rust data to JSON, TOML, YAML, MessagePack, etc. Covers derive macros, attributes, custom (de)serializers, common lifetime/Cow gotchas.
+triggers:
+  - "serialize rust"
+  - "serde"
+  - "rust json"
+  - "deserialize rust"
 allowed-tools: Bash(cargo:*)
 ---
 

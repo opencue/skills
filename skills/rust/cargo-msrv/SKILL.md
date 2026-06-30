@@ -1,6 +1,10 @@
 ---
 name: cargo-msrv
 description: Use when determining or verifying the minimum supported Rust version (MSRV) of a published crate.
+triggers:
+  - "minimum rust version"
+  - "msrv"
+  - "cargo msrv"
 allowed-tools: Bash(cargo:*), Bash(cargo-msrv:*), Bash(rustup:*)
 ---
 

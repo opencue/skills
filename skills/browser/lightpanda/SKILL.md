@@ -1,5 +1,6 @@
 ---
 name: lightpanda
+requires_mcps: [lightpanda]
 description: Use when the user says "lightpanda", "scrape this page", "headless browse", or "dump the DOM". Fast headless browser for rendering URLs without Chromium, scraping, and CDP automation.
 metadata:
   category: browser
