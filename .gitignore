@@ -4,6 +4,7 @@
 .claude/state/
 .claude/sessions/
 .claude/local/
+.claude/worktrees/
 .claude/settings.local.json
 
 # Secrets
