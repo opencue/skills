@@ -45,6 +45,7 @@ set -uo pipefail
 
 # ─── Flag parsing ───────────────────────────────────────────────────────
 EXCLUDE_LOADED=0
+ANNOTATE=0
 LIMIT=""
 NO_FUZZY=0
 NO_EMBED=0
@@ -57,6 +58,7 @@ QUERY_TOKENS=()
 while [ $# -gt 0 ]; do
   case "$1" in
     --exclude-loaded) EXCLUDE_LOADED=1; shift ;;
+    --annotate) ANNOTATE=1; shift ;;
     --limit) LIMIT="$2"; shift 2 ;;
     --no-fuzzy) NO_FUZZY=1; shift ;;
     --no-embed) NO_EMBED=1; shift ;;
@@ -254,6 +256,47 @@ mcp_status() {
   missing="${missing%,}"
   if [ -z "$missing" ]; then echo "ok"; else echo "missing:$missing"; fi
 }
+
+# ─── --annotate: annotate KNOWN ids, skip discovery ─────────────────────
+# The search path below greps every SKILL.md body per token and then scores
+# each candidate in a bash loop — ~6s on this tree. That is fine for an
+# interactive lookup and far too slow for the UserPromptSubmit hook, which has
+# a <200ms budget.
+#
+# The hook already knows WHICH skills it wants (it scores the pre-built
+# catalog index in ~7ms); what it can't cheaply compute is the loaded-skill
+# set and MCP availability. So it passes ids here and gets exactly those two
+# answers, reading only the named SKILL.md files.
+#
+# Output is the same TSV contract as the search path, so callers parse one
+# format. `score` is 0 — ranking belongs to whoever supplied the ids.
+if [ "$ANNOTATE" -eq 1 ]; then
+  for id in "${QUERY_TOKENS[@]}"; do
+    [ -z "$id" ] && continue
+    src="$SKILLS_ROOT/$id/SKILL.md"
+    [ -f "$src" ] || continue
+    [ "$EXCLUDE_LOADED" -eq 1 ] && is_loaded "$id" && continue
+    # Strip the key and any folded/literal marker separately. Doing it in one
+    # regex (as the search path does) only matches `description: >-` style
+    # scalars, so a plain `description: "..."` leaks the key into the output.
+    desc=$(awk '
+      /^description:/ {
+        cap = 1
+        line = $0
+        sub(/^description:[[:space:]]*/, "", line)
+        sub(/^[>|]-?[[:space:]]*/, "", line)
+        if (line != "") print line
+        next
+      }
+      cap && /^[a-zA-Z_-]+:/ { exit }
+      cap { sub(/^[[:space:]]+/, ""); print }
+    ' "$src" 2>/dev/null | tr '\n' ' ' \
+      | sed -E "s/^[[:space:]]*['\"]?//; s/['\"]?[[:space:]]*$//" | cut -c1-140)
+    status=$(mcp_status "$(extract_requires_mcps "$src")")
+    printf '%s\t%s\t0\t%s\t%s\n' "$id" "$src" "$desc" "$status"
+  done
+  exit 0
+fi
 
 # ─── #7 cwd-domain boost map ────────────────────────────────────────────
 cwd_boost_cats=""
