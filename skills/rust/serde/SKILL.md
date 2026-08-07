@@ -9,7 +9,7 @@ triggers:
 allowed-tools: Bash(cargo:*)
 ---
 
-# serde — universal serialization
+# serde, universal serialization
 
 The Rust ecosystem's standard. Every non-trivial project pulls it in.
 
@@ -29,7 +29,7 @@ The Rust ecosystem's standard. Every non-trivial project pulls it in.
 - crates: `serde = { version = "1", features = ["derive"] }`, plus a format crate
 
 ## Notes
-- For zero-copy deserialization, use `&'a str` / `Cow<'a, str>` and add `#[serde(borrow)]` — saves allocs when the source bytes outlive the struct.
+- For zero-copy deserialization, use `&'a str` / `Cow<'a, str>` and add `#[serde(borrow)]`, saves allocs when the source bytes outlive the struct.
 - `#[serde(untagged)]` is convenient but slow (tries each variant); prefer `tag` when possible.
 - `serde_json::Value` is the escape hatch for unknown shapes; downcast to concrete types ASAP for perf and clarity.
-- For numbers from JSON: deserialize into `f64`/`i64` and convert — JSON has no native int/float distinction.
+- For numbers from JSON: deserialize into `f64`/`i64` and convert, JSON has no native int/float distinction.

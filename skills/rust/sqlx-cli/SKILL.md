@@ -34,5 +34,5 @@ Migration + ORM CLIs.
 
 ## Notes
 - sqlx's compile-time check is great but requires either a live DB at build time OR `cargo sqlx prepare` committing `.sqlx/` cache files. Commit them.
-- Don't mix migration systems — pick one per project.
-- For brand-new projects with an async stack, sqlx is the lightest path. SeaORM is the choice when you actually want an ORM. Diesel is sync — fine for CLI tools, awkward in async services.
+- Don't mix migration systems, pick one per project.
+- For brand-new projects with an async stack, sqlx is the lightest path. SeaORM is the choice when you actually want an ORM. Diesel is sync, fine for CLI tools, awkward in async services.

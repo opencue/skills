@@ -7,6 +7,11 @@ allowed-tools: Bash(npx medusa user:*)
 
 # Create Admin User
 
+## Prerequisites
+
+- `npx`, install via your package manager
+
+
 Create a new admin user in Medusa with the specified email and password.
 
 The user will provide two arguments:

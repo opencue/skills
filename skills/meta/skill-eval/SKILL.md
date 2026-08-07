@@ -25,7 +25,7 @@ Scaffold and run evaluations for skills. Based on Anthropic's principle:
 - User says "create evals", "write test cases"
 - After writing or rewriting a skill (as verification step)
 
-## Step 1 — Identify the skill and its claims
+## Step 1, Identify the skill and its claims
 
 ```bash
 # Read the skill
@@ -33,11 +33,11 @@ cat <path-to-SKILL.md>
 ```
 
 Extract:
-- **Trigger claims** — what phrases should activate it?
-- **Output claims** — what should it produce?
-- **Boundary claims** — what should it NOT do?
+- **Trigger claims**, what phrases should activate it?
+- **Output claims**, what should it produce?
+- **Boundary claims**, what should it NOT do?
 
-## Step 2 — Scaffold eval scenarios
+## Step 2, Scaffold eval scenarios
 
 Create 3 categories of test prompts:
 
@@ -45,7 +45,7 @@ Create 3 categories of test prompts:
 
 Realistic user requests that SHOULD activate this skill. Make them:
 - Varied in phrasing (formal, casual, typos)
-- Substantive (not one-liners — Claude skips skills for trivial tasks)
+- Substantive (not one-liners, Claude skips skills for trivial tasks)
 - Context-rich (file paths, project details, backstory)
 
 ```json
@@ -89,7 +89,7 @@ Ambiguous requests that test the skill's boundaries:
 ]
 ```
 
-## Step 3 — Save the eval set
+## Step 3, Save the eval set
 
 ```bash
 mkdir -p <skill-dir>/evals
@@ -105,7 +105,7 @@ cat > <skill-dir>/evals/eval-set.json << 'EOF'
 EOF
 ```
 
-## Step 4 — Run activation test
+## Step 4, Run activation test
 
 For each should-trigger prompt, assess: "Given the skill's description
 in a list of 20+ other skill descriptions, would Claude select this one?"
@@ -121,29 +121,29 @@ Activation Results:
   Target: ≥11/13 (85%)
 ```
 
-## Step 5 — Run output quality test (if skill activated)
+## Step 5, Run output quality test (if skill activated)
 
 For each triggered scenario, assess the output against `expected_behavior`:
 
 | Scenario | Triggered? | Output quality | Notes |
 |----------|-----------|----------------|-------|
-| #1 | ✓ | Good — followed steps | |
-| #2 | ✓ | Partial — skipped step 3 | Body needs clearer instruction |
+| #1 | ✓ | Good, followed steps | |
+| #2 | ✓ | Partial, skipped step 3 | Body needs clearer instruction |
 | #3 | ✗ | N/A | Description missing keyword |
 
-## Step 6 — Diagnose failures and suggest fixes
+## Step 6, Diagnose failures and suggest fixes
 
 For each failure, identify the root cause and fix:
 
 | Failure type | Root cause | Fix |
 |-------------|-----------|-----|
 | Didn't trigger | Description missing keyword | Add keyword to description |
-| Didn't trigger | Query too simple | Skill can't help — this is expected |
+| Didn't trigger | Query too simple | Skill can't help, this is expected |
 | False positive | Description too broad | Add "Do not use for X" boundary |
 | Triggered but wrong output | Body instructions unclear | Rewrite step with concrete command |
 | Triggered but incomplete | Missing step in workflow | Add the missing step |
 
-## Step 7 — Present results and next action
+## Step 7, Present results and next action
 
 ```
 📋 Skill Eval Results: "<skill-name>"
@@ -165,9 +165,9 @@ For each failure, identify the root cause and fix:
 ## Rules
 
 - Always create at least 3 should-trigger and 3 should-not-trigger scenarios
-- Make prompts realistic — include typos, casual language, file paths, context
+- Make prompts realistic, include typos, casual language, file paths, context
 - Don't make should-not-trigger prompts obviously irrelevant (test near-misses)
-- Simple one-step queries won't trigger skills regardless — don't count those as failures
+- Simple one-step queries won't trigger skills regardless, don't count those as failures
 - Save eval sets to `<skill-dir>/evals/` for future regression testing
-- Target 85% activation rate — 100% is unrealistic and may indicate over-broad description
+- Target 85% activation rate, 100% is unrealistic and may indicate over-broad description
 - Always end with one concrete fix the user can approve

@@ -39,12 +39,12 @@ Determine which branch this PR/MR targets, or the repo's default branch if no
 PR/MR exists. Use the result as "the base branch" in all subsequent steps.
 
 **If GitHub:**
-1. `gh pr view --json baseRefName -q .baseRefName` — if succeeds, use it
-2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name` — if succeeds, use it
+1. `gh pr view --json baseRefName -q .baseRefName`, if succeeds, use it
+2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name`, if succeeds, use it
 
 **If GitLab:**
-1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field — if succeeds, use it
-2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field — if succeeds, use it
+1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field, if succeeds, use it
+2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field, if succeeds, use it
 
 **Git-native fallback (if unknown platform, or CLI commands fail):**
 1. `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||'`
@@ -59,17 +59,17 @@ branch name wherever the instructions say "the base branch" or `<default>`.
 
 ---
 
-# /codex — Multi-AI Second Opinion
+# /codex, Multi-AI Second Opinion
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
 You are running the `/codex` skill. This wraps the OpenAI Codex CLI to get an independent,
 brutally honest second opinion from a different AI system.
 
-Codex is the "200 IQ autistic developer" — direct, terse, technically precise, challenges
+Codex is the "200 IQ autistic developer", direct, terse, technically precise, challenges
 assumptions, catches things you might miss. Present its output faithfully, not summarized.
 
 ---
@@ -113,7 +113,7 @@ If the output contains `AUTH_FAILED`, stop and tell the user:
 "No Codex authentication found. Run `codex login` or set `$CODEX_API_KEY` / `$OPENAI_API_KEY`, then re-run this skill."
 
 If the version check printed a `WARN:` line, pass it through to the user verbatim
-(non-blocking — Codex may still work, but the user should upgrade).
+(non-blocking, Codex may still work, but the user should upgrade).
 
 The probe multi-signal auth logic accepts: `$CODEX_API_KEY` set, `$OPENAI_API_KEY`
 set, or `${CODEX_HOME:-~/.codex}/auth.json` exists. Avoids false-negatives for
@@ -146,9 +146,9 @@ After this, every subsequent bash block in this skill uses `"$PLAN_ROOT"` and
 
 Parse the user's input to determine which mode to run:
 
-1. `/codex review` or `/codex review <instructions>` — **Review mode** (Step 2A)
-2. `/codex challenge` or `/codex challenge <focus>` — **Challenge mode** (Step 2B)
-3. `/codex` with no arguments — **Auto-detect:**
+1. `/codex review` or `/codex review <instructions>`, **Review mode** (Step 2A)
+2. `/codex challenge` or `/codex challenge <focus>`, **Challenge mode** (Step 2B)
+3. `/codex` with no arguments, **Auto-detect:**
    - Check for a diff (with fallback if origin isn't available):
      `git diff origin/<base> --stat 2>/dev/null | tail -1 || git diff <base> --stat 2>/dev/null | tail -1`
    - If a diff exists, use AskUserQuestion:
@@ -164,15 +164,15 @@ Parse the user's input to determine which mode to run:
      but warn the user: "Note: this plan may be from a different project."
    - If a plan file exists, offer to review it
    - Otherwise, ask: "What would you like to ask Codex?"
-4. `/codex <anything else>` — **Consult mode** (Step 2C), where the remaining text is the prompt
+4. `/codex <anything else>`, **Consult mode** (Step 2C), where the remaining text is the prompt
 
 **Reasoning effort override:** If the user's input contains `--xhigh` anywhere,
 note it and remove it from the prompt text before passing to Codex. When `--xhigh`
 is present, use `model_reasoning_effort="xhigh"` for all modes regardless of the
 per-mode default below. Otherwise, use the per-mode defaults:
-- Review (2A): `high` — bounded diff input, needs thoroughness
-- Challenge (2B): `high` — adversarial but bounded by diff
-- Consult (2C): `medium` — large context, interactive, needs speed
+- Review (2A): `high`, bounded diff input, needs thoroughness
+- Challenge (2B): `high`, adversarial but bounded by diff
+- Consult (2C): `medium`, large context, interactive, needs speed
 
 ---
 
@@ -234,7 +234,7 @@ If the user passed `--xhigh`, use `"xhigh"` instead of `"high"`.
 with the diff written to a tempfile and inlined into the prompt. We preserve
 the filesystem boundary here because `codex exec` is not auto-scoped to a diff
 the way `codex review` is. The DIFF_START/DIFF_END delimiters tell the model
-where data ends and instructions resume — a defense against prompt injection
+where data ends and instructions resume, a defense against prompt injection
 when the diff content is adversarial:
 
 ```bash
@@ -273,8 +273,8 @@ grep "tokens used" "$TMPERR" 2>/dev/null || echo "tokens: unknown"
 ```
 
 4. Determine gate verdict by checking the review output for critical findings.
-   If the output contains `[P1]` — the gate is **FAIL**.
-   If no `[P1]` markers are found (only `[P2]` or no findings) — the gate is **PASS**.
+   If the output contains `[P1]`, the gate is **FAIL**.
+   If no `[P1]` markers are found (only `[P2]` or no findings), the gate is **PASS**.
 
 5. Present the output:
 
@@ -300,12 +300,12 @@ user should do, in the canonical format the AskUserQuestion judge grades:
 Recommendation: <action> because <one-line reason that names the most actionable finding>
 ```
 
-Examples (the strongest reasons compare against an alternative — another finding, fix-vs-ship, or fix-order):
+Examples (the strongest reasons compare against an alternative, another finding, fix-vs-ship, or fix-order):
 - `Recommendation: Fix the SQL injection at users_controller.rb:42 first because its auth-bypass blast radius is higher than the LFI Codex also flagged, and the parameterized-query fix is three lines vs the LFI's session-handling rewrite.`
 - `Recommendation: Ship as-is because all 3 Codex findings are P3 cosmetic and the gate passed; addressing them would block the release without changing user-visible behavior.`
 - `Recommendation: Investigate the race condition Codex flagged at billing.ts:117 before merging because the silent-corruption failure mode is harder to detect post-ship than the harness gap Codex also raised, which is fixable in a follow-up.`
 
-The reason must engage with a specific finding (or compare against alternatives — other findings, fix-vs-ship, fix order). Boilerplate reasons ("because it's better", "because adversarial review found things") fail the format. The recommendation is the ONE line a user reads when they don't have time for the verbatim output. **Never silently auto-decide; always emit the line.**
+The reason must engage with a specific finding (or compare against alternatives, other findings, fix-vs-ship, fix order). Boilerplate reasons ("because it's better", "because adversarial review found things") fail the format. The recommendation is the ONE line a user reads when they don't have time for the verbatim output. **Never silently auto-decide; always emit the line.**
 
 6. **Cross-model comparison:** If `/review` (Claude's own review) was already run
    earlier in this conversation, compare the two sets of findings:
@@ -340,8 +340,8 @@ After displaying the Review Readiness Dashboard in conversation output, also upd
 ### Detect the plan file
 
 1. Check if there is an active plan file in this conversation (the host provides plan file
-   paths in system messages — look for plan file references in the conversation context).
-2. If not found, skip this section silently — not every review runs in plan mode.
+   paths in system messages, look for plan file references in the conversation context).
+2. If not found, skip this section silently, not every review runs in plan mode.
 
 ### Generate the report
 
@@ -364,7 +364,7 @@ Parse each JSONL entry. Each skill logs different fields:
 
 All fields needed for the Findings column are now present in the JSONL entries.
 For the review you just completed, you may use richer details from your own Completion
-Summary. For prior reviews, use the JSONL fields directly — they contain all required data.
+Summary. For prior reviews, use the JSONL fields directly, they contain all required data.
 
 Produce this markdown table:
 
@@ -382,19 +382,19 @@ Produce this markdown table:
 
 Below the table, add these lines (omit any that are empty/not applicable):
 
-- **CODEX:** (only if codex-review ran) — one-line summary of codex fixes
-- **CROSS-MODEL:** (only if both Claude and Codex reviews exist) — overlap analysis
+- **CODEX:** (only if codex-review ran), one-line summary of codex fixes
+- **CROSS-MODEL:** (only if both Claude and Codex reviews exist), overlap analysis
 - **UNRESOLVED:** total unresolved decisions across all reviews
-- **VERDICT:** list reviews that are CLEAR (e.g., "CEO + ENG CLEARED — ready to implement").
+- **VERDICT:** list reviews that are CLEAR (e.g., "CEO + ENG CLEARED, ready to implement").
   If Eng Review is not CLEAR and not skipped globally, append "eng review required".
 
 ### Write to the plan file
 
-**PLAN MODE EXCEPTION — ALWAYS RUN:** This writes to the plan file, which is the one
+**PLAN MODE EXCEPTION, ALWAYS RUN:** This writes to the plan file, which is the one
 file you are allowed to edit in plan mode. The plan file review report is part of the
 plan's living status.
 
-The report must always be the LAST section of the plan file — never mid-file.
+The report must always be the LAST section of the plan file, never mid-file.
 Use a single delete-then-append flow:
 
 1. Read the plan file (Read tool) to see its full current content. Search the read
@@ -402,7 +402,7 @@ Use a single delete-then-append flow:
 2. If found, use the Edit tool to DELETE the entire existing section. Match from
    \`## GSTACK REVIEW REPORT\` through either the next \`## \` heading or end of
    file, whichever comes first. Replace with the empty string. This applies
-   regardless of where the section currently lives — mid-file deletion is
+   regardless of where the section currently lives, mid-file deletion is
    intentional, not a special case. If the Edit fails (e.g., concurrent edit
    changed the content), re-read the plan file and retry once.
 3. After the delete (or skipped, if no section existed), append the new
@@ -415,28 +415,28 @@ Use a single delete-then-append flow:
 
 Do NOT replace the section in place. The "replace mid-file" path is what allowed
 prior versions to leave the report mid-file when an older report already lived
-there — the user then sees a plan whose review report is not at the bottom and
+there, the user then sees a plan whose review report is not at the bottom and
 (correctly) rejects it.
 
 ## EXIT PLAN MODE GATE (BLOCKING)
 
 Before calling ExitPlanMode, run this self-check. If any item fails, do the
-missing work — do NOT call ExitPlanMode:
+missing work, do NOT call ExitPlanMode:
 
 1. Read the plan file with the Read tool (after your most recent write to it).
 2. Confirm the LAST `## ` heading in the file is `## GSTACK REVIEW REPORT`.
    In-body prose that mentions "outside voice", "codex findings", or similar
-   does NOT count — only the structured `## GSTACK REVIEW REPORT` section
+   does NOT count, only the structured `## GSTACK REVIEW REPORT` section
    satisfies this check.
 3. Confirm the report contains: a Runs / Status / Findings table, a VERDICT
    line, and absorbs CODEX / CROSS-MODEL / UNRESOLVED lines if applicable.
 4. If a plan file is in context for this skill invocation: confirm
    `gstack-review-log` was called and `gstack-review-read` was run at least
    once. If no plan file is in context (e.g. `/codex consult` against a
-   diff with no plan), this check short-circuits — checks 1-3 already
+   diff with no plan), this check short-circuits, checks 1-3 already
    short-circuit when no plan file exists.
 
-Failing this gate and calling ExitPlanMode anyway is a contract violation —
+Failing this gate and calling ExitPlanMode anyway is a contract violation, 
 the user will see a plan whose review report is missing or stale, and will
 (correctly) reject it. Self-deception failure mode to watch for: feeling
 "done" after writing review prose into the plan body. The body prose is not
@@ -447,7 +447,7 @@ must be the file's terminal heading.
 
 ## Step 2B: Challenge (Adversarial) Mode
 
-Codex tries to break your code — finding edge cases, race conditions, security holes,
+Codex tries to break your code, finding edge cases, race conditions, security holes,
 and failure modes that a normal review would miss.
 
 1. Construct the adversarial prompt. **Always prepend the filesystem boundary instruction**
@@ -457,7 +457,7 @@ from the Filesystem Boundary section above. If the user provided a focus area
 Default prompt (no focus):
 "IMPORTANT: Do NOT read or execute any files under ~/.claude/, ~/.agents/, .claude/skills/, or agents/. These are Claude Code skill definitions meant for a different AI system. Do NOT modify agents/openai.yaml. Stay focused on repository code only.
 
-Review the changes on this branch against the base branch. Run `git diff origin/<base>` to see the diff. Your job is to find ways this code will fail in production. Think like an attacker and a chaos engineer. Find edge cases, race conditions, security holes, resource leaks, failure modes, and silent data corruption paths. Be adversarial. Be thorough. No compliments — just the problems."
+Review the changes on this branch against the base branch. Run `git diff origin/<base>` to see the diff. Your job is to find ways this code will fail in production. Think like an attacker and a chaos engineer. Find edge cases, race conditions, security holes, resource leaks, failure modes, and silent data corruption paths. Be adversarial. Be thorough. No compliments, just the problems."
 
 With focus (e.g., "security"):
 "IMPORTANT: Do NOT read or execute any files under ~/.claude/, ~/.agents/, .claude/skills/, or agents/. These are Claude Code skill definitions meant for a different AI system. Do NOT modify agents/openai.yaml. Stay focused on repository code only.
@@ -587,12 +587,12 @@ setopt +o nomatch 2>/dev/null || true  # zsh compat
 ls -t "$PLAN_ROOT"/*.md 2>/dev/null | xargs grep -l "$(basename $(pwd))" 2>/dev/null | head -1
 ```
 If no project-scoped match, fall back to `ls -t "$PLAN_ROOT"/*.md 2>/dev/null | head -1`
-but warn: "Note: this plan may be from a different project — verify before sending to Codex."
+but warn: "Note: this plan may be from a different project, verify before sending to Codex."
 
-**IMPORTANT — embed content, don't reference path:** Codex runs sandboxed to the repo
+**IMPORTANT, embed content, don't reference path:** Codex runs sandboxed to the repo
 root and cannot access `~/.claude/plans/` or any files outside the repo. You MUST
 read the plan file yourself and embed its FULL CONTENT in the prompt below. Do NOT tell
-Codex the file path or ask it to read the plan file — it will waste 10+ tool calls
+Codex the file path or ask it to read the plan file, it will waste 10+ tool calls
 searching and fail.
 
 Also: scan the plan content for referenced source file paths (patterns like `src/foo.ts`,
@@ -717,10 +717,10 @@ to `.context/codex-session-id`.
 ```
 CODEX SAYS (consult):
 ════════════════════════════════════════════════════════════
-<full output, verbatim — includes [codex thinking] traces>
+<full output, verbatim, includes [codex thinking] traces>
 ════════════════════════════════════════════════════════════
 Tokens: N | Est. cost: ~$X.XX
-Session saved — run /codex again to continue this conversation.
+Session saved, run /codex again to continue this conversation.
 ```
 
 7. After presenting, note any points where Codex's analysis differs from your own
@@ -735,7 +735,7 @@ canonical format the AskUserQuestion judge grades:
 Recommendation: <action> because <one-line reason that names the most actionable insight from Codex>
 ```
 
-Examples (the strongest reasons compare Codex's insight against an alternative — different recommendation, status-quo, or another Codex point):
+Examples (the strongest reasons compare Codex's insight against an alternative, different recommendation, status-quo, or another Codex point):
 - `Recommendation: Adopt Codex's sharding suggestion because it eliminates the head-of-line blocking the current writer-pool has, while the cache-layer alternative Codex also floated still has a single-writer hot path.`
 - `Recommendation: Reject Codex's "use SQLite instead" suggestion because the team's Postgres operational experience outweighs the simplicity gain at the projected scale, and Codex's secondary suggestion (read replicas) handles the read-load concern that motivated the SQLite pivot.`
 - `Recommendation: Investigate Codex's flagged migration ordering before D3 lands because it surfaces a real foreign-key cycle that the in-house schema review missed, while the styling concern Codex also raised can wait for a follow-up.`
@@ -746,21 +746,21 @@ The reason must engage with a specific Codex insight and compare against an alte
 
 ## Model & Reasoning
 
-**Model:** No model is hardcoded — codex uses whatever its current default is (the frontier
+**Model:** No model is hardcoded, codex uses whatever its current default is (the frontier
 agentic coding model). This means as OpenAI ships newer models, /codex automatically
 uses them. If the user wants a specific model, pass `-m` through to codex.
 
 **Reasoning effort (per-mode defaults):**
-- **Review (2A):** `high` — bounded diff input, needs thoroughness but not max tokens
-- **Challenge (2B):** `high` — adversarial but bounded by diff size
-- **Consult (2C):** `medium` — large context (plans, codebase), interactive, needs speed
+- **Review (2A):** `high`, bounded diff input, needs thoroughness but not max tokens
+- **Challenge (2B):** `high`, adversarial but bounded by diff size
+- **Consult (2C):** `medium`, large context (plans, codebase), interactive, needs speed
 
 `xhigh` uses ~23x more tokens than `high` and causes 50+ minute hangs on large context
 tasks (OpenAI issues #8545, #8402, #6931). Users can override with `--xhigh` flag
 (e.g., `/codex review --xhigh`) when they want maximum reasoning and are willing to wait.
 
 **Web search:** All codex commands use `--enable web_search_cached` so Codex can look up
-docs and APIs during review. This is OpenAI's cached index — fast, no extra cost.
+docs and APIs during review. This is OpenAI's cached index, fast, no extra cost.
 
 If the user specifies a model (e.g., `/codex review -m gpt-5.1-codex-max`
 or `/codex challenge -m gpt-5.2`), pass the `-m` flag through to codex.

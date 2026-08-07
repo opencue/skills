@@ -9,7 +9,7 @@ triggers:
 allowed-tools: Bash(cargo:*)
 ---
 
-# proptest / quickcheck — property-based testing
+# proptest / quickcheck, property-based testing
 
 Instead of "for these 3 inputs, output is X", you state "for ALL inputs, this property holds" and the framework hunts counter-examples.
 
@@ -27,8 +27,8 @@ Instead of "for these 3 inputs, output is X", you state "for ALL inputs, this pr
   ```
 - **Common strategies**: `any::<u32>()`, `0..1000usize`, `prop::collection::vec(any::<u8>(), 0..100)`, regex strings `"\\PC*"`
 - **Shrinking**: framework auto-shrinks failing inputs to a minimal counter-example (proptest's killer feature)
-- **Persistent failures**: `proptest-regressions/*.txt` files lock in past failures — commit them
-- **Quickcheck alternative**: simpler API, no shrinking config — `#[quickcheck] fn p(xs: Vec<i32>) -> bool { ... }`
+- **Persistent failures**: `proptest-regressions/*.txt` files lock in past failures, commit them
+- **Quickcheck alternative**: simpler API, no shrinking config, `#[quickcheck] fn p(xs: Vec<i32>) -> bool { ... }`
 
 ## Prerequisites
 - cargo
@@ -37,4 +37,4 @@ Instead of "for these 3 inputs, output is X", you state "for ALL inputs, this pr
 ## Notes
 - Property tests pair perfectly with `serde` roundtrip (serialize → deserialize → equal?), parsers (parse → display → reparse → equal?), and algorithmic invariants (sort → is sorted, original len, same multiset).
 - Slow (~100ms+ per case × 256 cases). Don't put property tests in tight inner-loop CI; mark with `#[ignore]` and run separately if they get heavy.
-- proptest's regression files are gold — they replay yesterday's bug for free.
+- proptest's regression files are gold, they replay yesterday's bug for free.

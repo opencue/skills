@@ -15,21 +15,21 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `photo` | image_url | yes | — | Reference photo of the main character (face/body) whose appearance must remain consistent across all shots. |
+| `photo` | image_url | yes |, | Reference photo of the main character (face/body) whose appearance must remain consistent across all shots. |
 | `scene` | text | no | a packed, dimly lit sports bar with neon accents, blurred TVs showing a championship celebration | The setting where time will freeze (e.g. "a busy nightclub", "a wedding reception", "a stadium crowd"). |
-| `freeze_moment` | text | no | golden arcs of beer suspended midair, popcorn floating motionless, people frozen mid-cheer | The signature frozen visual — what hangs in the air when time stops. |
+| `freeze_moment` | text | no | golden arcs of beer suspended midair, popcorn floating motionless, people frozen mid-cheer | The signature frozen visual, what hangs in the air when time stops. |
 | `closing_line` | text | no | perfect | A short word/phrase the character whispers before resuming time. |
-| `aspect_ratio` | text | no | 16:9 | Output aspect ratio — "16:9" for cinematic, "9:16" for vertical/social. |
+| `aspect_ratio` | text | no | 16:9 | Output aspect ratio, "16:9" for cinematic, "9:16" for vertical/social. |
 | `duration` | text | no | 15 | Target duration in seconds (10 or 15 recommended). |
 
 
 ## Steps
 
-### Phase A — Generate the Freeze Effect Video
+### Phase A, Generate the Freeze Effect Video
 
 Submit the plan with ONE step:
 
-1. **Freeze effect video** — `muapi video from-image` (model=`seedance-v2.0-i2v`, quality=`high`, generate_audio=`true`):
+1. **Freeze effect video**, `muapi video from-image` (model=`seedance-v2.0-i2v`, quality=`high`, generate_audio=`true`):
    - Reference image: `{{photo}}`
    - Aspect ratio: `{{aspect_ratio}}`
    - Duration: `{{duration}}`
@@ -80,11 +80,11 @@ Submit the plan with ONE step:
 After generation, present the video to the user.
 
 ## Notes
-- The character's identity is anchored by `@image1` — the reference photo must clearly show the main subject's face.
+- The character's identity is anchored by `@image1`, the reference photo must clearly show the main subject's face.
 - For best results, choose a `scene` with crowd energy and lots of small objects (liquid, confetti, sparks) that can plausibly "freeze" in midair.
 - If the model rejects realistic human likeness, switch to the Global tier model (`seedance-2-image-to-video-fast`) which allows looser identity matching.
 - For vertical/social delivery, set `aspect_ratio=9:16` and keep `duration=10` for tighter pacing.
-- Always keep `generate_audio=true` — the snap → silence → snap audio arc is the signature of this effect and should not be muted.
+- Always keep `generate_audio=true`, the snap → silence → snap audio arc is the signature of this effect and should not be muted.
 
 ## Trigger Keywords
 

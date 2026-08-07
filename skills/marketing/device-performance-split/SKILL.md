@@ -5,7 +5,7 @@ metadata:
   platform: Google and Meta
 ---
 
-# 25/ Device Performance Split — Google + Meta
+# 25/ Device Performance Split, Google + Meta
 
 ## What it does
 Analyzes how your campaigns perform across mobile, desktop, and tablet. Identifies where device performance diverges significantly and recommends bid adjustments, campaign splits, or creative/landing page changes to capture the gap.

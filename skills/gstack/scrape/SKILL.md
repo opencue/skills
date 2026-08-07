@@ -18,7 +18,7 @@ triggers:
   - extract from
   - what is on
 ---
-## Step 1 — Determine intent
+## Step 1, Determine intent
 
 The user's request after `/scrape` is the intent. If they did not include
 one, ask once:
@@ -29,19 +29,19 @@ one, ask once:
 Do not ask multiple clarifying questions up front. Any further questions
 go in the prototype path where they're cheaper.
 
-## Step 2 — Refuse mutating intents
+## Step 2, Refuse mutating intents
 
-If the intent implies writes — verbs like *submit*, *post*, *send*, *log
-in*, *click X*, *fill the form*, *delete*, *create*, *order*, *book* —
+If the intent implies writes, verbs like *submit*, *post*, *send*, *log
+in*, *click X*, *fill the form*, *delete*, *create*, *order*, *book*, 
 respond:
 
 > "/scrape is read-only. For mutating flows, use /automate (browser-skills
-> Phase 2 P0 in TODOS.md — not yet shipped). Until then, use $B click /
+> Phase 2 P0 in TODOS.md, not yet shipped). Until then, use $B click /
 > $B fill / $B type directly."
 
 Stop. Do not enter the match or prototype path.
 
-## Step 3 — Match phase
+## Step 3, Match phase
 
 List existing browser-skills:
 
@@ -70,28 +70,28 @@ $B skill run <name> [--arg key=value ...]
 Emit the JSON the skill prints to stdout. Stop.
 
 If matching is ambiguous (two skills could plausibly fit), pick the
-narrower-tier one (project > global > bundled — `$B skill list` shows the
+narrower-tier one (project > global > bundled, `$B skill list` shows the
 tier). If still ambiguous, fall through to the prototype path rather than
 guess wrong.
 
-## Step 4 — Prototype phase
+## Step 4, Prototype phase
 
 No match. Drive the page using `$B` primitives:
 
-1. `$B goto <url>` — navigate to the target. The user's intent usually
+1. `$B goto <url>`, navigate to the target. The user's intent usually
    names a host or a URL; use it directly.
-2. `$B snapshot --text` (or `$B text`) — get a clean text view of the
+2. `$B snapshot --text` (or `$B text`), get a clean text view of the
    page to find selectors.
-3. `$B html` — pull the raw HTML when you need to parse structured data
+3. `$B html`, pull the raw HTML when you need to parse structured data
    (lists, tables, repeated rows).
-4. `$B links` — when the intent is to gather URLs.
+4. `$B links`, when the intent is to gather URLs.
 5. Iterate: try a selector, check the output, refine.
 
 Emit the result as JSON on stdout (one document, not pretty-printed).
-Use a stable shape — typically `{ "items": [...], "count": N }` or
-similar — so downstream consumers can treat it as data.
+Use a stable shape, typically `{ "items": [...], "count": N }` or
+similar, so downstream consumers can treat it as data.
 
-## Step 5 — Skillify nudge
+## Step 5, Skillify nudge
 
 After a successful prototype, append exactly one line:
 
@@ -128,7 +128,7 @@ prototype path returns whatever JSON you construct. In both cases:
 - One JSON document, on stdout.
 - Stderr (or chat) is for logs and the skillify nudge.
 - Do not embed prose around the JSON in the chat reply unless the user
-  asked for an explanation — many `/scrape` callers pipe the output to
+  asked for an explanation, many `/scrape` callers pipe the output to
   `jq`.
 
 ## Capture Learnings
@@ -159,4 +159,4 @@ already knows. A good test: would this insight save time in a future session? If
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager

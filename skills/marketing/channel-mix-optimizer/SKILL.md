@@ -11,13 +11,13 @@ metadata:
   platform: Google and Meta
 ---
 
-# 15/ Channel Mix Optimizer — Google + Meta
+# 15/ Channel Mix Optimizer, Google + Meta
 
 ## What it does
 Given your total budget, recommends the optimal split across Google Search, PMax, Meta prospecting, Meta retargeting, and any other active channels based on your last 60-90 days of marginal ROAS and CPA by channel. Tells you where each additional dollar produces the best return.
 
 ## How it works
-Claude calculates marginal efficiency for each channel — not average ROAS (which hides diminishing returns), but what your last dollar spent in each channel actually returned. It builds an efficiency curve per channel and recommends the allocation that maximizes total conversions or revenue within your budget constraint.
+Claude calculates marginal efficiency for each channel, not average ROAS (which hides diminishing returns), but what your last dollar spent in each channel actually returned. It builds an efficiency curve per channel and recommends the allocation that maximizes total conversions or revenue within your budget constraint.
 
 ## Practical example
 You're spending $80K/month split evenly across 4 channels: Google Search ($20K), PMax ($20K), Meta prospecting ($20K), Meta retargeting ($20K). Claude's analysis shows Google Search still has headroom with marginal CPA at $34, Meta retargeting is maxed out with marginal CPA at $72 (the audience pool is exhausted), and PMax has middling marginal returns. Recommended reallocation: Google Search $32K, PMax $18K, Meta prospecting $22K, Meta retargeting $8K. Projected result: 23% more conversions at the same total spend.

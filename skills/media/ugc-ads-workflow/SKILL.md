@@ -15,27 +15,27 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `product_name` | text | yes | — | The name of the product being advertised (e.g. "Blume SuperBalm in plum"). |
-| `human_image` | image_url | no | — | A selfie or photo of the human influencer. |
-| `product_image` | image_url | no | — | A clear photo of the product. |
+| `product_name` | text | yes |, | The name of the product being advertised (e.g. "Blume SuperBalm in plum"). |
+| `human_image` | image_url | no |, | A selfie or photo of the human influencer. |
+| `product_image` | image_url | no |, | A clear photo of the product. |
 
 
 ## Steps
 
-### Phase A — Image Combination
+### Phase A, Image Combination
 
 If `{{human_image}}` or `{{product_image}}` is not provided, ask the user to upload them or offer to generate them.
 
 Once both images are available, submit the plan with ONE step to combine them:
 
-1. **Image Generation** — `muapi image edit` (model=`gpt-image-2-text-to-image`):
+1. **Image Generation**, `muapi image edit` (model=`gpt-image-2-text-to-image`):
    - Reference Images: Use both `{{human_image}}` and `{{product_image}}`.
    - Prompt: `A natural, candid UGC-style photo of the influencer from the first reference image holding and showcasing the product from the second reference image. The influencer is smiling genuinely at the camera, holding the product up. Natural indoor lighting, lifestyle aesthetic, high quality.`
    - Aspect ratio: 9:16 (vertical for TikTok/Reels/Shorts).
 
 Present the combined image to the user for approval.
 
-### Phase B — Script & Video Generation
+### Phase B, Script & Video Generation
 
 1. **Research & Scripting**: Use your web search tools to find details about `{{product_name}}` to understand its key benefits.
 2. Based on the research, craft a UGC-style video script with timestamps, similar to this format:

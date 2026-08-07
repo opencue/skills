@@ -8,7 +8,7 @@ description: >-
 
 Colony is a **local-first coordination substrate** that makes multi-agent
 coding runs safe through shared file claims, compact memory, and durable
-handoffs. Agents see ownership and prior decisions before editing files —
+handoffs. Agents see ownership and prior decisions before editing files, 
 parallel work goes from risky to reliable.
 
 > Inline `/CLAUDE.md` already injects a short version of the operating
@@ -27,7 +27,7 @@ Direct triggers:
 - "what's blocking me", "what's stalled", "rescue stranded"
 - `/colony`, `/task`, `/handoff`, `/claim`, `/inbox`
 
-Indirect — implies Colony first:
+Indirect, implies Colony first:
 - "two agents are editing the same file" → claim before edit
 - "I started this, another agent should finish" → handoff or relay
 - "what did we decide about X?" → search → get_observations
@@ -39,14 +39,14 @@ Indirect — implies Colony first:
 
 - Single-agent work with no file contention (just edit).
 - One-line typos, version bumps, comment fixes (claims add noise).
-- Reading to understand — only claim when about to mutate.
+- Reading to understand, only claim when about to mutate.
 - Local scratch notes that won't affect another agent (use OMX `/note`).
 - "Just merge this PR" with no concurrent worker (no coordination needed).
 
 If a prompt sounds like Colony but actually has no other agent involved, skip
 the contract and do the work directly.
 
-## Startup contract — run before any work
+## Startup contract, run before any work
 
 ```
 1. hivemind_context     → live lanes, file ownership, memory hits, warnings
@@ -67,7 +67,7 @@ Skip this loop only if you are 100% solo and there is no shared task scope.
   so a handoff in 30 seconds would be safe.
 - Use `task_post` for decisions / blockers / answers other agents will need.
 - Run focused verification (tests, type-check, lint) for the touched behavior
-  — not the whole repo.
+, not the whole repo.
 - If you start touching a file you didn't claim, run `task_claim_file` first.
   `task_drift_check` reports overlap if you forget.
 
@@ -104,7 +104,7 @@ task_relay {
 task_hand_off { to, task, files, summary, next }
 ```
 
-Mark claims `handoff-pending` or release them before exit — no strong claims
+Mark claims `handoff-pending` or release them before exit, no strong claims
 should be left without an active handoff or TTL.
 
 If unsure, run the coordination sweep guidance first
@@ -114,70 +114,70 @@ its release/handoff recommendation.
 ## MCP tool surface (grouped by lifecycle)
 
 ### Startup & navigation
-- `hivemind_context` — live lanes, ownership, memory hits, warnings
-- `attention_inbox` — handoffs, unread messages, blockers, stale lanes
-- `task_ready_for_agent` — pick + auto-claim work for this agent
-- `startup_panel` — compact all-in-one resume card
+- `hivemind_context`, live lanes, ownership, memory hits, warnings
+- `attention_inbox`, handoffs, unread messages, blockers, stale lanes
+- `task_ready_for_agent`, pick + auto-claim work for this agent
+- `startup_panel`, compact all-in-one resume card
 
-### Memory & search (use progressive disclosure — IDs first, bodies later)
-- `search` — find compact observation IDs by query
-- `get_observations(ids)` — fetch full bodies AFTER selecting IDs
-- `timeline` — chronological observation IDs for one session
-- `list_sessions` → `recall_session` — find and audit prior sessions
+### Memory & search (use progressive disclosure, IDs first, bodies later)
+- `search`, find compact observation IDs by query
+- `get_observations(ids)`, fetch full bodies AFTER selecting IDs
+- `timeline`, chronological observation IDs for one session
+- `list_sessions` → `recall_session`, find and audit prior sessions
 
 ### Task threads (per-task coordination)
-- `task_list` — browse only; NOT the work picker (use task_ready_for_agent)
-- `task_timeline` — compact activity IDs for one task
-- `task_post` — decisions, blockers, answers, notes
-- `task_note_working` — resumable state (branch, task, blocker, next, evidence)
-- `task_claim_file` — claim before editing; visible to other agents
+- `task_list`, browse only; NOT the work picker (use task_ready_for_agent)
+- `task_timeline`, compact activity IDs for one task
+- `task_post`, decisions, blockers, answers, notes
+- `task_note_working`, resumable state (branch, task, blocker, next, evidence)
+- `task_claim_file`, claim before editing; visible to other agents
 - `task_message` / `task_messages` / `task_message_claim` /
-  `task_message_mark_read` / `task_message_retract` — agent-to-agent comms
-- `task_drift_check` — edits-vs-claims overlap detection
-- `task_link` / `task_unlink` / `task_links` — relate task threads
-- `task_updates_since` — incremental fetch since a checkpoint
+  `task_message_mark_read` / `task_message_retract`, agent-to-agent comms
+- `task_drift_check`, edits-vs-claims overlap detection
+- `task_link` / `task_unlink` / `task_links`, relate task threads
+- `task_updates_since`, incremental fetch since a checkpoint
 
 ### Handoffs & relays
-- `task_hand_off` — transfer work + optional file claims
+- `task_hand_off`, transfer work + optional file claims
 - `task_accept_handoff` / `task_decline_handoff`
-- `task_relay` — quota-safe handoff (sender may disappear)
+- `task_relay`, quota-safe handoff (sender may disappear)
 - `task_accept_relay` / `task_decline_relay`
 - `task_claim_quota_accept` / `task_claim_quota_decline` /
-  `task_claim_quota_release_expired` — half-claim management after quota
+  `task_claim_quota_release_expired`, half-claim management after quota
 
 ### Proposals & foraging
-- `task_propose` — weak future-work candidate
-- `task_reinforce` — promote / reinforce
-- `task_foraging_report` — pending + promoted proposals
-- `agent_get_profile` / `agent_upsert_profile` — agent capability weights
+- `task_propose`, weak future-work candidate
+- `task_reinforce`, promote / reinforce
+- `task_foraging_report`, pending + promoted proposals
+- `agent_get_profile` / `agent_upsert_profile`, agent capability weights
 
 ### Queen plans (multi-agent wave work)
-- `queen_plan_goal` — decompose goal into a wave plan
-- `task_plan_publish` — publish spec-backed plan + subtasks
-- `task_plan_validate` — preflight overlaps / wave errors
-- `task_plan_list` — list plans + next available subtasks
-- `task_plan_claim_subtask` — claim one subtask + file scope
-- `task_plan_complete_subtask` — finish + release claims
-- `task_plan_status_for_spec_row` — has this spec row a subtask?
-- `task_autopilot_tick` — stateless one-action next decision
+- `queen_plan_goal`, decompose goal into a wave plan
+- `task_plan_publish`, publish spec-backed plan + subtasks
+- `task_plan_validate`, preflight overlaps / wave errors
+- `task_plan_list`, list plans + next available subtasks
+- `task_plan_claim_subtask`, claim one subtask + file scope
+- `task_plan_complete_subtask`, finish + release claims
+- `task_plan_status_for_spec_row`, has this spec row a subtask?
+- `task_autopilot_tick`, stateless one-action next decision
 
 ### OpenSpec integration
-- `spec_read` — parsed SPEC.md + hash
-- `spec_change_open` → `spec_change_add_delta` → `spec_archive` — durable change
-- `spec_build_context` — task-scoped spec context
-- `spec_build_record_failure` — record failures, maybe promote invariants
-- `openspec_sync_status` — drift report between tasks and spec artifacts
+- `spec_read`, parsed SPEC.md + hash
+- `spec_change_open` → `spec_change_add_delta` → `spec_archive`, durable change
+- `spec_build_context`, task-scoped spec context
+- `spec_build_record_failure`, record failures, maybe promote invariants
+- `openspec_sync_status`, drift report between tasks and spec artifacts
 
 ### Examples & suggestions
-- `examples_list` / `examples_query` — search indexed patterns
-- `examples_integrate_plan` — deterministic integration guidance
-- `task_suggest_approach` — similarity-backed guidance from past tasks
+- `examples_list` / `examples_query`, search indexed patterns
+- `examples_integrate_plan`, deterministic integration guidance
+- `task_suggest_approach`, similarity-backed guidance from past tasks
 
 ### Rescue & health
-- `rescue_stranded_scan` — dry-run identify stalled lanes
-- `rescue_stranded_run` — emit rescue relays, release orphan claims
-- `savings_report` — live MCP receipts + reference token savings
-- `bridge_status` — bridge health & lifecycle state
+- `rescue_stranded_scan`, dry-run identify stalled lanes
+- `rescue_stranded_run`, emit rescue relays, release orphan claims
+- `savings_report`, live MCP receipts + reference token savings
+- `bridge_status`, bridge health & lifecycle state
 
 ## Progressive disclosure pattern (memory)
 
@@ -191,7 +191,7 @@ get_observations([obs_b9])      →  full body                  # ~300 tok each
 
 Same shape for tasks: `task_timeline(task_id)` → IDs → `get_observations(ids)`
 on the few you actually need. Avoid `task_list` as a "what should I work on"
-picker — use `task_ready_for_agent` so claims are atomic.
+picker, use `task_ready_for_agent` so claims are atomic.
 
 ## RTK command policy (token-optimized shells)
 
@@ -202,7 +202,7 @@ or `rtk test <cmd>` for failure-only output. Use `rtk proxy <cmd>` for raw
 passthrough. If `rtk` isn't installed in the active env, note that and run
 the underlying command compactly.
 
-## Pointers — Colony repo docs
+## Pointers, Colony repo docs
 
 Repo: `/home/deadpool/Documents/recodee/colony/`
 

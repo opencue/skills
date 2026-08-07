@@ -9,7 +9,7 @@ triggers:
 allowed-tools: Bash(cargo:*), Bash(cross:*), Bash(rustup:*), Bash(docker:*)
 ---
 
-# cross — zero-fuss cross-compilation
+# cross, zero-fuss cross-compilation
 
 Wraps Docker containers with the right linkers/sysroots so you don't deal with them.
 
@@ -26,6 +26,6 @@ Wraps Docker containers with the right linkers/sysroots so you don't deal with t
 - The target installed once: `rustup target add <triple>` (cross handles the rest)
 
 ## Notes
-- For `wasm32-unknown-unknown` use cargo directly with `--target` — cross isn't needed.
+- For `wasm32-unknown-unknown` use cargo directly with `--target`, cross isn't needed.
 - musl builds are larger statically; strip with `strip` or `[profile.release] strip = true`.
 - macOS targets from Linux are NOT supported by cross (licensing). Use a real Mac or GitHub Actions runner.

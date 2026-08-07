@@ -5,7 +5,7 @@ description: cuOpt REST server — start server, endpoints, Python/curl client e
 ---
 
 
-# cuOpt Server — Deploy and client (Python/curl)
+# cuOpt Server, Deploy and client (Python/curl)
 
 This skill covers **starting the server** and **client examples** (curl, Python). Server has no separate C API (clients can be any language).
 
@@ -68,11 +68,11 @@ Use `travel_time_matrix_data` (not transit_time_matrix_data). Capacities: `[[50,
 
 Run from each asset directory (server must be running; scripts exit 0 if server unreachable). All use Python `requests`:
 
-- [assets/vrp_simple/](assets/vrp_simple/) — Basic VRP (no time windows)
-- [assets/vrp_basic/](assets/vrp_basic/) — VRP with time windows
-- [assets/pdp_basic/](assets/pdp_basic/) — Pickup and delivery
-- [assets/lp_basic/](assets/lp_basic/) — LP via REST (CSR format)
-- [assets/milp_basic/](assets/milp_basic/) — MILP via REST
+- [assets/vrp_simple/](assets/vrp_simple/), Basic VRP (no time windows)
+- [assets/vrp_basic/](assets/vrp_basic/), VRP with time windows
+- [assets/pdp_basic/](assets/pdp_basic/), Pickup and delivery
+- [assets/lp_basic/](assets/lp_basic/), LP via REST (CSR format)
+- [assets/milp_basic/](assets/milp_basic/), MILP via REST
 
 See [assets/README.md](assets/README.md) for overview.
 

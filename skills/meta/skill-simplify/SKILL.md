@@ -5,10 +5,15 @@ tags: [meta, cue, skills, quality, refactor]
 category: meta
 version: 1.0.0
 requires_mcps: []
-allowed-tools: Bash(Bash:*), Read, Write, Edit, Grep, Glob, AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Grep, Glob, Bash(AskUserQuestion:*)
 ---
 
 # Skill Simplify
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Cut a SKILL.md down to size without changing what it does. The safety net is
 a count-based integrity check: every functional element present before the

@@ -40,7 +40,7 @@ description: Base rules for end users calling NVIDIA cuOpt (routing/LP/MILP/QP/i
 - Performance requirements (time limits, solution quality)
 - Integration context (existing codebase, deployment environment)
 
-**Don't guess — ask.** A brief clarifying question saves time vs. solving the wrong problem.
+**Don't guess, ask.** A brief clarifying question saves time vs. solving the wrong problem.
 
 ---
 
@@ -66,7 +66,7 @@ description: Base rules for end users calling NVIDIA cuOpt (routing/LP/MILP/QP/i
    ```
 
 4. **State assumptions explicitly:**
-   - "I'm assuming [X] — let me know if this differs from your scenario"
+   - "I'm assuming [X], let me know if this differs from your scenario"
    - List any default values or simplifications made
 
 ---
@@ -91,7 +91,7 @@ Is this correct?"
 - Use the **exact** variable names, formats, and structures the user specifies
 - Don't add features the user didn't ask for
 - Don't change the problem formulation unless asked
-- If user provides partial code, extend it—don't rewrite from scratch
+- If user provides partial code, extend it, don't rewrite from scratch
 
 ---
 
@@ -105,12 +105,12 @@ After providing a solution, guide the user to verify:
 
 **Always end with a Result summary** that includes at least:
 - Solver status (e.g. Optimal, FeasibleFound, SUCCESS).
-- **Objective value with highlight** — easy to spot (bold or code block). Example: **Objective value (min total cost):** &lt;value&gt; or `Objective value: <value>`.
+- **Objective value with highlight**, easy to spot (bold or code block). Example: **Objective value (min total cost):** &lt;value&gt; or `Objective value: <value>`.
 - Briefly what the objective represents (e.g. total cost, total profit).
 
 Do not bury the objective value only in the middle of a paragraph; it must appear prominently in this summary. Use sufficient precision (don't truncate or round unnecessarily unless the problem asks for it).
 
-**Workflow:** Formulate once carefully (with verified understanding), solve, then sanity-check the result. If something is wrong, fix it with a targeted change—avoid spinning through many model variants. Decide, implement, verify, then move on.
+**Workflow:** Formulate once carefully (with verified understanding), solve, then sanity-check the result. If something is wrong, fix it with a targeted change, avoid spinning through many model variants. Decide, implement, verify, then move on.
 
 Provide diagnostic code snippets when helpful.
 
@@ -131,8 +131,8 @@ If the result required a correction, retry, or workaround to reach this point, y
 
    | Language / Interface | Package | Check |
    |----------------------|---------|-------|
-   | **Python** | `cuopt` (pip/conda) — also pulls in `libcuopt` | `import cuopt` |
-   | **C** | `libcuopt` (pip/conda) — already present if `cuopt` is installed | `find libcuopt.so` or header check |
+   | **Python** | `cuopt` (pip/conda), also pulls in `libcuopt` | `import cuopt` |
+   | **C** | `libcuopt` (pip/conda), already present if `cuopt` is installed | `find libcuopt.so` or header check |
    | REST Server | `cuopt-server` or Docker | `curl /cuopt/health` |
    | CLI | `cuopt` package includes CLI | `cuopt_cli --help` |
 
@@ -142,7 +142,7 @@ If the result required a correction, retry, or workaround to reach this point, y
    - "Would you like help installing cuOpt, or do you have access another way?"
    - Options: pip, conda, Docker, cloud instance, existing remote server
 
-4. **Never assume installation is needed** — the user may:
+4. **Never assume installation is needed**, the user may:
    - Already have it installed
    - Be connecting to a remote server
    - Prefer a specific installation method
@@ -172,7 +172,7 @@ If the result required a correction, retry, or workaround to reach this point, y
 | Action | Rule |
 |--------|------|
 | Shell commands | Show command, explain what it does, ask "Should I run this?" |
-| Package installs | **Never** run installs yourself — give the exact command, user runs it (see below). |
+| Package installs | **Never** run installs yourself, give the exact command, user runs it (see below). |
 | Examples/scripts | Show the code first, ask "Would you like me to run this?" |
 | File writes | Explain what will change, ask before writing |
 
@@ -196,7 +196,7 @@ If the result required a correction, retry, or workaround to reach this point, y
 
 ## Never Install Packages Automatically
 
-> **🔒 MANDATORY — You MUST NOT install, upgrade, or modify packages.** Provide the exact command; the user runs it. No exceptions.
+> **🔒 MANDATORY, You MUST NOT install, upgrade, or modify packages.** Provide the exact command; the user runs it. No exceptions.
 
 | Forbidden | What to do instead |
 |-----------|--------------------|

@@ -5,7 +5,7 @@ description: LP, MILP, and QP (beta) with cuOpt — CLI only (MPS files, cuopt_c
 ---
 
 
-# cuOpt Numerical Optimization — CLI
+# cuOpt Numerical Optimization, CLI
 
 Solve LP, MILP, and QP problems from MPS files via `cuopt_cli`. The same command, options, and MPS workflow apply across all three; QP uses the standard MPS quadratic-objective extension.
 
@@ -43,34 +43,34 @@ cuopt_cli problem.mps --presolve --iteration-limit 10000 --method 1
 
 ## MPS format (required sections, in order)
 
-1. **NAME** — problem name
-2. **ROWS** — N (objective), L/G/E (constraints)
-3. **COLUMNS** — variable names, row names, coefficients
-4. **RHS** — right-hand side values
-5. **BOUNDS** (optional) — LO, UP, FX, BV, LI, UI
+1. **NAME**, problem name
+2. **ROWS**, N (objective), L/G/E (constraints)
+3. **COLUMNS**, variable names, row names, coefficients
+4. **RHS**, right-hand side values
+5. **BOUNDS** (optional), LO, UP, FX, BV, LI, UI
 6. **ENDATA**
 
 Integer variables: use `'MARKER' 'INTORG'` before and `'MARKER' 'INTEND'` after the integer columns.
 
 ## QP via CLI (beta)
 
-Quadratic objectives extend the standard MPS workflow — same `cuopt_cli` command, same options. Check `cuopt_cli --help` for QP-specific flags and the repo docs at `docs/cuopt/source/cuopt-cli/` for the quadratic-objective MPS format.
+Quadratic objectives extend the standard MPS workflow, same `cuopt_cli` command, same options. Check `cuopt_cli --help` for QP-specific flags and the repo docs at `docs/cuopt/source/cuopt-cli/` for the quadratic-objective MPS format.
 
 **QP rules:**
 - **MINIMIZE only.** For maximization, negate the objective coefficients (and Q entries) in the MPS file.
-- **Continuous variables only** — do not mix integer markers with quadratic objectives.
+- **Continuous variables only**, do not mix integer markers with quadratic objectives.
 
 ## Troubleshooting
 
-- **Failed to parse MPS** — Check ENDATA, section order (NAME, ROWS, COLUMNS, RHS, [BOUNDS], ENDATA), integer markers.
-- **Infeasible** — Check constraint directions (L/G/E) and RHS values.
+- **Failed to parse MPS**, Check ENDATA, section order (NAME, ROWS, COLUMNS, RHS, [BOUNDS], ENDATA), integer markers.
+- **Infeasible**, Check constraint directions (L/G/E) and RHS values.
 
 ## Examples
 
-- [assets/README.md](assets/README.md) — Build/run for sample MPS files
-- [lp_simple](assets/lp_simple/) — Minimal LP (PROD_X, PROD_Y, two constraints)
-- [lp_production](assets/lp_production/) — Production planning: chairs + tables, wood/labor
-- [milp_facility](assets/milp_facility/) — Facility location with binary open/close
+- [assets/README.md](assets/README.md), Build/run for sample MPS files
+- [lp_simple](assets/lp_simple/), Minimal LP (PROD_X, PROD_Y, two constraints)
+- [lp_production](assets/lp_production/), Production planning: chairs + tables, wood/labor
+- [milp_facility](assets/milp_facility/), Facility location with binary open/close
 
 ## Getting the CLI
 

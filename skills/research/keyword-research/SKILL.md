@@ -116,7 +116,7 @@ Discovers, analyzes, and prioritizes keywords for SEO and GEO content strategies
 
 ## When This Must Trigger
 
-Use this when the conversation involves reusable market intelligence that should influence strategy — even if the user doesn't use SEO terminology:
+Use this when the conversation involves reusable market intelligence that should influence strategy, even if the user doesn't use SEO terminology:
 
 - Starting a new content strategy or campaign
 - Expanding into new topics or markets
@@ -187,7 +187,7 @@ Emit this shape when finishing the skill (see [skill-contract.md §Handoff Summa
 
 ## Data Sources
 
-> **Note:** All integrations are optional. This skill works without any API keys — users provide data manually when no tools are connected.
+> **Note:** All integrations are optional. This skill works without any API keys, users provide data manually when no tools are connected.
 
 > See [CONNECTORS.md](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/CONNECTORS.md) for tool category placeholders.
 
@@ -208,16 +208,16 @@ Proceed with the full analysis using provided data. Note in the output which met
 
 When a user requests keyword research, run eight phases (announce each as `[Phase X/8: Name]`):
 
-1. **Scope** — clarify product, audience, business goal, DR, geography, language
-2. **Discover** — seed from core/problem/solution/audience/industry terms
-3. **Variations** — expand with modifier and long-tail patterns
-4. **Classify** — tag each by intent (informational/navigational/commercial/transactional)
-5. **Score** — assign difficulty (1-100) and compute `Opportunity = (Volume × Intent Value) / Difficulty` with Intent Value 1/1/2/3
-6. **GEO-Check** — flag AI-answer-friendly queries (questions, definitions, comparisons, lists, how-tos)
-7. **Cluster** — group keywords into pillar + cluster topic hubs
-8. **Deliver** — Executive Summary, Quick Wins / Growth / GEO opportunities, Topic Clusters, Content Calendar, Next Steps
+1. **Scope**, clarify product, audience, business goal, DR, geography, language
+2. **Discover**, seed from core/problem/solution/audience/industry terms
+3. **Variations**, expand with modifier and long-tail patterns
+4. **Classify**, tag each by intent (informational/navigational/commercial/transactional)
+5. **Score**, assign difficulty (1-100) and compute `Opportunity = (Volume × Intent Value) / Difficulty` with Intent Value 1/1/2/3
+6. **GEO-Check**, flag AI-answer-friendly queries (questions, definitions, comparisons, lists, how-tos)
+7. **Cluster**, group keywords into pillar + cluster topic hubs
+8. **Deliver**, Executive Summary, Quick Wins / Growth / GEO opportunities, Topic Clusters, Content Calendar, Next Steps
 
-**Quality bar** — every recommendation must include at least one specific number. Generic advice like "target long-tail keywords for better results" must be rewritten as "Target 'project management for nonprofits' (vol: 320, KD: 22) — no DR>40 sites in top 10" before including.
+**Quality bar**, every recommendation must include at least one specific number. Generic advice like "target long-tail keywords for better results" must be rewritten as "Target 'project management for nonprofits' (vol: 320, KD: 22), no DR>40 sites in top 10" before including.
 
 > **Reference**: See [references/instructions-detail.md](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/instructions-detail.md) for the full 8-phase templates, expansion patterns, intent classification table, difficulty tiers, opportunity matrix, GEO indicators, cluster template, deliverable quality bar with actionable vs. generic examples, and tips.
 
@@ -246,7 +246,7 @@ When a user requests keyword research, run eight phases (announce each as `[Phas
 
 ### Advanced Usage
 
-Intent Mapping, Seasonal Analysis, Competitor Gap, Local Keywords — see [references/instructions-detail.md](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/instructions-detail.md#advanced-usage).
+Intent Mapping, Seasonal Analysis, Competitor Gap, Local Keywords, see [references/instructions-detail.md](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/instructions-detail.md#advanced-usage).
 
 ## Tips for Success
 
@@ -269,15 +269,15 @@ If any findings should influence ongoing strategy, recommend promoting key concl
 
 ## Reference Materials
 
-- [Instructions Detail](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/instructions-detail.md) — Full 8-phase workflow, expansion patterns, scoring, cluster templates, advanced usage, tips
-- [Keyword Intent Taxonomy](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/keyword-intent-taxonomy.md) — Complete intent classification with signal words and content strategies
-- [Topic Cluster Templates](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/topic-cluster-templates.md) — Hub-and-spoke architecture templates for pillar and cluster content
-- [Keyword Prioritization Framework](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/keyword-prioritization-framework.md) — Priority scoring matrix, categories, and seasonal keyword patterns
-- [Example Report](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/example-report.md) — Complete example keyword research report for project management software
+- [Instructions Detail](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/instructions-detail.md), Full 8-phase workflow, expansion patterns, scoring, cluster templates, advanced usage, tips
+- [Keyword Intent Taxonomy](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/keyword-intent-taxonomy.md), Complete intent classification with signal words and content strategies
+- [Topic Cluster Templates](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/topic-cluster-templates.md), Hub-and-spoke architecture templates for pillar and cluster content
+- [Keyword Prioritization Framework](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/keyword-prioritization-framework.md), Priority scoring matrix, categories, and seasonal keyword patterns
+- [Example Report](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/keyword-research/references/example-report.md), Complete example keyword research report for project management software
 
 ## Next Best Skill
 
-- **Primary**: [competitor-analysis](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/competitor-analysis/SKILL.md) — turn keyword opportunities into a competitive benchmark.
+- **Primary**: [competitor-analysis](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/competitor-analysis/SKILL.md), turn keyword opportunities into a competitive benchmark.
 - **Also consider** (pick by goal):
-  - [content-gap-analysis](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/content-gap-analysis/SKILL.md) — if competitors are already known and the goal is producing content fast.
-  - [serp-analysis](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/serp-analysis/SKILL.md) — if SERP features (featured snippets, PAA, AI Overviews) must be understood before writing.
+  - [content-gap-analysis](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/content-gap-analysis/SKILL.md), if competitors are already known and the goal is producing content fast.
+  - [serp-analysis](https://github.com/aaron-he-zhu/seo-geo-claude-skills/blob/main/research/serp-analysis/SKILL.md), if SERP features (featured snippets, PAA, AI Overviews) must be understood before writing.

@@ -9,26 +9,26 @@ acceptLicenseTerms: true
 
 # Chibi Collage Effect
 
-**Turn a real lifestyle photo into a polished "chibi clone sticker diary" image — the original person stays photorealistic, surrounded by 5–8 kawaii chibi mini-clones, scrapbook doodles, and handwritten-style captions that match the scene.**
+**Turn a real lifestyle photo into a polished "chibi clone sticker diary" image, the original person stays photorealistic, surrounded by 5–8 kawaii chibi mini-clones, scrapbook doodles, and handwritten-style captions that match the scene.**
 
 ## Inputs
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `person_image` | image_url | yes | — | A clear lifestyle photo of the person. Setting, outfit, mood, and activity are read from this image and drive the chibi poses and captions. |
+| `person_image` | image_url | yes |, | A clear lifestyle photo of the person. Setting, outfit, mood, and activity are read from this image and drive the chibi poses and captions. |
 
 
 ## Steps
 
-### Phase A — Chibi Collage Generation
+### Phase A, Chibi Collage Generation
 
 If `{{person_image}}` is not provided, ask the user to upload a lifestyle photo (café, outdoor, cozy at home, travel, etc.). The scene context is what makes the chibi clones feel native to the moment, so a generic studio headshot will give weaker results than a real lifestyle shot.
 
 Once the photo is available, submit the plan with ONE step to generate the chibi collage:
 
-1. **Chibi Collage Generation** — `muapi image edit` (model=`gpt-image-2-image-to-image`):
+1. **Chibi Collage Generation**, `muapi image edit` (model=`gpt-image-2-image-to-image`):
    - Reference Image: `{{person_image}}`
-   - Image size: `2160x3840` (9:16 portrait) — high-resolution social-media-ready output
+   - Image size: `2160x3840` (9:16 portrait), high-resolution social-media-ready output
    - Background: `auto`
    - Output format: `png`
    - Quality: `auto`

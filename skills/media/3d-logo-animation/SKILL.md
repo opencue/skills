@@ -15,30 +15,30 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `logo_image` | image_url | yes | — | A clear 2D image of the logo to be converted to 3D. |
+| `logo_image` | image_url | yes |, | A clear 2D image of the logo to be converted to 3D. |
 | `material_style` | text | no | glossy glass and chrome | The material style for the 3D logo (e.g., gold, matte plastic, holographic). |
 
 
 ## Steps
 
-### Phase A — 3D Logo Transformation
+### Phase A, 3D Logo Transformation
 
 If `{{logo_image}}` is not provided, ask the user to upload their logo.
 
 Once the logo is available, submit the plan with ONE step to convert it to 3D:
 
-1. **3D Logo Generation** — `muapi image edit` (model=`nano-banana-2-edit`):
+1. **3D Logo Generation**, `muapi image edit` (model=`nano-banana-2-edit`):
    - Reference Image: `{{logo_image}}`
    - Prompt: `Transform this 2D logo into a premium, high-quality 3D version. The logo should have depth and be made of {{material_style}}. Smooth edges, realistic reflections, and professional studio lighting. The logo is centered on a clean, minimal, out-of-focus background. High-end graphic design aesthetic, 8k resolution.`
    - Aspect ratio: 1:1 or 4:3
 
 Present the 3D logo to the user for approval.
 
-### Phase B — Cinematic Logo Animation
+### Phase B, Cinematic Logo Animation
 
 Once the 3D logo is ready, submit the plan to animate it:
 
-1. **Logo Animation** — `muapi video from-image` (model=`veo3.1-fast-image-to-video`):
+1. **Logo Animation**, `muapi video from-image` (model=`veo3.1-fast-image-to-video`):
    - Reference Image: The 3D logo from Phase A.
    - Prompt: `A professional cinematic logo reveal animation. The 3D logo rotates slowly with dynamic light sweeps reflecting off its {{material_style}} surface. Subtle camera movement, particle effects in the background, high-quality motion graphics style.`
    - Aspect ratio: 16:9 or 1:1

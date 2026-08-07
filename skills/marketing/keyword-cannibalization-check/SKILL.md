@@ -5,10 +5,10 @@ metadata:
   platform: Google
 ---
 
-# 20/ Keyword Cannibalization Check — Google
+# 20/ Keyword Cannibalization Check, Google
 
 ## What it does
-Identifies where your own keywords and campaigns are competing against each other in Google Ads auctions. Finds duplicate keywords across campaigns, overlapping match types that trigger the same queries, and ad groups stealing traffic from each other — all of which inflate your CPCs and mess up your data.
+Identifies where your own keywords and campaigns are competing against each other in Google Ads auctions. Finds duplicate keywords across campaigns, overlapping match types that trigger the same queries, and ad groups stealing traffic from each other, all of which inflate your CPCs and mess up your data.
 
 ## How it works
 Claude cross-references your keyword lists across all campaigns and ad groups, maps search term overlap, and identifies where multiple keywords or campaigns are entering the same auctions. It then looks at which one Google is choosing to serve (and whether it's the one you'd want), and calculates the CPC impact of the internal competition.

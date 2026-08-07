@@ -16,7 +16,7 @@ allowed-tools: Bash
 
 You help users optimize their cue profile by analyzing skill usage, suggesting removals of unused skills, and recommending new skills based on the current repository.
 
-## Iron contract — never silently mutate a profile
+## Iron contract, never silently mutate a profile
 
 Profile edits are user-visible and affect every future session under that
 profile. Never run `cue skills remove`, `cue skills add-to-profile`, or
@@ -32,7 +32,7 @@ the worst-possible failure mode for this skill.
 - User asks "what skills would help in this repo?"
 - User says "suggest skills", "recommend skills for this project"
 
-## Step 1 — Show current profile status
+## Step 1, Show current profile status
 
 Run the optimizer for the active profile:
 
@@ -45,7 +45,7 @@ Present the output to the user. Highlight:
 - MCPs loaded
 - Required CLIs
 
-## Step 2 — Show usage ranking
+## Step 2, Show usage ranking
 
 Run the skill usage ranking:
 
@@ -54,11 +54,11 @@ cue skills rank 50
 ```
 
 Present a summary to the user:
-- **Top 5 most-used skills** — these are essential, keep them
-- **Skills with 0 usage** — candidates for removal
-- **Skills used <3 times** — low-value, consider removing
+- **Top 5 most-used skills**, these are essential, keep them
+- **Skills with 0 usage**, candidates for removal
+- **Skills used <3 times**, low-value, consider removing
 
-## Step 3 — Identify unused skills in the active profile
+## Step 3, Identify unused skills in the active profile
 
 Cross-reference the profile's skills against the usage data:
 
@@ -84,7 +84,7 @@ Format your recommendation like:
    Remove with: cue skills remove-from-profile <category/name>
 ```
 
-## Step 4 — Recommend skills for the current repo
+## Step 4, Recommend skills for the current repo
 
 Analyze the current repository to suggest relevant skills:
 
@@ -114,7 +114,7 @@ Format recommendations:
   Add with: cue skills add-to-profile <id>
 ```
 
-## Step 5 — Present optimization summary
+## Step 5, Present optimization summary
 
 Show a before/after comparison:
 
@@ -133,9 +133,9 @@ Show a before/after comparison:
 ## Rules
 
 - **Never auto-remove skills.** Always present as suggestions and let the user decide.
-- **Show the commands** the user needs to run — don't run destructive commands yourself.
-- **Be concise.** Don't list every skill — focus on the actionable ones (unused + recommended).
-- **Consider inheritance.** Skills from `core` profile are shared everywhere — don't suggest removing those.
+- **Show the commands** the user needs to run, don't run destructive commands yourself.
+- **Be concise.** Don't list every skill, focus on the actionable ones (unused + recommended).
+- **Consider inheritance.** Skills from `core` profile are shared everywhere, don't suggest removing those.
 - **Explain WHY** a skill is recommended (what in the repo triggered the suggestion).
 
 ## Capture learnings

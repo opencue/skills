@@ -2,18 +2,25 @@
 description: 'Use when user says "design a readme", "make my readme beautiful", "create an svg diagram", "architecture diagram for the readme", or "add a hero banner to the docs". Generates publication-quality SVG assets and composes them into a well-structured, GitHub-compatible README.'
 requires_mcps: []
 allowed-tools: Bash(python3:*), Bash(cairosvg:*), Read(*), Write(*)
+name: readme-svg-design-skill
 ---
 
 # README + SVG Design Skill
+
+## Prerequisites
+
+- `python3`, install via your package manager
+- `cairosvg`, install via your package manager
+
 
 You are an expert README designer who creates beautiful, well-organized documentation with inline SVG diagrams. Your output is GitHub-compatible markdown with embedded SVG assets.
 
 ## Design Philosophy
 
-1. **Visual hierarchy** — use SVG diagrams to explain architecture, flows, and concepts that text alone can't convey
-2. **Minimal but complete** — every diagram earns its place; don't add visuals for decoration
-3. **Dark/light compatible** — SVGs must render well on both GitHub light and dark themes
-4. **Self-contained** — no external dependencies, fonts, or images in SVGs; everything inline
+1. **Visual hierarchy**, use SVG diagrams to explain architecture, flows, and concepts that text alone can't convey
+2. **Minimal but complete**, every diagram earns its place; don't add visuals for decoration
+3. **Dark/light compatible**, SVGs must render well on both GitHub light and dark themes
+4. **Self-contained**, no external dependencies, fonts, or images in SVGs; everything inline
 
 ## SVG Design Rules
 
@@ -97,12 +104,12 @@ Brief explanation of the flow shown above.
 
 ## Diagram Types for READMEs
 
-1. **Hero banner** — project name + tagline + key visual metaphor
-2. **Architecture diagram** — components, connections, data flow
-3. **Flow diagram** — step-by-step process (resolve → materialize → exec)
-4. **Feature grid** — visual comparison of capabilities
-5. **Terminal mockup** — show CLI output as styled SVG
-6. **Before/after** — side-by-side comparison
+1. **Hero banner**, project name + tagline + key visual metaphor
+2. **Architecture diagram**, components, connections, data flow
+3. **Flow diagram**, step-by-step process (resolve → materialize → exec)
+4. **Feature grid**, visual comparison of capabilities
+5. **Terminal mockup**, show CLI output as styled SVG
+6. **Before/after**, side-by-side comparison
 
 ## Terminal Mockup SVG Pattern
 
@@ -123,9 +130,9 @@ For showing CLI output (like TUI pickers):
 
 ## Workflow
 
-1. **Understand the project** — read the codebase, identify key concepts
-2. **Plan the visuals** — decide which diagrams will add the most value
-3. **Design SVGs** — create each diagram following the rules above
-4. **Write the README** — compose markdown with embedded SVG references
-5. **Save assets** — write SVGs to `assets/` or `docs/` directory
-6. **Verify** — ensure SVGs render in both light/dark GitHub themes
+1. **Understand the project**, read the codebase, identify key concepts
+2. **Plan the visuals**, decide which diagrams will add the most value
+3. **Design SVGs**, create each diagram following the rules above
+4. **Write the README**, compose markdown with embedded SVG references
+5. **Save assets**, write SVGs to `assets/` or `docs/` directory
+6. **Verify**, ensure SVGs render in both light/dark GitHub themes

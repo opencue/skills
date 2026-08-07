@@ -8,7 +8,7 @@ triggers:
 allowed-tools: Bash(cargo:*), Bash(cargo-chef:*), Bash(docker:*)
 ---
 
-# cargo-chef — Docker layer caching for Rust
+# cargo-chef, Docker layer caching for Rust
 
 Without it: changing one line of your app re-downloads + recompiles all deps because Cargo.toml/lock layer changes. With it: deps live in their own cached layer.
 
@@ -41,7 +41,7 @@ ENTRYPOINT ["/usr/local/bin/myapp"]
 - Docker / Podman with BuildKit
 
 ## Notes
-- `recipe.json` is deterministic from Cargo.toml/lock — only changes when deps change, which is what makes the cache layer durable.
+- `recipe.json` is deterministic from Cargo.toml/lock, only changes when deps change, which is what makes the cache layer durable.
 - Pairs well with `sccache` set via `RUSTC_WRAPPER=sccache` in the builder stage for second-level caching across machines.
 - For smallest runtime images, switch the final stage to `gcr.io/distroless/cc-debian12` (static binaries can use `scratch`).
-- Doesn't speed up `cargo build` locally — it's purely a Docker layer caching pattern.
+- Doesn't speed up `cargo build` locally, it's purely a Docker layer caching pattern.

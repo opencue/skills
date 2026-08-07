@@ -9,7 +9,7 @@ triggers:
 allowed-tools: Bash(cargo:*), Bash(bindgen:*)
 ---
 
-# bindgen — C → Rust FFI
+# bindgen, C → Rust FFI
 
 Reads C headers via libclang, emits `extern "C" { ... }` blocks + struct layouts.
 
@@ -38,7 +38,7 @@ Reads C headers via libclang, emits `extern "C" { ... }` blocks + struct layouts
 - `libclang` (`apt install libclang-dev` / `brew install llvm` + `LIBCLANG_PATH`)
 
 ## Notes
-- Always wrap unsafe FFI in a safe Rust API in the same crate — downstream users should never write `unsafe { ffi::* }`.
+- Always wrap unsafe FFI in a safe Rust API in the same crate, downstream users should never write `unsafe { ffi::* }`.
 - Use `--allowlist-*` aggressively. Generating bindings for ALL of `stdio.h` produces hundreds of unused items.
 - For C++ libraries: bindgen has partial support; for serious C++ interop use `cxx` crate (different model).
-- Pre-built `*-sys` crates already exist for most popular C libs (e.g. `libgit2-sys`, `libz-sys`) — check crates.io before rolling your own.
+- Pre-built `*-sys` crates already exist for most popular C libs (e.g. `libgit2-sys`, `libz-sys`), check crates.io before rolling your own.

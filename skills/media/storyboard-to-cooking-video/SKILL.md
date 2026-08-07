@@ -9,13 +9,13 @@ acceptLicenseTerms: true
 
 # Storyboard to Cooking Video
 
-**Turn a single photo of a person into a polished 15-second cinematic cooking tutorial. The skill first generates a high-end production reference sheet — character look, kitchen environment, and a 9-panel action board — then drives a continuous reference-to-video render that keeps the subject's face, outfit, and kitchen consistent across every frame.**
+**Turn a single photo of a person into a polished 15-second cinematic cooking tutorial. The skill first generates a high-end production reference sheet, character look, kitchen environment, and a 9-panel action board, then drives a continuous reference-to-video render that keeps the subject's face, outfit, and kitchen consistent across every frame.**
 
 ## Inputs
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `person_image` | image_url | yes | — | URL of the person photo. Used as identity reference in BOTH the reference sheet and the final video. |
+| `person_image` | image_url | yes |, | URL of the person photo. Used as identity reference in BOTH the reference sheet and the final video. |
 | `dish` | text | no | fresh pasta | The cooking subject (e.g. "fresh pasta", "sushi rolls", "wood-fired pizza", "matcha latte"). Drives the 9-step action board. |
 | `kitchen_style` | text | no | warm rustic-modern Italian | The kitchen aesthetic (e.g. "warm rustic-modern Italian", "minimalist Tokyo", "bright Scandinavian", "moody industrial"). |
 | `outfit` | text | no | white t-shirt, olive green apron, dark trousers | What the person wears throughout the video. |
@@ -28,9 +28,9 @@ acceptLicenseTerms: true
 
 Submit the plan with TWO sequential steps. Step 2 depends on the output of Step 1.
 
-### Step 1 — Reference Sheet (Composite Storyboard)
+### Step 1, Reference Sheet (Composite Storyboard)
 
-Generate the composite "production reference board" image. This is a single image, NOT a video frame — it bundles character sheet + location reference + 9-panel action board.
+Generate the composite "production reference board" image. This is a single image, NOT a video frame, it bundles character sheet + location reference + 9-panel action board.
 
 **Endpoint:** `gpt-image-v2-edit`
 **CLI:**
@@ -57,9 +57,9 @@ Style: realistic, cinematic, warm natural light, shallow depth of field, tactile
 Bottom strip: simple visual icons only for {{duration_seconds}} seconds, {{aspect_ratio}}, realistic, cinematic, tasty, natural camera. Minimal text, no dense paragraphs. Let the visuals do the heavy lifting."
 ```
 
-Wait for completion and capture the output URL as `{{reference_sheet_url}}`. Show it to the user and confirm the character likeness + kitchen mood before moving to Step 2 — Step 2 is the expensive call.
+Wait for completion and capture the output URL as `{{reference_sheet_url}}`. Show it to the user and confirm the character likeness + kitchen mood before moving to Step 2, Step 2 is the expensive call.
 
-### Step 2 — Cooking Video (Reference-to-Video)
+### Step 2, Cooking Video (Reference-to-Video)
 
 Animate the full sequence using both the original person photo (identity anchor) and the reference sheet (narrative + environment guide) as dual references.
 
@@ -121,11 +121,11 @@ After generation:
 
 ## Notes
 
-- **Two-image reference is the whole trick.** `@Image1` locks identity, `@Image2` locks choreography + environment. Never drop one — single-reference runs lose either the face or the kitchen.
+- **Two-image reference is the whole trick.** `@Image1` locks identity, `@Image2` locks choreography + environment. Never drop one, single-reference runs lose either the face or the kitchen.
 - The reference sheet at Step 1 must be wide (3840x2160). Smaller resolutions blur the 9 action panels and the video model can't read them.
 - `bytedance-seedance-2-0-reference-to-video-fast` natively generates audio when `generate_audio=true`. Always include an audio direction in the prompt; otherwise the soundtrack is random.
 - Real human faces ARE supported here because the person photo is the user's own subject and we route through the reference-to-video endpoint (not the restricted i2v variants).
-- If the user wants a non-cooking sequence (e.g., latte art, plating tutorial, mixology), keep the same two-step structure — only `{{dish}}` and the 9-step description change.
+- If the user wants a non-cooking sequence (e.g., latte art, plating tutorial, mixology), keep the same two-step structure, only `{{dish}}` and the 9-step description change.
 - For shorter pieces (<= 8s), reduce the action board to 5–6 panels in Step 1; cramming 9 beats into 8s degrades motion quality (single-beat rule).
 
 ## Trigger Keywords
@@ -140,4 +140,4 @@ After generation:
 - This recipe is LLM-orchestrated: read each phase, gather any missing inputs from the user, then call `muapi` CLI commands. Use `muapi auth configure` first if `MUAPI_API_KEY` is unset.
 - For model IDs without a CLI alias yet, fall back to the raw endpoint via `curl -X POST https://api.muapi.ai/api/v1/<endpoint> -H "x-api-key: $MUAPI_API_KEY" -H 'content-type: application/json' -d '{...}'` and poll with `muapi predict wait <request_id>`.
 - Substitute `{{input_name}}` placeholders with the user's actual inputs before issuing each call.
-- Step 1 must complete and return an output image URL before Step 2 fires — pass that URL as the second `--image` to the video step.
+- Step 1 must complete and return an output image URL before Step 2 fires, pass that URL as the second `--image` to the video step.

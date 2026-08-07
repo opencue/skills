@@ -18,8 +18,8 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
 ---
 ## Why this skill exists
 
-When you're running 5-10 parallel Conductor workspaces, it helps to see — at a
-glance — which version numbers are claimed, by whom, and what slot your next
+When you're running 5-10 parallel Conductor workspaces, it helps to see, at a
+glance, which version numbers are claimed, by whom, and what slot your next
 `/ship` would land in. This skill is a read-only call into the same
 `bin/gstack-next-version` utility `/ship` uses, but with nothing mutating.
 Think of it as `gh pr list` for VERSION numbers.
@@ -53,7 +53,7 @@ echo "branch HEAD VERSION: $CURRENT_VERSION"
 
 ## Step 3: Query the queue
 
-Call the util three times — once for each bump level — so the user sees what
+Call the util three times, once for each bump level, so the user sees what
 they'd claim for micro/patch/minor/major. Cheap (same gh call cached by bun).
 
 ```bash
@@ -75,11 +75,11 @@ queue + siblings (they're identical across bump levels; only `.version`
 differs).
 
 Use `jq` to extract:
-- `.host` — github | gitlab | unknown
-- `.offline` — did the query fail?
-- `.claimed` — array of {pr, branch, version, url}
-- `.siblings` — all sibling worktrees found
-- `.active_siblings` — subset that's likely about to ship
+- `.host`, github | gitlab | unknown
+- `.offline`, did the query fail?
+- `.claimed`, array of {pr, branch, version, url}
+- `.siblings`, all sibling worktrees found
+- `.active_siblings`, subset that's likely about to ship
 
 Render in this exact format:
 
@@ -150,10 +150,10 @@ After rendering the table, suggest ONE of:
 
 ## Plan Mode
 
-PLAN MODE EXCEPTION — ALWAYS RUN. This skill is entirely read-only: no file
+PLAN MODE EXCEPTION, ALWAYS RUN. This skill is entirely read-only: no file
 writes, no git mutations, no network state changes. Safe to run in plan mode.
 
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager

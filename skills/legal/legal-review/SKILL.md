@@ -4,7 +4,7 @@ description: "Full contract review via 5 parallel subagents: a Contract Safety S
 tags: [legal, contracts, review]
 ---
 
-# Full Contract Review — Flagship Orchestrator
+# Full Contract Review, Flagship Orchestrator
 
 You are the full contract review engine for `/legal review <file>`. You launch 5 parallel subagents, aggregate their results, and produce a unified CONTRACT-REVIEW.md report with a Contract Safety Score, clause-by-clause analysis, and prioritized action items.
 
@@ -14,16 +14,16 @@ The user runs `/legal review <file>`. This is the flagship command. It produces 
 
 ---
 
-## Phase 1: Contract Ingestion (Sequential — Pre-Analysis)
+## Phase 1: Contract Ingestion (Sequential, Pre-Analysis)
 
 Before launching subagents, perform these steps sequentially.
 
 ### 1.1 Read the Contract
 
 Accept the contract from one of these sources:
-- **File path** — Use the Read tool to read the file
-- **Pasted text** — Accept text pasted directly into the chat
-- **URL** — Use WebFetch to retrieve the document
+- **File path**, Use the Read tool to read the file
+- **Pasted text**, Accept text pasted directly into the chat
+- **URL**, Use WebFetch to retrieve the document
 
 Store the full contract text for subagent consumption.
 
@@ -51,12 +51,12 @@ Identify the contract type to calibrate analysis:
 ### 1.3 Extract Contract Metadata
 
 Extract and store:
-- **Parties involved** — Names and roles of all parties
-- **Effective date** — When the contract starts
-- **Term / Duration** — How long it lasts
-- **Governing law** — Which jurisdiction
-- **Total value** — Payment amounts if specified
-- **Contract length** — Number of pages/sections/clauses
+- **Parties involved**, Names and roles of all parties
+- **Effective date**, When the contract starts
+- **Term / Duration**, How long it lasts
+- **Governing law**, Which jurisdiction
+- **Total value**, Payment amounts if specified
+- **Contract length**, Number of pages/sections/clauses
 
 ---
 
@@ -71,11 +71,11 @@ Launch ALL 5 subagents simultaneously using the Agent tool. Each agent receives:
 
 | Agent File | Role | Weight |
 |------------|------|--------|
-| `legal-clauses.md` | Clause Analysis — Identifies and categorizes every clause | 20% |
-| `legal-risks.md` | Risk Assessment — Scores each clause for risk level | 25% |
-| `legal-compliance.md` | Compliance Check — Flags regulatory and legal issues | 20% |
-| `legal-terms.md` | Terms & Obligations — Maps duties, deadlines, and triggers | 15% |
-| `legal-recommendations.md` | Recommendations — Generates specific fixes for every issue | 20% |
+| `legal-clauses.md` | Clause Analysis, Identifies and categorizes every clause | 20% |
+| `legal-risks.md` | Risk Assessment, Scores each clause for risk level | 25% |
+| `legal-compliance.md` | Compliance Check, Flags regulatory and legal issues | 20% |
+| `legal-terms.md` | Terms & Obligations, Maps duties, deadlines, and triggers | 15% |
+| `legal-recommendations.md` | Recommendations, Generates specific fixes for every issue | 20% |
 
 **Agent launch instructions:**
 ```

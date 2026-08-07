@@ -12,7 +12,7 @@ category: meta
 version: 1.0.0
 ---
 
-# ralph-loop — make the agent work longer (autonomously)
+# ralph-loop, make the agent work longer (autonomously)
 
 The "Ralph Wiggum" technique (Geoffrey Huntley: *"Ralph is a Bash loop"*): keep
 feeding the agent the **same goal prompt** until the work is actually done. Each
@@ -23,14 +23,14 @@ programming language. The loop is trivial; **the guardrails are the real work.**
 ## The Iron Law
 
 **No loop without an automated stop condition.** You can't review a 26-hour run
-by hand, so the loop must verify *itself* — typically "tests pass" or a checked
+by hand, so the loop must verify *itself*, typically "tests pass" or a checked
 acceptance command. A loop with no stop check drifts and burns money. If the
 user can't name a verifiable "done", stop and ask for one before looping.
 
 ## Two ways to run it
 
 1. **In-session (recommended, safest):** the official Anthropic plugin
-   `ralph-wiggum` — a Stop hook intercepts the agent's exit and re-feeds the
+   `ralph-wiggum`, a Stop hook intercepts the agent's exit and re-feeds the
    prompt. No external script.
    `/plugin marketplace add anthropics/claude-code` → enable `ralph-wiggum`.
 2. **External loop (this skill's `scripts/loop.sh`):** a guarded `while` loop
@@ -53,20 +53,20 @@ succeeds."). Stop-check `--until` is the machine-truth that ends the loop.
 
 ## Guardrails (do not skip)
 
-- **Stop condition** — `--until "<cmd that exits 0 when done>"`. Required.
-- **Cap iterations** — `--max N` (default 50) so a stuck loop can't spin forever.
-- **Budget** — the Agent SDK exposes `max_budget_usd` / `maxTurns`; for the CLI,
-  the iteration cap is your ceiling. A YC team shipped 6 repos overnight for ~$297 —
+- **Stop condition**, `--until "<cmd that exits 0 when done>"`. Required.
+- **Cap iterations**, `--max N` (default 50) so a stuck loop can't spin forever.
+- **Budget**, the Agent SDK exposes `max_budget_usd` / `maxTurns`; for the CLI,
+  the iteration cap is your ceiling. A YC team shipped 6 repos overnight for ~$297, 
   cost is real.
-- **Sandbox `--yolo`** — unattended mode passes `--dangerously-skip-permissions`,
+- **Sandbox `--yolo`**, unattended mode passes `--dangerously-skip-permissions`,
   which runs arbitrary commands. Only in a throwaway container/VM/worktree.
-- **Checkpoint** — `--checkpoint` commits after each round so progress is
+- **Checkpoint**, `--checkpoint` commits after each round so progress is
   recoverable and you can diff what each iteration did.
 
 ## Already in your stack
 
 cue ships a `/loop` skill (interval / self-paced reruns of a prompt or slash
-command) and `codex-fleet` for multi-agent orchestration — you can drive a
+command) and `codex-fleet` for multi-agent orchestration, you can drive a
 Ralph loop natively without an external repo. This skill's script is the
 zero-dependency fallback.
 

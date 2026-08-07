@@ -24,6 +24,6 @@ Faster, prettier `cargo test` replacement. ~60% faster on most workspaces.
 - cargo-nextest (`cargo install cargo-nextest --locked`)
 
 ## Notes
-- Does NOT run doctests — keep `cargo test --doc` in CI alongside nextest.
+- Does NOT run doctests, keep `cargo test --doc` in CI alongside nextest.
 - Parallelism is per-test, not per-binary, which is the speedup source.
 - Stable test IDs make flake tracking easy: `<crate>::<test_path>`.

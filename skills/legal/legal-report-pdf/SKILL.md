@@ -60,7 +60,7 @@ Read the analysis file and extract:
 
 This skill bundles its generator. Resolve the script path with the Glob tool:
 
-1. `**/skills/legal-report-pdf/scripts/generate_legal_pdf.py` (bundled with this skill — the canonical location)
+1. `**/skills/legal-report-pdf/scripts/generate_legal_pdf.py` (bundled with this skill, the canonical location)
 2. `[working directory]/scripts/generate_legal_pdf.py` (project-local override, if present)
 
 Use the bundled script at `scripts/generate_legal_pdf.py` (next to this SKILL.md) unless a project-local override exists.
@@ -73,7 +73,7 @@ Run the script, passing it the path to the analysis markdown file:
 python3 [script_path] --input [analysis_file_path] --output CONTRACT-REVIEW-REPORT.pdf
 ```
 
-### 2.3 If Script Not Found — Generate Inline
+### 2.3 If Script Not Found, Generate Inline
 
 If no script is found, generate the PDF directly using inline Python with ReportLab. Write and execute a Python script that produces the PDF.
 

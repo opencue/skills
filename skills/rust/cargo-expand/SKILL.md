@@ -24,6 +24,6 @@ See the post-macro source. Indispensable when a derive misbehaves.
 - Nightly toolchain (cargo-expand pins one automatically)
 
 ## Notes
-- Output is full Rust — pipe through `bat -l rust` for highlighting.
+- Output is full Rust, pipe through `bat -l rust` for highlighting.
 - When a `#[derive(Serialize)]` produces weird output, expand and read the generated `impl`. The compiler error suddenly makes sense.
-- Don't commit expanded output — it's a debugging tool, not a refactor target.
+- Don't commit expanded output, it's a debugging tool, not a refactor target.

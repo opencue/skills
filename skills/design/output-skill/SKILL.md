@@ -7,7 +7,7 @@ description: Use when user says "full output", "no truncation", "don't skip code
 
 ## Baseline
 
-Treat every task as production-critical. A partial output is a broken output. Do not optimize for brevity — optimize for completeness. If the user asks for a full file, deliver the full file. If the user asks for 5 components, deliver 5 components. No exceptions.
+Treat every task as production-critical. A partial output is a broken output. Do not optimize for brevity, optimize for completeness. If the user asks for a full file, deliver the full file. If the user asks for 5 components, deliver 5 components. No exceptions.
 
 ## Banned Output Patterns
 
@@ -21,9 +21,9 @@ The following patterns are hard failures. Never produce them:
 
 ## Execution Process
 
-1. **Scope** — Read the full request. Count how many distinct deliverables are expected (files, functions, sections, answers). Lock that number.
-2. **Build** — Generate every deliverable completely. No partial drafts, no "you can extend this later."
-3. **Cross-check** — Before output, re-read the original request. Compare your deliverable count against the scope count. If anything is missing, add it before responding.
+1. **Scope**, Read the full request. Count how many distinct deliverables are expected (files, functions, sections, answers). Lock that number.
+2. **Build**, Generate every deliverable completely. No partial drafts, no "you can extend this later."
+3. **Cross-check**, Before output, re-read the original request. Compare your deliverable count against the scope count. If anything is missing, add it before responding.
 
 ## Handling Long Outputs
 

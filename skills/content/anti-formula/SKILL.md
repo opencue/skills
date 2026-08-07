@@ -24,7 +24,7 @@ domain: content
 category: lint
 ---
 
-# anti-formula — kill the template before publishing
+# anti-formula, kill the template before publishing
 
 This skill exists because the same writer who can produce great copy
 will, on the third draft of the day, ship a perfect template instead of
@@ -33,7 +33,7 @@ scheduling. Six rules, one verdict.
 
 ## Prerequisites
 
-Standard Unix utilities — `grep`, `awk`, `wc`, `find`, `head`, `tail`.
+Standard Unix utilities, `grep`, `awk`, `wc`, `find`, `head`, `tail`.
 All ship by default on macOS and Linux; no install needed. `ripgrep`
 (`rg`) is optional but speeds up the rolling-window scans across
 `~/Documents/cue/drafts/` if you have many drafts.
@@ -49,7 +49,7 @@ All ship by default on macOS and Linux; no install needed. `ripgrep`
 
 ## The 6 rules
 
-### R1 — Duplicate sentence starts
+### R1, Duplicate sentence starts
 
 **Fails if:** ≥3 tweets/paragraphs in the SAME draft open with the same
 first word, OR ≥4 across the last 7 days of drafts open with the same
@@ -67,7 +67,7 @@ awk '/^[0-9]+\// {getline; print $1}' draft.md | sort | uniq -c | sort -rn | hea
 
 If any first-word count is ≥3 for the same draft, flag it.
 
-### R2 — Forced `?` closer
+### R2, Forced `?` closer
 
 **Fails if:** any sentence ending in `?` is NOT the visible completion
 of a `[label] — [value]` pattern.
@@ -83,7 +83,7 @@ broken), `Tomorrow — ?` (no list above it).
 How to detect: search for `— ?` lines, then check the 3 lines above for
 a parallel `— <value>` pattern. If none, fail.
 
-### R3 — Arrow-chain monotony
+### R3, Arrow-chain monotony
 
 **Fails if:** ≥4 consecutive lines in the same tweet start with the
 same bullet style (`→`, `•`, `-`, `▎`).
@@ -97,7 +97,7 @@ How to detect:
 awk '/^[→•\-]/ {n++; if (n>=4) print NR": chain"} !/^[→•\-]/ {n=0}' draft.md
 ```
 
-### R4 — Banned vocabulary
+### R4, Banned vocabulary
 
 **Fails if:** the draft contains ANY of these words/phrases:
 
@@ -115,7 +115,7 @@ grep -niE 'delve|leverage|robust|comprehensive|nuanced|multifaceted|furthermore|
 
 Hit = flag. No exceptions.
 
-### R5 — Recycled closers
+### R5, Recycled closers
 
 **Fails if:** the draft's closing line appears in any draft from the
 last 7 days.
@@ -123,13 +123,13 @@ last 7 days.
 Phrases that have already been used (rolling block-list, edit as new
 ones get worn out):
 
-- `Not financial advice.` — allowed once per day max, max 2/week, no
+- `Not financial advice.`, allowed once per day max, max 2/week, no
   back-to-back days as sole closer pattern.
-- `Position sizing is a thesis. So is cash.` — cooldown 7 days from
+- `Position sizing is a thesis. So is cash.`, cooldown 7 days from
   last use.
-- `Both can be true.` — only when contradiction is load-bearing.
-- `Same X. Different Y.` — cooldown 7 days.
-- `Tomorrow it widens or it doesn't.` — cooldown 7 days.
+- `Both can be true.`, only when contradiction is load-bearing.
+- `Same X. Different Y.`, cooldown 7 days.
+- `Tomorrow it widens or it doesn't.`, cooldown 7 days.
 
 How to detect:
 
@@ -142,7 +142,7 @@ find ~/Documents/cue/drafts -name "*.md" -newermt "7 days ago" \
 Compare against the current draft's closing line. Substring match
 counts as a fail.
 
-### R6 — Concrete lead
+### R6, Concrete lead
 
 **Fails if:** the first tweet/paragraph contains NO concrete element
 (no number, no proper noun, no specific date, no specific object).
@@ -179,7 +179,7 @@ VERDICT: PASS / FAIL
 ```
 
 If FAIL: produce the specific rewrite for each failing rule before
-returning control. Do NOT just list the failure — show the fix.
+returning control. Do NOT just list the failure, show the fix.
 
 ## When to override
 
@@ -196,17 +196,17 @@ how the formulas slip in.
 - Style judgment beyond the 6 rules. Subjective ("this metaphor is
   weak") belongs in a separate review pass.
 - Spelling / grammar. Use a spellchecker for those.
-- Brand voice compliance — that's the brand kit's job (`brand.md`),
+- Brand voice compliance, that's the brand kit's job (`brand.md`),
   not this skill's.
-- Cashtag count enforcement — that's `x-thread-lint.py`, a different
+- Cashtag count enforcement, that's `x-thread-lint.py`, a different
   gate.
 
 ## Sister tooling
 
-- `~/Documents/cue/scripts/x-thread-lint.py` — char-limit and cashtag
+- `~/Documents/cue/scripts/x-thread-lint.py`, char-limit and cashtag
   gate. Runs alongside this skill, not instead of it.
-- `ai-slop-detector` (from `aahl/skills`) — broader AI-tell detector;
+- `ai-slop-detector` (from `aahl/skills`), broader AI-tell detector;
   use both together. anti-formula catches the user's specific
   template; ai-slop-detector catches generic AI patterns.
-- `content/article-writer/voices.md` — the variety source. When R5
+- `content/article-writer/voices.md`, the variety source. When R5
   fires, pick a voice from there that wasn't used in the last 3 days.

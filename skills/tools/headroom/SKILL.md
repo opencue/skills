@@ -15,15 +15,15 @@ metadata:
 
 Headroom is a local-first context-compression layer for AI agents. It compresses
 tool outputs, logs, files, RAG chunks, and conversation history before they reach
-the LLM — same answers, 60–95% fewer tokens. Compression is **reversible** (CCR:
+the LLM, same answers, 60–95% fewer tokens. Compression is **reversible** (CCR:
 Compress-Cache-Retrieve), so the model can pull the original back on demand.
 
 It ships four ways, all sharing one compression pipeline:
 
-- **Library** — `compress(messages)` in Python or TypeScript (`headroom-ai`)
-- **Proxy** — `headroom proxy --port 8787`, zero code changes, any language
-- **Agent wrap** — `headroom wrap claude` routes all of Claude Code's traffic through the proxy
-- **MCP server** — `headroom_compress` / `headroom_retrieve` / `headroom_stats` for any MCP host
+- **Library**, `compress(messages)` in Python or TypeScript (`headroom-ai`)
+- **Proxy**, `headroom proxy --port 8787`, zero code changes, any language
+- **Agent wrap**, `headroom wrap claude` routes all of Claude Code's traffic through the proxy
+- **MCP server**, `headroom_compress` / `headroom_retrieve` / `headroom_stats` for any MCP host
 
 ## Prerequisites
 
@@ -51,17 +51,17 @@ headroom mcp serve            # start the stdio MCP server (what cue's registry 
 headroom mcp status           # health check
 ```
 
-- `headroom_compress` — compress a context blob (auto-routes by content type:
+- `headroom_compress`, compress a context blob (auto-routes by content type:
   JSON → SmartCrusher, code → AST via tree-sitter, prose → Kompress-base).
-- `headroom_retrieve` — fetch the original uncompressed content for a prior
+- `headroom_retrieve`, fetch the original uncompressed content for a prior
   compression. Compression never destroys data.
-- `headroom_stats` — token-savings + compression observability for the session.
+- `headroom_stats`, token-savings + compression observability for the session.
 
 In cue, the `headroom` MCP id is registered in the sanitized registry as
 `headroom mcp serve`; add it to a profile's `mcps:` list (the `headroom` profile
 and `core` already do).
 
-## Full wrap — compress all Claude traffic
+## Full wrap, compress all Claude traffic
 
 ```bash
 headroom wrap claude                 # launches Claude through the local proxy
@@ -99,7 +99,7 @@ headroom learn                       # mine failed sessions → write correction
 - Prefer the **MCP tools** for targeted, in-conversation compression; prefer the
   **wrap/proxy** for transparent whole-session savings.
 - Don't point a profile's `ANTHROPIC_BASE_URL` at the proxy unless the proxy is
-  guaranteed up — a dead proxy bricks all Claude calls for that profile.
+  guaranteed up, a dead proxy bricks all Claude calls for that profile.
 - Compression is reversible: when a compressed view looks lossy, call
   `headroom_retrieve` for the original instead of guessing.
 - Data stays local; set `HEADROOM_TELEMETRY=off` to disable anonymous telemetry.

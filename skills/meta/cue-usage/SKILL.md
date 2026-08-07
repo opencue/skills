@@ -4,9 +4,10 @@ tags: [meta, cue, profiles, skills, mcps]
 category: meta
 version: 1.0.0
 requires_mcps: []
+name: cue-agent-profile-manager
 ---
 
-# cue — Agent Profile Manager
+# cue, Agent Profile Manager
 
 Use this skill when the user asks about managing profiles, skills, MCPs, or their agent configuration.
 

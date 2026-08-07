@@ -15,7 +15,7 @@ Single source of truth: write docs in `src/lib.rs`, generate README. No drift be
 ## When to use
 - **One-shot**: `cargo readme > README.md`
 - **Template** (control title/badges around the generated body): `README.tpl` at repo root; reference with `{{readme}}`
-- **CI guard**: `diff <(cargo readme) README.md` — non-zero exit blocks PR if README drifted
+- **CI guard**: `diff <(cargo readme) README.md`, non-zero exit blocks PR if README drifted
 - **Workspace**: run per-crate; root README usually stays hand-written
 
 ## Prerequisites
@@ -34,7 +34,7 @@ Single source of truth: write docs in `src/lib.rs`, generate README. No drift be
   ```
 
 ## Notes
-- Code blocks in `//!` docs are tested by `cargo test --doc` — README examples stay correct.
+- Code blocks in `//!` docs are tested by `cargo test --doc`, README examples stay correct.
 - For published crates, this avoids the classic "README example doesn't compile because the API changed" bug.
 - Alternative: `cargo-rdme` (newer, slightly different template style). `cargo-readme` is more entrenched.
 - For workspace root READMEs that aren't per-crate, hand-edit and skip this skill.

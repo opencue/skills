@@ -8,6 +8,14 @@ allowed-tools: Bash(aws:*), Bash(curl:*), Bash(higgsfield:*), Bash(jq:*)
 
 # Higgsfield → Medusa Product Images
 
+## Prerequisites
+
+- `aws`, install via your package manager
+- `curl`, install via your package manager
+- `higgsfield`, install via your package manager
+- `jq`, install via your package manager
+
+
 One-shot pipeline that generates product shots with Higgsfield, hosts them on
 the shop's S3 bucket, and updates Medusa products. Replaces the manual
 sequence of `higgsfield product-photoshoot create` → `aws s3 cp` →
@@ -55,7 +63,7 @@ Either pass `<manifest.json>` as second arg, or place it at
 `variant` is free-form but `hero` + `lifestyle` is the convention (the first
 becomes `thumbnail`, all of them become `images[]`).
 
-### Required: env file (or vault — see Secret resolution)
+### Required: env file (or vault, see Secret resolution)
 
 `~/.config/medusa-image-pipeline/<shop>.env`:
 
@@ -84,12 +92,12 @@ chmod 600 ~/.config/medusa-image-pipeline/compastor.env
 
 ## Secret + operation resolution
 
-Two execution modes — pick by who's running the skill.
+Two execution modes, pick by who's running the skill.
 
 ### Mode A: Agent-driven (Claude / Codex with `secret-mcp` registered)
 
 For providers that already have bouncer-MCP wrappers, the agent calls the
-bouncer tool directly — the secret never enters context. Bouncer state as
+bouncer tool directly, the secret never enters context. Bouncer state as
 of 2026-05-10:
 
 | Provider | Status | recodee PR |
@@ -121,14 +129,14 @@ mcp__secret-mcp__aws_s3_delete_object({bucket, key, region}) -> {ok: true}
 ```
 
 Vault-stored secrets (Infisical):
-- `HIGGSFIELD_WORKSPACE_TOKEN` — the only Higgsfield credential.
-- `AWS_SECRET_ACCESS_KEY` — the secret half of the AWS credential pair.
+- `HIGGSFIELD_WORKSPACE_TOKEN`, the only Higgsfield credential.
+- `AWS_SECRET_ACCESS_KEY`, the secret half of the AWS credential pair.
   The access key id is non-secret and held in env (`AWS_ACCESS_KEY_ID`),
   per PR #1660's per-credential split rationale. Bouncer also reads
   `AWS_S3_BUCKETS_ALLOWED` and `AWS_S3_COPY_FROM_URL_ALLOWLIST` from env
   for blast-radius caps; populate per shop.
 
-There is **no** `vault.get(name)` operation by spec design — vault
+There is **no** `vault.get(name)` operation by spec design, vault
 introspection is forbidden (`design.md` §"No introspection tools"). The
 agent cannot fetch the secret value; it can only invoke wrapped operations.
 
@@ -164,10 +172,10 @@ public_url = res["public_url"]
 #    or to a future mcp__secret-mcp__medusa_patch_product call)
 ```
 
-For **Medusa-admin-API** (not yet bouncer-wrapped — future Phase-2 PR), the
+For **Medusa-admin-API** (not yet bouncer-wrapped, future Phase-2 PR), the
 agent falls through to Mode B's env-resolution for the `POST /admin/products/{id}`
 leg. Same applies to Coolify, Hostinger, GitHub. Mixed Mode A + Mode B is
-expected during the migration window — each provider migrates independently.
+expected during the migration window, each provider migrates independently.
 
 ### Mode B: Shell-driven (`run-pipeline.sh`)
 
@@ -180,7 +188,7 @@ wins:
 2. **Per-shop env file**: `~/.config/medusa-image-pipeline/<shop>.env`.
 
 The resolver is `scripts/load-env.sh`. Higgsfield in Mode B uses the
-`higgsfield` CLI (which holds its own auth via `higgsfield auth login`) —
+`higgsfield` CLI (which holds its own auth via `higgsfield auth login`), 
 this is the path for CI / cron / non-agent runs.
 
 **Never** echo secret values, **never** put them in git, **never** ask the
@@ -190,37 +198,37 @@ user to paste them into chat.
 
 For each manifest entry, in order:
 
-1. **Generate** — calls
+1. **Generate**, calls
    `higgsfield product-photoshoot create --mode <mode> --prompt "<prompt>" --count 1 --aspect_ratio <hint> --resolution 2k`
    for each `shot`. Polls until the job completes. Captures the resulting
    image URL on Higgsfield CDN. (Owned by the `higgsfield-product-photoshoot`
-   skill — this skill does not write prompts.)
+   skill, this skill does not write prompts.)
 
-2. **Download** — `curl -fL` the Higgsfield CDN URL into a per-run cache:
+2. **Download**, `curl -fL` the Higgsfield CDN URL into a per-run cache:
    `~/.cache/medusa-image-pipeline/<shop>/<run-id>/<slug>-<variant>.png`.
 
-3. **Optimize** (optional, on by default) — converts to JPEG via
+3. **Optimize** (optional, on by default), converts to JPEG via
    `magick convert <png> -quality 86 -strip <jpg>` if `magick`/`convert` is
    available. Skipped silently if not installed; PNGs upload as-is.
 
-4. **Upload** — `aws s3 cp` to
+4. **Upload**, `aws s3 cp` to
    `s3://<S3_BUCKET>/<S3_PREFIX><slug>-<variant>.<ext>` with
    `--content-type image/jpeg` (or png) and a long `Cache-Control` header
    (`public, max-age=31536000, immutable`). Verifies HTTP 200 on the public
    URL before continuing.
 
-5. **Resolve product ID** — if `product_id` was omitted in the manifest,
+5. **Resolve product ID**, if `product_id` was omitted in the manifest,
    `GET /admin/products?handle=<slug>` and use the first result.
 
-6. **Patch product** — `POST <MEDUSA_BACKEND_URL>/admin/products/<id>` with
+6. **Patch product**, `POST <MEDUSA_BACKEND_URL>/admin/products/<id>` with
    `{"thumbnail": "<first-shot-url>", "images": [{"url": "<each-shot-url>"}]}`.
    Authentication is HTTP Basic with the Medusa secret API key
    (`Authorization: Basic <base64(secret:)>`).
 
-7. **Verify** — `GET <MEDUSA_BACKEND_URL>/store/products?handle=<slug>` (no
+7. **Verify**, `GET <MEDUSA_BACKEND_URL>/store/products?handle=<slug>` (no
    auth) and confirm the new URLs appear on `thumbnail` and `images[].url`.
 
-8. **Report** — print one line per product:
+8. **Report**, print one line per product:
    `ok    compastor-komposztolto (prod_01KR…) — 2 images`
    or `err   compastor-komposztolto — generate failed at shot 1`.
 
@@ -243,10 +251,10 @@ DRY_RUN=1 bash <skill>/scripts/run-pipeline.sh compastor
 
 ## Idempotency
 
-- S3 keys are deterministic (`<slug>-<variant>.<ext>`) — re-runs overwrite
+- S3 keys are deterministic (`<slug>-<variant>.<ext>`), re-runs overwrite
   the same object. Old version is retained because the bucket has versioning
   on (`provision-medusa-s3-bucket` enables it).
-- Product patches are unconditional — re-running with a new manifest replaces
+- Product patches are unconditional, re-running with a new manifest replaces
   `thumbnail` + `images[]` wholesale. There is no merge with existing images;
   if you want to keep prior images, list them in the manifest as additional
   `shots` with a `url` field instead of a `prompt`.
@@ -267,24 +275,24 @@ DRY_RUN=1 bash <skill>/scripts/run-pipeline.sh compastor
 
 ## Pitfalls
 
-- **Wrong region in `aws s3 cp`** — for AWS S3, `S3_REGION` must be the actual
+- **Wrong region in `aws s3 cp`**, for AWS S3, `S3_REGION` must be the actual
   bucket region, not `auto`. The `medusa-config.ts` of compastor previously
   hardcoded `region: "auto"` which is R2-specific; the file provider 500'd
   on AWS until that was fixed (commit `e0d9700`). Same lesson here: don't
   copy the value blindly between providers.
-- **CORS** — the bucket needs `https://admin.<shop>.hu` in `AllowedOrigins`
+- **CORS**, the bucket needs `https://admin.<shop>.hu` in `AllowedOrigins`
   if you ever upload via Medusa admin UI. `provision-medusa-s3-bucket` sets
   this; if you run the pipeline against a hand-rolled bucket, verify with
   `aws s3api get-bucket-cors --bucket <bucket>`.
-- **Public-read prefix** — the bucket policy from `provision-medusa-s3-bucket`
+- **Public-read prefix**, the bucket policy from `provision-medusa-s3-bucket`
   permits `s3:GetObject` only on `<prefix>products/*`. The pipeline uploads
   to that exact path. If you change `S3_PREFIX`, also update the bucket
   policy or the public URLs return 403.
-- **Higgsfield CDN expiry** — the CDN URLs returned by `higgsfield
+- **Higgsfield CDN expiry**, the CDN URLs returned by `higgsfield
   product-photoshoot create` are not durable. Always run step 2–4 (download +
   upload) before step 6 (patch); never paste a `cdn.higgsfield.ai/...` URL
   directly into Medusa.
-- **Secret rotation** — when the Medusa secret key is revoked (e.g. via
+- **Secret rotation**, when the Medusa secret key is revoked (e.g. via
   `revoke-secret-key.sh` or admin UI), update `<shop>.env`. Rotation cadence
   is the user's call; the pipeline does not rotate keys.
 
@@ -306,11 +314,11 @@ Expected: `HTTP/2 200`, `thumbnail` and `images[].url` point to the
 
 ## What this skill does NOT do
 
-- Does not provision the S3 bucket — use `provision-medusa-s3-bucket`.
-- Does not create Medusa products — products must already exist (use
+- Does not provision the S3 bucket, use `provision-medusa-s3-bucket`.
+- Does not create Medusa products, products must already exist (use
   `woocommerce-to-medusa-import` or the admin UI).
-- Does not write Higgsfield prompts — the user supplies them in the manifest;
+- Does not write Higgsfield prompts, the user supplies them in the manifest;
   prompt enhancement is owned by the `higgsfield-product-photoshoot` backend.
-- Does not rotate or revoke Medusa secret keys — separate concern, separate
+- Does not rotate or revoke Medusa secret keys, separate concern, separate
   scripts.
 - Does not store secrets in repos or in the skill itself.

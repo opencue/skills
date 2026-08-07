@@ -13,6 +13,12 @@ allowed-tools: Bash(curl:*), Bash(gh:*), WebFetch, WebSearch, Read(*), Write(*)
 
 # Find & Install Open-Source Skills
 
+## Prerequisites
+
+- `curl`, install via your package manager
+- `gh`, install via your package manager
+
+
 Search GitHub for Claude Code / Codex skills that match a user's need, evaluate quality, and add them to the active cue profile.
 
 ## When to activate
@@ -43,12 +49,12 @@ curl -sL "https://api.github.com/search/repositories?q=$KEYWORD+claude+skill+in:
 ```
 
 Also search for known high-quality skill collections:
-- `anthropics/skills` — official Anthropic skills
-- `daymade/claude-code-skills` — curated collection
-- `levnikolaevich/claude-code-skills` — delivery workflow skills
-- `yizhiyanhua-ai/fireworks-tech-graph` — SVG diagram generation
-- `cathrynlavery/diagram-design` — editorial diagrams
-- `oh-my-mermaid/oh-my-mermaid` — architecture diagrams from code
+- `anthropics/skills`, official Anthropic skills
+- `daymade/claude-code-skills`, curated collection
+- `levnikolaevich/claude-code-skills`, delivery workflow skills
+- `yizhiyanhua-ai/fireworks-tech-graph`, SVG diagram generation
+- `cathrynlavery/diagram-design`, editorial diagrams
+- `oh-my-mermaid/oh-my-mermaid`, architecture diagrams from code
 
 ### 2. Evaluate each candidate
 
@@ -165,4 +171,4 @@ Common searches the user might ask for:
 - Warn if a skill is archived or >1 year stale
 - Show max 5 results, ranked by quality score
 - If no good skills found, suggest creating one with `cue skills-new`
-- Always verify the skill has a SKILL.md — repos without one won't work with cue
+- Always verify the skill has a SKILL.md, repos without one won't work with cue

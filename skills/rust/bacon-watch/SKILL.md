@@ -25,5 +25,5 @@ Live feedback while you code.
 
 ## Notes
 - bacon's TUI handles long output better; cargo-watch is better when you want a one-line scripted loop.
-- Bacon's `--headless` mode pipes to stdout — useful inside tmux/editor panes.
+- Bacon's `--headless` mode pipes to stdout, useful inside tmux/editor panes.
 - Use bacon for active development; reach for cargo-watch only when you need to compose with non-cargo commands.

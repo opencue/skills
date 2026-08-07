@@ -23,7 +23,7 @@ Create broadcast-quality TV advertisements with characters, narration, and VFX.
 - User wants broadcast-quality advertising content
 - User mentions "30-second spot", "15-second ad"
 
-## Step 1 — Ad format selection
+## Step 1, Ad format selection
 
 | Format | Duration | Structure |
 |--------|----------|-----------|
@@ -32,7 +32,7 @@ Create broadcast-quality TV advertisements with characters, narration, and VFX.
 | **VFX spectacle** | 15-30s | Character + impossible visuals |
 | **Testimonial** | 30-60s | Real-feeling endorsement |
 
-## Step 2 — Script structure (AIDA)
+## Step 2, Script structure (AIDA)
 
 ```
 Attention (0-3s): Visual hook + opening line
@@ -41,13 +41,13 @@ Desire (10-20s): Solution showcase + benefits
 Action (20-30s): CTA + brand lockup
 ```
 
-## Step 3 — Character + Soul ID
+## Step 3, Character + Soul ID
 
 - Create or select character via Soul ID
 - Define wardrobe, setting, energy level
 - Lock consistency for all shots in the ad
 
-## Step 4 — Shot list with MCSLA
+## Step 4, Shot list with MCSLA
 
 Generate each shot using cinematic formula:
 - Opening: Wide/dramatic establishing shot
@@ -55,7 +55,7 @@ Generate each shot using cinematic formula:
 - Product: Hero shot with perfect lighting
 - End: Brand lockup with character or logo
 
-## Step 5 — Delivery specs
+## Step 5, Delivery specs
 
 ```
 📺 TV Ad Delivery:

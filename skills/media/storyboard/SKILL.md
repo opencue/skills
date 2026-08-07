@@ -15,7 +15,7 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `premise` | text | yes | — | One-line story premise (e.g. "lonely robot finds a tiny mechanical bird friend"). |
+| `premise` | text | yes |, | One-line story premise (e.g. "lonely robot finds a tiny mechanical bird friend"). |
 | `scenes` | int | no | 6 | Number of keyframes to produce. |
 | `style` | text | no | cinematic, photoreal, soft lighting, 16:9 | Visual style tags applied to every keyframe. |
 
@@ -37,7 +37,7 @@ Use the plan to dispatch all N keyframes in a single parallel layer.
 4. Return the asset ids in beat order with a one-line caption per scene.
 
 ## Notes
-- Don't animate, upscale, or add audio — this skill is keyframes only.
+- Don't animate, upscale, or add audio, this skill is keyframes only.
   If the user wants video, suggest the `music-video` skill afterward.
 - For consistency, repeat character description verbatim in every prompt
   ("a small rusty humanoid robot with…") rather than relying on the model

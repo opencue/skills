@@ -9,42 +9,42 @@ acceptLicenseTerms: true
 
 # Ad Creative Set
 
-**Generate a high-converting ad creative set — hero image, ad copy variations, and platform-optimized crops for Meta, Google Display, and LinkedIn.**
+**Generate a high-converting ad creative set, hero image, ad copy variations, and platform-optimized crops for Meta, Google Display, and LinkedIn.**
 
 ## Inputs
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `product_or_service` | text | yes | — | What is being advertised (e.g. "SaaS project management tool for remote teams"). |
-| `target_audience` | text | yes | — | Who the ad is for (e.g. "startup founders aged 25–40, tech-savvy"). |
-| `campaign_goal` | text | no | awareness | Campaign objective — "awareness", "consideration", or "conversion". |
+| `product_or_service` | text | yes |, | What is being advertised (e.g. "SaaS project management tool for remote teams"). |
+| `target_audience` | text | yes |, | Who the ad is for (e.g. "startup founders aged 25–40, tech-savvy"). |
+| `campaign_goal` | text | no | awareness | Campaign objective, "awareness", "consideration", or "conversion". |
 | `tone` | text | no | professional, clean, modern | Creative tone and visual style (e.g. "bold and disruptive", "luxury minimal", "friendly and approachable"). |
-| `product_image` | image_url | no | — | Optional product or brand image URL already in the session. |
+| `product_image` | image_url | no |, | Optional product or brand image URL already in the session. |
 
 
 ## Steps
 
 This skill has TWO phases. Phase A creates the hero concept for approval; Phase B fans out to platform formats.
 
-### Phase A — Hero image + Ad copy
+### Phase A, Hero image + Ad copy
 
 Submit ONE the plan with:
 
-1. **Hero image** — `muapi image generate` (model=nano-banana-pro) or `muapi image edit` (model=nano-banana-pro-edit) if `{{product_image}}` is provided:
+1. **Hero image**, `muapi image generate` (model=nano-banana-pro) or `muapi image edit` (model=nano-banana-pro-edit) if `{{product_image}}` is provided:
    - Aspect ratio: 1:1 (universal starting point).
    - Prompt must capture: product/service benefit, target audience lifestyle cue, campaign tone.
    - Style: `{{tone}}, advertising photography, clean background, product focus, ultra detailed, commercial quality`.
    - Tier: quality.
 
 After the plan executes, present the hero asset and 3 ad copy variations:
-- **Variation A** — Problem-aware hook: "Tired of X? [Product] fixes that."
-- **Variation B** — Benefit-led: "[Feature] → [Outcome] for [Audience]."
-- **Variation C** — Social proof / urgency: "X teams already use [Product]."
+- **Variation A**, Problem-aware hook: "Tired of X? [Product] fixes that."
+- **Variation B**, Benefit-led: "[Feature] → [Outcome] for [Audience]."
+- **Variation C**, Social proof / urgency: "X teams already use [Product]."
 Each variation includes: Headline (6 words max), Body (20–30 words), CTA button text.
 
 Ask which copy variation to use for Phase B. Wait for user confirmation.
 
-### Phase B — Platform crops
+### Phase B, Platform crops
 
 Once the user picks a copy direction, submit a SECOND the plan with parallel crops:
 

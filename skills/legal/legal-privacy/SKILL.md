@@ -314,9 +314,9 @@ Extract the company name from the website (use the domain name if no company nam
 
 After generating the file, present:
 
-1. **Detection Summary** — What data collection was found on the site
-2. **Compliance Readiness** — Quick assessment of what the site already has vs. what it needs
-3. **Action Items** — Specific things the user must fill in (contact email, address, DPO, retention periods) marked with `[FILL IN]`
+1. **Detection Summary**, What data collection was found on the site
+2. **Compliance Readiness**, Quick assessment of what the site already has vs. what it needs
+3. **Action Items**, Specific things the user must fill in (contact email, address, DPO, retention periods) marked with `[FILL IN]`
 4. **Risk Flags**:
    - 🔴 High Risk: Missing cookie consent with third-party tracking active
    - 🔴 High Risk: Payment processing without visible PCI compliance

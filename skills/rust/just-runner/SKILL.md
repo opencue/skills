@@ -9,7 +9,7 @@ triggers:
 allowed-tools: Bash(just:*)
 ---
 
-# just — sane task runner
+# just, sane task runner
 
 Make without the tab/dependency-graph pain. Ubiquitous in Rust repos.
 
@@ -22,7 +22,7 @@ Make without the tab/dependency-graph pain. Ubiquitous in Rust repos.
 - User-local: `~/.justfile` (run with `just -g`)
 
 ## Prerequisites
-- just (distro pkg preferred — apt/brew/pacman/dnf all have it)
+- just (distro pkg preferred, apt/brew/pacman/dnf all have it)
 
 ## Notes
 - Default shell is `sh` on Unix, `cmd` on Windows. Set `set shell := ["bash", "-uc"]` at the top of the Justfile for portable bash semantics.

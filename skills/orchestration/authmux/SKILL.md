@@ -5,7 +5,7 @@ description: Use when the user mentions "authmux", "agent-auth", account switchi
 
 # authmux
 
-> Multi-account auth multiplexer for AI CLI agents — Claude Code, Codex, Kiro CLI.
+> Multi-account auth multiplexer for AI CLI agents, Claude Code, Codex, Kiro CLI.
 
 Repo: `~/Documents/recodee/authmux/`. Installed globally as `authmux` (also aliased as `agent-auth`).
 
@@ -66,7 +66,7 @@ authmux update                  # check for updates
 ## Key concepts
 
 - **Snapshots**: Named copies of `auth.json` stored under `~/.codex/accounts/`.
-- **Session memory**: Per-terminal (by shell PID) — switching in one terminal doesn't affect others.
+- **Session memory**: Per-terminal (by shell PID), switching in one terminal doesn't affect others.
 - **Auto-switch**: Background daemon rotates to healthiest account when current one degrades.
 - **Health**: Accounts are scored by API reachability, token freshness, and rate-limit headroom.
 - **Parallel mode**: Multiple Claude Code instances with separate `CLAUDE_CONFIG_DIR` per account.

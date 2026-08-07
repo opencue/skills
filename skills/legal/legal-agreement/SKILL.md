@@ -330,14 +330,14 @@ Date: ________________________________________
 
 Insert these into the appropriate sections of the universal structure above.
 
-#### Freelancer Contract — Additional Clauses
+#### Freelancer Contract, Additional Clauses
 - **IP Ownership (Section 5):** Work-for-hire clause with explicit assignment. Include portfolio usage rights for the freelancer. State whether source files are included.
 - **Contractor Status (new Section):** Explicit independent contractor acknowledgment. List factors: own tools, own schedule, no benefits, multiple clients permitted. Include IRS Form 1099 reference.
 - **Kill Fee (Section 3.4):** If client terminates before completion, freelancer receives [25-50%] of remaining project value.
-- **Revisions (Section 2):** Include revision limits — typically [2-3] rounds included, additional revisions at [hourly rate].
+- **Revisions (Section 2):** Include revision limits, typically [2-3] rounds included, additional revisions at [hourly rate].
 - **Scope Creep Protection (Section 2.3):** Change order process for out-of-scope requests with written approval and revised pricing.
 
-#### Partnership Agreement — Additional Clauses
+#### Partnership Agreement, Additional Clauses
 - **Capital Contributions (new Section):** Each partner's initial and ongoing contributions.
 - **Profit and Loss Distribution (Section 4):** Allocation percentages, distribution schedule, reserves.
 - **Management and Voting (new Section):** Decision-making authority, voting rights, day-to-day management roles.
@@ -345,47 +345,47 @@ Insert these into the appropriate sections of the universal structure above.
 - **Dissolution (Section 3):** Triggers for dissolution, asset distribution, winding down process.
 - **Non-Competition (Section 12):** Partners typically have non-compete obligations during partnership.
 
-#### Service Agreement — Additional Clauses
+#### Service Agreement, Additional Clauses
 - **Service Levels (new Section):** SLA metrics, uptime guarantees, response times, escalation procedures.
 - **Acceptance Criteria (Section 2):** How deliverables are reviewed and accepted, acceptance period, deemed acceptance.
 - **Warranty (Section 7):** Warranty period for services, defect correction obligations.
 
-#### Licensing Agreement — Additional Clauses
+#### Licensing Agreement, Additional Clauses
 - **License Grant (Section 5):** Exclusive vs non-exclusive, territory, field of use, sublicensing rights.
 - **Royalties (Section 4):** Royalty rate, minimum royalties, reporting requirements, audit rights.
 - **Quality Control (new Section):** Licensor's right to approve use, brand guidelines compliance.
 - **Infringement (new Section):** Who handles IP infringement claims, cooperation obligations.
 
-#### Consulting Agreement — Additional Clauses
+#### Consulting Agreement, Additional Clauses
 - **Deliverables (Section 2):** Specific consulting deliverables, reports, recommendations.
 - **Conflicts of Interest (new Section):** Disclosure obligations, restrictions on competing engagements.
 - **Travel and Expenses (Section 4.4):** Travel policies, pre-approval requirements, expense caps.
 
-#### SOW — Additional Clauses
+#### SOW, Additional Clauses
 - **Reference to MSA (Section 1):** "This SOW is governed by the Master Service Agreement dated [date] between the Parties."
 - **Milestones (Section 2):** Detailed milestone table with deliverables, dates, acceptance criteria, and payment triggers.
 - **Change Orders (new Section):** Formal change order process, impact assessment, approval requirements.
 - **Assumptions and Dependencies (new Section):** Client responsibilities, access requirements, timeline dependencies.
 
-#### MSA — Additional Clauses
+#### MSA, Additional Clauses
 - **SOW Process (new Section):** How future SOWs are created, negotiated, and incorporated.
 - **Ordering Process (new Section):** How services are ordered under the MSA.
 - **Precedence (Section 14.1):** In case of conflict between MSA and SOW, which controls.
 - **Volume Pricing (Section 4):** Tiered pricing, volume discounts, annual commitments.
 
-#### Joint Venture — Additional Clauses
+#### Joint Venture, Additional Clauses
 - **JV Entity (new Section):** Whether a new entity is formed, type of entity, governance.
-- **Contributions (new Section):** Each party's contributions — capital, IP, personnel, facilities.
+- **Contributions (new Section):** Each party's contributions, capital, IP, personnel, facilities.
 - **Management Committee (new Section):** Composition, voting, deadlock resolution.
 - **Exit and Buyout (Section 3):** Exit triggers, valuation method, buyout mechanics.
 
-#### Distribution Agreement — Additional Clauses
+#### Distribution Agreement, Additional Clauses
 - **Territory (new Section):** Geographic scope, exclusivity, channel restrictions.
 - **Minimum Commitments (new Section):** Minimum purchase volumes, marketing spend obligations.
 - **Pricing and Margins (Section 4):** Wholesale pricing, MAP/MSRP policies, discount authority.
 - **Product Returns (new Section):** Return policies, defective product handling, credits.
 
-#### Referral Agreement — Additional Clauses
+#### Referral Agreement, Additional Clauses
 - **Qualified Referral (new Section):** Definition of a qualified referral, qualification criteria, exclusions.
 - **Referral Fee (Section 4):** Fee structure (percentage or flat), when fee is earned, payment timing.
 - **Tracking (new Section):** How referrals are tracked, attribution window, dispute process.
@@ -405,9 +405,9 @@ Example: `FREELANCER-CONTRACT-AcmeCorp-JohnSmith-2026-03-23.md`
 
 After generating, present:
 
-1. **Agreement Overview** — Type, parties, key terms at a glance
-2. **Sections Included** — Quick list of all sections in the agreement
-3. **Fill-In Items** — Any bracketed items the user needs to finalize (marked with `[FILL IN]`)
+1. **Agreement Overview**, Type, parties, key terms at a glance
+2. **Sections Included**, Quick list of all sections in the agreement
+3. **Fill-In Items**, Any bracketed items the user needs to finalize (marked with `[FILL IN]`)
 4. **Risk Reminders:**
    - 🔴 High Risk: Any clauses that are one-sided or potentially unenforceable in certain jurisdictions
    - 🟡 Medium Risk: Clauses that may need adjustment for specific situations

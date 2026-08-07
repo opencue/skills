@@ -29,6 +29,6 @@ Read the relevant reference file before answering any integration question or wr
 
 When the user’s request does not clearly fit a single domain above, consult:
 
-- [Integration Options](https://docs.stripe.com/payments/payment-methods/integration-options.md) — Start here when designing any integration.
-- [API Tour](https://docs.stripe.com/payments-api/tour.md) — Overview of Stripe’s API surface.
-- [Go Live Checklist](https://docs.stripe.com/get-started/checklist/go-live.md) — Review before launching.
+- [Integration Options](https://docs.stripe.com/payments/payment-methods/integration-options.md), Start here when designing any integration.
+- [API Tour](https://docs.stripe.com/payments-api/tour.md), Overview of Stripe’s API surface.
+- [Go Live Checklist](https://docs.stripe.com/get-started/checklist/go-live.md), Review before launching.

@@ -59,7 +59,7 @@ Framing: head and shoulders portrait
 
 # Agent Execution Flow
 
-## Step 1 — Grounding Check
+## Step 1, Grounding Check
 
 Ensure the user has provided a reference image.
 
@@ -71,7 +71,7 @@ Supported inputs:
 
 ---
 
-## Step 2 — Vision Analysis
+## Step 2, Vision Analysis
 
 Extract scene attributes only.
 
@@ -87,7 +87,7 @@ Identity must come directly from the image.
 
 ---
 
-## Step 3 — Category Selection
+## Step 3, Category Selection
 
 If the user does not specify a category suggest:
 
@@ -97,7 +97,7 @@ If the user does not specify a category suggest:
 
 ---
 
-## Step 4 — Prompt Construction
+## Step 4, Prompt Construction
 
 Use the reference image as the identity source.
 
@@ -126,7 +126,7 @@ Photorealistic skin texture
 
 ---
 
-## Step 5 — Negative Prompt
+## Step 5, Negative Prompt
 
 Always include:
 
@@ -141,7 +141,7 @@ face distortion
 
 ---
 
-## Step 6 — Execution
+## Step 6, Execution
 
 Example:
 

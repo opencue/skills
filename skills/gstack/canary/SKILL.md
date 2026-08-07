@@ -72,12 +72,12 @@ Determine which branch this PR/MR targets, or the repo's default branch if no
 PR/MR exists. Use the result as "the base branch" in all subsequent steps.
 
 **If GitHub:**
-1. `gh pr view --json baseRefName -q .baseRefName` — if succeeds, use it
-2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name` — if succeeds, use it
+1. `gh pr view --json baseRefName -q .baseRefName`, if succeeds, use it
+2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name`, if succeeds, use it
 
 **If GitLab:**
-1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field — if succeeds, use it
-2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field — if succeeds, use it
+1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field, if succeeds, use it
+2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field, if succeeds, use it
 
 **Git-native fallback (if unknown platform, or CLI commands fail):**
 1. `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||'`
@@ -92,14 +92,14 @@ branch name wherever the instructions say "the base branch" or `<default>`.
 
 ---
 
-# /canary — Post-Deploy Visual Monitor
+# /canary, Post-Deploy Visual Monitor
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
-You are a **Release Reliability Engineer** watching production after a deploy. You've seen deploys that pass CI but break in production — a missing environment variable, a CDN cache serving stale assets, a database migration that's slower than expected on real data. Your job is to catch these in the first 10 minutes, not 10 hours.
+You are a **Release Reliability Engineer** watching production after a deploy. You've seen deploys that pass CI but break in production, a missing environment variable, a CDN cache serving stale assets, a database migration that's slower than expected on real data. Your job is to catch these in the first 10 minutes, not 10 hours.
 
 You use the browse daemon to watch the live app, take screenshots, check console errors, and compare against baselines. You are the safety net between "shipped" and "verified."
 
@@ -107,11 +107,11 @@ You use the browse daemon to watch the live app, take screenshots, check console
 When the user types `/canary`, run this skill.
 
 ## Arguments
-- `/canary <url>` — monitor a URL for 10 minutes after deploy
-- `/canary <url> --duration 5m` — custom monitoring duration (1m to 30m)
-- `/canary <url> --baseline` — capture baseline screenshots (run BEFORE deploying)
-- `/canary <url> --pages /,/dashboard,/settings` — specify pages to monitor
-- `/canary <url> --quick` — single-pass health check (no continuous monitoring)
+- `/canary <url>`, monitor a URL for 10 minutes after deploy
+- `/canary <url> --duration 5m`, custom monitoring duration (1m to 30m)
+- `/canary <url> --baseline`, capture baseline screenshots (run BEFORE deploying)
+- `/canary <url> --pages /,/dashboard,/settings`, specify pages to monitor
+- `/canary <url> --quick`, single-pass health check (no continuous monitoring)
 
 ## Instructions
 
@@ -175,7 +175,7 @@ Extract the top 5 internal navigation links from the `links` output. Always incl
 
 - **Context:** Monitoring the production site at the given URL after a deploy.
 - **Question:** Which pages should the canary monitor?
-- **RECOMMENDATION:** Choose A — these are the main navigation targets.
+- **RECOMMENDATION:** Choose A, these are the main navigation targets.
 - A) Monitor these pages: [list the discovered pages]
 - B) Add more pages (user specifies)
 - C) Monitor homepage only (quick check)
@@ -208,10 +208,10 @@ $B perf
 
 After each check, compare results against the baseline (or pre-deploy snapshot):
 
-1. **Page load failure** — `goto` returns error or timeout → CRITICAL ALERT
-2. **New console errors** — errors not present in baseline → HIGH ALERT
-3. **Performance regression** — load time exceeds 2x baseline → MEDIUM ALERT
-4. **Broken links** — new 404s not in baseline → LOW ALERT
+1. **Page load failure**, `goto` returns error or timeout → CRITICAL ALERT
+2. **New console errors**, errors not present in baseline → HIGH ALERT
+3. **Performance regression**, load time exceeds 2x baseline → MEDIUM ALERT
+4. **Broken links**, new 404s not in baseline → LOW ALERT
 
 **Alert on changes, not absolutes.** A page with 3 console errors in the baseline is fine if it still has 3. One NEW error is an alert.
 
@@ -232,11 +232,11 @@ Current:  [current value]
 ```
 
 - **Context:** Canary monitoring detected an issue on [page] after [duration].
-- **RECOMMENDATION:** Choose based on severity — A for critical, B for transient.
-- A) Investigate now — stop monitoring, focus on this issue
-- B) Continue monitoring — this might be transient (wait for next check)
-- C) Rollback — revert the deploy immediately
-- D) Dismiss — false positive, continue monitoring
+- **RECOMMENDATION:** Choose based on severity, A for critical, B for transient.
+- A) Investigate now, stop monitoring, focus on this issue
+- B) Continue monitoring, this might be transient (wait for next check)
+- C) Rollback, revert the deploy immediately
+- D) Dismiss, false positive, continue monitoring
 
 ### Phase 6: Health Report
 
@@ -279,7 +279,7 @@ Write a JSONL entry: `{"skill":"canary","timestamp":"<ISO>","status":"<HEALTHY/D
 If the deploy is healthy, offer to update the baseline:
 
 - **Context:** Canary monitoring completed. The deploy is healthy.
-- **RECOMMENDATION:** Choose A — deploy is healthy, new baseline reflects current production.
+- **RECOMMENDATION:** Choose A, deploy is healthy, new baseline reflects current production.
 - A) Update baseline with current screenshots
 - B) Keep old baseline
 

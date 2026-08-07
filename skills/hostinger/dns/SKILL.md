@@ -11,19 +11,19 @@ doc_source: https://developers.hostinger.com
 
 The DNS API enables full management of DNS zone records for domains hosted on Hostinger. You can create, update, delete, validate, and reset DNS records, as well as manage DNS snapshots for backup and restore operations.
 
-## Tool surface — prefer MCP
+## Tool surface, prefer MCP
 
-This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__DNS_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable — they are not the primary interface.
+This skill is paired with the `hostinger-api` MCP (`@hostinger/api-mcp-server`). **Prefer `mcp__hostinger-api__DNS_*` tools over raw curl.** The curl examples below are the fallback path for debugging or when the MCP is unreachable, they are not the primary interface.
 
 Available DNS tools:
 
-- `DNS_getDNSRecordsV1` — read current zone records
-- `DNS_updateDNSRecordsV1` — apply record changes (use `DNS_validateDNSRecordsV1` first)
-- `DNS_validateDNSRecordsV1` — dry-run validation before update
-- `DNS_deleteDNSRecordsV1` — remove specific records
-- `DNS_resetDNSRecordsV1` — restore zone to Hostinger defaults
-- `DNS_getDNSSnapshotListV1`, `DNS_getDNSSnapshotV1` — snapshot inventory + detail
-- `DNS_restoreDNSSnapshotV1` — roll back to a snapshot (the safety net before risky changes)
+- `DNS_getDNSRecordsV1`, read current zone records
+- `DNS_updateDNSRecordsV1`, apply record changes (use `DNS_validateDNSRecordsV1` first)
+- `DNS_validateDNSRecordsV1`, dry-run validation before update
+- `DNS_deleteDNSRecordsV1`, remove specific records
+- `DNS_resetDNSRecordsV1`, restore zone to Hostinger defaults
+- `DNS_getDNSSnapshotListV1`, `DNS_getDNSSnapshotV1`, snapshot inventory + detail
+- `DNS_restoreDNSSnapshotV1`, roll back to a snapshot (the safety net before risky changes)
 
 ## Table of Contents
 
@@ -56,8 +56,8 @@ Standard DNS record types are supported:
 ### Zone Updates
 
 When updating DNS records, the `overwrite` flag controls behavior:
-- `overwrite: true` (default) — Replaces existing records matching name and type with the new records
-- `overwrite: false` — Updates TTL on existing records, appends new records; if no match found, creates them
+- `overwrite: true` (default), Replaces existing records matching name and type with the new records
+- `overwrite: false`, Updates TTL on existing records, appends new records; if no match found, creates them
 
 ### Snapshots
 
@@ -276,14 +276,14 @@ curl -X POST "https://developers.hostinger.com/api/dns/v1/snapshots/example.com/
 - Remember: old cached records persist until the previous TTL expires
 
 ### Email Records
-- Be careful with MX records — incorrect changes break email delivery
-- SPF, DKIM, and DMARC records are TXT records — don't overwrite them accidentally
+- Be careful with MX records, incorrect changes break email delivery
+- SPF, DKIM, and DMARC records are TXT records, don't overwrite them accidentally
 
 ## Troubleshooting
 
 ### Records Not Propagating
 - DNS propagation can take up to 48 hours (usually much less)
-- Check the TTL of the old record — resolvers cache for that duration
+- Check the TTL of the old record, resolvers cache for that duration
 - Use `dig` or `nslookup` to verify: `dig @8.8.8.8 example.com A`
 
 ### 422 Validation Error
@@ -297,14 +297,14 @@ curl -X POST "https://developers.hostinger.com/api/dns/v1/snapshots/example.com/
 - Use the snapshot restore to revert if needed
 
 ### Delete Not Working as Expected
-- Filters match by `name` AND `type` — both must match
+- Filters match by `name` AND `type`, both must match
 - If multiple records share name/type and you want to delete only some, use the update endpoint instead
 
 ## See Also
 
 The following deep-dive guide is available in this skill directory:
 
-- `email-dns-setup.md` — Complete email DNS setup (MX, SPF, DKIM, DMARC for Google Workspace, Microsoft 365, and Hostinger Email)
+- `email-dns-setup.md`, Complete email DNS setup (MX, SPF, DKIM, DMARC for Google Workspace, Microsoft 365, and Hostinger Email)
 
 ## References
 

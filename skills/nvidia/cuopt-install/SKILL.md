@@ -18,14 +18,14 @@ Install cuOpt to *use* it from Python, C, or as a REST server. For building cuOp
 
 Ask these if not already clear:
 
-1. **Interface** — Python, C, or REST server? Server can be called from any language via HTTP.
-2. **CUDA version** — What is installed? Check with `nvcc --version` or `nvidia-smi`.
-3. **Package manager** — pip, conda, or Docker preferred?
-4. **Environment** — Local machine with GPU, cloud instance, Docker/Kubernetes, or remote/server (no local GPU)?
+1. **Interface**, Python, C, or REST server? Server can be called from any language via HTTP.
+2. **CUDA version**, What is installed? Check with `nvcc --version` or `nvidia-smi`.
+3. **Package manager**, pip, conda, or Docker preferred?
+4. **Environment**, Local machine with GPU, cloud instance, Docker/Kubernetes, or remote/server (no local GPU)?
 
 ## Python API
 
-**Choose one** — do not run both. The second install would override the first and can cause CUDA / package mismatch.
+**Choose one**, do not run both. The second install would override the first and can cause CUDA / package mismatch.
 
 ### pip
 
@@ -55,7 +55,7 @@ dm = routing.DataModel(n_locations=3, n_fleet=1, n_orders=2)
 
 ## C API
 
-The C API ships in `libcuopt-cuXX`, which is also pulled in as a dependency of `cuopt-cuXX` — so if you already installed the Python package, the C library and headers are already present. Install `libcuopt` standalone only when you want the C API without Python. **Choose one** of pip or conda — do not run both.
+The C API ships in `libcuopt-cuXX`, which is also pulled in as a dependency of `cuopt-cuXX`, so if you already installed the Python package, the C library and headers are already present. Install `libcuopt` standalone only when you want the C API without Python. **Choose one** of pip or conda, do not run both.
 
 ### pip
 
@@ -116,5 +116,5 @@ curl -s http://localhost:8000/cuopt/health | jq .
 
 ## See also
 
-- [verification_examples.md](resources/verification_examples.md) — full verification recipes for Python, C, server, and Docker.
-- `cuopt-developer` — build cuOpt from source and contribute to the codebase.
+- [verification_examples.md](resources/verification_examples.md), full verification recipes for Python, C, server, and Docker.
+- `cuopt-developer`, build cuOpt from source and contribute to the codebase.

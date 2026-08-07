@@ -11,7 +11,7 @@ allowed-tools: Bash
 
 Train a face-faithful identity model. Reusable across all Soul-powered generations.
 
-## Step 0 — Bootstrap
+## Step 0, Bootstrap
 
 Before any other command:
 
@@ -27,15 +27,15 @@ Before any other command:
 1. Be concise. No raw IDs in chat. Just say "Soul ready" with a name reference.
 2. Detect language and respond in it. CLI flags stay English.
 3. Ask for the smallest set of inputs: name + photos. Pick a sensible model variant.
-4. Polling is silent — training takes minutes. Don't repeat status updates.
+4. Polling is silent, training takes minutes. Don't repeat status updates.
 
 ## Workflow
 
 1. **Get name.** One word, used for later reference. Ask if missing.
-2. **Get photos.** 5–20 face photos, varied angles and lighting. Local paths or already-uploaded IDs both work — `--image` accepts either.
+2. **Get photos.** 5–20 face photos, varied angles and lighting. Local paths or already-uploaded IDs both work, `--image` accepts either.
 3. **Pick variant.**
-   - `--soul-2` — for image generation (default)
-   - `--soul-cinematic` — for cinematic / video work
+   - `--soul-2`, for image generation (default)
+   - `--soul-cinematic`, for cinematic / video work
    Choose based on user's stated downstream use. Default to `--soul-2`.
 4. **Submit.**
    ```bash
@@ -64,11 +64,11 @@ higgsfield soul-id get <id>               # one by id
 
 ## Errors
 
-- `Minimum Basic plan required` — user is on free plan; tell them.
-- `Training failed` — check photos quality (5+ unique faces, well-lit).
+- `Minimum Basic plan required`, user is on free plan; tell them.
+- `Training failed`, check photos quality (5+ unique faces, well-lit).
 - `Session expired` → `higgsfield auth login`.
 
 ## Reference docs
 
-- `references/photo-guide.md` — what photos work best
-- `references/troubleshooting.md` — common training failures
+- `references/photo-guide.md`, what photos work best
+- `references/troubleshooting.md`, common training failures

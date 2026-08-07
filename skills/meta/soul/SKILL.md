@@ -31,7 +31,7 @@ symlinks the new skill into `~/.claude/skills/<name>` and
 ## Skill categories
 
 Pick the closest fit. If nothing matches, ask the user before creating
-a new category — `meta/` is the safe fallback for cross-cutting tooling.
+a new category, `meta/` is the safe fallback for cross-cutting tooling.
 
 | Category | When to use |
 |---|---|
@@ -81,7 +81,7 @@ description: >-
 <the actual instructions Claude follows>
 ```
 
-Description-field rules (these matter — the skill listing is matched
+Description-field rules (these matter, the skill listing is matched
 against this string by every model on every turn):
 - Lead with `Use when user says ...` and list the exact trigger phrases
 - Phrase from the user's mouth, not the skill's mouth
@@ -131,7 +131,7 @@ Quick health check:
 \`\`\`
 ```
 
-Optional sibling: `soul/mcps/mcps/<name>/skills.md` — long-form notes on
+Optional sibling: `soul/mcps/mcps/<name>/skills.md`, long-form notes on
 skill bundling, prompt patterns, integration tips.
 
 ## Workflow
@@ -147,8 +147,8 @@ When invoked, follow this order:
      env vars, related skills.
 3. **Pick the category.** Match against the table above. If multiple apply,
    prefer the most specific one. If none match, ask the user before
-   inventing a new category — categories are durable.
-4. **Search upstream FIRST — don't reinvent.** If the skill is for a tool,
+   inventing a new category, categories are durable.
+4. **Search upstream FIRST, don't reinvent.** If the skill is for a tool,
    library, framework, or open-source repo (`just`, `pnpm`, `playwright`,
    `stripe`, `medusa`, `obsidian-cli`, etc.), check whether someone has
    already written a canonical SKILL.md before authoring one yourself.
@@ -187,7 +187,7 @@ Any skill whose subject is a **tool / library / framework / open-source
 repo** that has its own community. Examples: `just`, `pnpm`, `git`,
 `playwright`, `stripe`, `obsidian-cli`, `medusa`, `coolify`, `supabase`,
 `docker`. NOT for skills that are inherently personal-workflow
-(`workspace-recipes`, `colony-prompts`, `soul`, `note`, `hud`) — those
+(`workspace-recipes`, `colony-prompts`, `soul`, `note`, `hud`), those
 have no upstream.
 
 ### Procedure
@@ -209,7 +209,7 @@ have no upstream.
 2. **Decide what to adopt:**
    - **Full match** (skill exists, fits the user's intent): copy the body
      verbatim, add a `Source:` line near the top pointing at the upstream
-     URL + commit SHA. Keep the upstream's wording — don't paraphrase.
+     URL + commit SHA. Keep the upstream's wording, don't paraphrase.
    - **Partial match** (skill exists but covers a different scope): adopt
      the body, then add an explicit "Local additions" section at the
      bottom for anything the user actually needed. Don't merge inline.
@@ -220,8 +220,8 @@ have no upstream.
 3. **Keep upstream and local concerns separate.** When the upstream skill
    describes the tool generally and the user has personal recipes/configs,
    create TWO skills:
-   - `meta/<tool>/SKILL.md` — adopted upstream, generic
-   - `meta/workspace-<tool>/SKILL.md` (or `<category>/workspace-...`) —
+   - `meta/<tool>/SKILL.md`, adopted upstream, generic
+   - `meta/workspace-<tool>/SKILL.md` (or `<category>/workspace-...`), 
      user's specific recipes, with the upstream skill as a "see also"
      reference
 
@@ -236,7 +236,7 @@ have no upstream.
 
 Don't copy the upstream skill and silently rewrite half of it to match a
 local opinion. Either adopt cleanly with attribution, or write a separate
-`workspace-<tool>` skill that *complements* the upstream — never both
+`workspace-<tool>` skill that *complements* the upstream, never both
 sneakily merged.
 
 ## Naming rules
@@ -255,15 +255,15 @@ sneakily merged.
   `~/.claude/skills/` directly (those are managed by `install-local.sh`).
 - Don't create a new category without asking the user first.
 - Don't auto-publish or auto-push. The Stop hook + 15-min timer handle
-  that — staying out of the way avoids races and double-commits.
+  that, staying out of the way avoids races and double-commits.
 - Don't add fields beyond `name`/`description` to skill frontmatter unless
   the user explicitly asks (e.g. `argument-hint` for slash-command skills).
 
 ## Sister tooling
 
-- `meta/skill` — the OMX skill manager (CRUD for `~/.codex/skills/`). Use
+- `meta/skill`, the OMX skill manager (CRUD for `~/.codex/skills/`). Use
   it when the user wants to *manage existing skills*; this skill is for
   *creating new ones in soul/*.
-- `meta/plugin-creator` — codex plugin scaffolder. Different scope: that
+- `meta/plugin-creator`, codex plugin scaffolder. Different scope: that
   builds plugin packages with `marketplace.json`, this builds simple
   SKILL.md files in soul/.
