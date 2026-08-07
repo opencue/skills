@@ -97,7 +97,7 @@ terminate arbitrary processes.
 
 ```bash
 cue dash profile browser --json | jq '.mcps[].id'
-# → "cue-tty-watch", "lightpanda", "playwright"
+# → "playwright"  (plus whatever core contributes via inheritance)
 ```
 
 Or mid-conversation, call `dashboard_profile_detail` with `{ "profile": "browser" }`

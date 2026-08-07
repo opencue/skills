@@ -1,11 +1,11 @@
 {
   "schema_version": "2.2",
-  "catalog_mtime": 1786073187288.4207,
+  "catalog_mtime": 1786075478554.2314,
   "counts": {
-    "skills": 454,
-    "withTriggers": 355,
-    "withCapability": 450,
-    "withRequires": 30
+    "skills": 453,
+    "withTriggers": 354,
+    "withCapability": 449,
+    "withRequires": 29
   },
   "skills": [
     {
@@ -9401,29 +9401,6 @@
       "quality": "good"
     },
     {
-      "id": "browser/lightpanda",
-      "name": "lightpanda",
-      "category": "browser",
-      "description": "Use when the user says \"lightpanda\", \"scrape this page\", \"headless browse\", or \"dump the DOM\". Fast headless browser for rendering URLs without Chromium, scraping, and CDP automation.",
-      "source": "/home/deadpool/Documents/cue/resources/skills/skills/browser/lightpanda/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "lightpanda",
-        "scrape this page",
-        "headless browse",
-        "dump the DOM"
-      ],
-      "capability": "Fast headless browser for rendering URLs without Chromium, scraping, and CDP automation",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": [
-          "lightpanda"
-        ]
-      },
-      "quality": "good"
-    },
-    {
       "id": "browser/ego-browser",
       "name": "ego-browser",
       "category": "browser",
@@ -9804,16 +9781,6 @@
     "google-drive-mcp": [
       "google-drive",
       "ops"
-    ],
-    "secret-mcp": [
-      "commerce",
-      "creative-media",
-      "higgsfield",
-      "medusa-dev",
-      "studio",
-      "supercomputer",
-      "webshop",
-      "webshop-google"
     ],
     "google-ads-mcp": [
       "claude-ads",

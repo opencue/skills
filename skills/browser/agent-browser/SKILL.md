@@ -108,8 +108,10 @@ For agent safety on untrusted pages: `--content-boundaries`, `--allowed-domains 
   semantic targets, CSS only as a last resort.
 - Close sessions when done (`agent-browser close`) so daemons don't linger; set
   `AGENT_BROWSER_IDLE_TIMEOUT_MS` to auto-shutdown.
-- Overlaps `browser/lightpanda` and `browser/playwright`. Pick one per task:
-  agent-browser for rich ref-based automation, lightpanda for the lightest
-  headless fetch. Don't run three browser stacks for one job.
+- Overlaps `browser/ego-browser` and `browser/playwright`. Pick one per task:
+  ego-browser is the default (one heredoc drives Chromium end to end),
+  agent-browser when you want its persistent Rust daemon, playwright when the
+  task genuinely needs Firefox or WebKit. Don't run three browser stacks for
+  one job.
 - Never paste secrets into commands; use `--headers`/env or the auth vault
   (`agent-browser auth save … --password-stdin`).
