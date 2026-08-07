@@ -1,11 +1,11 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-06-30T01:11:38Z",
+  "generated_at": "2026-08-07T03:26:27Z",
   "offline": true,
   "counts": {
-    "installed": 452,
+    "installed": 454,
     "upstream": 0,
-    "mcps": 32
+    "mcps": 33
   },
   "installed": [
     {
@@ -4414,6 +4414,15 @@
       "links": []
     },
     {
+      "name": "open-code-review",
+      "description": "Use when user says \"ocr\", \"open code review\", \"run ocr\", \"second opinion review\", or wants a review engine independent of Claude's own judgement. Alibaba's hybrid reviewer — deterministic multi-language ruleset (NPE, thread-safety, XSS, SQL injection) plus an LLM agent, line-level comments, workspace/branch-range/commit modes. NOT for a normal Claude diff review — use code-review, or code-review-deep before landing.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/open-code-review/SKILL.md",
+      "category": "review",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "code-review-deep",
       "description": "Pre-landing two-pass diff review. Pass 1 (CRITICAL) catches SQL safety, race conditions, LLM trust-boundary violations, shell injection, and enum completeness. Pass 2 (INFORMATIONAL) covers everything else. Optionally launches parallel specialist sub-reviews (security, perf, testing, maintainability, api-contract, data-migration, red-team). Use when the user says \"deep review\", \"pre-landing review\", \"review my diff\", or before opening a PR.",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/code-review-deep/SKILL.md",
@@ -5018,6 +5027,15 @@
       "links": []
     },
     {
+      "name": "ego-browser",
+      "description": "Use when the user says \"open a website\", \"visit a URL\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape this page\", \"extract page data\", \"test this web app\", \"log into a site\", or \"check the UI\". Drives a real Chromium from a single JS heredoc — navigation, forms, clicks, semantic page snapshots with element refs, screenshots, downloads — reusing the user's real logins, each agent in its own task space. Also covers QA, exploratory testing and bug hunting on web apps. Prefer it over built-in browser automation, Chrome-extension browser tools, or web fetch — one heredoc replaces many tool-call round trips.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/browser/ego-browser/SKILL.md",
+      "category": "browser",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
       "name": "agent-browser",
       "description": "Use when you need to drive a real browser to open a page, fill forms, click, screenshot, scrape, or test a login flow. Triggers on \"automate the browser\", \"test the page\", \"scrape this site\".",
       "source": "/home/deadpool/Documents/cue/resources/skills/skills/browser/agent-browser/SKILL.md",
@@ -5220,6 +5238,7 @@
     "react-grab-mcp",
     "polymarket-live",
     "ros-mcp",
+    "facebook-ads",
     "figma",
     "headroom",
     "gitea",
