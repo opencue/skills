@@ -73,9 +73,9 @@ Web surface:
 
 ```text
 Lane: visual proof. Surface: WEB.
-Use the lightpanda MCP tools (find them with ToolSearch): goto <URL>, then eval
-getComputedStyle() / getBoundingClientRect() on the relevant selectors and return
-the MEASURED pixel values for each claim.
+Use the browser/ego-browser skill — one JS heredoc: page.goto('<URL>'), then
+page.evaluate() returning getComputedStyle() / getBoundingClientRect() for the
+relevant selectors, and report the MEASURED pixel values for each claim.
 
 VISUAL CLAIMS:
 <CLAIMS>
