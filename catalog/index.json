@@ -1,10 +1,10 @@
 {
   "schema_version": "2.2",
-  "catalog_mtime": 1782781899001.011,
+  "catalog_mtime": 1785921372823.012,
   "counts": {
-    "skills": 452,
-    "withTriggers": 353,
-    "withCapability": 448,
+    "skills": 453,
+    "withTriggers": 354,
+    "withCapability": 449,
     "withRequires": 30
   },
   "skills": [
@@ -9399,6 +9399,33 @@
         "mcps": [
           "lightpanda"
         ]
+      },
+      "quality": "good"
+    },
+    {
+      "id": "browser/ego-browser",
+      "name": "ego-browser",
+      "category": "browser",
+      "description": "Use when the user says \"open a website\", \"visit a URL\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape this page\", \"extract page data\", \"test this web app\", \"log into a site\", or \"check the UI\". Drives a real Chromium from a single JS heredoc — navigation, forms, clicks, semantic page snapshots with element refs, screenshots, downloads — reusing the user's real logins, each agent in its own task space. Also covers QA, exploratory testing and bug hunting on web apps. Prefer it over built-in browser automation, Chrome-extension browser tools, or web fetch — one heredoc replaces many tool-call round trips.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/browser/ego-browser/SKILL.md",
+      "tags": [],
+      "triggers": [
+        "open a website",
+        "visit a URL",
+        "fill out a form",
+        "click a button",
+        "take a screenshot",
+        "scrape this page",
+        "extract page data",
+        "test this web app",
+        "log into a site",
+        "check the UI"
+      ],
+      "capability": "Drives a real Chromium from a single JS heredoc — navigation, forms, clicks, semantic page snapshots with element refs, screenshots, downloads — reusing the user's real logins, each agent in its own task space. Also covers QA, exploratory testing and bug hunting on web apps. Prefer it over built-in browser automation, Chrome-extension browser tools, or web fetch — one heredoc replaces many tool-call round trips",
+      "notFor": "",
+      "links": [],
+      "requires": {
+        "mcps": []
       },
       "quality": "good"
     },

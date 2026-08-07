@@ -1,11 +1,11 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-06-30T01:11:38Z",
+  "generated_at": "2026-08-07T03:15:44Z",
   "offline": true,
   "counts": {
     "installed": 452,
     "upstream": 0,
-    "mcps": 32
+    "mcps": 33
   },
   "installed": [
     {
@@ -5220,6 +5220,7 @@
     "react-grab-mcp",
     "polymarket-live",
     "ros-mcp",
+    "facebook-ads",
     "figma",
     "headroom",
     "gitea",
