@@ -25,6 +25,6 @@ The two non-negotiable Rust quality gates.
 
 ## Notes
 - Run both before commit. The fmt check is instant; clippy adds ~2x a `cargo check`.
-- Don't blanket-allow lints in lib.rs — `#[allow(...)]` at the offending site so the lint stays useful elsewhere.
+- Don't blanket-allow lints in lib.rs, `#[allow(...)]` at the offending site so the lint stays useful elsewhere.
 - The `-D warnings` flag is what most CIs use; matching it locally avoids surprise failures.
-- `cargo fmt --check` exits non-zero on diff — perfect for pre-commit hooks.
+- `cargo fmt --check` exits non-zero on diff, perfect for pre-commit hooks.

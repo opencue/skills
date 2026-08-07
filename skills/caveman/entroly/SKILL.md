@@ -12,7 +12,7 @@ allowed-tools: Bash
 > Context compressor + hallucination detector. Claims up to 80% token savings on long sessions. Upstream: [juyterman1000/entroly](https://github.com/juyterman1000/entroly).
 
 cue already runs the token-discipline lane (caveman + RTK + claude-mem
-passive recall). entroly is a candidate addition — different layer:
+passive recall). entroly is a candidate addition, different layer:
 caveman compresses past turns into structured notes, entroly compresses
 the prompt that goes out to the API.
 
@@ -21,7 +21,7 @@ the prompt that goes out to the API.
 - User reports high Claude API spend on multi-hour sessions.
 - User runs 4+ concurrent Claude/Codex sessions (parallel-agents tier).
   Each session re-sends a large system prompt + skill bundle on every
-  turn — entroly cuts that per-turn footprint.
+  turn, entroly cuts that per-turn footprint.
 - User asks about hallucination detection on long-context recall.
 
 ## Install
@@ -40,7 +40,7 @@ cd ~/entroly && bun install && bun run build
 | **entroly** | The outgoing prompt body | Per-turn (runtime) |
 | claude-mem | Cross-session recall (passive) | Background, hook-driven |
 
-These are additive — they shrink different things. Stacking caveman +
+These are additive, they shrink different things. Stacking caveman +
 RTK + entroly is supported but verify with `rtk gain` and a turn-count
 diff before claiming savings.
 
@@ -56,6 +56,6 @@ diff before claiming savings.
 - Never enable entroly globally without baseline numbers. Run one
   project for a week, compare `rtk gain` and Anthropic dashboard spend.
 - Never compress prompts that include verbatim source code without the
-  bypass flag — silent token drops in code are the worst kind of bug.
+  bypass flag, silent token drops in code are the worst kind of bug.
 - Never claim "saves 80%" without measuring on this user's actual
   workload. The upstream number is from their benchmark, not ours.

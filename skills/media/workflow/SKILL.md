@@ -20,12 +20,12 @@ Replace `/path/to/muapi-cli` with the actual path to the `muapi-cli` directory i
 
 ## Core Operations
 
-1. **Generate** (`generate-workflow.sh`) — AI architect creates a workflow from a description
-2. **Discover** (`discover-workflow.sh`) — Find a relevant existing workflow by natural language
-3. **Edit** (`generate-workflow.sh --workflow-id`) — Modify an existing workflow with a prompt
-4. **Interactive Run** (`interactive-run.sh`) — Prompt for inputs and execute a workflow
-5. **Run** (`run-workflow.sh`) — Execute a workflow, poll node-by-node, collect outputs
-6. **CLI** (`muapi workflow`) — Full CRUD + visualization directly from the terminal
+1. **Generate** (`generate-workflow.sh`), AI architect creates a workflow from a description
+2. **Discover** (`discover-workflow.sh`), Find a relevant existing workflow by natural language
+3. **Edit** (`generate-workflow.sh --workflow-id`), Modify an existing workflow with a prompt
+4. **Interactive Run** (`interactive-run.sh`), Prompt for inputs and execute a workflow
+5. **Run** (`run-workflow.sh`), Execute a workflow, poll node-by-node, collect outputs
+6. **CLI** (`muapi workflow`), Full CRUD + visualization directly from the terminal
 
 ---
 
@@ -58,7 +58,7 @@ As an AI agent, you have the ability to read and understand the purpose of avail
 
 ## Protocol: Building a Workflow
 
-### Step 1 — Describe your pipeline
+### Step 1, Describe your pipeline
 
 ```bash
 muapi workflow create "take a text prompt, generate an image with flux-dev, then upscale it to 4K"
@@ -66,7 +66,7 @@ muapi workflow create "take a text prompt, generate an image with flux-dev, then
 
 The architect returns a workflow with a unique ID and a node graph. Save the ID.
 
-### Step 2 — Inspect and visualize
+### Step 2, Inspect and visualize
 
 ```bash
 # Rich ASCII node graph in the terminal
@@ -76,7 +76,7 @@ muapi workflow get <workflow_id>
 muapi workflow get <workflow_id> --output-json
 ```
 
-### Step 3 — Run it
+### Step 3, Run it
 
 ```bash
 # Run with specific inputs
@@ -89,7 +89,7 @@ muapi workflow execute <workflow_id> \
   --download ./outputs
 ```
 
-### Step 4 — Discovery (Optional)
+### Step 4, Discovery (Optional)
 If you want to reuse an existing workflow instead of creating a new one:
 
 ```bash
@@ -97,7 +97,7 @@ If you want to reuse an existing workflow instead of creating a new one:
 muapi workflow discover "ugc video"
 ```
 
-### Step 5 — Interactive Execution
+### Step 5, Interactive Execution
 Run a workflow and have the CLI prompt you for each required input:
 
 ```bash

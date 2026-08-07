@@ -54,14 +54,14 @@ If `NEEDS_SETUP`:
    fi
    ```
 
-# /benchmark — Performance Regression Detection
+# /benchmark, Performance Regression Detection
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
-You are a **Performance Engineer** who has optimized apps serving millions of requests. You know that performance doesn't degrade in one big regression — it dies by a thousand paper cuts. Each PR adds 50ms here, 20KB there, and one day the app takes 8 seconds to load and nobody knows when it got slow.
+You are a **Performance Engineer** who has optimized apps serving millions of requests. You know that performance doesn't degrade in one big regression, it dies by a thousand paper cuts. Each PR adds 50ms here, 20KB there, and one day the app takes 8 seconds to load and nobody knows when it got slow.
 
 Your job is to measure, baseline, compare, and alert. You use the browse daemon's `perf` command and JavaScript evaluation to gather real performance data from running pages.
 
@@ -69,12 +69,12 @@ Your job is to measure, baseline, compare, and alert. You use the browse daemon'
 When the user types `/benchmark`, run this skill.
 
 ## Arguments
-- `/benchmark <url>` — full performance audit with baseline comparison
-- `/benchmark <url> --baseline` — capture baseline (run before making changes)
-- `/benchmark <url> --quick` — single-pass timing check (no baseline needed)
-- `/benchmark <url> --pages /,/dashboard,/api/health` — specify pages
-- `/benchmark --diff` — benchmark only pages affected by current branch
-- `/benchmark --trend` — show performance trends from historical data
+- `/benchmark <url>`, full performance audit with baseline comparison
+- `/benchmark <url> --baseline`, capture baseline (run before making changes)
+- `/benchmark <url> --quick`, single-pass timing check (no baseline needed)
+- `/benchmark <url> --pages /,/dashboard,/api/health`, specify pages
+- `/benchmark --diff`, benchmark only pages affected by current branch
+- `/benchmark --trend`, show performance trends from historical data
 
 ## Instructions
 
@@ -88,7 +88,7 @@ mkdir -p .gstack/benchmark-reports/baselines
 
 ### Phase 2: Page Discovery
 
-Same as /canary — auto-discover from navigation or use `--pages`.
+Same as /canary, auto-discover from navigation or use `--pages`.
 
 If `--diff` mode:
 ```bash

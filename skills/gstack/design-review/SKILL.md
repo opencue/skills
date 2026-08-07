@@ -41,11 +41,11 @@ triggers:
 ```bash
 $B status 2>/dev/null | grep -q "Mode: cdp" && echo "CDP_MODE=true" || echo "CDP_MODE=false"
 ```
-If `CDP_MODE=true`: skip cookie import steps — the real browser already has cookies and auth sessions. Skip headless detection workarounds.
+If `CDP_MODE=true`: skip cookie import steps, the real browser already has cookies and auth sessions. Skip headless detection workarounds.
 
 **Check for DESIGN.md:**
 
-Look for `DESIGN.md`, `design-system.md`, or similar in the repo root. If found, read it — all design decisions must be calibrated against it. Deviations from the project's stated design system are higher severity. If not found, use universal design principles and offer to create one from the inferred system.
+Look for `DESIGN.md`, `design-system.md`, or similar in the repo root. If found, read it, all design decisions must be calibrated against it. Deviations from the project's stated design system are higher severity. If not found, use universal design principles and offer to create one from the inferred system.
 
 **Check for clean working tree:**
 
@@ -57,9 +57,9 @@ If the output is non-empty (working tree is dirty), **STOP** and use AskUserQues
 
 "Your working tree has uncommitted changes. /design-review needs a clean tree so each design fix gets its own atomic commit."
 
-- A) Commit my changes — commit all current changes with a descriptive message, then start design review
-- B) Stash my changes — stash, run design review, pop the stash after
-- C) Abort — I'll clean up manually
+- A) Commit my changes, commit all current changes with a descriptive message, then start design review
+- B) Stash my changes, stash, run design review, pop the stash after
+- C) Abort, I'll clean up manually
 
 RECOMMENDATION: Choose A because uncommitted work should be preserved as a commit before design review adds its own fix commits.
 
@@ -131,7 +131,7 @@ ls -d test/ tests/ spec/ __tests__/ cypress/ e2e/ 2>/dev/null
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
 **If test framework detected** (config files or test directories found):
@@ -139,14 +139,14 @@ Print "Test framework detected: {name} ({N} existing tests). Skipping bootstrap.
 Read 2-3 existing test files to learn conventions (naming, imports, assertion style, setup patterns).
 Store conventions as prose context for use in Phase 8e.5 or Step 7. **Skip the rest of bootstrap.**
 
-**If BOOTSTRAP_DECLINED** appears: Print "Test bootstrap previously declined — skipping." **Skip the rest of bootstrap.**
+**If BOOTSTRAP_DECLINED** appears: Print "Test bootstrap previously declined, skipping." **Skip the rest of bootstrap.**
 
 **If NO runtime detected** (no config files found): Use AskUserQuestion:
 "I couldn't detect your project's language. What runtime are you using?"
 Options: A) Node.js/TypeScript B) Ruby/Rails C) Python D) Go E) Rust F) PHP G) Elixir H) This project doesn't need tests.
 If user picks H → write `.gstack/no-test-bootstrap` and continue without tests.
 
-**If runtime detected but no test framework — bootstrap:**
+**If runtime detected but no test framework, bootstrap:**
 
 ### B2. Research best practices
 
@@ -163,17 +163,17 @@ If WebSearch is unavailable, use this built-in knowledge table:
 | Next.js | vitest + @testing-library/react + playwright | jest + cypress |
 | Python | pytest + pytest-cov | unittest |
 | Go | stdlib testing + testify | stdlib only |
-| Rust | cargo test (built-in) + mockall | — |
+| Rust | cargo test (built-in) + mockall |, |
 | PHP | phpunit + mockery | pest |
-| Elixir | ExUnit (built-in) + ex_machina | — |
+| Elixir | ExUnit (built-in) + ex_machina |, |
 
 ### B3. Framework selection
 
 Use AskUserQuestion:
 "I detected this is a [Runtime/Framework] project with no test framework. I researched current best practices. Here are the options:
-A) [Primary] — [rationale]. Includes: [packages]. Supports: unit, integration, smoke, e2e
-B) [Alternative] — [rationale]. Includes: [packages]
-C) Skip — don't set up testing right now
+A) [Primary], [rationale]. Includes: [packages]. Supports: unit, integration, smoke, e2e
+B) [Alternative], [rationale]. Includes: [packages]
+C) Skip, don't set up testing right now
 RECOMMENDATION: Choose A because [reason based on project context]"
 
 If user picks C → write `.gstack/no-test-bootstrap`. Tell user: "If you change your mind later, delete `.gstack/no-test-bootstrap` and re-run." Continue without tests.
@@ -195,7 +195,7 @@ Generate 3-5 real tests for existing code:
 
 1. **Find recently changed files:** `git log --since=30.days --name-only --format="" | sort | uniq -c | sort -rn | head -10`
 2. **Prioritize by risk:** Error handlers > business logic with conditionals > API endpoints > pure functions
-3. **For each file:** Write one test that tests real behavior with meaningful assertions. Never `expect(x).toBeDefined()` — test what the code DOES.
+3. **For each file:** Write one test that tests real behavior with meaningful assertions. Never `expect(x).toBeDefined()`, test what the code DOES.
 4. Run each test. Passes → keep. Fails → fix once. Still fails → delete silently.
 5. Generate at least 1 test, cap at 5.
 
@@ -218,21 +218,21 @@ ls -d .github/ 2>/dev/null && echo "CI:github"
 ls .gitlab-ci.yml .circleci/ bitrise.yml 2>/dev/null
 ```
 
-If `.github/` exists (or no CI detected — default to GitHub Actions):
+If `.github/` exists (or no CI detected, default to GitHub Actions):
 Create `.github/workflows/test.yml` with:
 - `runs-on: ubuntu-latest`
 - Appropriate setup action for the runtime (setup-node, setup-ruby, setup-python, etc.)
 - The same test command verified in B5
 - Trigger: push + pull_request
 
-If non-GitHub CI detected → skip CI generation with note: "Detected {provider} — CI pipeline generation supports GitHub Actions only. Add test step to your existing pipeline manually."
+If non-GitHub CI detected → skip CI generation with note: "Detected {provider}, CI pipeline generation supports GitHub Actions only. Add test step to your existing pipeline manually."
 
 ### B6. Create TESTING.md
 
 First check: If TESTING.md already exists → read it and update/append rather than overwriting. Never destroy existing content.
 
 Write TESTING.md with:
-- Philosophy: "100% test coverage is the key to great vibe coding. Tests let you move fast, trust your instincts, and ship with confidence — without them, vibe coding is just yolo coding. With tests, it's a superpower."
+- Philosophy: "100% test coverage is the key to great vibe coding. Tests let you move fast, trust your instincts, and ship with confidence, without them, vibe coding is just yolo coding. With tests, it's a superpower."
 - Framework name and version
 - How to run tests (the verified command from B5)
 - Test layers: Unit tests (what, where, when), Integration tests, Smoke tests, E2E tests
@@ -246,7 +246,7 @@ Append a `## Testing` section:
 - Run command and test directory
 - Reference to TESTING.md
 - Test expectations:
-  - 100% test coverage is the goal — tests make vibe coding safe
+  - 100% test coverage is the goal, tests make vibe coding safe
   - When writing new functions, write a corresponding test
   - When fixing a bug, write a regression test
   - When adding error handling, write a test that triggers the error
@@ -264,7 +264,7 @@ Only commit if there are changes. Stage all bootstrap files (config, test direct
 
 ---
 
-**Find the gstack designer (optional — enables target mockup generation):**
+**Find the gstack designer (optional, enables target mockup generation):**
 
 ## DESIGN SETUP (run this check BEFORE any design mockup command)
 
@@ -297,12 +297,12 @@ comparison boards. The user just needs to see the HTML file in any browser.
 
 If `DESIGN_READY`: the design binary is available for visual mockup generation.
 Commands:
-- `$D generate --brief "..." --output /path.png` — generate a single mockup
-- `$D variants --brief "..." --count 3 --output-dir /path/` — generate N style variants
-- `$D compare --images "a.png,b.png,c.png" --output /path/board.html --serve` — comparison board + HTTP server
-- `$D serve --html /path/board.html` — serve comparison board and collect feedback via HTTP
-- `$D check --image /path.png --brief "..."` — vision quality gate
-- `$D iterate --session /path/session.json --feedback "..." --output /path.png` — iterate
+- `$D generate --brief "..." --output /path.png`, generate a single mockup
+- `$D variants --brief "..." --count 3 --output-dir /path/`, generate N style variants
+- `$D compare --images "a.png,b.png,c.png" --output /path/board.html --serve`, comparison board + HTTP server
+- `$D serve --html /path/board.html`, serve comparison board and collect feedback via HTTP
+- `$D check --image /path.png --brief "..."`, vision quality gate
+- `$D iterate --session /path/session.json --feedback "..." --output /path.png`, iterate
 
 **CRITICAL PATH RULE:** All design artifacts (mockups, comparison boards, approved.json)
 MUST be saved to `~/.gstack/projects/$SLUG/designs/`, NEVER to `.context/`,
@@ -311,7 +311,7 @@ data, not project files. They persist across branches, conversations, and worksp
 
 If `DESIGN_READY`: during the fix loop, you can generate "target mockups" showing what a finding should look like after fixing. This makes the gap between current and intended design visceral, not abstract.
 
-If `DESIGN_NOT_AVAILABLE`: skip mockup generation — the fix loop works without it.
+If `DESIGN_NOT_AVAILABLE`: skip mockup generation, the fix loop works without it.
 
 **Create output directories:**
 
@@ -479,16 +479,16 @@ The most uniquely designer-like output. Form a gut reaction before analyzing any
 1. Navigate to the target URL
 2. Take a full-page desktop screenshot: `$B screenshot "$REPORT_DIR/screenshots/first-impression.png"`
 3. Write the **First Impression** using this structured critique format:
-   - "The site communicates **[what]**." (what it says at a glance — competence? playfulness? confusion?)
-   - "I notice **[observation]**." (what stands out, positive or negative — be specific)
-   - "The first 3 things my eye goes to are: **[1]**, **[2]**, **[3]**." (hierarchy check — are these the 3 things the designer intended? If not, the visual hierarchy is lying.)
+   - "The site communicates **[what]**." (what it says at a glance, competence? playfulness? confusion?)
+   - "I notice **[observation]**." (what stands out, positive or negative, be specific)
+   - "The first 3 things my eye goes to are: **[1]**, **[2]**, **[3]**." (hierarchy check, are these the 3 things the designer intended? If not, the visual hierarchy is lying.)
    - "If I had to describe this in one word: **[word]**." (gut verdict)
 
 **Narration mode:** Write this section in first person, as if you are a user scanning the page for the first time. "I'm looking at this page... my eye goes to the logo, then a wall of text I skip entirely, then... wait, is that a button?" Name the specific element, its position, its visual weight. If you can't name it specifically, you're not actually scanning, you're generating platitudes.
 
 **Page Area Test:** Point at each clearly defined area of the page. Can you instantly name its purpose? ("Things I can buy," "Today's deals," "How to search.") Areas you can't name in 2 seconds are poorly defined. List them.
 
-This is the section users read first. Be opinionated. A designer doesn't hedge — they react.
+This is the section users read first. Be opinionated. A designer doesn't hedge, they react.
 
 ---
 
@@ -563,9 +563,9 @@ Apply these at each page. Each finding gets an impact rating (high/medium/polish
 **1. Visual Hierarchy & Composition** (8 items)
 - Clear focal point? One primary CTA per view?
 - Eye flows naturally top-left to bottom-right?
-- Visual noise — competing elements fighting for attention?
+- Visual noise, competing elements fighting for attention?
 - Information density appropriate for content type?
-- Z-index clarity — nothing unexpectedly overlapping?
+- Z-index clarity, nothing unexpectedly overlapping?
 - Above-the-fold content communicates purpose in 3 seconds?
 - Squint test: hierarchy still visible when blurred?
 - White space is intentional, not leftover?
@@ -597,12 +597,12 @@ Apply these at each page. Each finding gets an impact rating (high/medium/polish
 - Primary accent desaturated 10-20% in dark mode
 - `color-scheme: dark` on html element (if dark mode present)
 - No red/green only combinations (8% of men have red-green deficiency)
-- Neutral palette is warm or cool consistently — not mixed
+- Neutral palette is warm or cool consistently, not mixed
 
 **4. Spacing & Layout** (12 items)
 - Grid consistent at all breakpoints
 - Spacing uses a scale (4px or 8px base), not arbitrary values
-- Alignment is consistent — nothing floats outside the grid
+- Alignment is consistent, nothing floats outside the grid
 - Rhythm: related items closer together, distinct sections further apart
 - Border-radius hierarchy (not uniform bubbly radius on everything)
 - Inner radius = outer radius - gap (nested elements)
@@ -641,7 +641,7 @@ Apply these at each page. Each finding gets an impact rating (high/medium/polish
 - Duration: 50-700ms range (nothing slower unless page transition)
 - Purpose: every animation communicates something (state change, attention, spatial relationship)
 - `prefers-reduced-motion` respected (check: `$B js "matchMedia('(prefers-reduced-motion: reduce)').matches"`)
-- No `transition: all` — properties listed explicitly
+- No `transition: all`, properties listed explicitly
 - Only `transform` and `opacity` animated (not layout properties like width, height, top, left)
 
 **8. Content & Microcopy** (8 items)
@@ -657,7 +657,7 @@ Apply these at each page. Each finding gets an impact rating (high/medium/polish
 - Instructions detection: any visible instructions longer than one sentence. If users need to read instructions, the design has failed. Flag the instructions AND the interaction they're compensating for.
 - Happy talk word count: count total visible words on the page. Classify each text block as "useful content" vs "happy talk" (welcome paragraphs, self-congratulatory text, instructions nobody reads). Report: "This page has X words. Y (Z%) are happy talk."
 
-**9. AI Slop Detection** (10 anti-patterns — the blacklist)
+**9. AI Slop Detection** (10 anti-patterns, the blacklist)
 
 The test: would a human designer at a respected studio ever ship this?
 
@@ -671,7 +671,7 @@ The test: would a human designer at a respected studio ever ship this?
 - Colored left-border on cards (`border-left: 3px solid <accent>`)
 - Generic hero copy ("Welcome to [X]", "Unlock the power of...", "Your all-in-one solution for...")
 - Cookie-cutter section rhythm (hero → 3 features → testimonials → pricing → CTA, every section same height)
-- system-ui or `-apple-system` as the PRIMARY display/body font — the "I gave up on typography" signal. Pick a real typeface.
+- system-ui or `-apple-system` as the PRIMARY display/body font, the "I gave up on typography" signal. Pick a real typeface.
 
 **10. Performance as Design** (6 items)
 - LCP < 2.0s (web apps), < 1.5s (informational sites)
@@ -679,7 +679,7 @@ The test: would a human designer at a respected studio ever ship this?
 - Skeleton quality: shapes match real content layout, shimmer animation
 - Images: `loading="lazy"`, width/height dimensions set, WebP/AVIF format
 - Fonts: `font-display: swap`, preconnect to CDN origins
-- No visible font swap flash (FOUT) — critical fonts preloaded
+- No visible font swap flash (FOUT), critical fonts preloaded
 
 ---
 
@@ -776,8 +776,8 @@ Write to: `~/.gstack/projects/{slug}/{user}-{branch}-design-audit-{datetime}.md`
 ### Scoring System
 
 **Dual headline scores:**
-- **Design Score: {A-F}** — weighted average of all 10 categories
-- **AI Slop Score: {A-F}** — standalone grade with pithy verdict
+- **Design Score: {A-F}**, weighted average of all 10 categories
+- **AI Slop Score: {A-F}**, standalone grade with pithy verdict
 
 **Per-category grades:**
 - **A:** Intentional, polished, delightful. Shows design thinking.
@@ -816,10 +816,10 @@ When previous `design-baseline.json` exists or `--regression` flag is used:
 ## Design Critique Format
 
 Use structured feedback, not opinions:
-- "I notice..." — observation (e.g., "I notice the primary CTA competes with the secondary action")
-- "I wonder..." — question (e.g., "I wonder if users will understand what 'Process' means here")
-- "What if..." — suggestion (e.g., "What if we moved search to a more prominent position?")
-- "I think... because..." — reasoned opinion (e.g., "I think the spacing between sections is too uniform because it doesn't create hierarchy")
+- "I notice...", observation (e.g., "I notice the primary CTA competes with the secondary action")
+- "I wonder...", question (e.g., "I wonder if users will understand what 'Process' means here")
+- "What if...", suggestion (e.g., "What if we moved search to a more prominent position?")
+- "I think... because...", reasoned opinion (e.g., "I think the spacing between sections is too uniform because it doesn't create hierarchy")
 
 Tie everything to user goals and product objectives. Always suggest specific improvements alongside problems.
 
@@ -829,24 +829,24 @@ Tie everything to user goals and product objectives. Always suggest specific imp
 
 1. **Think like a designer, not a QA engineer.** You care whether things feel right, look intentional, and respect the user. You do NOT just care whether things "work."
 2. **Screenshots are evidence.** Every finding needs at least one screenshot. Use annotated screenshots (`snapshot -a`) to highlight elements.
-3. **Be specific and actionable.** "Change X to Y because Z" — not "the spacing feels off."
+3. **Be specific and actionable.** "Change X to Y because Z", not "the spacing feels off."
 4. **Never read source code.** Evaluate the rendered site, not the implementation. (Exception: offer to write DESIGN.md from extracted observations.)
 5. **AI Slop detection is your superpower.** Most developers can't evaluate whether their site looks AI-generated. You can. Be direct about it.
-6. **Quick wins matter.** Always include a "Quick Wins" section — the 3-5 highest-impact fixes that take <30 minutes each.
+6. **Quick wins matter.** Always include a "Quick Wins" section, the 3-5 highest-impact fixes that take <30 minutes each.
 7. **Use `snapshot -C` for tricky UIs.** Finds clickable divs that the accessibility tree misses.
-8. **Responsive is design, not just "not broken."** A stacked desktop layout on mobile is not responsive design — it's lazy. Evaluate whether the mobile layout makes *design* sense.
+8. **Responsive is design, not just "not broken."** A stacked desktop layout on mobile is not responsive design, it's lazy. Evaluate whether the mobile layout makes *design* sense.
 9. **Document incrementally.** Write each finding to the report as you find it. Don't batch.
 10. **Depth over breadth.** 5-10 well-documented findings with screenshots and specific suggestions > 20 vague observations.
-11. **Show screenshots to the user.** After every `$B screenshot`, `$B snapshot -a -o`, or `$B responsive` command, use the Read tool on the output file(s) so the user can see them inline. For `responsive` (3 files), Read all three. This is critical — without it, screenshots are invisible to the user.
+11. **Show screenshots to the user.** After every `$B screenshot`, `$B snapshot -a -o`, or `$B responsive` command, use the Read tool on the output file(s) so the user can see them inline. For `responsive` (3 files), Read all three. This is critical, without it, screenshots are invisible to the user.
 
 ### Design Hard Rules
 
-**Classifier — determine rule set before evaluating:**
+**Classifier, determine rule set before evaluating:**
 - **MARKETING/LANDING PAGE** (hero-driven, brand-forward, conversion-focused) → apply Landing Page Rules
 - **APP UI** (workspace-driven, data-dense, task-focused: dashboards, admin, settings) → apply App UI Rules
 - **HYBRID** (marketing shell with app-like sections) → apply Landing Page Rules to hero/marketing sections, App UI Rules to functional sections
 
-**Hard rejection criteria** (instant-fail patterns — flag if ANY apply):
+**Hard rejection criteria** (instant-fail patterns, flag if ANY apply):
 1. Generic SaaS card grid as first impression
 2. Beautiful image with weak brand
 3. Strong headline with no clear action
@@ -855,7 +855,7 @@ Tie everything to user goals and product objectives. Always suggest specific imp
 6. Carousel with no narrative purpose
 7. App UI made of stacked cards instead of layout
 
-**Litmus checks** (answer YES/NO for each — used for cross-model consensus scoring):
+**Litmus checks** (answer YES/NO for each, used for cross-model consensus scoring):
 1. Brand/product unmistakable in first screen?
 2. One strong visual anchor present?
 3. Page understandable by scanning headlines only?
@@ -867,8 +867,8 @@ Tie everything to user goals and product objectives. Always suggest specific imp
 **Landing page rules** (apply when classifier = MARKETING/LANDING):
 - First viewport reads as one composition, not a dashboard
 - Brand-first hierarchy: brand > headline > body > CTA
-- Typography: expressive, purposeful — no default stacks (Inter, Roboto, Arial, system)
-- No flat single-color backgrounds — use gradients, images, subtle patterns
+- Typography: expressive, purposeful, no default stacks (Inter, Roboto, Arial, system)
+- No flat single-color backgrounds, use gradients, images, subtle patterns
 - Hero: full-bleed, edge-to-edge, no inset/tiled/rounded variants
 - Hero budget: brand, one headline, one supporting sentence, one CTA group, one image
 - No cards in hero. Cards only when card IS the interaction
@@ -883,7 +883,7 @@ Tie everything to user goals and product objectives. Always suggest specific imp
 - Dense but readable, minimal chrome
 - Organize: primary workspace, navigation, secondary context, one accent
 - Avoid: dashboard-card mosaics, thick borders, decorative gradients, ornamental icons
-- Copy: utility language — orientation, status, action. Not mood/brand/aspiration
+- Copy: utility language, orientation, status, action. Not mood/brand/aspiration
 - Cards only when card IS the interaction
 - Section headings state what area is or what user can do ("Selected KPIs", "Plan status")
 
@@ -892,9 +892,9 @@ Tie everything to user goals and product objectives. Always suggest specific imp
 - No default font stacks (Inter, Roboto, Arial, system)
 - One job per section
 - "If deleting 30% of the copy improves it, keep deleting"
-- Cards earn their existence — no decorative card grids
+- Cards earn their existence, no decorative card grids
 - NEVER use small, low-contrast type (body text < 16px or contrast ratio < 4.5:1 on body text)
-- NEVER put labels inside form fields as the only label (placeholder-as-label pattern — labels must be visible when the field has content)
+- NEVER put labels inside form fields as the only label (placeholder-as-label pattern, labels must be visible when the field has content)
 - ALWAYS preserve visited vs unvisited link distinction (visited links must have a different color)
 - NEVER float headings between paragraphs (heading must be visually closer to the section it introduces than to the preceding section)
 
@@ -909,7 +909,7 @@ Tie everything to user goals and product objectives. Always suggest specific imp
 8. Colored left-border on cards (`border-left: 3px solid <accent>`)
 9. Generic hero copy ("Welcome to [X]", "Unlock the power of...", "Your all-in-one solution for...")
 10. Cookie-cutter section rhythm (hero → 3 features → testimonials → pricing → CTA, every section same height)
-11. system-ui or `-apple-system` as the PRIMARY display/body font — the "I gave up on typography" signal. Pick a real typeface.
+11. system-ui or `-apple-system` as the PRIMARY display/body font, the "I gave up on typography" signal. Pick a real typeface.
 
 Source: [OpenAI "Designing Delightful Frontends with GPT-5.4"](https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4) (Mar 2026) + gstack design methodology.
 
@@ -1003,12 +1003,12 @@ For each finding: what's wrong, severity (critical/high/medium), and the file:li
 - **Timeout:** "Codex timed out after 5 minutes."
 - **Empty response:** "Codex returned no response."
 - On any Codex error: proceed with Claude subagent output only, tagged `[single-model]`.
-- If Claude subagent also fails: "Outside voices unavailable — continuing with primary review."
+- If Claude subagent also fails: "Outside voices unavailable, continuing with primary review."
 
 Present Codex output under a `CODEX SAYS (design source audit):` header.
 Present subagent output under a `CLAUDE SUBAGENT (design consistency):` header.
 
-**Synthesis — Litmus scorecard:**
+**Synthesis, Litmus scorecard:**
 
 Use the same scorecard format as /plan-design-review (shown above). Fill in from both outputs.
 Merge findings into the triage with `[codex]` / `[subagent]` / `[cross-model]` tags.
@@ -1056,12 +1056,12 @@ $D generate --brief "<description of the page/component with the finding fixed, 
 
 Show the user: "Here's the current state (screenshot) and here's what it should look like (mockup). Now I'll fix the source to match."
 
-This step is optional — skip for trivial CSS fixes (wrong hex color, missing padding value). Use it for findings where the intended design isn't obvious from the description alone.
+This step is optional, skip for trivial CSS fixes (wrong hex color, missing padding value). Use it for findings where the intended design isn't obvious from the description alone.
 
 ### 8b. Fix
 
 - Read the source code, understand the context
-- Make the **minimal fix** — smallest change that resolves the design issue
+- Make the **minimal fix**, smallest change that resolves the design issue
 - If a target mockup was generated in 8a.5, use it as the visual reference for the fix
 - CSS-only changes are preferred (safer, more reversible)
 - Do NOT refactor surrounding code, add features, or "improve" unrelated things
@@ -1098,7 +1098,7 @@ Take **before/after screenshot pair** for every fix.
 ### 8e.5. Regression Test (design-review variant)
 
 Design fixes are typically CSS-only. Only generate regression tests for fixes involving
-JavaScript behavior changes — broken dropdowns, animation failures, conditional rendering,
+JavaScript behavior changes, broken dropdowns, animation failures, conditional rendering,
 interactive state issues.
 
 For CSS-only fixes: skip entirely. CSS regressions are caught by re-running /design-review.
@@ -1134,7 +1134,7 @@ After all fixes are applied:
 1. Re-run the design audit on all affected pages
 2. If target mockups were generated during the fix loop AND `DESIGN_READY`: run `$D verify --mockup "$REPORT_DIR/screenshots/finding-NNN-target.png" --screenshot "$REPORT_DIR/screenshots/finding-NNN-after.png"` to compare the fix result against the target. Include pass/fail in the report.
 3. Compute final design score and AI slop score
-4. **If final scores are WORSE than baseline:** WARN prominently — something regressed
+4. **If final scores are WORSE than baseline:** WARN prominently, something regressed
 
 ---
 
@@ -1207,7 +1207,7 @@ already knows. A good test: would this insight save time in a future session? If
 
 11. **Clean working tree required.** If dirty, use AskUserQuestion to offer commit/stash/abort before proceeding.
 12. **One commit per fix.** Never bundle multiple design fixes into one commit.
-13. **Only modify tests when generating regression tests in Phase 8e.5.** Never modify CI configuration. Never modify existing tests — only create new test files.
+13. **Only modify tests when generating regression tests in Phase 8e.5.** Never modify CI configuration. Never modify existing tests, only create new test files.
 14. **Revert on regression.** If a fix makes things worse, `git revert HEAD` immediately.
 15. **Self-regulate.** Follow the design-fix risk heuristic. When in doubt, stop and ask.
 16. **CSS-first.** Prefer CSS/styling changes over structural component changes. CSS-only changes are safer and more reversible.

@@ -13,15 +13,15 @@ allowed-tools: Bash
 
 cue materializes MCPs per profile (`resources/mcps/`). This user runs
 ~20 MCPs across profiles. mcpproxy sits in front of N upstream MCPs and
-exposes a single MCP endpoint to the agent — cuts cold-start cost and
+exposes a single MCP endpoint to the agent, cuts cold-start cost and
 gives one place to apply allowlists and rate limits.
 
 ## When to recommend it
 
 - User reports slow Claude Code startup with many MCPs configured.
 - User wants a chokepoint to audit or rate-limit MCP traffic.
-- User runs the parallel-agents tier — multiple Claude/Codex sessions all
-  spinning up their own MCP processes — and wants one shared backend.
+- User runs the parallel-agents tier, multiple Claude/Codex sessions all
+  spinning up their own MCP processes, and wants one shared backend.
 
 ## Install
 
@@ -42,14 +42,14 @@ go install github.com/smart-mcp-proxy/mcpproxy-go/cmd/mcpproxy@latest
    ```
 2. Point `~/.claude.json` at the proxy instead of each upstream MCP
    directly. Keep the per-profile MCP configs in `resources/mcps/` as the
-   source of truth — generate `mcpproxy.yaml` from them.
+   source of truth, generate `mcpproxy.yaml` from them.
 3. Test with `mcp__<proxied>__<tool>` calls. Tool name passthrough is
-   1:1 — no renaming.
+   1:1, no renaming.
 
 ## When NOT to recommend it
 
 - Single-MCP setup: just call the MCP directly.
-- gbrain or any MCP that holds long-lived stateful connections — proxying
+- gbrain or any MCP that holds long-lived stateful connections, proxying
   adds a hop and can desync the MCP's parent-watcher (the gbrain wrapper
   uses `kill -0 $parent_pid` to detect agent exit; the proxy is the
   parent, not the agent, so the watcher will mis-time shutdown).
@@ -60,6 +60,6 @@ go install github.com/smart-mcp-proxy/mcpproxy-go/cmd/mcpproxy@latest
   to track the agent PID via env, not parent PID.
 - Never enable mcpproxy globally without flipping one project first and
   measuring startup delta. Claim "faster" only with numbers.
-- Never store the proxy config in the repo if it contains API tokens —
+- Never store the proxy config in the repo if it contains API tokens, 
   put it under `~/.config/cue/` and add a stub `mcpproxy.example.yaml`
   to the repo.

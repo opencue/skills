@@ -9,43 +9,43 @@ acceptLicenseTerms: true
 
 # Brand Kit
 
-**Generate a cohesive brand visual kit — logo concept, color palette moodboard, and typography pairing suggestions.**
+**Generate a cohesive brand visual kit, logo concept, color palette moodboard, and typography pairing suggestions.**
 
 ## Inputs
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `brand_name` | text | yes | — | Name of the brand. |
-| `industry` | text | yes | — | Industry or niche (e.g. "sustainable fashion", "fintech startup", "artisan bakery"). |
+| `brand_name` | text | yes |, | Name of the brand. |
+| `industry` | text | yes |, | Industry or niche (e.g. "sustainable fashion", "fintech startup", "artisan bakery"). |
 | `personality` | text | no | modern, trustworthy, approachable | 3–5 brand personality adjectives (e.g. "bold, edgy, youthful" or "elegant, minimal, luxury"). |
-| `color_preference` | text | no | — | Optional color direction (e.g. "earthy greens and terracotta", "monochrome with gold accents"). |
+| `color_preference` | text | no |, | Optional color direction (e.g. "earthy greens and terracotta", "monochrome with gold accents"). |
 
 
 ## Steps
 
 Generate a multi-asset brand exploration in one parallel plan.
 
-### Phase A — Visual exploration (parallel)
+### Phase A, Visual exploration (parallel)
 
 Submit ONE the plan with:
 
-1. **Logo concept A** — `muapi image generate` (model=gpt-image-2-text-to-image, aspect_ratio=1:1):
+1. **Logo concept A**, `muapi image generate` (model=gpt-image-2-text-to-image, aspect_ratio=1:1):
    - Style: minimalist wordmark or lettermark on white background, flat design.
    - Prompt: "Minimalist logo for '{{brand_name}}', {{industry}} brand, {{personality}} personality. Clean vector-style, white background, professional. {{color_preference}}".
 
-2. **Logo concept B** — `muapi image generate` (model=nano-banana-2, aspect_ratio=1:1):
+2. **Logo concept B**, `muapi image generate` (model=nano-banana-2, aspect_ratio=1:1):
    - Style: icon + wordmark combination.
    - Prompt: "Modern logo mark + wordmark for '{{brand_name}}', {{industry}}, {{personality}}. Bold, distinctive, scalable icon design, white background. {{color_preference}}".
 
-3. **Moodboard / Color palette** — `muapi image generate` (model=nano-banana-pro, aspect_ratio=16:9):
+3. **Moodboard / Color palette**, `muapi image generate` (model=nano-banana-pro, aspect_ratio=16:9):
    - A flat design moodboard showing: 5 brand colors (as swatches with hex-like labels), lifestyle photography inspo tiles, texture samples.
    - Prompt: "Brand moodboard for a {{personality}} {{industry}} brand called '{{brand_name}}'. Show 5 color palette swatches, 4 lifestyle photo tiles, typography samples. Flat lay design, white background. {{color_preference}}".
 
-4. **Pattern / texture asset** — `muapi image generate` (model=nano-banana-2, aspect_ratio=1:1):
+4. **Pattern / texture asset**, `muapi image generate` (model=nano-banana-2, aspect_ratio=1:1):
    - A seamless brand pattern or texture for use in backgrounds, packaging, stationery.
    - Prompt: "Seamless brand pattern for {{brand_name}}, {{industry}}, {{personality}} aesthetic. Subtle, tileable, modern. {{color_preference}}".
 
-### Phase B — Deliverables summary
+### Phase B, Deliverables summary
 
 After the plan completes, return:
 - Asset references (logo A, logo B, moodboard, pattern).

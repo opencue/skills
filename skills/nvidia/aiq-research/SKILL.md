@@ -5,6 +5,7 @@ category: nvidia
 version: 2.0.0
 requires_mcps: []
 allowed-tools: Bash(python3:*)
+name: ai-q-deep-research
 ---
 
 # AI-Q Deep Research

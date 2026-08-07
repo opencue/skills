@@ -7,22 +7,27 @@ allowed-tools: Bash(curl:*)
 
 # Create Medusa Admin User via API
 
+## Prerequisites
+
+- `curl`, install via your package manager
+
+
 Medusa v2 does **not** expose `POST /admin/users`. Admin creation goes through
 invites. Pick the flow based on whether the backend already has an admin.
 
 Inputs from the user:
-- `backend-url` — e.g. `https://admin.compastor.hu` (no trailing slash)
-- `email` — new admin email (must be a valid email; Medusa rejects bare usernames)
-- `password` — new admin password
-- Optional: `existing-admin-email` + `existing-admin-password` — required for Flow A
+- `backend-url`, e.g. `https://admin.compastor.hu` (no trailing slash)
+- `email`, new admin email (must be a valid email; Medusa rejects bare usernames)
+- `password`, new admin password
+- Optional: `existing-admin-email` + `existing-admin-password`, required for Flow A
 
 Before doing anything, ask the user to confirm: *does an admin user already
 exist on this backend?* If they don't know, try logging in with their best
-guess (Flow A, step 1) — a 401 means no usable existing admin.
+guess (Flow A, step 1), a 401 means no usable existing admin.
 
 ---
 
-## Flow A — Invite-accept (additional admin, existing admin known)
+## Flow A, Invite-accept (additional admin, existing admin known)
 
 1. **Login as the existing admin** to get a session JWT:
    ```bash
@@ -31,7 +36,7 @@ guess (Flow A, step 1) — a 401 means no usable existing admin.
      -d "{\"email\":\"$EXISTING_EMAIL\",\"password\":\"$EXISTING_PASS\"}"
    ```
    Response: `{"token":"<ADMIN_JWT>"}`. If 401, the existing admin creds are
-   wrong — fall back to Flow B.
+   wrong, fall back to Flow B.
 
 2. **Mint an invite** for the new email:
    ```bash
@@ -40,7 +45,7 @@ guess (Flow A, step 1) — a 401 means no usable existing admin.
      -H 'Content-Type: application/json' \
      -d "{\"email\":\"$NEW_EMAIL\"}"
    ```
-   Response includes `invite.token` — that's `$INVITE_TOKEN`.
+   Response includes `invite.token`, that's `$INVITE_TOKEN`.
 
 3. **Register the auth identity** for the new email/password (this creates the
    identity but no user yet):
@@ -64,12 +69,12 @@ guess (Flow A, step 1) — a 401 means no usable existing admin.
 5. **Verify** by logging in as the new admin (same call as step 1, with new creds).
 
 If step 4 returns "user is already authenticated and cannot accept an invite",
-the JWT has a non-empty `actor_id` — register a fresh identity with a different
+the JWT has a non-empty `actor_id`, register a fresh identity with a different
 email or use Flow B.
 
 ---
 
-## Flow B — CLI bootstrap (first admin, no existing admin)
+## Flow B, CLI bootstrap (first admin, no existing admin)
 
 There is no API path for the first admin. You must run the Medusa CLI inside
 the running backend, either locally (if `DATABASE_URL` reaches the live DB) or
@@ -102,11 +107,11 @@ chars when logging.
 - The `email` MUST be RFC-valid; bare strings like `compastor-admin` are
   rejected.
 - The auth identity created in Flow A step 3 cannot be retried with the same
-  email — if step 4 fails after step 3, the identity is stuck. Pick a new email
+  email, if step 4 fails after step 3, the identity is stuck. Pick a new email
   or have the user clean up via DB.
 - `admin.compastor.hu` and similar Coolify deployments may have TWO
   `DATABASE_URL` env vars; the active one is what the running container sees.
   Verify with the diagnose tool before assuming a local CLI run hits the right
   DB.
 - Medusa v2 stores admin sessions as cookies for the dashboard but accepts
-  bearer JWTs for API calls — these are interchangeable for this skill.
+  bearer JWTs for API calls, these are interchangeable for this skill.

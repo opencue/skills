@@ -40,12 +40,12 @@ Determine which branch this PR/MR targets, or the repo's default branch if no
 PR/MR exists. Use the result as "the base branch" in all subsequent steps.
 
 **If GitHub:**
-1. `gh pr view --json baseRefName -q .baseRefName` — if succeeds, use it
-2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name` — if succeeds, use it
+1. `gh pr view --json baseRefName -q .baseRefName`, if succeeds, use it
+2. `gh repo view --json defaultBranchRef -q .defaultBranchRef.name`, if succeeds, use it
 
 **If GitLab:**
-1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field — if succeeds, use it
-2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field — if succeeds, use it
+1. `glab mr view -F json 2>/dev/null` and extract the `target_branch` field, if succeeds, use it
+2. `glab repo view -F json 2>/dev/null` and extract the `default_branch` field, if succeeds, use it
 
 **Git-native fallback (if unknown platform, or CLI commands fail):**
 1. `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||'`
@@ -64,7 +64,7 @@ branch name wherever the instructions say "the base branch" or `<default>`.
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager
 
 
 You are running the `/review` workflow. Analyze the current branch's diff against the base branch for structural issues that tests don't catch.
@@ -74,19 +74,19 @@ You are running the `/review` workflow. Analyze the current branch's diff agains
 ## Step 1: Check branch
 
 1. Run `git branch --show-current` to get the current branch.
-2. If on the base branch, output: **"Nothing to review — you're on the base branch or have no changes against it."** and stop.
+2. If on the base branch, output: **"Nothing to review, you're on the base branch or have no changes against it."** and stop.
 3. Run `git fetch origin <base> --quiet && DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff "$DIFF_BASE" --stat` to check if there's a diff. If no diff, output the same message and stop.
 
 ---
 
 ## Step 1.5: Scope Drift Detection
 
-Before reviewing code quality, check: **did they build what was requested — nothing more, nothing less?**
+Before reviewing code quality, check: **did they build what was requested, nothing more, nothing less?**
 
 1. Read `TODOS.md` (if it exists). Read PR description (`gh pr view --json body --jq .body 2>/dev/null || true`).
    Read commit messages (`git log origin/<base>..HEAD --oneline`).
-   **If no PR exists:** rely on commit messages and TODOS.md for stated intent — this is the common case since /review runs before /ship creates the PR.
-2. Identify the **stated intent** — what was this branch supposed to accomplish?
+   **If no PR exists:** rely on commit messages and TODOS.md for stated intent, this is the common case since /review runs before /ship creates the PR.
+2. Identify the **stated intent**, what was this branch supposed to accomplish?
 3. Run `DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff "$DIFF_BASE" --stat` and compare the files changed against the stated intent.
 
 4. Evaluate with skepticism (incorporating plan completion results if available from an earlier step or adjacent section):
@@ -110,13 +110,13 @@ Before reviewing code quality, check: **did they build what was requested — no
    [If missing: list each unaddressed requirement]
    \`\`\`
 
-6. This is **INFORMATIONAL** — does not block the review. Proceed to the next step.
+6. This is **INFORMATIONAL**, does not block the review. Proceed to the next step.
 
 ---
 
 ### Plan File Discovery
 
-1. **Conversation context (primary):** Check if there is an active plan file in this conversation. The host agent's system messages include plan file paths when in plan mode. If found, use it directly — this is the most reliable signal.
+1. **Conversation context (primary):** Check if there is an active plan file in this conversation. The host agent's system messages include plan file paths when in plan mode. If found, use it directly, this is the most reliable signal.
 
 2. **Content-based search (fallback):** If no plan file is referenced in conversation context, search by content:
 
@@ -141,12 +141,12 @@ done
 3. **Validation:** If a plan file was found via content-based search (not conversation context), read the first 20 lines and verify it is relevant to the current branch's work. If it appears to be from a different project or feature, treat as "no plan file found."
 
 **Error handling:**
-- No plan file found → skip with "No plan file detected — skipping."
-- Plan file found but unreadable (permissions, encoding) → skip with "Plan file found but unreadable — skipping."
+- No plan file found → skip with "No plan file detected, skipping."
+- Plan file found but unreadable (permissions, encoding) → skip with "Plan file found but unreadable, skipping."
 
 ### Actionable Item Extraction
 
-Read the plan file. Extract every actionable item — anything that describes work to be done. Look for:
+Read the plan file. Extract every actionable item, anything that describes work to be done. Look for:
 
 - **Checkbox items:** `- [ ] ...` or `- [x] ...`
 - **Numbered steps** under implementation headings: "1. Create ...", "2. Add ...", "3. Modify ..."
@@ -162,9 +162,9 @@ Read the plan file. Extract every actionable item — anything that describes wo
 - Explicitly deferred items ("Future:", "Out of scope:", "NOT in scope:", "P2:", "P3:", "P4:")
 - CEO Review Decisions sections (these record choices, not work items)
 
-**Cap:** Extract at most 50 items. If the plan has more, note: "Showing top 50 of N plan items — full list in plan file."
+**Cap:** Extract at most 50 items. If the plan has more, note: "Showing top 50 of N plan items, full list in plan file."
 
-**No items found:** If the plan contains no extractable actionable items, skip with: "Plan file contains no actionable items — skipping completion audit."
+**No items found:** If the plan contains no extractable actionable items, skip with: "Plan file contains no actionable items, skipping completion audit."
 
 For each item, note:
 - The item text (verbatim or concise summary)
@@ -174,10 +174,10 @@ For each item, note:
 
 Before judging completion, classify HOW each item can be verified. The diff alone cannot prove every kind of work. Items outside the current repo or system are structurally invisible to `git diff`.
 
-- **DIFF-VERIFIABLE** — A code change in this repo would manifest in `git diff <base>...HEAD`. Examples: "add UserService" (file appears), "validate input X" (validation logic appears), "create users table" (migration file appears).
-- **CROSS-REPO** — Item names a file or change in a sibling repo (e.g., `domain-hq/docs/dashboard.md`, `~/Development/<other-repo>/...`). The current diff CANNOT prove this.
-- **EXTERNAL-STATE** — Item names state in an external system: Supabase config/RLS, Cloudflare DNS, Vercel env vars, OAuth provider allowlists, third-party SaaS, DNS records. The current diff CANNOT prove this.
-- **CONTENT-SHAPE** — Item requires a file to follow a specific convention. If the file is in this repo: diff-verifiable. If in another repo or system: see CROSS-REPO / EXTERNAL-STATE.
+- **DIFF-VERIFIABLE**, A code change in this repo would manifest in `git diff <base>...HEAD`. Examples: "add UserService" (file appears), "validate input X" (validation logic appears), "create users table" (migration file appears).
+- **CROSS-REPO**, Item names a file or change in a sibling repo (e.g., `domain-hq/docs/dashboard.md`, `~/Development/<other-repo>/...`). The current diff CANNOT prove this.
+- **EXTERNAL-STATE**, Item names state in an external system: Supabase config/RLS, Cloudflare DNS, Vercel env vars, OAuth provider allowlists, third-party SaaS, DNS records. The current diff CANNOT prove this.
+- **CONTENT-SHAPE**, Item requires a file to follow a specific convention. If the file is in this repo: diff-verifiable. If in another repo or system: see CROSS-REPO / EXTERNAL-STATE.
 
 **Verification dispatch:**
 
@@ -190,7 +190,7 @@ Before judging completion, classify HOW each item can be verified. The diff alon
 
 **Validator detection.** Before falling back to UNVERIFIABLE on a CONTENT-SHAPE item, scan the target repo's `package.json` for any script matching `validate-*`, `lint-wiki`, `check-docs`, or similar. If found, invoke it with the relevant path argument (e.g., `npm run validate-wiki -- <path>`). For multi-target validators (e.g., `validate-wiki --all`), run once and reconcile per-item from the output. A passing validator promotes the item from UNVERIFIABLE to DONE; a failing one demotes to NOT DONE.
 
-**Honesty rule.** Do NOT classify an item as DONE just because related code shipped. Code that *handles* a deliverable is not the deliverable. Shipping a markdown-extraction library is not the same as shipping the markdown file. When in doubt between DONE and UNVERIFIABLE, prefer UNVERIFIABLE — better to surface a confirmation prompt than silently miss a deliverable.
+**Honesty rule.** Do NOT classify an item as DONE just because related code shipped. Code that *handles* a deliverable is not the deliverable. Shipping a markdown-extraction library is not the same as shipping the markdown file. When in doubt between DONE and UNVERIFIABLE, prefer UNVERIFIABLE, better to surface a confirmation prompt than silently miss a deliverable.
 
 ### Cross-Reference Against Diff
 
@@ -198,15 +198,15 @@ Run `git diff origin/<base>...HEAD` and `git log origin/<base>..HEAD --oneline` 
 
 For each extracted plan item, run the verification dispatch from the previous section, then classify:
 
-- **DONE** — Clear evidence the item shipped. Cite the specific file(s) changed in the diff for DIFF-VERIFIABLE items, or the verified path that exists for CROSS-REPO items with a reachable sibling repo.
-- **PARTIAL** — Some work toward this item exists but is incomplete (e.g., model created but controller missing, function exists but edge cases not handled).
-- **NOT DONE** — Verification ran and produced negative evidence (file missing, code absent in diff, sibling-repo file confirmed absent).
-- **CHANGED** — The item was implemented using a different approach than the plan described, but the same goal is achieved. Note the difference.
-- **UNVERIFIABLE** — The diff and any reachable sibling-repo checks cannot prove or disprove this. Always applies to EXTERNAL-STATE items and to CROSS-REPO items where the sibling repo isn't reachable. Cite the specific manual verification the user must perform (e.g., "check Cloudflare DNS shows DNS-only mode for dashboard.example.com", "confirm /docs/dashboard.md exists in domain-hq repo").
+- **DONE**, Clear evidence the item shipped. Cite the specific file(s) changed in the diff for DIFF-VERIFIABLE items, or the verified path that exists for CROSS-REPO items with a reachable sibling repo.
+- **PARTIAL**, Some work toward this item exists but is incomplete (e.g., model created but controller missing, function exists but edge cases not handled).
+- **NOT DONE**, Verification ran and produced negative evidence (file missing, code absent in diff, sibling-repo file confirmed absent).
+- **CHANGED**, The item was implemented using a different approach than the plan described, but the same goal is achieved. Note the difference.
+- **UNVERIFIABLE**, The diff and any reachable sibling-repo checks cannot prove or disprove this. Always applies to EXTERNAL-STATE items and to CROSS-REPO items where the sibling repo isn't reachable. Cite the specific manual verification the user must perform (e.g., "check Cloudflare DNS shows DNS-only mode for dashboard.example.com", "confirm /docs/dashboard.md exists in domain-hq repo").
 
-**Be conservative with DONE** — require clear evidence. A file being touched is not enough; the specific functionality described must be present.
-**Be generous with CHANGED** — if the goal is met by different means, that counts as addressed.
-**Be honest with UNVERIFIABLE** — better to surface 5 items the user must manually confirm than silently classify them DONE.
+**Be conservative with DONE**, require clear evidence. A file being touched is not enough; the specific functionality described must be present.
+**Be generous with CHANGED**, if the goal is met by different means, that counts as addressed.
+**Be honest with UNVERIFIABLE**, better to surface 5 items the user must manually confirm than silently classify them DONE.
 
 ### Output Format
 
@@ -258,11 +258,11 @@ For each PARTIAL or NOT DONE item, investigate WHY:
 1. Check `git log origin/<base>..HEAD --oneline` for commits that suggest the work was started, attempted, or reverted
 2. Read the relevant code to understand what was built instead
 3. Determine the likely reason from this list:
-   - **Scope cut** — evidence of intentional removal (revert commit, removed TODO)
-   - **Context exhaustion** — work started but stopped mid-way (partial implementation, no follow-up commits)
-   - **Misunderstood requirement** — something was built but it doesn't match what the plan described
-   - **Blocked by dependency** — plan item depends on something that isn't available
-   - **Genuinely forgotten** — no evidence of any attempt
+   - **Scope cut**, evidence of intentional removal (revert commit, removed TODO)
+   - **Context exhaustion**, work started but stopped mid-way (partial implementation, no follow-up commits)
+   - **Misunderstood requirement**, something was built but it doesn't match what the plan described
+   - **Blocked by dependency**, plan item depends on something that isn't available
+   - **Genuinely forgotten**, no evidence of any attempt
 
 Output for each discrepancy:
 ```
@@ -314,7 +314,7 @@ Plan items: N DONE, M PARTIAL, K NOT DONE
 [If scope creep: list each out-of-scope change not in the plan]
 ```
 
-**No plan file found:** Use commit messages and TODOS.md as fallback sources (see above). If no intent sources at all, skip with: "No intent sources detected — skipping completion audit."
+**No plan file found:** Use commit messages and TODOS.md as fallback sources (see above). If no intent sources at all, skip with: "No intent sources detected, skipping completion audit."
 
 ## Step 2: Read the checklist
 
@@ -328,9 +328,9 @@ Read `.claude/skills/review/checklist.md`.
 
 Read `.claude/skills/review/greptile-triage.md` and follow the fetch, filter, classify, and **escalation detection** steps.
 
-**If no PR exists, `gh` fails, API returns an error, or there are zero Greptile comments:** Skip this step silently. Greptile integration is additive — the review works without it.
+**If no PR exists, `gh` fails, API returns an error, or there are zero Greptile comments:** Skip this step silently. Greptile integration is additive, the review works without it.
 
-**If Greptile comments are found:** Store the classifications (VALID & ACTIONABLE, VALID BUT ALREADY FIXED, FALSE POSITIVE, SUPPRESSED) — you will need them in Step 5.
+**If Greptile comments are found:** Store the classifications (VALID & ACTIONABLE, VALID BUT ALREADY FIXED, FALSE POSITIVE, SUPPRESSED), you will need them in Step 5.
 
 ---
 
@@ -353,7 +353,7 @@ This includes both committed and uncommitted changes while excluding commits tha
 
 ## Step 3.4: Workspace-aware queue status (advisory)
 
-Check whether this PR's claimed VERSION still points at a free slot in the queue. Advisory only — never blocks review; just informs the reviewer about landing-order risk.
+Check whether this PR's claimed VERSION still points at a free slot in the queue. Advisory only, never blocks review; just informs the reviewer about landing-order risk.
 
 ```bash
 BRANCH_VERSION=$(git show HEAD:VERSION 2>/dev/null | tr -d '\r\n[:space:]' || echo "")
@@ -442,7 +442,7 @@ Also apply the remaining INFORMATIONAL categories that are still in the checklis
 
 Takes seconds, prevents recommending outdated patterns. If WebSearch is unavailable, note it and proceed with in-distribution knowledge.
 
-Follow the output format specified in the checklist. Respect the suppressions — do NOT flag items listed in the "DO NOT flag" section.
+Follow the output format specified in the checklist. Respect the suppressions, do NOT flag items listed in the "DO NOT flag" section.
 
 ## Confidence Calibration
 
@@ -464,11 +464,11 @@ Example:
 \`[P1] (confidence: 9/10) app/models/user.rb:42 — SQL injection via string interpolation in where clause\`
 \`[P2] (confidence: 5/10) app/controllers/api/v1/users_controller.rb:18 — Possible N+1 query, verify with production logs\`
 
-### Pre-emit verification gate (#1539 — kills the "field doesn't exist" FP class)
+### Pre-emit verification gate (#1539, kills the "field doesn't exist" FP class)
 
 Before any finding is promoted to the report, the gate requires:
 
-1. **Quote the specific code line that motivates the finding** — file:line plus
+1. **Quote the specific code line that motivates the finding**, file:line plus
    the verbatim text of the line(s) that triggered it. If the finding is "field
    X doesn't exist on model Y", quote the lines of class Y where the field
    would live. If "dict.get() might return None", quote the dict initialization.
@@ -478,7 +478,7 @@ Before any finding is promoted to the report, the gate requires:
    Force its confidence to 4-5 (suppressed from the main report). It still goes
    into the appendix so reviewers can audit calibration, but the user does NOT
    see it in the critical-pass output. Do not work around this by inventing
-   speculative confidence 7+ — that defeats the gate.
+   speculative confidence 7+, that defeats the gate.
 
 **Framework-meta nudge:** When the symbol is generated by a framework
 metaclass, descriptor, ORM Meta inner-class, or migration history (Django
@@ -489,7 +489,7 @@ the schema file) instead of expecting the literal name in the class body.
 The verification is "I read the source that creates this symbol", not "I
 grep'd for the name and didn't find it." Deeper framework-aware verification
 (model introspection, migration-history-aware checks, ORM dialect detection)
-is deliberately out of scope for the lighter gate — see the deferred
+is deliberately out of scope for the lighter gate, see the deferred
 `~/.gstack-dev/plans/1539-framework-aware-review.md` design doc.
 
 The FP classes the gate kills (measured against Django Sprint 2.5 #1539):
@@ -508,7 +508,7 @@ higher confidence.
 
 ---
 
-## Step 4.5: Review Army — Specialist Dispatch
+## Step 4.5: Review Army, Specialist Dispatch
 
 ### Detect stack and scope
 
@@ -548,17 +548,17 @@ echo "TEST_FW: ${TEST_FW:-unknown}"
 Based on the scope signals above, select which specialists to dispatch.
 
 **Always-on (dispatch on every review with 50+ changed lines):**
-1. **Testing** — read `~/.claude/skills/gstack/review/specialists/testing.md`
-2. **Maintainability** — read `~/.claude/skills/gstack/review/specialists/maintainability.md`
+1. **Testing**, read `~/.claude/skills/gstack/review/specialists/testing.md`
+2. **Maintainability**, read `~/.claude/skills/gstack/review/specialists/maintainability.md`
 
-**If DIFF_LINES < 50:** Skip all specialists. Print: "Small diff ($DIFF_LINES lines) — specialists skipped." Continue to Step 5.
+**If DIFF_LINES < 50:** Skip all specialists. Print: "Small diff ($DIFF_LINES lines), specialists skipped." Continue to Step 5.
 
 **Conditional (dispatch if the matching scope signal is true):**
-3. **Security** — if SCOPE_AUTH=true, OR if SCOPE_BACKEND=true AND DIFF_LINES > 100. Read `~/.claude/skills/gstack/review/specialists/security.md`
-4. **Performance** — if SCOPE_BACKEND=true OR SCOPE_FRONTEND=true. Read `~/.claude/skills/gstack/review/specialists/performance.md`
-5. **Data Migration** — if SCOPE_MIGRATIONS=true. Read `~/.claude/skills/gstack/review/specialists/data-migration.md`
-6. **API Contract** — if SCOPE_API=true. Read `~/.claude/skills/gstack/review/specialists/api-contract.md`
-7. **Design** — if SCOPE_FRONTEND=true. Use the existing design review checklist at `~/.claude/skills/gstack/review/design-checklist.md`
+3. **Security**, if SCOPE_AUTH=true, OR if SCOPE_BACKEND=true AND DIFF_LINES > 100. Read `~/.claude/skills/gstack/review/specialists/security.md`
+4. **Performance**, if SCOPE_BACKEND=true OR SCOPE_FRONTEND=true. Read `~/.claude/skills/gstack/review/specialists/performance.md`
+5. **Data Migration**, if SCOPE_MIGRATIONS=true. Read `~/.claude/skills/gstack/review/specialists/data-migration.md`
+6. **API Contract**, if SCOPE_API=true. Read `~/.claude/skills/gstack/review/specialists/api-contract.md`
+7. **Design**, if SCOPE_FRONTEND=true. Use the existing design review checklist at `~/.claude/skills/gstack/review/design-checklist.md`
 
 ### Adaptive gating
 
@@ -566,7 +566,7 @@ After scope-based selection, apply adaptive gating based on specialist hit rates
 
 For each conditional specialist that passed scope gating, check the `gstack-specialist-stats` output above:
 - If tagged `[GATE_CANDIDATE]` (0 findings in 10+ dispatches): skip it. Print: "[specialist] auto-gated (0 findings in N reviews)."
-- If tagged `[NEVER_GATE]`: always dispatch regardless of hit rate. Security and data-migration are insurance policy specialists — they should run even when silent.
+- If tagged `[NEVER_GATE]`: always dispatch regardless of hit rate. Security and data-migration are insurance policy specialists, they should run even when silent.
 
 **Force flags:** If the user's prompt includes `--security`, `--performance`, `--testing`, `--maintainability`, `--data-migration`, `--api-contract`, `--design`, or `--all-specialists`, force-include that specialist regardless of gating.
 
@@ -579,7 +579,7 @@ Note which specialists were selected, gated, and skipped. Print the selection:
 
 For each selected specialist, launch an independent subagent via the Agent tool.
 **Launch ALL selected specialists in a single message** (multiple Agent tool calls)
-so they run in parallel. Each subagent has fresh context — no prior review bias.
+so they run in parallel. Each subagent has fresh context, no prior review bias.
 
 **Each specialist subagent prompt:**
 
@@ -607,11 +607,11 @@ Required fields: severity, confidence, path, category, summary, specialist.
 Optional: line, fix, fingerprint, evidence, test_stub.
 
 If you can write a test that would catch this issue, include it in the `test_stub` field.
-Use the detected test framework ({TEST_FW}). Write a minimal skeleton — describe/it/test
+Use the detected test framework ({TEST_FW}). Write a minimal skeleton, describe/it/test
 blocks with clear intent. Skip test_stub for architectural or design-only findings.
 
 If no findings: output `NO FINDINGS` and nothing else.
-Do not output anything else — no preamble, no summary, no commentary.
+Do not output anything else, no preamble, no summary, no commentary.
 
 Stack context: {STACK}
 Past learnings: {learnings or 'none'}
@@ -621,8 +621,8 @@ CHECKLIST:
 
 **Subagent configuration:**
 - Use `subagent_type: "general-purpose"`
-- Do NOT use `run_in_background` — all specialists must complete before merge
-- If any specialist subagent fails or times out, log the failure and continue with results from successful specialists. Specialists are additive — partial results are better than no results.
+- Do NOT use `run_in_background`, all specialists must complete before merge
+- If any specialist subagent fails or times out, log the failure and continue with results from successful specialists. Specialists are additive, partial results are better than no results.
 
 ---
 
@@ -632,7 +632,7 @@ After all specialist subagents complete, collect their outputs.
 
 **Parse findings:**
 For each specialist's output:
-1. If output is "NO FINDINGS" — skip, this specialist found nothing
+1. If output is "NO FINDINGS", skip, this specialist found nothing
 2. Otherwise, parse each line as a JSON object. Skip lines that are not valid JSON.
 3. Collect all parsed findings into a single list, tagged with their specialist name.
 
@@ -649,7 +649,7 @@ Group findings by fingerprint. For findings sharing the same fingerprint:
 
 **Apply confidence gates:**
 - Confidence 7+: show normally in the findings output
-- Confidence 5-6: show with caveat "Medium confidence — verify this is actually an issue"
+- Confidence 5-6: show with caveat "Medium confidence, verify this is actually an issue"
 - Confidence 3-4: move to appendix (suppress from main findings)
 - Confidence 1-2: suppress entirely
 
@@ -673,7 +673,7 @@ PR Quality Score: X/10
 ```
 
 These findings flow into Step 5 Fix-First alongside the CRITICAL pass findings from Step 4.
-The Fix-First heuristic applies identically — specialist findings follow the same AUTO-FIX vs ASK classification.
+The Fix-First heuristic applies identically, specialist findings follow the same AUTO-FIX vs ASK classification.
 
 **Compile per-specialist stats:**
 After merging findings, compile a `specialists` object for the review-log entry in Step 5.8.
@@ -684,7 +684,7 @@ For each specialist (testing, maintainability, security, performance, data-migra
 - If not applicable (e.g., red-team not activated): omit from the object
 
 Include the Design specialist even though it uses `design-checklist.md` instead of the specialist schema files.
-Remember these stats — you will need them for the review-log entry in Step 5.8.
+Remember these stats, you will need them for the review-log entry in Step 5.8.
 
 ---
 
@@ -716,7 +716,7 @@ If the Red Team subagent fails or times out, skip silently and continue.
 
 ## Step 5: Fix-First Review
 
-**Every finding gets action — not just critical ones.**
+**Every finding gets action, not just critical ones.**
 
 ### Step 5.0: Cross-review finding dedup
 
@@ -726,7 +726,7 @@ Before classifying findings, check if any were previously skipped by the user in
 ~/.claude/skills/gstack/bin/gstack-review-read
 ```
 
-Parse the output: only lines BEFORE `---CONFIG---` are JSONL entries (the output also contains `---CONFIG---` and `---HEAD---` footer sections that are not JSONL — ignore those).
+Parse the output: only lines BEFORE `---CONFIG---` are JSONL entries (the output also contains `---CONFIG---` and `---HEAD---` footer sections that are not JSONL, ignore those).
 
 For each JSONL entry that has a `findings` array:
 1. Collect all fingerprints where `action: "skipped"`
@@ -746,7 +746,7 @@ If both conditions are true: suppress the finding. It was intentionally skipped 
 
 Print: "Suppressed N findings from prior reviews (previously skipped by user)"
 
-**Only suppress `skipped` findings — never `fixed` or `auto-fixed`** (those might regress and should be re-checked).
+**Only suppress `skipped` findings, never `fixed` or `auto-fixed`** (those might regress and should be re-checked).
 
 If no prior reviews exist or none have a `findings` array, skip this step silently.
 
@@ -808,7 +808,7 @@ Before producing the final review output:
 - If you claim "this pattern is safe" → cite the specific line proving safety
 - If you claim "this is handled elsewhere" → read and cite the handling code
 - If you claim "tests cover this" → name the test file and method
-- Never say "likely handled" or "probably tested" — verify or flag as unknown
+- Never say "likely handled" or "probably tested", verify or flag as unknown
 
 **Rationalization prevention:** "This looks fine" is not a finding. Either cite evidence it IS fine, or flag it as unverified.
 
@@ -820,7 +820,7 @@ After outputting your own findings, if Greptile comments were classified in Step
 
 Before replying to any comment, run the **Escalation Detection** algorithm from greptile-triage.md to determine whether to use Tier 1 (friendly) or Tier 2 (firm) reply templates.
 
-1. **VALID & ACTIONABLE comments:** These are included in your findings — they follow the Fix-First flow (auto-fixed if mechanical, batched into ASK if not) (A: Fix it now, B: Acknowledge, C: False positive). If the user chooses A (fix), reply using the **Fix reply template** from greptile-triage.md (include inline diff + explanation). If the user chooses C (false positive), reply using the **False Positive reply template** (include evidence + suggested re-rank), save to both per-project and global greptile-history.
+1. **VALID & ACTIONABLE comments:** These are included in your findings, they follow the Fix-First flow (auto-fixed if mechanical, batched into ASK if not) (A: Fix it now, B: Acknowledge, C: False positive). If the user chooses A (fix), reply using the **Fix reply template** from greptile-triage.md (include inline diff + explanation). If the user chooses C (false positive), reply using the **False Positive reply template** (include evidence + suggested re-rank), save to both per-project and global greptile-history.
 
 2. **FALSE POSITIVE comments:** Present each one via AskUserQuestion:
    - Show the Greptile comment: file:line (or [top-level]) + body summary + permalink URL
@@ -828,15 +828,15 @@ Before replying to any comment, run the **Escalation Detection** algorithm from 
    - Options:
      - A) Reply to Greptile explaining why this is incorrect (recommended if clearly wrong)
      - B) Fix it anyway (if low-effort and harmless)
-     - C) Ignore — don't reply, don't fix
+     - C) Ignore, don't reply, don't fix
 
    If the user chooses A, reply using the **False Positive reply template** from greptile-triage.md (include evidence + suggested re-rank), save to both per-project and global greptile-history.
 
-3. **VALID BUT ALREADY FIXED comments:** Reply using the **Already Fixed reply template** from greptile-triage.md — no AskUserQuestion needed:
+3. **VALID BUT ALREADY FIXED comments:** Reply using the **Already Fixed reply template** from greptile-triage.md, no AskUserQuestion needed:
    - Include what was done and the fixing commit SHA
    - Save to both per-project and global greptile-history
 
-4. **SUPPRESSED comments:** Skip silently — these are known false positives from previous triage.
+4. **SUPPRESSED comments:** Skip silently, these are known false positives from previous triage.
 
 ---
 
@@ -860,7 +860,7 @@ Cross-reference the diff against documentation files. For each `.md` file in the
 2. If the doc file was NOT updated in this branch but the code it describes WAS changed, flag it as an INFORMATIONAL finding:
    "Documentation may be stale: [file] describes [feature/component] but code changed in this branch. Consider running `/document-release`."
 
-This is informational only — never critical. The fix action is `/document-release`.
+This is informational only, never critical. The fix action is `/document-release`.
 
 If no documentation files exist, skip this step silently.
 
@@ -868,7 +868,7 @@ If no documentation files exist, skip this step silently.
 
 ## Step 5.7: Adversarial review (always-on)
 
-Every diff gets adversarial review from both Claude and Codex. LOC is not a proxy for risk — a 5-line auth change can be critical.
+Every diff gets adversarial review from both Claude and Codex. LOC is not a proxy for risk, a 5-line auth change can be critical.
 
 **Detect diff size and tool availability:**
 
@@ -892,10 +892,10 @@ If `OLD_CFG` is `disabled`: skip Codex passes only. Claude adversarial subagent 
 
 ### Claude adversarial subagent (always runs)
 
-Dispatch via the Agent tool. The subagent has fresh context — no checklist bias from the structured review. This genuine independence catches things the primary reviewer is blind to.
+Dispatch via the Agent tool. The subagent has fresh context, no checklist bias from the structured review. This genuine independence catches things the primary reviewer is blind to.
 
 Subagent prompt:
-"Read the diff for this branch with `DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff "$DIFF_BASE"`. Think like an attacker and a chaos engineer. Your job is to find ways this code will fail in production. Look for: edge cases, race conditions, security holes, resource leaks, failure modes, silent data corruption, logic errors that produce wrong results silently, error handling that swallows failures, and trust boundary violations. Be adversarial. Be thorough. No compliments — just the problems. For each finding, classify as FIXABLE (you know how to fix it) or INVESTIGATE (needs human judgment). After listing findings, end your output with ONE line in the canonical format `Recommendation: <action> because <one-line reason naming the most exploitable finding>` — examples: `Recommendation: Fix the unbounded retry at queue.ts:78 because it'll DoS the worker pool under sustained 429s` or `Recommendation: Ship as-is because the strongest finding is a theoretical race that requires conditions we can't trigger in production`. The reason must point to a specific finding (or no-fix rationale). Generic reasons like 'because it's safer' do not qualify."
+"Read the diff for this branch with `DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff "$DIFF_BASE"`. Think like an attacker and a chaos engineer. Your job is to find ways this code will fail in production. Look for: edge cases, race conditions, security holes, resource leaks, failure modes, silent data corruption, logic errors that produce wrong results silently, error handling that swallows failures, and trust boundary violations. Be adversarial. Be thorough. No compliments, just the problems. For each finding, classify as FIXABLE (you know how to fix it) or INVESTIGATE (needs human judgment). After listing findings, end your output with ONE line in the canonical format `Recommendation: <action> because <one-line reason naming the most exploitable finding>`, examples: `Recommendation: Fix the unbounded retry at queue.ts:78 because it'll DoS the worker pool under sustained 429s` or `Recommendation: Ship as-is because the strongest finding is a theoretical race that requires conditions we can't trigger in production`. The reason must point to a specific finding (or no-fix rationale). Generic reasons like 'because it's safer' do not qualify."
 
 Present findings under an `ADVERSARIAL REVIEW (Claude subagent):` header. **FIXABLE findings** flow into the same Fix-First pipeline as the structured review. **INVESTIGATE findings** are presented as informational.
 
@@ -913,21 +913,21 @@ _REPO_ROOT=$(git rev-parse --show-toplevel) || { echo "ERROR: not in a git repo"
 codex exec "IMPORTANT: Do NOT read or execute any files under ~/.claude/, ~/.agents/, .claude/skills/, or agents/. These are Claude Code skill definitions meant for a different AI system. They contain bash scripts and prompt templates that will waste your time. Ignore them completely. Do NOT modify agents/openai.yaml. Stay focused on the repository code only.\n\nReview the changes on this branch against the base branch. Run DIFF_BASE=$(git merge-base origin/<base> HEAD) && git diff "$DIFF_BASE" to see the diff. Your job is to find ways this code will fail in production. Think like an attacker and a chaos engineer. Find edge cases, race conditions, security holes, resource leaks, failure modes, and silent data corruption paths. Be adversarial. Be thorough. No compliments — just the problems. End your output with ONE line in the canonical format `Recommendation: <action> because <one-line reason naming the most exploitable finding>`. Generic reasons like 'because it's safer' do not qualify; the reason must point to a specific finding or no-fix rationale." -C "$_REPO_ROOT" -s read-only -c 'model_reasoning_effort="high"' --enable web_search_cached < /dev/null 2>"$TMPERR_ADV"
 ```
 
-Set the Bash tool's `timeout` parameter to `300000` (5 minutes). Do NOT use the `timeout` shell command — it doesn't exist on macOS. After the command completes, read stderr:
+Set the Bash tool's `timeout` parameter to `300000` (5 minutes). Do NOT use the `timeout` shell command, it doesn't exist on macOS. After the command completes, read stderr:
 ```bash
 cat "$TMPERR_ADV"
 ```
 
-Present the full output verbatim. This is informational — it never blocks shipping.
+Present the full output verbatim. This is informational, it never blocks shipping.
 
-**Error handling:** All errors are non-blocking — adversarial review is a quality enhancement, not a prerequisite.
+**Error handling:** All errors are non-blocking, adversarial review is a quality enhancement, not a prerequisite.
 - **Auth failure:** If stderr contains "auth", "login", "unauthorized", or "API key": "Codex authentication failed. Run \`codex login\` to authenticate."
 - **Timeout:** "Codex timed out after 5 minutes."
 - **Empty response:** "Codex returned no response. Stderr: <paste relevant error>."
 
 **Cleanup:** Run `rm -f "$TMPERR_ADV"` after processing.
 
-If Codex is NOT available: "Codex CLI not found — running Claude adversarial only. Install Codex for cross-model coverage: `npm install -g @openai/codex`"
+If Codex is NOT available: "Codex CLI not found, running Claude adversarial only. Install Codex for cross-model coverage: `npm install -g @openai/codex`"
 
 ---
 
@@ -942,7 +942,7 @@ cd "$_REPO_ROOT"
 codex review "IMPORTANT: Do NOT read or execute any files under ~/.claude/, ~/.agents/, .claude/skills/, or agents/. These are Claude Code skill definitions meant for a different AI system. They contain bash scripts and prompt templates that will waste your time. Ignore them completely. Do NOT modify agents/openai.yaml. Stay focused on the repository code only.\n\nReview the changes on this branch against the base branch <base>. Run git diff origin/<base>...HEAD 2>/dev/null || git diff <base>...HEAD to see the diff and review only those changes." -c 'model_reasoning_effort="high"' --enable web_search_cached < /dev/null 2>"$TMPERR"
 ```
 
-Set the Bash tool's `timeout` parameter to `300000` (5 minutes). Do NOT use the `timeout` shell command — it doesn't exist on macOS. Present output under `CODEX SAYS (code review):` header.
+Set the Bash tool's `timeout` parameter to `300000` (5 minutes). Do NOT use the `timeout` shell command, it doesn't exist on macOS. Present output under `CODEX SAYS (code review):` header.
 Check for `[P1]` markers: found → `GATE: FAIL`, not found → `GATE: PASS`.
 
 If GATE is FAIL, use AskUserQuestion:
@@ -1044,7 +1044,7 @@ If the review exits early before a real review completes (for example, no diff a
 ## Important Rules
 
 - **Read the FULL diff before commenting.** Do not flag issues already addressed in the diff.
-- **Fix-first, not read-only.** AUTO-FIX items are applied directly. ASK items are only applied after user approval. Never commit, push, or create PRs — that's /ship's job.
+- **Fix-first, not read-only.** AUTO-FIX items are applied directly. ASK items are only applied after user approval. Never commit, push, or create PRs, that's /ship's job.
 - **Be terse.** One line problem, one line fix. No preamble.
 - **Only flag real problems.** Skip anything that's fine.
 - **Use Greptile reply templates from greptile-triage.md.** Every reply includes evidence. Never post vague replies.

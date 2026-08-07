@@ -71,4 +71,4 @@ bash <path-to-skill>/scripts/remote-supabase-admin.sh apply-sql <local_sql_file>
 
 ## Operations Note
 
-If `API_EXTERNAL_URL` on the remote Supabase deployment still points to localhost, auth callbacks and email links will not resolve from the public network. Update that in the server's Supabase env config separately — out of scope for this skill.
+If `API_EXTERNAL_URL` on the remote Supabase deployment still points to localhost, auth callbacks and email links will not resolve from the public network. Update that in the server's Supabase env config separately, out of scope for this skill.

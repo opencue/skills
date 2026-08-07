@@ -19,9 +19,9 @@ The user runs `/legal freelancer <file>` where `<file>` is a contract file path,
 ### 1.1 Read the Contract
 
 Accept the contract from one of these sources:
-- **File path** — Use the Read tool to read the file
-- **Pasted text** — Accept text pasted directly into the chat
-- **URL** — Use WebFetch to retrieve the document
+- **File path**, Use the Read tool to read the file
+- **Pasted text**, Accept text pasted directly into the chat
+- **URL**, Use WebFetch to retrieve the document
 
 Store the full contract text for analysis.
 
@@ -78,11 +78,11 @@ This is typically the MOST important section for freelancers.
 - Does the freelancer **retain any rights**? (Portfolio usage, derivative works, pre-existing IP)
 - Is there a **license-back** for pre-existing tools, frameworks, or methodologies?
 - Are **source files** included or excluded from the transfer?
-- Is IP transfer **conditional on full payment**? (It should be — IP should not transfer until the freelancer is paid)
+- Is IP transfer **conditional on full payment**? (It should be, IP should not transfer until the freelancer is paid)
 
 **Risk Flags:**
-- 🔴 "All work product, including preliminary drafts, concepts, and unused ideas, shall be the exclusive property of Client" — This is overly broad
-- 🔴 "Contractor assigns all IP including pre-existing IP" — Pre-existing IP should NEVER be assigned
+- 🔴 "All work product, including preliminary drafts, concepts, and unused ideas, shall be the exclusive property of Client", This is overly broad
+- 🔴 "Contractor assigns all IP including pre-existing IP", Pre-existing IP should NEVER be assigned
 - 🔴 IP transfers before final payment
 - 🟡 Work-for-hire claim for work that does not qualify under copyright law
 - 🟢 IP transfers only upon full payment, freelancer retains portfolio rights and pre-existing IP
@@ -101,11 +101,11 @@ This is typically the MOST important section for freelancers.
 | **Currency** | Is currency specified? Exchange rate risk? | 🟡 if international |
 
 **Freelancer-Specific Payment Red Flags:**
-- 🔴 **Net-90 or longer** — Freelancers cannot afford to wait 3 months for payment
-- 🔴 **Payment contingent on client's client paying** — "Pay-when-paid" clauses shift risk to freelancer
-- 🔴 **No payment for rejected work** — Client can reject work and pay nothing
-- 🟡 **Net-60** — Long for freelancers; Net-30 or sooner is standard
-- 🟡 **No deposit required** — Freelancer bears all upfront risk
+- 🔴 **Net-90 or longer**, Freelancers cannot afford to wait 3 months for payment
+- 🔴 **Payment contingent on client's client paying**, "Pay-when-paid" clauses shift risk to freelancer
+- 🔴 **No payment for rejected work**, Client can reject work and pay nothing
+- 🟡 **Net-60**, Long for freelancers; Net-30 or sooner is standard
+- 🟡 **No deposit required**, Freelancer bears all upfront risk
 
 ### 2.4 Kill Fee / Cancellation Terms
 
@@ -145,7 +145,7 @@ This is typically the MOST important section for freelancers.
 - Is there a time limit for requesting revisions?
 
 **Risk Flags:**
-- 🔴 **Unlimited revisions** — The most common freelancer trap
+- 🔴 **Unlimited revisions**, The most common freelancer trap
 - 🔴 No definition of what constitutes a revision
 - 🟡 Revisions limited but no additional fee structure
 - 🟢 2-3 rounds included, additional rounds at stated rate, revision window defined
@@ -154,15 +154,15 @@ This is typically the MOST important section for freelancers.
 
 **Evaluate:**
 - Does the non-compete exist? What does it restrict?
-- **Duration** — How long? (>1 year is typically excessive for freelancers)
-- **Geographic scope** — How broad? (Nationwide or global is typically excessive)
-- **Activity scope** — What activities are restricted? (Cannot restrict freelancer's core skill)
-- **Compensation** — Is the freelancer compensated for the non-compete period?
+- **Duration**, How long? (>1 year is typically excessive for freelancers)
+- **Geographic scope**, How broad? (Nationwide or global is typically excessive)
+- **Activity scope**, What activities are restricted? (Cannot restrict freelancer's core skill)
+- **Compensation**, Is the freelancer compensated for the non-compete period?
 
 **Critical Context:** Non-competes are:
 - **Void** in California, Minnesota, Oklahoma, North Dakota
 - **Restricted** in many other states (Colorado, Illinois, Maine, Maryland, etc.)
-- **Under FTC scrutiny** — Federal ban proposed (check current status)
+- **Under FTC scrutiny**, Federal ban proposed (check current status)
 - Generally **harder to enforce** against independent contractors than employees
 
 **Risk Flags:**
@@ -178,7 +178,7 @@ This is typically the MOST important section for freelancers.
 - Does it prevent soliciting the client's customers/clients?
 - Does it prevent soliciting the client's employees?
 - Duration and scope?
-- Is it mutual? (It should be — client should not poach freelancer's subcontractors either)
+- Is it mutual? (It should be, client should not poach freelancer's subcontractors either)
 
 ### 2.9 Confidentiality Scope
 
@@ -189,7 +189,7 @@ This is typically the MOST important section for freelancers.
 - Does it prevent the freelancer from discussing the engagement at all (even its existence)?
 
 **Risk Flags:**
-- 🔴 "All information related to Client's business" — Too broad, everything becomes confidential
+- 🔴 "All information related to Client's business", Too broad, everything becomes confidential
 - 🔴 Cannot even mention working with the client (prevents portfolio use)
 - 🟡 Reasonable definition but no standard exclusions
 - 🟢 Standard confidentiality with clear exclusions and reasonable duration (2-5 years)

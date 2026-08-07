@@ -6,7 +6,7 @@ description: |
   one-paragraph "what to do differently next week." Saves a markdown file
   under .cue/retros/<YYYY-WW>.md. Use when the user says "weekly retro",
   "what did we ship", "engineering retrospective", or at end-of-sprint.
-allowed-tools: [Bash, Read, Write, Glob, AskUserQuestion]
+allowed-tools: Bash, Read, Write, Glob, Bash(AskUserQuestion:*)
 triggers:
   - weekly retro
   - what did we ship
@@ -14,7 +14,12 @@ triggers:
   - sprint retro
 ---
 
-# /retro — weekly engineering retro
+# /retro, weekly engineering retro
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Reads git history + cue's session log + (optionally) per-author commit
 trends, produces a structured retro doc, and (most importantly) writes
@@ -48,7 +53,7 @@ gh pr list --state merged --search "merged:>=$DATE" --json number,title,author,m
 ```
 
 Pull test-health trend if there's a CI artifact or coverage badge in
-the repo — otherwise skip.
+the repo, otherwise skip.
 
 Also read `~/.config/cue/session-log.jsonl` (cue's session analytics,
 maintained by the `session-summary` hook) and filter to this repo

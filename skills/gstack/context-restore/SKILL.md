@@ -6,7 +6,7 @@ description: |
   and replays the task, next-step, decisions, and failed-approach lists. Pair
   with /context-save. Use when the user says "resume", "restore context",
   "where was I", or "pick up where I left off".
-allowed-tools: [Bash, Read, Glob, Grep, AskUserQuestion]
+allowed-tools: Bash, Read, Glob, Grep, Bash(AskUserQuestion:*)
 triggers:
   - resume where i left off
   - restore context
@@ -15,9 +15,14 @@ triggers:
   - context restore
 ---
 
-# /context-restore — resume from a saved context note
+# /context-restore, resume from a saved context note
 
-## Step 1 — find the right note
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
+
+## Step 1, find the right note
 
 Look under `.cue/context/`. Match against current branch first:
 
@@ -27,18 +32,18 @@ ls -t .cue/context/${branch}-*.md 2>/dev/null | head -3
 ```
 
 - **One match**: load it.
-- **Multiple matches**: ask via `AskUserQuestion` — list the 3 most
+- **Multiple matches**: ask via `AskUserQuestion`, list the 3 most
   recent with timestamps and one-line "Task" preview from each.
 - **No match for current branch**: fall back to the 3 most-recent notes
   across all branches and ask.
 - **None at all**: tell the user "no saved context found" and stop.
 
-## Step 2 — read the note
+## Step 2, read the note
 
 Read the full markdown. Don't summarize it back to the user word-for-word
-— they wrote it. Just confirm what you absorbed.
+, they wrote it. Just confirm what you absorbed.
 
-## Step 3 — reconcile against current state
+## Step 3, reconcile against current state
 
 The note was a snapshot. The repo may have moved since:
 
@@ -48,7 +53,7 @@ The note was a snapshot. The repo may have moved since:
 - If the working tree differs from what the note expected, flag the
   delta and ask whether to proceed.
 
-## Step 4 — report what you'll do next
+## Step 4, report what you'll do next
 
 In one paragraph, state:
 
@@ -60,7 +65,7 @@ Then wait for confirmation before continuing.
 ## Anti-patterns
 
 - ❌ Loading the note and immediately starting work. The state may have
-  moved — confirm with the user first.
+  moved, confirm with the user first.
 - ❌ Reading only the "next step" field. The failed-approaches and
   decisions sections are why the note exists.
 - ❌ Picking the newest note across branches when the current branch
@@ -68,5 +73,5 @@ Then wait for confirmation before continuing.
 
 ## After restoring
 
-Continue the task. Don't write a fresh `/context-save` yet — that
+Continue the task. Don't write a fresh `/context-save` yet, that
 happens later when the user wants to checkpoint.

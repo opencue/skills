@@ -15,23 +15,23 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `subject_description` | text | yes | — | Description of the subject or scene (e.g. "a professional woman in a black suit holding a laptop"). |
-| `reference_image` | image_url | no | — | Optional reference image to maintain consistency across angles. |
+| `subject_description` | text | yes |, | Description of the subject or scene (e.g. "a professional woman in a black suit holding a laptop"). |
+| `reference_image` | image_url | no |, | Optional reference image to maintain consistency across angles. |
 
 
 ## Steps
 
-### Phase A — Subject Establishment
+### Phase A, Subject Establishment
 
 If `{{reference_image}}` is not provided, submit the plan with ONE step to create the base subject:
 
-1. **Subject Generation** — `muapi image generate` (model=`nano-banana-pro`):
+1. **Subject Generation**, `muapi image generate` (model=`nano-banana-pro`):
    - Prompt: `A high-quality, professional photograph of {{subject_description}}. Clean studio lighting, sharp focus, realistic textures, cinematic quality.`
    - Aspect ratio: 3:4 or 1:1
 
 Present the base image to the user for approval.
 
-### Phase B — Multi-Angle Reshoot
+### Phase B, Multi-Angle Reshoot
 
 Once the subject is established, submit the plan using `muapi image edit` (model=`nano-banana-2-edit`) to generate the requested angles. Use the approved image from Phase A as the reference for ALL steps.
 

@@ -15,19 +15,19 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `character_description` | text | yes | — | Description of the main character (e.g. "a cute piglet wearing a leather aviator jacket and goggles"). |
-| `story_premise` | text | yes | — | The overall story arc (e.g. "building a jetpack and flying to space"). |
-| `reference_image` | image_url | no | — | Optional starting image of the character to maintain consistency. |
+| `character_description` | text | yes |, | Description of the main character (e.g. "a cute piglet wearing a leather aviator jacket and goggles"). |
+| `story_premise` | text | yes |, | The overall story arc (e.g. "building a jetpack and flying to space"). |
+| `reference_image` | image_url | no |, | Optional starting image of the character to maintain consistency. |
 
 
 ## Steps
 
 This skill involves multiple phases to build a cohesive narrative.
 
-### Phase A — Character Establishment
+### Phase A, Character Establishment
 
 If `{{reference_image}}` is NOT provided, submit the plan with ONE step to create the character:
-1. **Character Creation** — `muapi image generate` (model=`nano-banana-pro`):
+1. **Character Creation**, `muapi image generate` (model=`nano-banana-pro`):
    - Prompt: `{{character_description}}, introducing the main character, cinematic lighting, highly detailed, Pixar 3D animation style.`
    - Aspect ratio: 4:5 or 1:1
 
@@ -35,7 +35,7 @@ If `{{reference_image}}` IS provided, use it as the established character and pr
 
 After generation, ask the user to confirm the character design before proceeding.
 
-### Phase B — Sequential Scene Generation
+### Phase B, Sequential Scene Generation
 
 Once the character is established, create the story beats (e.g., Scene 1, Scene 2, Scene 3).
 Submit the plan using `muapi image edit` (model=`nano-banana-2-edit` or `flux-kontext-pro-i2i`) to maintain character consistency. Use the established character image as the reference for ALL these steps.
@@ -54,7 +54,7 @@ Submit the plan using `muapi image edit` (model=`nano-banana-2-edit` or `flux-ko
 
 After generating the scenes, present them to the user and ask if they are ready to animate the story.
 
-### Phase C — Animation (Sequel Part 1, Part 2, Part 3)
+### Phase C, Animation (Sequel Part 1, Part 2, Part 3)
 
 Submit the plan to animate the generated scenes using an image-to-video model (e.g., `kling-v3.0-pro-image-to-video` or `veo3.1-image-to-video`).
 

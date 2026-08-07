@@ -17,7 +17,7 @@ Manage Cargo.toml without hand-editing.
 - Add: `cargo add serde --features derive`
 - Remove: `cargo remove serde`
 - Upgrade everything compatibly: `cargo update`
-- Upgrade past semver: `cargo upgrade` (needs cargo-edit) — bumps Cargo.toml itself
+- Upgrade past semver: `cargo upgrade` (needs cargo-edit), bumps Cargo.toml itself
 - See what has a newer version: `cargo outdated --root-deps-only`
 - Find unused deps (fast): `cargo machete`
 - Find unused deps (thorough, needs nightly): `cargo +nightly udeps`
@@ -28,4 +28,4 @@ Manage Cargo.toml without hand-editing.
 ## Notes
 - `cargo add/remove` are built into cargo since 1.62, but `cargo upgrade` still needs cargo-edit.
 - `cargo machete` is fast and catches the common case; reach for udeps only when machete misses something (it's nightly-only and slower).
-- `cargo outdated --root-deps-only` filters out transitives — usually what you want.
+- `cargo outdated --root-deps-only` filters out transitives, usually what you want.

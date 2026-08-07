@@ -24,12 +24,12 @@ requires_mcps: []
 allowed-tools: Bash
 ---
 
-# cue-rec — record sessions for marketing
+# cue-rec, record sessions for marketing
 
 Start/stop a desktop video recording from the CLI. Built on
 `org.gnome.Shell.Screencast` (D-Bus), so it works natively on Ubuntu
 GNOME Wayland with no extra installs. A tiny Python helper holds the
-bus connection open for the duration of the recording — without it,
+bus connection open for the duration of the recording, without it,
 GNOME tears the screencast down when the calling `gdbus` exits
 ("Sender has vanished" in the journal).
 
@@ -42,7 +42,7 @@ GNOME tears the screencast down when the calling `gdbus` exits
 
 Don't activate for:
 - Asciicast/terminal-only recording (suggest `asciinema` separately if they
-  want terminal-only — `cue-rec` captures the actual desktop pixels)
+  want terminal-only, `cue-rec` captures the actual desktop pixels)
 - Audio-only recording
 
 ## Commands
@@ -70,7 +70,7 @@ cue-rec gif FILE [OUT.gif]       # palette-optimized gif (README/social)
 cue-rec mp4 FILE [OUT.mp4]       # x264 mp4 with faststart (uploads)
 ```
 
-### Terminal-only capture (asciinema .cast — text, not pixels)
+### Terminal-only capture (asciinema .cast, text, not pixels)
 ```bash
 cue-rec term --name demo         # record this shell as a .cast (type `exit` to stop)
 cue-rec term-play [FILE]         # replay a .cast inline in this terminal
@@ -78,7 +78,7 @@ cue-rec term-gif FILE.cast       # convert .cast → gif (needs `agg`)
 ```
 
 **When to use which:** `term` for CLI marketing (README demos, social posts,
-Twitter, blog embeds) — tiny files, crisp text, scalable. `start --kitty`
+Twitter, blog embeds), tiny files, crisp text, scalable. `start --kitty`
 when you need actual pixels (TUI animations, color faithfulness, demos that
 include GUI windows spawned from the terminal).
 
@@ -125,9 +125,9 @@ full screen. Instead:
 
 ## Architecture (one-line per piece)
 
-- `bin/cue-rec` — bash CLI: arg parsing, slurp for region, state file at
+- `bin/cue-rec`, bash CLI: arg parsing, slurp for region, state file at
   `~/.cache/cue-rec/current`, output dir `~/Videos/cue-rec/`.
-- `bin/cue-rec-daemon` — Python 3 / PyGObject helper. Calls
+- `bin/cue-rec-daemon`, Python 3 / PyGObject helper. Calls
   `Screencast` / `ScreencastArea` over D-Bus, writes `OK <pid> <file>`
   to a status file the CLI polls, then blocks in a GLib mainloop until
   SIGTERM/SIGINT, at which point it calls `StopScreencast` and exits 0.
@@ -138,9 +138,9 @@ logs live under `$XDG_CACHE_HOME/cue-rec/` (defaults to `~/.cache/cue-rec/`).
 ## Requirements
 
 - GNOME Shell on Wayland (works out of the box on Ubuntu 22+/24+).
-- `gdbus`, `python3` with `gi` (PyGObject) — system-installed on Ubuntu.
-- `slurp` (Wayland region picker) — only needed for `--area`.
-- `ffmpeg` — only needed for `gif` / `mp4` post-processing.
+- `gdbus`, `python3` with `gi` (PyGObject), system-installed on Ubuntu.
+- `slurp` (Wayland region picker), only needed for `--area`.
+- `ffmpeg`, only needed for `gif` / `mp4` post-processing.
 
 ## Failure modes
 
@@ -150,4 +150,4 @@ logs live under `$XDG_CACHE_HOME/cue-rec/` (defaults to `~/.cache/cue-rec/`).
 | `stopped, but file not flushed yet` | Mutter is still muxing; very short recording or busy GPU | Wait 1-2s, re-`ls`. If still empty, check `~/.cache/cue-rec/daemon.log` |
 | Recording is black / blank | Another screencast client (OBS, Flameshot) was holding the pipewire stream | Close the other client, restart GNOME Shell session |
 | Region picker exits immediately | `slurp` not installed | `sudo apt install slurp` |
-| Not GNOME / not Wayland | Different compositor | Use `wf-recorder` (wlroots) or `ffmpeg -f x11grab` (X11) instead — `cue-rec` is GNOME-specific |
+| Not GNOME / not Wayland | Different compositor | Use `wf-recorder` (wlroots) or `ffmpeg -f x11grab` (X11) instead, `cue-rec` is GNOME-specific |

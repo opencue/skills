@@ -4,16 +4,16 @@ requires_mcps: [playwright]
 description: Use when user says "does it work?", "screenshot the page", "show me the form", "check the checkout flow", or "open the browser". Drives Chromium/Firefox/WebKit via Playwright MCP to verify storefront/admin UI changes, reproduce reported UI bugs, test Medusa dev servers on localhost, or explore third-party sites.
 ---
 
-# Playwright MCP — driving a real browser
+# Playwright MCP, driving a real browser
 
 ## Core principle
 
-When code touches anything rendered (Medusa storefronts, admin dashboards, Coolify UI, third-party docs), running tests or reading source isn't enough — load the page in a real browser, see what users see. Playwright MCP exposes `navigate`, `screenshot`, `click`, `fill`, `evaluate`, `accessibility_snapshot`, `network_log`, and friends so Claude can drive Chromium, Firefox, or WebKit from inside a conversation.
+When code touches anything rendered (Medusa storefronts, admin dashboards, Coolify UI, third-party docs), running tests or reading source isn't enough, load the page in a real browser, see what users see. Playwright MCP exposes `navigate`, `screenshot`, `click`, `fill`, `evaluate`, `accessibility_snapshot`, `network_log`, and friends so Claude can drive Chromium, Firefox, or WebKit from inside a conversation.
 
 ## When to use
 
 - "Does the storefront still build after my change?" → navigate to the local dev URL, screenshot above-the-fold, check console errors.
-- "I changed the checkout button text — confirm it shows up." → navigate, screenshot the cart, verify the text in the accessibility snapshot.
+- "I changed the checkout button text, confirm it shows up." → navigate, screenshot the cart, verify the text in the accessibility snapshot.
 - "Reproduce the 500 on /blog/some-post" → navigate, capture the network_log, surface the failing request.
 - "What does marvahome.com look like in mobile viewport?" → navigate with viewport override, screenshot.
 - "Inspect the DOM of the Stripe Checkout page after redirect" → drive through the checkout, evaluate JS to dump the DOM.
@@ -117,7 +117,7 @@ Browsers live under `~/.cache/ms-playwright/`.
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| `Target page, context or browser has been closed` | session timed out between calls | `navigate` again — Playwright MCP creates a new context per task |
+| `Target page, context or browser has been closed` | session timed out between calls | `navigate` again, Playwright MCP creates a new context per task |
 | Screenshots are blank / white | page hasn't finished rendering | `wait_for({ load_state: "networkidle" })` first |
 | Selector matches nothing | shadow DOM or iframe | use `accessibility_snapshot` to find the right role/name; for iframes pass `frame: "name"` |
 | Slow first navigate | Chromium cold-start (~2s) | normal; subsequent calls reuse the browser |
@@ -125,7 +125,7 @@ Browsers live under `~/.cache/ms-playwright/`.
 
 ## When to escalate to Chrome DevTools MCP
 
-If you need to interact with your *already-open*, *already-logged-in* Chrome session (e.g., the Coolify dashboard with your live token), Playwright won't help — it always starts a fresh incognito-style context. For that, install `@modelcontextprotocol/server-chrome-devtools`, launch Chrome with `--remote-debugging-port=9222`, and use that MCP. Both can coexist.
+If you need to interact with your *already-open*, *already-logged-in* Chrome session (e.g., the Coolify dashboard with your live token), Playwright won't help, it always starts a fresh incognito-style context. For that, install `@modelcontextprotocol/server-chrome-devtools`, launch Chrome with `--remote-debugging-port=9222`, and use that MCP. Both can coexist.
 
 ## When to escalate to Computer Use
 

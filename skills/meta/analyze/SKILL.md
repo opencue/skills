@@ -3,7 +3,7 @@ name: analyze
 description: "Runs read-only deep repository analysis and returns a ranked synthesis with explicit confidence, concrete file references, and clear evidence-vs-inference boundaries. Use when user says \"analyze\", \"investigate\", \"why does\", \"what's causing\", \"trace through\", or asks for a grounded cross-file explanation before any changes are proposed."
 ---
 
-# Analyze — Read-Only Deep Analysis
+# Analyze, Read-Only Deep Analysis
 
 Use this skill to answer the user’s question through **read-only repository analysis**. The goal is to explain what the codebase most likely says about the question, not to drift into implementation, debugging theater, or generic fix planning.
 
@@ -24,10 +24,10 @@ Examples:
 
 ## Do not use `$analyze` when
 
-- the user explicitly wants code edits, a fix, or execution — use the appropriate implementation lane instead
-- the user wants a new product plan or acceptance criteria — use `$plan` / `$ralplan`
-- the request is a simple one-file fact lookup — read the file and answer directly
-- the request is purely about running the OMX tmux team runtime — use `$team` only when OMX runtime is active
+- the user explicitly wants code edits, a fix, or execution, use the appropriate implementation lane instead
+- the user wants a new product plan or acceptance criteria, use `$plan` / `$ralplan`
+- the request is a simple one-file fact lookup, read the file and answer directly
+- the request is purely about running the OMX tmux team runtime, use `$team` only when OMX runtime is active
 
 ## Non-negotiable contract
 
@@ -56,9 +56,9 @@ Answer the user’s actual question first.
 
 Maintain an explicit **evidence-vs-inference distinction**. Every material claim must be labeled as one of:
 
-1. **Evidence** — directly supported by concrete repository artifacts
-2. **Inference** — a reasoned conclusion drawn from evidence
-3. **Unknown** — a question the current repository evidence does not resolve
+1. **Evidence**, directly supported by concrete repository artifacts
+2. **Inference**, a reasoned conclusion drawn from evidence
+3. **Unknown**, a question the current repository evidence does not resolve
 
 Never present an inference as if it were direct evidence.
 Never present a guess as if it were an inference.
@@ -121,8 +121,8 @@ Structure the answer so the user can see what is known, what is inferred, and ho
 | 3 | ... | High / Medium / Low | why it remains possible |
 
 ### Evidence
-- `path/to/file:line-line` — what this artifact directly shows
-- `path/to/file:line-line` — corroborating evidence
+- `path/to/file:line-line`, what this artifact directly shows
+- `path/to/file:line-line`, corroborating evidence
 
 ### Inference
 - What the evidence most strongly implies

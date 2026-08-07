@@ -29,10 +29,10 @@ google-drive-mcp server and the `gws` CLI.
 
 ## Two tools available
 
-1. **google-drive-mcp** — MCP server with full CRUD for Drive/Docs/Sheets/Slides/Calendar
-2. **gws CLI** — Google Workspace CLI for admin and batch operations
+1. **google-drive-mcp**, MCP server with full CRUD for Drive/Docs/Sheets/Slides/Calendar
+2. **gws CLI**, Google Workspace CLI for admin and batch operations
 
-## Step 1 — Identify the operation type
+## Step 1, Identify the operation type
 
 | User intent | Tool | Action |
 |---|---|---|
@@ -47,7 +47,7 @@ google-drive-mcp server and the `gws` CLI.
 | Calendar event | MCP | `createCalendarEvent` with summary + start + end |
 | Batch operations | CLI | `gws drive`, `gws docs`, `gws sheets` |
 
-## Step 2 — Execute with the right tool
+## Step 2, Execute with the right tool
 
 ### MCP operations (preferred for single-file actions)
 
@@ -93,7 +93,7 @@ gws drive download <file-id>
 gws drive share <file-id> --email user@example.com --role writer
 ```
 
-## Step 3 — Verify and report
+## Step 3, Verify and report
 
 After any operation:
 1. Confirm the action completed (check returned file ID or status)

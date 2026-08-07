@@ -11,7 +11,7 @@ allowed-tools: Bash
 
 Submit jobs to any Higgsfield model. Wraps the `higgsfield` CLI. Covers generic image/video gen and Marketing Studio (branded ads, avatars, products, hooks, settings).
 
-## Step 0 — Bootstrap
+## Step 0, Bootstrap
 
 Before any other command, make sure the CLI is installed and authenticated:
 
@@ -32,7 +32,7 @@ Skip both checks if `higgsfield account status` already prints account info.
 5. Don't pre-estimate cost. Just submit unless the user asks.
 6. Pass `--wait` to `generate create` so the command blocks until done and prints the result URL itself. Avoid the two-step `create` → `wait` pattern.
 
-## Workflow — generic generation
+## Workflow, generic generation
 
 1. **Pick a model.** Practical defaults from production use:
 
@@ -60,7 +60,7 @@ Skip both checks if `higgsfield account status` already prints account info.
 
    For the actual `--model` ID to pass to `higgsfield generate create`, run `higgsfield model list --json | jq` to map display names to IDs. See `references/model-catalog.md` for the full table.
 
-2. **Pass media inputs straight to flags.** Media flags accept a local file path **or** a UUID. CLI auto-uploads paths and auto-detects job vs upload for UUIDs. No need to pre-upload. Each model declares accepted roles (`image`, `start_image`, `end_image`, `video`, `audio`) — see `references/media-inputs.md`.
+2. **Pass media inputs straight to flags.** Media flags accept a local file path **or** a UUID. CLI auto-uploads paths and auto-detects job vs upload for UUIDs. No need to pre-upload. Each model declares accepted roles (`image`, `start_image`, `end_image`, `video`, `audio`), see `references/media-inputs.md`.
 3. **Validate quickly.** If unsure of params, run `higgsfield model get <jst> --json` once and pass only what's needed. Use schema defaults otherwise. The server returns `adjustments` for non-fatal coercions (e.g. `aspect_ratio=99:99` → closest match) and a structured error for invalid declared-param values.
 4. **Submit and wait in one shot.** `higgsfield generate create <jst> --prompt "..." [media flags] [param flags] --wait`. Blocks until terminal status and prints the result URL on stdout. Tunables: `--wait-timeout 20m` (default 10m), `--wait-interval 5s` (default 3s).
 5. **Deliver.** Send the URL plus a one-line summary (model, duration if video).
@@ -102,11 +102,11 @@ Branded image/video gen: avatars + products + optional setup hooks/settings + ad
 
 ### Concepts
 
-- **Avatar** — presenter face. Curated `preset` (browse `higgsfield marketing-studio avatars list`) or `custom` (uploaded photos via `higgsfield marketing-studio avatars create`). For UGC modes, an avatar is optional if the brief clearly mentions a person; the backend can create a Soul Character automatically. Pass an avatar when the user wants a specific presenter.
-- **Product** — brand item with title + reference images. Imported from URL (`higgsfield marketing-studio products fetch --url ...`) or created from uploaded images (`higgsfield marketing-studio products create`).
-- **Webproduct** — App Store / web page version. Auto-routes when fetching App Store URLs.
-- **Hook** — reusable opening angle / ad hook. Browse with `higgsfield marketing-studio hooks list`. Hook text is prepended to the user's prompt; it does not replace `--prompt`.
-- **Setting** — reusable environment / scene context. Browse with `higgsfield marketing-studio settings list`.
+- **Avatar**, presenter face. Curated `preset` (browse `higgsfield marketing-studio avatars list`) or `custom` (uploaded photos via `higgsfield marketing-studio avatars create`). For UGC modes, an avatar is optional if the brief clearly mentions a person; the backend can create a Soul Character automatically. Pass an avatar when the user wants a specific presenter.
+- **Product**, brand item with title + reference images. Imported from URL (`higgsfield marketing-studio products fetch --url ...`) or created from uploaded images (`higgsfield marketing-studio products create`).
+- **Webproduct**, App Store / web page version. Auto-routes when fetching App Store URLs.
+- **Hook**, reusable opening angle / ad hook. Browse with `higgsfield marketing-studio hooks list`. Hook text is prepended to the user's prompt; it does not replace `--prompt`.
+- **Setting**, reusable environment / scene context. Browse with `higgsfield marketing-studio settings list`.
 
 ### Discovery commands
 
@@ -125,7 +125,7 @@ higgsfield marketing-studio settings list --json
 
 - One question per phase. Don't ask product+avatar+mode upfront.
 
-### Workflow — quick ad video
+### Workflow, quick ad video
 
 1. **Get product.**
    - Existing product → `higgsfield marketing-studio products list --json`
@@ -182,7 +182,7 @@ higgsfield generate create marketing_studio_video \
 
 Backend dedupes by URL, so repeated runs reuse the existing entity instead of re-fetching.
 
-### Workflow — marketing image
+### Workflow, marketing image
 
 Same as above but use `marketing_studio_image` model:
 
@@ -207,11 +207,11 @@ See `references/troubleshooting.md` for more.
 
 Load on demand:
 
-- `references/model-catalog.md` — picking the right model for the task
-- `references/prompt-engineering.md` — writing prompts that work
-- `references/media-inputs.md` — image/video reference flows
-- `references/troubleshooting.md` — common errors and fixes
-- `references/marketing-avatars.md` — preset vs custom avatars
-- `references/marketing-products.md` — URL fetch vs manual product create
-- `references/marketing-setup-items.md` — hooks/settings discovery and usage
-- `references/marketing-modes.md` — every Marketing Studio mode
+- `references/model-catalog.md`, picking the right model for the task
+- `references/prompt-engineering.md`, writing prompts that work
+- `references/media-inputs.md`, image/video reference flows
+- `references/troubleshooting.md`, common errors and fixes
+- `references/marketing-avatars.md`, preset vs custom avatars
+- `references/marketing-products.md`, URL fetch vs manual product create
+- `references/marketing-setup-items.md`, hooks/settings discovery and usage
+- `references/marketing-modes.md`, every Marketing Studio mode

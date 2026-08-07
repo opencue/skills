@@ -8,7 +8,7 @@ triggers:
 allowed-tools: Bash(cargo:*)
 ---
 
-# `#![no_std]` — Rust without std
+# `#![no_std]`, Rust without std
 
 `std` = `core` + `alloc` + OS bindings. Removing std loses heap allocation, threads, file I/O, and networking. You keep types, iterators, slices, traits.
 
@@ -21,7 +21,7 @@ allowed-tools: Bash(cargo:*)
   use alloc::{vec::Vec, string::String, boxed::Box};
   ```
 - **Provide an allocator** (if you want `alloc`): `#[global_allocator] static A: MyAlloc = MyAlloc;` (heap crate per target, e.g. `embedded-alloc` for Cortex-M)
-- **Panic handler**: pick one and add as a dep — `panic-halt`, `panic-abort`, or roll your own `#[panic_handler] fn panic(_: &PanicInfo) -> ! { loop {} }`
+- **Panic handler**: pick one and add as a dep, `panic-halt`, `panic-abort`, or roll your own `#[panic_handler] fn panic(_: &PanicInfo) -> ! { loop {} }`
 - **Cargo features for std/no-std libraries**:
   ```toml
   [features]
@@ -40,7 +40,7 @@ allowed-tools: Bash(cargo:*)
 - A target without std (or std intentionally excluded): `wasm32-unknown-unknown`, any `thumbv*`, `riscv*-none-elf`
 
 ## Notes
-- **Audit deps**: many crates have a `default-features = false` flag that disables std — set it explicitly. `cargo tree -e features` shows where std leaks back in.
-- `heapless` crate provides `Vec<T, N>` and `String<N>` with const-generic capacity — no allocator needed.
-- For libraries published to crates.io, gating `std` behind a feature is the polite default — downstream embedded users will love you.
+- **Audit deps**: many crates have a `default-features = false` flag that disables std, set it explicitly. `cargo tree -e features` shows where std leaks back in.
+- `heapless` crate provides `Vec<T, N>` and `String<N>` with const-generic capacity, no allocator needed.
+- For libraries published to crates.io, gating `std` behind a feature is the polite default, downstream embedded users will love you.
 - WASM `wasm32-unknown-unknown` has no OS, so `std::fs` / `std::net` / `std::thread` panic at runtime even though they compile. Treat as effectively no_std.

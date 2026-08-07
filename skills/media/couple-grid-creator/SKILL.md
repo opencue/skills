@@ -15,18 +15,18 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `couple_image` | image_url | yes | — | A clear photo of the couple to maintain identity. |
+| `couple_image` | image_url | yes |, | A clear photo of the couple to maintain identity. |
 
 
 ## Steps
 
-### Phase A — Multi-Pose Grid Generation
+### Phase A, Multi-Pose Grid Generation
 
 If `{{couple_image}}` is not provided, ask the user to upload a photo of the couple.
 
 Once the photo is available, submit the plan with ONE step to generate the stylized grid:
 
-1. **Grid Generation** — `muapi image edit` (model=`qwen-image-edit-plus`):
+1. **Grid Generation**, `muapi image edit` (model=`qwen-image-edit-plus`):
    - Reference Image: `{{couple_image}}`
    - Prompt: `Convert the above image into an 8k portrait of both faces. Both faces should be clearly visible inside separate packaging: brown square hollow cardboard boxes. There should be 6 big boxes fully occupying the frame in a grid layout. In each box, the couple's faces should be visible, striking different decent romantic poses. Each box should feature a different costume for the couple to differentiate the scenes, with both wearing decent western wear. The background inside each box should be solid black. Maintain strict identity consistency for both the man and the woman from the reference image. Cinematic tone, sharp focus, professional photography.`
    - Aspect ratio: 1:1 or 4:5

@@ -7,7 +7,7 @@ description: |
   Reads the design doc; writes back architectural decisions. Use when
   the user says "eng review", "architecture review", "lock the plan",
   or before exiting plan mode.
-allowed-tools: [Read, Write, Edit, Grep, Glob, Bash, AskUserQuestion]
+allowed-tools: Read, Write, Edit, Grep, Glob, Bash, Bash(AskUserQuestion:*)
 triggers:
   - eng review
   - architecture review
@@ -16,7 +16,12 @@ triggers:
   - plan-eng
 ---
 
-# /plan-eng-review — architecture lock before code
+# /plan-eng-review, architecture lock before code
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Read the design doc (and the CEO review section if present). Produce
 the architectural layer: how the thing actually works on disk, in
@@ -41,7 +46,7 @@ For any non-trivial feature, sketch the flow as ASCII. Example:
 
 Naming each box forces the question: "what handles failure on this
 edge?" If you can't draw the diagram in 6 boxes or fewer, the scope is
-probably too big — flag it.
+probably too big, flag it.
 
 ### 2. State machine
 
@@ -103,9 +108,9 @@ question to settle here.
 
 List the things the design doc treats as given but actually need to
 be checked. Examples:
-- "User has at most one calendar" — actually true?
-- "LLM output is well-formed JSON" — actually true?
-- "The cache fits in RAM" — actually true?
+- "User has at most one calendar", actually true?
+- "LLM output is well-formed JSON", actually true?
+- "The cache fits in RAM", actually true?
 
 For each: state how the code handles the assumption being wrong.
 

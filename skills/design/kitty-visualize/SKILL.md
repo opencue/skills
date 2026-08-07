@@ -9,7 +9,7 @@ metadata:
 
 The user wants visualizations on a **separate kitty window**, not inline in the chat.
 
-Default rule: when a user request resolves to producing a diagram, ASCII layout, dependency graph, tmux/pane picture, fleet topology, or image preview — **do not** dump it in the chat response. Render it to a temp file under `/tmp/claude-viz/` and spawn a detached kitty window pointed at that file. Confirm in chat with ONE short line containing the path.
+Default rule: when a user request resolves to producing a diagram, ASCII layout, dependency graph, tmux/pane picture, fleet topology, or image preview, **do not** dump it in the chat response. Render it to a temp file under `/tmp/claude-viz/` and spawn a detached kitty window pointed at that file. Confirm in chat with ONE short line containing the path.
 
 ## When the trigger fires
 
@@ -19,7 +19,7 @@ User intent keywords:
 - "open it in kitty", "another window", "not in the chat"
 - Any explicit "make me a chart / diagram / graph"
 
-If the user wants a **textual** answer with a small inline ASCII sketch (e.g. "what does the dir tree look like" → 5 lines of tree), keep it inline — that is not a visualization. The skill applies when the artifact is the *point*.
+If the user wants a **textual** answer with a small inline ASCII sketch (e.g. "what does the dir tree look like" → 5 lines of tree), keep it inline, that is not a visualization. The skill applies when the artifact is the *point*.
 
 ## How to render
 
@@ -32,7 +32,7 @@ If the user wants a **textual** answer with a small inline ASCII sketch (e.g. "w
 | Single image (PNG, JPG, SVG) | `.png` / `.svg` | `kitty +kitten icat --hold <file>` |
 | Mermaid / Graphviz source | render first with `mmdc` / `dot -Tpng`, then icat | |
 
-For ASCII layouts (the most common case here) **always use the `.txt` path** — readable in less, scrollable, copy-friendly.
+For ASCII layouts (the most common case here) **always use the `.txt` path**, readable in less, scrollable, copy-friendly.
 
 ### 2. Write the file
 
@@ -45,7 +45,7 @@ cat > "$FILE" <<'EOF'
 EOF
 ```
 
-Pick a short kebab-case label that describes the picture (`fleet-panes`, `ph13-waves`, `coolify-topology`). Never overwrite an existing viz file — the timestamp prevents that.
+Pick a short kebab-case label that describes the picture (`fleet-panes`, `ph13-waves`, `coolify-topology`). Never overwrite an existing viz file, the timestamp prevents that.
 
 ### 3. Spawn kitty detached
 
@@ -56,13 +56,13 @@ disown 2>/dev/null || true
 ```
 
 Why each flag:
-- `setsid` + `&` + `disown` — detach so kitty survives the parent shell exiting.
-- `--title` — so the user can find the window in their taskbar / picker.
-- `--hold` — keep the window open after `less` exits (Ctrl-C, `q`).
-- `less -R` — `-R` passes ANSI colors through (box-drawing chars and color codes both render).
-- `</dev/null` — don't inherit the agent shell's stdin.
+- `setsid` + `&` + `disown`, detach so kitty survives the parent shell exiting.
+- `--title`, so the user can find the window in their taskbar / picker.
+- `--hold`, keep the window open after `less` exits (Ctrl-C, `q`).
+- `less -R`, `-R` passes ANSI colors through (box-drawing chars and color codes both render).
+- `</dev/null`, don't inherit the agent shell's stdin.
 
-If kitty is **not on PATH**, fall back to printing a single-line: `"kitty not installed; saved to $FILE"` and exit — do NOT inline-dump the diagram.
+If kitty is **not on PATH**, fall back to printing a single-line: `"kitty not installed; saved to $FILE"` and exit, do NOT inline-dump the diagram.
 
 ### 4. Confirm in chat
 
@@ -77,10 +77,10 @@ That's it. No "here's what I drew", no inline copy of the same diagram, no markd
 ## What NOT to do
 
 - Do not also paste the diagram into the chat. The whole point is to keep chat clean.
-- Do not open kitty *attached* (foreground) — it would block the agent shell and the user's terminal.
+- Do not open kitty *attached* (foreground), it would block the agent shell and the user's terminal.
 - Do not use temp files outside `/tmp/claude-viz/`; that directory is the agreed parking lot.
 - Do not pre-clean `/tmp/claude-viz/` between turns. The user may want to re-open an older viz.
-- Do not call `kitty +kitten icat` for plain ASCII text — `less -R` is faster and scrollable.
+- Do not call `kitty +kitten icat` for plain ASCII text, `less -R` is faster and scrollable.
 - Do not invent diagrams when the user asks a textual question. Trigger ONLY when the artifact is what they want.
 
 ## Examples

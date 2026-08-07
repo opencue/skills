@@ -14,7 +14,15 @@ allowed-tools: Bash(gh:*), Bash(curl:*), Bash(git:*), Bash(jq:*), WebSearch, Rea
 
 # Submit to Awesome Lists (v2)
 
-Auto-detect project info, find relevant awesome-* repos, and submit PRs — with dedup, format matching, and submission tracking.
+## Prerequisites
+
+- `gh`, install via your package manager
+- `curl`, install via your package manager
+- `git`, install via your package manager
+- `jq`, install via your package manager
+
+
+Auto-detect project info, find relevant awesome-* repos, and submit PRs, with dedup, format matching, and submission tracking.
 
 ## When to activate
 
@@ -178,7 +186,7 @@ already_submitted() {
 
 ## Rules
 
-- Auto-detect everything — don't ask user for metadata that's in package.json
+- Auto-detect everything, don't ask user for metadata that's in package.json
 - Always check for duplicates before submitting (README + open PRs)
 - Match the existing format exactly (table vs bullet, alphabetical order)
 - Only submit to lists with >100 stars and recent activity
@@ -253,7 +261,7 @@ find_demo_assets() {
 }
 ```
 
-Inject into every PR body — maintainers see what the tool does without clicking through. Visual PRs get merged 2-3x faster.
+Inject into every PR body, maintainers see what the tool does without clicking through. Visual PRs get merged 2-3x faster.
 
 ---
 

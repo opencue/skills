@@ -5,10 +5,10 @@ metadata:
   platform: Google
 ---
 
-# 21/ Ad Extension Audit — Google
+# 21/ Ad Extension Audit, Google
 
 ## What it does
-Reviews all your Google Ads extensions — sitelinks, callouts, structured snippets, call extensions, image extensions, price extensions — across every campaign. Flags what's missing, what's underperforming, what's outdated, and writes replacements based on your best performing ads and landing pages.
+Reviews all your Google Ads extensions, sitelinks, callouts, structured snippets, call extensions, image extensions, price extensions, across every campaign. Flags what's missing, what's underperforming, what's outdated, and writes replacements based on your best performing ads and landing pages.
 
 ## How it works
 Claude inventories your current extensions, checks coverage (which campaigns are missing which extension types), analyzes performance data (CTR contribution, impression rates), and compares your extensions against your actual offers and landing page content to ensure they're relevant and up to date.

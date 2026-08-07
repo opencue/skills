@@ -17,11 +17,11 @@ allowed-tools: Bash
 
 Analyze the current session's work and suggest skills that would have helped.
 
-## Iron contract — never recommend a skill that doesn't exist
+## Iron contract, never recommend a skill that doesn't exist
 
 Every suggestion must reference a real skill (already in the registry) or
 be explicitly framed as "scaffold a new skill for X." Suggesting an
-imagined skill that doesn't exist is worse than suggesting nothing — it
+imagined skill that doesn't exist is worse than suggesting nothing, it
 sends the user looking for something they can't install. Also: cap
 suggestions at 3 per session. More than that is noise; the user stops
 reading.
@@ -96,7 +96,7 @@ Apply suggestions? I can run:
 - Don't suggest skills for one-off tasks
 - Show what the skill would have automated (concrete example from this session)
 - If no skill exists for the pattern, suggest creating one
-- Keep it to max 3-4 suggestions — don't overwhelm
+- Keep it to max 3-4 suggestions, don't overwhelm
 
 ## Capture learnings
 

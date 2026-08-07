@@ -7,7 +7,7 @@ description: |
   Use when the user says "security audit", "OWASP review", "threat model",
   "cso", "is this secure", or before shipping anything that touches auth,
   user input, secrets, or payments.
-allowed-tools: [Bash, Read, Grep, Glob, Edit, MultiEdit, Write, AskUserQuestion, WebSearch]
+allowed-tools: Bash, Read, Grep, Glob, Edit, MultiEdit, Write, Bash(AskUserQuestion:*), WebSearch
 triggers:
   - security audit
   - owasp review
@@ -16,13 +16,18 @@ triggers:
   - is this secure
 ---
 
-# /cso — Chief Security Officer audit
+# /cso, Chief Security Officer audit
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Most "security review" output is noise: speculative findings with no
-exploit path, dressed up as critical. This skill flips that — every
+exploit path, dressed up as critical. This skill flips that, every
 finding must clear two gates:
 
-1. **8/10+ confidence** that the finding is real (not "could be" — "is").
+1. **8/10+ confidence** that the finding is real (not "could be", "is").
 2. **A concrete exploit scenario** the user could reproduce on a test
    instance.
 
@@ -46,7 +51,7 @@ For diff: `git diff <base>...HEAD` only.
 
 ## Two-lane audit
 
-### Lane 1 — OWASP Top 10 (2021)
+### Lane 1, OWASP Top 10 (2021)
 
 For each, check the diff/scope:
 
@@ -63,7 +68,7 @@ For each, check the diff/scope:
 | A09 | Logging & monitoring | Auth/access events logged? Failures logged but not silenced? PII NOT logged? |
 | A10 | SSRF | URLs fetched without allowlist, internal IPs reachable via redirect |
 
-### Lane 2 — STRIDE threat model
+### Lane 2, STRIDE threat model
 
 For each entity in the data-flow diagram (or the modified surface):
 
@@ -79,7 +84,7 @@ For each entity in the data-flow diagram (or the modified surface):
 ## Confidence gating
 
 For each potential finding, score:
-- **Evidence**: Did you read the actual code? (Required — no "looking at the structure" findings.)
+- **Evidence**: Did you read the actual code? (Required, no "looking at the structure" findings.)
 - **Reachability**: Is the vulnerable code on a code path that runs in production?
 - **Exploitability**: Can you state the exploit in ≤ 3 sentences?
 

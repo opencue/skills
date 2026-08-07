@@ -8,13 +8,13 @@ triggers:
 allowed-tools: Bash(cargo:*), Bash(cargo-fuzz:*), Bash(rustup:*)
 ---
 
-# cargo-fuzz — libFuzzer for Rust
+# cargo-fuzz, libFuzzer for Rust
 
 Coverage-guided fuzzing. Often finds panics + UB within minutes on parser code.
 
 ## When to use
 - **Init in a crate**: `cargo fuzz init`
-- **Add a target**: `cargo fuzz add my_parser` — generates `fuzz/fuzz_targets/my_parser.rs`
+- **Add a target**: `cargo fuzz add my_parser`, generates `fuzz/fuzz_targets/my_parser.rs`
 - **Target body**:
   ```rust
   libfuzzer_sys::fuzz_target!(|data: &[u8]| {
@@ -29,10 +29,10 @@ Coverage-guided fuzzing. Often finds panics + UB within minutes on parser code.
 ## Prerequisites
 - nightly: `rustup install nightly`
 - cargo-fuzz
-- libFuzzer ships with nightly's compiler-rt — no extra package on Linux/macOS
+- libFuzzer ships with nightly's compiler-rt, no extra package on Linux/macOS
 
 ## Notes
-- Run continuously in the background, not as a unit test — fuzzing is a long-running search.
+- Run continuously in the background, not as a unit test, fuzzing is a long-running search.
 - Pair with `arbitrary` crate so target bodies parse `&[u8]` into structured types: `fuzz_target!(|input: MyStruct| ...)` via `#[derive(Arbitrary)]`.
-- Commit interesting corpus inputs + any minimized crashes — they accelerate the next run.
+- Commit interesting corpus inputs + any minimized crashes, they accelerate the next run.
 - For HTTP server fuzzing, look at `cargo-bolero` (multi-engine wrapper) instead.

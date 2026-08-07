@@ -26,6 +26,6 @@ Supply-chain and unsafe-code auditing.
 
 ## Notes
 - cargo-audit + cargo-deny together cover 90% of real-world supply-chain needs. Start with those two.
-- Wire `cargo audit` into CI as a separate job — advisories drop continuously, so a pinned `Cargo.lock` can become unsafe overnight without a code change.
+- Wire `cargo audit` into CI as a separate job, advisories drop continuously, so a pinned `Cargo.lock` can become unsafe overnight without a code change.
 - cargo-deny config lives in `deny.toml`. Use `[advisories]` and `[licenses]` first; `[bans]` and `[sources]` are advanced.
-- cargo-geiger output is informational, not gating — high unsafe counts in crates like `tokio` are expected.
+- cargo-geiger output is informational, not gating, high unsafe counts in crates like `tokio` are expected.

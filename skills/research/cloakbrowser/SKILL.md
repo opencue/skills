@@ -19,10 +19,10 @@ Stealth Chromium for automation, distributed as a Docker image (`cloakhq/cloakbr
 
 ## When NOT to load
 
-- Static HTML — use `WebFetch` + `defuddle`.
-- JS-rendered but uncloaked sites — `obscura` is lighter (30 MB RAM, no Docker).
-- One-off URL inspection — `curl -sL <url>` is enough.
-- The site only needs auth, not stealth — `playwright` directly is simpler.
+- Static HTML, use `WebFetch` + `defuddle`.
+- JS-rendered but uncloaked sites, `obscura` is lighter (30 MB RAM, no Docker).
+- One-off URL inspection, `curl -sL <url>` is enough.
+- The site only needs auth, not stealth, `playwright` directly is simpler.
 
 ## Smoke test
 
@@ -34,13 +34,13 @@ Runs the 6-site battery (sannysoft, incolumitas, BrowserScan, deviceandbrowserin
 
 Useful flags:
 
-- `cloaktest --headed` — show the browser (debug fingerprint visually)
-- `cloaktest --screenshots` — save per-test PNGs
-- `cloaktest --proxy http://user:pass@host:port` — route through a proxy (recommended for IP-based detectors)
+- `cloaktest --headed`, show the browser (debug fingerprint visually)
+- `cloaktest --screenshots`, save per-test PNGs
+- `cloaktest --proxy http://user:pass@host:port`, route through a proxy (recommended for IP-based detectors)
 
 ## Running your own automation
 
-The image bundles a Chromium that exposes the Chrome DevTools Protocol — connect any existing Puppeteer/Playwright client unchanged.
+The image bundles a Chromium that exposes the Chrome DevTools Protocol, connect any existing Puppeteer/Playwright client unchanged.
 
 ```bash
 docker run --rm -p 9222:9222 cloakhq/cloakbrowser \
@@ -74,7 +74,7 @@ docker run --rm -v "$PWD/profile:/profile" cloakhq/cloakbrowser \
 | FingerprintJS web-scraping     | NO FLIGHTS (fails) |
 | reCAPTCHA v3                   | score 0.9 |
 
-FingerprintJS is the only consistent miss — fingerprint canvas/audio entropy still ties multiple runs together. If targeting FingerprintJS-protected sites, rotate the Docker container plus the proxy IP per session.
+FingerprintJS is the only consistent miss, fingerprint canvas/audio entropy still ties multiple runs together. If targeting FingerprintJS-protected sites, rotate the Docker container plus the proxy IP per session.
 
 ## Tips
 

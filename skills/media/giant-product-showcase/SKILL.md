@@ -15,32 +15,32 @@ acceptLicenseTerms: true
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `product_image` | image_url | yes | — | A clear image of the product to be made giant. |
+| `product_image` | image_url | yes |, | A clear image of the product to be made giant. |
 | `person_description` | text | no | a stylishly dressed man | Description of the person standing next to the giant product. |
 
 
 ## Steps
 
-### Phase A — Giant Product Visualization
+### Phase A, Giant Product Visualization
 
 If `{{product_image}}` is not provided, ask the user to upload a photo of the product.
 
 Once the photo is available, submit the plan with ONE step to create the giant product scene:
 
-1. **Scene Generation** — `muapi image edit` (model=`nano-banana-2-edit`):
+1. **Scene Generation**, `muapi image edit` (model=`nano-banana-2-edit`):
    - Reference Image: `{{product_image}}`
    - Prompt: `A professional commercial photograph featuring a massive, giant-sized version of the product from the reference image. The product is the size of a person and is standing on a clean, modern floor. Next to the giant product, {{person_description}} is leaning against it or standing nearby, highlighting the enormous scale. High-end product photography, soft studio lighting, realistic reflections, 8k resolution.`
    - Aspect ratio: 3:4 or 4:5
 
 Present the generated giant product image to the user for approval.
 
-### Phase B — Animation (Optional)
+### Phase B, Animation (Optional)
 
 After the image is generated, ask the user if they would like to animate the scene into a cinematic showcase video.
 
 If requested, submit the plan with ONE step:
 
-1. **Video Generation** — `muapi video from-image` (model=`veo3.1-fast-image-to-video`):
+1. **Video Generation**, `muapi video from-image` (model=`veo3.1-fast-image-to-video`):
    - Reference Image: The giant product image from Phase A.
    - Prompt: `Cinematic slow-motion camera movement around the giant product. The person next to it moves naturally, looking at the camera or adjusting their pose. Dynamic lighting, high-quality textures, professional commercial vibe.`
    - Aspect ratio: 9:16 or 4:5

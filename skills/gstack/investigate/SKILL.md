@@ -123,13 +123,13 @@ matches a past learning, display:
 This makes the compounding visible. The user should see that gstack is getting
 smarter on their codebase over time.
 
-Output: **"Root cause hypothesis: ..."** — a specific, testable claim about what is wrong and why.
+Output: **"Root cause hypothesis: ..."**, a specific, testable claim about what is wrong and why.
 
 ### Refresh learnings for the hypothesis you just named
 
 The top-of-skill learnings pull above is keyed to "debug investigation" broadly. Now that you have a specific hypothesis, re-pull learnings keyed to that hypothesis so prior fixes for the same problem-shape surface.
 
-Pick ONE keyword from the hypothesis. The keyword should be a noun: the failing component name, the basename of the file you suspect (without extension), or the bug noun. The keyword MUST be alphanumeric or hyphen only — no quotes, slashes, dots, colons, or whitespace. If your candidate has any of those, simplify to just the alphanumeric stem.
+Pick ONE keyword from the hypothesis. The keyword should be a noun: the failing component name, the basename of the file you suspect (without extension), or the bug noun. The keyword MUST be alphanumeric or hyphen only, no quotes, slashes, dots, colons, or whitespace. If your candidate has any of those, simplify to just the alphanumeric stem.
 
 Worked examples (investigate-specific): good keywords are `auth-cookie`, `session-expiry`, `redirect-loop`. Bad: `auth.ts:47`, `fix the auth bug`, `<hypothesis-keyword>`.
 
@@ -137,7 +137,7 @@ Worked examples (investigate-specific): good keywords are `auth-cookie`, `sessio
 ~/.claude/skills/gstack/bin/gstack-learnings-search --query "<your-keyword>" --limit 5 2>/dev/null || true
 ```
 
-If any learnings come back, name which one applies to your investigation in one sentence. If none come back, continue without reference — the absence of a matching prior learning is itself useful information.
+If any learnings come back, name which one applies to your investigation in one sentence. If none come back, continue without reference, the absence of a matching prior learning is itself useful information.
 
 ---
 
@@ -184,10 +184,10 @@ Check if this bug matches a known pattern:
 
 Also check:
 - `TODOS.md` for related known issues
-- `git log` for prior fixes in the same area — **recurring bugs in the same files are an architectural smell**, not a coincidence
+- `git log` for prior fixes in the same area, **recurring bugs in the same files are an architectural smell**, not a coincidence
 
 **External pattern search:** If the bug doesn't match a known pattern above, WebSearch for:
-- "{framework} {generic error type}" — **sanitize first:** strip hostnames, IPs, file paths, SQL, customer data. Search the error category, not the raw message.
+- "{framework} {generic error type}", **sanitize first:** strip hostnames, IPs, file paths, SQL, customer data. Search the error category, not the raw message.
 - "{library} {component} known issues"
 
 If WebSearch is unavailable, skip this search and proceed with hypothesis testing. If a documented solution or known dependency bug surfaces, present it as a candidate hypothesis in Phase 3.
@@ -200,7 +200,7 @@ Before writing ANY fix, verify your hypothesis.
 
 1. **Confirm the hypothesis:** Add a temporary log statement, assertion, or debug output at the suspected root cause. Run the reproduction. Does the evidence match?
 
-2. **If the hypothesis is wrong:** Before forming the next hypothesis, consider searching for the error. **Sanitize first** — strip hostnames, IPs, file paths, SQL fragments, customer identifiers, and any internal/proprietary data from the error message. Search only the generic error type and framework context: "{component} {sanitized error type} {framework version}". If the error message is too specific to sanitize safely, skip the search. If WebSearch is unavailable, skip and proceed. Then return to Phase 1. Gather more evidence. Do not guess.
+2. **If the hypothesis is wrong:** Before forming the next hypothesis, consider searching for the error. **Sanitize first**, strip hostnames, IPs, file paths, SQL fragments, customer identifiers, and any internal/proprietary data from the error message. Search only the generic error type and framework context: "{component} {sanitized error type} {framework version}". If the error message is too specific to sanitize safely, skip the search. If WebSearch is unavailable, skip and proceed. Then return to Phase 1. Gather more evidence. Do not guess.
 
 3. **3-strike rule:** If 3 hypotheses fail, **STOP**. Use AskUserQuestion:
    ```
@@ -212,10 +212,10 @@ Before writing ANY fix, verify your hypothesis.
    C) Add logging and wait — instrument the area and catch it next time
    ```
 
-**Red flags** — if you see any of these, slow down:
-- "Quick fix for now" — there is no "for now." Fix it right or escalate.
-- Proposing a fix before tracing data flow — you're guessing.
-- Each fix reveals a new problem elsewhere — wrong layer, not wrong code.
+**Red flags**, if you see any of these, slow down:
+- "Quick fix for now", there is no "for now." Fix it right or escalate.
+- Proposing a fix before tracing data flow, you're guessing.
+- Each fix reveals a new problem elsewhere, wrong layer, not wrong code.
 
 ---
 
@@ -304,11 +304,11 @@ already knows. A good test: would this insight save time in a future session? If
 - **Never say "this should fix it."** Verify and prove it. Run the tests.
 - **If fix touches >5 files → AskUserQuestion** about blast radius before proceeding.
 - **Completion status:**
-  - DONE — root cause found, fix applied, regression test written, all tests pass
-  - DONE_WITH_CONCERNS — fixed but cannot fully verify (e.g., intermittent bug, requires staging)
-  - BLOCKED — root cause unclear after investigation, escalated
+  - DONE, root cause found, fix applied, regression test written, all tests pass
+  - DONE_WITH_CONCERNS, fixed but cannot fully verify (e.g., intermittent bug, requires staging)
+  - BLOCKED, root cause unclear after investigation, escalated
 
 
 ## Prerequisites
 
-- `-` — install via your package manager
+- `-`, install via your package manager

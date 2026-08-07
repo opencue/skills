@@ -83,7 +83,7 @@ For EACH applicable framework, evaluate every check item. Use these statuses:
 | # | Check Item | What to Look For | Status | Notes |
 |---|-----------|-------------------|--------|-------|
 | C1 | **"Do Not Sell or Share" Link** | Visible link in footer: "Do Not Sell or Share My Personal Information." | | |
-| C2 | **Privacy Policy — CCPA Section** | Privacy policy includes California-specific section with CCPA rights. | | |
+| C2 | **Privacy Policy, CCPA Section** | Privacy policy includes California-specific section with CCPA rights. | | |
 | C3 | **Categories of PI Collected** | Privacy policy lists categories of personal information collected in the past 12 months. | | |
 | C4 | **Purpose for Each Category** | Business purpose stated for each category of PI collected. | | |
 | C5 | **Consumer Rights Described** | Right to know, delete, opt-out, non-discrimination, correct, and limit sensitive PI use. | | |
@@ -123,7 +123,7 @@ For EACH applicable framework, evaluate every check item. Use these statuses:
 | P3 | **No Card Data in URLs** | Card numbers never appear in URL parameters or GET requests. | | |
 | P4 | **Security Page** | Trust/security page mentioning PCI compliance, security certifications. | | |
 | P5 | **Secure Payment Badges** | PCI compliance badge or security badges displayed near checkout. | | |
-| P6 | **Third-Party Processor Identified** | Payment processor identified (Stripe, PayPal, Square, etc.) — indicates SAQ-A eligible offloading. | | |
+| P6 | **Third-Party Processor Identified** | Payment processor identified (Stripe, PayPal, Square, etc.), indicates SAQ-A eligible offloading. | | |
 
 ### 2.5 CAN-SPAM Compliance
 

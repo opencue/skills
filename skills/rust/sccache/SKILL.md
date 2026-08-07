@@ -27,6 +27,6 @@ Caches rustc outputs (and gcc/clang). Big wins on CI and branch switching.
 - sccache (`cargo install sccache --locked` or distro package)
 
 ## Notes
-- Does NOT help with incremental rebuilds in the same workspace — those already work. Wins are cross-branch and cross-machine (CI).
+- Does NOT help with incremental rebuilds in the same workspace, those already work. Wins are cross-branch and cross-machine (CI).
 - Don't enable both sccache and `[profile.dev] incremental = true` cache hits will conflict; sccache works best with incremental disabled in CI.
 - Local-only filesystem cache lives in `~/.cache/sccache`.

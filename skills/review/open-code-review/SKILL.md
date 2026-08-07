@@ -12,12 +12,12 @@ Apache-2.0 Go CLI from Alibaba. Two things distinguish it from `code-review`:
    thread-safety, XSS and SQL injection come from pattern pipelines, not from a
    model's opinion, so they do not vary run to run.
 2. **It can review without any LLM of its own** (delegation mode), which is how
-   you should normally use it inside Claude Code — see below.
+   you should normally use it inside Claude Code, see below.
 
 Use it as a *second engine*, not a replacement. Different engines surface
 different findings; `code-review` stays the default for Claude-native review.
 
-## Delegation mode — prefer this
+## Delegation mode, prefer this
 
 ```bash
 ocr delegate preview                        # what would be reviewed
@@ -29,7 +29,7 @@ No API key, no separate model, and **the diff never leaves the machine**. This
 is the only mode to use on client repositories unless the user has explicitly
 approved sending their code to an external endpoint.
 
-## Standalone mode — needs an LLM
+## Standalone mode, needs an LLM
 
 Only when the user wants `ocr` to review by itself (e.g. in CI):
 
@@ -49,7 +49,7 @@ ocr scan                                     # whole files, no git history neede
 ocr scan --path internal/agent
 ```
 
-Long reviews are resumable — sessions survive interruption:
+Long reviews are resumable, sessions survive interruption:
 
 ```bash
 ocr session list
@@ -67,7 +67,7 @@ The `--json` form is the one to parse when feeding findings into another step.
   enabling it on a client repo. Delegation mode avoids this entirely.
 - **It is an MCP _client_, not a server.** `ocr` can consume external MCP
   servers to give its agent more tools (issue lookup, internal docs). Do not try
-  to register `ocr` itself as an MCP server — there is nothing to register.
+  to register `ocr` itself as an MCP server, there is nothing to register.
 - **Pin the version.** cue's marketplace entry pins `v1.8.8`; match that when
   installing so findings stay reproducible.
 
@@ -81,4 +81,4 @@ The `--json` form is the one to parse when feeding findings into another step.
 | Vulnerability-focused audit | `security-review` |
 
 Running this after `code-review` on a risky diff is reasonable. Running it on
-every diff is not — it adds latency for findings that mostly overlap.
+every diff is not, it adds latency for findings that mostly overlap.

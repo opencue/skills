@@ -9,26 +9,26 @@ acceptLicenseTerms: true
 
 # Drone-Style Video
 
-**Generate aerial drone-perspective footage — sweeping bird's-eye views, orbit shots, and flyover sequences for landscapes, architecture, and events.**
+**Generate aerial drone-perspective footage, sweeping bird's-eye views, orbit shots, and flyover sequences for landscapes, architecture, and events.**
 
 ## Inputs
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `location_or_subject` | text | yes | — | What to shoot from above (e.g. "mountain valley at sunrise", "luxury villa by the ocean", "crowded city intersection"). |
-| `shot_type` | text | no | reveal | Camera movement style — 'reveal' (ascend & reveal), 'orbit' (circle subject), 'flyover' (pass over), 'top-down' (bird's eye static). |
+| `location_or_subject` | text | yes |, | What to shoot from above (e.g. "mountain valley at sunrise", "luxury villa by the ocean", "crowded city intersection"). |
+| `shot_type` | text | no | reveal | Camera movement style, 'reveal' (ascend & reveal), 'orbit' (circle subject), 'flyover' (pass over), 'top-down' (bird's eye static). |
 | `style` | text | no | golden hour, cinematic, 4K, ultra-detailed | Visual atmosphere (e.g. "dramatic storm clouds", "misty morning", "blue hour city lights"). |
 | `aspect_ratio` | text | no | 16:9 | Output aspect ratio. |
-| `reference_image` | image_url | no | — | Optional aerial/location reference image. |
+| `reference_image` | image_url | no |, | Optional aerial/location reference image. |
 
 
 ## Steps
 
-### Phase A — Generate Drone Footage
+### Phase A, Generate Drone Footage
 
 Submit the plan with ONE step:
 
-1. **Aerial video** — If `{{reference_image}}` is provided, use `muapi video generate` (model=`veo3.1-image-to-video`); otherwise use `muapi video generate` (model=`veo3.1-text-to-video`).
+1. **Aerial video**, If `{{reference_image}}` is provided, use `muapi video generate` (model=`veo3.1-image-to-video`); otherwise use `muapi video generate` (model=`veo3.1-text-to-video`).
    - Build prompt based on `{{shot_type}}`:
      - **reveal**: `Drone camera starts low, slowly ascends and reveals {{location_or_subject}}, sweeping wide aerial perspective, {{style}}`
      - **orbit**: `Drone camera orbits {{location_or_subject}} in a smooth circular arc, 360-degree aerial rotation, {{style}}`

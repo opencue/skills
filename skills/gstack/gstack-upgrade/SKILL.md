@@ -6,9 +6,9 @@ triggers:
   - upgrade gstack
   - update gstack version
   - get latest gstack
-allowed-tools: Bash(Bash:*), Read, Write, AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Write, Bash(AskUserQuestion:*)
 ---
-<!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
+<!-- AUTO-GENERATED from SKILL.md.tmpl, do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
 
 
@@ -21,6 +21,11 @@ runs the upgrade, and shows what's new. Use when asked to "upgrade gstack",
 Voice triggers (speech-to-text aliases): "upgrade the tools", "update the tools", "gee stack upgrade", "g stack upgrade".
 
 # /gstack-upgrade
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Upgrade gstack to the latest version and show what's new.
 
@@ -38,7 +43,7 @@ _AUTO=""
 echo "AUTO_UPGRADE=$_AUTO"
 ```
 
-**If `AUTO_UPGRADE=true` or `AUTO_UPGRADE=1`:** Skip AskUserQuestion. Log "Auto-upgrading gstack v{old} → v{new}..." and proceed directly to Step 2. If `./setup` fails during auto-upgrade, restore from backup (`.bak` directory) and warn the user: "Auto-upgrade failed — restored previous version. Run `/gstack-upgrade` manually to retry."
+**If `AUTO_UPGRADE=true` or `AUTO_UPGRADE=1`:** Skip AskUserQuestion. Log "Auto-upgrading gstack v{old} → v{new}..." and proceed directly to Step 2. If `./setup` fails during auto-upgrade, restore from backup (`.bak` directory) and warn the user: "Auto-upgrade failed, restored previous version. Run `/gstack-upgrade` manually to retry."
 
 **Otherwise**, use AskUserQuestion:
 - Question: "gstack **v{new}** is available (you're on v{old}). Upgrade now?"
@@ -68,7 +73,7 @@ _NEW_LEVEL=$((_CUR_LEVEL + 1))
 [ "$_NEW_LEVEL" -gt 3 ] && _NEW_LEVEL=3
 echo "$_REMOTE_VER $_NEW_LEVEL $(date +%s)" > "$_SNOOZE_FILE"
 ```
-Note: `{new}` is the remote version from the `UPGRADE_AVAILABLE` output — substitute it from the update check result.
+Note: `{new}` is the remote version from the `UPGRADE_AVAILABLE` output, substitute it from the update check result.
 
 Tell user the snooze duration: "Next reminder in 24h" (or 48h or 1 week, depending on level). Tip: "Set `auto_upgrade: true` in `~/.gstack/config.yaml` for automatic upgrades."
 
@@ -171,7 +176,7 @@ if ! grep -qF '.claude/skills/gstack/' .gitignore 2>/dev/null; then
 fi
 rm -rf "$LOCAL_GSTACK"
 ```
-Tell user: "Removed vendored copy at `$LOCAL_GSTACK` (team mode active — global install is the source of truth). Commit the `.gitignore` change when ready."
+Tell user: "Removed vendored copy at `$LOCAL_GSTACK` (team mode active, global install is the source of truth). Commit the `.gitignore` change when ready."
 
 **If `LOCAL_GSTACK` is non-empty AND `TEAM_MODE` is NOT `true`:** Update it by copying from the freshly-upgraded primary install (same approach as README vendored install):
 ```bash
@@ -181,14 +186,14 @@ rm -rf "$LOCAL_GSTACK/.git"
 cd "$LOCAL_GSTACK" && ./setup
 rm -rf "$LOCAL_GSTACK.bak"
 ```
-Tell user: "Also updated vendored copy at `$LOCAL_GSTACK` — commit `.claude/skills/gstack/` when you're ready."
+Tell user: "Also updated vendored copy at `$LOCAL_GSTACK`, commit `.claude/skills/gstack/` when you're ready."
 
 If `./setup` fails, restore from backup and warn the user:
 ```bash
 rm -rf "$LOCAL_GSTACK"
 mv "$LOCAL_GSTACK.bak" "$LOCAL_GSTACK"
 ```
-Tell user: "Sync failed — restored previous version at `$LOCAL_GSTACK`. Run `/gstack-upgrade` manually to retry."
+Tell user: "Sync failed, restored previous version at `$LOCAL_GSTACK`. Run `/gstack-upgrade` manually to retry."
 
 ### Step 4.75: Run version migrations
 
@@ -227,7 +232,7 @@ rm -f ~/.gstack/update-snoozed
 
 ### Step 6: Show What's New
 
-Read `$INSTALL_DIR/CHANGELOG.md`. Find all version entries between the old version and the new version. Summarize as 5-7 bullets grouped by theme. Don't overwhelm — focus on user-facing changes. Skip internal refactors unless they're significant.
+Read `$INSTALL_DIR/CHANGELOG.md`. Find all version entries between the old version and the new version. Summarize as 5-7 bullets grouped by theme. Don't overwhelm, focus on user-facing changes. Skip internal refactors unless they're significant.
 
 Format:
 ```
@@ -243,7 +248,7 @@ Happy shipping!
 
 ### Step 7: Continue
 
-After showing What's New, continue with whatever skill the user originally invoked. The upgrade is done — no further action needed.
+After showing What's New, continue with whatever skill the user originally invoked. The upgrade is done, no further action needed.
 
 ---
 

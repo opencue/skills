@@ -18,10 +18,10 @@ You write and maintain CLI install recipes for cue's dependency system. Each rec
 
 Shared references:
 
-- [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md) —
+- [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md), 
   use a D-brief when choosing between two installers (apt vs pipx vs
   manual). Don't silently pick the wrong one.
-- [../skill-reviewer/references/voice.md](../skill-reviewer/references/voice.md) —
+- [../skill-reviewer/references/voice.md](../skill-reviewer/references/voice.md), 
   voice rules for the `Prerequisites` prose you generate.
 
 ## When to activate
@@ -31,7 +31,7 @@ Shared references:
 - User asks "how do I add a CLI dependency to a skill?"
 - A new skill is being written that references a CLI not yet in `resources/cli-recipes.json`
 
-## Step 1 — Identify the tool
+## Step 1, Identify the tool
 
 Determine:
 - **Binary name** (what `which <tool>` resolves to)
@@ -45,7 +45,7 @@ grep -c '"<tool>"' resources/cli-recipes.json
 
 If already present, show the existing entry and ask if user wants to update it.
 
-## Step 2 — Research install methods
+## Step 2, Research install methods
 
 For each platform, find the canonical install command:
 
@@ -61,15 +61,15 @@ npm info <tool> version 2>/dev/null
 ```
 
 Priority order for the recipe:
-1. **System package manager** (apt/brew/dnf/pacman) — preferred
-2. **snap** — for tools not in default apt (helm, kubectl, terraform)
-3. **pipx** — for Python CLI tools (isolated, no conflicts)
-4. **pip** — fallback for Python if pipx unavailable
-5. **npm** — for Node.js CLI tools
-6. **script** — one-liner curl/wget installer
-7. **manual** — URL + instructions when nothing else works
+1. **System package manager** (apt/brew/dnf/pacman), preferred
+2. **snap**, for tools not in default apt (helm, kubectl, terraform)
+3. **pipx**, for Python CLI tools (isolated, no conflicts)
+4. **pip**, fallback for Python if pipx unavailable
+5. **npm**, for Node.js CLI tools
+6. **script**, one-liner curl/wget installer
+7. **manual**, URL + instructions when nothing else works
 
-## Step 3 — Write the recipe entry
+## Step 3, Write the recipe entry
 
 Format (add to `resources/cli-recipes.json` alphabetically):
 
@@ -79,7 +79,7 @@ Format (add to `resources/cli-recipes.json` alphabetically):
 
 Only include fields that apply. Omit platforms where the tool isn't available.
 
-## Step 4 — Update SKILL.md Prerequisites (if applicable)
+## Step 4, Update SKILL.md Prerequisites (if applicable)
 
 If a skill references this CLI, add or update its `## Prerequisites` section:
 
@@ -96,7 +96,7 @@ And ensure the skill's frontmatter `allowed-tools` includes `Bash(<tool>:*)` if 
 ## Rules
 
 - Always verify the package name is correct per platform (e.g., `python3-scapy` on apt vs `scapy` on pip)
-- Prefer `pipx` over `pip` for Python CLI tools — isolation prevents dependency conflicts
+- Prefer `pipx` over `pip` for Python CLI tools, isolation prevents dependency conflicts
 - Include `"needs"` field for any post-install steps (API keys, user groups, config)
 - Keep entries alphabetically sorted in cli-recipes.json
 - Don't add recipes for tools that are part of the base OS (ls, grep, cat, etc.)

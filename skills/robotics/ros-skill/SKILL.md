@@ -129,7 +129,7 @@ python {baseDir}/scripts/ros_cli.py topics subscribe /scan sensor_msgs/LaserScan
 
 ### topics publish
 
-Without `--duration`: single-shot. With `--duration`: publishes repeatedly at `--rate` Hz. **Use `--duration` for velocity commands** — most robot controllers stop if they don't receive continuous `cmd_vel` messages.
+Without `--duration`: single-shot. With `--duration`: publishes repeatedly at `--rate` Hz. **Use `--duration` for velocity commands**, most robot controllers stop if they don't receive continuous `cmd_vel` messages.
 
 ```bash
 # Single-shot
@@ -283,10 +283,10 @@ python {baseDir}/scripts/ros_cli.py params set /turtlesim:background_b 0
 ## Safety Notes
 
 **Destructive commands** (can move the robot or change state):
-- `topics publish` / `topics publish-sequence` — sends movement or control commands
-- `services call` — can reset, spawn, kill, or change robot state
-- `params set` — modifies runtime parameters
-- `actions send` — triggers robot actions (rotation, navigation, etc.)
+- `topics publish` / `topics publish-sequence`, sends movement or control commands
+- `services call`, can reset, spawn, kill, or change robot state
+- `params set`, modifies runtime parameters
+- `actions send`, triggers robot actions (rotation, navigation, etc.)
 
 **Always stop the robot after movement.** The last message in any `publish-sequence` should be all zeros:
 ```json

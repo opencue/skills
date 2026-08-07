@@ -20,10 +20,10 @@ most impactful lever for skill activation (20% → 50% → 90%).
 
 Shared references (read on demand):
 
-- [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md) —
+- [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md), 
   use the D-numbered brief before applying any description rewrite that
   changes the skill's trigger surface.
-- [../skill-reviewer/references/voice.md](../skill-reviewer/references/voice.md) —
+- [../skill-reviewer/references/voice.md](../skill-reviewer/references/voice.md), 
   no em dashes, no banned AI vocabulary, lead with the verb.
 
 ## When to activate
@@ -33,7 +33,7 @@ Shared references (read on demand):
 - User says "why doesn't this skill trigger?"
 - After writing a new skill (as a finishing step)
 
-## Step 1 — Read the current description
+## Step 1, Read the current description
 
 ```bash
 head -20 <path-to-SKILL.md>
@@ -46,9 +46,9 @@ Identify issues:
 - Too short (missing trigger conditions)?
 - Too long (>1024 chars)?
 
-## Step 2 — Generate 20 eval queries
+## Step 2, Generate 20 eval queries
 
-Create a mental test set — 10 should-trigger + 10 should-not-trigger:
+Create a mental test set, 10 should-trigger + 10 should-not-trigger:
 
 **Should-trigger queries (10):**
 - Mix formal and casual phrasings
@@ -77,7 +77,7 @@ Create a mental test set — 10 should-trigger + 10 should-not-trigger:
  — this is code generation, not PDF extraction)
 ```
 
-## Step 3 — Score the current description
+## Step 3, Score the current description
 
 For each eval query, ask: "Given ONLY the description field, would Claude
 pick this skill?"
@@ -99,13 +99,13 @@ Should-not-trigger (target: 10/10):
 Overall: 15/20 (75%)
 ```
 
-## Step 4 — Rewrite the description
+## Step 4, Rewrite the description
 
 Apply the optimization rules:
 
 1. **Structure:** `[WHAT it does]. [Secondary capabilities]. Use when [triggers].`
-2. **3rd person only** — "Processes..." not "I process..."
-3. **Be pushy** — "Make sure to use this skill whenever..."
+2. **3rd person only**, "Processes..." not "I process..."
+3. **Be pushy**, "Make sure to use this skill whenever..."
 4. **Include 5+ trigger keywords** from the should-trigger queries that failed
 5. **Add boundary keywords** to prevent false positives from should-not-trigger failures
 6. **Under 1024 chars**
@@ -120,7 +120,7 @@ description: >-
   [context trigger]. Do not use for [boundary — prevents false positive].
 ```
 
-## Step 5 — Re-score and iterate
+## Step 5, Re-score and iterate
 
 Score the new description against the same 20 queries. Target: 18/20 (90%).
 
@@ -133,12 +133,12 @@ If <90%:
 Iterate max 3 times. If still <90% after 3 iterations, the skill may
 need body changes (examples, boundaries) not just description fixes.
 
-## Step 6 — Present before/after as a decision brief
+## Step 6, Present before/after as a decision brief
 
 Apply the format from
 [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md).
 A description rewrite that changes which prompts trigger the skill is
-not a cosmetic edit — the user owns the trigger surface, so show them
+not a cosmetic edit, the user owns the trigger surface, so show them
 what they're trading.
 
 ```
@@ -180,11 +180,11 @@ After:
 
 ## Rules
 
-- Never exceed 1024 chars — hard limit
+- Never exceed 1024 chars, hard limit
 - Always write in 3rd person
 - Always include both WHAT and WHEN
 - Include at least 5 trigger keywords from real user language
 - Add one boundary ("Do not use for X") to prevent the top false-positive
 - Don't use XML tags in descriptions
 - Don't use reserved words "anthropic" or "claude" in skill names
-- Test against casual/typo-laden queries — real users don't write formally
+- Test against casual/typo-laden queries, real users don't write formally

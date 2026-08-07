@@ -8,7 +8,7 @@ triggers:
 allowed-tools: Bash(typos:*)
 ---
 
-# typos — source-code spellcheck
+# typos, source-code spellcheck
 
 Fast (Rust-written, walks ignoring `.gitignore` + `target/`), accurate (curated dict + identifier-aware).
 
@@ -29,7 +29,7 @@ Fast (Rust-written, walks ignoring `.gitignore` + `target/`), accurate (curated 
 - typos (`cargo install typos-cli --locked` or distro pkg)
 
 ## Notes
-- Default dict is curated — false-positive rate is genuinely low. Add false positives to `extend-words` rather than disabling.
+- Default dict is curated, false-positive rate is genuinely low. Add false positives to `extend-words` rather than disabling.
 - Use `# typos: ignore line` (or `// typos: ignore line`) to silence one occurrence.
 - Wire as both a pre-commit hook and a CI job; the auto-fix output makes it cheap to keep clean.
-- For prose-only checks (style, grammar), reach for `vale` instead — typos is intentionally narrow.
+- For prose-only checks (style, grammar), reach for `vale` instead, typos is intentionally narrow.

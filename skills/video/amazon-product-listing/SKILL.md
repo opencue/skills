@@ -14,7 +14,7 @@ allowed-tools: Bash
 
 # Amazon Product Listing
 
-Generate complete Amazon listing visuals — hero images, lifestyle shots, infographics, and video.
+Generate complete Amazon listing visuals, hero images, lifestyle shots, infographics, and video.
 
 ## When to activate
 
@@ -23,7 +23,7 @@ Generate complete Amazon listing visuals — hero images, lifestyle shots, infog
 - User wants e-commerce product visuals
 - User mentions "hero image", "lifestyle shot", "infographic"
 
-## Step 1 — Amazon image requirements
+## Step 1, Amazon image requirements
 
 | Slot | Type | Requirements |
 |------|------|-------------|
@@ -33,7 +33,7 @@ Generate complete Amazon listing visuals — hero images, lifestyle shots, infog
 | 6 | Comparison | vs competitors or before/after |
 | 7 | Video | 15-30s product demo |
 
-## Step 2 — Hero image generation
+## Step 2, Hero image generation
 
 ```
 Product: [item] centered on pure white background.
@@ -43,14 +43,14 @@ Fill: Product occupies 85% of frame.
 Resolution: 2000×2000px minimum.
 ```
 
-## Step 3 — Lifestyle shots
+## Step 3, Lifestyle shots
 
 Generate product-in-context images:
 - Person using the product (hands, face, environment)
 - Product in its natural setting (kitchen, office, outdoors)
 - Scale reference (next to common objects)
 
-## Step 4 — Infographic overlays
+## Step 4, Infographic overlays
 
 Design info-rich images with:
 - Feature callouts with arrows/lines
@@ -58,7 +58,7 @@ Design info-rich images with:
 - "What's in the box" layout
 - Comparison charts
 
-## Step 5 — Product video (15-30s)
+## Step 5, Product video (15-30s)
 
 ```
 Shot 1: Unboxing reveal (3s)

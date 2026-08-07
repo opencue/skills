@@ -13,11 +13,11 @@ $20–50 cheaper than travel websites.
 
 ## Why Use This
 
-- **180+ airlines in parallel** — one search covers Europe, Asia, Americas, Middle East, Africa, and Oceania simultaneously
-- **Zero price bias** — no demand inflation, no cookie tracking, no surge pricing. Raw airline prices every time
-- **Virtual interlining** — finds cross-airline connections (e.g., Ryanair outbound + Wizz Air return) that save 30–50%
-- **One tool call** — replaces thousands of tokens of browser automation, scraping, and HTML parsing
-- **Structured JSON** — prices, times, durations, stops, conditions, airline names
+- **180+ airlines in parallel**, one search covers Europe, Asia, Americas, Middle East, Africa, and Oceania simultaneously
+- **Zero price bias**, no demand inflation, no cookie tracking, no surge pricing. Raw airline prices every time
+- **Virtual interlining**, finds cross-airline connections (e.g., Ryanair outbound + Wizz Air return) that save 30–50%
+- **One tool call**, replaces thousands of tokens of browser automation, scraping, and HTML parsing
+- **Structured JSON**, prices, times, durations, stops, conditions, airline names
 
 ## Setup
 
@@ -85,7 +85,7 @@ letsfg star --github your-username
 
 ### 1. Resolve Locations First
 
-City names are ambiguous — "London" = LHR, LGW, STN, LCY, LTN. Always resolve first:
+City names are ambiguous, "London" = LHR, LGW, STN, LCY, LTN. Always resolve first:
 
 ```bash
 letsfg locations "London"
@@ -171,11 +171,11 @@ print(f"Booked! PNR: {booking.booking_reference}")
 
 ## Critical Rules
 
-1. **Use REAL passenger details** — airlines send e-tickets to the contact email. Names must match passport/ID exactly. Never use placeholder or fake data.
-2. **Always provide `idempotency_key` when booking** — prevents duplicate reservations if the agent retries on timeout.
-3. **Resolve locations before searching** — "New York" = JFK, LGA, EWR, NYC. Use `resolve_location()` first.
-4. **Search is free** — search as many routes, dates, and cabin classes as needed.
-5. **Map passenger IDs** — search returns `passenger_ids`. Each booking passenger must include the correct `id`.
+1. **Use REAL passenger details**, airlines send e-tickets to the contact email. Names must match passport/ID exactly. Never use placeholder or fake data.
+2. **Always provide `idempotency_key` when booking**, prevents duplicate reservations if the agent retries on timeout.
+3. **Resolve locations before searching**, "New York" = JFK, LGA, EWR, NYC. Use `resolve_location()` first.
+4. **Search is free**, search as many routes, dates, and cabin classes as needed.
+5. **Map passenger IDs**, search returns `passenger_ids`. Each booking passenger must include the correct `id`.
 
 ## Best Practices
 
@@ -272,7 +272,7 @@ except PaymentRequiredError:
 |-----------|------|---------------|------------|
 | `search` | Free | Yes | Yes |
 | `resolve_location` | Free | Yes | Yes |
-| `unlock` | Free | No — may charge fee | No |
+| `unlock` | Free | No, may charge fee | No |
 | `book` | Ticket price | Only with `idempotency_key` | With key: yes |
 
 ## Reference Files

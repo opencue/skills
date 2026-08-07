@@ -11,23 +11,23 @@ acceptLicenseTerms: true
 
 **Generate a high-cut-density action / fight scene by first composing a 16-cell storyboard image, then driving Seedance 2.0 image-to-video off that storyboard.**
 
-The core idea: **action tension comes from cut density, not single-shot quality.** Forcing the video model to follow a pre-drawn 4×4 storyboard grid gives you 16 distinct shots in a 15-second clip — landing punches, reverse angles, ECUs, whip-pans — that no t2v prompt could choreograph on its own.
+The core idea: **action tension comes from cut density, not single-shot quality.** Forcing the video model to follow a pre-drawn 4×4 storyboard grid gives you 16 distinct shots in a 15-second clip, landing punches, reverse angles, ECUs, whip-pans, that no t2v prompt could choreograph on its own.
 
 ## Inputs
 
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
-| `character_description` | text | yes | — | Full physical description of the fighter(s). Asymmetric details (eye colour, scar side, holster on left hip) help the model preserve identity across panels. |
-| `environment_description` | text | yes | — | The scene setting — e.g. "cyberpunk wet back-alley, neon kanji signage, Stray-game aesthetic, rain on chrome." |
-| `action_script` | text | yes | — | The action beat — prose or numbered beats. E.g. "Hero is cornered → blocks first punch → counter-elbow → throw opponent into trash cans → finisher." |
+| `character_description` | text | yes |, | Full physical description of the fighter(s). Asymmetric details (eye colour, scar side, holster on left hip) help the model preserve identity across panels. |
+| `environment_description` | text | yes |, | The scene setting, e.g. "cyberpunk wet back-alley, neon kanji signage, Stray-game aesthetic, rain on chrome." |
+| `action_script` | text | yes |, | The action beat, prose or numbered beats. E.g. "Hero is cornered → blocks first punch → counter-elbow → throw opponent into trash cans → finisher." |
 | `style_direction` | text | no | cinematic action film, anamorphic lens, high contrast, motion blur on hits | Aesthetic / look tags applied to every frame. |
 | `duration` | int | no | 15 | Final video length in seconds. The storyboard's 16 cells map roughly 1 shot per second at default. |
-| `aspect_ratio` | text | no | 16:9 | Output aspect — `16:9` cinematic, `9:16` vertical, `1:1` square. |
+| `aspect_ratio` | text | no | 16:9 | Output aspect, `16:9` cinematic, `9:16` vertical, `1:1` square. |
 
 
 ## Steps
 
-### Phase A — Character Sheet
+### Phase A, Character Sheet
 
 Generate a clean turnaround-style character sheet using `muapi image generate` (model=`gpt-image-2-text-to-image`):
 
@@ -36,16 +36,16 @@ Generate a clean turnaround-style character sheet using `muapi image generate` (
 
 Present the character sheet and confirm identity details look right before proceeding. **This image becomes reference #1 for later phases.**
 
-### Phase B — Environment Concept
+### Phase B, Environment Concept
 
 Use `muapi image generate` (model=`nano-banana-2`) to design the scene/world:
 
 - Prompt: `Wide establishing shot of {{environment_description}}. No characters in frame — environment only. Strong perspective lines, depth, atmospheric haze. {{style_direction}}. Production-design concept art.`
 - Aspect ratio: `{{aspect_ratio}}`
 
-Nano-Banana-2 is chosen here for its reasoning-driven composition — it's better than text-to-image-only models at producing locations with believable spatial logic (chokepoints, cover, sightlines) that an action scene can use. Present for approval. **This becomes reference #2.**
+Nano-Banana-2 is chosen here for its reasoning-driven composition, it's better than text-to-image-only models at producing locations with believable spatial logic (chokepoints, cover, sightlines) that an action scene can use. Present for approval. **This becomes reference #2.**
 
-### Phase C — 16-Cell Storyboard
+### Phase C, 16-Cell Storyboard
 
 Compose the action onto a single 4×4 storyboard image using `muapi image edit` (model=`gpt-image-2-image-to-image`):
 
@@ -78,7 +78,7 @@ Present the storyboard to the user. Confirm:
 
 If a panel reads poorly, regenerate just the storyboard with that cell's note bolded ("CELL 7 must be an ECU on the right fist").
 
-### Phase D — Storyboard → Video (Seedance 2.0)
+### Phase D, Storyboard → Video (Seedance 2.0)
 
 Hand the storyboard to `muapi video from-image` (model=`seedance-v2.0-i2v`):
 
@@ -102,7 +102,7 @@ After generation, present the final video. If the cut density feels too low or s
 
 ## Notes
 
-- **Why the storyboard image and not a text storyboard?** Seedance 2.0 i2v anchors its motion plan to the visual reference. A grid of 16 drawn cells gives it 16 visual targets to hit — text descriptions of shots get averaged into mush.
+- **Why the storyboard image and not a text storyboard?** Seedance 2.0 i2v anchors its motion plan to the visual reference. A grid of 16 drawn cells gives it 16 visual targets to hit, text descriptions of shots get averaged into mush.
 - **Asymmetric character details matter.** Without something like "scar over the right eyebrow" or "leather glove on the left hand only", identity drift between cells is the #1 failure mode.
 - **Use `seedance-2.0-i2v-480p` to draft.** Cheaper preview pass before committing to the full-res `seedance-v2.0-i2v` run.
 - **For longer fights**, chain two runs: first run uses storyboard A (cells 1–16, beats 1–15s); second run uses storyboard B (cells 17–32, beats 15–30s) with the last cell of A as a continuity anchor in B's first cell.

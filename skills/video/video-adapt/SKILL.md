@@ -23,7 +23,7 @@ Adapt an existing video by swapping products, characters, or recreating the styl
 - User says "copy this video style"
 - User wants a variation of an existing video
 
-## Step 1 — Analyze the source video
+## Step 1, Analyze the source video
 
 Extract key elements from the source:
 - Shot composition (angles, movement, duration)
@@ -37,23 +37,23 @@ yt-dlp -f best "<url>" -o /tmp/source-video.mp4 2>/dev/null
 ffmpeg -i /tmp/source-video.mp4 -vf "fps=1" /tmp/frames/frame_%04d.jpg 2>/dev/null
 ```
 
-## Step 2 — Determine adaptation type
+## Step 2, Determine adaptation type
 
 | Type | What changes | What stays |
 |------|-------------|-----------|
 | **Product swap** | The product shown | Character, setting, camera, style |
 | **Character swap** | The person/avatar | Product, setting, camera, style |
-| **1:1 copy** | Nothing (recreate exactly) | Everything — match frame-by-frame |
+| **1:1 copy** | Nothing (recreate exactly) | Everything, match frame-by-frame |
 | **Style transfer** | Visual treatment | Content, structure, timing |
 
-## Step 3 — Generate prompts for Higgsfield/Seedance
+## Step 3, Generate prompts for Higgsfield/Seedance
 
 Based on the analysis, construct prompts using:
 - **MCSLA formula** for cinematic shots (Mood, Camera, Subject, Lighting, Action)
 - **Soul ID** for character consistency across shots
 - **Cinema Studio 3.5** settings for production quality
 
-## Step 4 — Output the adaptation plan
+## Step 4, Output the adaptation plan
 
 ```
 🎬 Video Adaptation Plan:

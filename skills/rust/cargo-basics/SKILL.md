@@ -29,5 +29,5 @@ Core cargo workflow. Use before reaching for anything fancier.
 
 ## Notes
 - `cargo check` is ~3x faster than `cargo build`. Loop on check, build only when running.
-- `--release` strips debug + enables optimizations — slow to compile, much faster runtime. Don't use it for tests unless benchmarking.
+- `--release` strips debug + enables optimizations, slow to compile, much faster runtime. Don't use it for tests unless benchmarking.
 - `Cargo.lock` should be committed for binaries, ignored for library crates published to crates.io.
