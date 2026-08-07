@@ -1,10 +1,10 @@
 {
   "schema_version": "2.2",
-  "catalog_mtime": 1785921372823.012,
+  "catalog_mtime": 1786073187288.4207,
   "counts": {
-    "skills": 453,
-    "withTriggers": 354,
-    "withCapability": 449,
+    "skills": 454,
+    "withTriggers": 355,
+    "withCapability": 450,
     "withRequires": 30
   },
   "skills": [
@@ -8227,6 +8227,27 @@
       "quality": "good"
     },
     {
+      "id": "review/open-code-review",
+      "name": "open-code-review",
+      "category": "review",
+      "description": "Use when user says \"ocr\", \"open code review\", \"run ocr\", \"second opinion review\", or wants a review engine independent of Claude's own judgement. Alibaba's hybrid reviewer — deterministic multi-language ruleset (NPE, thread-safety, XSS, SQL injection) plus an LLM agent, line-level comments, workspace/branch-range/commit modes. NOT for a normal Claude diff review — use code-review, or code-review-deep before landing.",
+      "source": "/home/deadpool/Documents/cue/resources/skills/skills/review/open-code-review/SKILL.md",
+      "tags": [],
+      "triggers": [
+        "ocr",
+        "open code review",
+        "run ocr",
+        "second opinion review"
+      ],
+      "capability": "Alibaba's hybrid reviewer — deterministic multi-language ruleset (NPE, thread-safety, XSS, SQL injection) plus an LLM agent, line-level comments, workspace/branch-range/commit modes",
+      "notFor": "NOT for a normal Claude diff review — use code-review, or code-review-deep before landing.",
+      "links": [],
+      "requires": {
+        "mcps": []
+      },
+      "quality": "good"
+    },
+    {
       "id": "review/code-review-deep",
       "name": "code-review-deep",
       "category": "review",
@@ -9807,20 +9828,6 @@
     "marva-blog": [
       "studio",
       "supercomputer"
-    ],
-    "lightpanda": [
-      "browser",
-      "builder",
-      "commerce",
-      "core",
-      "dropshipping",
-      "growth",
-      "maker",
-      "ops",
-      "research",
-      "secops",
-      "studio",
-      "webshop"
     ],
     "obsidian-vault": [
       "docs-writer",
