@@ -4,7 +4,7 @@ description: "Use when the user asks to work on the AGV3 robot or says \"agvc\",
 tags: [agv, ros2, robotics, navigation, safety]
 compatibility: "Requires the AGV3 checkout and agvc; agv-mcp additionally requires Python 3."
 user-invocable: true
-metadata: {"author": "recodeee", "version": "1.0.0"}
+metadata: {"author": "recodeee", "version": "2.0.0"}
 ---
 
 # AGVC
@@ -19,10 +19,31 @@ Operate the AGV3 ROS 2 stack through its safety-aware project interface.
 
 ## Safe workflow
 
-1. Start read-only: `agv_status`, then `agv_doctor`; inspect rates, TF, nodes, parameters, and logs before changing anything.
-2. Bring up only the required stage. Use only the project's supported stages: `description`, `drive`, `perception`, `mapping`, `localization`, and `full`; do not invent stage names.
-3. State the intended mutation and obtain explicit operator confirmation before **every** state-changing operation, including bringup, stop, deploy, parameter changes, map save, localization, goals, and motion.
-4. After an approved change, verify with read-only status/topic/TF evidence.
+1. Start read-only: `agv_status`, then `agv_doctor`. Status is stage-aware: treat an item marked `expected_absent` differently from a fault.
+2. Run `agv_validate_graph` when a stage is unhealthy. Report missing graph elements, duplicate nodes/publishers, and TF ownership conflicts rather than hiding them with another publisher.
+3. Bring up only the required stage. Use only the stages returned by the tool/CLI; do not invent stage names.
+4. For a supported state change, call the prepare tool first. Show its exact operation and impact to the operator. Only after their explicit confirmation in the current conversation, call execute with the returned short-lived, single-use token. Never manufacture, reuse, or persist a token.
+5. After execution, verify with read-only status/topic/TF evidence and use the audit result/identifier when diagnosing a failure.
+
+## Structured diagnostics
+
+- Preserve the status classification (`ok`, `degraded`, `expected_absent`, or `error`) and stage in reports.
+- Duplicate nodes or publishers are evidence, not noise. Preserve counts and topic/node names. For TF, identify the expected owner and flag multiple writers.
+- `agv_tf_lookup` returns translation, quaternion/RPY rotation, transform age/freshness, and any available ownership metadata. Check freshness and finite values before trusting it.
+- `agv_topic_echo` returns parsed messages, not display YAML. Inspect the structured fields; do not parse a JSON-escaped terminal blob.
+- Prefer one `agv_validate_graph` contract result over a collection of ad-hoc shell probes.
+
+## Robot selection and audit
+
+Robot selection is runtime configuration, not repository configuration. `AGVC_ROBOT`,
+`AGVC_HOST`, `AGVC_IP`, and `AGVC_CONTAINER` may select a target. Never write
+credentials or a site-specific address into the skill or MCP registry. Before a
+mutation, include the resolved robot identity from prepare/status in the confirmation.
+
+Prepare/execute operations write an audit record. Treat token and audit paths as
+local runtime state, keep them out of git, and do not print token contents in prose or
+logs. Audit success records authorization and outcome; it does not replace post-change
+ROS verification.
 
 ## TF ownership
 
@@ -36,10 +57,10 @@ Treat TF as a single-writer graph:
 
 ## Motion safety — hard rules
 
-- Never arm motors, publish `/cmd_vel`, send a navigation/action goal, call a mutating service, or set a parameter without explicit confirmation in the current conversation.
+- Motor arming, `/cmd_vel`, navigation/action goals, arbitrary mutating services, and arbitrary parameter changes are **not exposed**, even with a confirmation token.
 - Never bypass or weaken arm interlocks, deadman behavior, command timeouts, E-stop handling, or the `agvc`/agv-mcp confirmation gates.
 - Never substitute raw `ros2 topic pub`, ros-mcp, ros-skill, SSH, or Docker commands to evade a rejected operation.
-- If confirmation is absent, return the planned command/tool call and continue with read-only diagnostics only.
+- A bare `confirmed: true`, an old token, or agent self-approval is not authorization. If operator confirmation is absent, stop after prepare and continue with read-only diagnostics only.
 
 ## Example
 
