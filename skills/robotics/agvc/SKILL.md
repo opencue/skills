@@ -1,6 +1,6 @@
 ---
 name: agvc
-description: "Use when working on the AGV3 robot or when the user says \"agvc\", \"AGV bringup\", \"AGV TF\", \"map to odom\", \"AGV localization\", \"AGV mapping\", or asks to diagnose its lidar, cameras, CAN, odometry, or navigation."
+description: "Use when the user asks to work on the AGV3 robot or says \"agvc\", \"AGV bringup\", \"AGV TF\", \"map to odom\", \"AGV localization\", or \"AGV mapping\". Provides guarded AGV lifecycle operations plus read-only lidar, camera, CAN, odometry, TF, and navigation diagnostics."
 tags: [agv, ros2, robotics, navigation, safety]
 compatibility: "Requires the AGV3 checkout and agvc; agv-mcp additionally requires Python 3."
 user-invocable: true
@@ -40,3 +40,13 @@ Treat TF as a single-writer graph:
 - Never bypass or weaken arm interlocks, deadman behavior, command timeouts, E-stop handling, or the `agvc`/agv-mcp confirmation gates.
 - Never substitute raw `ros2 topic pub`, ros-mcp, ros-skill, SSH, or Docker commands to evade a rejected operation.
 - If confirmation is absent, return the planned command/tool call and continue with read-only diagnostics only.
+
+## Example
+
+<example>
+User: Check why `map -> base_link` is absent after perception bringup.
+
+Action: Call `agv_status` and `agv_tf_lookup` first. Explain that perception
+does not own `map -> odom`; do not enable another TF publisher or start a new
+stage without confirmation.
+</example>
