@@ -8,6 +8,7 @@ triggers:
   - what have we learned
   - manage project learnings
 allowed-tools: Bash(Bash:*), Read, Write, Edit, Bash(AskUserQuestion:*), Glob, Grep
+category: gstack
 ---
 <!-- AUTO-GENERATED from SKILL.md.tmpl, do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->

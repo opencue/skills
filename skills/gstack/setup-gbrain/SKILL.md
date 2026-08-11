@@ -11,6 +11,7 @@ triggers:
   - start gbrain
   - configure gbrain
 allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, Bash(AskUserQuestion:*)
+category: gstack
 ---
 <!-- AUTO-GENERATED from SKILL.md.tmpl, do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->

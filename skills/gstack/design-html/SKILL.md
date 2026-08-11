@@ -8,6 +8,7 @@ triggers:
   - code the mockup
   - make design real
 allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, Agent, Bash(AskUserQuestion:*)
+category: gstack
 ---
 <!-- AUTO-GENERATED from SKILL.md.tmpl, do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
