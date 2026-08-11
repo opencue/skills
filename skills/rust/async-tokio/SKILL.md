@@ -7,6 +7,7 @@ triggers:
   - "tokio runtime"
   - "debug async deadlock"
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
 # Async Rust with Tokio

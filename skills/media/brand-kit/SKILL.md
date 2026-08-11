@@ -2,8 +2,9 @@
 slug: muapi-brand-kit
 name: muapi-brand-kit
 version: "1.0.0"
-description: Generate a cohesive brand visual kit — logo concept, color palette moodboard, and typography pairing suggestions.
+description: Use when the user wants a cohesive brand visual kit — logo concept, color palette moodboard, and typography pairing suggestions.
 acceptLicenseTerms: true
+category: media
 ---
 
 

@@ -7,6 +7,7 @@ triggers:
   - "bacon"
   - "cargo watch"
 allowed-tools: Bash(bacon:*), Bash(cargo:*), Bash(cargo-watch:*)
+category: rust
 ---
 
 # bacon & cargo-watch

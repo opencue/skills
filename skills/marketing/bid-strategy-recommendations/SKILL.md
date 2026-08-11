@@ -1,14 +1,9 @@
 ---
 name: bid-strategy-recommendations
-description: >-
-  Use when user says "which bid strategy should I use", "recommend a bid strategy",
-  "target cpa or maximize conversions", "should I switch to tROAS", "review my bidding".
-  Analyzes your campaign history, conversion volume, CPA targets, and auction dynamics,
-  then recommends the right bid strategy for each campaign — manual CPC, target CPA,
-  target ROAS, maximize conversions, or maximize conversion value. Not a blanket
-  recommendation, but campaign-by-campaign based on the data.
+description: 'Use when user says "which bid strategy should I use", "recommend a bid strategy", "should I switch to tROAS", "review my bidding". Recommends the right bid strategy per campaign from your data.'
 metadata:
   platform: Google
+category: marketing
 ---
 
 # 11/ Bid Strategy Recommendations, Google
@@ -17,7 +12,7 @@ metadata:
 Analyzes your campaign history, conversion volume, CPA targets, and auction dynamics, then recommends the right bid strategy for each campaign, manual CPC, target CPA, target ROAS, maximize conversions, or maximize conversion value. Not a blanket recommendation, but campaign-by-campaign based on the data.
 
 ## How it works
-Claude evaluates each campaign's conversion volume (whether it has enough data for automated bidding to work), CPA consistency (high variance means automated strategies will struggle), budget headroom, and competitive landscape. It also looks at your current strategy's performance trend to determine if switching would likely improve or hurt results.
+Claude evaluates each campaign's conversion volume (whether it has enough data for automated bidding to work), CPA consistency (high variance means automated strategies will struggle), budget headroom, and the competitive field. It also looks at your current strategy's performance trend to determine if switching would likely improve or hurt results.
 
 ## Practical example
 You have 8 search campaigns all running maximize conversions. Claude identifies that 3 of them have fewer than 15 conversions per month, not enough for the algorithm to optimize effectively. It recommends switching those to manual CPC with specific bid suggestions. For the 2 campaigns with 100+ monthly conversions, it recommends target CPA set at $42 (10% above current CPA to give the algorithm room). The remaining 3 are performing well on current strategy and should stay as-is.

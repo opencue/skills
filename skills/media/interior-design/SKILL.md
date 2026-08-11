@@ -2,8 +2,9 @@
 slug: muapi-interior-design
 name: muapi-interior-design
 version: "1.0.0"
-description: Create professional interior design visualizations — redesign existing rooms, generate new room concepts, or visualize specific furniture styles in a space.
+description: Use when the user wants professional interior design visualizations — redesign existing rooms, generate new room concepts, or visualize specific furniture styles in a space.
 acceptLicenseTerms: true
+category: media
 ---
 
 

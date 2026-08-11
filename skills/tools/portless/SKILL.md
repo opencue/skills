@@ -1,6 +1,6 @@
 ---
 name: portless
-description: Named .localhost HTTPS URLs for local dev instead of port numbers. Use when the user says "portless", "https on localhost", "named dev URL", "stop using port 3000", or runs multiple dev servers (Next.js, Vite, Medusa) that collide on ports. Prefer it for Medusa shop local dev.
+description: Use when the user says "portless", "https on localhost", "named dev URL", or runs multiple dev servers that collide on ports. Named .localhost HTTPS URLs for local dev instead of port numbers.
 allowed-tools: Bash(portless:*), Bash(npm:*)
 category: tools
 tags: [tools, local-dev, https, proxy, dev-server, medusa, monorepo]

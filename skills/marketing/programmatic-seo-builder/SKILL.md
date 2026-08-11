@@ -1,8 +1,9 @@
 ---
 name: programmatic-seo-builder
-description: 'Use when user says "build programmatic seo pages", "create page templates", "scale seo content", "set up pseo", "make a comparison page template", "avoid thin content at scale". Create scalable programmatic SEO page templates with title patterns, internal linking logic, schema markup, and thin content avoidance strategies.'
+description: 'Use when user says "build programmatic seo pages", "create page templates", "scale seo content", or "set up pseo". Builds pSEO templates with title patterns, internal linking, and schema markup.'
 metadata:
   platform: Google
+category: marketing
 ---
 
 # Programmatic SEO Builder
@@ -43,7 +44,7 @@ Design scalable page templates that rank without appearing thin or auto-generate
 ```
 Hub Page: "Marketing Tools" (complete guide)
     │
-    ├── Spoke: "Email Marketing Tools" 
+    ├── Spoke: "Email Marketing Tools"
     │   └── Links to: Hub, SEO Tools, Social Tools
     │
     ├── Spoke: "SEO Tools"
@@ -195,7 +196,7 @@ Discover the best [software] for [industry] in [year]. Compare top [X] options w
 
 #### Section 3: Detailed Recommendations (Variable)
 - **Content type**: Mixed - template structure, variable content
-- **Requirements**: 
+- **Requirements**:
   - 5-7 tools per page
   - Each tool: 150-200 words
   - Industry-specific use case for each

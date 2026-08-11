@@ -1,15 +1,11 @@
 ---
 name: motion-design-flow
-description: >-
-  Motion design for product videos, reference images, logos, and infographics.
-  Use when user says "motion design", "animate this logo", "product animation",
-  "animated infographic", "motion graphics", or wants dynamic visual content
-  that isn't live-action footage.
+description: 'Use when user says "motion design", "animate this logo", "product animation", "animated infographic", or "motion graphics", or wants dynamic visual content that isn''t live-action footage.'
 tags: [video, motion-design, animation, graphics]
 category: video
 version: 1.0.0
 requires_mcps: [Higgsfield]
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # Motion Design Flow

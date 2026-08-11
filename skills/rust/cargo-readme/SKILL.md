@@ -6,6 +6,7 @@ triggers:
   - "cargo readme"
   - "sync readme with docs"
 allowed-tools: Bash(cargo:*), Bash(cargo-readme:*)
+category: rust
 ---
 
 # cargo-readme

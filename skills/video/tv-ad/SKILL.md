@@ -1,15 +1,11 @@
 ---
 name: tv-ad
-description: >-
-  Create TV ads with a character — talking, off-camera narration, or crazy VFX.
-  Use when user says "TV ad", "commercial", "brand video with character",
-  "ad with spokesperson", "VFX commercial", or wants broadcast-quality
-  advertising content.
+description: 'Use when user says "TV ad", "commercial", "brand video with character", "ad with spokesperson", or "VFX commercial", or wants broadcast-quality advertising content with a character.'
 tags: [video, advertising, tv, commercial]
 category: video
 version: 1.0.0
 requires_mcps: [Higgsfield]
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # TV Ad
@@ -70,6 +66,6 @@ Generate each shot using cinematic formula:
 
 - Always include brand lockup in final 2-3 seconds
 - Audio must hit -14 LUFS for broadcast compliance
-- Generate both landscape (TV) and portrait (social) cuts
+- Generate both `landscape` (TV) and portrait (social) cuts
 - Character must be consistent across all shots (Soul ID)
 - Include legal/disclaimer text placement in the shot list

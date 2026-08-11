@@ -7,6 +7,7 @@ triggers:
   - "test quality"
   - "are my tests any good"
 allowed-tools: Bash(cargo:*), Bash(cargo-mutants:*)
+category: rust
 ---
 
 # cargo-mutants, mutation testing

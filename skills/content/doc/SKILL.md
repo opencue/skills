@@ -1,7 +1,7 @@
 ---
 name: "doc"
-description: >-
-  Use when user says "write documentation", "make a DOCX", or "create a doc". Document structure, formatting, export.
+description: 'Use when user says "write documentation", "make a DOCX", or "create a doc". Covers document structure, formatting, and export.'
+category: content
 ---
 
 

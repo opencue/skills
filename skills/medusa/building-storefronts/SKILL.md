@@ -1,7 +1,7 @@
 ---
 name: building-storefronts
-description: >-
-  Use when user says "Medusa storefront", "call Medusa API", "SDK integration", or "React Query". Required for storefront fetching, mutations, cache, Medusa API calls.
+description: 'Use when user says "Medusa storefront", "call Medusa API", "SDK integration", or "React Query". Required for storefront fetching, mutations, cache, Medusa API calls.'
+category: medusa
 ---
 
 # Medusa Storefront Development

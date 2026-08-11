@@ -1,7 +1,8 @@
 ---
 name: just
-description: >-
+description: >
   Use when user says "just", "quick task", or "simple task". Lightest direct execution path: scope control, minimal tooling.
+category: meta
 ---
 
 # just

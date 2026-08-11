@@ -6,6 +6,7 @@ triggers:
   - "rust without std"
   - "no-std"
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
 # `#![no_std]`, Rust without std

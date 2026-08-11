@@ -6,6 +6,7 @@ triggers:
   - "precision file edits"
   - "patch based edits"
 allowed-tools: Bash(chisel:*)
+category: rust
 ---
 
 # Chisel, agent-oriented precision file edits

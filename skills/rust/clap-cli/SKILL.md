@@ -7,6 +7,7 @@ triggers:
   - "clap"
   - "command line tool in rust"
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
 # clap + dialoguer + indicatif, CLI building stack

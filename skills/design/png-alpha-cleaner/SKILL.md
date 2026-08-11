@@ -1,7 +1,7 @@
 ---
 name: "png-alpha-cleaner"
-description: >-
-  Use when user says "clean PNG alpha", "remove transparent fringe", or "fix PNG edges". Alpha-channel cleanup.
+description: Use when user says "clean PNG alpha", "remove transparent fringe", or "fix PNG edges". Alpha-channel cleanup.
+category: design
 ---
 
 # PNG Alpha Cleaner

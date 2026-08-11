@@ -1,15 +1,11 @@
 ---
 name: podcast-flow
-description: >-
-  Generate long-form podcast video content — talking heads, split screen,
-  dynamic cuts. Use when user says "podcast video", "interview format",
-  "long-form video", "conversation video", or wants multi-speaker
-  dialogue content.
+description: 'Use when user says "podcast video", "interview format", "long-form video", or "conversation video", or wants multi-speaker dialogue content — talking heads, split screen, dynamic cuts.'
 tags: [video, podcast, long-form, interview]
 category: video
 version: 1.0.0
 requires_mcps: [Higgsfield]
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # Podcast Flow

@@ -2,8 +2,9 @@
 slug: muapi-storyboard
 name: muapi-storyboard
 version: "1.0.0"
-description: Generate N keyframes for a short story or scene sequence (image only, no video).
+description: Use when the user wants to generate keyframes for a short story or scene sequence (image only, no video).
 acceptLicenseTerms: true
+category: media
 ---
 
 

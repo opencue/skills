@@ -1,7 +1,8 @@
 ---
 name: colony-prompts
-description: >-
+description: >
   Use when user says "Colony prompts" or "Colony handoff". Prompt boundaries, task readiness, handoff wording for Colony.
+category: colony
 ---
 
 # Colony Planner Prompts

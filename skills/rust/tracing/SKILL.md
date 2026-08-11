@@ -7,6 +7,7 @@ triggers:
   - "structured logs rust"
   - "rust spans"
 allowed-tools: Bash(cargo:*), Bash(tokio-console:*)
+category: rust
 ---
 
 # tracing, modern Rust observability

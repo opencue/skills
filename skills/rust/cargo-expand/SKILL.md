@@ -7,6 +7,7 @@ triggers:
   - "debug a macro"
   - "see macro output"
 allowed-tools: Bash(cargo:*), Bash(cargo-expand:*)
+category: rust
 ---
 
 # cargo-expand

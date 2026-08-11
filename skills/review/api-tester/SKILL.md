@@ -1,7 +1,8 @@
 ---
 name: api-tester
-description: >-
+description: >
   Use when user says "test API", "API endpoint", or "curl this endpoint". Request setup, auth, assertions, response checks.
+category: review
 ---
 
 # api-tester

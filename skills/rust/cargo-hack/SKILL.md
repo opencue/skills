@@ -6,6 +6,7 @@ triggers:
   - "cargo hack"
   - "check all features"
 allowed-tools: Bash(cargo:*), Bash(cargo-hack:*)
+category: rust
 ---
 
 # cargo-hack, feature combo testing

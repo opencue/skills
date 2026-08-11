@@ -7,6 +7,7 @@ triggers:
   - "bindgen"
   - "generate ffi bindings"
 allowed-tools: Bash(cargo:*), Bash(bindgen:*)
+category: rust
 ---
 
 # bindgen, C → Rust FFI

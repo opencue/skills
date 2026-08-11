@@ -1,9 +1,8 @@
 ---
 name: postiz-cards
-description: 'Use when user says "build a branded card", "make a postiz card", "schedule a branded post", "composite the logo on this card", "lint my post copy". Brand-aware card pipeline for Postiz. Lints post copy (cashtag/em-dash/stat gates), composites the brand logo band onto Higgsfield cards (with OCR text-check), and pulls analytics. For building or scheduling branded image-card posts for ANY postizz brand (volaria, etc.). Pairs with /post-as.'
-allowed-tools:
-  - Bash
-  - Read
+description: 'Use when user says "build a branded card", "make a postiz card", or "lint my post copy". Brand-aware Postiz pipeline: lints copy, composites the brand logo onto Higgsfield cards, pulls analytics.'
+allowed-tools: Bash(Bash:*), Read
+category: content
 ---
 
 # postiz-cards

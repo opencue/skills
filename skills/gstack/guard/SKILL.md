@@ -31,6 +31,7 @@ hooks:
         - type: command
           command: "bash ${CLAUDE_SKILL_DIR}/../freeze/bin/check-freeze.sh"
           statusMessage: "Checking freeze boundary..."
+category: gstack
 ---
 # /guard, Full Safety Mode
 

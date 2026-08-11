@@ -18,6 +18,7 @@ triggers:
   - codify this scrape
   - save this scrape
   - make this permanent
+category: gstack
 ---
 ## Iron contract, never write a half-broken skill to disk
 

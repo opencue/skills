@@ -6,6 +6,7 @@ triggers:
   - "cargo fuzz"
   - "fuzz a parser"
 allowed-tools: Bash(cargo:*), Bash(cargo-fuzz:*), Bash(rustup:*)
+category: rust
 ---
 
 # cargo-fuzz, libFuzzer for Rust

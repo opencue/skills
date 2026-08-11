@@ -1,7 +1,8 @@
 ---
 name: cuopt-server-common
 version: "26.08.00"
-description: cuOpt REST server — what it does and how requests flow. Domain concepts; no deploy or client code.
+description: Use when the user asks about the cuOpt REST server — what it does and how requests flow. Domain concepts; no deploy or client code.
+category: nvidia
 ---
 
 

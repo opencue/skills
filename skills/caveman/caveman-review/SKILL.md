@@ -1,7 +1,7 @@
 ---
 name: caveman-review
-description: >-
-  Use when user says "review this PR", "code review", or "/caveman-review". One-line PR comments: location, problem, fix.
+description: 'Use when user says "review this PR", "code review", or "/caveman-review". One-line PR comments: location, problem, fix.'
+category: caveman
 ---
 
 # Caveman Review

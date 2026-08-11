@@ -7,6 +7,7 @@ triggers:
   - "rust game engine"
   - "ecs game"
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
 # Bevy, Rust game engine

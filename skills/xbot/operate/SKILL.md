@@ -20,14 +20,7 @@ triggers:
   - run a dry cycle
   - show pending replies
   - growth report
-allowed-tools:
-  - Bash(./botctl:*)
-  - Bash(.venv/bin/python:*)
-  - Bash(claude:*)
-  - Bash(cat:*)
-  - Bash(ls:*)
-  - Bash(tail:*)
-  - Read
+allowed-tools: Bash(./botctl:*), Bash(.venv/bin/python:*), Bash(claude:*), Bash(cat:*), Bash(ls:*), Bash(tail:*), Read
 requires_mcps:
   - xbot
 tags: [xbot, twitter, x, growth, social, bot, operate, mcp]

@@ -1,7 +1,8 @@
 ---
 name: muapi-cinema-director
 version: 0.1.0
-description: Direct high-fidelity cinematic video with AI — translates creative intent into technical cinematographic directives for Veo3, Kling, and Luma video models via muapi.ai
+description: Use when the user wants to direct cinematic AI video — translates creative intent into technical cinematographic directives for Veo3, Kling, and Luma video models via muapi.ai
+category: media
 ---
 
 # 🎬 AI Cinema Director Skill
@@ -48,7 +49,7 @@ The Cinema Director skill translates high-level creative intent into technical c
 
 **Before calling the script, the Agent MUST expand the user's raw prompt using these Director's Rules:**
 
-1. **TECHNICAL INFUSION**: Transform "cool action" into a technical shot. 
+1. **TECHNICAL INFUSION**: Transform "cool action" into a technical shot.
    - *Formula*: `[Shot Type] + [Subject/Action] + [Environment] + [Lighting] + [Camera Movement] + [Lens Effect]`
 2. **MOTION DYNAMICS**: Use cinematic verbs: *Dolly In* (intimacy), *Crane Up* (majestic), *Orbit* (heroic), *Truck* (parallel motion).
 3. **LIGHTING RECIPES**: Apply specific illumination: *Volumetric God Rays*, *Teal-and-Orange Grade*, *Cyberpunk Rim Lighting*, *Rembrandt Portrait Lighting*.
@@ -66,9 +67,9 @@ The `generate-film.sh` script accepts a `--brief` which it expands using its int
 
 ```bash
 # Directing a scene
-bash scripts/generate-film.sh 
-  --subject "A lone samurai in a blizzard" 
-  --intent "epic reveal" 
+bash scripts/generate-film.sh
+  --subject "A lone samurai in a blizzard"
+  --intent "epic reveal"
   --model "kling-master"
 ```
 
@@ -82,7 +83,7 @@ Video generation is asynchronous. Use the returned `request_id` to poll for comp
 - **Temporal Consistency**: Avoid complex subject transformations in a single shot (e.g., "man turns into a bird").
 - **Movement Collisions**: Do not combine contradictory movements (e.g., "Dolly In" and "Dolly Out" simultaneously).
 - **Physical Realism**: Prefer movements possible with real-world equipment for a more professional "film" look.
-- **Model Bias**: 
+- **Model Bias**:
   - `Veo3`: Best for slow, high-quality aesthetic shots.
   - `Kling`: Best for complex character motion and physics.
   - `Luma`: Best for fast-paced, high-action cinematic sequences.

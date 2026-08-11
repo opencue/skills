@@ -1,7 +1,7 @@
 ---
 name: db-migrate
-description: >-
-  Use when user says "medusa db:migrate" or "run migrations". Medusa migration apply: env checks, commands, rollback risk.
+description: 'Use when user says "medusa db:migrate" or "run migrations". Medusa migration apply: env checks, commands, rollback risk.'
+category: medusa
 ---
 
 # Run Database Migrations

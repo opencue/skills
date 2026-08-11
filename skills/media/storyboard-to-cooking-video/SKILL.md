@@ -2,8 +2,9 @@
 slug: muapi-storyboard-to-cooking-video
 name: muapi-storyboard-to-cooking-video
 version: "1.0.0"
-description: Turn a single photo of a person into a 15-second cinematic pasta-making (or other cuisine) tutorial video. First builds a composite reference sheet (character + kitchen + 9-step action board), then animates the full cooking sequence with audio in a single continuous shot.
+description: Use when the user wants a cooking tutorial video from one photo of a person — builds a reference sheet, then animates a 15-second cinematic cooking sequence with audio in one continuous shot.
 acceptLicenseTerms: true
+category: media
 ---
 
 

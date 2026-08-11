@@ -7,6 +7,7 @@ triggers:
   - "rust task runner"
   - "replace make"
 allowed-tools: Bash(just:*)
+category: rust
 ---
 
 # just, sane task runner

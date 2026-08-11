@@ -15,6 +15,7 @@ triggers:
 allowed-tools: Bash(-:*), Bash(Bash:*)
   - Bash
   - Read
+category: gstack
 ---
 ## Why this skill exists
 

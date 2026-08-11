@@ -1,8 +1,9 @@
 ---
 name: retargeting-window-analysis
-description: 'Use when user says "optimize retargeting window", "how long to retarget", "best retargeting window", "conversion lag analysis", "when do people convert", "tighten retargeting audience". Analyzes your conversion lag data to determine the optimal retargeting window for each audience segment. Tells you whether your 30-day retargeting window should actually be 7 days, 14 days, or 60 days based on when people actually convert after their first visit.'
+description: 'Use when user says "optimize retargeting window", "how long to retarget", or "best retargeting window". Uses conversion lag data to set the optimal retargeting window per audience segment.'
 metadata:
   platform: Meta
+category: marketing
 ---
 
 # 22/ Retargeting Window Analysis, Meta
@@ -26,5 +27,5 @@ Your default retargeting window is 30 days for all audiences. Claude's analysis 
 ## When to use it
 - When setting up retargeting campaigns for new accounts
 - When retargeting CPA is creeping up and audience pools need tightening
-- After significant changes in conversion funnel or product offering
+- After major changes in conversion funnel or product offering
 - Quarterly to check if conversion behavior patterns have shifted

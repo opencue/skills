@@ -1,7 +1,8 @@
 ---
 name: gh-auth-doctor
-description: >-
+description: >
   Use when user says "gh auth doctor", "stale token", "gh pr create silently fails", "gx finish hung", "auth blocker", or before `gx branch finish --via-pr`. Diagnoses stale `GH_TOKEN`/`GITHUB_TOKEN` env vars silently overriding `~/.git-credentials` (git push works but every `gh` call fails). Read-only.
+category: github
 ---
 
 # Gh Auth Doctor

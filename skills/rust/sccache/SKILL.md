@@ -6,6 +6,7 @@ triggers:
   - "sccache"
   - "rust compiler cache"
 allowed-tools: Bash(cargo:*), Bash(sccache:*)
+category: rust
 ---
 
 # sccache

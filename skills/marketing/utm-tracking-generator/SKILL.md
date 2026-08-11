@@ -1,8 +1,9 @@
 ---
 name: utm-tracking-generator
-description: 'Use when user says "generate utm links", "build a utm", "tracking parameters", "ga4 event names", "standardize tracking", "utm naming convention". Generate consistent UTM parameters, GA4 event naming, and conversion tracking specs following taxonomy best practices.'
+description: 'Use when user says "generate utm links", "build a utm", "ga4 event names", "utm naming convention". Generate consistent UTM parameters, GA4 event naming, and conversion tracking specs.'
 metadata:
   platform: Google and Meta
+category: marketing
 ---
 
 # UTM & Tracking Generator
@@ -162,7 +163,7 @@ search
 | utm_term | {keyword} |
 | utm_content | {creative} |
 
-**Full URL**: 
+**Full URL**:
 `https://yoursite.com/shoes?utm_source=google&utm_medium=cpc&utm_campaign=shoes-us-spring2024-allcust-20off&utm_term={keyword}&utm_content={creative}`
 
 #### Meta Ads

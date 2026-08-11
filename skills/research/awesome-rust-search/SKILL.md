@@ -1,11 +1,7 @@
 ---
 name: awesome-rust-search
-description: >-
-  Use when user says "find a rust crate for X", "is there a rust library for X",
-  "what's a good rust X", "search awesome-rust", or "/awesome-rust-search".
-  Searches rust-unofficial/awesome-rust to recommend crates, CLIs, or apps by
-  topic. NOT for crates.io version/maintenance checks — use `gh` instead. NOT
-  for idiomatic Rust patterns — use std/rustdoc.
+description: 'Use when user says "find a rust crate for X", "search awesome-rust", or "/awesome-rust-search". Searches rust-unofficial/awesome-rust to recommend crates, CLIs, or apps by topic.'
+category: research
 ---
 
 <!--

@@ -16,6 +16,7 @@ triggers:
   - monitor after deploy
   - canary check
   - watch for errors post-deploy
+category: gstack
 ---
 ## SETUP (run this check BEFORE any browse command)
 

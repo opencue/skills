@@ -1,7 +1,8 @@
 ---
 name: stripe-best-practices
-description: >-
+description: >
   Use when user says "Stripe", "Stripe integration", or "payment flow". Checkout, webhooks, idempotency, security, testing.
+category: stripe
 ---
 
 # Stripe Best Practices

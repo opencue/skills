@@ -7,6 +7,7 @@ triggers:
   - "rust http client"
   - "download file rust"
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
 # reqwest, Rust HTTP client

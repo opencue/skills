@@ -7,6 +7,7 @@ triggers:
   - update gstack version
   - get latest gstack
 allowed-tools: Bash(Bash:*), Read, Write, Bash(AskUserQuestion:*)
+category: gstack
 ---
 <!-- AUTO-GENERATED from SKILL.md.tmpl, do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->

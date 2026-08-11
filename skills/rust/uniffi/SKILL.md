@@ -6,6 +6,7 @@ triggers:
   - "uniffi"
   - "rust kotlin swift bindings"
 allowed-tools: Bash(cargo:*), Bash(uniffi-bindgen:*)
+category: rust
 ---
 
 # UniFFI, one Rust → many languages

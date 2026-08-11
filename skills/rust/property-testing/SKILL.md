@@ -7,6 +7,7 @@ triggers:
   - "quickcheck"
   - "property based tests"
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
 # proptest / quickcheck, property-based testing

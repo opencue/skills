@@ -1,9 +1,6 @@
 ---
 name: find-skills
-description: >-
-  When user says "find skills for X", "search for skills", "what skills exist for Y",
-  or "add SVG/diagram/testing/etc skills to my profile" — search GitHub for open-source
-  Claude Code skills, evaluate them, and add the best ones to the active profile.
+description: 'Use when user says "find skills for X", "search for skills", or "what skills exist for Y" — searches GitHub for open-source Claude Code skills and adds the best ones to the active profile.'
 tags: [meta, cue, research, skills]
 category: research
 version: 1.0.0

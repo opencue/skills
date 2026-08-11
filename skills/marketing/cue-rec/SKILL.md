@@ -21,7 +21,7 @@ tags: [marketing, video, demo, screencast, wayland, gnome]
 category: marketing
 version: 1.0.0
 requires_mcps: []
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # cue-rec, record sessions for marketing

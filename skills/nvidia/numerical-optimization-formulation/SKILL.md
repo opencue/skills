@@ -1,7 +1,8 @@
 ---
 name: numerical-optimization-formulation
 version: "26.08.00"
-description: Numerical optimization (LP, MILP, QP) — concepts, problem-text parsing, and formulation patterns. What LP, MILP, and QP are, required formulation questions, modeling elements, common patterns, and how to parse problem statements (parameters, constraints, decisions, objective). Domain concepts; no API or interface.
+description: Use when the user needs to formulate a numerical optimization problem (LP, MILP, QP) — concepts, modeling elements, patterns, and parsing problem text into constraints, decisions, objective. No API.
+category: nvidia
 ---
 
 

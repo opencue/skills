@@ -7,6 +7,7 @@ triggers:
   - "upgrade rust deps"
   - "find unused deps"
 allowed-tools: Bash(cargo:*), Bash(cargo-edit:*), Bash(cargo-outdated:*), Bash(cargo-machete:*), Bash(cargo-udeps:*)
+category: rust
 ---
 
 # Cargo Dependency Tooling

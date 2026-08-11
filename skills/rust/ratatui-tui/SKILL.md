@@ -6,6 +6,7 @@ triggers:
   - "ratatui"
   - "terminal ui in rust"
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
 # ratatui, Rust TUI framework

@@ -1,6 +1,6 @@
 ---
 name: job-hunter
-description: Run a whole job-search campaign, not a one-off document. Use when the user says "find me jobs", "run my job search", "job hunt", "am I competitive for this role", "build my application package", "prep me for interviews", or "negotiate this offer". Routes live search, fit-scoring, ATS resume and cover letter, interview prep, and offer negotiation across four stages. For a single resume rewrite use resume-tailor; for JD scoring use jdfit.
+description: Use when the user says "find me jobs", "run my job search", "job hunt", or "prep me for interviews". Routes live search, fit-scoring, ATS resume, interview prep, and offer negotiation.
 allowed-tools: Read, Write, Glob, Grep, WebSearch, WebFetch, Bash(docker:*)
 argument-hint: [stage or goal, e.g. "search recruiter roles Budapest" or "tailor for <JD url>"]
 tags: [career, job-search, resume, interview, recruiting]

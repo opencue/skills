@@ -1,10 +1,11 @@
 ---
 name: supabase
-description: >-
+description: >
   Use when user says "Supabase", "Supabase DB", or "Supabase migration". Envs, migrations, SQL checks, access.
 metadata:
   author: supabase
   version: "0.1.2"
+category: deployment
 ---
 
 # Supabase

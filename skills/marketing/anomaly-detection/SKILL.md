@@ -1,8 +1,9 @@
 ---
 name: anomaly-detection
-description: Use when user says "why did my CPC spike", "spot anomalies in my account", "what changed in my campaigns", "my conversions dropped", "detect performance issues", "flag unusual spend". Catches unusual performance changes across your accounts — CPC spikes, CVR drops, spend surges, impression collapses, CTR shifts — and flags them with context about what likely changed. The goal is to catch problems in hours instead of discovering them days later during a routine check.
+description: Use when user says "why did my CPC spike", "spot anomalies in my account", or "flag unusual spend". Flags CPC spikes, CVR drops, spend surges, and CTR shifts with context on what likely changed.
 metadata:
   platform: Google and Meta
+category: marketing
 ---
 
 # 6/ Anomaly Detection, Google + Meta

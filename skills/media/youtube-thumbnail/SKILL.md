@@ -2,8 +2,9 @@
 slug: muapi-youtube-thumbnail
 name: muapi-youtube-thumbnail
 version: "1.0.0"
-description: Design a high-CTR YouTube thumbnail — striking imagery, bold text placement, and emotional face/subject if needed.
+description: Use when the user wants a high-CTR YouTube thumbnail — striking imagery, bold text placement, and emotional face/subject if needed.
 acceptLicenseTerms: true
+category: media
 ---
 
 

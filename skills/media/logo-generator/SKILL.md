@@ -2,8 +2,9 @@
 slug: muapi-logo-generator
 name: muapi-logo-generator
 version: "1.0.0"
-description: Quickly generate a single polished logo for any brand — fast, focused, single output with clean vector aesthetic and accurate brand name text.
+description: Use when the user wants to make a logo for a brand or company — fast, focused, single polished output with clean vector aesthetic and accurate brand name text.
 acceptLicenseTerms: true
+category: media
 ---
 
 

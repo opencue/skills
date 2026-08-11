@@ -1,6 +1,7 @@
 ---
 name: defuddle
 description: 'Use when user says "extract article", "clean webpage", or "defuddle". Readable content extraction: fetching, cleanup, citation.'
+category: research
 ---
 
 # Defuddle

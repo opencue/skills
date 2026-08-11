@@ -1,6 +1,7 @@
 ---
 name: analyze
-description: "Runs read-only deep repository analysis and returns a ranked synthesis with explicit confidence, concrete file references, and clear evidence-vs-inference boundaries. Use when user says \"analyze\", \"investigate\", \"why does\", \"what's causing\", \"trace through\", or asks for a grounded cross-file explanation before any changes are proposed."
+description: "Read-only repository analysis returning a ranked synthesis with confidence and file references. Use when user says \"analyze\", \"investigate\", \"why does\", or \"what's causing\"."
+category: meta
 ---
 
 # Analyze, Read-Only Deep Analysis

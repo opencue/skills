@@ -1,6 +1,7 @@
 ---
 name: doctor
-description: "[OMX] Diagnose and fix oh-my-codex installation issues"
+description: "[OMX] Use when user says \"omx doctor\", \"fix oh-my-codex\", \"OMX is broken\", or \"diagnose my OMX install\". Diagnoses and fixes oh-my-codex installation issues."
+category: meta
 ---
 
 # Doctor Skill

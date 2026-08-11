@@ -1,6 +1,7 @@
 ---
 name: image-to-code
-description: Use when user says "image to code", "design from image", "mockup to website", "implement this screenshot", or "match this design". Elite website image-to-code skill for Codex. For visually important web tasks, it must first generate the design image(s) itself, deeply analyze them, then implement the website to match them as closely as possible. In Codex, it must prefer large, readable, section-specific images instead of tiny compressed boards, generate fresh standalone images for sections or detail views instead of cropping old ones, avoid lazy under-generation, avoid cards-inside-cards-inside-cards UI, and keep the hero clean, spacious, readable, and visible on a small laptop.
+description: Use when user says "image to code", "design from image", "mockup to website", "implement this screenshot", or "match this design". Generates design images, analyzes them, then builds to match.
+category: design
 ---
 
 # CORE DIRECTIVE: IMAGE-FIRST WEBSITE DESIGN TO CODE
@@ -62,8 +63,8 @@ The generated image(s) are the primary visual source of truth.
 
 The required workflow is:
 
-image generation first  
-deep image analysis second  
+image generation first
+deep image analysis second
 implementation third
 
 If the task is mainly visual, this order is mandatory.
@@ -72,23 +73,23 @@ If the task is mainly visual, this order is mandatory.
 
 ## 1. ACTIVE BASELINE CONFIGURATION
 
-- DESIGN_VARIANCE: 8  
+- DESIGN_VARIANCE: 8
   `(1 = rigid / conventional, 10 = highly art-directed / asymmetric)`
-- VISUAL_DENSITY: 3  
+- VISUAL_DENSITY: 3
   `(1 = airy / calm, 10 = dense / packed)`
-- ART_DIRECTION: 8  
+- ART_DIRECTION: 8
   `(1 = safe commercial, 10 = bold creative statement)`
-- IMPLEMENTATION_CLARITY: 9  
+- IMPLEMENTATION_CLARITY: 9
   `(1 = loose moodboard, 10 = highly buildable UI reference)`
-- IMAGE_USAGE_PRIORITY: 9  
+- IMAGE_USAGE_PRIORITY: 9
   `(1 = mostly typographic, 10 = strongly image-led when appropriate)`
-- SPACING_GENEROSITY: 9  
+- SPACING_GENEROSITY: 9
   `(1 = compact / tight, 10 = spacious / breathable)`
-- ANALYSIS_PRECISION: 10  
+- ANALYSIS_PRECISION: 10
   `(1 = broad vibe only, 10 = deep extraction of design details)`
-- IMAGE_GENERATION_EAGERNESS: 10  
+- IMAGE_GENERATION_EAGERNESS: 10
   `(1 = minimal image count, 10 = generate as many images as needed for excellent extraction)`
-- UI_SIMPLICITY_DISCIPLINE: 9  
+- UI_SIMPLICITY_DISCIPLINE: 9
   `(1 = willing to add many micro-elements, 10 = aggressively reduce clutter and unnecessary UI chrome)`
 
 AI Instruction:
@@ -701,7 +702,7 @@ Prefer:
 
 Examples:
 - hero image in a clearly bounded large frame
-- editorial crops using repeatable portrait or landscape ratios
+- editorial crops using repeatable portrait or `landscape` ratios
 - card images with consistent proportions
 - gallery blocks with controlled aspect ratios
 - product images placed in stable intentional containers
@@ -1040,7 +1041,7 @@ Not:
 1. Hero
 2. Trust bar
 3. Features
-4. Product showcase
+4. Product spotlight
 5. Benefits / use cases
 6. Testimonials
 7. Pricing

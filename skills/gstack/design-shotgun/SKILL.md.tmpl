@@ -13,13 +13,7 @@ triggers:
   - explore design variants
   - show me design options
   - visual design brainstorm
-allowed-tools:
-  - Bash
-  - Read
-  - Glob
-  - Grep
-  - Agent
-  - AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Glob, Grep, Agent, Bash(AskUserQuestion:*)
 gbrain:
   schema: 1
   context_queries:
@@ -40,6 +34,7 @@ gbrain:
       sort: mtime_desc
       limit: 3
       render_as: "## Recent design docs"
+category: gstack
 ---
 
 {{PREAMBLE}}

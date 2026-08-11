@@ -6,6 +6,7 @@ triggers:
   - "cargo insta"
   - "insta snapshots"
 allowed-tools: Bash(cargo:*), Bash(cargo-insta:*)
+category: rust
 ---
 
 # insta, snapshot testing

@@ -7,6 +7,7 @@ triggers:
   - "rust musl build"
   - "build rust for windows"
 allowed-tools: Bash(cargo:*), Bash(cross:*), Bash(rustup:*), Bash(docker:*)
+category: rust
 ---
 
 # cross, zero-fuss cross-compilation

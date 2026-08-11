@@ -1,14 +1,9 @@
 ---
 name: channel-mix-optimizer
-description: >-
-  Use when user says "optimize my channel mix", "how should I split my budget",
-  "best budget allocation across channels", "where should I spend more", "reallocate ad spend".
-  Given your total budget, recommends the optimal split across Google Search, PMax,
-  Meta prospecting, Meta retargeting, and any other active channels based on your last
-  60-90 days of marginal ROAS and CPA by channel. Tells you where each additional
-  dollar produces the best return.
+description: 'Use when user says "optimize my channel mix", "how should I split my budget", "reallocate ad spend". Recommends the optimal budget split across channels from your marginal ROAS and CPA.'
 metadata:
   platform: Google and Meta
+category: marketing
 ---
 
 # 15/ Channel Mix Optimizer, Google + Meta

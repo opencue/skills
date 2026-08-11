@@ -1,24 +1,7 @@
 ---
 name: anti-formula
-description: >-
-  Use when the user says "/anti-formula", "check this for formulas", "is this
-  draft mechanical", "lint my post", "audit recent posts for repetition", or
-  before scheduling any post drafted by article-writer / trend-to-thread.
-  Detects mechanical writing patterns (duplicate sentence starts, forced ?
-  closers, arrow-chain monotony, recycled closers, banned AI vocabulary)
-  across one draft or a window of recent drafts. Gate, not suggestion.
-allowed-tools:
-  - Bash(grep:*)
-  - Bash(rg:*)
-  - Bash(awk:*)
-  - Bash(wc:*)
-  - Bash(ls:*)
-  - Bash(find:*)
-  - Bash(head:*)
-  - Bash(tail:*)
-  - Read
-  - Write
-  - Edit
+description: 'Use when the user says "/anti-formula", "check this for formulas", "lint my post", or "audit recent posts for repetition". Detects mechanical writing patterns across one draft or a window of drafts.'
+allowed-tools: Bash(grep:*), Bash(rg:*), Bash(awk:*), Bash(wc:*), Bash(ls:*), Bash(find:*), Bash(head:*), Bash(tail:*), Read, Write, Edit
 tags: [content, lint, writing, social, formula-detection]
 domain: content
 category: lint
@@ -101,8 +84,8 @@ awk '/^[→•\-]/ {n++; if (n>=4) print NR": chain"} !/^[→•\-]/ {n=0}' draf
 
 **Fails if:** the draft contains ANY of these words/phrases:
 
-delve, leverage, robust, comprehensive, nuanced, multifaceted,
-furthermore, moreover, pivotal, landscape, tapestry, crucial,
+`delve`, leverage, `robust`, `comprehensive`, `nuanced`, `multifaceted`,
+`furthermore`, `moreover`, `pivotal`, `landscape`, `tapestry`, `crucial`,
 "it's worth noting", "in conclusion", "in summary", "navigate the",
 "unlock the power of", "dive into", "take a deep look at",
 "the world of", "at its core", "fundamentally speaking".

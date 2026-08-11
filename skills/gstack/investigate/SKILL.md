@@ -57,6 +57,7 @@ gbrain:
       glob: "~/.gstack/analytics/eureka.jsonl"
       tail: 5
       render_as: "## Recent eureka moments (cross-project)"
+category: gstack
 ---
 ## Iron Law
 

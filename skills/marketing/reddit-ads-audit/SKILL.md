@@ -1,8 +1,9 @@
 ---
 name: reddit-ads-audit
-description: 'Use when user says "audit my reddit ads", "analyze subreddit targeting", "check my reddit ad performance", "review reddit campaigns", "fix reddit ad spend", "is my reddit targeting working". Reddit Ads campaign analysis detecting community targeting issues, creative fatigue, bid inefficiencies, and subreddit performance problems.'
+description: 'Use when user says "audit my reddit ads", "analyze subreddit targeting", or "fix reddit ad spend". Reddit Ads analysis detecting community targeting issues, creative fatigue, and bid inefficiencies.'
 metadata:
   platform: Reddit
+category: marketing
 ---
 
 # Reddit Ads Audit

@@ -2,8 +2,9 @@
 slug: muapi-social-pack
 name: muapi-social-pack
 version: "1.0.0"
-description: Re-render a hero image into Instagram, TikTok, YouTube-shorts and Twitter/X aspect ratios.
+description: Use when the user wants to re-render a hero image into Instagram, TikTok, YouTube-shorts and Twitter/X aspect ratios.
 acceptLicenseTerms: true
+category: media
 ---
 
 

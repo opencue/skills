@@ -6,6 +6,7 @@ triggers:
   - "napi-rs"
   - "expose rust to node"
 allowed-tools: Bash(cargo:*), Bash(napi:*), Bash(npm:*), Bash(node:*)
+category: rust
 ---
 
 # napi-rs, Rust → Node.js native addons

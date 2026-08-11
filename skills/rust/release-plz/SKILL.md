@@ -6,6 +6,7 @@ triggers:
   - "release-plz"
   - "rust changelog automation"
 allowed-tools: Bash(cargo:*), Bash(release-plz:*), Bash(git:*), Bash(gh:*)
+category: rust
 ---
 
 # release-plz, automated release PRs

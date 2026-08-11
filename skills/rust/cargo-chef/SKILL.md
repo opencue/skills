@@ -6,6 +6,7 @@ triggers:
   - "cargo chef"
   - "cache rust docker build"
 allowed-tools: Bash(cargo:*), Bash(cargo-chef:*), Bash(docker:*)
+category: rust
 ---
 
 # cargo-chef, Docker layer caching for Rust

@@ -2,8 +2,9 @@
 slug: muapi-multi-angle-reshoot
 name: muapi-multi-angle-reshoot
 version: "1.0.0"
-description: Re-render a subject or scene from multiple dramatic camera angles, such as fish-eye, bird's-eye, low-angle, and macro, while maintaining consistent identity and detail.
+description: Use when the user wants to re-render a subject or scene from multiple dramatic camera angles, such as fish-eye, bird's-eye, low-angle, and macro, while maintaining consistent identity and detail.
 acceptLicenseTerms: true
+category: media
 ---
 
 

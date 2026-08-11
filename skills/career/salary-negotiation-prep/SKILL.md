@@ -1,6 +1,7 @@
 ---
 name: salary-negotiation-prep
-description: Research market comp bands, build a negotiation strategy, and write counter-offer scripts. Use when user says "negotiate my offer", "salary negotiation", "counter offer", "what should I ask for", "is this offer fair", "they lowballed me", or "how much should I counter".
+description: Use when user says "negotiate my offer", "salary negotiation", "counter offer", "is this offer fair", or "how much should I counter". Researches comp bands, builds strategy, writes counter scripts.
+category: career
 ---
 
 # Salary Negotiation Prep
@@ -57,7 +58,7 @@ Use this skill when the user wants to:
 **Build a Range:**
 ```
 Low (25th percentile): $XXX,XXX
-Target (50th percentile): $XXX,XXX  
+Target (50th percentile): $XXX,XXX
 High (75th percentile): $XXX,XXX
 Stretch (90th percentile): $XXX,XXX
 ```

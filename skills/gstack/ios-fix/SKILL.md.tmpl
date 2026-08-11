@@ -15,18 +15,12 @@ voice-triggers:
   - "fix the iOS bug"
   - "patch the iPhone app"
   - "auto-fix the iOS issue"
-allowed-tools:
-  - Bash
-  - Read
-  - Write
-  - Edit
-  - Grep
-  - Glob
-  - AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Grep, Glob, Bash(AskUserQuestion:*)
 triggers:
   - fix this ios bug
   - patch the iphone app
   - auto-fix the ios issue
+category: gstack
 ---
 
 {{PREAMBLE}}

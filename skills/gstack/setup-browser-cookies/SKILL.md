@@ -13,6 +13,7 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
   - Bash
   - Read
   - AskUserQuestion
+category: gstack
 ---
 ## CDP mode check
 

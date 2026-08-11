@@ -7,6 +7,7 @@ triggers:
   - "diesel migrations"
   - "sea-orm"
 allowed-tools: Bash(cargo:*), Bash(sqlx:*), Bash(sea-orm-cli:*), Bash(diesel:*)
+category: rust
 ---
 
 # Rust DB Tooling

@@ -2,8 +2,9 @@
 slug: muapi-talking-baby-video
 name: muapi-talking-baby-video
 version: "1.0.0"
-description: Create a viral-style video of a talking baby with custom costumes and scripts.
+description: Use when the user wants a viral-style talking baby video, with custom costumes and scripts.
 acceptLicenseTerms: true
+category: media
 ---
 
 

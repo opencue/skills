@@ -1,6 +1,6 @@
 ---
 name: profile-suggest
-description: >-
+description: >
   Analyzes a repo on the first message and suggests the best cue profile
   when no .cue.profile is set, then self-removes from the project CLAUDE.md.
   Use when user says "suggest a profile", "which profile", "auto-detect
@@ -10,7 +10,7 @@ tags: [meta, cue, profiles, onboarding]
 category: meta
 version: 1.0.0
 requires_mcps: []
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # Profile Suggestion (First-Time Repo Setup)

@@ -2,6 +2,7 @@
 name: mirofish
 description: Use when running multi-agent prediction or simulation — digital sandbox rehearsals, social-trend forecasting, swarm-intelligence experiments, "what if" scenarios. Pointer to upstream 666ghj/MiroFish.
 allowed-tools: Bash(node:*), Bash(npm:*), Bash(uv:*), Bash(python:*), Bash(python3:*), Bash(docker:*), Bash(git:*)
+category: predict-everything
 ---
 
 # MiroFish, multi-agent prediction & simulation engine

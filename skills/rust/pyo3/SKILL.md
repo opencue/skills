@@ -7,6 +7,7 @@ triggers:
   - "expose rust to python"
   - "maturin"
 allowed-tools: Bash(cargo:*), Bash(maturin:*), Bash(python:*), Bash(pip:*)
+category: rust
 ---
 
 # PyO3 + maturin, Rust → Python

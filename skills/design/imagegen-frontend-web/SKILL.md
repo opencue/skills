@@ -1,7 +1,7 @@
 ---
 name: imagegen-frontend-web
-description: >-
-  Use when user says "web mockup", "generate website UI", or "imagegen web". Web frontend visual generation.
+description: Use when user says "web mockup", "generate website UI", or "imagegen web". Web frontend visual generation.
+category: design
 ---
 
 # HARD OUTPUT RULE, READ FIRST
@@ -799,7 +799,7 @@ Avoid:
 1. Hero
 2. Trust bar
 3. Features
-4. Product showcase
+4. Product spotlight
 5. Benefits / use cases
 6. Testimonials
 7. Pricing
@@ -967,7 +967,7 @@ Interpretation:
 - 12 horizontal images (one per section)
 - Hero Scale: Giant Statement OR Mini Minimalist (decisive choice, not in-between)
 - editorial / poster-like direction; off-grid composition appears 2-3 times
-- multiple Background Modes (full-bleed image at hero + showcase, editorial side-image at case studies, solid + accent for process)
+- multiple Background Modes (full-bleed image at hero + gallery, editorial side-image at case studies, solid + accent for process)
 - palette consistent throughout, with one bold accent recurring
 - closing CTA section: mini minimalist, strong type, single primary action
 

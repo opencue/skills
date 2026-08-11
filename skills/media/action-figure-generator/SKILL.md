@@ -2,8 +2,9 @@
 slug: muapi-action-figure-generator
 name: muapi-action-figure-generator
 version: "1.0.0"
-description: Convert a photo of a person into a custom 3D action figure, complete with collectible toy packaging.
+description: Use when the user wants to turn a photo of a person into a custom 3D action figure, complete with collectible toy packaging.
 acceptLicenseTerms: true
+category: media
 ---
 
 

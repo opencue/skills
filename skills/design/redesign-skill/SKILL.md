@@ -1,6 +1,7 @@
 ---
 name: redesign-existing-projects
-description: Use when user says "redesign this", "upgrade the design", "make it premium", "fix generic AI design", or "modernize the UI". Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS.
+description: Use when user says "redesign this", "upgrade the design", "make it premium", "fix generic AI design", or "modernize the UI". Upgrades sites and apps to high-end quality without breaking function.
+category: design
 ---
 
 # Redesign Skill
@@ -79,7 +80,7 @@ Check for these problems and fix them:
 - **Generic names like "John Doe" or "Jane Smith".** Use diverse, realistic-sounding names.
 - **Fake round numbers like `99.99%`, `50%`, `$100.00`.** Use organic, messy data: `47.2%`, `$99.00`, `+1 (312) 847-1928`.
 - **Placeholder company names like "Acme Corp", "Nexus", "SmartFlow".** Invent contextual, believable brand names.
-- **AI copywriting cliches.** Never use "Elevate", "Seamless", "Unleash", "Next-Gen", "Game-changer", "Delve", "Tapestry", or "In the world of...". Write plain, specific language.
+- **AI copywriting cliches.** Never use "Elevate", "Seamless", "Unleash", "Next-Gen", "Game-changer", `Delve`, `Tapestry`, or "In the world of...". Write plain, specific language.
 - **Exclamation marks in success messages.** Remove them. Be confident, not loud.
 - **"Oops!" error messages.** Be direct: "Connection failed. Please try again."
 - **Passive voice.** Use active voice: "We couldn't save your changes" instead of "Mistakes were made."

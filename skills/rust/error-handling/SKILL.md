@@ -6,6 +6,7 @@ triggers:
   - "thiserror vs anyhow"
   - "rust error types"
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
 # Rust Error Handling

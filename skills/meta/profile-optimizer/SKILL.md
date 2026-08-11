@@ -1,6 +1,6 @@
 ---
 name: profile-optimizer
-description: >-
+description: >
   Runs cue optimizer and rank commands, presents visual results, suggests
   removals and additions to slim the active profile. Use when user says
   "optimize profile", "clean up skills", "what skills am I not using",
@@ -9,7 +9,7 @@ tags: [meta, cue, profiles, optimization]
 category: meta
 version: 1.0.0
 requires_mcps: []
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # Profile Optimizer

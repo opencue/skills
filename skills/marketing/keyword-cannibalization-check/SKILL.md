@@ -1,8 +1,9 @@
 ---
 name: keyword-cannibalization-check
-description: Use when user says "are my keywords competing", "check keyword cannibalization", "find duplicate keywords", "why are my CPCs rising", "are my campaigns overlapping". Identifies where your own keywords and campaigns are competing against each other in Google Ads auctions. Finds duplicate keywords across campaigns, overlapping match types that trigger the same queries, and ad groups stealing traffic from each other — all of which inflate your CPCs and mess up your data.
+description: Use when user says "are my keywords competing" or "check keyword cannibalization". Finds duplicate keywords, overlapping match types, and ad groups competing in the same auctions.
 metadata:
   platform: Google
+category: marketing
 ---
 
 # 20/ Keyword Cannibalization Check, Google

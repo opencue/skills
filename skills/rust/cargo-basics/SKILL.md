@@ -7,6 +7,7 @@ triggers:
   - "cargo test"
   - "rust workspace"
 allowed-tools: Bash(cargo:*), Bash(rustc:*), Bash(rustup:*)
+category: rust
 ---
 
 # Cargo Basics

@@ -17,6 +17,7 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
   - Write
   - Glob
   - AskUserQuestion
+category: gstack
 ---
 ## SETUP (run this check BEFORE any browse command)
 

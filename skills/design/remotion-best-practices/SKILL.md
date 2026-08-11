@@ -1,7 +1,7 @@
 ---
 name: remotion-best-practices
-description: >-
-  Use when user says "Remotion", "video render", or "motion composition". Composition structure, assets, timing, rendering.
+description: Use when user says "Remotion", "video render", or "motion composition". Composition structure, assets, timing, rendering.
+category: design
 ---
 
 # Remotion Best Practices
@@ -40,7 +40,7 @@ export const FadeIn = () => {
 };
 ```
 
-CSS transitions or animations are FORBIDDEN - they will not render correctly.  
+CSS transitions or animations are FORBIDDEN - they will not render correctly.
 Tailwind animation class names are FORBIDDEN - they will not render correctly.
 
 Place assets in the `public/` folder at your project root.
@@ -201,7 +201,7 @@ npx remotion studio
 
 ## Optional: one-frame render check
 
-You can render a single frame with the CLI to sanity-check layout, colors, or timing.  
+You can render a single frame with the CLI to sanity-check layout, colors, or timing.
 Skip it for trivial edits, pure refactors, or when you already have enough confidence from Studio or prior renders.
 
 ```bash

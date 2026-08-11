@@ -2,8 +2,9 @@
 slug: muapi-product-ad-cinematic
 name: muapi-product-ad-cinematic
 version: "1.0.0"
-description: Cinematic 5–10s product ad from a product photo + brand brief.
+description: Use when the user wants a cinematic 5–10s product ad from a product photo + brand brief.
 acceptLicenseTerms: true
+category: media
 ---
 
 

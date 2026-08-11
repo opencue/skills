@@ -7,6 +7,7 @@ triggers:
   - "cargo fmt"
   - "format rust"
 allowed-tools: Bash(cargo:*), Bash(rustfmt:*), Bash(clippy:*)
+category: rust
 ---
 
 # Clippy & rustfmt

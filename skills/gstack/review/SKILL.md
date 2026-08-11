@@ -20,6 +20,7 @@ triggers:
   - code review
   - check my diff
   - pre-landing review
+category: gstack
 ---
 ## Step 0: Detect platform and base branch
 

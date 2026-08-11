@@ -1,6 +1,7 @@
 ---
 name: medusa-local-dev
-description: Use when user says "start medusa", "medusa local dev", "EADDRINUSE :::9000", "port collision", or "run multiple shops". Coordinates backend + storefront startup across many Medusa shops with stable per-shop ports from ~/Documents/medusa-shops/.dev-ports.yaml.
+description: Use when user says "start medusa", "medusa local dev", "EADDRINUSE :::9000", "port collision", or "run multiple shops". Starts backend + storefront across many Medusa shops with stable per-shop ports.
+category: medusa
 ---
 
 # Running multiple Medusa shops locally

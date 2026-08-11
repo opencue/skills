@@ -1,7 +1,7 @@
 ---
 name: minimalist-ui
-description: >-
-  Use when user asks for "minimalist", "editorial", "Notion-style", or "ultra-flat" interfaces. Warm monochrome, serif/sans contrast, bento, muted pastels. Bans Inter/Roboto, gradients, neon, glassmorphism.
+description: "Use when user asks for \"minimalist\", \"editorial\", \"Notion-style\", or \"ultra-flat\" interfaces. Warm monochrome, bento, muted pastels. Bans Inter/Roboto, gradients, glass."
+category: design
 ---
 
 # Protocol: Premium Utilitarian Minimalism UI Architect
@@ -20,7 +20,7 @@ The AI must strictly avoid the following generic web development defaults:
 - DO NOT use `rounded-full` (pill shapes) for large containers, cards, or primary buttons.
 - DO NOT use emojis anywhere in code, markup, text content, headings, or alt text. Replace with proper icons or clean SVG primitives.
 - DO NOT use generic placeholder names like "John Doe", "Acme Corp", or "Lorem Ipsum". Use realistic, contextual content.
-- DO NOT use AI copywriting clichés: "Elevate", "Seamless", "Unleash", "Next-Gen", "Game-changer", "Delve". Write plain, specific language.
+- DO NOT use AI copywriting clichés: "Elevate", "Seamless", "Unleash", "Next-Gen", "Game-changer", `Delve`. Write plain, specific language.
 
 ## 3. Typographic Architecture
 The interface must rely on extreme typographic contrast and premium font selection to establish an editorial feel.
@@ -47,8 +47,8 @@ Color is a scarce resource, utilized only for semantic meaning or subtle accents
   - Border-radius must be crisp: `8px` or `12px` maximum.
   - Internal padding must be generous (e.g., `24px` to `40px`).
 - Primary Call-To-Action (Buttons):
-  - Solid background `#111111`, text `#FFFFFF`. 
-  - Slight border-radius (`4px` to `6px`). No box-shadow. 
+  - Solid background `#111111`, text `#FFFFFF`.
+  - Slight border-radius (`4px` to `6px`). No box-shadow.
   - Hover state should be a subtle color shift to `#333333` or a micro-scale `transform: scale(0.98)`.
 - Tags & Status Badges:
   - Pill-shaped (`border-radius: 9999px`), very small typography (`text-xs`), uppercase with wide tracking (`letter-spacing: 0.05em`).

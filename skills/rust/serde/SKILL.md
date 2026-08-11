@@ -7,6 +7,7 @@ triggers:
   - "rust json"
   - "deserialize rust"
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
 # serde, universal serialization

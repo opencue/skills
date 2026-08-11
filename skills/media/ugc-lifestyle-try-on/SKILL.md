@@ -2,8 +2,9 @@
 slug: muapi-ugc-lifestyle-try-on
 name: muapi-ugc-lifestyle-try-on
 version: "1.0.0"
-description: Generate UGC-style (User Generated Content) lifestyle photos of a person wearing or using your product — authentic, relatable, social-media-native imagery.
+description: Use when the user wants UGC-style (User Generated Content) lifestyle photos of a person wearing or using a product — authentic, relatable, social-media-native imagery.
 acceptLicenseTerms: true
+category: media
 ---
 
 

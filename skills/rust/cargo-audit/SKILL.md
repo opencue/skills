@@ -7,6 +7,7 @@ triggers:
   - "check rust vulnerabilities"
   - "cargo deny"
 allowed-tools: Bash(cargo:*), Bash(cargo-audit:*), Bash(cargo-deny:*), Bash(cargo-geiger:*), Bash(cargo-vet:*), Bash(cargo-crev:*)
+category: rust
 ---
 
 # Rust Security Suite

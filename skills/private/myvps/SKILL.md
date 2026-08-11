@@ -1,7 +1,8 @@
 ---
 name: myvps
-description: >-
+description: >
   Use when user says "my VPS", "remote Supabase", or "server admin". Private VPS: env-based access, safe commands, remote checks (no stored secrets).
+category: private
 ---
 
 # MyVPS

@@ -1,6 +1,7 @@
 ---
 name: resume-version-manager
-description: Track resume versions, maintain one master resume, and manage per-job tailored copies. Use when user says "manage my resumes", "track resume versions", "which resume did I send", "master resume", "organize my resumes", or "version of my resume for this job".
+description: Use when user says "manage my resumes", "track resume versions", "which resume did I send", or "master resume". Tracks versions, maintains one master resume, manages per-job tailored copies.
+category: career
 ---
 
 # Resume Version Manager
@@ -220,7 +221,7 @@ Resume/
 - New job or promotion
 - Completed major project
 - New skills or certifications
-- Significant achievements
+- Notable achievements
 - Awards or recognition
 
 **Quarterly Review:**

@@ -20,6 +20,7 @@ hooks:
         - type: command
           command: "bash ${CLAUDE_SKILL_DIR}/bin/check-careful.sh"
           statusMessage: "Checking for destructive commands..."
+category: gstack
 ---
 # /careful, Destructive Command Guardrails
 

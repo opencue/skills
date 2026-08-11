@@ -7,12 +7,7 @@ description: |
   the source issue on merge. Use when asked to "spec this out", "file an issue",
   "write up a ticket", "make this a GitHub issue", or "turn this into a backlog item".
   (gstack)
-allowed-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
-  - AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Grep, Glob, Bash(AskUserQuestion:*)
 triggers:
   - spec this out
   - file an issue
@@ -20,6 +15,7 @@ triggers:
   - turn this into an issue
   - make this a github issue
   - turn this into a backlog item
+category: gstack
 ---
 
 {{PREAMBLE}}
@@ -471,7 +467,7 @@ Document what exists today before proposing changes. Cite specific files, line
 numbers, and observed behavior. Include a verification date if the state could
 drift.
 
-### 3. Audit Tables for Landscape Context
+### 3. Audit Tables for Wider Context
 
 When the change affects one member of a family (one worker, one endpoint, one
 service), show the *full landscape* — what's already correct, what needs work,

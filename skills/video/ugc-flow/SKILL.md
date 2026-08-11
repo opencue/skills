@@ -1,15 +1,11 @@
 ---
 name: ugc-flow
-description: >-
-  Generate UGC talking-head videos — script, avatar, and delivery.
-  Use when user says "make a UGC video", "talking head ad", "create
-  testimonial video", "UGC creator content", or wants authentic-looking
-  user-generated content for ads or social media.
+description: 'Use when user says "make a UGC video", "talking head ad", "create testimonial video", or "UGC creator content", or wants authentic-looking user-generated content for ads or social media.'
 tags: [video, ugc, marketing, ads]
 category: video
 version: 1.0.0
 requires_mcps: [Higgsfield]
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # UGC Flow

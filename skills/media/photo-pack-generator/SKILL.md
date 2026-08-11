@@ -1,7 +1,8 @@
 ---
 name: muapi-photo-pack-generator
 version: 0.1.0
-description: Generate a pack of professional or aesthetic photos from a single reference image while preserving the exact identity of the person.
+description: Use when the user wants to generate a pack of professional or aesthetic photos from a single reference image while preserving the exact identity of the person.
+category: media
 ---
 
 # 📸 Photo Pack Generator Expert Skill (Identity-Lock Edition)
@@ -50,9 +51,9 @@ Allowed analysis fields:
 
 Example:
 
-Head orientation: slight left tilt  
-Expression: neutral friendly  
-Lighting: soft frontal light  
+Head orientation: slight left tilt
+Expression: neutral friendly
+Lighting: soft frontal light
 Framing: head and shoulders portrait
 
 ---
@@ -118,10 +119,10 @@ Maintain similar head orientation as the reference.
 
 Scene example:
 
-Outdoor café portrait  
-Soft natural daylight  
-35mm portrait lens  
-Shallow depth of field  
+Outdoor café portrait
+Soft natural daylight
+35mm portrait lens
+Shallow depth of field
 Photorealistic skin texture
 
 ---
@@ -130,14 +131,14 @@ Photorealistic skin texture
 
 Always include:
 
-different person  
-altered face  
-changed facial features  
-new identity  
-generic face  
-beautified face  
-plastic skin  
-face distortion  
+different person
+altered face
+changed facial features
+new identity
+generic face
+beautified face
+plastic skin
+face distortion
 
 ---
 

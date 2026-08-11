@@ -2,8 +2,9 @@
 slug: muapi-interior-design-visualizer
 name: muapi-interior-design-visualizer
 version: "1.0.0"
-description: Visualize interior design by generating an empty room and filling it with stylish furniture and decor, or by redesigning an existing room.
+description: Use when the user wants to visualize interior design by generating an empty room and filling it with stylish furniture and decor, or by redesigning an existing room.
 acceptLicenseTerms: true
+category: media
 ---
 
 

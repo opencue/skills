@@ -18,6 +18,7 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
   - Glob
   - Grep
   - AskUserQuestion
+category: gstack
 ---
 ## User-invocable
 When the user types `/health`, run this skill.

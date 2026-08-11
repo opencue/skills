@@ -7,6 +7,7 @@ triggers:
   - "benchmark rust"
   - "rust binary size"
 allowed-tools: Bash(cargo:*), Bash(cargo-flamegraph:*), Bash(cargo-criterion:*), Bash(cargo-bloat:*), Bash(perf:*)
+category: rust
 ---
 
 # Rust Performance Toolkit

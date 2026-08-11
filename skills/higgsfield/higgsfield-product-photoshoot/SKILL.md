@@ -1,10 +1,11 @@
 ---
 version: 0.3.0
 name: higgsfield-product-photoshoot
-description: >-
+description: >
   Use when user says "product photo", "studio shot", "lifestyle image", "hero banner", or "virtual try-on". Backend-enhanced prompts on GPT Image 2. NOT for marketplace cards or generic image-gen.
 argument-hint: "[--mode <mode>] [--count N] [prompt]"
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
+category: higgsfield
 ---
 
 # Product Photoshoot

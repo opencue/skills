@@ -1,6 +1,6 @@
 ---
 name: opensrc
-description: Fetch dependency source code so agents read real implementations, not just types and docs — clones npm/PyPI/crates.io/GitHub packages at the right version and caches them locally. Use when the user says "fetch source for", "read the source of", "get the implementation of", "how does X work internally", or "opensrc path", or whenever a task needs to inspect a dependency's actual code beyond its public types.
+description: Use when the user says "fetch source for", "read the source of", or "how does X work internally". Clones npm/PyPI/crates.io/GitHub packages at the right version so agents read real code.
 allowed-tools: Bash(opensrc:*)
 category: tools
 tags: [tools, source-fetching, dependencies, npm, pypi, crates]

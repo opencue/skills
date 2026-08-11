@@ -7,6 +7,7 @@ triggers:
   - "cargo nextest"
   - "speed up rust tests"
 allowed-tools: Bash(cargo:*), Bash(cargo-nextest:*)
+category: rust
 ---
 
 # cargo-nextest

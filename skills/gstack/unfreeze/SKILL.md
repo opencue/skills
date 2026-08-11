@@ -12,6 +12,7 @@ triggers:
 allowed-tools: Bash(-:*), Bash(Bash:*)
   - Bash
   - Read
+category: gstack
 ---
 # /unfreeze, Clear Freeze Boundary
 

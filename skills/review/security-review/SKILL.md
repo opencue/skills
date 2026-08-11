@@ -1,7 +1,8 @@
 ---
 name: security-review
-description: >-
+description: >
   Use when user says "security review", "security audit", "check for vulnerabilities", "OWASP review", or "/security-review". Audits for OWASP Top 10, secrets, injection, auth flaws. NOT for general code quality — use code-review.
+category: review
 ---
 
 # Security Review Skill

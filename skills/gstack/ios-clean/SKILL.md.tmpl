@@ -14,17 +14,12 @@ voice-triggers:
   - "clean the iOS debug bridge"
   - "remove DebugBridge"
   - "strip the gstack iOS instrumentation"
-allowed-tools:
-  - Bash
-  - Read
-  - Edit
-  - Glob
-  - Grep
-  - AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Edit, Glob, Grep, Bash(AskUserQuestion:*)
 triggers:
   - clean the ios debug bridge
   - remove debugbridge
   - strip the gstack ios instrumentation
+category: gstack
 ---
 
 {{PREAMBLE}}

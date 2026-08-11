@@ -1,8 +1,9 @@
 ---
 name: search-term-mining
-description: 'Use when user says "mine search terms", "find new keywords", "search term report analysis", "keyword opportunities", "what should i bid on", "expand my keywords". Analyzes your search term reports across all campaigns and surfaces high-intent terms you''re not bidding on yet. Groups them by theme, estimates their potential volume and CPA, and recommends match types and starting bids for each.'
+description: 'Use when user says "mine search terms", "find new keywords", "keyword opportunities", or "expand my keywords". Surfaces high-intent terms you''re not bidding on, grouped by theme with match types.'
 metadata:
   platform: Google
+category: marketing
 ---
 
 # 7/ Search Term Mining, Google

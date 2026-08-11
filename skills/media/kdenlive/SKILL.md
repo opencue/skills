@@ -2,12 +2,22 @@
 name: kdenlive
 version: 0.1.0
 description: >-
-  Use when user says "edit this video", "render the kdenlive project", "stitch
+  Use when the user says "edit this video", "render the kdenlive project", "stitch
   clips together", "add a title card", "crossfade these", "cut a 9:16 version",
   "add background music", or "trim/concat". Headless non-linear video editing and
   rendering with melt (the MLT engine behind Kdenlive) plus ffmpeg. Deterministic
   and local. NOT for AI text-to-video generation (use media/core-media).
+triggers:
+  - edit this video
+  - render the kdenlive project
+  - stitch clips together
+  - add a title card
+  - crossfade these clips
+  - cut a 9:16 version
+  - add background music
+  - trim or concat video
 allowed-tools: Bash(melt:*), Bash(ffmpeg:*), Bash(ffprobe:*), Bash(mediainfo:*), Bash(bash:*)
+category: media
 ---
 
 # 🎬 Kdenlive / MLT headless video editing

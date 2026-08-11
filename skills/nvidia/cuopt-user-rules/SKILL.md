@@ -1,7 +1,8 @@
 ---
 name: cuopt-user-rules
 version: "26.08.00"
-description: Base rules for end users calling NVIDIA cuOpt (routing/LP/MILP/QP/install/server). Not for cuOpt internals — use cuopt-developer for those.
+description: Use when an end user is calling NVIDIA cuOpt (routing/LP/MILP/QP/install/server); base rules for those flows. Not for cuOpt internals — use cuopt-developer for those.
+category: nvidia
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 name: building-admin-dashboard-customizations
-description: >-
-  Use when user says "Medusa admin", "admin widget", "custom admin page", or "admin form". Required for Medusa Admin widgets, pages, forms, tables, data loading.
+description: 'Use when user says "Medusa admin", "admin widget", "custom admin page", or "admin form". Required for Medusa Admin widgets, pages, forms, tables, data loading.'
+category: medusa
 ---
 
 # Medusa Admin Dashboard Customizations

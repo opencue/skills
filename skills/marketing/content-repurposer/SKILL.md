@@ -1,8 +1,9 @@
 ---
 name: content-repurposer
-description: 'Use when user says "repurpose this blog post", "turn this into a twitter thread", "atomize this content", "make linkedin posts from this article", "repurpose for social". Transform one long-form piece into multiple platform-specific content derivatives including LinkedIn posts, tweet threads, email snippets, ad hooks, and video scripts while maintaining voice consistency. Use when given a blog post, article, or pillar content to atomize across channels.'
+description: 'Use when user says "repurpose this blog post", "turn this into a twitter thread", or "repurpose for social". Turns one long-form piece into LinkedIn posts, tweet threads, and email snippets.'
 metadata:
   platform: Google and Meta
+category: marketing
 ---
 
 # Content Repurposer
@@ -91,7 +92,7 @@ Before repurposing, define:
 ### Source Analysis
 - **Title**: [Original piece title]
 - **Core Message**: [One sentence summary]
-- **Key Points**: 
+- **Key Points**:
   1. [Point 1]
   2. [Point 2]
   3. [Point 3]
@@ -263,7 +264,7 @@ Same list. Same product. Different approach.
 6/ TL;DR:
 
 • Send less, but better
-• Segment ruthlessly  
+• Segment ruthlessly
 • Write subjects that demand opens
 
 Your list isn't dead. It's just bored.

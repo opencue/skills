@@ -17,6 +17,7 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
   - Bash
   - Read
   - AskUserQuestion
+category: gstack
 ---
 ## Step 0: Locate the binary
 

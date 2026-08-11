@@ -1,7 +1,8 @@
 ---
 name: note
-description: >-
+description: >
   Use when user says "note this", "save note", or "remember this". Local note workflow: placement, concise capture, retrieval.
+category: meta
 ---
 
 # Note Skill

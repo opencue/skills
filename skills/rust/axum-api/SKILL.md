@@ -7,6 +7,7 @@ triggers:
   - "axum"
   - "rust http server"
 allowed-tools: Bash(cargo:*)
+category: rust
 ---
 
 # axum, the standard Rust web framework

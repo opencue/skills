@@ -1,7 +1,7 @@
 ---
 name: "playwright"
-description: >-
-  Use when user says "Playwright", "browser test", or "snapshot". Navigation, locators, screenshots, assertions.
+description: 'Use when user says "Playwright", "browser test", or "snapshot". Covers navigation, locators, screenshots, and assertions.'
+category: content
 ---
 
 
@@ -66,7 +66,7 @@ playwright-cli --help
 1. Open the page.
 2. Snapshot to get stable element refs.
 3. Interact using refs from the latest snapshot.
-4. Re-snapshot after navigation or significant DOM changes.
+4. Re-snapshot after navigation or notable DOM changes.
 5. Capture artifacts (screenshot, pdf, traces) when useful.
 
 Minimal loop:

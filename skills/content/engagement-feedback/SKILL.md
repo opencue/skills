@@ -1,13 +1,8 @@
 ---
 name: engagement-feedback
-description: >-
-  Use when user says "/engagement-report", "which posts worked", "engagement loop",
-  "what's getting traction", "audit which voices land", or wants Postiz analytics
-  cross-referenced with article voice / preset / topic choices. Closes the loop
-  between content choices and actual reader response.
-allowed-tools:
-  - Bash
-  - Read
+description: 'Use when user says "/engagement-report", "which posts worked", or "what''s getting traction", or wants Postiz analytics cross-referenced with article voice, preset, and topic choices.'
+allowed-tools: Bash(Bash:*), Read
+category: content
 ---
 
 # engagement-feedback, close the content-strategy loop

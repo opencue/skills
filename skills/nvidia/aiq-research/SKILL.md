@@ -1,5 +1,6 @@
 ---
-description: "Use when user says \"deep research this\", \"research the regulatory landscape\", \"synthesize findings from our docs\", \"produce a cited memo\", \"multi-source research\". Routes deep research, multi-source synthesis, regulatory analysis, or enterprise document research through the NVIDIA AI-Q server for structured reports with citations."
+name: ai-q-deep-research
+description: "Use when user says \"deep research this\", \"synthesize findings from our docs\", \"produce a cited memo\", or \"multi-source research\". Routes it through the NVIDIA AI-Q server for cited reports."
 tags: [research, nvidia, aiq, deep-research, enterprise]
 category: nvidia
 version: 2.0.0
@@ -15,7 +16,7 @@ Route deep research tasks through NVIDIA AI-Q server for structured, cited repor
 ## When to use
 
 - User asks for research across multiple sources
-- "Research the regulatory landscape for X"
+- "Research the regulatory environment for X"
 - "Produce a memo on Y with citations"
 - "Synthesize findings from our docs about Z"
 - Any task requiring multi-source synthesis with attribution

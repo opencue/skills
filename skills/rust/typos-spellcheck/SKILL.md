@@ -6,6 +6,7 @@ triggers:
   - "typos"
   - "find typos in code"
 allowed-tools: Bash(typos:*)
+category: rust
 ---
 
 # typos, source-code spellcheck

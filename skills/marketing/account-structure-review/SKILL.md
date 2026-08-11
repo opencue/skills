@@ -1,8 +1,9 @@
 ---
 name: account-structure-review
-description: Use when user says "review my account structure", "audit my campaign structure", "am I over-segmented", "consolidate my campaigns", "too many campaigns", "fix my ad account structure". Evaluates your campaign and ad set structure against your actual goals and budget. Flags over-segmentation that fragments your data, under-segmentation that hides performance differences, budget allocation issues, and consolidation opportunities that would improve algorithmic delivery and your ability to optimize.
+description: Use when user says "review my account structure", "audit my campaign structure", or "consolidate my campaigns". Flags over- and under-segmentation, budget issues, and consolidation opportunities.
 metadata:
   platform: Google and Meta
+category: marketing
 ---
 
 # 17/ Account Structure Review, Google + Meta

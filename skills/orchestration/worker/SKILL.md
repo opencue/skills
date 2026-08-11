@@ -1,6 +1,7 @@
 ---
 name: worker
-description: "[OMX] Team worker protocol (ACK, mailbox, task lifecycle) for tmux-based OMX teams"
+description: "[OMX] Use when a Codex session runs as an OMX Team worker (tmux pane spawned by $team) and needs the worker protocol: ACK, mailbox, and task lifecycle."
+category: orchestration
 ---
 
 # Worker Skill

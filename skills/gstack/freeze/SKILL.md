@@ -26,6 +26,7 @@ hooks:
         - type: command
           command: "bash ${CLAUDE_SKILL_DIR}/bin/check-freeze.sh"
           statusMessage: "Checking freeze boundary..."
+category: gstack
 ---
 # /freeze, Restrict Edits to a Directory
 

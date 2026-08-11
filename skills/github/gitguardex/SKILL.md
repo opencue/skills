@@ -1,7 +1,8 @@
 ---
 name: gitguardex
-description: >-
+description: >
   Use when user says "gx doctor", "dirty worktree", or "finish the agent branch". gitguardex guardrails for branch/worktree/lock/PR state. NOT for code-quality review (use code-review).
+category: github
 ---
 
 # Gitguardex

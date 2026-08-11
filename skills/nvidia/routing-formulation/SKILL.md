@@ -1,7 +1,8 @@
 ---
 name: routing-formulation
 version: "26.08.00"
-description: Vehicle routing (VRP, TSP, PDP) — problem types and data requirements. Domain concepts; no API or interface.
+description: Use when the user asks about vehicle routing (VRP, TSP, PDP) — problem types and data requirements. Domain concepts; no API or interface.
+category: nvidia
 ---
 
 

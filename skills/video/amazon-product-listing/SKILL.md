@@ -1,15 +1,11 @@
 ---
 name: amazon-product-listing
-description: >-
-  Generate product images and video for Amazon listings — hero shots,
-  lifestyle images, infographics, and A+ content. Use when user says
-  "Amazon listing", "product images for Amazon", "A+ content",
-  "marketplace photos", or wants e-commerce product visuals.
+description: 'Use when user says "Amazon listing", "product images for Amazon", "A+ content", or "marketplace photos", or wants e-commerce product visuals — hero shots, lifestyle images, infographics, A+ content.'
 tags: [video, ecommerce, amazon, product]
 category: video
 version: 1.0.0
 requires_mcps: [Higgsfield]
-allowed-tools: Bash
+allowed-tools: Bash(Bash:*)
 ---
 
 # Amazon Product Listing

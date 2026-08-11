@@ -1,7 +1,8 @@
 ---
 name: wedding-invitations
-description: 'Use when user says "make a wedding invitation", "design a save-the-date", "create an RSVP card", "wedding menu card", or "place cards for our wedding". Designs a bespoke wedding invitation from a conversation — bespoke HTML rendered to a print-ready PNG, any language, any aesthetic, fully local. Pointer to upstream wyx-sg/wedding-invitation-skill.'
+description: 'Use when user says "make a wedding invitation", "design a save-the-date", "create an RSVP card", or "place cards for our wedding". Designs a bespoke invitation as HTML rendered to a print-ready PNG.'
 allowed-tools: Bash(chromium:*), Bash(google-chrome:*), Bash(microsoft-edge:*), Bash(node:*), Bash(git:*)
+category: event-design
 ---
 
 # Wedding Invitations, bespoke, local, multilingual

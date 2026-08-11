@@ -6,6 +6,7 @@ triggers:
   - "rust docs site"
   - "rust book"
 allowed-tools: Bash(mdbook:*)
+category: rust
 ---
 
 # mdbook

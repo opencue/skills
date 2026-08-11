@@ -1,7 +1,7 @@
 ---
 name: caveman-compress
-description: >-
-  Use when user says "compress this", "shorten prompt", or "/caveman-compress". Token compression preserving intent.
+description: 'Use when user says "compress this", "shorten prompt", or "/caveman-compress". Token compression preserving intent.'
+category: caveman
 ---
 
 # Caveman Compress
@@ -40,7 +40,7 @@ cd caveman-compress && python3 -m scripts <absolute_filepath>
 - Pleasantries: "sure", "certainly", "of course", "happy to", "I'd recommend"
 - Hedging: "it might be worth", "you could consider", "it would be good to"
 - Redundant phrasing: "in order to" → "to", "make sure to" → "ensure", "the reason is because" → "because"
-- Connective fluff: "however", "furthermore", "additionally", "in addition"
+- Connective fluff: "however", `furthermore`, `additionally`, "in addition"
 
 ### Preserve EXACTLY (never modify)
 - Code blocks (fenced ``` and indented)

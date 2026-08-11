@@ -6,6 +6,7 @@ triggers:
   - "cbindgen"
   - "generate c headers from rust"
 allowed-tools: Bash(cargo:*), Bash(cbindgen:*)
+category: rust
 ---
 
 # cbindgen, Rust → C/C++ headers

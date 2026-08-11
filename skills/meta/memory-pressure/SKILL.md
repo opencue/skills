@@ -1,6 +1,7 @@
 ---
 name: memory-pressure
-description: "Use when user says 'free RAM', 'memory is full', 'compact memory', 'reclaim memory', 'my box is slow', 'high memory usage', or shows mem >85%. Pushes idle pages from app.slice into zstd-zram (~1 GB zram per ~3-4 GB RAM freed). NOT for OOM crashes — use diagnose."
+description: "Use when user says 'free RAM', 'memory is full', 'reclaim memory', 'high memory usage', or shows mem >85%. Pushes idle app.slice pages into zstd-zram. NOT for OOM crashes — use diagnose."
+category: meta
 ---
 
 # Memory pressure, push idle pages to zram

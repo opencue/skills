@@ -7,6 +7,7 @@ triggers:
   - "flash rust"
   - "probe-rs"
 allowed-tools: Bash(cargo:*), Bash(probe-rs:*), Bash(cargo-embed:*), Bash(cargo-binutils:*), Bash(rustup:*)
+category: rust
 ---
 
 # Rust embedded, probe-rs + embassy

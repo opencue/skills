@@ -2,14 +2,15 @@
 slug: muapi-product-showcase-video
 name: muapi-product-showcase-video
 version: "1.0.0"
-description: Create a dynamic product showcase with explosive ingredient arrangements, followed by a realistic motion animation.
+description: Use when the user wants a dynamic product ad video — explosive ingredient arrangements around the product, then animated into realistic motion.
 acceptLicenseTerms: true
+category: media
 ---
 
 
-# Product Showcase Video
+# Product `Showcase` Video
 
-**Create a dynamic product showcase with explosive ingredient arrangements, followed by a realistic motion animation.**
+**Create a dynamic product display with explosive ingredient arrangements, followed by a realistic motion animation.**
 
 ## Inputs
 
@@ -44,7 +45,7 @@ Once the image is approved, submit the plan to animate the scene:
    - Prompt: `Create a realistic motion animation of the scene. The ingredients fly outwards from the product in slow motion, with subtle lighting shifts and camera movement. Cinematic quality, smooth animation, professional product commercial vibe.`
    - Aspect ratio: 1:1 or 4:5
 
-After generation, present the final product showcase video.
+After generation, present the final product ad video.
 
 ## Trigger Keywords
 

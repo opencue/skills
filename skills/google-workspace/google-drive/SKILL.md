@@ -1,6 +1,6 @@
 ---
 name: google-drive
-description: >-
+description: >
   Use when user says "upload to Drive", "create a doc", "share file",
   "search Drive", "create spreadsheet", "make a presentation", "list my files",
   "move file", "create folder", "calendar event", "schedule meeting",
