@@ -161,6 +161,28 @@ mapfile -t entries < "$entries_file"
 
 mkdir -p "$target"
 
+# Refuse to hide or nest inside user-managed skill directories. Migration
+# prompts can import these first, then ask the user before moving originals.
+conflicts=0
+for entry in "${entries[@]}"; do
+  name="${entry%%$'\t'*}"
+  skill_dir="${entry#*$'\t'}"
+  destination="$target/$name"
+  [ -e "$destination" ] || [ -L "$destination" ] || continue
+  resolved="$(readlink -f "$destination" || true)"
+  case "$resolved" in
+    "$skill_dir"|"$skills_root"/*) ;;
+    *)
+      echo "Refusing to replace user-managed skill: $destination" >&2
+      conflicts=$((conflicts + 1))
+      ;;
+  esac
+done
+if [ "$conflicts" -gt 0 ]; then
+  echo "Move or archive the conflicting paths, then rerun activation." >&2
+  exit 1
+fi
+
 # Remove only old Soul-managed symlinks. Preserve non-Soul skills and real dirs.
 while IFS= read -r -d '' link; do
   resolved="$(readlink -f "$link" || true)"
