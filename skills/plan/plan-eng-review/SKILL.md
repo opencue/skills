@@ -1,5 +1,5 @@
 ---
-name: plan-eng-review
+name: plan-eng-review-compact
 description: |
   Engineering-manager review of a feature plan before code. Locks in
   architecture, data flow, state machines, edge cases, and a test

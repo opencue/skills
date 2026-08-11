@@ -1,5 +1,5 @@
 ---
-name: design-taste-frontend
+name: high-agency-frontend
 description: Use when user says "improve the UI", "make it tasteful", or "design pass". Hierarchy, spacing, polish, visual validation.
 category: design
 ---

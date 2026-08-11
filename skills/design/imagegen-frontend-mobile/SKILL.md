@@ -1,6 +1,6 @@
 ---
 name: imagegen-frontend-mobile
-description: Use when user says "mobile mockup", "generate mobile UI", or "imagegen mobile". Mobile frontend visual generation.
+description: Use when user wants mobile app concepts or "mobile mockup" generation for iOS, Android, or cross-platform products. Produces app-native screens and phone-frame mockups, images only.
 category: design
 ---
 

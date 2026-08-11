@@ -1,5 +1,5 @@
 ---
-name: autoplan
+name: plan-autoplan
 description: |
   Compose the full plan-stage pipeline: /office-hours → /plan-ceo-review →
   /plan-eng-review. Auto-skips stages where the design doc already has

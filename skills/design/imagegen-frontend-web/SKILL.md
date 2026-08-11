@@ -1,6 +1,6 @@
 ---
 name: imagegen-frontend-web
-description: Use when user says "web mockup", "generate website UI", or "imagegen web". Web frontend visual generation.
+description: Use when user wants website references or "web mockup" direction for landing pages, marketing sites, or product comps. Generates section images with a consistent visual system.
 category: design
 ---
 

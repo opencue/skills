@@ -16,6 +16,7 @@ SKILLS = ROOT / "skills"
 README = ROOT / "README.md"
 CATALOG = ROOT / "catalog" / "catalog.json"
 INDEX = ROOT / "catalog" / "index.json"
+ALIASES = ROOT / "catalog" / "aliases.json"
 START = "<!-- BEGIN GENERATED CATEGORY TABLE -->"
 END = "<!-- END GENERATED CATEGORY TABLE -->"
 
@@ -84,7 +85,7 @@ def inventory() -> tuple[list[dict[str, object]], list[str], list[str]]:
             warnings.append(
                 f"{rel}: category '{declared}' differs from folder '{parts[0]}'"
             )
-        if len(parts) > 2 and parts[-2] == parts[-3]:
+        if len(parts) > 3 and parts[-2] == parts[-3]:
             warnings.append(f"{rel}: nested same-name directory")
         records.append(
             {
@@ -171,6 +172,23 @@ def check_catalog(path: Path, records: list[dict[str, object]], key: str) -> lis
     return issues
 
 
+def check_aliases(records: list[dict[str, object]]) -> list[str]:
+    issues: list[str] = []
+    try:
+        aliases = json.loads(ALIASES.read_text(encoding="utf-8")).get("aliases", {})
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"catalog/aliases.json: unreadable: {exc}"]
+    ids = {str(record["id"]) for record in records}
+    for old_id, target_id in aliases.items():
+        if old_id in ids:
+            issues.append(f"catalog/aliases.json: alias source still exists: {old_id}")
+        if target_id not in ids:
+            issues.append(f"catalog/aliases.json: missing alias target: {target_id}")
+        if old_id == target_id:
+            issues.append(f"catalog/aliases.json: self-referential alias: {old_id}")
+    return issues
+
+
 def normalize_index(records: list[dict[str, object]]) -> None:
     data = json.loads(INDEX.read_text(encoding="utf-8"))
     by_record = {str(record["id"]): record for record in records}
@@ -182,6 +200,8 @@ def normalize_index(records: list[dict[str, object]]) -> None:
             continue
         record = by_record[skill_id]
         item = existing.copy()
+        item["name"] = record["name"]
+        item["category"] = record["category"]
         item["source"] = record["source"]
         skills.append(item)
         seen.add(skill_id)
@@ -224,6 +244,7 @@ def main() -> int:
     if not args.write:
         errors.extend(check_catalog(CATALOG, records, "installed"))
         errors.extend(check_catalog(INDEX, records, "skills"))
+        errors.extend(check_aliases(records))
 
     for warning in warnings:
         print(f"WARNING: {warning}")

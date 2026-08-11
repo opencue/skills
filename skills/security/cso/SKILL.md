@@ -1,5 +1,5 @@
 ---
-name: cso
+name: security-cso
 description: |
   OWASP Top 10 + STRIDE threat model audit of the current diff (or the
   whole repo on demand). Zero-noise: findings must pass an 8/10+ confidence

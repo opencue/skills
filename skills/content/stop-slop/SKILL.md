@@ -15,7 +15,7 @@ triggers:
   - kill the AI voice
 tags: [content, writing, prose, editing, ai-tells, voice]
 domain: content
-category: writing
+category: content
 metadata:
   trigger: Writing prose, editing drafts, reviewing content for AI patterns
   author: Hardik Pandya (https://hvpandya.com)

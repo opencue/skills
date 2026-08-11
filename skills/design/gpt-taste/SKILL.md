@@ -1,6 +1,6 @@
 ---
 name: gpt-taste
-description: Use when user says "GPT taste", "make this less generic", or "improve visual taste". Taste checks, simplification, hierarchy.
+description: Use when user says "gpt-taste", "GSAP motion", "AIDA structure", "Awwwards-level", or "editorial typography". Enforces layout variance, editorial type, bento composition, and GSAP motion.
 category: design
 ---
 

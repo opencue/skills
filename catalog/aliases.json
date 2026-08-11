@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "aliases": {
+    "design/brandkit/brandkit": "design/brandkit",
+    "design/brutalist-skill": "design/industrial-brutalist-ui",
+    "design/gpt-tasteskill": "design/gpt-taste",
+    "design/soft-skill": "design/high-end-visual-design",
+    "design/image-to-code-skill": "design/image-to-code",
+    "design/imagegen-frontend-mobile/imagegen-frontend-mobile": "design/imagegen-frontend-mobile",
+    "design/imagegen-frontend-web/imagegen-frontend-web": "design/imagegen-frontend-web",
+    "design/minimalist-skill": "design/minimalist-ui",
+    "design/output-skill": "meta/full-output-enforcement",
+    "design/redesign-skill": "design/redesign-existing-projects",
+    "design/stitch-skill": "design/stitch-design-taste"
+  }
+}

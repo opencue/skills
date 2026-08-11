@@ -1,6 +1,6 @@
 ---
 name: image-to-code
-description: "Use when user says \"image to code\", \"match this screenshot\", or \"recreate this design\". Visual inspection, layout mapping, validation."
+description: Use when user says "image to code", "design from image", "mockup to website", "implement this screenshot", or "match this design". Analyzes design images, implements them, and validates the match.
 category: design
 ---
 
