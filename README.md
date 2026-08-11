@@ -1,6 +1,6 @@
 # cue/skills — Skill Library
 
-> 427 skills across 36 categories. The source of truth for all local skills used by [cue](https://github.com/opencue/claude-code-skills) profiles.
+> 452 skills across 39 categories. The source of truth for all local skills used by [cue](https://github.com/opencue/claude-code-skills) profiles.
 
 ## What's here
 
@@ -44,12 +44,16 @@ Instructions for the model...
 
 Frontmatter rules (enforced by the linter, see below):
 
-- `name:` — required, the canonical id Claude's skill discovery uses.
+- `name:` — required, the discovery name exposed to coding agents.
 - `description:` — what the LLM matches against to decide when to use the skill.
   Keep it under 200 characters and include a trigger phrase ("Use when ...").
 - `allowed-tools:` — use `Bash(name:*)` for shell commands and bare names for
   top-level tools (`Read`, `Write`, `Edit`, ...). Not `["tool_name"]`.
 - `category:` / `tags:` / `domain:` — at least one, for discoverability.
+
+The repository-relative `category/slug` path is the canonical library ID. A
+`name:` may remain user-friendly, but duplicate names are reported because a
+flat agent runtime cannot load them unambiguously.
 
 ## Linting
 
@@ -64,6 +68,16 @@ bun src/index.ts lint-skill skills/
 ```
 
 CI runs the same checks via [skill-md-lint-action](https://github.com/opencue/claude-code-skills/tree/main/skill-md-lint-action).
+Repository organization is checked separately with:
+
+```bash
+python scripts/library_inventory.py
+```
+
+This verifies catalog portability and freshness, generated/template metadata,
+README counts, canonical IDs, and structural collisions. Existing duplicate
+names and category mismatches are warnings until their migrations are reviewed;
+new generated drift and stale artifacts fail CI.
 
 ## How cue uses this
 
@@ -91,46 +105,60 @@ cue skills-test my-skill                      # test
 
 Or manually: create `skills/<category>/<slug>/SKILL.md` with the frontmatter format above.
 
+To import an existing user's Codex or Claude Code skills safely, start a new
+session in this repository with one of the reusable prompts:
+
+- [`prompts/import-skills-codex.md`](prompts/import-skills-codex.md)
+- [`prompts/import-skills-claude-code.md`](prompts/import-skills-claude-code.md)
+
+The prompts preserve complete skill directories, report semantic collisions
+instead of overwriting them, and refresh the cue catalog after import.
+
 ## Categories
 
-| Category | Skills | Domain |
-|----------|-------:|--------|
-| `media` | 61 | Image and video generation, editing |
-| `gstack` | 53 | Git workflow, reviews, planning, dev utilities |
-| `meta` | 49 | Profile management, skill authoring, memory |
-| `marketing` | 45 | Content, social, campaigns |
-| `rust` | 41 | Rust development, cargo, tooling |
-| `design` | 33 | UI/UX, branding, SVG, Remotion |
-| `medusa` | 17 | Medusa v2 ecommerce |
-| `nvidia` | 13 | GPU, cuOpt optimization |
-| `content` | 11 | Writing, articles, threads |
-| `research` | 10 | Search, papers, keywords |
-| `video` | 7 | Video production flows |
-| `tools` | 7 | Utilities, token/cost analysis |
-| `strapi` | 6 | Strapi v5 CMS |
-| `ssh` | 6 | Remote servers, SSH ops |
-| `review` | 6 | Code review, security, testing |
-| `orchestration` | 6 | Multi-agent, fleets, pipelines |
-| `github` | 6 | GitHub CLI, CI fixes, auth |
-| `caveman` | 6 | Terse mode, commits, compression |
-| `plan` | 5 | Planning, investigation, reviews |
-| `obsidian` | 4 | Vault, markdown, canvas |
-| `hostinger` | 4 | DNS, domains, VPS |
-| `higgsfield` | 4 | AI image/video generation |
-| `security` | 3 | Audits, secrets, hardening |
-| `eu-funding` | 3 | EU grant applications |
-| `deployment` | 3 | Coolify, Supabase, pnpm |
-| `career` | 3 | Resumes, interviews |
-| `browser` | 3 | Playwright, screenshots |
-| `stripe` | 2 | Payments, webhooks |
-| `polymarket` | 2 | Prediction markets |
-| `colony` | 2 | Multi-agent coordination |
-| `xbot` | 1 | X/Twitter automation |
-| `test` | 1 | Edge-case and test generation |
-| `private` | 1 | Private/internal |
-| `predict-everything` | 1 | Forecasting, simulation |
-| `google-workspace` | 1 | Docs, Sheets, Gmail |
-| `event-design` | 1 | Invitations, cards |
+<!-- BEGIN GENERATED CATEGORY TABLE -->
+| Category | Skills |
+|----------|-------:|
+| `media` | 61 |
+| `gstack` | 53 |
+| `meta` | 49 |
+| `marketing` | 45 |
+| `rust` | 41 |
+| `design` | 33 |
+| `medusa` | 17 |
+| `legal` | 14 |
+| `nvidia` | 13 |
+| `content` | 11 |
+| `research` | 10 |
+| `vercel` | 9 |
+| `review` | 7 |
+| `tools` | 7 |
+| `video` | 7 |
+| `caveman` | 6 |
+| `github` | 6 |
+| `orchestration` | 6 |
+| `ssh` | 6 |
+| `strapi` | 6 |
+| `plan` | 5 |
+| `higgsfield` | 4 |
+| `hostinger` | 4 |
+| `obsidian` | 4 |
+| `browser` | 3 |
+| `career` | 3 |
+| `deployment` | 3 |
+| `eu-funding` | 3 |
+| `security` | 3 |
+| `colony` | 2 |
+| `polymarket` | 2 |
+| `stripe` | 2 |
+| `event-design` | 1 |
+| `google-workspace` | 1 |
+| `predict-everything` | 1 |
+| `private` | 1 |
+| `robotics` | 1 |
+| `test` | 1 |
+| `xbot` | 1 |
+<!-- END GENERATED CATEGORY TABLE -->
 
 ## Related
 

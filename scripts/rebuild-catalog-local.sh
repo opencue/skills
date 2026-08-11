@@ -16,10 +16,11 @@
 
 set -euo pipefail
 
-SKILLS_ROOT="${CUE_SKILLS_ROOT:-$HOME/Documents/cue/resources/skills/skills}"
-CATALOG_DIR="${CUE_CATALOG_DIR:-$HOME/Documents/cue/resources/skills/catalog}"
+REPO_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+SKILLS_ROOT="${CUE_SKILLS_ROOT:-$REPO_ROOT/skills}"
+CATALOG_DIR="${CUE_CATALOG_DIR:-$REPO_ROOT/catalog}"
 OUT="${CATALOG_DIR}/catalog.json"
-MCPS_ROOT="${CUE_MCPS_ROOT:-$HOME/Documents/cue/resources/mcps/mcps}"
+MCPS_ROOT="${CUE_MCPS_ROOT:-$REPO_ROOT/mcps}"
 DIFF_LOG="${CUE_REBUILD_LOG:-$HOME/.cache/cue/catalog-rebuild.log}"
 
 command -v jq >/dev/null || { echo "ERROR: jq required" >&2; exit 1; }
@@ -28,8 +29,10 @@ mkdir -p "$CATALOG_DIR" "$(dirname "$DIFF_LOG")"
 
 # Snapshot existing catalog (category/name → source) for diff log.
 prev_snapshot=""
+prev_mcps_json="[]"
 if [ -f "$OUT" ]; then
   prev_snapshot=$(jq -r '.installed[]? | "\(.category)/\(.name)\t\(.source // "")"' "$OUT" 2>/dev/null | sort -u)
+  prev_mcps_json=$(jq -c '.mcps // []' "$OUT" 2>/dev/null || echo '[]')
 fi
 
 extract_field() {
@@ -150,14 +153,16 @@ while IFS= read -r -d '' f; do
   if [ $first -eq 0 ]; then echo "," >> "$tmp"; fi
   first=0
   jq -n \
+    --arg id   "$cat_name" \
     --arg name "$name" \
     --arg desc "$desc" \
-    --arg src  "$f" \
+    --arg src  "skills/$rel" \
     --arg cat  "$category" \
     --arg tags "$tags" \
     --arg triggers "$triggers" \
     --arg links "$links" \
     '{
+       id: $id,
        name: $name,
        description: $desc,
        source: $src,
@@ -177,6 +182,10 @@ mcps_json="[]"
 if [ -d "$MCPS_ROOT" ]; then
   mcps_count=$(find "$MCPS_ROOT" -mindepth 1 -maxdepth 1 -type d | wc -l)
   mcps_json=$(find "$MCPS_ROOT" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | jq -R . | jq -s .)
+fi
+if [ "$mcps_count" -eq 0 ] && [ "$prev_mcps_json" != "[]" ]; then
+  mcps_json="$prev_mcps_json"
+  mcps_count=$(jq 'length' <<<"$mcps_json")
 fi
 
 now=$(date -u +%Y-%m-%dT%H:%M:%SZ)
