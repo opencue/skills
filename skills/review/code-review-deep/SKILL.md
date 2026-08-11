@@ -8,17 +8,21 @@ description: |
   testing, maintainability, api-contract, data-migration, red-team).
   Use when the user says "deep review", "pre-landing review", "review
   my diff", or before opening a PR.
-allowed-tools: Bash(Bash:*), Read, Edit, Write, Grep, Glob, Agent, AskUserQuestion
+allowed-tools: Bash, Read, Edit, Write, Grep, Glob, Agent, Bash(AskUserQuestion:*)
 triggers:
   - deep review
   - pre-landing review
   - review my diff
   - check my pr
   - review before merge
-category: review
 ---
 
 # /code-review-deep, pre-landing diff review
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 This is the heavyweight cousin of `/code-review`. It runs two passes
 against `git diff <base-branch>` and produces a structured findings

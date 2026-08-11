@@ -1,8 +1,29 @@
 ---
 name: trend-to-thread
-description: 'Use when user says "/trend-to-thread", "post a trend thread", or "build a thread from trends". Chains trendradar to article-writer to X thread to Higgsfield hero image to Postiz draft.'
-allowed-tools: mcp__trendradar__get_trending_topics, mcp__trendradar__get_latest_news, mcp__trendradar__search_news, mcp__trendradar__find_related_news, mcp__trendradar__analyze_topic_trend, mcp__trendradar__analyze_sentiment, mcp__higgsfield__balance, mcp__higgsfield__generate_image, mcp__higgsfield__job_status, mcp__higgsfield__models_explore, WebSearch, Bash(Bash:*), Read, Write, Edit
-category: content
+requires_mcps: [higgsfield, trendradar]
+description: >-
+  End-to-end pipeline that chains trendradar → article-writer → X thread →
+  Higgsfield hero image → Postiz draft in a single shot, turning a current
+  trend topic into a posted-ready social thread with a generated hero
+  image. Use when user says "/trend-to-thread", "post a trend thread",
+  "build a thread from trends", "új X thread mai trendből", or "Postiz X
+  poszt mai trendekből".
+allowed-tools:
+  - mcp__trendradar__get_trending_topics
+  - mcp__trendradar__get_latest_news
+  - mcp__trendradar__search_news
+  - mcp__trendradar__find_related_news
+  - mcp__trendradar__analyze_topic_trend
+  - mcp__trendradar__analyze_sentiment
+  - mcp__higgsfield__balance
+  - mcp__higgsfield__generate_image
+  - mcp__higgsfield__job_status
+  - mcp__higgsfield__models_explore
+  - WebSearch
+  - Bash
+  - Read
+  - Write
+  - Edit
 ---
 
 # trend-to-thread, end-to-end TrendRadar → X thread → Postiz draft pipeline

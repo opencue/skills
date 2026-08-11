@@ -59,15 +59,16 @@ Apply to every research- or decision-relevant claim. Always prefix with the colo
 
 Every yellow and orange tag **must** carry a decile-snapped `~N%` estimate indicating position within the tier. A bare `[INFERRED]` or `[ASSUMED]` is a protocol violation. The calibration is what makes the tags scannable for relative trust.
 
-- 🟡 `[INFERRED ~80%]`, leans high within yellow
-- 🟡 `[ASSUMED ~50%]`, neutral within yellow
-- 🟠 `[GUESSED ~30%]`, typical for orange
+- 🟡 `[INFERRED ~85%]`, top of yellow
+- 🟡 `[ASSUMED ~50%]`, bottom of yellow
+- 🟠 `[GUESSED ~30%]`, middle of orange
 
 Rules:
 
-- Yellow tags must use one of: `~50%`, `~60%`, `~70%`, `~80%`, `~90%`.
-- Orange tags must use one of: `~20%`, `~30%`, `~40%`.
-- Snap to deciles (20 / 30 / 40 / 60 / 80 / 90). Never `~67%` or `~73%` (false precision).
+- Yellow (`[INFERRED]`, `[ASSUMED]`) must use `~50%` to `~85%` in 5-point steps: `~50%`, `~55%`, `~60%`, `~65%`, `~70%`, `~75%`, `~80%`, `~85%`.
+- Orange (`[GUESSED]`, `[STALE]`) must use `~20%` to `~45%` in 5-point steps: `~20%`, `~25%`, `~30%`, `~35%`, `~40%`, `~45%`.
+- Nothing between the steps. Never `~67%` or `~73%` (false precision), never `~90%` on yellow (that is green's range) or `~50%` on orange (that is yellow's).
+- The raster is coarser than the precision you feel you have, on purpose. A digit you didn't measure reads as a measurement. 14 steps is enough to order claims against each other, which is the whole job of the number.
 - Always prefix `~` to signal estimate.
 - **Skip only on green and red.** Green is by definition ≥90%, red is by definition ≤10%, the tier name already conveys the level.
 - If you can't pick a percent, you're using the wrong tier. Downgrade to one where the percent range fits.

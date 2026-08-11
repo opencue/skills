@@ -1,6 +1,11 @@
 ---
 name: sqlx-cli
 description: Use when managing database migrations or query caching for a Rust app using sqlx, sea-orm, or diesel.
+triggers:
+  - "rust database migrations"
+  - "sqlx"
+  - "diesel migrations"
+  - "sea-orm"
 allowed-tools: Bash(cargo:*), Bash(sqlx:*), Bash(sea-orm-cli:*), Bash(diesel:*)
 category: rust
 ---

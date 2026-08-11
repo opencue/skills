@@ -1,6 +1,10 @@
 ---
 name: chisel-tool
 description: Use when an agent needs precision file edits with minimal token overhead — patch-based, kernel-confined paths. Pointer to the upstream Chisel MCP server.
+triggers:
+  - "chisel"
+  - "precision file edits"
+  - "patch based edits"
 allowed-tools: Bash(chisel:*)
 category: rust
 ---

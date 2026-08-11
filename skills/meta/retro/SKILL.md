@@ -6,16 +6,20 @@ description: |
   one-paragraph "what to do differently next week." Saves a markdown file
   under .cue/retros/<YYYY-WW>.md. Use when the user says "weekly retro",
   "what did we ship", "engineering retrospective", or at end-of-sprint.
-allowed-tools: Bash(Bash:*), Read, Write, Glob, AskUserQuestion
+allowed-tools: Bash, Read, Write, Glob, Bash(AskUserQuestion:*)
 triggers:
   - weekly retro
   - what did we ship
   - engineering retrospective
   - sprint retro
-category: meta
 ---
 
 # /retro, weekly engineering retro
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Reads git history + cue's session log + (optionally) per-author commit
 trends, produces a structured retro doc, and (most importantly) writes

@@ -1,12 +1,27 @@
 ---
-name: headless-gif-demos-with-cage-wayland-kitty-tmux-auto-redaction
-description: 'Use when user says "record a CLI demo gif", "make a terminal demo", "capture a tmux session as a gif", or "redact a recording". Headless cage/Wayland + Kitty + tmux + ffmpeg with OCR redaction.'
+description: 'Use when user says "record a CLI demo gif", "make a terminal demo", "capture a tmux session as a gif", "demo gif with brand logos", or "redact text in a screen recording". Headless cage/Wayland + Kitty + tmux + ffmpeg pipeline for high-quality CLI demo GIFs that need Kitty graphics protocol (real PNG icons inline) — instead of vhs/asciinema which don''t speak the Kitty protocol. Includes auto-redaction of moving text via tesseract OCR.'
 requires_mcps: [cue-tty-watch]
 allowed-tools: Bash(cage:*), Bash(weston:*), Bash(Xvfb:*), Bash(kitty:*), Bash(tmux:*), Bash(xdotool:*), Bash(wf-recorder:*), Bash(grim:*), Bash(ffmpeg:*), Bash(/usr/bin/ffmpeg:*), Bash(tesseract:*), Bash(convert:*), Read(*), Write(*), mcp__cue-tty-watch__*
-category: design
+name: headless-gif-demos-with-cage-wayland-kitty-tmux-auto-redaction
 ---
 
 # Headless GIF demos with Cage (Wayland) + Kitty + tmux + auto-redaction
+
+## Prerequisites
+
+- `cage`, install via your package manager
+- `weston`, install via your package manager
+- `Xvfb`, install via your package manager
+- `kitty`, install via your package manager
+- `tmux`, install via your package manager
+- `xdotool`, install via your package manager
+- `wf-recorder`, install via your package manager
+- `grim`, install via your package manager
+- `ffmpeg`, install via your package manager
+- `/usr/bin/ffmpeg`, install via your package manager
+- `tesseract`, install via your package manager
+- `convert`, install via your package manager
+
 
 > Updated pipeline: prefer **cage** (headless wlroots compositor) over Xvfb when on a Wayland host.
 > Kitty graphics protocol works through wf-recorder → real brand-icon PNGs render in the GIF.

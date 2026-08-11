@@ -2,9 +2,8 @@
 slug: muapi-instagram-post
 name: muapi-instagram-post
 version: "1.0.0"
-description: Use when the user wants a polished, on-brand Instagram post — square or portrait hero image with matching caption and hashtags.
+description: Create a polished, on-brand Instagram post — square or portrait hero image with matching caption and hashtags.
 acceptLicenseTerms: true
-category: media
 ---
 
 
@@ -17,7 +16,7 @@ category: media
 | Name | Type | Required | Default | Description |
 |:---|:---|:---|:---|:---|
 | `brief` | text | yes |, | What the post is about (e.g. "summer coffee launch at our café, warm golden vibes"). |
-| `brand_style` | text | no | modern, `vibrant`, clean typography, lifestyle photography aesthetic | Brand personality and visual style tags. |
+| `brand_style` | text | no | modern, vibrant, clean typography, lifestyle photography aesthetic | Brand personality and visual style tags. |
 | `format` | text | no | 1:1 | Post format, "1:1" for feed square, "4:5" for portrait feed, "9:16" for Reels. |
 
 

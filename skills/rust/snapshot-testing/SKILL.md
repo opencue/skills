@@ -1,6 +1,10 @@
 ---
 name: snapshot-testing
 description: Use when testing CLI output, API responses, rendered templates, error messages — anything where the assertion is "output looks like this big chunk of text". Covers cargo-insta.
+triggers:
+  - "snapshot testing rust"
+  - "cargo insta"
+  - "insta snapshots"
 allowed-tools: Bash(cargo:*), Bash(cargo-insta:*)
 category: rust
 ---

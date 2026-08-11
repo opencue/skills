@@ -1,6 +1,6 @@
 ---
 name: integrity-tags
-description: "Explains cue's 7-tag confidence system (VERIFIED, INFERRED, ASSUMED, etc.). Use when user says \"what does VERIFIED mean\", \"explain the colored tags\", or \"what's the confidence system\"."
+description: "Explains cue's 7-tag confidence system (VERIFIED, KNOWN, INFERRED, ASSUMED, GUESSED, STALE, UNKNOWN) used to label every research- or decision-relevant claim. Use when user says \"what does VERIFIED mean\", \"explain the colored tags\", \"what's the confidence system\", \"why is this yellow\", \"what does [ASSUMED] mean\", or asks about cue's integrity protocol."
 tags: [meta, cue, integrity, calibration, confidence]
 category: meta
 version: 1.0.0
@@ -44,16 +44,20 @@ The full protocol lives at `resources/personas/integrity-protocol.md` and is pul
 |---|---|---|
 | 🔴 `[UNKNOWN]` | Outside reliable knowledge. Agent is saying so instead of fabricating | Hand off to a search or to a human |
 
-## Optional `~N%` calibration
+## Required `~N%` calibration
 
-On yellow and orange tags, the agent may append a decile-snapped estimate:
+Every yellow and orange tag carries a `~N%` on a 5-point raster:
 
-- 🟡 `[INFERRED ~80%]`, leans high within the yellow tier
-- 🟡 `[ASSUMED ~50%]`, leans low within the yellow tier
-- 🟠 `[GUESSED ~30%]`, typical for the orange tier
+- 🟡 `[INFERRED ~85%]`, top of the yellow tier
+- 🟡 `[ASSUMED ~50%]`, bottom of the yellow tier
+- 🟠 `[GUESSED ~30%]`, middle of the orange tier
 
 **Rules:**
-- Snapped to deciles (20 / 30 / 40 / 60 / 80 / 90), never `~67%` (false precision)
+- Yellow (`[INFERRED]`, `[ASSUMED]`) → `~50%` to `~85%` in 5-point steps: `~50%` `~55%` `~60%` `~65%` `~70%` `~75%` `~80%` `~85%`
+- Orange (`[GUESSED]`, `[STALE]`) → `~20%` to `~45%` in 5-point steps: `~20%` `~25%` `~30%` `~35%` `~40%` `~45%`
+- Nothing between the steps, never `~67%` (false precision), never `~90%` on yellow (green's range) or `~50%` on orange (yellow's)
+- The raster is coarser than the model's apparent precision on purpose: a digit nobody measured reads as a measurement. 14 steps is enough to rank claims against each other
+- A bare `[INFERRED]` or `[GUESSED]` is a protocol violation
 - Always prefixed with `~` to signal estimate
 - Skipped on green and red (the tier already says it)
 - The number is meaningful as *relative ordering* across claims in the same response, **not** as a literal calibrated probability, LLM self-reported probabilities are notoriously miscalibrated as absolute values

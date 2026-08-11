@@ -2,9 +2,8 @@
 slug: muapi-social-media-video
 name: muapi-social-media-video
 version: "1.0.0"
-description: Use when the user wants an on-brand social media video. Reads brand-identity.md, ICP.md, and messaging.md to write a storyboard, craft a Seedance 2.0 prompt, and produce platform-ready video.
+description: Brand-aware social media video creator. Reads brand-identity.md, ICP.md, and messaging.md to write a post/storyboard, craft an optimized Seedance 2.0 Director prompt, generate reference frames with the best available image model, and produce platform-ready video.
 acceptLicenseTerms: true
-category: media
 ---
 
 # Social Media Video Creator
@@ -85,7 +84,7 @@ Transform the storyboard into a **technical Director Brief** for Seedance 2.0.
 
 | Scenario | Mode | Images Needed |
 |:---|:---|:---|
-| Product display | `i2v` | 1 product shot as first frame |
+| Product showcase | `i2v` | 1 product shot as first frame |
 | Scene transition | `first-last` | 2 images, opening and closing frame |
 | Brand character | `i2v` | 1 character reference |
 | Pure concept | `t2v` | None, text only |
@@ -157,9 +156,9 @@ bash library/social/social-media-video/scripts/run-social-video.sh \
 | Instagram Feed | Square | 1:1 | 10s | Static-feel works well |
 | TikTok | Vertical | 9:16 | 10–15s | High energy, fast cuts |
 | YouTube Shorts | Vertical | 9:16 | 15s | Max quality |
-| LinkedIn | `Landscape` | 16:9 | 10–15s | Professional tone |
-| Twitter/X | `Landscape` | 16:9 | 10s | Punchy, direct |
-| YouTube (long) | `Landscape` | 16:9 | 15s | Cinematic, slow builds |
+| LinkedIn | Landscape | 16:9 | 10–15s | Professional tone |
+| Twitter/X | Landscape | 16:9 | 10s | Punchy, direct |
+| YouTube (long) | Landscape | 16:9 | 15s | Cinematic, slow builds |
 | Pinterest | Portrait | 4:3 | 10s | Lifestyle-forward |
 
 > **Tier note:** Use `--tier global` or `--tier vip` for `1:1` and `21:9` formats. Chinese tier supports only 16:9, 9:16, 4:3, 3:4.

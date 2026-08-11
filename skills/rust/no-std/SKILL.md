@@ -1,6 +1,10 @@
 ---
 name: no-std
 description: Use when writing Rust without the standard library — embedded, WASM, kernel, bootloader, or library code that must work in `no_std` consumers.
+triggers:
+  - "no_std rust"
+  - "rust without std"
+  - "no-std"
 allowed-tools: Bash(cargo:*)
 category: rust
 ---

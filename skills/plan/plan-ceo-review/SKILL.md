@@ -7,17 +7,21 @@ description: |
   design doc from /office-hours; writes back recommended scope changes.
   Use when the user says "ceo review", "scope review", "is this the right
   scope", or before committing to build a feature.
-allowed-tools: Read(*), Write, Edit, Grep, Glob, AskUserQuestion
+allowed-tools: Read, Write, Edit, Grep, Glob, Bash(AskUserQuestion:*)
 triggers:
   - ceo review
   - scope review
   - plan review
   - is this the right scope
   - rethink the plan
-category: plan
 ---
 
 # /plan-ceo-review, scope challenge before code
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Read the design doc (typically `.cue/design-docs/<latest>.md`) and apply
 a four-mode framework to challenge the scope. The job is **not** to

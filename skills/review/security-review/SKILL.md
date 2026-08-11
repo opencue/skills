@@ -75,7 +75,7 @@ delegate(
   tier="THOROUGH",
   prompt="SECURITY REVIEW TASK
 
-Conduct comprehensive security audit of codebase.
+Conduct full security audit of codebase.
 
 Scope: [specific files or entire codebase]
 

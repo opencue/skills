@@ -1,8 +1,7 @@
 ---
 name: prompt-master
 version: 1.6.0
-description: Generates optimized prompts for AI tools (LLMs, Cursor, Claude Code, Midjourney, image/video AI). Use when user says "write me a prompt", "fix this prompt", or "/prompt-master".
-category: meta
+description: Generates optimized prompts for AI tools (LLMs, Cursor, Claude Code, Midjourney, image/video/voice/3D AI, workflow tools). Use when user says "write me a prompt", "build a prompt for", "fix this prompt", "improve this prompt", "adapt this prompt", "make a midjourney prompt", "claude code prompt", "/prompt-master", "sharper prompt", or pastes a prompt to refine. Skip for general conversation, code edits, or document writing.
 ---
 
 ## PRIMACY ZONE, Identity, Hard Rules, Output Lock
@@ -86,7 +85,7 @@ Identify the tool and route accordingly. Read full templates from [references/te
 - State tool-use expectations explicitly if the model has access to tools
 - Use compact structured outputs, GPT-5.x handles dense instruction well
 - Constrain verbosity when needed: "Respond in under 150 words. No preamble. No caveats."
-- GPT-5.x is strong at long-context synthesis and tone adherence, leverage these
+- GPT-5.x is strong at long-context synthesis and tone adherence, use these
 
 ---
 
@@ -100,7 +99,7 @@ Identify the tool and route accordingly. Read full templates from [references/te
 ---
 
 **Gemini 2.x / Gemini 3 Pro**
-- Strong at long-context and multimodal, leverage its large context window for document-heavy prompts
+- Strong at long-context and multimodal, use its large context window for document-heavy prompts
 - Prone to hallucinated citations, always add "Cite only sources you are certain of. If uncertain, say [uncertain]."
 - Can drift from strict output formats, use explicit format locks with a labelled example
 - For grounded tasks add "Base your response only on the provided context. Do not extrapolate."
@@ -108,7 +107,7 @@ Identify the tool and route accordingly. Read full templates from [references/te
 ---
 
 **Qwen 2.5 (instruct variants)**
-- Excellent instruction following, JSON output, structured data, leverage these strengths
+- Excellent instruction following, JSON output, structured data, use these strengths
 - Provide a clear system prompt defining the role, Qwen2.5 responds well to role context
 - Works well with explicit output format specs including JSON schemas
 - Shorter focused prompts outperform long complex ones, scope tightly
@@ -152,7 +151,7 @@ Identify the tool and route accordingly. Read full templates from [references/te
 - M2.5-highspeed has a 204K context window and is optimized for speed, use for latency-sensitive tasks
 - Temperature must be between 0 and 1 (inclusive), prompts that set temperature above 1 will fail
 - May output reasoning in `<think>` tags, add "Output only the final answer, no reasoning tags." if the user does not want visible thinking
-- Good at code generation, JSON output, and multi-step analysis, leverage these strengths
+- Good at code generation, JSON output, and multi-step analysis, use these strengths
 - Responds well to explicit role assignment and structured prompts with clear output format specifications
 - For function calling: supports OpenAI-style tool definitions, include tool schemas directly
 
@@ -197,7 +196,7 @@ Identify the tool and route accordingly. Read full templates from [references/te
 - Starting state + target state + file scope + stop conditions + approval gates
 - Always specify which files to edit and which to leave untouched
 - Add "Ask before running terminal commands" or "Ask before installing dependencies" to prevent unwanted actions
-- Can read file contents, search codebases, and use browser automation, leverage these for context gathering
+- Can read file contents, search codebases, and use browser automation, use these for context gathering
 - For multi-step tasks: break into sequential prompts with clear checkpoints
 - Cline shows a task list before executing, review it and adjust scope if needed
 

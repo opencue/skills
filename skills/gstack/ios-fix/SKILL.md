@@ -3,7 +3,7 @@ name: ios-fix
 preamble-tier: 3
 version: 1.0.0
 description: Autonomous iOS bug fixer. (gstack)
-allowed-tools: Bash(Bash:*), Read, Write, Edit, Grep, Glob, AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Grep, Glob, Bash(AskUserQuestion:*)
 triggers:
   - fix this ios bug
   - patch the iphone app
@@ -119,6 +119,11 @@ fi
 echo "GSTACK_PLAN_MODE: $GSTACK_PLAN_MODE"
 [ -n "$OPENCLAW_SESSION" ] && echo "SPAWNED_SESSION: true" || true
 ```
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 ## Plan Mode Safe Operations
 

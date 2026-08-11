@@ -1,6 +1,10 @@
 ---
 name: mdbook
 description: Use when authoring Rust project documentation as a static site — Rust Book / The Cargo Book / clap docs style.
+triggers:
+  - "mdbook"
+  - "rust docs site"
+  - "rust book"
 allowed-tools: Bash(mdbook:*)
 category: rust
 ---

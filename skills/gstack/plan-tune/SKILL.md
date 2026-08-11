@@ -29,7 +29,6 @@ allowed-tools: Bash(-:*), Bash(Bash:*)
   - AskUserQuestion
   - Glob
   - Grep
-category: gstack
 ---
 ## Step 0: Detect what the user wants
 
@@ -107,7 +106,7 @@ Power-user shortcuts (one-word invocations), handle these too:
    Options: A) Terse, just do it (low ≈ 0.25) / B) Balanced /
    C) Verbose with reasoning (high ≈ 0.85)
 
-   **Q4, autonomy:** "Do you want to be consulted on every major
+   **Q4, autonomy:** "Do you want to be consulted on every significant
    decision, or delegate and let the agent pick for you?"
    Options: A) Consult me (low ≈ 0.25) / B) Balanced /
    C) Delegate, trust the agent (high ≈ 0.85)
@@ -173,7 +172,7 @@ Parse the JSON. Present in **plain English**, not raw floats:
   "**scope_appetite:** declared 0.8 (boil the ocean) ↔ observed 0.72 (close)"
   Use words for the gap: 0.0-0.1 "close", 0.1-0.3 "drift", 0.3+ "mismatch".
 
-- If the calibration gate isn't met, say: "Not enough observed data yet,
+- If the calibration gate isn't met, say: "Not enough observed data yet, 
   need N more events across M more skills before we can show your observed
   profile."
 
@@ -313,7 +312,7 @@ Parse the JSON. For each dimension where both declared and inferred exist:
   Consider updating your declared value, or reflect on whether your behavior
   is actually what you want."
 
-Never auto-update declared based on the gap. In v1 the gap is reporting only,
+Never auto-update declared based on the gap. In v1 the gap is reporting only, 
 the user decides whether declared is wrong or behavior is wrong.
 
 ---

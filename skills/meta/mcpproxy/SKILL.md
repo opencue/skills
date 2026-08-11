@@ -1,10 +1,10 @@
 ---
 name: mcpproxy
-description: Use when the user mentions "mcpproxy", an MCP router/proxy fronting many MCP servers behind one endpoint, MCP rate-limit or quarantine, or cutting MCP startup cost with 15+ servers.
+description: Use when the user mentions "mcpproxy", an MCP router/proxy, fronting many MCP servers behind one endpoint, MCP rate-limit or quarantine, or asks how to cut MCP startup cost when running 15+ servers. Points at smart-mcp-proxy/mcpproxy-go and explains how it fits cue's existing MCP materialization.
 tags: [meta, mcp, infra]
 category: meta
 version: 1.0.0
-allowed-tools: Bash(Bash:*)
+allowed-tools: Bash
 ---
 
 # mcpproxy
@@ -60,6 +60,6 @@ go install github.com/smart-mcp-proxy/mcpproxy-go/cmd/mcpproxy@latest
   to track the agent PID via env, not parent PID.
 - Never enable mcpproxy globally without flipping one project first and
   measuring startup delta. Claim "faster" only with numbers.
-- Never store the proxy config in the repo if it contains API tokens,
+- Never store the proxy config in the repo if it contains API tokens, 
   put it under `~/.config/cue/` and add a stub `mcpproxy.example.yaml`
   to the repo.

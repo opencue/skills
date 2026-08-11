@@ -7,16 +7,20 @@ description: |
   .cue/context/<branch>-<YYYYMMDD-HHMM>.md. Pair with /context-restore.
   Use when the user says "save progress", "save state", "context save", or
   "save my work".
-allowed-tools: Bash(Bash:*), Read, Write, Glob, Grep, AskUserQuestion
+allowed-tools: Bash, Read, Write, Glob, Grep, Bash(AskUserQuestion:*)
 triggers:
   - save progress
   - save state
   - save my work
   - context save
-category: gstack
 ---
 
 # /context-save, capture state for later resume
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 A session-survival snapshot. Designed to be readable by both a human and a
 future model session.
@@ -27,7 +31,7 @@ future model session.
    - Current branch, upstream, ahead/behind.
    - `git status -s`, staged, unstaged, untracked.
    - Last 5 commits on this branch (`git log -5 --oneline`).
-   - If there's an open PR (`gh pr view --json number,title,state,url`,
+   - If there's an open PR (`gh pr view --json number,title,state,url`, 
      skip silently if `gh` is unauthenticated), record number + title + URL.
 2. **Working summary** (write this yourself)
    - Task in one sentence.

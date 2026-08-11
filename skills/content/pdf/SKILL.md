@@ -1,9 +1,13 @@
 ---
 name: pdf
-description: 'Use when user says "extract text from pdf", "merge pdfs", "split a pdf", "fill out a pdf form", or "create a pdf". Handles text and table extraction, building, merging, splitting, and form-filling.'
+description: >-
+  Use when user says "extract text from pdf", "merge pdfs", "split a pdf", "fill out a pdf form",
+  "extract tables from pdf", or "create a pdf".
+  Complete PDF manipulation toolkit for extracting text and tables, creating new PDFs,
+  merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or
+  programmatically process, generate, or analyze PDF documents at scale.
 license: Proprietary. LICENSE.txt has complete terms
 companions: [scripts/, forms.md, reference.md]
-category: content
 ---
 
 # PDF Processing Guide

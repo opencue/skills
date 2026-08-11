@@ -3,7 +3,7 @@ name: ios-qa
 preamble-tier: 3
 version: 1.0.0
 description: Live-device iOS QA for SwiftUI apps. (gstack)
-allowed-tools: Bash(Bash:*), Read, Write, Edit, Grep, Glob, AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Grep, Glob, Bash(AskUserQuestion:*)
 triggers:
   - ios qa
   - test the iphone app

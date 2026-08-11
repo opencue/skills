@@ -5,6 +5,7 @@ tags: [meta, builtin, optimization]
 category: meta
 version: 1.0.0
 requires_mcps: []
+name: built-in-skill-manager
 ---
 
 # Built-in Skill Manager

@@ -7,6 +7,11 @@ category: medusa
 
 # Generate Database Migrations
 
+## Prerequisites
+
+- `npx`, install via your package manager
+
+
 Generate database migrations for the specified Medusa module.
 
 The user will provide the module name as an argument (e.g., `brand`, `product`, `custom-module`).

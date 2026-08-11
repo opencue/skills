@@ -4,7 +4,7 @@ description: |
   Chief Security Officer mode. Infrastructure-first security audit: secrets archaeology,
   dependency supply chain, CI/CD pipeline security, LLM/AI security, skill supply chain
   scanning, plus OWASP Top 10, STRIDE threat modeling, and active verification.
-  Two modes: daily (zero-noise, 8/10 confidence gate) and `comprehensive` (monthly deep
+  Two modes: daily (zero-noise, 8/10 confidence gate) and comprehensive (monthly deep
   scan, 2/10 bar). Trend tracking across audit runs.
   Use when: "security audit", "threat model", "pentest review", "OWASP", "CSO review".
   Voice triggers (speech-to-text aliases): "see-so", "see so", "security review", "security check", "vulnerability scan", "run security".
@@ -40,7 +40,7 @@ When the user types `/cso`, run this skill.
 ## Mode Resolution
 
 1. If no flags → run ALL phases 0-14, daily mode (8/10 confidence gate).
-2. If `--comprehensive` → run ALL phases 0-14, `comprehensive` mode (2/10 confidence gate). Combinable with scope flags.
+2. If `--comprehensive` → run ALL phases 0-14, comprehensive mode (2/10 confidence gate). Combinable with scope flags.
 3. Scope flags (`--infra`, `--code`, `--skills`, `--supply-chain`, `--owasp`, `--scope`) are **mutually exclusive**. If multiple scope flags are passed, **error immediately**: "Error: --infra and --code are mutually exclusive. Pick one scope flag, or run `/cso` with no flags for a full audit." Do NOT silently pick one, security tooling must never ignore user intent.
 4. `--diff` is combinable with ANY scope flag AND with `--comprehensive`.
 5. When `--diff` is active, each phase constrains scanning to files/configs changed on the current branch vs the base branch. For git history scanning (Phase 2), `--diff` limits to commits on the current branch only.
@@ -337,7 +337,7 @@ For each OWASP category, perform targeted analysis. Use the Grep tool for all se
 - SQL injection: raw queries, string interpolation in SQL
 - Command injection: system(), exec(), spawn(), popen
 - Template injection: render with params, eval(), html_safe, raw()
-- LLM prompt injection: see Phase 7 for full coverage
+- LLM prompt injection: see Phase 7 for comprehensive coverage
 
 #### A04: Insecure Design
 - Rate limits on authentication endpoints?
@@ -350,7 +350,7 @@ For each OWASP category, perform targeted analysis. Use the Grep tool for all se
 - Debug mode / verbose errors in production?
 
 #### A06: Vulnerable and Outdated Components
-See **Phase 3 (Dependency Supply Chain)** for complete component analysis.
+See **Phase 3 (Dependency Supply Chain)** for comprehensive component analysis.
 
 #### A07: Identification and Authentication Failures
 - Session management: creation, storage, invalidation
@@ -424,7 +424,7 @@ Before producing findings, run every candidate through this filter.
 - 8: Clear vulnerability pattern with known exploitation methods. Minimum bar.
 - Below 8: Do not report.
 
-**`comprehensive` mode (`/cso --comprehensive`):** 2/10 confidence gate. Filter true noise only (test fixtures, documentation, placeholders) but include anything that MIGHT be a real issue. Flag these as `TENTATIVE` to distinguish from confirmed findings.
+**Comprehensive mode (`/cso --comprehensive`):** 2/10 confidence gate. Filter true noise only (test fixtures, documentation, placeholders) but include anything that MIGHT be a real issue. Flag these as `TENTATIVE` to distinguish from confirmed findings.
 
 **Hard exclusions, automatically discard findings matching these:**
 
@@ -480,7 +480,7 @@ For each finding that survives the confidence gate, attempt to PROVE it where sa
 Mark each finding as:
 - `VERIFIED`, actively confirmed via code tracing or safe testing
 - `UNVERIFIED`, pattern match only, couldn't confirm
-- `TENTATIVE`, `comprehensive` mode finding below 8/10 confidence
+- `TENTATIVE`, comprehensive mode finding below 8/10 confidence
 
 **Variant Analysis:**
 
@@ -498,7 +498,7 @@ Prompt each verifier with:
 - The full FP filtering rules
 - "Read the code at this location. Assess independently: is there a security vulnerability here? Score 1-10. Below 8 = explain why it's not real."
 
-Launch all verifiers in parallel. Discard findings where the verifier scores below 8 (daily mode) or below 2 (`comprehensive` mode).
+Launch all verifiers in parallel. Discard findings where the verifier scores below 8 (daily mode) or below 2 (comprehensive mode).
 
 If the Agent tool is unavailable, self-verify by re-reading code with a skeptic's eye. Note: "Self-verified, independent sub-task unavailable."
 
@@ -736,7 +736,7 @@ already knows. A good test: would this insight save time in a future session? If
 ## Disclaimer
 
 **This tool is not a substitute for a professional security audit.** /cso is an AI-assisted
-scan that catches common vulnerability patterns, it is not complete, not guaranteed, and
+scan that catches common vulnerability patterns, it is not comprehensive, not guaranteed, and
 not a replacement for hiring a qualified security firm. LLMs can miss subtle vulnerabilities,
 misunderstand complex auth flows, and produce false negatives. For production systems handling
 sensitive data, payments, or PII, engage a professional penetration testing firm. Use /cso as

@@ -1,6 +1,11 @@
 ---
 name: axum-api
 description: Use when building an HTTP API or web service in Rust. Covers axum (recommended), with notes on actix-web and rocket. Extractors, layers, error types, OpenAPI.
+triggers:
+  - "rust web api"
+  - "build an api in rust"
+  - "axum"
+  - "rust http server"
 allowed-tools: Bash(cargo:*)
 category: rust
 ---

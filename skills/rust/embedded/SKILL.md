@@ -1,6 +1,11 @@
 ---
 name: embedded
 description: Use when flashing, debugging, or developing for microcontrollers in Rust (Cortex-M, RISC-V, ESP32). Covers probe-rs, cargo-embed, defmt, embassy async runtime.
+triggers:
+  - "embedded rust"
+  - "rust microcontroller"
+  - "flash rust"
+  - "probe-rs"
 allowed-tools: Bash(cargo:*), Bash(probe-rs:*), Bash(cargo-embed:*), Bash(cargo-binutils:*), Bash(rustup:*)
 category: rust
 ---

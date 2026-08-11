@@ -1,11 +1,20 @@
 ---
 name: higgsfield-to-medusa-products
-description: 'Use when user says "Higgsfield to Medusa", "generate product photos", or "import AI product assets". Asset generation → product mapping → import.'
+requires_mcps: [secret-mcp]
+description: >-
+  Use when user says "Higgsfield to Medusa", "generate product photos", or "import AI product assets". Asset generation → product mapping → import.
 allowed-tools: Bash(aws:*), Bash(curl:*), Bash(higgsfield:*), Bash(jq:*)
-category: medusa
 ---
 
 # Higgsfield → Medusa Product Images
+
+## Prerequisites
+
+- `aws`, install via your package manager
+- `curl`, install via your package manager
+- `higgsfield`, install via your package manager
+- `jq`, install via your package manager
+
 
 One-shot pipeline that generates product shots with Higgsfield, hosts them on
 the shop's S3 bucket, and updates Medusa products. Replaces the manual
@@ -179,7 +188,7 @@ wins:
 2. **Per-shop env file**: `~/.config/medusa-image-pipeline/<shop>.env`.
 
 The resolver is `scripts/load-env.sh`. Higgsfield in Mode B uses the
-`higgsfield` CLI (which holds its own auth via `higgsfield auth login`),
+`higgsfield` CLI (which holds its own auth via `higgsfield auth login`), 
 this is the path for CI / cron / non-agent runs.
 
 **Never** echo secret values, **never** put them in git, **never** ask the

@@ -1,6 +1,11 @@
 ---
 name: just-runner
 description: Use when authoring or running project task recipes — Rust ecosystem's de-facto replacement for Make. Justfile syntax.
+triggers:
+  - "justfile"
+  - "just runner"
+  - "rust task runner"
+  - "replace make"
 allowed-tools: Bash(just:*)
 category: rust
 ---

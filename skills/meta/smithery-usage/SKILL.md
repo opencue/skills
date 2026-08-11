@@ -5,6 +5,7 @@ tags: [meta, smithery, mcps, marketplace]
 category: meta
 version: 1.0.0
 requires_mcps: []
+name: smithery-mcp-marketplace
 ---
 
 # Smithery, MCP Marketplace

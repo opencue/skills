@@ -1,7 +1,6 @@
 ---
 name: code-review
-description: "Use when user says \"review my code\", \"code review\", \"review this diff\", \"check my PR\", or \"/code-review\". Reviews the current diff or a PR for correctness bugs, security, and cleanup."
-category: review
+description: "Runs a full code review of the current diff or a specific PR — correctness bugs, security, simplification opportunities. Use when user says \"review my code\", \"code review\", \"review this diff\", \"check my PR\", \"/code-review\", or \"review before merge\"."
 ---
 
 # Code Review Skill

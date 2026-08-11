@@ -1,6 +1,11 @@
 ---
 name: property-testing
 description: Use when testing parsers, serializers, math/algorithms, anything with invariants — generate thousands of inputs and check properties hold. Covers proptest and quickcheck.
+triggers:
+  - "property testing rust"
+  - "proptest"
+  - "quickcheck"
+  - "property based tests"
 allowed-tools: Bash(cargo:*)
 category: rust
 ---

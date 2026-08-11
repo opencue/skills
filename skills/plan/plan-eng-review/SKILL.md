@@ -7,17 +7,21 @@ description: |
   Reads the design doc; writes back architectural decisions. Use when
   the user says "eng review", "architecture review", "lock the plan",
   or before exiting plan mode.
-allowed-tools: Read, Write, Edit, Grep, Glob, Bash(Bash:*), AskUserQuestion
+allowed-tools: Read, Write, Edit, Grep, Glob, Bash, Bash(AskUserQuestion:*)
 triggers:
   - eng review
   - architecture review
   - lock the plan
   - engineering review
   - plan-eng
-category: plan
 ---
 
 # /plan-eng-review, architecture lock before code
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Read the design doc (and the CEO review section if present). Produce
 the architectural layer: how the thing actually works on disk, in

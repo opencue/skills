@@ -7,17 +7,21 @@ description: |
   Use when the user says "brainstorm this", "I have an idea", "help me think
   through", "office hours", "is this worth building", or describes a product
   idea before any code exists.
-allowed-tools: Bash(Bash:*), Read, Grep, Glob, Write, Edit, AskUserQuestion, WebSearch
+allowed-tools: Bash, Read, Grep, Glob, Write, Edit, Bash(AskUserQuestion:*), WebSearch
 triggers:
   - brainstorm this
   - is this worth building
   - help me think through
   - office hours
   - I have an idea
-category: plan
 ---
 
 # /office-hours, premise-questioning before code
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Adapted from YC Office Hours methodology. Two modes:
 

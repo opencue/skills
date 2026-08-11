@@ -1,6 +1,6 @@
 ---
 name: awesome-list-submit
-description: >
+description: >-
   Use when user says "submit to awesome lists", "add to awesome repos",
   "promote on GitHub lists", "get listed", or "find lists for this project".
   Auto-detect project metadata, find relevant awesome-* repos, check for
@@ -13,6 +13,14 @@ allowed-tools: Bash(gh:*), Bash(curl:*), Bash(git:*), Bash(jq:*), WebSearch, Rea
 ---
 
 # Submit to Awesome Lists (v2)
+
+## Prerequisites
+
+- `gh`, install via your package manager
+- `curl`, install via your package manager
+- `git`, install via your package manager
+- `jq`, install via your package manager
+
 
 Auto-detect project info, find relevant awesome-* repos, and submit PRs, with dedup, format matching, and submission tracking.
 

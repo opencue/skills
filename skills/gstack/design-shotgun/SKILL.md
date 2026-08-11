@@ -2,12 +2,12 @@
 name: design-shotgun
 preamble-tier: 2
 version: 1.0.0
-description: Generate multiple AI design variants side by side and iterate toward a winner. Use when the user says "explore design variants", "show me design options", "design shotgun", or "design brainstorm".
+description: Generate multiple AI design variants at once, open a side-by-side comparison board, collect structured feedback, and iterate toward a winner. Use when the user says "explore design variants", "show me design options", "visual design brainstorm", "design shotgun", or "give me a few directions" for a UI, page, or component. NOT for auditing a single existing design — use design-review for that.
 triggers:
   - explore design variants
   - show me design options
   - visual design brainstorm
-allowed-tools: Bash(Bash:*), Read, Glob, Grep, Agent, AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Glob, Grep, Agent, Bash(AskUserQuestion:*)
 gbrain:
   schema: 1
   context_queries:
@@ -28,7 +28,6 @@ gbrain:
       sort: mtime_desc
       limit: 3
       render_as: "## Recent design docs"
-category: gstack
 ---
 <!-- AUTO-GENERATED from SKILL.md.tmpl, do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
@@ -134,6 +133,11 @@ fi
 echo "GSTACK_PLAN_MODE: $GSTACK_PLAN_MODE"
 [ -n "$OPENCLAW_SESSION" ] && echo "SPAWNED_SESSION: true" || true
 ```
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 ## Plan Mode Safe Operations
 
@@ -571,7 +575,7 @@ GStack voice: Garry-shaped product and engineering judgment, compressed for runt
 - Be direct about quality. Bugs matter. Edge cases matter. Fix the whole thing, not the demo path.
 - Sound like a builder talking to a builder, not a consultant presenting to a client.
 - Never corporate, academic, PR, or hype. Avoid filler, throat-clearing, generic optimism, and founder cosplay.
-- No em dashes. No AI vocabulary: `delve`, `crucial`, `robust`, `comprehensive`, `nuanced`, `multifaceted`, `furthermore`, `moreover`, `additionally`, `pivotal`, `landscape`, `tapestry`, `underscore`, `foster`, `showcase`, `intricate`, `vibrant`, `fundamental`, `significant`.
+- No em dashes. No AI vocabulary: delve, crucial, robust, comprehensive, nuanced, multifaceted, furthermore, moreover, additionally, pivotal, landscape, tapestry, underscore, foster, showcase, intricate, vibrant, fundamental, significant.
 - The user has context you do not: domain knowledge, timing, relationships, taste. Cross-model agreement is a recommendation, not a decision. The user decides.
 
 Good: "auth.ts:47 returns undefined when the session cookie expires. Users hit a white screen. Fix: add a null check and redirect to /login. Two lines."
@@ -932,7 +936,7 @@ ls ~/.gstack/projects/$SLUG/*office-hours* 2>/dev/null | head -5
 ```
 
 If DESIGN.md exists, tell the user: "I'll follow your design system in DESIGN.md by
-default. If you want to go off the reservation on visual direction, just say so,
+default. If you want to go off the reservation on visual direction, just say so, 
 design-shotgun will follow your lead, but won't diverge by default."
 
 **Check for a live site to screenshot** (for the "I don't like THIS" use case):
@@ -1052,7 +1056,7 @@ Draw on DESIGN.md, taste memory, and the user's request to make each concept dis
 
 **Anti-convergence directive (hard requirement):** Each variant MUST use a different
 font family, color palette, and layout approach. If two variants look like siblings
-, same typographic feel, overlapping color temperature, comparable layout rhythm,
+, same typographic feel, overlapping color temperature, comparable layout rhythm, 
 one of them failed. Regenerate the weaker one with a deliberately different direction.
 
 Concrete test: if someone could swap the headline text between two variants without

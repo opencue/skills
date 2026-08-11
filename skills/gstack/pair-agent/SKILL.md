@@ -6,7 +6,7 @@ triggers:
   - pair with agent
   - connect remote agent
   - share my browser
-allowed-tools: Bash(Bash:*), Read, AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Bash(AskUserQuestion:*)
 
 category: gstack
 ---
@@ -117,6 +117,11 @@ fi
 echo "GSTACK_PLAN_MODE: $GSTACK_PLAN_MODE"
 [ -n "$OPENCLAW_SESSION" ] && echo "SPAWNED_SESSION: true" || true
 ```
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 ## Plan Mode Safe Operations
 

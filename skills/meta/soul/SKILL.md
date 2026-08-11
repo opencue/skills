@@ -1,8 +1,7 @@
 ---
 name: soul
-description: >
+description: >-
   Use when user says "/soul", "new soul skill", "create soul skill", or "scaffold a skill". Creates soul skills/MCPs under ~/Documents/soul with correct taxonomy.
-category: meta
 ---
 
 # soul
@@ -222,7 +221,7 @@ have no upstream.
    describes the tool generally and the user has personal recipes/configs,
    create TWO skills:
    - `meta/<tool>/SKILL.md`, adopted upstream, generic
-   - `meta/workspace-<tool>/SKILL.md` (or `<category>/workspace-...`),
+   - `meta/workspace-<tool>/SKILL.md` (or `<category>/workspace-...`), 
      user's specific recipes, with the upstream skill as a "see also"
      reference
 

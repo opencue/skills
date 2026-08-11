@@ -2,9 +2,8 @@
 slug: muapi-url-to-design
 name: muapi-url-to-design
 version: "1.0.0"
-description: Use when the user wants to redesign a website from its URL — recreate the visual UI with modern aesthetics, better hierarchy, and fresh brand direction.
+description: Analyze a website URL and generate a redesigned, improved UI — recreate the visual design with modern aesthetics, better hierarchy, and fresh brand direction.
 acceptLicenseTerms: true
-category: media
 ---
 
 
@@ -18,7 +17,7 @@ category: media
 |:---|:---|:---|:---|:---|
 | `url` | text | yes |, | The website URL to analyze and redesign (e.g. "https://example.com/pricing"). |
 | `page_type` | text | no | landing page | Type of page, "landing page", "pricing page", "product page", "dashboard", "about page". |
-| `redesign_style` | text | no | modern, minimal, premium, dark mode | The target visual style for the redesign (e.g. "glassmorphism, lively gradient", "clean corporate, light mode"). |
+| `redesign_style` | text | no | modern, minimal, premium, dark mode | The target visual style for the redesign (e.g. "glassmorphism, vibrant gradient", "clean corporate, light mode"). |
 | `keep_brand` | text | no | yes | Whether to keep existing brand colors/logo, "yes" or "no" (fully reimagine). |
 | `screenshot` | image_url | no |, | Optional screenshot of the current page if URL cannot be crawled. |
 

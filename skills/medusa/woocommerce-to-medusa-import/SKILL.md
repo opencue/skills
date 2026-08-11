@@ -1,7 +1,8 @@
 ---
 name: woocommerce-to-medusa-import
-description: 'Use when user says "WooCommerce import", "migrate products", or "Woo to Medusa". Extraction, mapping, assets, import.'
-category: medusa
+requires_mcps: [secret-mcp]
+description: >-
+  Use when user says "WooCommerce import", "migrate products", or "Woo to Medusa". Extraction, mapping, assets, import.
 ---
 
 # WooCommerce to Medusa Import

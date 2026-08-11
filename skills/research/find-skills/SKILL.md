@@ -10,6 +10,12 @@ allowed-tools: Bash(curl:*), Bash(gh:*), WebFetch, WebSearch, Read(*), Write(*)
 
 # Find & Install Open-Source Skills
 
+## Prerequisites
+
+- `curl`, install via your package manager
+- `gh`, install via your package manager
+
+
 Search GitHub for Claude Code / Codex skills that match a user's need, evaluate quality, and add them to the active cue profile.
 
 ## When to activate

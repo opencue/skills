@@ -14,6 +14,13 @@ allowed-tools: Bash(curl:*), Bash(gh:*), Bash(git:*), Read(*), Write(*)
 
 # Kiro Powers → cue Profile Importer
 
+## Prerequisites
+
+- `curl`, install via your package manager
+- `gh`, install via your package manager
+- `git`, install via your package manager
+
+
 Import Kiro Powers (from kiro.dev or GitHub) into cue profiles. A Kiro Power is:
 - `POWER.md`, steering file with activation keywords + workflow instructions
 - MCP server configuration

@@ -5,7 +5,7 @@ description: |
   misconfigs with Trivy, then hard-block HIGH/CRITICAL before a merge.
   Use when the user says "trivy", "vuln scan", "scan dependencies",
   "supply chain scan", "scan for CVEs", or "security scan before merge".
-allowed-tools: Bash(Bash:*), Read, Grep, Glob, AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Grep, Glob, Bash(AskUserQuestion:*)
 category: security
 tags: [security, supply-chain, vulnerability, gate, trivy]
 triggers:

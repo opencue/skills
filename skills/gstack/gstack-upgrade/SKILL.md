@@ -6,8 +6,7 @@ triggers:
   - upgrade gstack
   - update gstack version
   - get latest gstack
-allowed-tools: Bash(Bash:*), Read, Write, AskUserQuestion
-category: gstack
+allowed-tools: Bash(Bash:*), Read, Write, Bash(AskUserQuestion:*)
 ---
 <!-- AUTO-GENERATED from SKILL.md.tmpl, do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
@@ -22,6 +21,11 @@ runs the upgrade, and shows what's new. Use when asked to "upgrade gstack",
 Voice triggers (speech-to-text aliases): "upgrade the tools", "update the tools", "gee stack upgrade", "g stack upgrade".
 
 # /gstack-upgrade
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Upgrade gstack to the latest version and show what's new.
 
@@ -228,7 +232,7 @@ rm -f ~/.gstack/update-snoozed
 
 ### Step 6: Show What's New
 
-Read `$INSTALL_DIR/CHANGELOG.md`. Find all version entries between the old version and the new version. Summarize as 5-7 bullets grouped by theme. Don't overwhelm, focus on user-facing changes. Skip internal refactors unless they're major.
+Read `$INSTALL_DIR/CHANGELOG.md`. Find all version entries between the old version and the new version. Summarize as 5-7 bullets grouped by theme. Don't overwhelm, focus on user-facing changes. Skip internal refactors unless they're significant.
 
 Format:
 ```

@@ -1,6 +1,10 @@
 ---
 name: sccache
 description: Use when Rust cold builds are slow, CI rebuild times hurt, or switching branches forces full recompiles. Drop-in compiler cache.
+triggers:
+  - "speed up rust builds"
+  - "sccache"
+  - "rust compiler cache"
 allowed-tools: Bash(cargo:*), Bash(sccache:*)
 category: rust
 ---

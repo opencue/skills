@@ -3,7 +3,7 @@ name: ios-sync
 preamble-tier: 3
 version: 1.0.0
 description: Regenerate the iOS debug bridge against the latest upstream gstack templates. (gstack)
-allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, Bash(AskUserQuestion:*)
 triggers:
   - resync the ios debug bridge
   - regenerate ios accessors
@@ -116,6 +116,11 @@ fi
 echo "GSTACK_PLAN_MODE: $GSTACK_PLAN_MODE"
 [ -n "$OPENCLAW_SESSION" ] && echo "SPAWNED_SESSION: true" || true
 ```
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 ## Plan Mode Safe Operations
 

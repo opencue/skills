@@ -3,7 +3,7 @@ name: qa
 preamble-tier: 4
 version: 2.0.0
 description: Systematically QA test a web application and fix bugs found. (gstack)
-allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, AskUserQuestion, WebSearch
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, Bash(AskUserQuestion:*), WebSearch
 triggers:
   - qa test this
   - find bugs on site
@@ -119,6 +119,11 @@ fi
 echo "GSTACK_PLAN_MODE: $GSTACK_PLAN_MODE"
 [ -n "$OPENCLAW_SESSION" ] && echo "SPAWNED_SESSION: true" || true
 ```
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 ## Plan Mode Safe Operations
 

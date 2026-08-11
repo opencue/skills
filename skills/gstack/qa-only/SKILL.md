@@ -3,7 +3,7 @@ name: qa-only
 preamble-tier: 4
 version: 1.0.0
 description: Report-only QA testing. (gstack)
-allowed-tools: Bash(Bash:*), Read, Write, AskUserQuestion, WebSearch
+allowed-tools: Bash(Bash:*), Read, Write, Bash(AskUserQuestion:*), WebSearch
 triggers:
   - qa report only
   - just report bugs
@@ -116,6 +116,11 @@ fi
 echo "GSTACK_PLAN_MODE: $GSTACK_PLAN_MODE"
 [ -n "$OPENCLAW_SESSION" ] && echo "SPAWNED_SESSION: true" || true
 ```
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 ## Plan Mode Safe Operations
 

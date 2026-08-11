@@ -7,6 +7,11 @@ category: medusa
 
 # Provision Medusa S3 Bucket
 
+## Prerequisites
+
+- `aws`, install via your package manager
+
+
 One-shot S3 bucket setup for a Medusa v2 backend running anywhere (Hostinger
 VPS, EC2, anything). Pairs with `medusa-config.ts` configurations that use
 `@medusajs/medusa/file-s3` with explicit access keys (the R2 provider config

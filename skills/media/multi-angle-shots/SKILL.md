@@ -2,9 +2,8 @@
 slug: muapi-multi-angle-shots
 name: muapi-multi-angle-shots
 version: "1.0.0"
-description: Use when the user wants a complete set of multi-angle product shots — front, side, back, top-down, and 45-degree perspective — for full product visualization.
+description: Generate a complete set of multi-angle product shots — front, side, back, top-down, and 45-degree perspective — for full product visualization.
 acceptLicenseTerms: true
-category: media
 ---
 
 

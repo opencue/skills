@@ -3,7 +3,7 @@ name: ios-design-review
 preamble-tier: 3
 version: 1.0.0
 description: Visual design audit for iOS apps on real hardware. (gstack)
-allowed-tools: Bash(Bash:*), Read, Glob, Grep, AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Glob, Grep, Bash(AskUserQuestion:*)
 triggers:
   - review the ios design
   - audit the iphone app visuals
@@ -120,6 +120,11 @@ fi
 echo "GSTACK_PLAN_MODE: $GSTACK_PLAN_MODE"
 [ -n "$OPENCLAW_SESSION" ] && echo "SPAWNED_SESSION: true" || true
 ```
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 ## Plan Mode Safe Operations
 

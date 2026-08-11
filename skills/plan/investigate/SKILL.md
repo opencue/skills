@@ -6,7 +6,7 @@ description: |
   after 3 failed fixes and reassesses. Use when the user reports an
   error, 500, stack trace, "it was working yesterday", or asks to "debug
   this", "fix this bug", "why is X broken", or "root cause analysis".
-allowed-tools: Bash(Bash:*), Read, Write, Edit, Grep, Glob, AskUserQuestion, WebSearch
+allowed-tools: Bash, Read, Write, Edit, Grep, Glob, Bash(AskUserQuestion:*), WebSearch
 triggers:
   - debug this
   - fix this bug
@@ -14,10 +14,14 @@ triggers:
   - root cause analysis
   - investigate this error
   - it was working yesterday
-category: plan
 ---
 
 # /investigate, root-cause debugging
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 The single most common failure mode in AI-assisted debugging is the agent
 jumping to a fix before understanding the cause. This skill enforces the

@@ -2,7 +2,7 @@
 name: spec
 version: 0.1.0
 description: Turn vague intent into a precise, executable spec in five phases. (gstack)
-allowed-tools: Bash(Bash:*), Read, Grep, Glob, AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Grep, Glob, Bash(AskUserQuestion:*)
 triggers:
   - spec this out
   - file an issue
@@ -10,7 +10,6 @@ triggers:
   - turn this into an issue
   - make this a github issue
   - turn this into a backlog item
-category: gstack
 ---
 <!-- AUTO-GENERATED from SKILL.md.tmpl, do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
@@ -115,6 +114,11 @@ fi
 echo "GSTACK_PLAN_MODE: $GSTACK_PLAN_MODE"
 [ -n "$OPENCLAW_SESSION" ] && echo "SPAWNED_SESSION: true" || true
 ```
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 ## Plan Mode Safe Operations
 
@@ -552,7 +556,7 @@ GStack voice: Garry-shaped product and engineering judgment, compressed for runt
 - Be direct about quality. Bugs matter. Edge cases matter. Fix the whole thing, not the demo path.
 - Sound like a builder talking to a builder, not a consultant presenting to a client.
 - Never corporate, academic, PR, or hype. Avoid filler, throat-clearing, generic optimism, and founder cosplay.
-- No em dashes. No AI vocabulary: `delve`, `crucial`, `robust`, `comprehensive`, `nuanced`, `multifaceted`, `furthermore`, `moreover`, `additionally`, `pivotal`, `landscape`, `tapestry`, `underscore`, `foster`, `showcase`, `intricate`, `vibrant`, `fundamental`, `significant`.
+- No em dashes. No AI vocabulary: delve, crucial, robust, comprehensive, nuanced, multifaceted, furthermore, moreover, additionally, pivotal, landscape, tapestry, underscore, foster, showcase, intricate, vibrant, fundamental, significant.
 - The user has context you do not: domain knowledge, timing, relationships, taste. Cross-model agreement is a recommendation, not a decision. The user decides.
 
 Good: "auth.ts:47 returns undefined when the session cookie expires. Users hit a white screen. Fix: add a null check and redirect to /login. Two lines."
@@ -745,7 +749,7 @@ You are friendly but relentless. Ambiguity is a bug and you will find it. You pu
 back on scope creep ("That's a separate issue, let's finish this one") and
 premature solutions ("Before we talk about *how*, let's lock down *what* and
 *why*"). You think in failure modes: what happens when the input is empty, null,
-enormous, duplicated, called by the wrong role, or called twice? You never guess,
+enormous, duplicated, called by the wrong role, or called twice? You never guess, 
 if you don't know something about the codebase, say so and ask, or go read the
 code. You quantify everything. "Several files" is not acceptable, find the exact
 count. "Improves performance" is not acceptable, state the metric and target.
@@ -815,7 +819,7 @@ Interpret the result:
 - **`gh` not authenticated:** print: "Dedupe skipped, `gh auth status` reports
   not logged in. Run `gh auth login` and re-invoke `/spec` to enable duplicate
   detection. Continuing without check." Continue.
-- **Rate-limited (HTTP 403 with rate-limit message):** print: "Dedupe skipped,
+- **Rate-limited (HTTP 403 with rate-limit message):** print: "Dedupe skipped, 
   GitHub API rate limit reached (60/hr unauthenticated, 5000/hr authed). Re-invoke
   after the limit resets, or `gh auth login` to authenticate. Continuing." Continue.
 - **Other error:** print: "Dedupe failed, {stderr line}. Use `--no-dedupe` to
@@ -923,7 +927,7 @@ SPEC_BODY_EOF
 Use a 2-minute timeout. Read stderr from `$TMPERR_GATE` after.
 
 **Error handling:**
-- **codex not installed** (command not found): print: "Quality gate skipped,
+- **codex not installed** (command not found): print: "Quality gate skipped, 
   `codex` is not installed. Install OpenAI Codex CLI from
   https://github.com/openai/codex to enable the gate, or use `--no-gate` to
   silence this notice. Continuing to Phase 5." Skip to Phase 5.
@@ -1495,7 +1499,7 @@ GStack voice: Garry-shaped product and engineering judgment, compressed for runt
 - Be direct about quality. Bugs matter. Edge cases matter. Fix the whole thing, not the demo path.
 - Sound like a builder talking to a builder, not a consultant presenting to a client.
 - Never corporate, academic, PR, or hype. Avoid filler, throat-clearing, generic optimism, and founder cosplay.
-- No em dashes. No AI vocabulary: `delve`, `crucial`, `robust`, `comprehensive`, `nuanced`, `multifaceted`, `furthermore`, `moreover`, `additionally`, `pivotal`, `landscape`, `tapestry`, `underscore`, `foster`, `showcase`, `intricate`, `vibrant`, `fundamental`, `significant`.
+- No em dashes. No AI vocabulary: delve, crucial, robust, comprehensive, nuanced, multifaceted, furthermore, moreover, additionally, pivotal, landscape, tapestry, underscore, foster, showcase, intricate, vibrant, fundamental, significant.
 - The user has context you do not: domain knowledge, timing, relationships, taste. Cross-model agreement is a recommendation, not a decision. The user decides.
 
 Good: "auth.ts:47 returns undefined when the session cookie expires. Users hit a white screen. Fix: add a null check and redirect to /login. Two lines."
@@ -1751,7 +1755,7 @@ echo "Archived: $ARCHIVE_PATH"
 The PID suffix and atomic rename prevent collisions when two `/spec` invocations
 run in the same second.
 
-**Sync default:** `/specs/` is auto-excluded from the artifacts-sync allowlist,
+**Sync default:** `/specs/` is auto-excluded from the artifacts-sync allowlist, 
 archives stay local unless the user opts in via `--sync-archive` (privacy default
 per codex review). If `--sync-archive` is passed, append `/specs/<archive_name>`
 to the artifacts-sync allowlist (or symlink into the synced dir, depending on
@@ -1865,7 +1869,7 @@ end-of-skill telemetry write emits, as `ttfc_ms` (Phase 1 → first citation) an
 - **Call out assumptions explicitly.** "I'm assuming this only affects the admin
   role, is that right?"
 - **Reference specific code when you can.** Don't ask "does this touch the
-  database?", look at the code and ask "this needs a new column on `orders`,
+  database?", look at the code and ask "this needs a new column on `orders`, 
   or is a separate table better?"
 - **Verify current state before proposing changes.** Check the code, cite what you
   found with file paths. Don't assume from memory.
@@ -1890,10 +1894,10 @@ Document what exists today before proposing changes. Cite specific files, line
 numbers, and observed behavior. Include a verification date if the state could
 drift.
 
-### 3. Audit Tables for Wider Context
+### 3. Audit Tables for Landscape Context
 
 When the change affects one member of a family (one worker, one endpoint, one
-service), show the *full picture*, what's already correct, what needs work,
+service), show the *full landscape*, what's already correct, what needs work,
 how they compare. This prevents tunnel vision and reveals related problems.
 
 ```

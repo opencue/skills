@@ -141,10 +141,10 @@ function visualPrompt() {
     ? visualClaims.map((c, i) => `${c.id ?? i + 1}. ${c.text}`).join('\n')
     : '(measure whatever the diff claims about the rendered surface)'
   const driver = surface === 'web'
-    ? `Surface: WEB. Use the lightpanda MCP tools (search for them with ToolSearch:
-   goto ${a.url ?? '<dev-server-url>'} , then eval getComputedStyle() /
-   getBoundingClientRect() on the relevant selectors and return the MEASURED
-   pixel values.`
+    ? `Surface: WEB. Use the browser/ego-browser skill — one JS heredoc:
+   page.goto('${a.url ?? '<dev-server-url>'}'), then page.evaluate() returning
+   getComputedStyle() / getBoundingClientRect() for the relevant selectors, and
+   report the MEASURED pixel values.`
     : `Surface: TUI. Use the cue-tty-watch MCP tools (search for them with ToolSearch):
    launch the app in a tmux pane${a.appCmd ? ` with \`${a.appCmd}\`` : ''}, send_keys_tmux to
    reach the target screen, screenshot it, then find_text / ask_about_image to

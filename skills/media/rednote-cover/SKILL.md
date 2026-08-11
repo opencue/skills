@@ -2,15 +2,14 @@
 slug: muapi-rednote-cover
 name: muapi-rednote-cover
 version: "1.0.0"
-description: Use when the user wants a Xiaohongshu (RedNote/小红书) style cover image — lively, lifestyle-focused, with aesthetic typography overlay suitable for the Chinese social platform.
+description: Create a Xiaohongshu (RedNote/小红书) style cover image — vibrant, lifestyle-focused, with aesthetic typography overlay suitable for the Chinese social platform.
 acceptLicenseTerms: true
-category: media
 ---
 
 
 # RedNote Cover
 
-**Create a Xiaohongshu (RedNote/小红书) style cover image, lively, lifestyle-focused, with aesthetic typography overlay suitable for the Chinese social platform.**
+**Create a Xiaohongshu (RedNote/小红书) style cover image, vibrant, lifestyle-focused, with aesthetic typography overlay suitable for the Chinese social platform.**
 
 ## Inputs
 

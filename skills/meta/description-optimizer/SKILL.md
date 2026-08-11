@@ -1,6 +1,6 @@
 ---
 name: description-optimizer
-description: >
+description: >-
   Optimize a skill's description field for maximum activation rate.
   Generates 20 trigger/no-trigger eval queries, tests them mentally,
   iterates the description until activation is reliable. Use when user
@@ -10,7 +10,7 @@ tags: [meta, cue, skills, optimization]
 category: meta
 version: 1.1.0
 requires_mcps: []
-allowed-tools: Bash(Bash:*)
+allowed-tools: Bash
 ---
 
 # Description Optimizer
@@ -20,10 +20,10 @@ most impactful lever for skill activation (20% → 50% → 90%).
 
 Shared references (read on demand):
 
-- [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md),
+- [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md), 
   use the D-numbered brief before applying any description rewrite that
   changes the skill's trigger surface.
-- [../skill-reviewer/references/voice.md](../skill-reviewer/references/voice.md),
+- [../skill-reviewer/references/voice.md](../skill-reviewer/references/voice.md), 
   no em dashes, no banned AI vocabulary, lead with the verb.
 
 ## When to activate

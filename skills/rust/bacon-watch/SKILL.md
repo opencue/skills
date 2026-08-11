@@ -1,6 +1,11 @@
 ---
 name: bacon-watch
 description: Use when iterating on Rust code and wanting auto-rerun on save. Covers bacon (TUI) and cargo-watch (simpler scripted loop).
+triggers:
+  - "rust watch mode"
+  - "auto rerun rust"
+  - "bacon"
+  - "cargo watch"
 allowed-tools: Bash(bacon:*), Bash(cargo:*), Bash(cargo-watch:*)
 category: rust
 ---

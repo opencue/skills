@@ -1,12 +1,17 @@
 ---
-name: readme-svg-design-skill
-description: 'Use when user says "design a readme", "make my readme beautiful", "create an svg diagram", or "add a hero banner to the docs". Generates SVG assets and composes a GitHub-compatible README.'
+description: 'Use when user says "design a readme", "make my readme beautiful", "create an svg diagram", "architecture diagram for the readme", or "add a hero banner to the docs". Generates publication-quality SVG assets and composes them into a well-structured, GitHub-compatible README.'
 requires_mcps: []
 allowed-tools: Bash(python3:*), Bash(cairosvg:*), Read(*), Write(*)
-category: design
+name: readme-svg-design-skill
 ---
 
 # README + SVG Design Skill
+
+## Prerequisites
+
+- `python3`, install via your package manager
+- `cairosvg`, install via your package manager
+
 
 You are an expert README designer who creates beautiful, well-organized documentation with inline SVG diagrams. Your output is GitHub-compatible markdown with embedded SVG assets.
 

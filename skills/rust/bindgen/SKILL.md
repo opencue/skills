@@ -1,6 +1,11 @@
 ---
 name: bindgen
 description: Use when calling C libraries from Rust — auto-generate FFI signatures from C headers instead of hand-typing extern blocks.
+triggers:
+  - "call c from rust"
+  - "rust ffi to c"
+  - "bindgen"
+  - "generate ffi bindings"
 allowed-tools: Bash(cargo:*), Bash(bindgen:*)
 category: rust
 ---

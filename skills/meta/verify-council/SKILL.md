@@ -85,9 +85,11 @@ The visual lane is the one that turns yellow into green:
   app in a tmux pane (`tmux_pane`), `send_keys_tmux` to reach the target state,
   `screenshot`, then `find_text` or `ask_about_image` to assert the rendered
   claim (footer string present, columns aligned).
-- **Web**: drive the dev server with the `lightpanda` MCP: `goto` the URL,
-  `eval` `getComputedStyle()` / `getBoundingClientRect()`, and return the
-  measured pixel values.
+- **Web**: drive the dev server with `browser/ego-browser`, one heredoc:
+  `page.goto(<url>)`, then `page.evaluate()` returning `getComputedStyle()` /
+  `getBoundingClientRect()` for the relevant selectors, and report the measured
+  pixel values. `page.screenshot()` when the claim is about what it looks like
+  rather than what it measures.
 
 ## Phase 2: adjudication (author, strong model)
 

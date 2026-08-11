@@ -6,17 +6,21 @@ description: |
   and replays the task, next-step, decisions, and failed-approach lists. Pair
   with /context-save. Use when the user says "resume", "restore context",
   "where was I", or "pick up where I left off".
-allowed-tools: Bash(Bash:*), Read, Glob, Grep, AskUserQuestion
+allowed-tools: Bash, Read, Glob, Grep, Bash(AskUserQuestion:*)
 triggers:
   - resume where i left off
   - restore context
   - where was i
   - pick up where i left off
   - context restore
-category: gstack
 ---
 
 # /context-restore, resume from a saved context note
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 ## Step 1, find the right note
 

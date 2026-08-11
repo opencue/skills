@@ -1,7 +1,7 @@
 ---
 name: playwright
-description: Use when user says "does it work?", "screenshot the page", "check the checkout flow", or "open the browser". Drives a browser via Playwright MCP to verify UI changes or reproduce bugs.
-category: browser
+requires_mcps: [playwright]
+description: Use when user says "does it work?", "screenshot the page", "show me the form", "check the checkout flow", or "open the browser". Drives Chromium/Firefox/WebKit via Playwright MCP to verify storefront/admin UI changes, reproduce reported UI bugs, test Medusa dev servers on localhost, or explore third-party sites.
 ---
 
 # Playwright MCP, driving a real browser

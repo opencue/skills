@@ -1,8 +1,25 @@
 ---
+requires_mcps: [trendradar]
+description: 'Use when user says "what''s trending", "news trends", "hot topics", "search recent news", "analyze a topic trend", or "daily news briefing". Uses the TrendRadar MCP tools for news aggregation, trend analysis, RSS feeds, and notifications.'
+allowed-tools:
+  - mcp__trendradar__get_latest_news
+  - mcp__trendradar__get_trending_topics
+  - mcp__trendradar__search_news
+  - mcp__trendradar__analyze_topic_trend
+  - mcp__trendradar__analyze_data_insights
+  - mcp__trendradar__analyze_sentiment
+  - mcp__trendradar__find_related_news
+  - mcp__trendradar__generate_summary_report
+  - mcp__trendradar__get_latest_rss
+  - mcp__trendradar__search_rss
+  - mcp__trendradar__read_article
+  - mcp__trendradar__read_articles_batch
+  - mcp__trendradar__aggregate_news
+  - mcp__trendradar__compare_periods
+  - mcp__trendradar__send_notification
+  - mcp__trendradar__trigger_crawl
+  - mcp__trendradar__resolve_date_range
 name: trendradar-news-trend-intelligence
-description: 'Use when user says "what''s trending", "news trends", "hot topics", or "daily news briefing". Uses the TrendRadar MCP tools for news aggregation, trend analysis, RSS feeds, and notifications.'
-allowed-tools: mcp__trendradar__get_latest_news, mcp__trendradar__get_trending_topics, mcp__trendradar__search_news, mcp__trendradar__analyze_topic_trend, mcp__trendradar__analyze_data_insights, mcp__trendradar__analyze_sentiment, mcp__trendradar__find_related_news, mcp__trendradar__generate_summary_report, mcp__trendradar__get_latest_rss, mcp__trendradar__search_rss, mcp__trendradar__read_article, mcp__trendradar__read_articles_batch, mcp__trendradar__aggregate_news, mcp__trendradar__compare_periods, mcp__trendradar__send_notification, mcp__trendradar__trigger_crawl, mcp__trendradar__resolve_date_range
-category: research
 ---
 
 # TrendRadar, News Trend Intelligence

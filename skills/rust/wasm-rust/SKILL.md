@@ -1,8 +1,12 @@
 ---
 name: wasm-rust
 description: Use when building Rust → WASM — modules with JS bindings (wasm-pack), full SPA frontends (trunk + Yew/Leptos/Sycamore), or Dioxus apps.
+triggers:
+  - "rust wasm"
+  - "wasm-pack"
+  - "rust to webassembly"
+  - "rust frontend"
 allowed-tools: Bash(cargo:*), Bash(wasm-pack:*), Bash(trunk:*), Bash(dioxus:*), Bash(rustup:*)
-category: rust
 ---
 
 # Rust → WebAssembly
@@ -22,7 +26,7 @@ Pick the toolchain that matches the target.
 - wasm-pack, trunk, or dioxus-cli depending on path
 
 ## Notes
-- For web SPAs, `wasm-opt` (from binaryen) shaves notable size, trunk runs it automatically in `--release`.
+- For web SPAs, `wasm-opt` (from binaryen) shaves significant size, trunk runs it automatically in `--release`.
 - `wee_alloc` saves ~10KB but is unmaintained; the default allocator is usually fine.
 - Async works in browser via `wasm-bindgen-futures`; spawn with `spawn_local`.
 - Cargo features: gate native-only code behind `#[cfg(not(target_arch = "wasm32"))]` so the WASM build doesn't pull in tokio's mio.

@@ -35,7 +35,6 @@ gbrain:
       glob: "~/.gstack/projects/{repo_slug}/learnings.jsonl"
       tail: 10
       render_as: "## Recent learnings"
-category: gstack
 ---
 ## Step 0: Detect platform and base branch
 
@@ -83,7 +82,7 @@ branch name wherever the instructions say "the base branch" or `<default>`.
 - `-`, install via your package manager
 
 
-Generates a complete engineering retrospective analyzing commit history, work patterns, and code quality metrics. Team-aware: identifies the user running the command, then analyzes every contributor with per-person praise and growth opportunities. Designed for a senior IC/CTO-level builder using Claude Code as a force multiplier.
+Generates a full engineering retrospective analyzing commit history, work patterns, and code quality metrics. Team-aware: identifies the user running the command, then analyzes every contributor with per-person praise and growth opportunities. Designed for a senior IC/CTO-level builder using Claude Code as a force multiplier.
 
 ## User-invocable
 When the user types `/retro`, run this skill.
@@ -894,7 +893,7 @@ align cleanly. Never truncate project names.
 ## Global Engineering Retro: [date range]
 
 Everything below is the full analysis, team data, project breakdowns, patterns.
-This is the detailed breakdown that follows the shareable card.
+This is the "deep dive" that follows the shareable card.
 
 ### All Projects Overview
 | Metric | Value |

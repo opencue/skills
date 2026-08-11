@@ -7,6 +7,11 @@ category: medusa
 
 # Create Medusa Admin User via API
 
+## Prerequisites
+
+- `curl`, install via your package manager
+
+
 Medusa v2 does **not** expose `POST /admin/users`. Admin creation goes through
 invites. Pick the flow based on whether the backend already has an admin.
 

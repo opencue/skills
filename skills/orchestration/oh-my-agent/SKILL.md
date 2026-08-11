@@ -1,10 +1,11 @@
 ---
 name: oh-my-agent
-description: Use when the user mentions "oh-my-agent", "OMA", a portable agent harness, vendor-agnostic skill bundles across Claude Code + Codex + Cursor, or asks how OMA compares to Colony/codex-fleet.
+requires_mcps: [colony]
+description: Use when the user mentions "oh-my-agent", "OMA", a portable agent harness, vendor-agnostic skill bundles across Claude Code + Codex + Cursor, or asks how OMA compares to Colony/codex-fleet. Routes the user to the upstream tool and explains the cue-side trade-offs vs the parallel-agents stack they already run.
 tags: [orchestration, fleet, multi-agent]
 category: orchestration
 version: 1.0.0
-allowed-tools: Bash(Bash:*)
+allowed-tools: Bash
 ---
 
 # oh-my-agent

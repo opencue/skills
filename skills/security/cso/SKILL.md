@@ -7,17 +7,21 @@ description: |
   Use when the user says "security audit", "OWASP review", "threat model",
   "cso", "is this secure", or before shipping anything that touches auth,
   user input, secrets, or payments.
-allowed-tools: Bash(Bash:*), Read, Grep, Glob, Edit, MultiEdit, Write, AskUserQuestion, WebSearch
+allowed-tools: Bash, Read, Grep, Glob, Edit, MultiEdit, Write, Bash(AskUserQuestion:*), WebSearch
 triggers:
   - security audit
   - owasp review
   - threat model
   - cso
   - is this secure
-category: security
 ---
 
 # /cso, Chief Security Officer audit
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 Most "security review" output is noise: speculative findings with no
 exploit path, dressed up as critical. This skill flips that, every

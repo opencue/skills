@@ -23,7 +23,6 @@ triggers:
   - developer experience review
   - dx plan review
   - check developer onboarding
-category: gstack
 ---
 ## Step 0: Detect platform and base branch
 
@@ -151,7 +150,7 @@ Internalize these; don't enumerate them.
 |------|------|-----------------|
 | Champion | < 2 min | 3-4x higher adoption |
 | Competitive | 2-5 min | Baseline |
-| Needs Work | 5-10 min | Large drop-off |
+| Needs Work | 5-10 min | Significant drop-off |
 | Red Flag | > 10 min | 50-70% abandon |
 
 ## Hall of Fame Reference
@@ -1212,7 +1211,7 @@ Display:
 - **Eng Review (required by default):** The only review that gates shipping. Covers architecture, code quality, tests, performance. Can be disabled globally with \`gstack-config set skip_eng_review true\` (the "don't bother me" setting).
 - **CEO Review (optional):** Use your judgment. Recommend it for big product/business changes, new user-facing features, or scope decisions. Skip for bug fixes, refactors, infra, and cleanup.
 - **Design Review (optional):** Use your judgment. Recommend it for UI/UX changes. Skip for backend-only, infra, or prompt-only changes.
-- **Adversarial Review (automatic):** Always-on for every review. Every diff gets both Claude adversarial subagent and Codex adversarial challenge. Large diffs (200+ lines) also get Codex structured review with P1 gate. No configuration needed.
+- **Adversarial Review (automatic):** Always-on for every review. Every diff gets both Claude adversarial subagent and Codex adversarial challenge. Large diffs (200+ lines) additionally get Codex structured review with P1 gate. No configuration needed.
 - **Outside Voice (optional):** Independent plan review from a different AI model. Offered after all review sections complete in /plan-ceo-review and /plan-eng-review. Falls back to Claude subagent if Codex is unavailable. Never gates shipping.
 
 **Verdict logic:**
@@ -1399,7 +1398,7 @@ missing work, do NOT call ExitPlanMode:
    diff with no plan), this check short-circuits, checks 1-3 already
    short-circuit when no plan file exists.
 
-Failing this gate and calling ExitPlanMode anyway is a contract violation,
+Failing this gate and calling ExitPlanMode anyway is a contract violation, 
 the user will see a plan whose review report is missing or stale, and will
 (correctly) reject it. Self-deception failure mode to watch for: feeling
 "done" after writing review prose into the plan body. The body prose is not

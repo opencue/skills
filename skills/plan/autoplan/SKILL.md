@@ -7,16 +7,20 @@ description: |
   user approval; everything else runs straight through.
   Use when the user says "autoplan", "run the full plan", "plan
   pipeline", or has a fresh idea and wants the whole sprint up to code.
-allowed-tools: Read(*), Write, Edit, Skill, AskUserQuestion
+allowed-tools: Read, Write, Edit, Skill, Bash(AskUserQuestion:*)
 triggers:
   - autoplan
   - run the full plan
   - plan pipeline
   - full plan review
-category: plan
 ---
 
 # /autoplan, chained plan review
+
+## Prerequisites
+
+- `AskUserQuestion`, install via your package manager
+
 
 The plan-stage pipeline in one command:
 

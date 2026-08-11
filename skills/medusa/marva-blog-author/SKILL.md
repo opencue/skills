@@ -1,7 +1,8 @@
 ---
 name: marva-blog-author
-description: 'Use when user says "write a MARVA blog post", "marvahome blog", or "MARVA Home cikk", or asks to publish an SEO post for marvahome.com. Hungarian SEO+GEO, marva-blog MCP, Higgsfield thumbnail.'
-category: medusa
+requires_mcps: [Higgsfield]
+description: >-
+  Use when user says "write a MARVA blog post", "marvahome blog", "publish MARVA blog", "generate Hungarian blog for marvahome", "MARVA Home cikk", or asks to draft, author, push, or publish an SEO blog post for marvahome.com. End-to-end: Hungarian SEO+GEO authoring → marva-blog MCP push → Higgsfield thumbnail.
 ---
 
 # MARVA Home Blog Author
@@ -165,7 +166,7 @@ Estimate `reading_minutes` from total word count / 220.
 
 ### 6. Thumbnail brief (Higgsfield MCP)
 
-Before publishing, generate **one** `landscape` 16:9 image using the **`Higgsfield`** MCP (tools prefixed `mcp__Higgsfield__*`).
+Before publishing, generate **one** landscape 16:9 image using the **`Higgsfield`** MCP (tools prefixed `mcp__Higgsfield__*`).
 
 **Base prompt template** (adapt per topic):
 
@@ -178,7 +179,7 @@ Per-topic adaptations:
 - Coaching / consulting post → append "a small round table with two notebooks and a fountain pen, soft blurred background"
 - Memberships / pricing post → append "a wide view of a quiet hallway with several wooden doors, soft ambient light"
 
-**Output constraints**: `landscape`, **≥ 1600 px wide**, no on-image text, no logos.
+**Output constraints**: landscape, **≥ 1600 px wide**, no on-image text, no logos.
 
 **Two upload flows**, both supported:
 
