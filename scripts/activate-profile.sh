@@ -90,6 +90,7 @@ const path = require("node:path");
 const skillsRoot = process.env.SOUL_SKILLS_ROOT;
 const profilesRoot = process.env.SOUL_PROFILES_ROOT;
 const profileName = process.env.SOUL_PROFILE;
+const repoRoot = path.dirname(skillsRoot);
 
 function fail(message) {
   process.stderr.write(`${message}\n`);
@@ -105,9 +106,40 @@ function walk(dir, out = []) {
   return out;
 }
 
-const catalog = new Map();
+const byId = new Map();
+const byName = new Map();
+const bySlug = new Map();
 for (const skillDir of walk(skillsRoot)) {
-  catalog.set(path.basename(skillDir), skillDir);
+  const id = path.relative(skillsRoot, skillDir).split(path.sep).join("/");
+  const slug = path.basename(skillDir);
+  const skillText = fs.readFileSync(path.join(skillDir, "SKILL.md"), "utf8");
+  const nameMatch = skillText.match(/^name:\s*["']?([^"'\n]+)["']?\s*$/m);
+  const name = nameMatch ? nameMatch[1].trim() : slug;
+  const record = { id, name, slug, skillDir };
+  byId.set(id, record);
+  if (byName.has(name)) fail(`Duplicate skill name: ${name}`);
+  byName.set(name, record);
+  const matches = bySlug.get(slug) || [];
+  matches.push(record);
+  bySlug.set(slug, matches);
+}
+
+let aliases = {};
+const aliasesFile = path.join(repoRoot, "catalog", "aliases.json");
+if (fs.existsSync(aliasesFile)) {
+  aliases = JSON.parse(fs.readFileSync(aliasesFile, "utf8")).aliases || {};
+}
+
+function resolveSkill(value) {
+  const canonical = aliases[value] || value;
+  if (byId.has(canonical)) return byId.get(canonical);
+  if (byName.has(canonical)) return byName.get(canonical);
+  const slugMatches = bySlug.get(canonical) || [];
+  if (slugMatches.length === 1) return slugMatches[0];
+  if (slugMatches.length > 1) {
+    fail(`Ambiguous skill "${value}"; use one of: ${slugMatches.map(x => x.id).join(", ")}`);
+  }
+  fail(`Unknown skill: ${value}`);
 }
 
 function loadProfile(name, stack = []) {
@@ -129,15 +161,14 @@ function loadProfile(name, stack = []) {
 
   for (const item of parsed.include || []) {
     if (item === "*") {
-      names.push(...[...catalog.keys()].sort((a, b) => a.localeCompare(b)));
+      names.push(...[...byId.keys()].sort((a, b) => a.localeCompare(b)));
     } else if (typeof item === "string" && item.startsWith("category:")) {
       const category = item.slice("category:".length);
-      for (const [skill, skillDir] of catalog) {
-        const relative = path.relative(skillsRoot, skillDir).split(path.sep);
-        if (relative[0] === category) names.push(skill);
+      for (const [id] of byId) {
+        if (id.split("/")[0] === category) names.push(id);
       }
     } else if (typeof item === "string") {
-      names.push(item);
+      names.push(resolveSkill(item).id);
     }
   }
 
@@ -145,12 +176,11 @@ function loadProfile(name, stack = []) {
 }
 
 const seen = new Set();
-for (const name of loadProfile(profileName)) {
-  if (seen.has(name)) continue;
-  seen.add(name);
-  const skillDir = catalog.get(name);
-  if (!skillDir) fail(`Profile "${profileName}" references missing skill: ${name}`);
-  process.stdout.write(`${name}\t${skillDir}\n`);
+for (const id of loadProfile(profileName)) {
+  if (seen.has(id)) continue;
+  seen.add(id);
+  const record = resolveSkill(id);
+  process.stdout.write(`${record.name}\t${record.skillDir}\n`);
 }
 NODE
 then

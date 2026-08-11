@@ -1,6 +1,6 @@
 # cue/skills — Skill Library
 
-> 452 skills across 39 categories. The source of truth for all local skills used by [cue](https://github.com/opencue/claude-code-skills) profiles.
+> 441 skills across 39 categories. The source of truth for all local skills used by [cue](https://github.com/opencue/claude-code-skills) profiles.
 
 ## What's here
 
@@ -79,6 +79,10 @@ README counts, canonical IDs, and structural collisions. Existing duplicate
 names and category mismatches are warnings until their migrations are reviewed;
 new generated drift and stale artifacts fail CI.
 
+Removed duplicate IDs remain discoverable in
+[`catalog/aliases.json`](catalog/aliases.json). Consumers should resolve an
+alias before looking up the canonical `category/slug` ID.
+
 ## How cue uses this
 
 Profiles reference skills by `category/slug`:
@@ -124,7 +128,7 @@ instead of overwriting them, and refresh the cue catalog after import.
 | `meta` | 49 |
 | `marketing` | 45 |
 | `rust` | 41 |
-| `design` | 33 |
+| `design` | 22 |
 | `medusa` | 17 |
 | `legal` | 14 |
 | `nvidia` | 13 |

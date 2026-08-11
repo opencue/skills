@@ -1,9 +1,9 @@
 {
   "schema_version": "2.2",
   "counts": {
-    "skills": 452,
-    "withTriggers": 353,
-    "withCapability": 448,
+    "skills": 441,
+    "withTriggers": 345,
+    "withCapability": 437,
     "withRequires": 29
   },
   "skills": [
@@ -3980,7 +3980,7 @@
     },
     {
       "id": "nvidia/aiq-research",
-      "name": "aiq-research",
+      "name": "ai-q-deep-research",
       "category": "nvidia",
       "description": "Use when user says \\\"deep research this\\\", \\\"research the regulatory landscape\\\", \\\"synthesize findings from our docs\\\", \\\"produce a cited memo\\\", \\\"multi-source research\\\". Routes deep research, multi-source synthesis, regulatory analysis, or enterprise document research through the NVIDIA AI-Q server for structured reports with citations.",
       "source": "skills/nvidia/aiq-research/SKILL.md",
@@ -5138,28 +5138,6 @@
       "quality": "partial"
     },
     {
-      "id": "design/output-skill",
-      "name": "full-output-enforcement",
-      "category": "design",
-      "description": "Use when user says \"full output\", \"no truncation\", \"don't skip code\", \"complete file\", or \"no placeholders\". Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged output.",
-      "source": "skills/design/output-skill/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "full output",
-        "no truncation",
-        "don't skip code",
-        "complete file",
-        "no placeholders"
-      ],
-      "capability": "Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged output",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "good"
-    },
-    {
       "id": "design/taste-skill",
       "name": "design-taste-frontend",
       "category": "design",
@@ -5327,7 +5305,7 @@
     },
     {
       "id": "design/design-taste-frontend",
-      "name": "design-taste-frontend",
+      "name": "high-agency-frontend",
       "category": "design",
       "description": "Use when user says \"improve the UI\", \"make it tasteful\", or \"design pass\". Hierarchy, spacing, polish, visual validation.",
       "source": "skills/design/design-taste-frontend/SKILL.md",
@@ -5346,30 +5324,8 @@
       "quality": "good"
     },
     {
-      "id": "design/gpt-tasteskill",
-      "name": "gpt-taste",
-      "category": "design",
-      "description": "Use when user says \"gpt-taste\", \"GSAP motion\", \"AIDA structure\", \"Awwwards-level\", or \"editorial typography\". Elite UX/UI & Advanced GSAP Motion Engineer. Enforces Python-driven true randomization for layout variance, strict AIDA page structure, wide editorial typography (bans 6-line wraps), gapless bento grids, strict GSAP ScrollTriggers (pinning, stacking, scrubbing), inline micro-images, and massive section spacing.",
-      "source": "skills/design/gpt-tasteskill/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "gpt-taste",
-        "GSAP motion",
-        "AIDA structure",
-        "Awwwards-level",
-        "editorial typography"
-      ],
-      "capability": "Elite UX/UI & Advanced GSAP Motion Engineer. Enforces Python-driven true randomization for layout variance, strict AIDA page structure, wide editorial typography (bans 6-line wraps), gapless bento grids, strict GSAP ScrollTriggers (pinning, stacking, scrubbing), inline micro-images, and massive section spacing",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "good"
-    },
-    {
       "id": "design/readme-svg-design",
-      "name": "readme-svg-design",
+      "name": "readme-svg-design-skill",
       "category": "design",
       "description": "Use when user says \"design a readme\", \"make my readme beautiful\", \"create an svg diagram\", \"architecture diagram for the readme\", or \"add a hero banner to the docs\". Generates publication-quality SVG assets and composes them into a well-structured, GitHub-compatible README.",
       "source": "skills/design/readme-svg-design/SKILL.md",
@@ -5412,89 +5368,8 @@
       "quality": "good"
     },
     {
-      "id": "design/brandkit/brandkit",
-      "name": "brandkit",
-      "category": "design",
-      "description": "Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark-tech, luxury, cultural, security, gaming, developer-tool, and consumer-app brand systems. Optimized for intentional logo concepting, refined composition, sparse typography, strong symbolic meaning, premium mockups, art-directed imagery, and flexible grid layouts.",
-      "source": "skills/design/brandkit/brandkit/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark-tech, luxury, cultural, security, gaming, developer-tool, and consumer-app brand systems. Optimized for intentional logo concepting, refined composition, sparse typography, strong symbolic meaning, premium mockups, art-directed imagery, and flexible grid layouts",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "partial"
-    },
-    {
-      "id": "design/image-to-code-skill",
-      "name": "image-to-code",
-      "category": "design",
-      "description": "Use when user says \"image to code\", \"design from image\", \"mockup to website\", \"implement this screenshot\", or \"match this design\". Elite website image-to-code skill for Codex. For visually important web tasks, it must first generate the design image(s) itself, deeply analyze them, then implement the website to match them as closely as possible. In Codex, it must prefer large, readable, section-specific images instead of tiny compressed boards, generate fresh standalone images for sections or detail views instead of cropping old ones, avoid lazy under-generation, avoid cards-inside-cards-inside-cards UI, and keep the hero clean, spacious, readable, and visible on a small laptop.",
-      "source": "skills/design/image-to-code-skill/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "image to code",
-        "design from image",
-        "mockup to website",
-        "implement this screenshot",
-        "match this design"
-      ],
-      "capability": "Elite website image-to-code skill for Codex. For visually important web tasks, it must first generate the design image(s) itself, deeply analyze them, then implement the website to match them as closely as possible. In Codex, it must prefer large, readable, section-specific images instead of tiny compressed boards, generate fresh standalone images for sections or detail views instead of cropping old ones, avoid lazy under-generation, avoid cards-inside-cards-inside-cards UI, and keep the hero clean, spacious, readable, and visible on a small laptop",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "good"
-    },
-    {
-      "id": "design/stitch-skill",
-      "name": "stitch-design-taste",
-      "category": "design",
-      "description": "Use when user says \"Google Stitch\", \"stitch design\", \"DESIGN.md for Stitch\", or \"stitch-design-taste\". Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards \u2014 strict typography, calibrated color, asymmetric layouts, perpetual micro-motion, and hardware-accelerated performance.",
-      "source": "skills/design/stitch-skill/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "Google Stitch",
-        "stitch design",
-        "DESIGN.md for Stitch",
-        "stitch-design-taste"
-      ],
-      "capability": "Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards \u2014 strict typography, calibrated color, asymmetric layouts, perpetual micro-motion, and hardware-accelerated performance",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "good"
-    },
-    {
-      "id": "design/brutalist-skill",
-      "name": "industrial-brutalist-ui",
-      "category": "design",
-      "description": "Use when user says \"brutalist UI\", \"industrial design\", \"Swiss typography\", \"tactical telemetry\", or \"declassified blueprint\". Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics. Rigid grids, extreme type scale contrast, utilitarian color, analog degradation effects. For data-heavy dashboards, portfolios, or editorial sites that need to feel like declassified blueprints.",
-      "source": "skills/design/brutalist-skill/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "brutalist UI",
-        "industrial design",
-        "Swiss typography",
-        "tactical telemetry",
-        "declassified blueprint"
-      ],
-      "capability": "Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics. Rigid grids, extreme type scale contrast, utilitarian color, analog degradation effects. For data-heavy dashboards, portfolios, or editorial sites that need to feel like declassified blueprints",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "good"
-    },
-    {
       "id": "design/headless-gif-demo",
-      "name": "headless-gif-demo",
+      "name": "headless-gif-demos-with-cage-wayland-kitty-tmux-auto-redaction",
       "category": "design",
       "description": "Use when user says \"record a CLI demo gif\", \"make a terminal demo\", \"capture a tmux session as a gif\", \"demo gif with brand logos\", or \"redact text in a screen recording\". Headless cage/Wayland + Kitty + tmux + ffmpeg pipeline for high-quality CLI demo GIFs that need Kitty graphics protocol (real PNG icons inline) \u2014 instead of vhs/asciinema which don''t speak the Kitty protocol. Includes auto-redaction of moving text via tesseract OCR.",
       "source": "skills/design/headless-gif-demo/SKILL.md",
@@ -5537,22 +5412,6 @@
       "quality": "good"
     },
     {
-      "id": "design/imagegen-frontend-web/imagegen-frontend-web",
-      "name": "imagegen-frontend-web",
-      "category": "design",
-      "description": "Elite frontend image-direction skill for generating premium, conversion-aware website design references. CRITICAL OUTPUT RULE \u2014 generate ONE separate horizontal image FOR EVERY section. A landing page with 8 sections produces 8 images. Never compress multiple sections into one image. Enforces composition variety (not always left-text / right-image), background-image freedom, varied CTAs, varied hero scales (giant / mid / mini minimalist), narrative concept spine, second-read moments, and a single consistent palette across all images. Optimized for landing pages, marketing sites, and product comps that developers or coding models can accurately recreate.",
-      "source": "skills/design/imagegen-frontend-web/imagegen-frontend-web/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "Elite frontend image-direction skill for generating premium, conversion-aware website design references. CRITICAL OUTPUT RULE \u2014 generate ONE separate horizontal image FOR EVERY section. A landing page with 8 sections produces 8 images. Never compress multiple sections into one image. Enforces composition variety (not always left-text / right-image), background-image freedom, varied CTAs, varied hero scales (giant / mid / mini minimalist), narrative concept spine, second-read moments, and a single consistent palette across all images. Optimized for landing pages, marketing sites, and product comps that developers or coding models can accurately recreate",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "partial"
-    },
-    {
       "id": "design/image-to-code",
       "name": "image-to-code",
       "category": "design",
@@ -5593,7 +5452,7 @@
     },
     {
       "id": "design/screenshot",
-      "name": "\"screenshot\"",
+      "name": "screenshot",
       "category": "design",
       "description": "Use when user says \"screenshot\", \"capture the page\", or \"visual proof\". Browser/window capture, artifacts, naming.",
       "source": "skills/design/screenshot/SKILL.md",
@@ -5624,66 +5483,6 @@
         "imagegen mobile"
       ],
       "capability": "Mobile frontend visual generation",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "good"
-    },
-    {
-      "id": "design/imagegen-frontend-mobile/imagegen-frontend-mobile",
-      "name": "imagegen-frontend-mobile",
-      "category": "design",
-      "description": "Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows. Designed for iOS, Android, and cross-platform mobile products. Prioritizes clean hierarchy, comfortably readable text, strong multi-screen consistency, controlled color palettes, non-generic creative direction, textured surfaces, image-led composition, tasteful custom iconography, and clean phone mockup framing. By default, screens should be shown inside a subtle premium iPhone or similar phone mockup with a visible frame, while the main focus stays on the app content itself. This skill generates images only. It does not write code.",
-      "source": "skills/design/imagegen-frontend-mobile/imagegen-frontend-mobile/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows. Designed for iOS, Android, and cross-platform mobile products. Prioritizes clean hierarchy, comfortably readable text, strong multi-screen consistency, controlled color palettes, non-generic creative direction, textured surfaces, image-led composition, tasteful custom iconography, and clean phone mockup framing. By default, screens should be shown inside a subtle premium iPhone or similar phone mockup with a visible frame, while the main focus stays on the app content itself. This skill generates images only. It does not write code",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "partial"
-    },
-    {
-      "id": "design/soft-skill",
-      "name": "high-end-visual-design",
-      "category": "design",
-      "description": "Use when user says \"high-end design\", \"agency-tier UI\", \"expensive-looking site\", \"Awwwards style\", or \"premium visual design\". Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic.",
-      "source": "skills/design/soft-skill/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "high-end design",
-        "agency-tier UI",
-        "expensive-looking site",
-        "Awwwards style",
-        "premium visual design"
-      ],
-      "capability": "Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "good"
-    },
-    {
-      "id": "design/minimalist-skill",
-      "name": "minimalist-ui",
-      "category": "design",
-      "description": "Use when user says \"minimalist UI\", \"editorial style\", \"warm monochrome\", \"bento grid\", or \"flat design\". Clean editorial-style interfaces. Warm monochrome palette, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows.",
-      "source": "skills/design/minimalist-skill/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "minimalist UI",
-        "editorial style",
-        "warm monochrome",
-        "bento grid",
-        "flat design"
-      ],
-      "capability": "Clean editorial-style interfaces. Warm monochrome palette, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows",
       "notFor": "",
       "links": [],
       "requires": {
@@ -5733,28 +5532,6 @@
       "quality": "good"
     },
     {
-      "id": "design/redesign-skill",
-      "name": "redesign-existing-projects",
-      "category": "design",
-      "description": "Use when user says \"redesign this\", \"upgrade the design\", \"make it premium\", \"fix generic AI design\", or \"modernize the UI\". Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS.",
-      "source": "skills/design/redesign-skill/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "redesign this",
-        "upgrade the design",
-        "make it premium",
-        "fix generic AI design",
-        "modernize the UI"
-      ],
-      "capability": "Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "good"
-    },
-    {
       "id": "design/redesign-existing-projects",
       "name": "redesign-existing-projects",
       "category": "design",
@@ -5777,7 +5554,7 @@
     },
     {
       "id": "design/png-alpha-cleaner",
-      "name": "\"png-alpha-cleaner\"",
+      "name": "png-alpha-cleaner",
       "category": "design",
       "description": "Use when user says \"clean PNG alpha\", \"remove transparent fringe\", or \"fix PNG edges\". Alpha-channel cleanup.",
       "source": "skills/design/png-alpha-cleaner/SKILL.md",
@@ -6588,7 +6365,7 @@
     },
     {
       "id": "github/gh-fix-ci",
-      "name": "\"gh-fix-ci\"",
+      "name": "gh-fix-ci",
       "category": "github",
       "description": "Use when user says \"fix CI\", \"GitHub checks failed\", or \"debug PR checks\". Inspects failing Actions via gh; fix plan needs approval before implementation.",
       "source": "skills/github/gh-fix-ci/SKILL.md",
@@ -6839,7 +6616,7 @@
     },
     {
       "id": "meta/smithery-usage",
-      "name": "smithery-usage",
+      "name": "smithery-mcp-marketplace",
       "category": "meta",
       "description": "Guides through smithery CLI and cue marketplace commands for finding, installing, and managing MCP servers from the Smithery registry. Use when user says \\\"find an MCP on smithery\\\", \\\"install smithery MCP\\\", \\\"search the MCP marketplace\\\", \\\"what MCPs are available\\\", or \\\"smithery help\\\".",
       "source": "skills/meta/smithery-usage/SKILL.md",
@@ -7032,7 +6809,7 @@
     },
     {
       "id": "meta/cue-usage",
-      "name": "cue-usage",
+      "name": "cue-agent-profile-manager",
       "category": "meta",
       "description": "Guides through cue CLI commands for profiles, skills, MCPs, and marketplace operations. Use when user says \\\"cue help\\\", \\\"how do I use cue\\\", \\\"list profiles\\\", \\\"add an MCP\\\", \\\"manage my profile\\\", or asks anything about the cue CLI surface.",
       "source": "skills/meta/cue-usage/SKILL.md",
@@ -7081,7 +6858,7 @@
     },
     {
       "id": "meta/builtin-manager",
-      "name": "builtin-manager",
+      "name": "built-in-skill-manager",
       "category": "meta",
       "description": "Manage built-in skills shared across every cue profile \u2014 promote, demote, list. Use when user says \\\"make X built-in\\\", \\\"add X to all profiles\\\", \\\"remove from built-in\\\", \\\"promote skill to built-in\\\", or \\\"what skills are built-in\\\". Also activates proactively when a skill has fired across 3+ profiles and should be promoted.",
       "source": "skills/meta/builtin-manager/SKILL.md",
@@ -7501,7 +7278,7 @@
     },
     {
       "id": "meta/retro",
-      "name": "retro",
+      "name": "learning-retro",
       "category": "meta",
       "description": "Engineering retrospective from git history + cue session log. Per-author shipping streaks, test-health trend, growth opportunities, and one one-paragraph \"what to do differently next week.\" Saves a markdown file under .cue/retros/<YYYY-WW>.md. Use when the user says \"weekly retro\", \"what did we ship\", \"engineering retrospective\", or at end-of-sprint.",
       "source": "skills/meta/retro/SKILL.md",
@@ -7860,7 +7637,7 @@
     },
     {
       "id": "content/playwright",
-      "name": "\"playwright\"",
+      "name": "content-playwright",
       "category": "content",
       "description": "Use when user says \"Playwright\", \"browser test\", or \"snapshot\". Navigation, locators, screenshots, assertions.",
       "source": "skills/content/playwright/SKILL.md",
@@ -8027,7 +7804,7 @@
     },
     {
       "id": "content/doc",
-      "name": "\"doc\"",
+      "name": "doc",
       "category": "content",
       "description": "Use when user says \"write documentation\", \"make a DOCX\", or \"create a doc\". Document structure, formatting, export.",
       "source": "skills/content/doc/SKILL.md",
@@ -8207,7 +7984,7 @@
     },
     {
       "id": "review/security-best-practices",
-      "name": "\"security-best-practices\"",
+      "name": "security-best-practices",
       "category": "review",
       "description": "Use when user asks \"security best practices\", \"secure coding for python/typescript/go\", or \"how to harden this\". Language/framework-specific secure-by-default guidance. NOT for auditing existing code \u2014 use security-review.",
       "source": "skills/review/security-best-practices/SKILL.md",
@@ -8685,7 +8462,7 @@
     },
     {
       "id": "research/trendradar",
-      "name": "trendradar",
+      "name": "trendradar-news-trend-intelligence",
       "category": "research",
       "description": "Use when user says \"what''s trending\", \"news trends\", \"hot topics\", \"search recent news\", \"analyze a topic trend\", or \"daily news briefing\". Uses the TrendRadar MCP tools for news aggregation, trend analysis, RSS feeds, and notifications.",
       "source": "skills/research/trendradar/SKILL.md",
@@ -8769,7 +8546,7 @@
     },
     {
       "id": "research/openai-docs",
-      "name": "\"openai-docs\"",
+      "name": "openai-docs",
       "category": "research",
       "description": "Use when user says \"OpenAI docs\", \"OpenAI API\", or \"ChatGPT API\". Official OpenAI docs lookup: current docs, examples, limits, citations.",
       "source": "skills/research/openai-docs/SKILL.md",
@@ -8834,7 +8611,7 @@
     },
     {
       "id": "plan/investigate",
-      "name": "investigate",
+      "name": "plan-investigate",
       "category": "plan",
       "description": "Systematic root-cause debugging. Four phases: investigate \u2192 analyze \u2192 hypothesize \u2192 implement. Iron Law: no fix without a root cause. Stops after 3 failed fixes and reassesses. Use when the user reports an error, 500, stack trace, \"it was working yesterday\", or asks to \"debug this\", \"fix this bug\", \"why is X broken\", or \"root cause analysis\".",
       "source": "skills/plan/investigate/SKILL.md",
@@ -8857,7 +8634,7 @@
     },
     {
       "id": "plan/plan-ceo-review",
-      "name": "plan-ceo-review",
+      "name": "plan-ceo-review-compact",
       "category": "plan",
       "description": "CEO/founder-tier scope review of a feature plan. Four modes \u2014 Expansion, Selective Expansion, Hold Scope, Reduction \u2014 and a 10-section challenge walking through demand, scope, simplest version, and metric. Reads the design doc from /office-hours; writes back recommended scope changes. Use when the user says \"ceo review\", \"scope review\", \"is this the right scope\", or before committing to build a feature.",
       "source": "skills/plan/plan-ceo-review/SKILL.md",
@@ -8880,7 +8657,7 @@
     },
     {
       "id": "plan/plan-eng-review",
-      "name": "plan-eng-review",
+      "name": "plan-eng-review-compact",
       "category": "plan",
       "description": "Engineering-manager review of a feature plan before code. Locks in architecture, data flow, state machines, edge cases, and a test matrix. Forces hidden assumptions into the open via ASCII diagrams. Reads the design doc; writes back architectural decisions. Use when the user says \"eng review\", \"architecture review\", \"lock the plan\", or before exiting plan mode.",
       "source": "skills/plan/plan-eng-review/SKILL.md",
@@ -8902,7 +8679,7 @@
     },
     {
       "id": "plan/autoplan",
-      "name": "autoplan",
+      "name": "plan-autoplan",
       "category": "plan",
       "description": "Compose the full plan-stage pipeline: /office-hours \u2192 /plan-ceo-review \u2192 /plan-eng-review. Auto-skips stages where the design doc already has a section, so it's safe to re-run. Surfaces only taste decisions for user approval; everything else runs straight through. Use when the user says \"autoplan\", \"run the full plan\", \"plan pipeline\", or has a fresh idea and wants the whole sprint up to code.",
       "source": "skills/plan/autoplan/SKILL.md",
@@ -8924,7 +8701,7 @@
     },
     {
       "id": "plan/office-hours",
-      "name": "office-hours",
+      "name": "plan-office-hours",
       "category": "plan",
       "description": "Premise-questioning before code. Six forcing questions that reframe a product idea, expose hidden demand assumptions, and find the narrowest wedge to ship. Writes a design doc the user can hand to /plan-ceo-review or /plan-eng-review. Use when the user says \"brainstorm this\", \"I have an idea\", \"help me think through\", \"office hours\", \"is this worth building\", or describes a product idea before any code exists.",
       "source": "skills/plan/office-hours/SKILL.md",
@@ -9602,7 +9379,7 @@
     },
     {
       "id": "security/cso",
-      "name": "cso",
+      "name": "security-cso",
       "category": "security",
       "description": "OWASP Top 10 + STRIDE threat model audit of the current diff (or the whole repo on demand). Zero-noise: findings must pass an 8/10+ confidence gate AND include a concrete exploit scenario before they're surfaced. Use when the user says \"security audit\", \"OWASP review\", \"threat model\", \"cso\", \"is this secure\", or before shipping anything that touches auth, user input, secrets, or payments.",
       "source": "skills/security/cso/SKILL.md",

@@ -1,7 +1,7 @@
 ---
 name: full-output-enforcement
 description: >
-  Use when user says "no truncation", "full output", "don't skip", or "write the whole file". Bans `// ...`, "for brevity", skeletons; pauses on token limit and resumes on `continue`.
+  Use when user says "full output", "no truncation", "don't skip code", "complete file", or "no placeholders". Enforces complete output, bans placeholders, and handles token-limit splits.
 category: meta
 ---
 

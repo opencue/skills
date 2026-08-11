@@ -1,5 +1,5 @@
 ---
-name: investigate
+name: plan-investigate
 description: |
   Systematic root-cause debugging. Four phases: investigate → analyze →
   hypothesize → implement. Iron Law: no fix without a root cause. Stops

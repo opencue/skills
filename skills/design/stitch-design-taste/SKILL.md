@@ -1,6 +1,6 @@
 ---
 name: stitch-design-taste
-description: Use when user mentions "Google Stitch", "Stitch design", or wants a DESIGN.md for Stitch screen generation. Produces DESIGN.md with atmosphere, palette, type, components, motion, anti-patterns.
+description: Use when user says "Google Stitch", "stitch design", "DESIGN.md for Stitch", or "stitch-design-taste". Generates agent-friendly DESIGN.md files that enforce a consistent premium UI system.
 category: design
 ---
 

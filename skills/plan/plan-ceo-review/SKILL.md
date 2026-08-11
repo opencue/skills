@@ -1,5 +1,5 @@
 ---
-name: plan-ceo-review
+name: plan-ceo-review-compact
 description: |
   CEO/founder-tier scope review of a feature plan. Four modes — Expansion,
   Selective Expansion, Hold Scope, Reduction — and a 10-section challenge

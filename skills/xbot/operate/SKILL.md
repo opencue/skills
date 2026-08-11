@@ -25,7 +25,7 @@ requires_mcps:
   - xbot
 tags: [xbot, twitter, x, growth, social, bot, operate, mcp]
 domain: social
-category: operate
+category: xbot
 ---
 
 ## What this skill does

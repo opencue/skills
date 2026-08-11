@@ -1,5 +1,5 @@
 ---
-name: office-hours
+name: plan-office-hours
 description: |
   Premise-questioning before code. Six forcing questions that reframe a product
   idea, expose hidden demand assumptions, and find the narrowest wedge to ship.

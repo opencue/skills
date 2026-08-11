@@ -1,5 +1,5 @@
 ---
-name: "playwright"
+name: "content-playwright"
 description: 'Use when user says "Playwright", "browser test", or "snapshot". Covers navigation, locators, screenshots, and assertions.'
 category: content
 ---

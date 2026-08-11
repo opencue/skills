@@ -4,7 +4,7 @@ description: 'Use when the user says "/anti-formula", "check this for formulas",
 allowed-tools: Bash(grep:*), Bash(rg:*), Bash(awk:*), Bash(wc:*), Bash(ls:*), Bash(find:*), Bash(head:*), Bash(tail:*), Read, Write, Edit
 tags: [content, lint, writing, social, formula-detection]
 domain: content
-category: lint
+category: content
 ---
 
 # anti-formula, kill the template before publishing

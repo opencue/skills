@@ -1,5 +1,5 @@
 ---
-name: retro
+name: learning-retro
 description: |
   Engineering retrospective from git history + cue session log. Per-author
   shipping streaks, test-health trend, growth opportunities, and one

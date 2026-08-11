@@ -1,6 +1,6 @@
 ---
 name: redesign-existing-projects
-description: "Use when user says \"redesign\", \"upgrade this site\", or \"audit my UI\". Diagnoses generic AI patterns; applies in-place typography/spacing/color/motion fixes for Tailwind/CSS/styled-components."
+description: Use when user says "redesign this", "upgrade the design", "make it premium", "fix generic AI design", or "modernize the UI". Upgrades existing sites and apps without breaking functionality.
 category: design
 ---
 
