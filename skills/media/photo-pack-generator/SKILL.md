@@ -51,9 +51,9 @@ Allowed analysis fields:
 
 Example:
 
-Head orientation: slight left tilt  
-Expression: neutral friendly  
-Lighting: soft frontal light  
+Head orientation: slight left tilt
+Expression: neutral friendly
+Lighting: soft frontal light
 Framing: head and shoulders portrait
 
 ---
@@ -119,10 +119,10 @@ Maintain similar head orientation as the reference.
 
 Scene example:
 
-Outdoor café portrait  
-Soft natural daylight  
-35mm portrait lens  
-Shallow depth of field  
+Outdoor café portrait
+Soft natural daylight
+35mm portrait lens
+Shallow depth of field
 Photorealistic skin texture
 
 ---
@@ -131,14 +131,14 @@ Photorealistic skin texture
 
 Always include:
 
-different person  
-altered face  
-changed facial features  
-new identity  
-generic face  
-beautified face  
-plastic skin  
-face distortion  
+different person
+altered face
+changed facial features
+new identity
+generic face
+beautified face
+plastic skin
+face distortion
 
 ---
 

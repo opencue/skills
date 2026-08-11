@@ -33,7 +33,7 @@ app.post('/webhooks/stripe',
   express.raw({ type: 'application/json' }),
   async (req, res) => {
     const signature = req.headers['stripe-signature'];
-    
+
     let event;
     try {
       // Verify signature using Stripe SDK
@@ -46,7 +46,7 @@ app.post('/webhooks/stripe',
       console.error('Stripe signature verification failed:', err.message);
       return res.status(400).send(`Webhook Error: ${err.message}`);
     }
-    
+
     // Handle the event
     switch (event.type) {
       case 'payment_intent.succeeded':
@@ -61,7 +61,7 @@ app.post('/webhooks/stripe',
       default:
         console.log('Unhandled event:', event.type);
     }
-    
+
     res.json({ received: true });
   }
 );
@@ -80,19 +80,19 @@ webhook_secret = os.environ.get("STRIPE_WEBHOOK_SECRET")
 async def stripe_webhook(request: Request):
     payload = await request.body()
     signature = request.headers.get("stripe-signature")
-    
+
     try:
         event = stripe.Webhook.construct_event(payload, signature, webhook_secret)
     except stripe.error.SignatureVerificationError:
         raise HTTPException(status_code=400, detail="Invalid signature")
-    
+
     # Handle event...
     return {"received": True}
 ```
 
 > **For complete working examples with tests**, see:
 > - [examples/express/](examples/express/) - Full Express implementation
-> - [examples/nextjs/](examples/nextjs/) - Next.js App Router implementation  
+> - [examples/nextjs/](examples/nextjs/) - Next.js App Router implementation
 > - [examples/fastapi/](examples/fastapi/) - Python FastAPI implementation
 
 ## Common Event Types

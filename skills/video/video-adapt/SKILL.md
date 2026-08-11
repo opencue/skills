@@ -61,7 +61,7 @@ Based on the analysis, construct prompts using:
   Shot 1: [0:00-0:03] Close-up product reveal
     → Prompt: "<MCSLA prompt with new product>"
     → Camera: Dolly in, shallow DOF
-  
+
   Shot 2: [0:03-0:07] Character interaction
     → Prompt: "<prompt>"
     → Soul ID: <character-ref>

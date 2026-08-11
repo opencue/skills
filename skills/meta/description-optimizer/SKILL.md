@@ -20,10 +20,10 @@ most impactful lever for skill activation (20% → 50% → 90%).
 
 Shared references (read on demand):
 
-- [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md), 
+- [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md),
   use the D-numbered brief before applying any description rewrite that
   changes the skill's trigger surface.
-- [../skill-reviewer/references/voice.md](../skill-reviewer/references/voice.md), 
+- [../skill-reviewer/references/voice.md](../skill-reviewer/references/voice.md),
   no em dashes, no banned AI vocabulary, lead with the verb.
 
 ## When to activate

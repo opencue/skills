@@ -56,7 +56,7 @@ succeeds."). Stop-check `--until` is the machine-truth that ends the loop.
 - **Stop condition**, `--until "<cmd that exits 0 when done>"`. Required.
 - **Cap iterations**, `--max N` (default 50) so a stuck loop can't spin forever.
 - **Budget**, the Agent SDK exposes `max_budget_usd` / `maxTurns`; for the CLI,
-  the iteration cap is your ceiling. A YC team shipped 6 repos overnight for ~$297, 
+  the iteration cap is your ceiling. A YC team shipped 6 repos overnight for ~$297,
   cost is real.
 - **Sandbox `--yolo`**, unattended mode passes `--dangerously-skip-permissions`,
   which runs arbitrary commands. Only in a throwaway container/VM/worktree.

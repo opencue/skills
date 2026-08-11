@@ -92,7 +92,7 @@ Before repurposing, define:
 ### Source Analysis
 - **Title**: [Original piece title]
 - **Core Message**: [One sentence summary]
-- **Key Points**: 
+- **Key Points**:
   1. [Point 1]
   2. [Point 2]
   3. [Point 3]
@@ -264,7 +264,7 @@ Same list. Same product. Different approach.
 6/ TL;DR:
 
 • Send less, but better
-• Segment ruthlessly  
+• Segment ruthlessly
 • Write subjects that demand opens
 
 Your list isn't dead. It's just bored.

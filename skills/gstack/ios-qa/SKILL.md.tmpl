@@ -16,20 +16,14 @@ voice-triggers:
   - "iOS quality check"
   - "test the iPhone app"
   - "run iOS QA"
-allowed-tools:
-  - Bash
-  - Read
-  - Write
-  - Edit
-  - Grep
-  - Glob
-  - AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Grep, Glob, AskUserQuestion
 triggers:
   - ios qa
   - test the iphone app
   - test my ios app
   - find bugs on the device
   - qa the ios app
+category: gstack
 ---
 
 {{PREAMBLE}}
@@ -162,7 +156,7 @@ mode is active) writes an audit row to
 required. The spawning skill gets full-surface access. Best for solo
 development.
 
-**Tailnet mode (`--tailnet`).** Daemon additionally binds the Tailscale
+**Tailnet mode (`--tailnet`).** Daemon also binds the Tailscale
 interface (never `0.0.0.0`). Requires `tailscaled` to be running locally and
 the daemon to be able to read `/var/run/tailscale.sock`. Fails closed if the
 socket is missing, permission-denied, or returns an unparseable WhoIs

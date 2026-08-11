@@ -932,7 +932,7 @@ ls ~/.gstack/projects/$SLUG/*office-hours* 2>/dev/null | head -5
 ```
 
 If DESIGN.md exists, tell the user: "I'll follow your design system in DESIGN.md by
-default. If you want to go off the reservation on visual direction, just say so, 
+default. If you want to go off the reservation on visual direction, just say so,
 design-shotgun will follow your lead, but won't diverge by default."
 
 **Check for a live site to screenshot** (for the "I don't like THIS" use case):
@@ -1052,7 +1052,7 @@ Draw on DESIGN.md, taste memory, and the user's request to make each concept dis
 
 **Anti-convergence directive (hard requirement):** Each variant MUST use a different
 font family, color palette, and layout approach. If two variants look like siblings
-, same typographic feel, overlapping color temperature, comparable layout rhythm, 
+, same typographic feel, overlapping color temperature, comparable layout rhythm,
 one of them failed. Regenerate the weaker one with a deliberately different direction.
 
 Concrete test: if someone could swap the headline text between two variants without

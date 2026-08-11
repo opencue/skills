@@ -17,7 +17,7 @@ allowed-tools: Bash(Bash:*)
 
 You review, improve, and write SKILL.md files using proven patterns from
 Anthropic's official best practices, the anthropics/skills repo (141k★),
-gstack's skill-authoring conventions (`vendor/gstack/`, study target, 
+gstack's skill-authoring conventions (`vendor/gstack/`, study target,
 not source of truth), and community research (200+ prompt activation tests).
 
 ## How to use this skill
@@ -25,7 +25,7 @@ not source of truth), and community research (200+ prompt activation tests).
 This skill body holds the workflow. Three reference files carry the heavier
 detail, load on demand, don't inline:
 
-- [references/decision-brief-format.md](references/decision-brief-format.md), 
+- [references/decision-brief-format.md](references/decision-brief-format.md),
   D-numbered AskUserQuestion format with ELI10, Recommendation, Pros/Cons,
   Net. Use before any non-trivial rewrite.
 - [references/voice.md](references/voice.md), banned vocabulary, em-dash
@@ -106,7 +106,7 @@ The description must contain terms from **actual user requests**, not abstract c
 # BAD — 20% activation
 description: Helps with documents
 
-# GOOD — 50%+ activation  
+# GOOD — 50%+ activation
 description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
 
 # BEST — 72-90% activation (includes context)
@@ -147,7 +147,7 @@ but no should-not-trigger guards and no examples.
 Before rewriting anything non-trivial (description rewrite, scope split,
 exclusion removal), surface the choice as a **D-numbered decision brief**
 to the user. The format is in
-[references/decision-brief-format.md](references/decision-brief-format.md), 
+[references/decision-brief-format.md](references/decision-brief-format.md),
 ELI10 paragraph, Recommendation, Pros/Cons (✅/❌), Net line. Do not
 rewrite silently; the user owns scope and trigger surface decisions.
 
@@ -179,7 +179,7 @@ Rules for descriptions:
 
 ## When to activate
 - User says "X"
-- User says "Y"  
+- User says "Y"
 - Context trigger (e.g., "when a .pdf file is detected")
 
 ## Step 1 — <Verb phrase>

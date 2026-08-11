@@ -163,7 +163,7 @@ search
 | utm_term | {keyword} |
 | utm_content | {creative} |
 
-**Full URL**: 
+**Full URL**:
 `https://yoursite.com/shoes?utm_source=google&utm_medium=cpc&utm_campaign=shoes-us-spring2024-allcust-20off&utm_term={keyword}&utm_content={creative}`
 
 #### Meta Ads

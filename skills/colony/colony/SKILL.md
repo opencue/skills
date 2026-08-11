@@ -9,7 +9,7 @@ category: colony
 
 Colony is a **local-first coordination substrate** that makes multi-agent
 coding runs safe through shared file claims, compact memory, and durable
-handoffs. Agents see ownership and prior decisions before editing files, 
+handoffs. Agents see ownership and prior decisions before editing files,
 parallel work goes from risky to reliable.
 
 > Inline `/CLAUDE.md` already injects a short version of the operating

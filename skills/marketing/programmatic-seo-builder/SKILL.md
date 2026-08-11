@@ -44,7 +44,7 @@ Design scalable page templates that rank without appearing thin or auto-generate
 ```
 Hub Page: "Marketing Tools" (comprehensive guide)
     │
-    ├── Spoke: "Email Marketing Tools" 
+    ├── Spoke: "Email Marketing Tools"
     │   └── Links to: Hub, SEO Tools, Social Tools
     │
     ├── Spoke: "SEO Tools"
@@ -196,7 +196,7 @@ Discover the best [software] for [industry] in [year]. Compare top [X] options w
 
 #### Section 3: Detailed Recommendations (Variable)
 - **Content type**: Mixed - template structure, variable content
-- **Requirements**: 
+- **Requirements**:
   - 5-7 tools per page
   - Each tool: 150-200 words
   - Industry-specific use case for each

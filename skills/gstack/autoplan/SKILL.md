@@ -327,7 +327,7 @@ Loaded review skills from disk. Starting full review pipeline with auto-decision
 ## Phase 0.5: Codex auth + version preflight
 
 Before invoking any Codex voice, preflight the CLI: verify auth (multi-signal) and
-warn on known-bad CLI versions. This is infrastructure for all 4 phases below, 
+warn on known-bad CLI versions. This is infrastructure for all 4 phases below,
 source it once here and the helper functions stay in scope for the rest of the
 workflow.
 

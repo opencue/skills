@@ -58,7 +58,7 @@ Use this skill when the user wants to:
 **Build a Range:**
 ```
 Low (25th percentile): $XXX,XXX
-Target (50th percentile): $XXX,XXX  
+Target (50th percentile): $XXX,XXX
 High (75th percentile): $XXX,XXX
 Stretch (90th percentile): $XXX,XXX
 ```

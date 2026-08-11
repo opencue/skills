@@ -222,7 +222,7 @@ have no upstream.
    describes the tool generally and the user has personal recipes/configs,
    create TWO skills:
    - `meta/<tool>/SKILL.md`, adopted upstream, generic
-   - `meta/workspace-<tool>/SKILL.md` (or `<category>/workspace-...`), 
+   - `meta/workspace-<tool>/SKILL.md` (or `<category>/workspace-...`),
      user's specific recipes, with the upstream skill as a "see also"
      reference
 

@@ -27,7 +27,7 @@ future model session.
    - Current branch, upstream, ahead/behind.
    - `git status -s`, staged, unstaged, untracked.
    - Last 5 commits on this branch (`git log -5 --oneline`).
-   - If there's an open PR (`gh pr view --json number,title,state,url`, 
+   - If there's an open PR (`gh pr view --json number,title,state,url`,
      skip silently if `gh` is unauthenticated), record number + title + URL.
 2. **Working summary** (write this yourself)
    - Task in one sentence.

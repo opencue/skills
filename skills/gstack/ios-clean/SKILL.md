@@ -17,7 +17,7 @@ category: gstack
 ## When to invoke this skill
 
 Cleans up StateServer, DebugOverlay, accessor codegen output, and
-app-side hooks installed by /ios-qa. This is a convenience wrapper, 
+app-side hooks installed by /ios-qa. This is a convenience wrapper,
 the structural Release-build guard (Package.swift conditional + CI
 swift build -c release check) is the safety-critical path.
 Use when asked to "clean the iOS debug bridge", "remove DebugBridge",
@@ -807,5 +807,5 @@ Report the cleanup result + a one-line summary of what got removed.
 ## Reversibility
 
 Every Edit + delete is a git operation; the user can `git restore` to undo.
-This skill never force-pushes, never amends, never deletes the SPM cache, 
+This skill never force-pushes, never amends, never deletes the SPM cache,
 those are user choices.

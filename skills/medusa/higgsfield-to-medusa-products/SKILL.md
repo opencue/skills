@@ -179,7 +179,7 @@ wins:
 2. **Per-shop env file**: `~/.config/medusa-image-pipeline/<shop>.env`.
 
 The resolver is `scripts/load-env.sh`. Higgsfield in Mode B uses the
-`higgsfield` CLI (which holds its own auth via `higgsfield auth login`), 
+`higgsfield` CLI (which holds its own auth via `higgsfield auth login`),
 this is the path for CI / cron / non-agent runs.
 
 **Never** echo secret values, **never** put them in git, **never** ask the

@@ -780,7 +780,7 @@ For each learning in the output:
    "STALE: [key] references deleted file [path]"
 
 2. **Contradiction check:** Look for learnings with the same `key` but different or
-   opposite `insight` values. Flag: "CONFLICT: [key] has contradicting entries, 
+   opposite `insight` values. Flag: "CONFLICT: [key] has contradicting entries,
    [insight A] vs [insight B]"
 
 Present each flagged entry via AskUserQuestion:

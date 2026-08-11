@@ -39,7 +39,7 @@ Once the image is approved, submit the plan with TWO sequential video steps to b
 1. **Macro Rotation**, `muapi video from-image` (model=`grok-imagine-image-to-video`):
    - Reference Image: The luxury image from Phase A.
    - Prompt: `[00:00–00:02] Close-up shot, 100mm macro lens, shallow DOF. A soft, warm light highlights the diamond, creating subtle highlights on the rose gold. Slight 1-second camera rotation around the ring. Smooth, elegant movement.`
-   
+
 2. **Facet Gliding**, `muapi video from-image` or `muapi video from-image` (model=`grok-imagine-image-to-video`):
    - Reference Image: The luxury image from Phase A.
    - Prompt: `[00:02–00:05] Extreme close-up on the diamond, 200mm macro lens, razor-thin DOF. A focused LED light illuminates the diamond, catching every facet. The camera glides slowly over the diamond, showcasing its brilliance. Ethereal, sparkling highlights.`

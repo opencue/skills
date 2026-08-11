@@ -68,7 +68,7 @@ guessing from training data.
   re-look-up later.
 - Quote prices to 3 decimals (`0.485`), volumes to 0 or 1 decimal
   ($24.3M not $24,322,109).
-- If `market_status()` reports anything non-OK, surface that first, 
+- If `market_status()` reports anything non-OK, surface that first,
   every other tool is going to be junk.
 
 ## Failure modes

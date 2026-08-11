@@ -13,18 +13,12 @@ voice-triggers:
   - "resync the iOS debug bridge"
   - "regenerate iOS accessors"
   - "update the gstack iOS instrumentation"
-allowed-tools:
-  - Bash
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, AskUserQuestion
 triggers:
   - resync the ios debug bridge
   - regenerate ios accessors
   - update the gstack ios instrumentation
+category: gstack
 ---
 
 {{PREAMBLE}}

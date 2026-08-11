@@ -18,10 +18,10 @@ You write and maintain CLI install recipes for cue's dependency system. Each rec
 
 Shared references:
 
-- [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md), 
+- [../skill-reviewer/references/decision-brief-format.md](../skill-reviewer/references/decision-brief-format.md),
   use a D-brief when choosing between two installers (apt vs pipx vs
   manual). Don't silently pick the wrong one.
-- [../skill-reviewer/references/voice.md](../skill-reviewer/references/voice.md), 
+- [../skill-reviewer/references/voice.md](../skill-reviewer/references/voice.md),
   voice rules for the `Prerequisites` prose you generate.
 
 ## When to activate

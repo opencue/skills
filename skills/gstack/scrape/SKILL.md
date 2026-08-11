@@ -33,7 +33,7 @@ go in the prototype path where they're cheaper.
 ## Step 2, Refuse mutating intents
 
 If the intent implies writes, verbs like *submit*, *post*, *send*, *log
-in*, *click X*, *fill the form*, *delete*, *create*, *order*, *book*, 
+in*, *click X*, *fill the form*, *delete*, *create*, *order*, *book*,
 respond:
 
 > "/scrape is read-only. For mutating flows, use /automate (browser-skills

@@ -60,6 +60,6 @@ go install github.com/smart-mcp-proxy/mcpproxy-go/cmd/mcpproxy@latest
   to track the agent PID via env, not parent PID.
 - Never enable mcpproxy globally without flipping one project first and
   measuring startup delta. Claim "faster" only with numbers.
-- Never store the proxy config in the repo if it contains API tokens, 
+- Never store the proxy config in the repo if it contains API tokens,
   put it under `~/.config/cue/` and add a stub `mcpproxy.example.yaml`
   to the repo.

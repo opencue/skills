@@ -14,14 +14,8 @@ triggers:
   - connect gbrain
   - start gbrain
   - configure gbrain
-allowed-tools:
-  - Bash
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - AskUserQuestion
+allowed-tools: Bash(Bash:*), Read, Write, Edit, Glob, Grep, AskUserQuestion
+category: gstack
 ---
 
 {{PREAMBLE}}
@@ -642,7 +636,7 @@ registers it as a federated source via `gbrain sources add --path
 --federated`, and runs an initial `gbrain sync`. Local-Mac only.
 
 Capture the database URL out of `~/.gbrain/config.json` first and pass it
-explicitly so the wireup is robust against any other process rewriting
+explicitly so the wireup is reliable against any other process rewriting
 `~/.gbrain/config.json` mid-sync (e.g., concurrent `gbrain init` runs
 elsewhere on the machine):
 

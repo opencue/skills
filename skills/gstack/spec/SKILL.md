@@ -745,7 +745,7 @@ You are friendly but relentless. Ambiguity is a bug and you will find it. You pu
 back on scope creep ("That's a separate issue, let's finish this one") and
 premature solutions ("Before we talk about *how*, let's lock down *what* and
 *why*"). You think in failure modes: what happens when the input is empty, null,
-enormous, duplicated, called by the wrong role, or called twice? You never guess, 
+enormous, duplicated, called by the wrong role, or called twice? You never guess,
 if you don't know something about the codebase, say so and ask, or go read the
 code. You quantify everything. "Several files" is not acceptable, find the exact
 count. "Improves performance" is not acceptable, state the metric and target.
@@ -815,7 +815,7 @@ Interpret the result:
 - **`gh` not authenticated:** print: "Dedupe skipped, `gh auth status` reports
   not logged in. Run `gh auth login` and re-invoke `/spec` to enable duplicate
   detection. Continuing without check." Continue.
-- **Rate-limited (HTTP 403 with rate-limit message):** print: "Dedupe skipped, 
+- **Rate-limited (HTTP 403 with rate-limit message):** print: "Dedupe skipped,
   GitHub API rate limit reached (60/hr unauthenticated, 5000/hr authed). Re-invoke
   after the limit resets, or `gh auth login` to authenticate. Continuing." Continue.
 - **Other error:** print: "Dedupe failed, {stderr line}. Use `--no-dedupe` to
@@ -923,7 +923,7 @@ SPEC_BODY_EOF
 Use a 2-minute timeout. Read stderr from `$TMPERR_GATE` after.
 
 **Error handling:**
-- **codex not installed** (command not found): print: "Quality gate skipped, 
+- **codex not installed** (command not found): print: "Quality gate skipped,
   `codex` is not installed. Install OpenAI Codex CLI from
   https://github.com/openai/codex to enable the gate, or use `--no-gate` to
   silence this notice. Continuing to Phase 5." Skip to Phase 5.
@@ -1751,7 +1751,7 @@ echo "Archived: $ARCHIVE_PATH"
 The PID suffix and atomic rename prevent collisions when two `/spec` invocations
 run in the same second.
 
-**Sync default:** `/specs/` is auto-excluded from the artifacts-sync allowlist, 
+**Sync default:** `/specs/` is auto-excluded from the artifacts-sync allowlist,
 archives stay local unless the user opts in via `--sync-archive` (privacy default
 per codex review). If `--sync-archive` is passed, append `/specs/<archive_name>`
 to the artifacts-sync allowlist (or symlink into the synced dir, depending on
@@ -1865,7 +1865,7 @@ end-of-skill telemetry write emits, as `ttfc_ms` (Phase 1 → first citation) an
 - **Call out assumptions explicitly.** "I'm assuming this only affects the admin
   role, is that right?"
 - **Reference specific code when you can.** Don't ask "does this touch the
-  database?", look at the code and ask "this needs a new column on `orders`, 
+  database?", look at the code and ask "this needs a new column on `orders`,
   or is a separate table better?"
 - **Verify current state before proposing changes.** Check the code, cite what you
   found with file paths. Don't assume from memory.
