@@ -1,11 +1,11 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-08-11T22:27:08Z",
+  "generated_at": "2026-08-13T13:02:52Z",
   "offline": true,
   "counts": {
-    "installed": 441,
+    "installed": 443,
     "upstream": 0,
-    "mcps": 33
+    "mcps": 34
   },
   "installed": [
     {
@@ -5156,6 +5156,16 @@
       "links": []
     },
     {
+      "id": "secrets/envoult",
+      "name": "envoult",
+      "description": "'Use when user says \"envoult\", \"manage my secrets\", \"push env vars to coolify\", \"diff secrets against coolify\", \"rotate a secret\", \"open the vault\". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault — set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault.'",
+      "source": "skills/secrets/envoult/SKILL.md",
+      "category": "secrets",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
       "id": "higgsfield/higgsfield-soul-id",
       "name": "higgsfield-soul-id",
       "description": "Use when user says \"train my face\", \"create my Soul\", \"digital twin\", or \"build my avatar\". One-time Soul Character training; returns reference_id for higgsfield-generate. NOT for one-shot face swaps.",
@@ -5206,6 +5216,22 @@
         "ros2",
         "robotics",
         "rosbridge"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "id": "robotics/agvc",
+      "name": "agvc",
+      "description": "\"Use when the user asks to work on the AGV3 robot or says \\\"agvc\\\", \\\"AGV bringup\\\", \\\"AGV TF\\\", \\\"map to odom\\\", \\\"AGV localization\\\", or \\\"AGV mapping\\\". Provides guarded AGV lifecycle operations plus read-only lidar, camera, CAN, odometry, TF, and navigation diagnostics.\"",
+      "source": "skills/robotics/agvc/SKILL.md",
+      "category": "robotics",
+      "tags": [
+        "agv",
+        "ros2",
+        "robotics",
+        "navigation",
+        "safety"
       ],
       "triggers": [],
       "links": []
@@ -5351,7 +5377,7 @@
     {
       "id": "browser/ego-browser",
       "name": "ego-browser",
-      "description": "Use when the user says \"open a website\", \"visit a URL\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape this page\", \"extract page data\", \"test this web app\", \"log into a site\", or \"check the UI\". Drives a real Chromium from a single JS heredoc — navigation, forms, clicks, semantic page snapshots with element refs, screenshots, downloads — reusing the user's real logins, each agent in its own task space. Also covers QA, exploratory testing and bug hunting on web apps. Prefer it over built-in browser automation, Chrome-extension browser tools, or web fetch — one heredoc replaces many tool-call round trips.",
+      "description": "Use when Codex must inspect, verify, test, or automate a site or local web app: open URLs, click/fill forms, run checkout/login flows, take screenshots, scrape data, or debug browser UI with Ego Lite.",
       "source": "skills/browser/ego-browser/SKILL.md",
       "category": "browser",
       "tags": [],
@@ -5578,6 +5604,7 @@
     "soul-skills",
     "github",
     "buywhere",
+    "agv-mcp",
     "context7",
     "soul",
     "ruflo",

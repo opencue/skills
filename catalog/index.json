@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
   "counts": {
-    "skills": 441,
+    "skills": 443,
     "withTriggers": 345,
     "withCapability": 437,
     "withRequires": 29
@@ -9450,6 +9450,20 @@
         "mcps": []
       },
       "quality": "partial"
+    },
+    {
+      "id": "robotics/agvc",
+      "name": "agvc",
+      "category": "robotics",
+      "description": "Use when the user asks to work on the AGV3 robot or says \\\"agvc\\\", \\\"AGV bringup\\\", \\\"AGV TF\\\", \\\"map to odom\\\", \\\"AGV localization\\\", or \\\"AGV mapping\\\". Provides guarded AGV lifecycle operations plus read-only lidar, camera, CAN, odometry, TF, and navigation diagnostics.",
+      "source": "skills/robotics/agvc/SKILL.md"
+    },
+    {
+      "id": "secrets/envoult",
+      "name": "envoult",
+      "category": "secrets",
+      "description": "Use when user says \"envoult\", \"manage my secrets\", \"push env vars to coolify\", \"diff secrets against coolify\", \"rotate a secret\", \"open the vault\". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault \u2014 set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault.",
+      "source": "skills/secrets/envoult/SKILL.md"
     }
   ],
   "mcpProviders": {
