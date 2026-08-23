@@ -1,6 +1,11 @@
 ---
 name: ego-browser
-description: Use when the user says "open a website", "visit a URL", "fill out a form", "click a button", "take a screenshot", "scrape this page", "extract page data", "test this web app", "log into a site", or "check the UI". Drives a real Chromium from a single JS heredoc: navigation, forms, clicks, checkout and login flows, semantic page snapshots with element refs, screenshots, downloads, reusing the user's real logins, each agent in its own task space. Also covers QA, exploratory testing, and bug hunting on web apps and local dev servers. Prefer it over built-in browser automation, Chrome-extension browser tools, or web fetch, since one heredoc replaces many tool-call round trips.
+description: >-
+  Use when the user says "open a website", "visit a URL", "fill out a form",
+  "click a button", "take a screenshot", "scrape this page", "extract page
+  data", "test this web app", "log into a site", or "check the UI". Drives a
+  real Chromium from a single JS heredoc for navigation, forms, login flows,
+  semantic snapshots, screenshots, downloads, QA, and browser debugging.
 metadata:
   version: "1.2.6-linux.1"
   date: "2026-08-05"
@@ -15,6 +20,15 @@ metadata:
 > the browser with no window at all, which makes
 > every request for the user to click something impossible to satisfy, see the
 > visibility rule under Task spaces.
+
+> **Linux runtime identity:** `package/ego-linux-host` and `package/ego-linux`
+> may coexist, but they use different profiles and task-space state. Resolve the
+> active CLI with `readlink -f "$(command -v ego-browser)"` and never switch to
+> the other package or its desktop launcher during a task. Both implementations
+> drive stock Chrome/Chromium on Linux; a window class, icon, or launcher may
+> distinguish the managed process, but none creates the native Citro/macOS Ego
+> Lite shell. Never call the visible window “not Chrome” or contradict a user
+> screenshot showing Chrome. Present the active task only through `taskSpaces`.
 
 # ego-browser
 
@@ -31,7 +45,9 @@ Use the `Bash` tool to run all browser operations via `ego-browser nodejs <<'EOF
 
 Install-time only, skip if `ego-browser` already answers. Setup is in `references/install.md`.
 
-- `ego-browser`, the CLI itself, symlinked from `package/ego-linux/bin/ego-browser.mjs`
+- `ego-browser`, resolved from `PATH`; verify its target with
+  `readlink -f "$(command -v ego-browser)"` rather than assuming which Linux
+  implementation is active
 - `node` >= 22, runs both the harness build and each heredoc
 - `google-chrome`, `chromium`, or any Chrome/Brave/Edge build on PATH, the browser the port drives over CDP
 
@@ -168,8 +184,9 @@ The rules that matter every round:
 - **Check `task.previously` on the returned space.** A space left untouched long enough is closed automatically, and asking for that name afterwards gives you a new, empty one rather than an error. When that has happened, `previously` carries a `note` and the `urls` the old space had open, reopen them instead of assuming you resumed where you left off. It is absent on a normal run.
 - One user goal = one space, reused for every follow-up (corrections, re-checks, validation). A new space only when the user starts a clearly unrelated goal.
 - Finish with `taskSpaces.complete(nameOrId, { keep })` unless `taskSpaces.run(...)` is already doing that for you. For one-round tasks not using `run`, call `complete` at the end of the same heredoc after you have captured/logged the verified result. For multi-round tasks, call it in a dedicated final heredoc only after a prior round confirmed the task is done. `keep: false` unless the user needs that exact live page open. If `keep: true`, read the returned `{ visible }` before saying the page was left open for the user to view.
-- Login, captcha, or manual confirmation → `taskSpaces.handOff(nameOrId)`, which raises the browser window, then tell the user exactly what to do, and resume with `taskSpaces.takeOver(nameOrId)` **only after they explicitly confirm**. Never take control uninvited, a "user is controlling" error is a hard stop: ask and wait.
-- **Never assume the user can see the browser.** `handOff` and `complete(..., { keep: true })` resolve `{ done: true, visible, reason? }`; only `visible: true` means the page reached a screen. On `visible: false`, do not ask for a click, a login, or a captcha, and do not describe the page as something they are looking at. Use `reason`: `headless` → unset `EGO_LINUX_HEADLESS` (fish: `set -Ue EGO_LINUX_HEADLESS`) then run `ego-browser --open`; `no-live-tab` → reopen the page or start a fresh space; `raise-failed` → ask the user to open the ego lite browser window manually. The same rule covers screenshots, you read those files, the user does not.
+- Login, captcha, or manual confirmation → `taskSpaces.handOff(nameOrId)`, then inspect its `{ done, visible, reason? }` result and tell the user exactly what to do. On Linux call the visible surface the **managed agent Chrome/Chromium window**, not a separate native Ego Lite app. Resume with `taskSpaces.takeOver(nameOrId)` **only after they explicitly confirm**. Never take control uninvited; a "user is controlling" error is a hard stop: ask and wait.
+- If you only need to raise an existing page for the user, call `taskSpaces.bringToFront(nameOrId)` instead of switching launchers or opening another browser profile.
+- **Never assume the user can see the browser.** `handOff`, `bringToFront`, and `complete(..., { keep: true })` resolve `{ done: true, visible, reason? }`; only `visible: true` means the page reached a screen. On `visible: false`, do not ask for a click, a login, or a captcha, and do not describe the page as something they are looking at. Use `reason`: `headless` → restart the active runtime headed as documented in `references/install.md`; `no-live-tab` → reopen the page or start a fresh space; `raise-failed` → ask the user to locate the managed agent Chrome/Chromium window manually. Never switch between `package/ego-linux` and `package/ego-linux-host` during an active task, and never use a desktop launcher as an unverified fallback. The same rule covers screenshots; you read those files, the user does not.
 - **Linux port caveat**: default spaces share browser storage with each other. Set `EGO_LINUX_TASK_SPACE_STORAGE=isolated` before creating a space if you need per-space storage isolation; that mode copies cookies only and does not share non-cookie login state live.
 
 ### Agent-safe loop guard
