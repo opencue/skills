@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -19,6 +20,33 @@ INDEX = ROOT / "catalog" / "index.json"
 ALIASES = ROOT / "catalog" / "aliases.json"
 START = "<!-- BEGIN GENERATED CATEGORY TABLE -->"
 END = "<!-- END GENERATED CATEGORY TABLE -->"
+
+
+def skill_paths() -> list[Path]:
+    """Return tracked and untracked, non-ignored skill entrypoints.
+
+    A plain filesystem glob also sees host-local ignored skills. Regenerating
+    catalog metadata from that view makes CI fail because those files are not
+    present in a clean checkout. Git's cached+others view keeps new skills
+    visible before their first commit while excluding ignored local material.
+    """
+    try:
+        output = subprocess.check_output(
+            [
+                "git",
+                "ls-files",
+                "--cached",
+                "--others",
+                "--exclude-standard",
+                "--",
+                "skills/**/SKILL.md",
+            ],
+            cwd=ROOT,
+            text=True,
+        )
+        return sorted(ROOT / line for line in output.splitlines() if line)
+    except (OSError, subprocess.CalledProcessError):
+        return sorted(SKILLS.glob("**/SKILL.md"))
 
 
 def frontmatter(path: Path) -> dict[str, object]:
@@ -67,7 +95,7 @@ def inventory() -> tuple[list[dict[str, object]], list[str], list[str]]:
     warnings: list[str] = []
     names: defaultdict[str, list[str]] = defaultdict(list)
 
-    for path in sorted(SKILLS.glob("**/SKILL.md")):
+    for path in skill_paths():
         rel = path.relative_to(ROOT).as_posix()
         parts = path.relative_to(SKILLS).parts
         skill_id = f"{parts[0]}/{'/'.join(parts[1:-1])}"

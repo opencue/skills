@@ -2,15 +2,47 @@
 
 Read this file only when ego lite isn't installed yet, or when the user asks to install ego lite. For day-to-day browser work, go back to `SKILL.md`.
 
-The ego-browser skill depends on a working `ego-browser` command on `PATH`. On **macOS**, that command comes from the Citro **ego lite** app (DMG + onboarding). On **Linux / WSL**, this monorepo ships an **ego-shaped Linux host** (`package/ego-linux-host`) that approximates the same product model (shared Chromium profile, Task Spaces, CDP) without the proprietary Citro app.
+The ego-browser skill depends on a working `ego-browser` command on `PATH`. On
+**macOS**, that command comes from the Citro **ego lite** app (DMG + onboarding).
+On **Linux / WSL**, two implementations may coexist: `package/ego-linux` and
+`package/ego-linux-host`. They use different profiles and task-space stores, so
+neither is a safe fallback for the other during an active task. Both drive stock
+Chrome/Chromium and neither supplies the native Citro/macOS Ego Lite shell.
 
 ego lite website (macOS product): https://lite.ego.app/
 
+## Identify the installed Linux runtime before opening or troubleshooting it
+
+Run these checks before making a claim about which Ego window the user has:
+
+```bash
+command -v ego-browser
+readlink -f "$(command -v ego-browser)"
+test -f ~/.local/share/applications/ego-lite-linux.desktop && echo "Linux Port launcher installed"
+pgrep -a -f 'ego-lite-linux|ego-browser.mjs --spaces' | head
+```
+
+- A CLI target under `package/ego-linux/` identifies the Linux port and its
+  `~/.local/share/ego-lite-linux` state.
+- A CLI target under `package/ego-linux-host/` identifies the host daemon and
+  its `~/.local/share/ego-lite` state.
+- Use only the implementation returned by `command -v`/`readlink`. A desktop
+  entry may point at the other package, so its presence is not proof that it
+  owns the active agent task.
+- A launcher/icon/window class is only desktop identity. The visible surface is
+  still Chrome/Chromium; never claim a native Ego application window exists.
+
 ---
 
-## Install steps (Linux / WSL)
+## Host install steps (Linux / WSL)
 
-Use this path on Linux and WSL. **Do not** run the macOS DMG installer (`scripts/install.sh`) here — it only supports Darwin and downloads the Citro app.
+The checked-in `scripts/install-linux.sh` installs
+`package/ego-linux-host`. Use it only when that is the intended runtime. For the
+separate Linux port, follow `package/ego-linux/README.md`, link its
+`bin/ego-browser.mjs`, then run `ego-browser --install-desktop-entry`.
+
+**Do not** run the macOS DMG installer (`scripts/install.sh`) on Linux or WSL —
+it only supports Darwin and downloads the Citro app.
 
 This install builds the OSS packages in the monorepo and symlinks a CLI shim:
 
@@ -149,9 +181,15 @@ Once the environment is ready, return to the user's original task and continue w
 
 ## Troubleshooting
 
-- **Linux / WSL**: use `scripts/install-linux.sh`, not the macOS DMG script. See **Install steps (Linux / WSL)** above.
-- **Not macOS**: the DMG script supports macOS only (`uname -s` is `Darwin`). On Linux use `install-linux.sh`. On other platforms, check https://lite.ego.app/ or build from this monorepo.
-- **This is not the Citro app on Linux**: the Linux host is an OSS-friendly approximation (shared Chromium + CDP + Task Spaces). It does not download or install `ego lite.app`.
+- **Linux / WSL**: first identify the active implementation with `command -v`
+  and `readlink`. The bundled `scripts/install-linux.sh` installs only
+  `package/ego-linux-host`; the separate port is documented in
+  `package/ego-linux/README.md`.
+- **Not macOS**: the DMG script supports macOS only (`uname -s` is `Darwin`). On Linux use the matching port instructions above. On other platforms, check https://lite.ego.app/ or build from this monorepo.
+- **Linux versus macOS Citro shell**: neither Linux implementation installs the
+  proprietary `ego lite.app`. A Linux launcher, icon, window class, profile, and
+  task-space store can provide separate desktop identity, but the visible shell
+  remains stock Chrome/Chromium.
 - **Chrome missing on Linux**: install Chromium/Chrome for Linux, or set `EGO_CHROME_PATH`. The installer warns but does not run package managers without consent.
 - **No display (WSL without WSLg)**: use `EGO_HEADLESS=1`, or enable WSLg / a display server.
 - **Download failed (macOS)**: the DMG script retries 3 times automatically; if it still fails, it's usually a network issue — have the user check their network and retry.

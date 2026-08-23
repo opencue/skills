@@ -147,18 +147,17 @@ and a browser buried behind an editor looks identical to nothing happening.
 
 | `visible` | What it means | What you may say |
 |---|---|---|
-| `true` | The browser has a window and the space's page was raised on it. | Ask for the click, the login, the captcha. Still describe *where* to look ("the ego lite window"), because it may have opened on another workspace. |
+| `true` | The managed Chrome/Chromium window has the space's page on screen. | Ask for the click, login, or captcha. Call it the **managed agent Chrome/Chromium window**, never a separate native Ego Lite app. |
 | `false` + `reason: "headless"` | The browser is running headless (`EGO_LINUX_HEADLESS`). There is no window on any display. | Nothing about clicking. Report that the browser is headless and give the fix below. |
 | `false` + `reason: "no-live-tab"` | The task space has no live tab left. | Nothing about clicking. Reopen the page or start a fresh task space before asking for user action. |
-| `false` + `reason: "raise-failed"` | The browser has a window, but the port could not bring it to the front. | Ask the user to open the ego lite browser window manually before acting. |
+| `false` + `reason: "raise-failed"` | The browser has a window, but the port could not bring it to the front. | Ask the user to locate the managed agent Chrome/Chromium window manually before acting. |
 
-The fix to hand the user for `reason: "headless"`: unset
-`EGO_LINUX_HEADLESS` (under fish it is usually a universal variable, so
-`set -Ue EGO_LINUX_HEADLESS` rather than `set -e`), then run
-`ego-browser --open`. That trades the headless browser for a visible one, which
-**restarts Chrome** — the current spaces' tabs and their seeded cookie jars do
-not survive it, so treat the work in flight as lost and start the task again in
-a fresh space.
+For `reason: "headless"`, follow `references/install.md` to restart the active
+runtime in headed mode. Do not invoke either package by source path or open a
+desktop launcher unless `readlink` confirms it is the active runtime. Switching
+implementations uses different profile/task-space state. A host restart
+closes the current spaces' tabs and seeded cookie jars, so treat work in flight
+as lost and start the task again in a fresh space.
 
 A `visible: false` handoff or kept completion is not an error and does not need
 to be retried: the ownership change is real, headless is a supported way to run,

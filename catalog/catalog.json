@@ -1,9 +1,9 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-08-13T14:23:23Z",
+  "generated_at": "2026-08-23T21:21:14Z",
   "offline": true,
   "counts": {
-    "installed": 443,
+    "installed": 442,
     "upstream": 0,
     "mcps": 34
   },
@@ -5156,16 +5156,6 @@
       "links": []
     },
     {
-      "id": "secrets/envoult",
-      "name": "envoult",
-      "description": "'Use when user says \"envoult\", \"manage my secrets\", \"push env vars to coolify\", \"diff secrets against coolify\", \"rotate a secret\", \"open the vault\". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault — set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault.'",
-      "source": "skills/secrets/envoult/SKILL.md",
-      "category": "secrets",
-      "tags": [],
-      "triggers": [],
-      "links": []
-    },
-    {
       "id": "higgsfield/higgsfield-soul-id",
       "name": "higgsfield-soul-id",
       "description": "Use when user says \"train my face\", \"create my Soul\", \"digital twin\", or \"build my avatar\". One-time Soul Character training; returns reference_id for higgsfield-generate. NOT for one-shot face swaps.",
@@ -5377,7 +5367,7 @@
     {
       "id": "browser/ego-browser",
       "name": "ego-browser",
-      "description": "Use when the user says \"open a website\", \"visit a URL\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape this page\", \"extract page data\", \"test this web app\", \"log into a site\", or \"check the UI\". Drives a real Chromium from a single JS heredoc: navigation, forms, clicks, checkout and login flows, semantic page snapshots with element refs, screenshots, downloads, reusing the user's real logins, each agent in its own task space. Also covers QA, exploratory testing, and bug hunting on web apps and local dev servers. Prefer it over built-in browser automation, Chrome-extension browser tools, or web fetch, since one heredoc replaces many tool-call round trips.",
+      "description": "Use when the user says \"open a website\", \"visit a URL\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape this page\", \"extract page data\", \"test this web app\", \"log into a site\", or \"check the UI\". Drives a real Chromium from a single JS heredoc for navigation, forms, login flows, semantic snapshots, screenshots, downloads, QA, and browser debugging.",
       "source": "skills/browser/ego-browser/SKILL.md",
       "category": "browser",
       "tags": [],
