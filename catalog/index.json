@@ -1,9 +1,9 @@
 {
   "schema_version": "2.2",
   "counts": {
-    "skills": 443,
-    "withTriggers": 314,
-    "withCapability": 328,
+    "skills": 442,
+    "withTriggers": 313,
+    "withCapability": 327,
     "withRequires": 26
   },
   "skills": [
@@ -6863,29 +6863,6 @@
         "Supabase migration"
       ],
       "capability": "Envs, migrations, SQL checks, access",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "good"
-    },
-    {
-      "id": "secrets/envoult",
-      "name": "envoult",
-      "category": "secrets",
-      "description": "Use when user says \"envoult\", \"manage my secrets\", \"push env vars to coolify\", \"diff secrets against coolify\", \"rotate a secret\", \"open the vault\". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault \u2014 set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault.",
-      "source": "skills/secrets/envoult/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "envoult",
-        "manage my secrets",
-        "push env vars to coolify",
-        "diff secrets against coolify",
-        "rotate a secret",
-        "open the vault"
-      ],
-      "capability": "Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault \u2014 set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault",
       "notFor": "",
       "links": [],
       "requires": {

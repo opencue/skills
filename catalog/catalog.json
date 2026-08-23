@@ -3,7 +3,7 @@
   "generated_at": "2026-08-23T21:21:14Z",
   "offline": true,
   "counts": {
-    "installed": 443,
+    "installed": 442,
     "upstream": 0,
     "mcps": 34
   },
@@ -5151,16 +5151,6 @@
       "description": "Use when user says \"Supabase\", \"Supabase DB\", or \"Supabase migration\". Envs, migrations, SQL checks, access.",
       "source": "skills/deployment/supabase/SKILL.md",
       "category": "deployment",
-      "tags": [],
-      "triggers": [],
-      "links": []
-    },
-    {
-      "id": "secrets/envoult",
-      "name": "envoult",
-      "description": "'Use when user says \"envoult\", \"manage my secrets\", \"push env vars to coolify\", \"diff secrets against coolify\", \"rotate a secret\", \"open the vault\". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault — set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault.'",
-      "source": "skills/secrets/envoult/SKILL.md",
-      "category": "secrets",
       "tags": [],
       "triggers": [],
       "links": []
