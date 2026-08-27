@@ -1,9 +1,9 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-08-23T21:21:14Z",
+  "generated_at": "2026-08-26T21:22:09Z",
   "offline": true,
   "counts": {
-    "installed": 442,
+    "installed": 443,
     "upstream": 0,
     "mcps": 34
   },
@@ -4284,7 +4284,7 @@
     {
       "id": "meta/profile-summon",
       "name": "profile-summon",
-      "description": "Use when a directory has no .cue.profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE session and pins it, no restart.",
+      "description": "Use when a directory has no .cue.profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE Claude or Codex session and pins it; full MCP fidelity uses an agent-specific warm handoff.",
       "source": "skills/meta/profile-summon/SKILL.md",
       "category": "meta",
       "tags": [
@@ -5151,6 +5151,16 @@
       "description": "Use when user says \"Supabase\", \"Supabase DB\", or \"Supabase migration\". Envs, migrations, SQL checks, access.",
       "source": "skills/deployment/supabase/SKILL.md",
       "category": "deployment",
+      "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "id": "secrets/envoult",
+      "name": "envoult",
+      "description": "'Use when user says \"envoult\", \"manage my secrets\", \"push env vars to coolify\", \"diff secrets against coolify\", \"rotate a secret\", \"open the vault\". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault — set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault.'",
+      "source": "skills/secrets/envoult/SKILL.md",
+      "category": "secrets",
       "tags": [],
       "triggers": [],
       "links": []

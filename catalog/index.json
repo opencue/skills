@@ -1,9 +1,9 @@
 {
   "schema_version": "2.2",
   "counts": {
-    "skills": 442,
-    "withTriggers": 313,
-    "withCapability": 327,
+    "skills": 443,
+    "withTriggers": 314,
+    "withCapability": 329,
     "withRequires": 26
   },
   "skills": [
@@ -4869,18 +4869,14 @@
       "description": "Use when user says \"gx doctor\", \"dirty worktree\", or \"finish the agent branch\". gitguardex guardrails for branch/worktree/lock/PR state. NOT for code-quality review (use code-review).",
       "source": "skills/github/gitguardex/SKILL.md",
       "tags": [],
-      "triggers": [
-        "gx doctor",
-        "dirty worktree",
-        "finish the agent branch"
-      ],
-      "capability": "gitguardex guardrails for branch/worktree/lock/PR state",
-      "notFor": "NOT for code-quality review (use code-review).",
+      "triggers": [],
+      "capability": "Use only in GitGuardex-managed repositories when starting, repairing, or finishing agent work. Enforces isolated worktrees, file claims, ownership checks, compact handoffs, and gated PR completion",
+      "notFor": "NOT for general Git help or code-quality review.",
       "links": [],
       "requires": {
         "mcps": []
       },
-      "quality": "good"
+      "quality": "partial"
     },
     {
       "id": "github/gx-agents",
@@ -4898,8 +4894,8 @@
         "who owns this file",
         "agent radar"
       ],
-      "capability": "Use when several agents work in parallel and you need to see who is on which branch, worktree, or PR, or to avoid editing a file another agent already owns. Triggers: \"who's working on what\", \"show all agents\", \"is anyone else editing X\", \"agent collision\", \"which PR is each agent shipping\", \"who owns this file\", \"agent radar\". Drives the gx mcp tools (list_agents, who_owns, my_context) or the `gx mcp list-agents` / `gx mcp who-owns` CLI to read every agent's branch, worktree, dirty files, locks, and PR. Read-only",
-      "notFor": "NOT for repo-safety repair (use gitguardex).",
+      "capability": "Use in GitGuardex-managed repositories when multiple agents or subagents need ownership-aware coordination across branches, worktrees, files, or PRs. Drives the read-only gx radar tools before delegation and scope changes",
+      "notFor": "NOT for repository repair (use gitguardex).",
       "links": [],
       "requires": {
         "mcps": []
@@ -5640,7 +5636,7 @@
       "id": "meta/profile-summon",
       "name": "profile-summon",
       "category": "meta",
-      "description": "Use when a directory has no .cue.profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE session and pins it, no restart.",
+      "description": "Use when a directory has no .cue.profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE Claude or Codex session and pins it; full MCP fidelity uses an agent-specific warm handoff.",
       "source": "skills/meta/profile-summon/SKILL.md",
       "tags": [
         "meta",
@@ -5657,7 +5653,7 @@
         "bind a profile",
         "which profile for this repo"
       ],
-      "capability": "Use when a directory has no .cue.profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE session and pins it, no restart",
+      "capability": "Use when a directory has no .cue.profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE Claude or Codex session and pins it; full MCP fidelity uses an agent-specific warm handoff",
       "notFor": "",
       "links": [
         "smart-loader",
@@ -6871,6 +6867,29 @@
       "quality": "good"
     },
     {
+      "id": "secrets/envoult",
+      "name": "envoult",
+      "category": "secrets",
+      "description": "Use when user says \"envoult\", \"manage my secrets\", \"push env vars to coolify\", \"diff secrets against coolify\", \"rotate a secret\", \"open the vault\". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault \u2014 set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault.",
+      "source": "skills/secrets/envoult/SKILL.md",
+      "tags": [],
+      "triggers": [
+        "envoult",
+        "manage my secrets",
+        "push env vars to coolify",
+        "diff secrets against coolify",
+        "rotate a secret",
+        "open the vault"
+      ],
+      "capability": "Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault \u2014 set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault",
+      "notFor": "",
+      "links": [],
+      "requires": {
+        "mcps": []
+      },
+      "quality": "good"
+    },
+    {
       "id": "higgsfield/higgsfield-soul-id",
       "name": "higgsfield-soul-id",
       "category": "higgsfield",
@@ -7272,17 +7291,28 @@
       "id": "browser/ego-browser",
       "name": "ego-browser",
       "category": "browser",
-      "description": "Use when the user says \"open a website\", \"visit a URL\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape this page\", \"extract page data\", \"test this web app\", \"log into a site\", or \"check the UI\". Drives a real Chromium from a single JS heredoc: navigation, forms, clicks, checkout and login flows, semantic page snapshots with element refs, screenshots, downloads, reusing the user's real logins, each agent in its own task space. Also covers QA, exploratory testing, and bug hunting on web apps and local dev servers. Prefer it over built-in browser automation, Chrome-extension browser tools, or web fetch, since one heredoc replaces many tool-call round trips.",
+      "description": "Use when the user says \"open a website\", \"visit a URL\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape this page\", \"extract page data\", \"test this web app\", \"log into a site\", or \"check the UI\". Drives a real Chromium from a single JS heredoc for navigation, forms, login flows, semantic snapshots, screenshots, downloads, QA, and browser debugging.",
       "source": "skills/browser/ego-browser/SKILL.md",
       "tags": [],
-      "triggers": [],
-      "capability": "",
+      "triggers": [
+        "open a website",
+        "visit a URL",
+        "fill out a form",
+        "click a button",
+        "take a screenshot",
+        "scrape this page",
+        "extract page data",
+        "test this web app",
+        "log into a site",
+        "check the UI"
+      ],
+      "capability": "Drives a real Chromium from a single JS heredoc for navigation, forms, login flows, semantic snapshots, screenshots, downloads, QA, and browser debugging",
       "notFor": "",
       "links": [],
       "requires": {
         "mcps": []
       },
-      "quality": "none"
+      "quality": "good"
     },
     {
       "id": "browser/agent-browser",
@@ -8448,9 +8478,6 @@
     ],
     "figma": [
       "designer"
-    ],
-    "openaideveloperdocs": [
-      "research"
     ],
     "buywhere": [
       "dropshipping"
