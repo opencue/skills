@@ -1,9 +1,8 @@
 {
   "schema_version": "2.2",
-  "catalog_mtime": 1787857612709.551,
   "counts": {
     "skills": 443,
-    "withTriggers": 321,
+    "withTriggers": 314,
     "withCapability": 329,
     "withRequires": 26
   },
@@ -12,7 +11,7 @@
       "id": "eu-funding/ted-tender-search",
       "name": "ted-tender-search",
       "category": "eu-funding",
-      "description": "Use when user says \"find EU tenders\", \"TED search\", \"public procurement\", \"közbeszerzés\", or wants EU procurement notices by CPV, country, or keyword. Queries the free official TED API (no key).",
+      "description": "Use when user says \"find EU tenders\", \"TED search\", \"public procurement\", \"k\u00f6zbeszerz\u00e9s\", or wants EU procurement notices by CPV, country, or keyword. Queries the free official TED API (no key).",
       "source": "skills/eu-funding/ted-tender-search/SKILL.md",
       "tags": [
         "eu-funding",
@@ -25,7 +24,7 @@
         "find EU tenders",
         "TED search",
         "public procurement",
-        "közbeszerzés"
+        "k\u00f6zbeszerz\u00e9s"
       ],
       "capability": "Queries the free official TED API (no key)",
       "notFor": "",
@@ -41,7 +40,7 @@
       "id": "eu-funding/hu-grant-finder",
       "name": "hu-grant-finder",
       "category": "eu-funding",
-      "description": "Use when user says \"find grants\", \"pályázat\", \"támogatás\", \"GINOP\", \"DIMOP\", \"Hiventures\", \"EIC\", or what funding a HU/SK company can apply for. Maps grants, loans, VC, not tenders.",
+      "description": "Use when user says \"find grants\", \"p\u00e1ly\u00e1zat\", \"t\u00e1mogat\u00e1s\", \"GINOP\", \"DIMOP\", \"Hiventures\", \"EIC\", or what funding a HU/SK company can apply for. Maps grants, loans, VC, not tenders.",
       "source": "skills/eu-funding/hu-grant-finder/SKILL.md",
       "tags": [
         "eu-funding",
@@ -53,8 +52,8 @@
       ],
       "triggers": [
         "find grants",
-        "pályázat",
-        "támogatás",
+        "p\u00e1ly\u00e1zat",
+        "t\u00e1mogat\u00e1s",
         "GINOP",
         "DIMOP",
         "Hiventures",
@@ -438,7 +437,7 @@
       "id": "marketing/ab-test-setup-and-analysis",
       "name": "ab-test-setup-and-analysis",
       "category": "marketing",
-      "description": "Use when user says \"set up an a/b test\", \"design a split test\", \"how long should i run this test\", \"calculate sample size\", \"can i call a winner yet\". Designs statistically valid split tests for ads, audiences, landing pages, or bid strategies. Calculates required sample sizes before you start, monitors results during the test, and calls winners when statistical significance is actually reached — not when you feel like one is winning.",
+      "description": "Use when user says \"set up an a/b test\", \"design a split test\", \"how long should i run this test\", \"calculate sample size\", \"can i call a winner yet\". Designs statistically valid split tests for ads, audiences, landing pages, or bid strategies. Calculates required sample sizes before you start, monitors results during the test, and calls winners when statistical significance is actually reached \u2014 not when you feel like one is winning.",
       "source": "skills/marketing/ab-test-setup-and-analysis/SKILL.md",
       "tags": [],
       "triggers": [
@@ -448,7 +447,7 @@
         "calculate sample size",
         "can i call a winner yet"
       ],
-      "capability": "Designs statistically valid split tests for ads, audiences, landing pages, or bid strategies. Calculates required sample sizes before you start, monitors results during the test, and calls winners when statistical significance is actually reached — not when you feel like one is winning",
+      "capability": "Designs statistically valid split tests for ads, audiences, landing pages, or bid strategies. Calculates required sample sizes before you start, monitors results during the test, and calls winners when statistical significance is actually reached \u2014 not when you feel like one is winning",
       "notFor": "",
       "links": [],
       "requires": {
@@ -624,7 +623,7 @@
       "id": "marketing/cpa-diagnostics",
       "name": "cpa-diagnostics",
       "category": "marketing",
-      "description": "Use when user says \"why did my CPA spike\", \"diagnose my CPA\", \"my cost per acquisition jumped\", \"why did performance drop\", \"what is driving up my CPA\". When your CPA spikes, Claude breaks down exactly what caused it. It looks across your campaign data and isolates the contributing factors — audience fatigue, bid landscape shifts, creative decay, landing page conversion drops, budget distribution changes, or new competitor activity.",
+      "description": "Use when user says \"why did my CPA spike\", \"diagnose my CPA\", \"my cost per acquisition jumped\", \"why did performance drop\", \"what is driving up my CPA\". When your CPA spikes, Claude breaks down exactly what caused it. It looks across your campaign data and isolates the contributing factors \u2014 audience fatigue, bid landscape shifts, creative decay, landing page conversion drops, budget distribution changes, or new competitor activity.",
       "source": "skills/marketing/cpa-diagnostics/SKILL.md",
       "tags": [],
       "triggers": [
@@ -634,7 +633,7 @@
         "why did performance drop",
         "what is driving up my CPA"
       ],
-      "capability": "When your CPA spikes, Claude breaks down exactly what caused it. It looks across your campaign data and isolates the contributing factors — audience fatigue, bid landscape shifts, creative decay, landing page conversion drops, budget distribution changes, or new competitor activity",
+      "capability": "When your CPA spikes, Claude breaks down exactly what caused it. It looks across your campaign data and isolates the contributing factors \u2014 audience fatigue, bid landscape shifts, creative decay, landing page conversion drops, budget distribution changes, or new competitor activity",
       "notFor": "",
       "links": [],
       "requires": {
@@ -1310,7 +1309,7 @@
       "id": "medusa/higgsfield-to-medusa-products",
       "name": "higgsfield-to-medusa-products",
       "category": "medusa",
-      "description": "Use when user says \"Higgsfield to Medusa\", \"generate product photos\", or \"import AI product assets\". Asset generation → product mapping → import.",
+      "description": "Use when user says \"Higgsfield to Medusa\", \"generate product photos\", or \"import AI product assets\". Asset generation \u2192 product mapping \u2192 import.",
       "source": "skills/medusa/higgsfield-to-medusa-products/SKILL.md",
       "tags": [],
       "triggers": [
@@ -1318,7 +1317,7 @@
         "generate product photos",
         "import AI product assets"
       ],
-      "capability": "Asset generation → product mapping → import",
+      "capability": "Asset generation \u2192 product mapping \u2192 import",
       "notFor": "",
       "links": [],
       "requires": {
@@ -1374,10 +1373,10 @@
       "id": "medusa/marva-blog-author",
       "name": "marva-blog-author",
       "category": "medusa",
-      "description": "Use when user says \"write a MARVA blog post\", \"marvahome blog\", \"publish MARVA blog\", \"generate Hungarian blog for marvahome\", \"MARVA Home cikk\", or asks to draft, author, push, or publish an SEO blog post for marvahome.com. End-to-end: Hungarian SEO+GEO authoring → marva-blog MCP push → Higgsfield thumbnail.",
+      "description": "Use when user says \"write a MARVA blog post\", \"marvahome blog\", \"publish MARVA blog\", \"generate Hungarian blog for marvahome\", \"MARVA Home cikk\", or asks to draft, author, push, or publish an SEO blog post for marvahome.com. End-to-end: Hungarian SEO+GEO authoring \u2192 marva-blog MCP push \u2192 Higgsfield thumbnail.",
       "source": "skills/medusa/marva-blog-author/SKILL.md",
       "tags": [
-        "3-6 lowercase Hungarian — prefer COMMON_TAGS"
+        "3-6 lowercase Hungarian \u2014 prefer COMMON_TAGS"
       ],
       "triggers": [
         "write a MARVA blog post",
@@ -1386,7 +1385,7 @@
         "generate Hungarian blog for marvahome",
         "MARVA Home cikk"
       ],
-      "capability": "End-to-end: Hungarian SEO+GEO authoring → marva-blog MCP push → Higgsfield thumbnail",
+      "capability": "End-to-end: Hungarian SEO+GEO authoring \u2192 marva-blog MCP push \u2192 Higgsfield thumbnail",
       "notFor": "",
       "links": [],
       "requires": {
@@ -1627,7 +1626,7 @@
       "id": "gstack/benchmark-models",
       "name": "benchmark-models",
       "category": "gstack",
-      "description": "Cross-model benchmark for gstack skills. Runs the same prompt through Claude, GPT (via Codex CLI), and Gemini side-by-side — compares latency, tokens, cost, and optionally quality via LLM judge. Answers \"which model is actually best for this skill?\" with data instead of vibes. Separate from /benchmark, which measures web page performance. Use when: \"benchmark models\", \"compare models\", \"which model is best for X\", \"cross-model comparison\", \"model shootout\". Voice triggers (speech-to-text aliases): \"compare models\", \"model shootout\", \"which model is best\".",
+      "description": "Cross-model benchmark for gstack skills. Runs the same prompt through Claude, GPT (via Codex CLI), and Gemini side-by-side \u2014 compares latency, tokens, cost, and optionally quality via LLM judge. Answers \"which model is actually best for this skill?\" with data instead of vibes. Separate from /benchmark, which measures web page performance. Use when: \"benchmark models\", \"compare models\", \"which model is best for X\", \"cross-model comparison\", \"model shootout\". Voice triggers (speech-to-text aliases): \"compare models\", \"model shootout\", \"which model is best\".",
       "source": "skills/gstack/benchmark-models/SKILL.md",
       "tags": [],
       "triggers": [
@@ -1636,7 +1635,7 @@
         "benchmark skill across models",
         "which model should I use"
       ],
-      "capability": "Cross-model benchmark for gstack skills. Runs the same prompt through Claude, GPT (via Codex CLI), and Gemini side-by-side — compares latency, tokens, cost, and optionally quality via LLM judge. Answers \"which model is actually best for this skill?\" with data instead of vibes. Separate from /benchmark, which measures web page performance. Use when: \"benchmark models\", \"compare models\", \"which model is best for X\", \"cross-model comparison\", \"model shootout\". Voice triggers (speech-to-text aliases): \"compare models\", \"model shootout\", \"which model is best\"",
+      "capability": "Cross-model benchmark for gstack skills. Runs the same prompt through Claude, GPT (via Codex CLI), and Gemini side-by-side \u2014 compares latency, tokens, cost, and optionally quality via LLM judge. Answers \"which model is actually best for this skill?\" with data instead of vibes. Separate from /benchmark, which measures web page performance. Use when: \"benchmark models\", \"compare models\", \"which model is best for X\", \"cross-model comparison\", \"model shootout\". Voice triggers (speech-to-text aliases): \"compare models\", \"model shootout\", \"which model is best\"",
       "notFor": "",
       "links": [],
       "requires": {
@@ -1796,7 +1795,7 @@
       "id": "gstack/plan-tune",
       "name": "plan-tune",
       "category": "gstack",
-      "description": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). Review which AskUserQuestion prompts fire across gstack skills, set per-question preferences (never-ask / always-ask / ask-only-for-one-way), inspect the dual-track profile (what you declared vs what your behavior suggests), and enable/disable question tuning. Conversational interface — no CLI syntax required.  Use when asked to \"tune questions\", \"stop asking me that\", \"too many questions\", \"show my profile\", \"what questions have I been asked\", \"show my vibe\", \"developer profile\", or \"turn off question tuning\".  Proactively suggest when the user says the same gstack question has come up before, or when they explicitly override a recommendation for the Nth time.",
+      "description": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). Review which AskUserQuestion prompts fire across gstack skills, set per-question preferences (never-ask / always-ask / ask-only-for-one-way), inspect the dual-track profile (what you declared vs what your behavior suggests), and enable/disable question tuning. Conversational interface \u2014 no CLI syntax required.  Use when asked to \"tune questions\", \"stop asking me that\", \"too many questions\", \"show my profile\", \"what questions have I been asked\", \"show my vibe\", \"developer profile\", or \"turn off question tuning\".  Proactively suggest when the user says the same gstack question has come up before, or when they explicitly override a recommendation for the Nth time.",
       "source": "skills/gstack/plan-tune/SKILL.md",
       "tags": [],
       "triggers": [
@@ -1808,7 +1807,7 @@
         "developer profile",
         "turn off question tuning"
       ],
-      "capability": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). Review which AskUserQuestion prompts fire across gstack skills, set per-question preferences (never-ask / always-ask / ask-only-for-one-way), inspect the dual-track profile (what you declared vs what your behavior suggests), and enable/disable question tuning. Conversational interface — no CLI syntax required. Use when asked to \"tune questions\", \"stop asking me that\", \"too many questions\", \"show my profile\", \"what questions have I been asked\", \"show my vibe\", \"developer profile\", or \"turn off question tuning\". Proactively suggest when the user says the same gstack question has come up before, or when they explicitly override a recommendation for the Nth time",
+      "capability": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). Review which AskUserQuestion prompts fire across gstack skills, set per-question preferences (never-ask / always-ask / ask-only-for-one-way), inspect the dual-track profile (what you declared vs what your behavior suggests), and enable/disable question tuning. Conversational interface \u2014 no CLI syntax required. Use when asked to \"tune questions\", \"stop asking me that\", \"too many questions\", \"show my profile\", \"what questions have I been asked\", \"show my vibe\", \"developer profile\", or \"turn off question tuning\". Proactively suggest when the user says the same gstack question has come up before, or when they explicitly override a recommendation for the Nth time",
       "notFor": "",
       "links": [],
       "requires": {
@@ -1820,7 +1819,7 @@
       "id": "gstack/scrape",
       "name": "scrape",
       "category": "gstack",
-      "description": "Pull data from a web page. First call on a new intent prototypes the flow via $B primitives and returns JSON. Subsequent calls on a matching intent route to a codified browser-skill and return in ~200ms. Read-only — for mutating flows (form fills, clicks, submissions), use /automate. Use when asked to \"scrape\", \"get data from\", \"pull\", \"extract from\", or \"what's on\" a page.",
+      "description": "Pull data from a web page. First call on a new intent prototypes the flow via $B primitives and returns JSON. Subsequent calls on a matching intent route to a codified browser-skill and return in ~200ms. Read-only \u2014 for mutating flows (form fills, clicks, submissions), use /automate. Use when asked to \"scrape\", \"get data from\", \"pull\", \"extract from\", or \"what's on\" a page.",
       "source": "skills/gstack/scrape/SKILL.md",
       "tags": [],
       "triggers": [
@@ -1830,7 +1829,7 @@
         "extract from",
         "what is on"
       ],
-      "capability": "Pull data from a web page. First call on a new intent prototypes the flow via $B primitives and returns JSON. Subsequent calls on a matching intent route to a codified browser-skill and return in ~200ms. Read-only — for mutating flows (form fills, clicks, submissions), use /automate. Use when asked to \"scrape\", \"get data from\", \"pull\", \"extract from\", or \"what's on\" a page",
+      "capability": "Pull data from a web page. First call on a new intent prototypes the flow via $B primitives and returns JSON. Subsequent calls on a matching intent route to a codified browser-skill and return in ~200ms. Read-only \u2014 for mutating flows (form fills, clicks, submissions), use /automate. Use when asked to \"scrape\", \"get data from\", \"pull\", \"extract from\", or \"what's on\" a page",
       "notFor": "",
       "links": [],
       "requires": {
@@ -1842,7 +1841,7 @@
       "id": "gstack/context-save",
       "name": "context-save",
       "category": "gstack",
-      "description": "Capture working context — git state, decisions made, remaining work — so a future session (after compaction, a restart, or a worktree switch) can resume without re-discovering what's in flight. Writes a markdown note under .cue/context/<branch>-<YYYYMMDD-HHMM>.md. Pair with /context-restore. Use when the user says \"save progress\", \"save state\", \"context save\", or \"save my work\".",
+      "description": "Capture working context \u2014 git state, decisions made, remaining work \u2014 so a future session (after compaction, a restart, or a worktree switch) can resume without re-discovering what's in flight. Writes a markdown note under .cue/context/<branch>-<YYYYMMDD-HHMM>.md. Pair with /context-restore. Use when the user says \"save progress\", \"save state\", \"context save\", or \"save my work\".",
       "source": "skills/gstack/context-save/SKILL.md",
       "tags": [],
       "triggers": [
@@ -1851,7 +1850,7 @@
         "save my work",
         "context save"
       ],
-      "capability": "Capture working context — git state, decisions made, remaining work — so a future session (after compaction, a restart, or a worktree switch) can resume without re-discovering what's in flight. Writes a markdown note under .cue/context/<branch>-<YYYYMMDD-HHMM>.md. Pair with /context-restore",
+      "capability": "Capture working context \u2014 git state, decisions made, remaining work \u2014 so a future session (after compaction, a restart, or a worktree switch) can resume without re-discovering what's in flight. Writes a markdown note under .cue/context/<branch>-<YYYYMMDD-HHMM>.md. Pair with /context-restore",
       "notFor": "",
       "links": [],
       "requires": {
@@ -1903,7 +1902,7 @@
       "id": "gstack/open-gstack-browser",
       "name": "open-gstack-browser",
       "category": "gstack",
-      "description": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked in.",
+      "description": "Launch GStack Browser \u2014 AI-controlled Chromium with the sidebar extension baked in.",
       "source": "skills/gstack/open-gstack-browser/SKILL.md",
       "tags": [],
       "triggers": [
@@ -1911,7 +1910,7 @@
         "launch chromium",
         "show me the browser"
       ],
-      "capability": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked in",
+      "capability": "Launch GStack Browser \u2014 AI-controlled Chromium with the sidebar extension baked in",
       "notFor": "",
       "links": [],
       "requires": {
@@ -1987,7 +1986,7 @@
       "id": "gstack/design-shotgun",
       "name": "design-shotgun",
       "category": "gstack",
-      "description": "Generate multiple AI design variants at once, open a side-by-side comparison board, collect structured feedback, and iterate toward a winner. Use when the user says \"explore design variants\", \"show me design options\", \"visual design brainstorm\", \"design shotgun\", or \"give me a few directions\" for a UI, page, or component. NOT for auditing a single existing design — use design-review for that.",
+      "description": "Generate multiple AI design variants at once, open a side-by-side comparison board, collect structured feedback, and iterate toward a winner. Use when the user says \"explore design variants\", \"show me design options\", \"visual design brainstorm\", \"design shotgun\", or \"give me a few directions\" for a UI, page, or component. NOT for auditing a single existing design \u2014 use design-review for that.",
       "source": "skills/gstack/design-shotgun/SKILL.md",
       "tags": [],
       "triggers": [
@@ -1998,7 +1997,7 @@
         "give me a few directions"
       ],
       "capability": "Generate multiple AI design variants at once, open a side-by-side comparison board, collect structured feedback, and iterate toward a winner",
-      "notFor": "NOT for auditing a single existing design — use design-review for that.",
+      "notFor": "NOT for auditing a single existing design \u2014 use design-review for that.",
       "links": [],
       "requires": {
         "mcps": []
@@ -2070,7 +2069,7 @@
       "id": "gstack/design-review",
       "name": "design-review",
       "category": "gstack",
-      "description": "Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems, AI slop patterns, and slow interactions — then fixes them. Iteratively fixes issues in source code, committing each fix atomically and re-verifying with before/after screenshots. For plan-mode design review (before implementation), use /plan-design-review. Use when asked to \"audit the design\", \"visual QA\", \"check if it looks good\", or \"design polish\". Proactively suggest when the user mentions visual inconsistencies or wants to polish the look of a live site.",
+      "description": "Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems, AI slop patterns, and slow interactions \u2014 then fixes them. Iteratively fixes issues in source code, committing each fix atomically and re-verifying with before/after screenshots. For plan-mode design review (before implementation), use /plan-design-review. Use when asked to \"audit the design\", \"visual QA\", \"check if it looks good\", or \"design polish\". Proactively suggest when the user mentions visual inconsistencies or wants to polish the look of a live site.",
       "source": "skills/gstack/design-review/SKILL.md",
       "tags": [],
       "triggers": [
@@ -2078,7 +2077,7 @@
         "design qa",
         "fix design issues"
       ],
-      "capability": "Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems, AI slop patterns, and slow interactions — then fixes them. Iteratively fixes issues in source code, committing each fix atomically and re-verifying with before/after screenshots. For plan-mode design review (before implementation), use /plan-design-review. Use when asked to \"audit the design\", \"visual QA\", \"check if it looks good\", or \"design polish\". Proactively suggest when the user mentions visual inconsistencies or wants to polish the look of a live site",
+      "capability": "Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems, AI slop patterns, and slow interactions \u2014 then fixes them. Iteratively fixes issues in source code, committing each fix atomically and re-verifying with before/after screenshots. For plan-mode design review (before implementation), use /plan-design-review. Use when asked to \"audit the design\", \"visual QA\", \"check if it looks good\", or \"design polish\". Proactively suggest when the user mentions visual inconsistencies or wants to polish the look of a live site",
       "notFor": "",
       "links": [],
       "requires": {
@@ -2214,7 +2213,7 @@
       "id": "gstack/plan-eng-review",
       "name": "plan-eng-review",
       "category": "gstack",
-      "description": "Eng manager-mode plan review. Lock in the execution plan — architecture, data flow, diagrams, edge cases, test coverage, performance. Walks through issues interactively with opinionated recommendations. Use when asked to \"review the architecture\", \"engineering review\", or \"lock in the plan\". Proactively suggest when the user has a plan or design doc and is about to start coding — to catch architecture issues before implementation. Voice triggers (speech-to-text aliases): \"tech review\", \"technical review\", \"plan engineering review\".",
+      "description": "Eng manager-mode plan review. Lock in the execution plan \u2014 architecture, data flow, diagrams, edge cases, test coverage, performance. Walks through issues interactively with opinionated recommendations. Use when asked to \"review the architecture\", \"engineering review\", or \"lock in the plan\". Proactively suggest when the user has a plan or design doc and is about to start coding \u2014 to catch architecture issues before implementation. Voice triggers (speech-to-text aliases): \"tech review\", \"technical review\", \"plan engineering review\".",
       "source": "skills/gstack/plan-eng-review/SKILL.md",
       "tags": [],
       "triggers": [
@@ -2222,7 +2221,7 @@
         "eng plan review",
         "check the implementation plan"
       ],
-      "capability": "Eng manager-mode plan review. Lock in the execution plan — architecture, data flow, diagrams, edge cases, test coverage, performance. Walks through issues interactively with opinionated recommendations. Use when asked to \"review the architecture\", \"engineering review\", or \"lock in the plan\". Proactively suggest when the user has a plan or design doc and is about to start coding — to catch architecture issues before implementation. Voice triggers (speech-to-text aliases): \"tech review\", \"technical review\", \"plan engineering review\"",
+      "capability": "Eng manager-mode plan review. Lock in the execution plan \u2014 architecture, data flow, diagrams, edge cases, test coverage, performance. Walks through issues interactively with opinionated recommendations. Use when asked to \"review the architecture\", \"engineering review\", or \"lock in the plan\". Proactively suggest when the user has a plan or design doc and is about to start coding \u2014 to catch architecture issues before implementation. Voice triggers (speech-to-text aliases): \"tech review\", \"technical review\", \"plan engineering review\"",
       "notFor": "",
       "links": [],
       "requires": {
@@ -2277,7 +2276,7 @@
       "id": "gstack/make-pdf",
       "name": "make-pdf",
       "category": "gstack",
-      "description": "Turn any markdown file into a publication-quality PDF. Proper 1in margins, intelligent page breaks, page numbers, cover pages, running headers, curly quotes and em dashes, clickable TOC, diagonal DRAFT watermark. Not a draft artifact — a finished artifact. Use when asked to \"make a PDF\", \"export to PDF\", \"turn this markdown into a PDF\", or \"generate a document\". Voice triggers (speech-to-text aliases): \"make this a pdf\", \"make it a pdf\", \"export to pdf\", \"turn this into a pdf\", \"turn this markdown into a pdf\", \"generate a pdf\", \"make a pdf from\", \"pdf this markdown\".",
+      "description": "Turn any markdown file into a publication-quality PDF. Proper 1in margins, intelligent page breaks, page numbers, cover pages, running headers, curly quotes and em dashes, clickable TOC, diagonal DRAFT watermark. Not a draft artifact \u2014 a finished artifact. Use when asked to \"make a PDF\", \"export to PDF\", \"turn this markdown into a PDF\", or \"generate a document\". Voice triggers (speech-to-text aliases): \"make this a pdf\", \"make it a pdf\", \"export to pdf\", \"turn this into a pdf\", \"turn this markdown into a pdf\", \"generate a pdf\", \"make a pdf from\", \"pdf this markdown\".",
       "source": "skills/gstack/make-pdf/SKILL.md",
       "tags": [],
       "triggers": [
@@ -2286,7 +2285,7 @@
         "make pdf",
         "export pdf"
       ],
-      "capability": "Turn any markdown file into a publication-quality PDF. Proper 1in margins, intelligent page breaks, page numbers, cover pages, running headers, curly quotes and em dashes, clickable TOC, diagonal DRAFT watermark. Not a draft artifact — a finished artifact. Use when asked to \"make a PDF\", \"export to PDF\", \"turn this markdown into a PDF\", or \"generate a document\". Voice triggers (speech-to-text aliases): \"make this a pdf\", \"make it a pdf\", \"export to pdf\", \"turn this into a pdf\", \"turn this markdown into a pdf\", \"generate a pdf\", \"make a pdf from\", \"pdf this markdown\"",
+      "capability": "Turn any markdown file into a publication-quality PDF. Proper 1in margins, intelligent page breaks, page numbers, cover pages, running headers, curly quotes and em dashes, clickable TOC, diagonal DRAFT watermark. Not a draft artifact \u2014 a finished artifact. Use when asked to \"make a PDF\", \"export to PDF\", \"turn this markdown into a PDF\", or \"generate a document\". Voice triggers (speech-to-text aliases): \"make this a pdf\", \"make it a pdf\", \"export to pdf\", \"turn this into a pdf\", \"turn this markdown into a pdf\", \"generate a pdf\", \"make a pdf from\", \"pdf this markdown\"",
       "notFor": "",
       "links": [],
       "requires": {
@@ -2440,7 +2439,7 @@
       "id": "gstack/autoplan",
       "name": "autoplan",
       "category": "gstack",
-      "description": "Auto-review pipeline — reads the full CEO, design, eng, and DX review skills from disk and runs them sequentially with auto-decisions using 6 decision principles. Surfaces taste decisions (close approaches, borderline scope, codex disagreements) at a final approval gate. One command, fully reviewed plan out. Use when asked to \"auto review\", \"autoplan\", \"run all reviews\", \"review this plan automatically\", or \"make the decisions for me\". Proactively suggest when the user has a plan file and wants to run the full review gauntlet without answering 15-30 intermediate questions. Voice triggers (speech-to-text aliases): \"auto plan\", \"automatic review\".",
+      "description": "Auto-review pipeline \u2014 reads the full CEO, design, eng, and DX review skills from disk and runs them sequentially with auto-decisions using 6 decision principles. Surfaces taste decisions (close approaches, borderline scope, codex disagreements) at a final approval gate. One command, fully reviewed plan out. Use when asked to \"auto review\", \"autoplan\", \"run all reviews\", \"review this plan automatically\", or \"make the decisions for me\". Proactively suggest when the user has a plan file and wants to run the full review gauntlet without answering 15-30 intermediate questions. Voice triggers (speech-to-text aliases): \"auto plan\", \"automatic review\".",
       "source": "skills/gstack/autoplan/SKILL.md",
       "tags": [],
       "triggers": [
@@ -2448,7 +2447,7 @@
         "automatic review pipeline",
         "auto plan review"
       ],
-      "capability": "Auto-review pipeline — reads the full CEO, design, eng, and DX review skills from disk and runs them sequentially with auto-decisions using 6 decision principles. Surfaces taste decisions (close approaches, borderline scope, codex disagreements) at a final approval gate. One command, fully reviewed plan out. Use when asked to \"auto review\", \"autoplan\", \"run all reviews\", \"review this plan automatically\", or \"make the decisions for me\". Proactively suggest when the user has a plan file and wants to run the full review gauntlet without answering 15-30 intermediate questions. Voice triggers (speech-to-text aliases): \"auto plan\", \"automatic review\"",
+      "capability": "Auto-review pipeline \u2014 reads the full CEO, design, eng, and DX review skills from disk and runs them sequentially with auto-decisions using 6 decision principles. Surfaces taste decisions (close approaches, borderline scope, codex disagreements) at a final approval gate. One command, fully reviewed plan out. Use when asked to \"auto review\", \"autoplan\", \"run all reviews\", \"review this plan automatically\", or \"make the decisions for me\". Proactively suggest when the user has a plan file and wants to run the full review gauntlet without answering 15-30 intermediate questions. Voice triggers (speech-to-text aliases): \"auto plan\", \"automatic review\"",
       "notFor": "",
       "links": [],
       "requires": {
@@ -2500,7 +2499,7 @@
       "id": "gstack/office-hours",
       "name": "office-hours",
       "category": "gstack",
-      "description": "YC Office Hours — two modes. Startup mode: six forcing questions that expose demand reality, status quo, desperate specificity, narrowest wedge, observation, and future-fit. Builder mode: design thinking brainstorming for side projects, hackathons, learning, and open source. Saves a design doc. Use when asked to \"brainstorm this\", \"I have an idea\", \"help me think through this\", \"office hours\", or \"is this worth building\". Proactively invoke this skill (do NOT answer directly) when the user describes a new product idea, asks whether something is worth building, wants to think through design decisions for something that doesn't exist yet, or is exploring a concept before any code is written. Use before /plan-ceo-review or /plan-eng-review.",
+      "description": "YC Office Hours \u2014 two modes. Startup mode: six forcing questions that expose demand reality, status quo, desperate specificity, narrowest wedge, observation, and future-fit. Builder mode: design thinking brainstorming for side projects, hackathons, learning, and open source. Saves a design doc. Use when asked to \"brainstorm this\", \"I have an idea\", \"help me think through this\", \"office hours\", or \"is this worth building\". Proactively invoke this skill (do NOT answer directly) when the user describes a new product idea, asks whether something is worth building, wants to think through design decisions for something that doesn't exist yet, or is exploring a concept before any code is written. Use before /plan-ceo-review or /plan-eng-review.",
       "source": "skills/gstack/office-hours/SKILL.md",
       "tags": [],
       "triggers": [
@@ -2509,7 +2508,7 @@
         "help me think through",
         "office hours"
       ],
-      "capability": "YC Office Hours — two modes. Startup mode: six forcing questions that expose demand reality, status quo, desperate specificity, narrowest wedge, observation, and future-fit. Builder mode: design thinking brainstorming for side projects, hackathons, learning, and open source. Saves a design doc. Use when asked to \"brainstorm this\", \"I have an idea\", \"help me think through this\", \"office hours\", or \"is this worth building\". Proactively invoke this skill (do NOT answer directly) when the user describes a new product idea, asks whether something is worth building, wants to think through design decisions for something that doesn't exist yet, or is exploring a concept before any code is written. Use before /plan-ceo-review or /plan-eng-review",
+      "capability": "YC Office Hours \u2014 two modes. Startup mode: six forcing questions that expose demand reality, status quo, desperate specificity, narrowest wedge, observation, and future-fit. Builder mode: design thinking brainstorming for side projects, hackathons, learning, and open source. Saves a design doc. Use when asked to \"brainstorm this\", \"I have an idea\", \"help me think through this\", \"office hours\", or \"is this worth building\". Proactively invoke this skill (do NOT answer directly) when the user describes a new product idea, asks whether something is worth building, wants to think through design decisions for something that doesn't exist yet, or is exploring a concept before any code is written. Use before /plan-ceo-review or /plan-eng-review",
       "notFor": "",
       "links": [],
       "requires": {
@@ -2521,7 +2520,7 @@
       "id": "gstack/landing-report",
       "name": "landing-report",
       "category": "gstack",
-      "description": "Read-only queue dashboard for workspace-aware ship. Shows which VERSION slots are currently claimed by open PRs, which sibling Conductor workspaces have WIP work likely to ship soon, and what slot /ship would pick next. No mutations — just a snapshot. Use when asked to \"landing report\", \"what's in the queue\", \"show me open PRs\", or \"which version do I claim next\".",
+      "description": "Read-only queue dashboard for workspace-aware ship. Shows which VERSION slots are currently claimed by open PRs, which sibling Conductor workspaces have WIP work likely to ship soon, and what slot /ship would pick next. No mutations \u2014 just a snapshot. Use when asked to \"landing report\", \"what's in the queue\", \"show me open PRs\", or \"which version do I claim next\".",
       "source": "skills/gstack/landing-report/SKILL.md",
       "tags": [],
       "triggers": [
@@ -2531,7 +2530,7 @@
         "what version comes next",
         "show open PR versions"
       ],
-      "capability": "Read-only queue dashboard for workspace-aware ship. Shows which VERSION slots are currently claimed by open PRs, which sibling Conductor workspaces have WIP work likely to ship soon, and what slot /ship would pick next. No mutations — just a snapshot. Use when asked to \"landing report\", \"what's in the queue\", \"show me open PRs\", or \"which version do I claim next\"",
+      "capability": "Read-only queue dashboard for workspace-aware ship. Shows which VERSION slots are currently claimed by open PRs, which sibling Conductor workspaces have WIP work likely to ship soon, and what slot /ship would pick next. No mutations \u2014 just a snapshot. Use when asked to \"landing report\", \"what's in the queue\", \"show me open PRs\", or \"which version do I claim next\"",
       "notFor": "",
       "links": [],
       "requires": {
@@ -2543,7 +2542,7 @@
       "id": "gstack/codex",
       "name": "codex",
       "category": "gstack",
-      "description": "OpenAI Codex CLI wrapper — three modes. Code review: independent diff review via codex review with pass/fail gate. Challenge: adversarial mode that tries to break your code. Consult: ask codex anything with session continuity for follow-ups. The \"200 IQ autistic developer\" second opinion. Use when asked to \"codex review\", \"codex challenge\", \"ask codex\", \"second opinion\", or \"consult codex\". Voice triggers (speech-to-text aliases): \"code x\", \"code ex\", \"get another opinion\".",
+      "description": "OpenAI Codex CLI wrapper \u2014 three modes. Code review: independent diff review via codex review with pass/fail gate. Challenge: adversarial mode that tries to break your code. Consult: ask codex anything with session continuity for follow-ups. The \"200 IQ autistic developer\" second opinion. Use when asked to \"codex review\", \"codex challenge\", \"ask codex\", \"second opinion\", or \"consult codex\". Voice triggers (speech-to-text aliases): \"code x\", \"code ex\", \"get another opinion\".",
       "source": "skills/gstack/codex/SKILL.md",
       "tags": [
         "security",
@@ -2555,7 +2554,7 @@
         "second opinion",
         "outside voice challenge"
       ],
-      "capability": "OpenAI Codex CLI wrapper — three modes. Code review: independent diff review via codex review with pass/fail gate. Challenge: adversarial mode that tries to break your code. Consult: ask codex anything with session continuity for follow-ups. The \"200 IQ autistic developer\" second opinion. Use when asked to \"codex review\", \"codex challenge\", \"ask codex\", \"second opinion\", or \"consult codex\". Voice triggers (speech-to-text aliases): \"code x\", \"code ex\", \"get another opinion\"",
+      "capability": "OpenAI Codex CLI wrapper \u2014 three modes. Code review: independent diff review via codex review with pass/fail gate. Challenge: adversarial mode that tries to break your code. Consult: ask codex anything with session continuity for follow-ups. The \"200 IQ autistic developer\" second opinion. Use when asked to \"codex review\", \"codex challenge\", \"ask codex\", \"second opinion\", or \"consult codex\". Voice triggers (speech-to-text aliases): \"code x\", \"code ex\", \"get another opinion\"",
       "notFor": "",
       "links": [],
       "requires": {
@@ -2567,7 +2566,7 @@
       "id": "gstack/plan-design-review",
       "name": "plan-design-review",
       "category": "gstack",
-      "description": "Designer's eye plan review — interactive, like CEO and Eng review. Rates each design dimension 0-10, explains what would make it a 10, then fixes the plan to get there. Works in plan mode. For live site visual audits, use /design-review. Use when asked to \"review the design plan\" or \"design critique\". Proactively suggest when the user has a plan with UI/UX components that should be reviewed before implementation.",
+      "description": "Designer's eye plan review \u2014 interactive, like CEO and Eng review. Rates each design dimension 0-10, explains what would make it a 10, then fixes the plan to get there. Works in plan mode. For live site visual audits, use /design-review. Use when asked to \"review the design plan\" or \"design critique\". Proactively suggest when the user has a plan with UI/UX components that should be reviewed before implementation.",
       "source": "skills/gstack/plan-design-review/SKILL.md",
       "tags": [],
       "triggers": [
@@ -2575,7 +2574,7 @@
         "review ux plan",
         "check design decisions"
       ],
-      "capability": "Designer's eye plan review — interactive, like CEO and Eng review. Rates each design dimension 0-10, explains what would make it a 10, then fixes the plan to get there. Works in plan mode. For live site visual audits, use /design-review. Use when asked to \"review the design plan\" or \"design critique\". Proactively suggest when the user has a plan with UI/UX components that should be reviewed before implementation",
+      "capability": "Designer's eye plan review \u2014 interactive, like CEO and Eng review. Rates each design dimension 0-10, explains what would make it a 10, then fixes the plan to get there. Works in plan mode. For live site visual audits, use /design-review. Use when asked to \"review the design plan\" or \"design critique\". Proactively suggest when the user has a plan with UI/UX components that should be reviewed before implementation",
       "notFor": "",
       "links": [],
       "requires": {
@@ -2648,66 +2647,6 @@
       "quality": "good"
     },
     {
-      "id": "legal/custom-nda-generator",
-      "name": "custom-nda-generator",
-      "category": "legal",
-      "description": "Generates a customized NDA (mutual, one-way, employee, or vendor) with plain-English notes. Use when the user says \\\"/legal nda\\\", \\\"generate an NDA\\\", or \\\"draft a non-disclosure agreement\\\".",
-      "source": "skills/legal/legal-nda/SKILL.md",
-      "tags": [
-        "legal",
-        "nda",
-        "generator"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "legal/terms-of-service-generator",
-      "name": "terms-of-service-generator",
-      "category": "legal",
-      "description": "Generates GDPR/CCPA-compliant Terms of Service with plain-English section summaries. Use when the user says \\\"/legal terms\\\", \\\"generate terms of service\\\", or \\\"write a ToS\\\".",
-      "source": "skills/legal/legal-terms/SKILL.md",
-      "tags": [
-        "legal",
-        "tos",
-        "generator"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "legal/missing-protections-finder",
-      "name": "missing-protections-finder",
-      "category": "legal",
-      "description": "Finds critical clauses missing from a contract, with urgency ratings and ready-to-insert language. Use when the user says \\\"/legal missing\\\" or \\\"what protections am I missing\\\".",
-      "source": "skills/legal/legal-missing/SKILL.md",
-      "tags": [
-        "legal",
-        "contracts",
-        "gaps"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "legal/legal",
       "name": "legal",
       "category": "legal",
@@ -2730,166 +2669,6 @@
         "mcps": []
       },
       "quality": "good"
-    },
-    {
-      "id": "legal/plain-english-translation",
-      "name": "plain-english-translation",
-      "category": "legal",
-      "description": "Translates contract clauses from legalese into plain English and flags confusing language. Use when the user says \\\"/legal plain\\\", \\\"explain in plain English\\\", or \\\"what does this clause mean\\\".",
-      "source": "skills/legal/legal-plain/SKILL.md",
-      "tags": [
-        "legal",
-        "contracts",
-        "plain-english"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "legal/counter-proposal-generator",
-      "name": "counter-proposal-generator",
-      "category": "legal",
-      "description": "Generates counter-proposals for unfavorable clauses with replacement language and talking points. Use when the user says \\\"/legal negotiate\\\", \\\"write a counter-proposal\\\", or \\\"redline this\\\".",
-      "source": "skills/legal/legal-negotiate/SKILL.md",
-      "tags": [
-        "legal",
-        "contracts",
-        "negotiation"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "legal/freelancer-contract-review",
-      "name": "freelancer-contract-review",
-      "category": "legal",
-      "description": "Reviews a contract from the freelancer perspective, flagging traps with a fairness score. Use when the user says \\\"/legal freelancer\\\" or \\\"review this client contract\\\".",
-      "source": "skills/legal/legal-freelancer/SKILL.md",
-      "tags": [
-        "legal",
-        "contracts",
-        "freelance"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "legal/contract-comparison",
-      "name": "contract-comparison",
-      "category": "legal",
-      "description": "Side-by-side comparison of two contracts with change tracking and favorability analysis. Use when the user says \\\"/legal compare\\\", \\\"compare these contracts\\\", or \\\"what changed\\\".",
-      "source": "skills/legal/legal-compare/SKILL.md",
-      "tags": [
-        "legal",
-        "contracts",
-        "diff"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "legal/contract-review",
-      "name": "contract-review",
-      "category": "legal",
-      "description": "Full contract review via 5 parallel subagents: a Contract Safety Score, clause-by-clause analysis, prioritized fixes. Use when the user says \\\"/legal review\\\" or \\\"review this contract\\\".",
-      "source": "skills/legal/legal-review/SKILL.md",
-      "tags": [
-        "legal",
-        "contracts",
-        "review"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "legal/privacy-policy-generator",
-      "name": "privacy-policy-generator",
-      "category": "legal",
-      "description": "Scans a site to detect data collection, then generates a GDPR/CCPA-compliant privacy policy. Use when the user says \\\"/legal privacy\\\" or \\\"generate a privacy policy\\\".",
-      "source": "skills/legal/legal-privacy/SKILL.md",
-      "tags": [
-        "legal",
-        "privacy",
-        "gdpr"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "legal/business-agreement-generator",
-      "name": "business-agreement-generator",
-      "category": "legal",
-      "description": "Generates business agreements (freelancer, partnership, SOW, MSA, service) with annotations. Use when the user says \\\"/legal agreement\\\", \\\"draft an SOW\\\", or \\\"create an MSA\\\".",
-      "source": "skills/legal/legal-agreement/SKILL.md",
-      "tags": [
-        "legal",
-        "agreements",
-        "generator"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "legal/compliance-gap-analysis",
-      "name": "compliance-gap-analysis",
-      "category": "legal",
-      "description": "Scans a site for gaps across GDPR, CCPA, ADA, PCI-DSS, CAN-SPAM, and SOC 2 with a scored audit. Use when the user says \\\"/legal compliance\\\" or \\\"run a compliance audit\\\".",
-      "source": "skills/legal/legal-compliance/SKILL.md",
-      "tags": [
-        "legal",
-        "compliance",
-        "audit"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "legal/legal-report-pdf",
@@ -2915,30 +2694,10 @@
       "quality": "good"
     },
     {
-      "id": "legal/deep-risk-analysis",
-      "name": "deep-risk-analysis",
-      "category": "legal",
-      "description": "Clause-by-clause risk analysis with severity scores and financial-exposure estimates. Use when the user says \\\"/legal risks\\\", \\\"what are the risks\\\", or \\\"find dangerous clauses\\\".",
-      "source": "skills/legal/legal-risks/SKILL.md",
-      "tags": [
-        "legal",
-        "contracts",
-        "risk"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "rust/error-handling",
       "name": "error-handling",
       "category": "rust",
-      "description": "Use when designing Rust error types — choosing between thiserror (libraries) and anyhow (apps), wrapping foreign errors, returning Result from main.",
+      "description": "Use when designing Rust error types \u2014 choosing between thiserror (libraries) and anyhow (apps), wrapping foreign errors, returning Result from main.",
       "source": "skills/rust/error-handling/SKILL.md",
       "tags": [],
       "triggers": [
@@ -2946,7 +2705,7 @@
         "thiserror vs anyhow",
         "rust error types"
       ],
-      "capability": "Use when designing Rust error types — choosing between thiserror (libraries) and anyhow (apps), wrapping foreign errors, returning Result from main",
+      "capability": "Use when designing Rust error types \u2014 choosing between thiserror (libraries) and anyhow (apps), wrapping foreign errors, returning Result from main",
       "notFor": "",
       "links": [],
       "requires": {
@@ -2958,7 +2717,7 @@
       "id": "rust/mdbook",
       "name": "mdbook",
       "category": "rust",
-      "description": "Use when authoring Rust project documentation as a static site — Rust Book / The Cargo Book / clap docs style.",
+      "description": "Use when authoring Rust project documentation as a static site \u2014 Rust Book / The Cargo Book / clap docs style.",
       "source": "skills/rust/mdbook/SKILL.md",
       "tags": [],
       "triggers": [
@@ -2966,7 +2725,7 @@
         "rust docs site",
         "rust book"
       ],
-      "capability": "Use when authoring Rust project documentation as a static site — Rust Book / The Cargo Book / clap docs style",
+      "capability": "Use when authoring Rust project documentation as a static site \u2014 Rust Book / The Cargo Book / clap docs style",
       "notFor": "",
       "links": [],
       "requires": {
@@ -2978,7 +2737,7 @@
       "id": "rust/async-tokio",
       "name": "async-tokio",
       "category": "rust",
-      "description": "Use when writing async Rust with tokio — picking a runtime flavor, structuring tasks, choosing sync vs async primitives, debugging deadlocks.",
+      "description": "Use when writing async Rust with tokio \u2014 picking a runtime flavor, structuring tasks, choosing sync vs async primitives, debugging deadlocks.",
       "source": "skills/rust/async-tokio/SKILL.md",
       "tags": [],
       "triggers": [
@@ -2987,7 +2746,7 @@
         "tokio runtime",
         "debug async deadlock"
       ],
-      "capability": "Use when writing async Rust with tokio — picking a runtime flavor, structuring tasks, choosing sync vs async primitives, debugging deadlocks",
+      "capability": "Use when writing async Rust with tokio \u2014 picking a runtime flavor, structuring tasks, choosing sync vs async primitives, debugging deadlocks",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3020,7 +2779,7 @@
       "id": "rust/cargo-readme",
       "name": "cargo-readme",
       "category": "rust",
-      "description": "Use when keeping README.md in sync with lib.rs doc comments — generate the README from `//!` crate-level docs.",
+      "description": "Use when keeping README.md in sync with lib.rs doc comments \u2014 generate the README from `//!` crate-level docs.",
       "source": "skills/rust/cargo-readme/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3028,7 +2787,7 @@
         "cargo readme",
         "sync readme with docs"
       ],
-      "capability": "Use when keeping README.md in sync with lib.rs doc comments — generate the README from `//!` crate-level docs",
+      "capability": "Use when keeping README.md in sync with lib.rs doc comments \u2014 generate the README from `//!` crate-level docs",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3124,7 +2883,7 @@
       "id": "rust/pyo3",
       "name": "pyo3",
       "category": "rust",
-      "description": "Use when exposing Rust code to Python — write a CPython extension module in Rust, ship as a wheel via maturin.",
+      "description": "Use when exposing Rust code to Python \u2014 write a CPython extension module in Rust, ship as a wheel via maturin.",
       "source": "skills/rust/pyo3/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3133,7 +2892,7 @@
         "expose rust to python",
         "maturin"
       ],
-      "capability": "Use when exposing Rust code to Python — write a CPython extension module in Rust, ship as a wheel via maturin",
+      "capability": "Use when exposing Rust code to Python \u2014 write a CPython extension module in Rust, ship as a wheel via maturin",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3166,7 +2925,7 @@
       "id": "rust/just-runner",
       "name": "just-runner",
       "category": "rust",
-      "description": "Use when authoring or running project task recipes — Rust ecosystem's de-facto replacement for Make. Justfile syntax.",
+      "description": "Use when authoring or running project task recipes \u2014 Rust ecosystem's de-facto replacement for Make. Justfile syntax.",
       "source": "skills/rust/just-runner/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3175,7 +2934,7 @@
         "rust task runner",
         "replace make"
       ],
-      "capability": "Use when authoring or running project task recipes — Rust ecosystem's de-facto replacement for Make. Justfile syntax",
+      "capability": "Use when authoring or running project task recipes \u2014 Rust ecosystem's de-facto replacement for Make. Justfile syntax",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3207,7 +2966,7 @@
       "id": "rust/release-plz",
       "name": "release-plz",
       "category": "rust",
-      "description": "Use when automating crates.io releases for a workspace — version bumps, CHANGELOG generation, GitHub Release PRs based on Conventional Commits.",
+      "description": "Use when automating crates.io releases for a workspace \u2014 version bumps, CHANGELOG generation, GitHub Release PRs based on Conventional Commits.",
       "source": "skills/rust/release-plz/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3215,7 +2974,7 @@
         "release-plz",
         "rust changelog automation"
       ],
-      "capability": "Use when automating crates.io releases for a workspace — version bumps, CHANGELOG generation, GitHub Release PRs based on Conventional Commits",
+      "capability": "Use when automating crates.io releases for a workspace \u2014 version bumps, CHANGELOG generation, GitHub Release PRs based on Conventional Commits",
       "notFor": "",
       "links": [
         "package"
@@ -3229,7 +2988,7 @@
       "id": "rust/wasm-rust",
       "name": "wasm-rust",
       "category": "rust",
-      "description": "Use when building Rust → WASM — modules with JS bindings (wasm-pack), full SPA frontends (trunk + Yew/Leptos/Sycamore), or Dioxus apps.",
+      "description": "Use when building Rust \u2192 WASM \u2014 modules with JS bindings (wasm-pack), full SPA frontends (trunk + Yew/Leptos/Sycamore), or Dioxus apps.",
       "source": "skills/rust/wasm-rust/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3238,7 +2997,7 @@
         "rust to webassembly",
         "rust frontend"
       ],
-      "capability": "Use when building Rust → WASM — modules with JS bindings (wasm-pack), full SPA frontends (trunk + Yew/Leptos/Sycamore), or Dioxus apps",
+      "capability": "Use when building Rust \u2192 WASM \u2014 modules with JS bindings (wasm-pack), full SPA frontends (trunk + Yew/Leptos/Sycamore), or Dioxus apps",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3313,7 +3072,7 @@
       "id": "rust/napi-rs",
       "name": "napi-rs",
       "category": "rust",
-      "description": "Use when exposing Rust to Node.js — write a native addon via N-API. The path NextSwc, Parcel, and Prisma's query engine take.",
+      "description": "Use when exposing Rust to Node.js \u2014 write a native addon via N-API. The path NextSwc, Parcel, and Prisma's query engine take.",
       "source": "skills/rust/napi-rs/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3321,7 +3080,7 @@
         "napi-rs",
         "expose rust to node"
       ],
-      "capability": "Use when exposing Rust to Node.js — write a native addon via N-API. The path NextSwc, Parcel, and Prisma's query engine take",
+      "capability": "Use when exposing Rust to Node.js \u2014 write a native addon via N-API. The path NextSwc, Parcel, and Prisma's query engine take",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3354,7 +3113,7 @@
       "id": "rust/bevy",
       "name": "bevy",
       "category": "rust",
-      "description": "Use when building a game or interactive simulation in Rust with the Bevy engine — ECS-first, data-driven, hot-reloading, cross-platform (desktop + wasm).",
+      "description": "Use when building a game or interactive simulation in Rust with the Bevy engine \u2014 ECS-first, data-driven, hot-reloading, cross-platform (desktop + wasm).",
       "source": "skills/rust/bevy/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3363,7 +3122,7 @@
         "rust game engine",
         "ecs game"
       ],
-      "capability": "Use when building a game or interactive simulation in Rust with the Bevy engine — ECS-first, data-driven, hot-reloading, cross-platform (desktop + wasm)",
+      "capability": "Use when building a game or interactive simulation in Rust with the Bevy engine \u2014 ECS-first, data-driven, hot-reloading, cross-platform (desktop + wasm)",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3396,7 +3155,7 @@
       "id": "rust/property-testing",
       "name": "property-testing",
       "category": "rust",
-      "description": "Use when testing parsers, serializers, math/algorithms, anything with invariants — generate thousands of inputs and check properties hold. Covers proptest and quickcheck.",
+      "description": "Use when testing parsers, serializers, math/algorithms, anything with invariants \u2014 generate thousands of inputs and check properties hold. Covers proptest and quickcheck.",
       "source": "skills/rust/property-testing/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3405,7 +3164,7 @@
         "quickcheck",
         "property based tests"
       ],
-      "capability": "Use when testing parsers, serializers, math/algorithms, anything with invariants — generate thousands of inputs and check properties hold. Covers proptest and quickcheck",
+      "capability": "Use when testing parsers, serializers, math/algorithms, anything with invariants \u2014 generate thousands of inputs and check properties hold. Covers proptest and quickcheck",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3417,7 +3176,7 @@
       "id": "rust/cross-compile",
       "name": "cross-compile",
       "category": "rust",
-      "description": "Use when building a Rust binary for a different target — ARM, musl, Windows, Android — without setting up native toolchains.",
+      "description": "Use when building a Rust binary for a different target \u2014 ARM, musl, Windows, Android \u2014 without setting up native toolchains.",
       "source": "skills/rust/cross-compile/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3426,7 +3185,7 @@
         "rust musl build",
         "build rust for windows"
       ],
-      "capability": "Use when building a Rust binary for a different target — ARM, musl, Windows, Android — without setting up native toolchains",
+      "capability": "Use when building a Rust binary for a different target \u2014 ARM, musl, Windows, Android \u2014 without setting up native toolchains",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3458,7 +3217,7 @@
       "id": "rust/reqwest",
       "name": "reqwest",
       "category": "rust",
-      "description": "Use when making HTTP requests from Rust — JSON APIs, file downloads, streaming. Covers reqwest (async), reqwest-middleware for retries, blocking variant, hyper for low-level.",
+      "description": "Use when making HTTP requests from Rust \u2014 JSON APIs, file downloads, streaming. Covers reqwest (async), reqwest-middleware for retries, blocking variant, hyper for low-level.",
       "source": "skills/rust/reqwest/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3467,7 +3226,7 @@
         "rust http client",
         "download file rust"
       ],
-      "capability": "Use when making HTTP requests from Rust — JSON APIs, file downloads, streaming. Covers reqwest (async), reqwest-middleware for retries, blocking variant, hyper for low-level",
+      "capability": "Use when making HTTP requests from Rust \u2014 JSON APIs, file downloads, streaming. Covers reqwest (async), reqwest-middleware for retries, blocking variant, hyper for low-level",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3479,7 +3238,7 @@
       "id": "rust/typos-spellcheck",
       "name": "typos-spellcheck",
       "category": "rust",
-      "description": "Use when spell-checking Rust source, docs, comments — `typos` CLI catches common misspellings without false positives on code identifiers.",
+      "description": "Use when spell-checking Rust source, docs, comments \u2014 `typos` CLI catches common misspellings without false positives on code identifiers.",
       "source": "skills/rust/typos-spellcheck/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3487,7 +3246,7 @@
         "typos",
         "find typos in code"
       ],
-      "capability": "Use when spell-checking Rust source, docs, comments — `typos` CLI catches common misspellings without false positives on code identifiers",
+      "capability": "Use when spell-checking Rust source, docs, comments \u2014 `typos` CLI catches common misspellings without false positives on code identifiers",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3519,7 +3278,7 @@
       "id": "rust/chisel-tool",
       "name": "chisel-tool",
       "category": "rust",
-      "description": "Use when an agent needs precision file edits with minimal token overhead — patch-based, kernel-confined paths. Pointer to the upstream Chisel MCP server.",
+      "description": "Use when an agent needs precision file edits with minimal token overhead \u2014 patch-based, kernel-confined paths. Pointer to the upstream Chisel MCP server.",
       "source": "skills/rust/chisel-tool/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3527,7 +3286,7 @@
         "precision file edits",
         "patch based edits"
       ],
-      "capability": "Use when an agent needs precision file edits with minimal token overhead — patch-based, kernel-confined paths. Pointer to the upstream Chisel MCP server",
+      "capability": "Use when an agent needs precision file edits with minimal token overhead \u2014 patch-based, kernel-confined paths. Pointer to the upstream Chisel MCP server",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3560,7 +3319,7 @@
       "id": "rust/snapshot-testing",
       "name": "snapshot-testing",
       "category": "rust",
-      "description": "Use when testing CLI output, API responses, rendered templates, error messages — anything where the assertion is \"output looks like this big chunk of text\". Covers cargo-insta.",
+      "description": "Use when testing CLI output, API responses, rendered templates, error messages \u2014 anything where the assertion is \"output looks like this big chunk of text\". Covers cargo-insta.",
       "source": "skills/rust/snapshot-testing/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3568,7 +3327,7 @@
         "cargo insta",
         "insta snapshots"
       ],
-      "capability": "Use when testing CLI output, API responses, rendered templates, error messages — anything where the assertion is \"output looks like this big chunk of text\". Covers cargo-insta",
+      "capability": "Use when testing CLI output, API responses, rendered templates, error messages \u2014 anything where the assertion is \"output looks like this big chunk of text\". Covers cargo-insta",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3580,7 +3339,7 @@
       "id": "rust/cbindgen",
       "name": "cbindgen",
       "category": "rust",
-      "description": "Use when exposing a Rust library to C/C++ — auto-generate C headers from a Rust crate so other languages can link to it.",
+      "description": "Use when exposing a Rust library to C/C++ \u2014 auto-generate C headers from a Rust crate so other languages can link to it.",
       "source": "skills/rust/cbindgen/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3588,7 +3347,7 @@
         "cbindgen",
         "generate c headers from rust"
       ],
-      "capability": "Use when exposing a Rust library to C/C++ — auto-generate C headers from a Rust crate so other languages can link to it",
+      "capability": "Use when exposing a Rust library to C/C++ \u2014 auto-generate C headers from a Rust crate so other languages can link to it",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3621,7 +3380,7 @@
       "id": "rust/bindgen",
       "name": "bindgen",
       "category": "rust",
-      "description": "Use when calling C libraries from Rust — auto-generate FFI signatures from C headers instead of hand-typing extern blocks.",
+      "description": "Use when calling C libraries from Rust \u2014 auto-generate FFI signatures from C headers instead of hand-typing extern blocks.",
       "source": "skills/rust/bindgen/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3630,7 +3389,7 @@
         "bindgen",
         "generate ffi bindings"
       ],
-      "capability": "Use when calling C libraries from Rust — auto-generate FFI signatures from C headers instead of hand-typing extern blocks",
+      "capability": "Use when calling C libraries from Rust \u2014 auto-generate FFI signatures from C headers instead of hand-typing extern blocks",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3683,7 +3442,7 @@
       "id": "rust/no-std",
       "name": "no-std",
       "category": "rust",
-      "description": "Use when writing Rust without the standard library — embedded, WASM, kernel, bootloader, or library code that must work in `no_std` consumers.",
+      "description": "Use when writing Rust without the standard library \u2014 embedded, WASM, kernel, bootloader, or library code that must work in `no_std` consumers.",
       "source": "skills/rust/no-std/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3691,7 +3450,7 @@
         "rust without std",
         "no-std"
       ],
-      "capability": "Use when writing Rust without the standard library — embedded, WASM, kernel, bootloader, or library code that must work in `no_std` consumers",
+      "capability": "Use when writing Rust without the standard library \u2014 embedded, WASM, kernel, bootloader, or library code that must work in `no_std` consumers",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3703,7 +3462,7 @@
       "id": "rust/ratatui-tui",
       "name": "ratatui-tui",
       "category": "rust",
-      "description": "Use when building a Rust terminal UI (TUI) — dashboards, file managers, monitors. Covers ratatui (the standard) + crossterm.",
+      "description": "Use when building a Rust terminal UI (TUI) \u2014 dashboards, file managers, monitors. Covers ratatui (the standard) + crossterm.",
       "source": "skills/rust/ratatui-tui/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3711,7 +3470,7 @@
         "ratatui",
         "terminal ui in rust"
       ],
-      "capability": "Use when building a Rust terminal UI (TUI) — dashboards, file managers, monitors. Covers ratatui (the standard) + crossterm",
+      "capability": "Use when building a Rust terminal UI (TUI) \u2014 dashboards, file managers, monitors. Covers ratatui (the standard) + crossterm",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3723,7 +3482,7 @@
       "id": "rust/cargo-mutants",
       "name": "cargo-mutants",
       "category": "rust",
-      "description": "Use when measuring test quality — mutation testing modifies your code and checks tests catch the change. Finds \"I have 90% coverage but tests assert nothing\".",
+      "description": "Use when measuring test quality \u2014 mutation testing modifies your code and checks tests catch the change. Finds \"I have 90% coverage but tests assert nothing\".",
       "source": "skills/rust/cargo-mutants/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3732,7 +3491,7 @@
         "test quality",
         "are my tests any good"
       ],
-      "capability": "Use when measuring test quality — mutation testing modifies your code and checks tests catch the change. Finds \"I have 90% coverage but tests assert nothing\"",
+      "capability": "Use when measuring test quality \u2014 mutation testing modifies your code and checks tests catch the change. Finds \"I have 90% coverage but tests assert nothing\"",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3744,7 +3503,7 @@
       "id": "rust/cargo-expand",
       "name": "cargo-expand",
       "category": "rust",
-      "description": "Use when debugging Rust macros (proc-macros, derive, declarative) — see what code the macro actually generates.",
+      "description": "Use when debugging Rust macros (proc-macros, derive, declarative) \u2014 see what code the macro actually generates.",
       "source": "skills/rust/cargo-expand/SKILL.md",
       "tags": [],
       "triggers": [
@@ -3753,7 +3512,7 @@
         "debug a macro",
         "see macro output"
       ],
-      "capability": "Use when debugging Rust macros (proc-macros, derive, declarative) — see what code the macro actually generates",
+      "capability": "Use when debugging Rust macros (proc-macros, derive, declarative) \u2014 see what code the macro actually generates",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3786,11 +3545,11 @@
       "id": "predict-everything/mirofish",
       "name": "mirofish",
       "category": "predict-everything",
-      "description": "Use when running multi-agent prediction or simulation — digital sandbox rehearsals, social-trend forecasting, swarm-intelligence experiments, \"what if\" scenarios. Pointer to upstream 666ghj/MiroFish.",
+      "description": "Use when running multi-agent prediction or simulation \u2014 digital sandbox rehearsals, social-trend forecasting, swarm-intelligence experiments, \"what if\" scenarios. Pointer to upstream 666ghj/MiroFish.",
       "source": "skills/predict-everything/mirofish/SKILL.md",
       "tags": [],
       "triggers": [],
-      "capability": "Use when running multi-agent prediction or simulation — digital sandbox rehearsals, social-trend forecasting, swarm-intelligence experiments, \"what if\" scenarios. Pointer to upstream 666ghj/MiroFish",
+      "capability": "Use when running multi-agent prediction or simulation \u2014 digital sandbox rehearsals, social-trend forecasting, swarm-intelligence experiments, \"what if\" scenarios. Pointer to upstream 666ghj/MiroFish",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3802,11 +3561,11 @@
       "id": "nvidia/cuopt-routing-api-python",
       "name": "cuopt-routing-api-python",
       "category": "nvidia",
-      "description": "Vehicle routing (VRP, TSP, PDP) with cuOpt — Python API only. Use when the user is building or solving routing in Python.",
+      "description": "Vehicle routing (VRP, TSP, PDP) with cuOpt \u2014 Python API only. Use when the user is building or solving routing in Python.",
       "source": "skills/nvidia/cuopt-routing-api-python/SKILL.md",
       "tags": [],
       "triggers": [],
-      "capability": "Vehicle routing (VRP, TSP, PDP) with cuOpt — Python API only. Use when the user is building or solving routing in Python",
+      "capability": "Vehicle routing (VRP, TSP, PDP) with cuOpt \u2014 Python API only. Use when the user is building or solving routing in Python",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3818,12 +3577,12 @@
       "id": "nvidia/cuopt-user-rules",
       "name": "cuopt-user-rules",
       "category": "nvidia",
-      "description": "Use when an end user is calling NVIDIA cuOpt (routing/LP/MILP/QP/install/server); base rules for those flows. Not for cuOpt internals — use cuopt-developer for those.",
+      "description": "Use when an end user is calling NVIDIA cuOpt (routing/LP/MILP/QP/install/server); base rules for those flows. Not for cuOpt internals \u2014 use cuopt-developer for those.",
       "source": "skills/nvidia/cuopt-user-rules/SKILL.md",
       "tags": [],
       "triggers": [],
       "capability": "Use when an end user is calling NVIDIA cuOpt (routing/LP/MILP/QP/install/server); base rules for those flows",
-      "notFor": "Not for cuOpt internals — use cuopt-developer for those.",
+      "notFor": "Not for cuOpt internals \u2014 use cuopt-developer for those.",
       "links": [],
       "requires": {
         "mcps": []
@@ -3834,11 +3593,11 @@
       "id": "nvidia/cuopt-numerical-optimization-api-cli",
       "name": "cuopt-numerical-optimization-api-cli",
       "category": "nvidia",
-      "description": "LP, MILP, and QP (beta) with cuOpt — CLI only (MPS files, cuopt_cli). Use when the user is solving LP, MILP, or QP from MPS via command line.",
+      "description": "LP, MILP, and QP (beta) with cuOpt \u2014 CLI only (MPS files, cuopt_cli). Use when the user is solving LP, MILP, or QP from MPS via command line.",
       "source": "skills/nvidia/cuopt-numerical-optimization-api-cli/SKILL.md",
       "tags": [],
       "triggers": [],
-      "capability": "LP, MILP, and QP (beta) with cuOpt — CLI only (MPS files, cuopt_cli). Use when the user is solving LP, MILP, or QP from MPS via command line",
+      "capability": "LP, MILP, and QP (beta) with cuOpt \u2014 CLI only (MPS files, cuopt_cli). Use when the user is solving LP, MILP, or QP from MPS via command line",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3847,32 +3606,10 @@
       "quality": "partial"
     },
     {
-      "id": "nvidia/ai-q-deep-research",
-      "name": "ai-q-deep-research",
-      "category": "nvidia",
-      "description": "Use when user says \\\"deep research this\\\", \\\"synthesize findings from our docs\\\", \\\"produce a cited memo\\\", or \\\"multi-source research\\\". Routes it through the NVIDIA AI-Q server for cited reports.",
-      "source": "skills/nvidia/aiq-research/SKILL.md",
-      "tags": [
-        "research",
-        "nvidia",
-        "aiq",
-        "deep-research",
-        "enterprise"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "nvidia/numerical-optimization-formulation",
       "name": "numerical-optimization-formulation",
       "category": "nvidia",
-      "description": "Use when the user needs to formulate a numerical optimization problem (LP, MILP, QP) — concepts, modeling elements, patterns, and parsing problem text into constraints, decisions, objective. No API.",
+      "description": "Use when the user needs to formulate a numerical optimization problem (LP, MILP, QP) \u2014 concepts, modeling elements, patterns, and parsing problem text into constraints, decisions, objective. No API.",
       "source": "skills/nvidia/numerical-optimization-formulation/SKILL.md",
       "tags": [],
       "triggers": [],
@@ -3888,7 +3625,7 @@
       "id": "nvidia/cuopt-numerical-optimization-api-python",
       "name": "cuopt-numerical-optimization-api-python",
       "category": "nvidia",
-      "description": "Use when the user asks to solve LP, MILP, or QP problems with the Python API — linear or quadratic objectives, linear constraints, integer variables, scheduling, or resource allocation.",
+      "description": "Use when the user asks to solve LP, MILP, or QP problems with the Python API \u2014 linear or quadratic objectives, linear constraints, integer variables, scheduling, or resource allocation.",
       "source": "skills/nvidia/cuopt-numerical-optimization-api-python/SKILL.md",
       "tags": [],
       "triggers": [],
@@ -3904,7 +3641,7 @@
       "id": "nvidia/cuopt-install",
       "name": "cuopt-install",
       "category": "nvidia",
-      "description": "Use when the user wants to install or verify cuOpt for Python, C, or as a server (pip, conda, Docker) — requirements, install commands, verification. For building from source, see cuopt-developer.",
+      "description": "Use when the user wants to install or verify cuOpt for Python, C, or as a server (pip, conda, Docker) \u2014 requirements, install commands, verification. For building from source, see cuopt-developer.",
       "source": "skills/nvidia/cuopt-install/SKILL.md",
       "tags": [],
       "triggers": [],
@@ -3920,11 +3657,11 @@
       "id": "nvidia/skill-evolution",
       "name": "skill-evolution",
       "category": "nvidia",
-      "description": "Use when you have solved a non-trivial problem; detect generalizable learnings and propose skill updates so future interactions benefit automatically. Always active — applies to every interaction.",
+      "description": "Use when you have solved a non-trivial problem; detect generalizable learnings and propose skill updates so future interactions benefit automatically. Always active \u2014 applies to every interaction.",
       "source": "skills/nvidia/skill-evolution/SKILL.md",
       "tags": [],
       "triggers": [],
-      "capability": "Use when you have solved a non-trivial problem; detect generalizable learnings and propose skill updates so future interactions benefit automatically. Always active — applies to every interaction",
+      "capability": "Use when you have solved a non-trivial problem; detect generalizable learnings and propose skill updates so future interactions benefit automatically. Always active \u2014 applies to every interaction",
       "notFor": "",
       "links": [],
       "requires": {
@@ -3936,7 +3673,7 @@
       "id": "nvidia/cuopt-server-common",
       "name": "cuopt-server-common",
       "category": "nvidia",
-      "description": "Use when the user asks about the cuOpt REST server — what it does and how requests flow. Domain concepts; no deploy or client code.",
+      "description": "Use when the user asks about the cuOpt REST server \u2014 what it does and how requests flow. Domain concepts; no deploy or client code.",
       "source": "skills/nvidia/cuopt-server-common/SKILL.md",
       "tags": [],
       "triggers": [],
@@ -3952,7 +3689,7 @@
       "id": "nvidia/routing-formulation",
       "name": "routing-formulation",
       "category": "nvidia",
-      "description": "Use when the user asks about vehicle routing (VRP, TSP, PDP) — problem types and data requirements. Domain concepts; no API or interface.",
+      "description": "Use when the user asks about vehicle routing (VRP, TSP, PDP) \u2014 problem types and data requirements. Domain concepts; no API or interface.",
       "source": "skills/nvidia/routing-formulation/SKILL.md",
       "tags": [],
       "triggers": [],
@@ -3968,11 +3705,11 @@
       "id": "nvidia/cuopt-numerical-optimization-api-c",
       "name": "cuopt-numerical-optimization-api-c",
       "category": "nvidia",
-      "description": "LP, MILP, and QP (beta) with cuOpt — C API only. Use when the user is embedding LP, MILP, or QP in C/C++.",
+      "description": "LP, MILP, and QP (beta) with cuOpt \u2014 C API only. Use when the user is embedding LP, MILP, or QP in C/C++.",
       "source": "skills/nvidia/cuopt-numerical-optimization-api-c/SKILL.md",
       "tags": [],
       "triggers": [],
-      "capability": "LP, MILP, and QP (beta) with cuOpt — C API only. Use when the user is embedding LP, MILP, or QP in C/C++",
+      "capability": "LP, MILP, and QP (beta) with cuOpt \u2014 C API only. Use when the user is embedding LP, MILP, or QP in C/C++",
       "notFor": "",
       "links": [],
       "requires": {
@@ -4000,11 +3737,11 @@
       "id": "nvidia/cuopt-server-api-python",
       "name": "cuopt-server-api-python",
       "category": "nvidia",
-      "description": "cuOpt REST server — start server, endpoints, Python/curl client examples. Use when the user is deploying or calling the REST API.",
+      "description": "cuOpt REST server \u2014 start server, endpoints, Python/curl client examples. Use when the user is deploying or calling the REST API.",
       "source": "skills/nvidia/cuopt-server-api-python/SKILL.md",
       "tags": [],
       "triggers": [],
-      "capability": "cuOpt REST server — start server, endpoints, Python/curl client examples. Use when the user is deploying or calling the REST API",
+      "capability": "cuOpt REST server \u2014 start server, endpoints, Python/curl client examples. Use when the user is deploying or calling the REST API",
       "notFor": "",
       "links": [
         "50"
@@ -4013,758 +3750,6 @@
         "mcps": []
       },
       "quality": "partial"
-    },
-    {
-      "id": "media/muapi-3d-logo-animation",
-      "name": "muapi-3d-logo-animation",
-      "category": "media",
-      "description": "Use when the user wants to turn a 2D logo into a premium 3D version and animate it with professional cinematic effects.",
-      "source": "skills/media/3d-logo-animation/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-photo-pack-generator",
-      "name": "muapi-photo-pack-generator",
-      "category": "media",
-      "description": "Use when the user wants to generate a pack of professional or aesthetic photos from a single reference image while preserving the exact identity of the person.",
-      "source": "skills/media/photo-pack-generator/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-platform",
-      "name": "muapi-platform",
-      "category": "media",
-      "description": "Use when setting up muapi.ai or polling generation jobs — configure API keys, test connectivity, and poll for async generation results",
-      "source": "skills/media/core-platform/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-storyboard-to-cooking-video",
-      "name": "muapi-storyboard-to-cooking-video",
-      "category": "media",
-      "description": "Use when the user wants a cooking tutorial video from one photo of a person — builds a reference sheet, then animates a 15-second cinematic cooking sequence with audio in one continuous shot.",
-      "source": "skills/media/storyboard-to-cooking-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-chibi-collage-effect",
-      "name": "muapi-chibi-collage-effect",
-      "category": "media",
-      "description": "Use when the user wants a \"chibi clone sticker diary\" image from a real photo — the person stays photorealistic, surrounded by kawaii chibi mini-clones, doodles, and handwritten captions.",
-      "source": "skills/media/chibi-collage-effect/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-interior-design",
-      "name": "muapi-interior-design",
-      "category": "media",
-      "description": "Use when the user wants professional interior design visualizations — redesign existing rooms, generate new room concepts, or visualize specific furniture styles in a space.",
-      "source": "skills/media/interior-design/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-multi-angle-reshoot",
-      "name": "muapi-multi-angle-reshoot",
-      "category": "media",
-      "description": "Use when the user wants to re-render a subject or scene from multiple dramatic camera angles, such as fish-eye, bird's-eye, low-angle, and macro, while maintaining consistent identity and detail.",
-      "source": "skills/media/multi-angle-reshoot/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-ad-creative",
-      "name": "muapi-ad-creative",
-      "category": "media",
-      "description": "Use when the user wants a high-converting ad creative set — hero image, ad copy variations, and platform-optimized crops for Meta, Google Display, and LinkedIn.",
-      "source": "skills/media/ad-creative/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-product-campaign",
-      "name": "muapi-product-campaign",
-      "category": "media",
-      "description": "Generate a full multi-channel product campaign — hero visuals, social media assets, short ad video, and platform-specific crops for an end-to-end launch campaign.",
-      "source": "skills/media/product-campaign/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-cinema-director",
-      "name": "muapi-cinema-director",
-      "category": "media",
-      "description": "Use when the user wants to direct cinematic AI video — translates creative intent into technical cinematographic directives for Veo3, Kling, and Luma video models via muapi.ai",
-      "source": "skills/media/cinema-director/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-workflow",
-      "name": "muapi-workflow",
-      "category": "media",
-      "description": "Use when the user wants to build, run, or visualize multi-step AI generation workflows — chain image generation, video creation, enhancement, and editing into automated node-graph pipelines.",
-      "source": "skills/media/workflow/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-logo-branding",
-      "name": "muapi-logo-branding",
-      "category": "media",
-      "description": "Design a professional logo with full branding package — primary logo, variations (dark/light/icon-only), color palette, and real-world application mockups.",
-      "source": "skills/media/logo-branding/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-one-shot-video",
-      "name": "muapi-one-shot-video",
-      "category": "media",
-      "description": "Use when the user wants a single continuous cinematic shot video — no cuts, one seamless flowing scene with dramatic lighting and motion.",
-      "source": "skills/media/one-shot-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-ugc-video-factory",
-      "name": "muapi-ugc-video-factory",
-      "category": "media",
-      "description": "Use when the user wants a 9:16 UGC-style video ad from a person photo, product photo, and optional script — builds a lifestyle hero image, then animates it with native spoken audio.",
-      "source": "skills/media/ugc-video-factory/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-amazon-product-listing",
-      "name": "muapi-amazon-product-listing",
-      "category": "media",
-      "description": "Use when the user wants a complete Amazon product listing image set — hero image, lifestyle shot, infographic with features, and comparison/detail closeups optimized for Amazon standards.",
-      "source": "skills/media/amazon-product-listing/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-logo-creator",
-      "name": "muapi-logo-creator",
-      "category": "media",
-      "description": "Use when the user wants to engineer professional-grade brand logos using geometric primitives and negative space — generates minimalist, scalable vector-style marks via muapi.ai",
-      "source": "skills/media/logo-creator/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-product-ad-cinematic",
-      "name": "muapi-product-ad-cinematic",
-      "category": "media",
-      "description": "Use when the user wants a cinematic 5–10s product ad from a product photo + brand brief.",
-      "source": "skills/media/product-ad-cinematic/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-action-figure-generator",
-      "name": "muapi-action-figure-generator",
-      "category": "media",
-      "description": "Use when the user wants to turn a photo of a person into a custom 3D action figure, complete with collectible toy packaging.",
-      "source": "skills/media/action-figure-generator/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-blog-header",
-      "name": "muapi-blog-header",
-      "category": "media",
-      "description": "Use when the user wants a blog post header or featured image — creates a professional, eye-catching header sized for web (1200×628) with optional title composition guidance.",
-      "source": "skills/media/blog-header/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-logo-generator",
-      "name": "muapi-logo-generator",
-      "category": "media",
-      "description": "Use when the user wants to make a logo for a brand or company — fast, focused, single polished output with clean vector aesthetic and accurate brand name text.",
-      "source": "skills/media/logo-generator/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-storyboard",
-      "name": "muapi-storyboard",
-      "category": "media",
-      "description": "Use when the user wants to generate keyframes for a short story or scene sequence (image only, no video).",
-      "source": "skills/media/storyboard/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-ai-clipping",
-      "name": "muapi-ai-clipping",
-      "category": "media",
-      "description": "Use when the user wants to turn a long video into N viral-ready vertical short clips with one API call. Wraps muapi.ai's `/ai-clipping` for transcription, highlight ranking, and face-tracking crop.",
-      "source": "skills/media/ai-clipping/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-rednote-cover",
-      "name": "muapi-rednote-cover",
-      "category": "media",
-      "description": "Create a Xiaohongshu (RedNote/小红书) style cover image — vibrant, lifestyle-focused, with aesthetic typography overlay suitable for the Chinese social platform.",
-      "source": "skills/media/rednote-cover/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-drone-style-video",
-      "name": "muapi-drone-style-video",
-      "category": "media",
-      "description": "Use when the user wants aerial drone-style footage — sweeping bird's-eye views, orbit shots, and flyover sequences for landscapes, architecture, and events.",
-      "source": "skills/media/drone-style-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-talking-baby-video",
-      "name": "muapi-talking-baby-video",
-      "category": "media",
-      "description": "Use when the user wants a viral-style talking baby video, with custom costumes and scripts.",
-      "source": "skills/media/talking-baby-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-instagram-post",
-      "name": "muapi-instagram-post",
-      "category": "media",
-      "description": "Create a polished, on-brand Instagram post — square or portrait hero image with matching caption and hashtags.",
-      "source": "skills/media/instagram-post/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-media-editing",
-      "name": "muapi-media-editing",
-      "category": "media",
-      "description": "Use when the user wants to edit or enhance images and videos with AI via muapi.ai — prompt-based editing, upscaling, background removal, face swap, lipsync, video effects, and more",
-      "source": "skills/media/core-edit/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-design-guide",
-      "name": "muapi-design-guide",
-      "category": "media",
-      "description": "Create a complete brand design guide — color palette, typography pairings, UI component previews, and visual identity rules with example mockups.",
-      "source": "skills/media/design-guide/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-jewelry-product-video",
-      "name": "muapi-jewelry-product-video",
-      "category": "media",
-      "description": "Create a luxury jewelry advertisement with high-end commercial cinematography and detailed macro animation.",
-      "source": "skills/media/jewelry-product-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-award-ceremony-video",
-      "name": "muapi-award-ceremony-video",
-      "category": "media",
-      "description": "Use when the user wants a 15-second cinematic awards-ceremony video where a host announces a winner, a spotlight finds them, they walk to the podium, and the LED display reveals their name.",
-      "source": "skills/media/award-ceremony-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-character-story-video",
-      "name": "muapi-character-story-video",
-      "category": "media",
-      "description": "Use when the user wants a multi-part animated story video — first establish a consistent character, then generate sequential scenes and animate them.",
-      "source": "skills/media/character-story-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-music-video",
-      "name": "muapi-music-video",
-      "category": "media",
-      "description": "Use when the user wants a short music video from a song theme — generate N keyframes, animate each, and generate matching music.",
-      "source": "skills/media/music-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-interior-design-visualizer",
-      "name": "muapi-interior-design-visualizer",
-      "category": "media",
-      "description": "Use when the user wants to visualize interior design by generating an empty room and filling it with stylish furniture and decor, or by redesigning an existing room.",
-      "source": "skills/media/interior-design-visualizer/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-floor-plan-rendering",
-      "name": "muapi-floor-plan-rendering",
-      "category": "media",
-      "description": "Use when the user wants to design a 2D floor plan and convert it into a realistic, high-quality 3D architectural rendering.",
-      "source": "skills/media/floor-plan-rendering/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-multi-angle-shots",
-      "name": "muapi-multi-angle-shots",
-      "category": "media",
-      "description": "Generate a complete set of multi-angle product shots — front, side, back, top-down, and 45-degree perspective — for full product visualization.",
-      "source": "skills/media/multi-angle-shots/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-color-analysis-board",
-      "name": "muapi-color-analysis-board",
-      "category": "media",
-      "description": "Turn a portrait photo into a high-end editorial \"Color Analysis Board\" in a luxury fashion-magazine style (Dior / Ralph Lauren aesthetic) — best colors, undertone, makeup guide, capsule wardrobe, hair & jewelry recommendations, all laid out on a clean beige/ivory grid.",
-      "source": "skills/media/color-analysis-board/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-giant-product-showcase",
-      "name": "muapi-giant-product-showcase",
-      "category": "media",
-      "description": "Use when the user wants a dramatic \"Giant Product\" visual where a regular item appears as a massive, building-sized object next to a person, then optionally animate the scene.",
-      "source": "skills/media/giant-product-showcase/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-product-video-ad-maker",
-      "name": "muapi-product-video-ad-maker",
-      "category": "media",
-      "description": "Use when the user wants a product video ad — creates a high-end cinematic advertisement starting from a simple product photo.",
-      "source": "skills/media/product-video-ad-maker/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-selfie-with-celebrities",
-      "name": "muapi-selfie-with-celebrities",
-      "category": "media",
-      "description": "Use when the user wants a selfie with a celebrity or movie actor — generates a realistic behind-the-scenes selfie, with an option to make a cinematic long-take video connecting multiple selfies.",
-      "source": "skills/media/selfie-with-celebrities/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-product-showcase-video",
-      "name": "muapi-product-showcase-video",
-      "category": "media",
-      "description": "Use when the user wants a dynamic product ad video — explosive ingredient arrangements around the product, then animated into realistic motion.",
-      "source": "skills/media/product-showcase-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-youtube-thumbnail",
-      "name": "muapi-youtube-thumbnail",
-      "category": "media",
-      "description": "Use when the user wants a high-CTR YouTube thumbnail — striking imagery, bold text placement, and emotional face/subject if needed.",
-      "source": "skills/media/youtube-thumbnail/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-ui-design",
-      "name": "muapi-ui-design",
-      "category": "media",
-      "description": "Use when the user wants to generate high-fidelity UI/UX mockups for mobile and web apps using Atomic Design principles — creates wireframes and design systems via muapi.ai",
-      "source": "skills/media/ui-design/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-ugc-lifestyle-try-on",
-      "name": "muapi-ugc-lifestyle-try-on",
-      "category": "media",
-      "description": "Use when the user wants UGC-style (User Generated Content) lifestyle photos of a person wearing or using a product — authentic, relatable, social-media-native imagery.",
-      "source": "skills/media/ugc-lifestyle-try-on/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-nano-banana",
-      "name": "muapi-nano-banana",
-      "category": "media",
-      "description": "Use when the user wants to generate high-fidelity images from structured creative briefs (Gemini 3 / Nano Banana style) via muapi.ai with logic-based prompting",
-      "source": "skills/media/nano-banana/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-keyboard-art-maker",
-      "name": "muapi-keyboard-art-maker",
-      "category": "media",
-      "description": "Use when the user wants artistic top-down photos of keyboard keycaps arranged to spell out custom text messages.",
-      "source": "skills/media/keyboard-art-maker/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-seedance-2",
-      "name": "muapi-seedance-2",
-      "category": "media",
-      "description": "Use when generating video with Seedance 2.0 (ByteDance) across Chinese, Global, and VIP tiers — text-to-video, image-to-video, first-last-frame, omni reference, character training, and video editing.",
-      "source": "skills/media/seedance-2/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-couple-grid-creator",
-      "name": "muapi-couple-grid-creator",
-      "category": "media",
-      "description": "Use when the user wants a stylized 6-box grid featuring a couple in various romantic poses and outfits, with each pose framed inside a unique cardboard box packaging.",
-      "source": "skills/media/couple-grid-creator/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "media/kdenlive",
@@ -4794,219 +3779,11 @@
       "quality": "good"
     },
     {
-      "id": "media/muapi-social-pack",
-      "name": "muapi-social-pack",
-      "category": "media",
-      "description": "Use when the user wants to re-render a hero image into Instagram, TikTok, YouTube-shorts and Twitter/X aspect ratios.",
-      "source": "skills/media/social-pack/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-brochures",
-      "name": "muapi-brochures",
-      "category": "media",
-      "description": "Use when the user wants a professional multi-page brochure design — cover, inner spread, and back cover — for business, real estate, events, or product launches.",
-      "source": "skills/media/brochures/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-social-media-video",
-      "name": "muapi-social-media-video",
-      "category": "media",
-      "description": "Brand-aware social media video creator. Reads brand-identity.md, ICP.md, and messaging.md to write a post/storyboard, craft an optimized Seedance 2.0 Director prompt, generate reference frames with the best available image model, and produce platform-ready video.",
-      "source": "skills/media/social-media-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-animal-video-generator",
-      "name": "muapi-animal-video-generator",
-      "category": "media",
-      "description": "Use when the user wants to create a hilarious and ultra-realistic video of an anthropomorphic animal acting like a human vlogger in a real-world setting.",
-      "source": "skills/media/animal-video-generator/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-media-generation",
-      "name": "muapi-media-generation",
-      "category": "media",
-      "description": "Use when the user wants to generate AI images, videos, music, or audio from the terminal via muapi.ai — supports 100+ models including Flux, Midjourney v7, Kling 3.0, Veo3, and Suno V5",
-      "source": "skills/media/core-media/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-youtube-shorts",
-      "name": "muapi-youtube-shorts",
-      "category": "media",
-      "description": "Use when the user wants YouTube Shorts, TikTok, or Reels clips from a long video. Picks short-form defaults (9:16) and delegates highlight extraction and crop to muapi.ai's `/ai-clipping` endpoint.",
-      "source": "skills/media/youtube-shorts/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-ai-fight-scene",
-      "name": "muapi-ai-fight-scene",
-      "category": "media",
-      "description": "Use when the user wants an action or fight scene video — composes a 16-cell storyboard image, then drives Seedance 2.0 image-to-video off it for high cut density across 16 distinct shots.",
-      "source": "skills/media/ai-fight-scene/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-ugc-ads-workflow",
-      "name": "muapi-ugc-ads-workflow",
-      "category": "media",
-      "description": "Use when the user wants a UGC (user-generated content) video ad — combines a human selfie and a product image, then generates a video script and an animated ad.",
-      "source": "skills/media/ugc-ads-workflow/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-url-to-design",
-      "name": "muapi-url-to-design",
-      "category": "media",
-      "description": "Analyze a website URL and generate a redesigned, improved UI — recreate the visual design with modern aesthetics, better hierarchy, and fresh brand direction.",
-      "source": "skills/media/url-to-design/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-fashion-try-on",
-      "name": "muapi-fashion-try-on",
-      "category": "media",
-      "description": "Use when the user wants to virtually try on different outfits by combining a person's photo and a clothing item, then optionally generate a professional fashion model video.",
-      "source": "skills/media/fashion-try-on/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-freeze-effect-video",
-      "name": "muapi-freeze-effect-video",
-      "category": "media",
-      "description": "Use when the user wants a cinematic \"freeze effect\" video where time stops mid-scene, the subject walks through the frozen world, then time resumes with a snap.",
-      "source": "skills/media/freeze-effect-video/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-brand-kit",
-      "name": "muapi-brand-kit",
-      "category": "media",
-      "description": "Use when the user wants a cohesive brand visual kit — logo concept, color palette moodboard, and typography pairing suggestions.",
-      "source": "skills/media/brand-kit/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "media/muapi-cartoon-dance-animation",
-      "name": "muapi-cartoon-dance-animation",
-      "category": "media",
-      "description": "Use when the user wants to convert a photo of a person into a Pixar-style 3D cartoon character, then animate it using a reference dance or motion video.",
-      "source": "skills/media/cartoon-dance-animation/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "design/design-taste-frontend",
-      "name": "design-taste-frontend",
+      "name": "high-agency-frontend",
       "category": "design",
       "description": "Use when user says \"design taste\", \"anti-slop frontend\", \"landing page\", \"portfolio site\", or \"premium design\". Ships frontend interfaces that do not look templated, audit-first on redesigns.",
-      "source": "skills/design/taste-skill/SKILL.md",
+      "source": "skills/design/design-taste-frontend/SKILL.md",
       "tags": [],
       "triggers": [
         "improve the UI",
@@ -5063,22 +3840,6 @@
       "quality": "good"
     },
     {
-      "id": "design/design-taste-frontend-v1",
-      "name": "design-taste-frontend-v1",
-      "category": "design",
-      "description": "Use when user says \"taste-skill v1\", \"design-taste-frontend-v1\", or \"legacy taste skill\". The original v1 taste-skill, preserved for projects that need its exact behavior and backward compatibility.",
-      "source": "skills/design/taste-skill-v1/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "design/industrial-brutalist-ui",
       "name": "industrial-brutalist-ui",
       "category": "design",
@@ -5105,7 +3866,7 @@
       "id": "design/kitty-visualize",
       "name": "kitty-visualize",
       "category": "design",
-      "description": "Use when user asks to \"visualize\", \"show me\", \"draw\", \"render\", \"diagram\", or \"open in kitty\" — for diagrams, ASCII layouts, dependency graphs, or image previews. Renders to a temp file, opens kitty.",
+      "description": "Use when user asks to \"visualize\", \"show me\", \"draw\", \"render\", \"diagram\", or \"open in kitty\" \u2014 for diagrams, ASCII layouts, dependency graphs, or image previews. Renders to a temp file, opens kitty.",
       "source": "skills/design/kitty-visualize/SKILL.md",
       "tags": [],
       "triggers": [
@@ -5162,38 +3923,6 @@
       "quality": "good"
     },
     {
-      "id": "design/high-agency-frontend",
-      "name": "high-agency-frontend",
-      "category": "design",
-      "description": "Use when user says \"improve the UI\", \"make it tasteful\", or \"design pass\". Hierarchy, spacing, polish, visual validation.",
-      "source": "skills/design/design-taste-frontend/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "design/readme-svg-design-skill",
-      "name": "readme-svg-design-skill",
-      "category": "design",
-      "description": "Use when user says \"design a readme\", \"make my readme beautiful\", \"create an svg diagram\", \"architecture diagram for the readme\", or \"add a hero banner to the docs\". Generates publication-quality SVG assets and composes them into a well-structured, GitHub-compatible README.",
-      "source": "skills/design/readme-svg-design/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "design/brandkit",
       "name": "brandkit",
       "category": "design",
@@ -5214,22 +3943,6 @@
         "mcps": []
       },
       "quality": "good"
-    },
-    {
-      "id": "design/headless-gif-demos-with-cage-wayland-kitty-tmux-auto-redaction",
-      "name": "headless-gif-demos-with-cage-wayland-kitty-tmux-auto-redaction",
-      "category": "design",
-      "description": "Use when user says \"record a CLI demo gif\", \"make a terminal demo\", \"capture a tmux session as a gif\", \"demo gif with brand logos\", or \"redact text in a screen recording\". Headless cage/Wayland + Kitty + tmux + ffmpeg pipeline for high-quality CLI demo GIFs that need Kitty graphics protocol (real PNG icons inline) — instead of vhs/asciinema which don''t speak the Kitty protocol. Includes auto-redaction of moving text via tesseract OCR.",
-      "source": "skills/design/headless-gif-demo/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "design/imagegen-frontend-web",
@@ -5291,22 +4004,6 @@
         "mcps": []
       },
       "quality": "good"
-    },
-    {
-      "id": "design/\"screenshot\"",
-      "name": "\"screenshot\"",
-      "category": "design",
-      "description": "Use when user says \"screenshot\", \"capture the page\", or \"visual proof\". Browser/window capture, artifacts, naming.",
-      "source": "skills/design/screenshot/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "design/imagegen-frontend-mobile",
@@ -5388,22 +4085,6 @@
         "mcps": []
       },
       "quality": "good"
-    },
-    {
-      "id": "design/\"png-alpha-cleaner\"",
-      "name": "\"png-alpha-cleaner\"",
-      "category": "design",
-      "description": "Use when user says \"clean PNG alpha\", \"remove transparent fringe\", or \"fix PNG edges\". Alpha-channel cleanup.",
-      "source": "skills/design/png-alpha-cleaner/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "design/minimalist-ui",
@@ -5904,7 +4585,7 @@
       "id": "video/amazon-product-listing",
       "name": "amazon-product-listing",
       "category": "video",
-      "description": "Use when user says \"Amazon listing\", \"product images for Amazon\", \"A+ content\", or \"marketplace photos\", or wants e-commerce product visuals — hero shots, lifestyle images, infographics, A+ content.",
+      "description": "Use when user says \"Amazon listing\", \"product images for Amazon\", \"A+ content\", or \"marketplace photos\", or wants e-commerce product visuals \u2014 hero shots, lifestyle images, infographics, A+ content.",
       "source": "skills/video/amazon-product-listing/SKILL.md",
       "tags": [
         "video",
@@ -6020,7 +4701,7 @@
       "id": "video/podcast-flow",
       "name": "podcast-flow",
       "category": "video",
-      "description": "Use when user says \"podcast video\", \"interview format\", \"long-form video\", or \"conversation video\", or wants multi-speaker dialogue content — talking heads, split screen, dynamic cuts.",
+      "description": "Use when user says \"podcast video\", \"interview format\", \"long-form video\", or \"conversation video\", or wants multi-speaker dialogue content \u2014 talking heads, split screen, dynamic cuts.",
       "source": "skills/video/podcast-flow/SKILL.md",
       "tags": [
         "video",
@@ -6180,22 +4861,6 @@
         "mcps": []
       },
       "quality": "good"
-    },
-    {
-      "id": "github/\"gh-fix-ci\"",
-      "name": "\"gh-fix-ci\"",
-      "category": "github",
-      "description": "Use when user says \"fix CI\", \"GitHub checks failed\", or \"debug PR checks\". Inspects failing Actions via gh; fix plan needs approval before implementation.",
-      "source": "skills/github/gh-fix-ci/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "github/gitguardex",
@@ -6421,27 +5086,6 @@
       "quality": "good"
     },
     {
-      "id": "meta/smithery-mcp-marketplace",
-      "name": "smithery-mcp-marketplace",
-      "category": "meta",
-      "description": "smithery CLI and cue marketplace commands to find, install, and manage MCP servers from the Smithery registry. Use when user says \\\"find an MCP on smithery\\\" or \\\"install smithery MCP\\\".",
-      "source": "skills/meta/smithery-usage/SKILL.md",
-      "tags": [
-        "meta",
-        "smithery",
-        "mcps",
-        "marketplace"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "meta/cue-developer",
       "name": "cue-developer",
       "category": "meta",
@@ -6608,28 +5252,6 @@
       "quality": "good"
     },
     {
-      "id": "meta/cue-agent-profile-manager",
-      "name": "cue-agent-profile-manager",
-      "category": "meta",
-      "description": "cue CLI commands for profiles, skills, MCPs, and marketplace operations. Use when user says \\\"cue help\\\", \\\"how do I use cue\\\", \\\"list profiles\\\", \\\"add an MCP\\\", or \\\"manage my profile\\\".",
-      "source": "skills/meta/cue-usage/SKILL.md",
-      "tags": [
-        "meta",
-        "cue",
-        "profiles",
-        "skills",
-        "mcps"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "meta/full-output-enforcement",
       "name": "full-output-enforcement",
       "category": "meta",
@@ -6650,26 +5272,6 @@
         "mcps": []
       },
       "quality": "good"
-    },
-    {
-      "id": "meta/built-in-skill-manager",
-      "name": "built-in-skill-manager",
-      "category": "meta",
-      "description": "Manage built-in skills shared across cue profiles — promote, demote, list. Use when user says \\\"make X built-in\\\", \\\"add X to all profiles\\\", or \\\"what skills are built-in\\\".",
-      "source": "skills/meta/builtin-manager/SKILL.md",
-      "tags": [
-        "meta",
-        "builtin",
-        "optimization"
-      ],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "meta/profile-suggest",
@@ -6701,12 +5303,12 @@
       "id": "meta/memory-pressure",
       "name": "memory-pressure",
       "category": "meta",
-      "description": "Use when user says 'free RAM', 'memory is full', 'reclaim memory', 'high memory usage', or shows mem >85%. Pushes idle app.slice pages into zstd-zram. NOT for OOM crashes — use diagnose.",
+      "description": "Use when user says 'free RAM', 'memory is full', 'reclaim memory', 'high memory usage', or shows mem >85%. Pushes idle app.slice pages into zstd-zram. NOT for OOM crashes \u2014 use diagnose.",
       "source": "skills/meta/memory-pressure/SKILL.md",
       "tags": [],
       "triggers": [],
       "capability": "Pushes idle app.slice pages into zstd-zram",
-      "notFor": "NOT for OOM crashes — use diagnose.",
+      "notFor": "NOT for OOM crashes \u2014 use diagnose.",
       "links": [],
       "requires": {
         "mcps": []
@@ -6861,7 +5463,7 @@
       "id": "meta/ralph-loop",
       "name": "ralph-loop",
       "category": "meta",
-      "description": "Use when user says \"run this in a loop\", \"work on it overnight\", \"keep going until done\", \"ralph loop\", \"autonomous loop\", \"make claude work longer\", or \"run until tests pass\". Runs an autonomous Ralph-Wiggum loop — re-feeds one goal prompt to the agent over and over until a stop condition (tests green / PRD done) or a budget/iteration cap, with checkpoints each round. NOT for one-shot tasks or interactive back-and-forth.",
+      "description": "Use when user says \"run this in a loop\", \"work on it overnight\", \"keep going until done\", \"ralph loop\", \"autonomous loop\", \"make claude work longer\", or \"run until tests pass\". Runs an autonomous Ralph-Wiggum loop \u2014 re-feeds one goal prompt to the agent over and over until a stop condition (tests green / PRD done) or a budget/iteration cap, with checkpoints each round. NOT for one-shot tasks or interactive back-and-forth.",
       "source": "skills/meta/ralph-loop/SKILL.md",
       "tags": [
         "meta",
@@ -6879,7 +5481,7 @@
         "make claude work longer",
         "run until tests pass"
       ],
-      "capability": "Runs an autonomous Ralph-Wiggum loop — re-feeds one goal prompt to the agent over and over until a stop condition (tests green / PRD done) or a budget/iteration cap, with checkpoints each round",
+      "capability": "Runs an autonomous Ralph-Wiggum loop \u2014 re-feeds one goal prompt to the agent over and over until a stop condition (tests green / PRD done) or a budget/iteration cap, with checkpoints each round",
       "notFor": "NOT for one-shot tasks or interactive back-and-forth.",
       "links": [],
       "requires": {
@@ -7064,27 +5666,6 @@
       "quality": "good"
     },
     {
-      "id": "meta/learning-retro",
-      "name": "learning-retro",
-      "category": "meta",
-      "description": "Engineering retrospective from git history + cue session log. Per-author shipping streaks, test-health trend, growth opportunities, and one one-paragraph \"what to do differently next week.\" Saves a markdown file under .cue/retros/<YYYY-WW>.md. Use when the user says \"weekly retro\", \"what did we ship\", \"engineering retrospective\", or at end-of-sprint.",
-      "source": "skills/meta/retro/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "weekly retro",
-        "what did we ship",
-        "engineering retrospective",
-        "sprint retro"
-      ],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "meta/awesome-list-submit",
       "name": "awesome-list-submit",
       "category": "meta",
@@ -7137,7 +5718,7 @@
       "id": "meta/skill-discovery",
       "name": "skill-discovery",
       "category": "meta",
-      "description": "Analyzes what was done manually in the current session and suggests skills that could automate it next time — an end-of-session retro for skill coverage gaps. Use when user says \"what skills would have helped\", \"session review\", \"skill discovery\", \"audit my session\", or \"missing skills\".",
+      "description": "Analyzes what was done manually in the current session and suggests skills that could automate it next time \u2014 an end-of-session retro for skill coverage gaps. Use when user says \"what skills would have helped\", \"session review\", \"skill discovery\", \"audit my session\", or \"missing skills\".",
       "source": "skills/meta/skill-discovery/SKILL.md",
       "tags": [
         "meta",
@@ -7151,7 +5732,7 @@
         "audit my session",
         "missing skills"
       ],
-      "capability": "Analyzes what was done manually in the current session and suggests skills that could automate it next time — an end-of-session retro for skill coverage gaps",
+      "capability": "Analyzes what was done manually in the current session and suggests skills that could automate it next time \u2014 an end-of-session retro for skill coverage gaps",
       "notFor": "",
       "links": [],
       "requires": {
@@ -7409,7 +5990,7 @@
       "id": "meta/liedetector",
       "name": "liedetector",
       "category": "meta",
-      "description": "🟢🟡🟠🔴 confidence tags + ~N% calibration on every claim. Use when user wants the agent to verify claims, flag uncertainty, stop fabricating, or asks \\\"how sure are you\\\".",
+      "description": "\ud83d\udfe2\ud83d\udfe1\ud83d\udfe0\ud83d\udd34 confidence tags + ~N% calibration on every claim. Use when user wants the agent to verify claims, flag uncertainty, stop fabricating, or asks \\\"how sure are you\\\".",
       "source": "skills/meta/liedetector/SKILL.md",
       "tags": [
         "meta",
@@ -7423,29 +6004,13 @@
       "triggers": [
         "how sure are you"
       ],
-      "capability": "🟢🟡🟠🔴 confidence tags + ~N% calibration on every claim",
+      "capability": "\ud83d\udfe2\ud83d\udfe1\ud83d\udfe0\ud83d\udd34 confidence tags + ~N% calibration on every claim",
       "notFor": "",
       "links": [],
       "requires": {
         "mcps": []
       },
       "quality": "good"
-    },
-    {
-      "id": "content/\"content-playwright\"",
-      "name": "\"content-playwright\"",
-      "category": "content",
-      "description": "Use when user says \"Playwright\", \"browser test\", or \"snapshot\". Covers navigation, locators, screenshots, and assertions.",
-      "source": "skills/content/playwright/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "content/stop-slop",
@@ -7520,17 +6085,17 @@
       "id": "content/trend-to-thread",
       "name": "trend-to-thread",
       "category": "content",
-      "description": "End-to-end pipeline that chains trendradar → article-writer → X thread → Higgsfield hero image → Postiz draft in a single shot, turning a current trend topic into a posted-ready social thread with a generated hero image. Use when user says \"/trend-to-thread\", \"post a trend thread\", \"build a thread from trends\", \"új X thread mai trendből\", or \"Postiz X poszt mai trendekből\".",
+      "description": "End-to-end pipeline that chains trendradar \u2192 article-writer \u2192 X thread \u2192 Higgsfield hero image \u2192 Postiz draft in a single shot, turning a current trend topic into a posted-ready social thread with a generated hero image. Use when user says \"/trend-to-thread\", \"post a trend thread\", \"build a thread from trends\", \"\u00faj X thread mai trendb\u0151l\", or \"Postiz X poszt mai trendekb\u0151l\".",
       "source": "skills/content/trend-to-thread/SKILL.md",
       "tags": [],
       "triggers": [
         "/trend-to-thread",
         "post a trend thread",
         "build a thread from trends",
-        "új X thread mai trendből",
-        "Postiz X poszt mai trendekből"
+        "\u00faj X thread mai trendb\u0151l",
+        "Postiz X poszt mai trendekb\u0151l"
       ],
-      "capability": "End-to-end pipeline that chains trendradar → article-writer → X thread → Higgsfield hero image → Postiz draft in a single shot, turning a current trend topic into a posted-ready social thread with a generated hero image",
+      "capability": "End-to-end pipeline that chains trendradar \u2192 article-writer \u2192 X thread \u2192 Higgsfield hero image \u2192 Postiz draft in a single shot, turning a current trend topic into a posted-ready social thread with a generated hero image",
       "notFor": "",
       "links": [],
       "requires": {
@@ -7586,22 +6151,6 @@
         "mcps": []
       },
       "quality": "partial"
-    },
-    {
-      "id": "content/\"doc\"",
-      "name": "\"doc\"",
-      "category": "content",
-      "description": "Use when user says \"write documentation\", \"make a DOCX\", or \"create a doc\". Covers document structure, formatting, and export.",
-      "source": "skills/content/doc/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "content/article-to-everywhere",
@@ -7695,7 +6244,7 @@
       "id": "review/security-review",
       "name": "security-review",
       "category": "review",
-      "description": "Use when user says \"security review\", \"security audit\", \"check for vulnerabilities\", \"OWASP review\", or \"/security-review\". Audits for OWASP Top 10, secrets, injection, auth flaws. NOT for general code quality — use code-review.",
+      "description": "Use when user says \"security review\", \"security audit\", \"check for vulnerabilities\", \"OWASP review\", or \"/security-review\". Audits for OWASP Top 10, secrets, injection, auth flaws. NOT for general code quality \u2014 use code-review.",
       "source": "skills/review/security-review/SKILL.md",
       "tags": [],
       "triggers": [
@@ -7706,7 +6255,7 @@
         "/security-review"
       ],
       "capability": "Audits for OWASP Top 10, secrets, injection, auth flaws",
-      "notFor": "NOT for general code quality — use code-review.",
+      "notFor": "NOT for general code quality \u2014 use code-review.",
       "links": [],
       "requires": {
         "mcps": []
@@ -7717,7 +6266,7 @@
       "id": "review/code-review",
       "name": "code-review",
       "category": "review",
-      "description": "Runs a full code review of the current diff or a specific PR — correctness bugs, security, simplification opportunities. Use when user says \\\"review my code\\\", \\\"code review\\\", \\\"review this diff\\\", \\\"check my PR\\\", \\\"/code-review\\\", or \\\"review before merge\\\".",
+      "description": "Runs a full code review of the current diff or a specific PR \u2014 correctness bugs, security, simplification opportunities. Use when user says \\\"review my code\\\", \\\"code review\\\", \\\"review this diff\\\", \\\"check my PR\\\", \\\"/code-review\\\", or \\\"review before merge\\\".",
       "source": "skills/review/code-review/SKILL.md",
       "tags": [],
       "triggers": [
@@ -7728,7 +6277,7 @@
         "/code-review",
         "review before merge"
       ],
-      "capability": "Runs a full code review of the current diff or a specific PR — correctness bugs, security, simplification opportunities",
+      "capability": "Runs a full code review of the current diff or a specific PR \u2014 correctness bugs, security, simplification opportunities",
       "notFor": "",
       "links": [],
       "requires": {
@@ -7760,26 +6309,10 @@
       "quality": "good"
     },
     {
-      "id": "review/\"security-best-practices\"",
-      "name": "\"security-best-practices\"",
-      "category": "review",
-      "description": "Use when user asks \"security best practices\", \"secure coding for python/typescript/go\", or \"how to harden this\". Language/framework-specific secure-by-default guidance. NOT for auditing existing code — use security-review.",
-      "source": "skills/review/security-best-practices/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "review/open-code-review",
       "name": "open-code-review",
       "category": "review",
-      "description": "Use when user says \"ocr\", \"open code review\", \"run ocr\", \"second opinion review\", or wants a review engine independent of Claude's own judgement. Alibaba's hybrid reviewer — deterministic multi-language ruleset (NPE, thread-safety, XSS, SQL injection) plus an LLM agent, line-level comments, workspace/branch-range/commit modes. NOT for a normal Claude diff review — use code-review, or code-review-deep before landing.",
+      "description": "Use when user says \"ocr\", \"open code review\", \"run ocr\", \"second opinion review\", or wants a review engine independent of Claude's own judgement. Alibaba's hybrid reviewer \u2014 deterministic multi-language ruleset (NPE, thread-safety, XSS, SQL injection) plus an LLM agent, line-level comments, workspace/branch-range/commit modes. NOT for a normal Claude diff review \u2014 use code-review, or code-review-deep before landing.",
       "source": "skills/review/open-code-review/SKILL.md",
       "tags": [],
       "triggers": [
@@ -7788,8 +6321,8 @@
         "run ocr",
         "second opinion review"
       ],
-      "capability": "Alibaba's hybrid reviewer — deterministic multi-language ruleset (NPE, thread-safety, XSS, SQL injection) plus an LLM agent, line-level comments, workspace/branch-range/commit modes",
-      "notFor": "NOT for a normal Claude diff review — use code-review, or code-review-deep before landing.",
+      "capability": "Alibaba's hybrid reviewer \u2014 deterministic multi-language ruleset (NPE, thread-safety, XSS, SQL injection) plus an LLM agent, line-level comments, workspace/branch-range/commit modes",
+      "notFor": "NOT for a normal Claude diff review \u2014 use code-review, or code-review-deep before landing.",
       "links": [],
       "requires": {
         "mcps": []
@@ -7840,22 +6373,6 @@
       "quality": "good"
     },
     {
-      "id": "vercel/vercel-react-best-practices",
-      "name": "vercel-react-best-practices",
-      "category": "vercel",
-      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
-      "source": "skills/vercel/react-best-practices/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "vercel/vercel-optimize",
       "name": "vercel-optimize",
       "category": "vercel",
@@ -7875,33 +6392,17 @@
       "id": "vercel/vercel-cli-with-tokens",
       "name": "vercel-cli-with-tokens",
       "category": "vercel",
-      "description": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\".",
+      "description": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login \u2014 e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\".",
       "source": "skills/vercel/vercel-cli-with-tokens/SKILL.md",
       "tags": [],
       "triggers": [],
-      "capability": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\"",
+      "capability": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login \u2014 e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\"",
       "notFor": "",
       "links": [],
       "requires": {
         "mcps": []
       },
       "quality": "partial"
-    },
-    {
-      "id": "vercel/vercel-react-native-skills",
-      "name": "vercel-react-native-skills",
-      "category": "vercel",
-      "description": "",
-      "source": "skills/vercel/react-native-skills/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "vercel/deploy-to-vercel",
@@ -7941,22 +6442,6 @@
       "quality": "partial"
     },
     {
-      "id": "vercel/vercel-react-view-transitions",
-      "name": "vercel-react-view-transitions",
-      "category": "vercel",
-      "description": "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.",
-      "source": "skills/vercel/react-view-transitions/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "vercel/web-design-guidelines",
       "name": "web-design-guidelines",
       "category": "vercel",
@@ -7971,22 +6456,6 @@
         "mcps": []
       },
       "quality": "partial"
-    },
-    {
-      "id": "vercel/vercel-composition-patterns",
-      "name": "vercel-composition-patterns",
-      "category": "vercel",
-      "description": "",
-      "source": "skills/vercel/composition-patterns/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "strapi/strapi-deploy",
@@ -8215,7 +6684,7 @@
       "id": "research/find-skills",
       "name": "find-skills",
       "category": "research",
-      "description": "Use when user says \"find skills for X\", \"search for skills\", or \"what skills exist for Y\" — searches GitHub for open-source Claude Code skills and adds the best ones to the active profile.",
+      "description": "Use when user says \"find skills for X\", \"search for skills\", or \"what skills exist for Y\" \u2014 searches GitHub for open-source Claude Code skills and adds the best ones to the active profile.",
       "source": "skills/research/find-skills/SKILL.md",
       "tags": [
         "meta",
@@ -8235,22 +6704,6 @@
         "mcps": []
       },
       "quality": "partial"
-    },
-    {
-      "id": "research/trendradar-news-trend-intelligence",
-      "name": "trendradar-news-trend-intelligence",
-      "category": "research",
-      "description": "Use when user says \"what''s trending\", \"news trends\", \"hot topics\", \"search recent news\", \"analyze a topic trend\", or \"daily news briefing\". Uses the TrendRadar MCP tools for news aggregation, trend analysis, RSS feeds, and notifications.",
-      "source": "skills/research/trendradar/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "research/flight-search",
@@ -8312,22 +6765,6 @@
       "quality": "good"
     },
     {
-      "id": "research/\"openai-docs\"",
-      "name": "\"openai-docs\"",
-      "category": "research",
-      "description": "Use when user says \"OpenAI docs\", \"OpenAI API\", or \"ChatGPT API\". Official OpenAI docs lookup: current docs, examples, limits, citations.",
-      "source": "skills/research/openai-docs/SKILL.md",
-      "tags": [],
-      "triggers": [],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "research/awesome-rust-search",
       "name": "awesome-rust-search",
       "category": "research",
@@ -8351,7 +6788,7 @@
       "id": "research/obscura",
       "name": "obscura",
       "category": "research",
-      "description": "Use when user says \"scrape\", \"headless browser\", \"puppeteer\", or needs JS-rendered content from a URL. Rust headless browser with anti-detection. NOT for static pages — use defuddle.",
+      "description": "Use when user says \"scrape\", \"headless browser\", \"puppeteer\", or needs JS-rendered content from a URL. Rust headless browser with anti-detection. NOT for static pages \u2014 use defuddle.",
       "source": "skills/research/obscura/SKILL.md",
       "tags": [],
       "triggers": [
@@ -8360,122 +6797,12 @@
         "puppeteer"
       ],
       "capability": "Rust headless browser with anti-detection",
-      "notFor": "NOT for static pages — use defuddle.",
+      "notFor": "NOT for static pages \u2014 use defuddle.",
       "links": [],
       "requires": {
         "mcps": []
       },
       "quality": "good"
-    },
-    {
-      "id": "plan/plan-investigate",
-      "name": "plan-investigate",
-      "category": "plan",
-      "description": "Systematic root-cause debugging. Four phases: investigate → analyze → hypothesize → implement. Iron Law: no fix without a root cause. Stops after 3 failed fixes and reassesses. Use when the user reports an error, 500, stack trace, \"it was working yesterday\", or asks to \"debug this\", \"fix this bug\", \"why is X broken\", or \"root cause analysis\".",
-      "source": "skills/plan/investigate/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "debug this",
-        "fix this bug",
-        "why is this broken",
-        "root cause analysis",
-        "investigate this error",
-        "it was working yesterday"
-      ],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "plan/plan-ceo-review-compact",
-      "name": "plan-ceo-review-compact",
-      "category": "plan",
-      "description": "CEO/founder-tier scope review of a feature plan. Four modes — Expansion, Selective Expansion, Hold Scope, Reduction — and a 10-section challenge walking through demand, scope, simplest version, and metric. Reads the design doc from /office-hours; writes back recommended scope changes. Use when the user says \"ceo review\", \"scope review\", \"is this the right scope\", or before committing to build a feature.",
-      "source": "skills/plan/plan-ceo-review/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "ceo review",
-        "scope review",
-        "plan review",
-        "is this the right scope",
-        "rethink the plan"
-      ],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "plan/plan-eng-review-compact",
-      "name": "plan-eng-review-compact",
-      "category": "plan",
-      "description": "Engineering-manager review of a feature plan before code. Locks in architecture, data flow, state machines, edge cases, and a test matrix. Forces hidden assumptions into the open via ASCII diagrams. Reads the design doc; writes back architectural decisions. Use when the user says \"eng review\", \"architecture review\", \"lock the plan\", or before exiting plan mode.",
-      "source": "skills/plan/plan-eng-review/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "eng review",
-        "architecture review",
-        "lock the plan",
-        "engineering review",
-        "plan-eng"
-      ],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "plan/plan-autoplan",
-      "name": "plan-autoplan",
-      "category": "plan",
-      "description": "Compose the full plan-stage pipeline: /office-hours → /plan-ceo-review → /plan-eng-review. Auto-skips stages where the design doc already has a section, so it's safe to re-run. Surfaces only taste decisions for user approval; everything else runs straight through. Use when the user says \"autoplan\", \"run the full plan\", \"plan pipeline\", or has a fresh idea and wants the whole sprint up to code.",
-      "source": "skills/plan/autoplan/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "autoplan",
-        "run the full plan",
-        "plan pipeline",
-        "full plan review"
-      ],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
-      "id": "plan/plan-office-hours",
-      "name": "plan-office-hours",
-      "category": "plan",
-      "description": "Premise-questioning before code. Six forcing questions that reframe a product idea, expose hidden demand assumptions, and find the narrowest wedge to ship. Writes a design doc the user can hand to /plan-ceo-review or /plan-eng-review. Use when the user says \"brainstorm this\", \"I have an idea\", \"help me think through\", \"office hours\", \"is this worth building\", or describes a product idea before any code exists.",
-      "source": "skills/plan/office-hours/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "brainstorm this",
-        "is this worth building",
-        "help me think through",
-        "office hours",
-        "I have an idea"
-      ],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
     },
     {
       "id": "deployment/coolify",
@@ -8543,7 +6870,7 @@
       "id": "secrets/envoult",
       "name": "envoult",
       "category": "secrets",
-      "description": "Use when user says \"envoult\", \"manage my secrets\", \"push env vars to coolify\", \"diff secrets against coolify\", \"rotate a secret\", \"open the vault\". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault — set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault.",
+      "description": "Use when user says \"envoult\", \"manage my secrets\", \"push env vars to coolify\", \"diff secrets against coolify\", \"rotate a secret\", \"open the vault\". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault \u2014 set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault.",
       "source": "skills/secrets/envoult/SKILL.md",
       "tags": [],
       "triggers": [
@@ -8554,7 +6881,7 @@
         "rotate a secret",
         "open the vault"
       ],
-      "capability": "Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault — set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault",
+      "capability": "Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault \u2014 set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions \"envoultd\" or the encrypted secret vault",
       "notFor": "",
       "links": [],
       "requires": {
@@ -8854,7 +7181,7 @@
       "id": "polymarket/polymarket-research",
       "name": "polymarket-research",
       "category": "polymarket",
-      "description": "Use when user says \"what's the Polymarket market doing\", \"research a Polymarket market\", \"BTC 5m snapshot\", \"look up a Polymarket market\", or \"what are the odds on X\". Live overview via `polymarket-live` MCP — bundles BTC 5m snapshot, market search, and order book. NOT for placing orders.",
+      "description": "Use when user says \"what's the Polymarket market doing\", \"research a Polymarket market\", \"BTC 5m snapshot\", \"look up a Polymarket market\", or \"what are the odds on X\". Live overview via `polymarket-live` MCP \u2014 bundles BTC 5m snapshot, market search, and order book. NOT for placing orders.",
       "source": "skills/polymarket/polymarket-research/SKILL.md",
       "tags": [],
       "triggers": [
@@ -8864,7 +7191,7 @@
         "look up a Polymarket market",
         "what are the odds on X"
       ],
-      "capability": "Live overview via `polymarket-live` MCP — bundles BTC 5m snapshot, market search, and order book",
+      "capability": "Live overview via `polymarket-live` MCP \u2014 bundles BTC 5m snapshot, market search, and order book",
       "notFor": "NOT for placing orders.",
       "links": [],
       "requires": {
@@ -9185,28 +7512,6 @@
       "quality": "good"
     },
     {
-      "id": "security/security-cso",
-      "name": "security-cso",
-      "category": "security",
-      "description": "OWASP Top 10 + STRIDE threat model audit of the current diff (or the whole repo on demand). Zero-noise: findings must pass an 8/10+ confidence gate AND include a concrete exploit scenario before they're surfaced. Use when the user says \"security audit\", \"OWASP review\", \"threat model\", \"cso\", \"is this secure\", or before shipping anything that touches auth, user input, secrets, or payments.",
-      "source": "skills/security/cso/SKILL.md",
-      "tags": [],
-      "triggers": [
-        "security audit",
-        "owasp review",
-        "threat model",
-        "cso",
-        "is this secure"
-      ],
-      "capability": "",
-      "notFor": "",
-      "links": [],
-      "requires": {
-        "mcps": []
-      },
-      "quality": "none"
-    },
-    {
       "id": "security/trivy-scan",
       "name": "trivy-scan",
       "category": "security",
@@ -9255,6 +7560,699 @@
         "mcps": []
       },
       "quality": "good"
+    },
+    {
+      "id": "content/doc",
+      "name": "doc",
+      "category": "content",
+      "description": "Use when user says \"write documentation\", \"make a DOCX\", or \"create a doc\". Covers document structure, formatting, and export.",
+      "source": "skills/content/doc/SKILL.md"
+    },
+    {
+      "id": "content/playwright",
+      "name": "content-playwright",
+      "category": "content",
+      "description": "Use when user says \"Playwright\", \"browser test\", or \"snapshot\". Covers navigation, locators, screenshots, and assertions.",
+      "source": "skills/content/playwright/SKILL.md"
+    },
+    {
+      "id": "design/headless-gif-demo",
+      "name": "headless-gif-demos-with-cage-wayland-kitty-tmux-auto-redaction",
+      "category": "design",
+      "description": "Use when user says \"record a CLI demo gif\", \"make a terminal demo\", \"capture a tmux session as a gif\", \"demo gif with brand logos\", or \"redact text in a screen recording\". Headless cage/Wayland + Kitty + tmux + ffmpeg pipeline for high-quality CLI demo GIFs that need Kitty graphics protocol (real PNG icons inline) \u2014 instead of vhs/asciinema which don''t speak the Kitty protocol. Includes auto-redaction of moving text via tesseract OCR.",
+      "source": "skills/design/headless-gif-demo/SKILL.md"
+    },
+    {
+      "id": "design/png-alpha-cleaner",
+      "name": "png-alpha-cleaner",
+      "category": "design",
+      "description": "Use when user says \"clean PNG alpha\", \"remove transparent fringe\", or \"fix PNG edges\". Alpha-channel cleanup.",
+      "source": "skills/design/png-alpha-cleaner/SKILL.md"
+    },
+    {
+      "id": "design/readme-svg-design",
+      "name": "readme-svg-design-skill",
+      "category": "design",
+      "description": "Use when user says \"design a readme\", \"make my readme beautiful\", \"create an svg diagram\", \"architecture diagram for the readme\", or \"add a hero banner to the docs\". Generates publication-quality SVG assets and composes them into a well-structured, GitHub-compatible README.",
+      "source": "skills/design/readme-svg-design/SKILL.md"
+    },
+    {
+      "id": "design/screenshot",
+      "name": "screenshot",
+      "category": "design",
+      "description": "Use when user says \"screenshot\", \"capture the page\", or \"visual proof\". Browser/window capture, artifacts, naming.",
+      "source": "skills/design/screenshot/SKILL.md"
+    },
+    {
+      "id": "design/taste-skill",
+      "name": "design-taste-frontend",
+      "category": "design",
+      "description": "Use when user says \"design taste\", \"anti-slop frontend\", \"landing page\", \"portfolio site\", or \"premium design\". Ships frontend interfaces that do not look templated, audit-first on redesigns.",
+      "source": "skills/design/taste-skill/SKILL.md"
+    },
+    {
+      "id": "design/taste-skill-v1",
+      "name": "design-taste-frontend-v1",
+      "category": "design",
+      "description": "Use when user says \"taste-skill v1\", \"design-taste-frontend-v1\", or \"legacy taste skill\". The original v1 taste-skill, preserved for projects that need its exact behavior and backward compatibility.",
+      "source": "skills/design/taste-skill-v1/SKILL.md"
+    },
+    {
+      "id": "github/gh-fix-ci",
+      "name": "gh-fix-ci",
+      "category": "github",
+      "description": "Use when user says \"fix CI\", \"GitHub checks failed\", or \"debug PR checks\". Inspects failing Actions via gh; fix plan needs approval before implementation.",
+      "source": "skills/github/gh-fix-ci/SKILL.md"
+    },
+    {
+      "id": "legal/legal-agreement",
+      "name": "business-agreement-generator",
+      "category": "legal",
+      "description": "Generates business agreements (freelancer, partnership, SOW, MSA, service) with annotations. Use when the user says \\\"/legal agreement\\\", \\\"draft an SOW\\\", or \\\"create an MSA\\\".",
+      "source": "skills/legal/legal-agreement/SKILL.md"
+    },
+    {
+      "id": "legal/legal-compare",
+      "name": "contract-comparison",
+      "category": "legal",
+      "description": "Side-by-side comparison of two contracts with change tracking and favorability analysis. Use when the user says \\\"/legal compare\\\", \\\"compare these contracts\\\", or \\\"what changed\\\".",
+      "source": "skills/legal/legal-compare/SKILL.md"
+    },
+    {
+      "id": "legal/legal-compliance",
+      "name": "compliance-gap-analysis",
+      "category": "legal",
+      "description": "Scans a site for gaps across GDPR, CCPA, ADA, PCI-DSS, CAN-SPAM, and SOC 2 with a scored audit. Use when the user says \\\"/legal compliance\\\" or \\\"run a compliance audit\\\".",
+      "source": "skills/legal/legal-compliance/SKILL.md"
+    },
+    {
+      "id": "legal/legal-freelancer",
+      "name": "freelancer-contract-review",
+      "category": "legal",
+      "description": "Reviews a contract from the freelancer perspective, flagging traps with a fairness score. Use when the user says \\\"/legal freelancer\\\" or \\\"review this client contract\\\".",
+      "source": "skills/legal/legal-freelancer/SKILL.md"
+    },
+    {
+      "id": "legal/legal-missing",
+      "name": "missing-protections-finder",
+      "category": "legal",
+      "description": "Finds critical clauses missing from a contract, with urgency ratings and ready-to-insert language. Use when the user says \\\"/legal missing\\\" or \\\"what protections am I missing\\\".",
+      "source": "skills/legal/legal-missing/SKILL.md"
+    },
+    {
+      "id": "legal/legal-nda",
+      "name": "custom-nda-generator",
+      "category": "legal",
+      "description": "Generates a customized NDA (mutual, one-way, employee, or vendor) with plain-English notes. Use when the user says \\\"/legal nda\\\", \\\"generate an NDA\\\", or \\\"draft a non-disclosure agreement\\\".",
+      "source": "skills/legal/legal-nda/SKILL.md"
+    },
+    {
+      "id": "legal/legal-negotiate",
+      "name": "counter-proposal-generator",
+      "category": "legal",
+      "description": "Generates counter-proposals for unfavorable clauses with replacement language and talking points. Use when the user says \\\"/legal negotiate\\\", \\\"write a counter-proposal\\\", or \\\"redline this\\\".",
+      "source": "skills/legal/legal-negotiate/SKILL.md"
+    },
+    {
+      "id": "legal/legal-plain",
+      "name": "plain-english-translation",
+      "category": "legal",
+      "description": "Translates contract clauses from legalese into plain English and flags confusing language. Use when the user says \\\"/legal plain\\\", \\\"explain in plain English\\\", or \\\"what does this clause mean\\\".",
+      "source": "skills/legal/legal-plain/SKILL.md"
+    },
+    {
+      "id": "legal/legal-privacy",
+      "name": "privacy-policy-generator",
+      "category": "legal",
+      "description": "Scans a site to detect data collection, then generates a GDPR/CCPA-compliant privacy policy. Use when the user says \\\"/legal privacy\\\" or \\\"generate a privacy policy\\\".",
+      "source": "skills/legal/legal-privacy/SKILL.md"
+    },
+    {
+      "id": "legal/legal-review",
+      "name": "contract-review",
+      "category": "legal",
+      "description": "Full contract review via 5 parallel subagents: a Contract Safety Score, clause-by-clause analysis, prioritized fixes. Use when the user says \\\"/legal review\\\" or \\\"review this contract\\\".",
+      "source": "skills/legal/legal-review/SKILL.md"
+    },
+    {
+      "id": "legal/legal-risks",
+      "name": "deep-risk-analysis",
+      "category": "legal",
+      "description": "Clause-by-clause risk analysis with severity scores and financial-exposure estimates. Use when the user says \\\"/legal risks\\\", \\\"what are the risks\\\", or \\\"find dangerous clauses\\\".",
+      "source": "skills/legal/legal-risks/SKILL.md"
+    },
+    {
+      "id": "legal/legal-terms",
+      "name": "terms-of-service-generator",
+      "category": "legal",
+      "description": "Generates GDPR/CCPA-compliant Terms of Service with plain-English section summaries. Use when the user says \\\"/legal terms\\\", \\\"generate terms of service\\\", or \\\"write a ToS\\\".",
+      "source": "skills/legal/legal-terms/SKILL.md"
+    },
+    {
+      "id": "media/3d-logo-animation",
+      "name": "muapi-3d-logo-animation",
+      "category": "media",
+      "description": "Use when the user wants to turn a 2D logo into a premium 3D version and animate it with professional cinematic effects.",
+      "source": "skills/media/3d-logo-animation/SKILL.md"
+    },
+    {
+      "id": "media/action-figure-generator",
+      "name": "muapi-action-figure-generator",
+      "category": "media",
+      "description": "Use when the user wants to turn a photo of a person into a custom 3D action figure, complete with collectible toy packaging.",
+      "source": "skills/media/action-figure-generator/SKILL.md"
+    },
+    {
+      "id": "media/ad-creative",
+      "name": "muapi-ad-creative",
+      "category": "media",
+      "description": "Use when the user wants a high-converting ad creative set \u2014 hero image, ad copy variations, and platform-optimized crops for Meta, Google Display, and LinkedIn.",
+      "source": "skills/media/ad-creative/SKILL.md"
+    },
+    {
+      "id": "media/ai-clipping",
+      "name": "muapi-ai-clipping",
+      "category": "media",
+      "description": "Use when the user wants to turn a long video into N viral-ready vertical short clips with one API call. Wraps muapi.ai's `/ai-clipping` for transcription, highlight ranking, and face-tracking crop.",
+      "source": "skills/media/ai-clipping/SKILL.md"
+    },
+    {
+      "id": "media/ai-fight-scene",
+      "name": "muapi-ai-fight-scene",
+      "category": "media",
+      "description": "Use when the user wants an action or fight scene video \u2014 composes a 16-cell storyboard image, then drives Seedance 2.0 image-to-video off it for high cut density across 16 distinct shots.",
+      "source": "skills/media/ai-fight-scene/SKILL.md"
+    },
+    {
+      "id": "media/amazon-product-listing",
+      "name": "muapi-amazon-product-listing",
+      "category": "media",
+      "description": "Use when the user wants a complete Amazon product listing image set \u2014 hero image, lifestyle shot, infographic with features, and comparison/detail closeups optimized for Amazon standards.",
+      "source": "skills/media/amazon-product-listing/SKILL.md"
+    },
+    {
+      "id": "media/animal-video-generator",
+      "name": "muapi-animal-video-generator",
+      "category": "media",
+      "description": "Use when the user wants to create a hilarious and ultra-realistic video of an anthropomorphic animal acting like a human vlogger in a real-world setting.",
+      "source": "skills/media/animal-video-generator/SKILL.md"
+    },
+    {
+      "id": "media/award-ceremony-video",
+      "name": "muapi-award-ceremony-video",
+      "category": "media",
+      "description": "Use when the user wants a 15-second cinematic awards-ceremony video where a host announces a winner, a spotlight finds them, they walk to the podium, and the LED display reveals their name.",
+      "source": "skills/media/award-ceremony-video/SKILL.md"
+    },
+    {
+      "id": "media/blog-header",
+      "name": "muapi-blog-header",
+      "category": "media",
+      "description": "Use when the user wants a blog post header or featured image \u2014 creates a professional, eye-catching header sized for web (1200\u00d7628) with optional title composition guidance.",
+      "source": "skills/media/blog-header/SKILL.md"
+    },
+    {
+      "id": "media/brand-kit",
+      "name": "muapi-brand-kit",
+      "category": "media",
+      "description": "Use when the user wants a cohesive brand visual kit \u2014 logo concept, color palette moodboard, and typography pairing suggestions.",
+      "source": "skills/media/brand-kit/SKILL.md"
+    },
+    {
+      "id": "media/brochures",
+      "name": "muapi-brochures",
+      "category": "media",
+      "description": "Use when the user wants a professional multi-page brochure design \u2014 cover, inner spread, and back cover \u2014 for business, real estate, events, or product launches.",
+      "source": "skills/media/brochures/SKILL.md"
+    },
+    {
+      "id": "media/cartoon-dance-animation",
+      "name": "muapi-cartoon-dance-animation",
+      "category": "media",
+      "description": "Use when the user wants to convert a photo of a person into a Pixar-style 3D cartoon character, then animate it using a reference dance or motion video.",
+      "source": "skills/media/cartoon-dance-animation/SKILL.md"
+    },
+    {
+      "id": "media/character-story-video",
+      "name": "muapi-character-story-video",
+      "category": "media",
+      "description": "Use when the user wants a multi-part animated story video \u2014 first establish a consistent character, then generate sequential scenes and animate them.",
+      "source": "skills/media/character-story-video/SKILL.md"
+    },
+    {
+      "id": "media/chibi-collage-effect",
+      "name": "muapi-chibi-collage-effect",
+      "category": "media",
+      "description": "Use when the user wants a \"chibi clone sticker diary\" image from a real photo \u2014 the person stays photorealistic, surrounded by kawaii chibi mini-clones, doodles, and handwritten captions.",
+      "source": "skills/media/chibi-collage-effect/SKILL.md"
+    },
+    {
+      "id": "media/cinema-director",
+      "name": "muapi-cinema-director",
+      "category": "media",
+      "description": "Use when the user wants to direct cinematic AI video \u2014 translates creative intent into technical cinematographic directives for Veo3, Kling, and Luma video models via muapi.ai",
+      "source": "skills/media/cinema-director/SKILL.md"
+    },
+    {
+      "id": "media/color-analysis-board",
+      "name": "muapi-color-analysis-board",
+      "category": "media",
+      "description": "Turn a portrait photo into a high-end editorial \"Color Analysis Board\" in a luxury fashion-magazine style (Dior / Ralph Lauren aesthetic) \u2014 best colors, undertone, makeup guide, capsule wardrobe, hair & jewelry recommendations, all laid out on a clean beige/ivory grid.",
+      "source": "skills/media/color-analysis-board/SKILL.md"
+    },
+    {
+      "id": "media/core-edit",
+      "name": "muapi-media-editing",
+      "category": "media",
+      "description": "Use when the user wants to edit or enhance images and videos with AI via muapi.ai \u2014 prompt-based editing, upscaling, background removal, face swap, lipsync, video effects, and more",
+      "source": "skills/media/core-edit/SKILL.md"
+    },
+    {
+      "id": "media/core-media",
+      "name": "muapi-media-generation",
+      "category": "media",
+      "description": "Use when the user wants to generate AI images, videos, music, or audio from the terminal via muapi.ai \u2014 supports 100+ models including Flux, Midjourney v7, Kling 3.0, Veo3, and Suno V5",
+      "source": "skills/media/core-media/SKILL.md"
+    },
+    {
+      "id": "media/core-platform",
+      "name": "muapi-platform",
+      "category": "media",
+      "description": "Use when setting up muapi.ai or polling generation jobs \u2014 configure API keys, test connectivity, and poll for async generation results",
+      "source": "skills/media/core-platform/SKILL.md"
+    },
+    {
+      "id": "media/couple-grid-creator",
+      "name": "muapi-couple-grid-creator",
+      "category": "media",
+      "description": "Use when the user wants a stylized 6-box grid featuring a couple in various romantic poses and outfits, with each pose framed inside a unique cardboard box packaging.",
+      "source": "skills/media/couple-grid-creator/SKILL.md"
+    },
+    {
+      "id": "media/design-guide",
+      "name": "muapi-design-guide",
+      "category": "media",
+      "description": "Create a complete brand design guide \u2014 color palette, typography pairings, UI component previews, and visual identity rules with example mockups.",
+      "source": "skills/media/design-guide/SKILL.md"
+    },
+    {
+      "id": "media/drone-style-video",
+      "name": "muapi-drone-style-video",
+      "category": "media",
+      "description": "Use when the user wants aerial drone-style footage \u2014 sweeping bird's-eye views, orbit shots, and flyover sequences for landscapes, architecture, and events.",
+      "source": "skills/media/drone-style-video/SKILL.md"
+    },
+    {
+      "id": "media/fashion-try-on",
+      "name": "muapi-fashion-try-on",
+      "category": "media",
+      "description": "Use when the user wants to virtually try on different outfits by combining a person's photo and a clothing item, then optionally generate a professional fashion model video.",
+      "source": "skills/media/fashion-try-on/SKILL.md"
+    },
+    {
+      "id": "media/floor-plan-rendering",
+      "name": "muapi-floor-plan-rendering",
+      "category": "media",
+      "description": "Use when the user wants to design a 2D floor plan and convert it into a realistic, high-quality 3D architectural rendering.",
+      "source": "skills/media/floor-plan-rendering/SKILL.md"
+    },
+    {
+      "id": "media/freeze-effect-video",
+      "name": "muapi-freeze-effect-video",
+      "category": "media",
+      "description": "Use when the user wants a cinematic \"freeze effect\" video where time stops mid-scene, the subject walks through the frozen world, then time resumes with a snap.",
+      "source": "skills/media/freeze-effect-video/SKILL.md"
+    },
+    {
+      "id": "media/giant-product-showcase",
+      "name": "muapi-giant-product-showcase",
+      "category": "media",
+      "description": "Use when the user wants a dramatic \"Giant Product\" visual where a regular item appears as a massive, building-sized object next to a person, then optionally animate the scene.",
+      "source": "skills/media/giant-product-showcase/SKILL.md"
+    },
+    {
+      "id": "media/instagram-post",
+      "name": "muapi-instagram-post",
+      "category": "media",
+      "description": "Create a polished, on-brand Instagram post \u2014 square or portrait hero image with matching caption and hashtags.",
+      "source": "skills/media/instagram-post/SKILL.md"
+    },
+    {
+      "id": "media/interior-design",
+      "name": "muapi-interior-design",
+      "category": "media",
+      "description": "Use when the user wants professional interior design visualizations \u2014 redesign existing rooms, generate new room concepts, or visualize specific furniture styles in a space.",
+      "source": "skills/media/interior-design/SKILL.md"
+    },
+    {
+      "id": "media/interior-design-visualizer",
+      "name": "muapi-interior-design-visualizer",
+      "category": "media",
+      "description": "Use when the user wants to visualize interior design by generating an empty room and filling it with stylish furniture and decor, or by redesigning an existing room.",
+      "source": "skills/media/interior-design-visualizer/SKILL.md"
+    },
+    {
+      "id": "media/jewelry-product-video",
+      "name": "muapi-jewelry-product-video",
+      "category": "media",
+      "description": "Create a luxury jewelry advertisement with high-end commercial cinematography and detailed macro animation.",
+      "source": "skills/media/jewelry-product-video/SKILL.md"
+    },
+    {
+      "id": "media/keyboard-art-maker",
+      "name": "muapi-keyboard-art-maker",
+      "category": "media",
+      "description": "Use when the user wants artistic top-down photos of keyboard keycaps arranged to spell out custom text messages.",
+      "source": "skills/media/keyboard-art-maker/SKILL.md"
+    },
+    {
+      "id": "media/logo-branding",
+      "name": "muapi-logo-branding",
+      "category": "media",
+      "description": "Design a professional logo with full branding package \u2014 primary logo, variations (dark/light/icon-only), color palette, and real-world application mockups.",
+      "source": "skills/media/logo-branding/SKILL.md"
+    },
+    {
+      "id": "media/logo-creator",
+      "name": "muapi-logo-creator",
+      "category": "media",
+      "description": "Use when the user wants to engineer professional-grade brand logos using geometric primitives and negative space \u2014 generates minimalist, scalable vector-style marks via muapi.ai",
+      "source": "skills/media/logo-creator/SKILL.md"
+    },
+    {
+      "id": "media/logo-generator",
+      "name": "muapi-logo-generator",
+      "category": "media",
+      "description": "Use when the user wants to make a logo for a brand or company \u2014 fast, focused, single polished output with clean vector aesthetic and accurate brand name text.",
+      "source": "skills/media/logo-generator/SKILL.md"
+    },
+    {
+      "id": "media/multi-angle-reshoot",
+      "name": "muapi-multi-angle-reshoot",
+      "category": "media",
+      "description": "Use when the user wants to re-render a subject or scene from multiple dramatic camera angles, such as fish-eye, bird's-eye, low-angle, and macro, while maintaining consistent identity and detail.",
+      "source": "skills/media/multi-angle-reshoot/SKILL.md"
+    },
+    {
+      "id": "media/multi-angle-shots",
+      "name": "muapi-multi-angle-shots",
+      "category": "media",
+      "description": "Generate a complete set of multi-angle product shots \u2014 front, side, back, top-down, and 45-degree perspective \u2014 for full product visualization.",
+      "source": "skills/media/multi-angle-shots/SKILL.md"
+    },
+    {
+      "id": "media/music-video",
+      "name": "muapi-music-video",
+      "category": "media",
+      "description": "Use when the user wants a short music video from a song theme \u2014 generate N keyframes, animate each, and generate matching music.",
+      "source": "skills/media/music-video/SKILL.md"
+    },
+    {
+      "id": "media/nano-banana",
+      "name": "muapi-nano-banana",
+      "category": "media",
+      "description": "Use when the user wants to generate high-fidelity images from structured creative briefs (Gemini 3 / Nano Banana style) via muapi.ai with logic-based prompting",
+      "source": "skills/media/nano-banana/SKILL.md"
+    },
+    {
+      "id": "media/one-shot-video",
+      "name": "muapi-one-shot-video",
+      "category": "media",
+      "description": "Use when the user wants a single continuous cinematic shot video \u2014 no cuts, one seamless flowing scene with dramatic lighting and motion.",
+      "source": "skills/media/one-shot-video/SKILL.md"
+    },
+    {
+      "id": "media/photo-pack-generator",
+      "name": "muapi-photo-pack-generator",
+      "category": "media",
+      "description": "Use when the user wants to generate a pack of professional or aesthetic photos from a single reference image while preserving the exact identity of the person.",
+      "source": "skills/media/photo-pack-generator/SKILL.md"
+    },
+    {
+      "id": "media/product-ad-cinematic",
+      "name": "muapi-product-ad-cinematic",
+      "category": "media",
+      "description": "Use when the user wants a cinematic 5\u201310s product ad from a product photo + brand brief.",
+      "source": "skills/media/product-ad-cinematic/SKILL.md"
+    },
+    {
+      "id": "media/product-campaign",
+      "name": "muapi-product-campaign",
+      "category": "media",
+      "description": "Generate a full multi-channel product campaign \u2014 hero visuals, social media assets, short ad video, and platform-specific crops for an end-to-end launch campaign.",
+      "source": "skills/media/product-campaign/SKILL.md"
+    },
+    {
+      "id": "media/product-showcase-video",
+      "name": "muapi-product-showcase-video",
+      "category": "media",
+      "description": "Use when the user wants a dynamic product ad video \u2014 explosive ingredient arrangements around the product, then animated into realistic motion.",
+      "source": "skills/media/product-showcase-video/SKILL.md"
+    },
+    {
+      "id": "media/product-video-ad-maker",
+      "name": "muapi-product-video-ad-maker",
+      "category": "media",
+      "description": "Use when the user wants a product video ad \u2014 creates a high-end cinematic advertisement starting from a simple product photo.",
+      "source": "skills/media/product-video-ad-maker/SKILL.md"
+    },
+    {
+      "id": "media/rednote-cover",
+      "name": "muapi-rednote-cover",
+      "category": "media",
+      "description": "Create a Xiaohongshu (RedNote/\u5c0f\u7ea2\u4e66) style cover image \u2014 vibrant, lifestyle-focused, with aesthetic typography overlay suitable for the Chinese social platform.",
+      "source": "skills/media/rednote-cover/SKILL.md"
+    },
+    {
+      "id": "media/seedance-2",
+      "name": "muapi-seedance-2",
+      "category": "media",
+      "description": "Use when generating video with Seedance 2.0 (ByteDance) across Chinese, Global, and VIP tiers \u2014 text-to-video, image-to-video, first-last-frame, omni reference, character training, and video editing.",
+      "source": "skills/media/seedance-2/SKILL.md"
+    },
+    {
+      "id": "media/selfie-with-celebrities",
+      "name": "muapi-selfie-with-celebrities",
+      "category": "media",
+      "description": "Use when the user wants a selfie with a celebrity or movie actor \u2014 generates a realistic behind-the-scenes selfie, with an option to make a cinematic long-take video connecting multiple selfies.",
+      "source": "skills/media/selfie-with-celebrities/SKILL.md"
+    },
+    {
+      "id": "media/social-media-video",
+      "name": "muapi-social-media-video",
+      "category": "media",
+      "description": "Brand-aware social media video creator. Reads brand-identity.md, ICP.md, and messaging.md to write a post/storyboard, craft an optimized Seedance 2.0 Director prompt, generate reference frames with the best available image model, and produce platform-ready video.",
+      "source": "skills/media/social-media-video/SKILL.md"
+    },
+    {
+      "id": "media/social-pack",
+      "name": "muapi-social-pack",
+      "category": "media",
+      "description": "Use when the user wants to re-render a hero image into Instagram, TikTok, YouTube-shorts and Twitter/X aspect ratios.",
+      "source": "skills/media/social-pack/SKILL.md"
+    },
+    {
+      "id": "media/storyboard",
+      "name": "muapi-storyboard",
+      "category": "media",
+      "description": "Use when the user wants to generate keyframes for a short story or scene sequence (image only, no video).",
+      "source": "skills/media/storyboard/SKILL.md"
+    },
+    {
+      "id": "media/storyboard-to-cooking-video",
+      "name": "muapi-storyboard-to-cooking-video",
+      "category": "media",
+      "description": "Use when the user wants a cooking tutorial video from one photo of a person \u2014 builds a reference sheet, then animates a 15-second cinematic cooking sequence with audio in one continuous shot.",
+      "source": "skills/media/storyboard-to-cooking-video/SKILL.md"
+    },
+    {
+      "id": "media/talking-baby-video",
+      "name": "muapi-talking-baby-video",
+      "category": "media",
+      "description": "Use when the user wants a viral-style talking baby video, with custom costumes and scripts.",
+      "source": "skills/media/talking-baby-video/SKILL.md"
+    },
+    {
+      "id": "media/ugc-ads-workflow",
+      "name": "muapi-ugc-ads-workflow",
+      "category": "media",
+      "description": "Use when the user wants a UGC (user-generated content) video ad \u2014 combines a human selfie and a product image, then generates a video script and an animated ad.",
+      "source": "skills/media/ugc-ads-workflow/SKILL.md"
+    },
+    {
+      "id": "media/ugc-lifestyle-try-on",
+      "name": "muapi-ugc-lifestyle-try-on",
+      "category": "media",
+      "description": "Use when the user wants UGC-style (User Generated Content) lifestyle photos of a person wearing or using a product \u2014 authentic, relatable, social-media-native imagery.",
+      "source": "skills/media/ugc-lifestyle-try-on/SKILL.md"
+    },
+    {
+      "id": "media/ugc-video-factory",
+      "name": "muapi-ugc-video-factory",
+      "category": "media",
+      "description": "Use when the user wants a 9:16 UGC-style video ad from a person photo, product photo, and optional script \u2014 builds a lifestyle hero image, then animates it with native spoken audio.",
+      "source": "skills/media/ugc-video-factory/SKILL.md"
+    },
+    {
+      "id": "media/ui-design",
+      "name": "muapi-ui-design",
+      "category": "media",
+      "description": "Use when the user wants to generate high-fidelity UI/UX mockups for mobile and web apps using Atomic Design principles \u2014 creates wireframes and design systems via muapi.ai",
+      "source": "skills/media/ui-design/SKILL.md"
+    },
+    {
+      "id": "media/url-to-design",
+      "name": "muapi-url-to-design",
+      "category": "media",
+      "description": "Analyze a website URL and generate a redesigned, improved UI \u2014 recreate the visual design with modern aesthetics, better hierarchy, and fresh brand direction.",
+      "source": "skills/media/url-to-design/SKILL.md"
+    },
+    {
+      "id": "media/workflow",
+      "name": "muapi-workflow",
+      "category": "media",
+      "description": "Use when the user wants to build, run, or visualize multi-step AI generation workflows \u2014 chain image generation, video creation, enhancement, and editing into automated node-graph pipelines.",
+      "source": "skills/media/workflow/SKILL.md"
+    },
+    {
+      "id": "media/youtube-shorts",
+      "name": "muapi-youtube-shorts",
+      "category": "media",
+      "description": "Use when the user wants YouTube Shorts, TikTok, or Reels clips from a long video. Picks short-form defaults (9:16) and delegates highlight extraction and crop to muapi.ai's `/ai-clipping` endpoint.",
+      "source": "skills/media/youtube-shorts/SKILL.md"
+    },
+    {
+      "id": "media/youtube-thumbnail",
+      "name": "muapi-youtube-thumbnail",
+      "category": "media",
+      "description": "Use when the user wants a high-CTR YouTube thumbnail \u2014 striking imagery, bold text placement, and emotional face/subject if needed.",
+      "source": "skills/media/youtube-thumbnail/SKILL.md"
+    },
+    {
+      "id": "meta/builtin-manager",
+      "name": "built-in-skill-manager",
+      "category": "meta",
+      "description": "Manage built-in skills shared across cue profiles \u2014 promote, demote, list. Use when user says \\\"make X built-in\\\", \\\"add X to all profiles\\\", or \\\"what skills are built-in\\\".",
+      "source": "skills/meta/builtin-manager/SKILL.md"
+    },
+    {
+      "id": "meta/cue-usage",
+      "name": "cue-agent-profile-manager",
+      "category": "meta",
+      "description": "cue CLI commands for profiles, skills, MCPs, and marketplace operations. Use when user says \\\"cue help\\\", \\\"how do I use cue\\\", \\\"list profiles\\\", \\\"add an MCP\\\", or \\\"manage my profile\\\".",
+      "source": "skills/meta/cue-usage/SKILL.md"
+    },
+    {
+      "id": "meta/retro",
+      "name": "learning-retro",
+      "category": "meta",
+      "description": "Engineering retrospective from git history + cue session log. Per-author shipping streaks, test-health trend, growth opportunities, and one one-paragraph \"what to do differently next week.\" Saves a markdown file under .cue/retros/<YYYY-WW>.md. Use when the user says \"weekly retro\", \"what did we ship\", \"engineering retrospective\", or at end-of-sprint.",
+      "source": "skills/meta/retro/SKILL.md"
+    },
+    {
+      "id": "meta/smithery-usage",
+      "name": "smithery-mcp-marketplace",
+      "category": "meta",
+      "description": "smithery CLI and cue marketplace commands to find, install, and manage MCP servers from the Smithery registry. Use when user says \\\"find an MCP on smithery\\\" or \\\"install smithery MCP\\\".",
+      "source": "skills/meta/smithery-usage/SKILL.md"
+    },
+    {
+      "id": "nvidia/aiq-research",
+      "name": "ai-q-deep-research",
+      "category": "nvidia",
+      "description": "Use when user says \\\"deep research this\\\", \\\"synthesize findings from our docs\\\", \\\"produce a cited memo\\\", or \\\"multi-source research\\\". Routes it through the NVIDIA AI-Q server for cited reports.",
+      "source": "skills/nvidia/aiq-research/SKILL.md"
+    },
+    {
+      "id": "plan/autoplan",
+      "name": "plan-autoplan",
+      "category": "plan",
+      "description": "Compose the full plan-stage pipeline: /office-hours \u2192 /plan-ceo-review \u2192 /plan-eng-review. Auto-skips stages where the design doc already has a section, so it's safe to re-run. Surfaces only taste decisions for user approval; everything else runs straight through. Use when the user says \"autoplan\", \"run the full plan\", \"plan pipeline\", or has a fresh idea and wants the whole sprint up to code.",
+      "source": "skills/plan/autoplan/SKILL.md"
+    },
+    {
+      "id": "plan/investigate",
+      "name": "plan-investigate",
+      "category": "plan",
+      "description": "Systematic root-cause debugging. Four phases: investigate \u2192 analyze \u2192 hypothesize \u2192 implement. Iron Law: no fix without a root cause. Stops after 3 failed fixes and reassesses. Use when the user reports an error, 500, stack trace, \"it was working yesterday\", or asks to \"debug this\", \"fix this bug\", \"why is X broken\", or \"root cause analysis\".",
+      "source": "skills/plan/investigate/SKILL.md"
+    },
+    {
+      "id": "plan/office-hours",
+      "name": "plan-office-hours",
+      "category": "plan",
+      "description": "Premise-questioning before code. Six forcing questions that reframe a product idea, expose hidden demand assumptions, and find the narrowest wedge to ship. Writes a design doc the user can hand to /plan-ceo-review or /plan-eng-review. Use when the user says \"brainstorm this\", \"I have an idea\", \"help me think through\", \"office hours\", \"is this worth building\", or describes a product idea before any code exists.",
+      "source": "skills/plan/office-hours/SKILL.md"
+    },
+    {
+      "id": "plan/plan-ceo-review",
+      "name": "plan-ceo-review-compact",
+      "category": "plan",
+      "description": "CEO/founder-tier scope review of a feature plan. Four modes \u2014 Expansion, Selective Expansion, Hold Scope, Reduction \u2014 and a 10-section challenge walking through demand, scope, simplest version, and metric. Reads the design doc from /office-hours; writes back recommended scope changes. Use when the user says \"ceo review\", \"scope review\", \"is this the right scope\", or before committing to build a feature.",
+      "source": "skills/plan/plan-ceo-review/SKILL.md"
+    },
+    {
+      "id": "plan/plan-eng-review",
+      "name": "plan-eng-review-compact",
+      "category": "plan",
+      "description": "Engineering-manager review of a feature plan before code. Locks in architecture, data flow, state machines, edge cases, and a test matrix. Forces hidden assumptions into the open via ASCII diagrams. Reads the design doc; writes back architectural decisions. Use when the user says \"eng review\", \"architecture review\", \"lock the plan\", or before exiting plan mode.",
+      "source": "skills/plan/plan-eng-review/SKILL.md"
+    },
+    {
+      "id": "research/openai-docs",
+      "name": "openai-docs",
+      "category": "research",
+      "description": "Use when user says \"OpenAI docs\", \"OpenAI API\", or \"ChatGPT API\". Official OpenAI docs lookup: current docs, examples, limits, citations.",
+      "source": "skills/research/openai-docs/SKILL.md"
+    },
+    {
+      "id": "research/trendradar",
+      "name": "trendradar-news-trend-intelligence",
+      "category": "research",
+      "description": "Use when user says \"what''s trending\", \"news trends\", \"hot topics\", \"search recent news\", \"analyze a topic trend\", or \"daily news briefing\". Uses the TrendRadar MCP tools for news aggregation, trend analysis, RSS feeds, and notifications.",
+      "source": "skills/research/trendradar/SKILL.md"
+    },
+    {
+      "id": "review/security-best-practices",
+      "name": "security-best-practices",
+      "category": "review",
+      "description": "Use when user asks \"security best practices\", \"secure coding for python/typescript/go\", or \"how to harden this\". Language/framework-specific secure-by-default guidance. NOT for auditing existing code \u2014 use security-review.",
+      "source": "skills/review/security-best-practices/SKILL.md"
+    },
+    {
+      "id": "security/cso",
+      "name": "security-cso",
+      "category": "security",
+      "description": "OWASP Top 10 + STRIDE threat model audit of the current diff (or the whole repo on demand). Zero-noise: findings must pass an 8/10+ confidence gate AND include a concrete exploit scenario before they're surfaced. Use when the user says \"security audit\", \"OWASP review\", \"threat model\", \"cso\", \"is this secure\", or before shipping anything that touches auth, user input, secrets, or payments.",
+      "source": "skills/security/cso/SKILL.md"
+    },
+    {
+      "id": "vercel/composition-patterns",
+      "name": "vercel-composition-patterns",
+      "category": "vercel",
+      "description": [],
+      "source": "skills/vercel/composition-patterns/SKILL.md"
+    },
+    {
+      "id": "vercel/react-best-practices",
+      "name": "vercel-react-best-practices",
+      "category": "vercel",
+      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+      "source": "skills/vercel/react-best-practices/SKILL.md"
+    },
+    {
+      "id": "vercel/react-native-skills",
+      "name": "vercel-react-native-skills",
+      "category": "vercel",
+      "description": [],
+      "source": "skills/vercel/react-native-skills/SKILL.md"
+    },
+    {
+      "id": "vercel/react-view-transitions",
+      "name": "vercel-react-view-transitions",
+      "category": "vercel",
+      "description": "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.",
+      "source": "skills/vercel/react-view-transitions/SKILL.md"
     }
   ],
   "mcpProviders": {
