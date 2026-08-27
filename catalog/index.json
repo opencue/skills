@@ -1,9 +1,9 @@
 {
   "schema_version": "2.2",
-  "catalog_mtime": 1787779329345.8635,
+  "catalog_mtime": 1787857612709.551,
   "counts": {
     "skills": 443,
-    "withTriggers": 322,
+    "withTriggers": 321,
     "withCapability": 329,
     "withRequires": 26
   },
@@ -6204,18 +6204,14 @@
       "description": "Use when user says \"gx doctor\", \"dirty worktree\", or \"finish the agent branch\". gitguardex guardrails for branch/worktree/lock/PR state. NOT for code-quality review (use code-review).",
       "source": "skills/github/gitguardex/SKILL.md",
       "tags": [],
-      "triggers": [
-        "gx doctor",
-        "dirty worktree",
-        "finish the agent branch"
-      ],
-      "capability": "gitguardex guardrails for branch/worktree/lock/PR state",
-      "notFor": "NOT for code-quality review (use code-review).",
+      "triggers": [],
+      "capability": "Use only in GitGuardex-managed repositories when starting, repairing, or finishing agent work. Enforces isolated worktrees, file claims, ownership checks, compact handoffs, and gated PR completion",
+      "notFor": "NOT for general Git help or code-quality review.",
       "links": [],
       "requires": {
         "mcps": []
       },
-      "quality": "good"
+      "quality": "partial"
     },
     {
       "id": "github/gx-agents",
@@ -6233,8 +6229,8 @@
         "who owns this file",
         "agent radar"
       ],
-      "capability": "Use when several agents work in parallel and you need to see who is on which branch, worktree, or PR, or to avoid editing a file another agent already owns. Triggers: \"who's working on what\", \"show all agents\", \"is anyone else editing X\", \"agent collision\", \"which PR is each agent shipping\", \"who owns this file\", \"agent radar\". Drives the gx mcp tools (list_agents, who_owns, my_context) or the `gx mcp list-agents` / `gx mcp who-owns` CLI to read every agent's branch, worktree, dirty files, locks, and PR. Read-only",
-      "notFor": "NOT for repo-safety repair (use gitguardex).",
+      "capability": "Use in GitGuardex-managed repositories when multiple agents or subagents need ownership-aware coordination across branches, worktrees, files, or PRs. Drives the read-only gx radar tools before delegation and scope changes",
+      "notFor": "NOT for repository repair (use gitguardex).",
       "links": [],
       "requires": {
         "mcps": []
