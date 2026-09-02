@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
   "counts": {
-    "skills": 443,
+    "skills": 444,
     "withTriggers": 314,
     "withCapability": 329,
     "withRequires": 26
@@ -8253,6 +8253,13 @@
       "category": "vercel",
       "description": "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.",
       "source": "skills/vercel/react-view-transitions/SKILL.md"
+    },
+    {
+      "id": "career/ai-job-search",
+      "name": "ai-job-search",
+      "category": "career",
+      "description": "Use when the user wants a private AI job-search workspace with live portal scrapers, fit ranking, tailored applications, interview prep, and tracking.",
+      "source": "skills/career/ai-job-search/SKILL.md"
     }
   ],
   "mcpProviders": {
