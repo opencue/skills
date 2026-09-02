@@ -1,6 +1,6 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-09-02T08:59:00Z",
+  "generated_at": "2026-09-02T09:07:38Z",
   "offline": true,
   "counts": {
     "installed": 444,
@@ -3734,7 +3734,7 @@
     {
       "id": "career/ai-job-search",
       "name": "ai-job-search",
-      "description": "Use when the user wants a private AI job-search workspace with live portal scrapers, fit ranking, tailored applications, interview prep, and tracking.",
+      "description": "Use when the user wants a private AI job search workspace with live portal scrapers, fit ranking, tailored applications, interview prep, and tracking.",
       "source": "skills/career/ai-job-search/SKILL.md",
       "category": "career",
       "tags": [
