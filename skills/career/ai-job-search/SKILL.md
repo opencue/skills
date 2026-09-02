@@ -1,6 +1,6 @@
 ---
 name: ai-job-search
-description: Use when the user wants a private AI job-search workspace with live portal scrapers, fit ranking, tailored applications, interview prep, and tracking.
+description: Use when the user wants a private AI job search workspace with live portal scrapers, fit ranking, tailored applications, interview prep, and tracking.
 allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, Bash(python3:*), Bash(bun:*), Bash(git:*), Bash(gh:*), Bash(curl:*), Bash(lualatex:*), Bash(xelatex:*), Bash(pdftotext:*)
 category: career
 tags: [career, job-search, scraper, resume, cover-letter, interview, codex]
