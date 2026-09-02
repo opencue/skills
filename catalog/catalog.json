@@ -1,9 +1,9 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-08-23T21:21:14Z",
+  "generated_at": "2026-09-02T08:49:26Z",
   "offline": true,
   "counts": {
-    "installed": 442,
+    "installed": 443,
     "upstream": 0,
     "mcps": 34
   },
@@ -3732,6 +3732,24 @@
       "links": []
     },
     {
+      "id": "career/ai-job-search",
+      "name": "ai-job-search",
+      "description": "Use when the user wants a private AI job-search workspace with live portal scrapers, fit ranking, tailored applications, interview prep, and tracking.",
+      "source": "skills/career/ai-job-search/SKILL.md",
+      "category": "career",
+      "tags": [
+        "career",
+        "job-search",
+        "scraper",
+        "resume",
+        "cover-letter",
+        "interview",
+        "codex"
+      ],
+      "triggers": [],
+      "links": []
+    },
+    {
       "id": "github/gh-auth-doctor",
       "name": "gh-auth-doctor",
       "description": "Use when user says \"gh auth doctor\", \"stale token\", \"gh pr create silently fails\", \"gx finish hung\", \"auth blocker\", or before `gx branch finish --via-pr`. Diagnoses stale `GH_TOKEN`/`GITHUB_TOKEN` env vars silently overriding `~/.git-credentials` (git push works but every `gh` call fails). Read-only.",
@@ -3778,7 +3796,7 @@
     {
       "id": "github/gitguardex",
       "name": "gitguardex",
-      "description": "Use when user says \"gx doctor\", \"dirty worktree\", or \"finish the agent branch\". gitguardex guardrails for branch/worktree/lock/PR state. NOT for code-quality review (use code-review).",
+      "description": "Use only in GitGuardex-managed repositories when starting, repairing, or finishing agent work. Enforces isolated worktrees, file claims, ownership checks, compact handoffs, and gated PR completion. NOT for general Git help or code-quality review.",
       "source": "skills/github/gitguardex/SKILL.md",
       "category": "github",
       "tags": [],
@@ -3788,7 +3806,7 @@
     {
       "id": "github/gx-agents",
       "name": "gx-agents",
-      "description": "Use when several agents work in parallel and you need to see who is on which branch, worktree, or PR, or to avoid editing a file another agent already owns. Triggers: \"who's working on what\", \"show all agents\", \"is anyone else editing X\", \"agent collision\", \"which PR is each agent shipping\", \"who owns this file\", \"agent radar\". Drives the gx mcp tools (list_agents, who_owns, my_context) or the `gx mcp list-agents` / `gx mcp who-owns` CLI to read every agent's branch, worktree, dirty files, locks, and PR. Read-only. NOT for repo-safety repair (use gitguardex).",
+      "description": "Use in GitGuardex-managed repositories when multiple agents or subagents need ownership-aware coordination across branches, worktrees, files, or PRs. Drives the read-only gx radar tools before delegation and scope changes. NOT for repository repair (use gitguardex).",
       "source": "skills/github/gx-agents/SKILL.md",
       "category": "github",
       "tags": [],
@@ -4284,7 +4302,7 @@
     {
       "id": "meta/profile-summon",
       "name": "profile-summon",
-      "description": "Use when a directory has no .cue.profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE session and pins it, no restart.",
+      "description": "Use when a directory has no .cue.profile, or the user says \"summon\", \"load\", \"apply\", or \"pull in\" a profile, or \"no profile here\". Soft-loads a profile's persona and skills into the LIVE Claude or Codex session and pins it; full MCP fidelity uses an agent-specific warm handoff.",
       "source": "skills/meta/profile-summon/SKILL.md",
       "category": "meta",
       "tags": [
