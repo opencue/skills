@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
   "counts": {
-    "skills": 443,
+    "skills": 444,
     "withTriggers": 313,
     "withCapability": 327,
     "withRequires": 26
@@ -8230,6 +8230,13 @@
       "category": "career",
       "description": "Use when the user wants a private AI job-search workspace with live portal scrapers, fit ranking, tailored applications, interview prep, and tracking.",
       "source": "skills/career/ai-job-search/SKILL.md"
+    },
+    {
+      "id": "tools/promptfoo",
+      "name": "promptfoo",
+      "category": "tools",
+      "description": "Use when the user says \"eval this prompt\", \"compare prompts/models\", \"test my LLM output\", \"regression-test the prompt\", \"red team the assistant\", or \"promptfoo\". Runs declarative LLM evals and red-team scans locally with the promptfoo CLI and reports a pass rate instead of a vibe.",
+      "source": "skills/tools/promptfoo/SKILL.md"
     }
   ],
   "mcpProviders": {
