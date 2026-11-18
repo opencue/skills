@@ -3,7 +3,7 @@
   "generated_at": "2026-09-02T09:10:17Z",
   "offline": true,
   "counts": {
-    "installed": 444,
+    "installed": 445,
     "upstream": 0,
     "mcps": 34
   },
@@ -5609,6 +5609,24 @@
       "source": "skills/security/agentshield/SKILL.md",
       "category": "security",
       "tags": [],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "id": "cad/solidcraft",
+      "name": "solidcraft",
+      "description": "Use when the user says \"model a part\", \"SolidCraft\", \"CAD this\", \"export STEP/STL\", or opens a .sc design. Drives SolidCraft CAD over its MCP server and checks each stage with measure.",
+      "source": "skills/cad/solidcraft/SKILL.md",
+      "category": "cad",
+      "tags": [
+        "cad",
+        "3d",
+        "modeling",
+        "solidcraft",
+        "mcp",
+        "step",
+        "stl"
+      ],
       "triggers": [],
       "links": []
     }
