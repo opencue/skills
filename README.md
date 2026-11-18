@@ -1,6 +1,6 @@
 # cue/skills — Skill Library
 
-> 444 skills across 39 categories. The source of truth for all local skills used by [cue](https://github.com/opencue/claude-code-skills) profiles.
+> 445 skills across 40 categories. The source of truth for all local skills used by [cue](https://github.com/opencue/claude-code-skills) profiles.
 
 ## What's here
 
@@ -156,6 +156,7 @@ instead of overwriting them, and refresh the cue catalog after import.
 | `polymarket` | 2 |
 | `robotics` | 2 |
 | `stripe` | 2 |
+| `cad` | 1 |
 | `event-design` | 1 |
 | `google-workspace` | 1 |
 | `predict-everything` | 1 |
