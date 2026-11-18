@@ -1,7 +1,7 @@
 ---
 name: solidcraft
 description: Use when the user says "model a part", "SolidCraft", "CAD this", "export STEP/STL", or opens a .sc design. Drives SolidCraft CAD over its MCP server and checks each stage with measure.
-allowed-tools: Bash(solidcraft-cli:*)
+allowed-tools: Bash(solidcraft-cli --version), Bash(solidcraft-cli eval:*), Bash(solidcraft-cli commands:*)
 category: cad
 tags: [cad, 3d, modeling, solidcraft, mcp, step, stl]
 metadata:
@@ -21,7 +21,9 @@ rules ship inside the server; read them there rather than guessing command shape
 - SolidCraft installed, with `solidcraft-cli` on `PATH`. The Linux AppImage writes
   `~/.local/bin/solidcraft-cli` on its first run; deb/rpm install it in `/usr/bin`; the macOS app
   links it into `/opt/homebrew/bin` or `/usr/local/bin`.
-- The `solidcraft` MCP server enabled in the agent (cue registry id `solidcraft`).
+- The `solidcraft` MCP server enabled in the agent (cue registry id `solidcraft`). The cue entry
+  allows one designs folder, `$SOLIDCRAFT_DESIGNS` (default `~/Documents/solidcraft`), for
+  `save` and `export`.
 
 ## 1. Check the session
 
@@ -60,15 +62,20 @@ rules and known traps, so you do not need the command catalog. Never call `list_
    `failed.error`, fix that one step and resend.
 4. After each stage run `measure {"summary":true}` and compare volume, bbox and face count with
    your numbers. A cut that leaves the volume unchanged missed, even if it reported success.
-5. Finish with one `screenshot {"source":"model","view":"iso","width":480,"height":320}`.
+5. Finish with one `screenshot {"source":"model","view":"iso","width":480,"height":320}`
+   (headless; bridged, leave out `view` so the user's camera stays put).
 
 ## 4. Save and export
 
-- `save {"path":"part.sc"}` keeps the editable design.
-- `export {"path":"part.step"}` for CAD exchange, `.stl` or `.3mf` for printing, `.urdf` for an
-  assembly with joints.
-- Tools only reach the design's folder, the recovery folder, the scratch folder and any
-  `--allow-path` folder. If a path is refused, ask the user where to write instead of widening access.
+Always pass absolute paths; a relative path is refused headless and resolves against the app's
+folder when bridged. `DESIGNS` below is the absolute designs folder, e.g. `/home/<user>/Documents/solidcraft`.
+
+- `save {"path":"DESIGNS/part.sc"}` keeps the editable design.
+- `export {"path":"DESIGNS/part.step"}` for CAD exchange, `.stl` or `.3mf` for printing, `.urdf`
+  for an assembly with joints.
+- Tools only reach the design's folder, the recovery and scratch folders and `--allow-path`
+  folders. If a path is refused, the error lists the allowed folders: write into one of them, or
+  ask the user to add a folder to the server's `--allow-path` instead of working around it.
 
 ## Example
 
@@ -80,7 +87,8 @@ User: "Make a 60 × 40 × 5 mm mounting plate with four M4 holes 6 mm in from ea
    `(±24, ±14)`. Expected volume `60·40·5 − 4·π·2.2²·5 ≈ 11 696 mm³`, bbox `60 × 40 × 5`.
 3. One `batch` for parameters, the plate sketch and extrude; `measure {"summary":true}` → 12 000 mm³.
 4. One `batch` for the hole sketch and cut; `measure` → about 11 696 mm³ (unchanged 12 000 means the cut missed).
-5. `screenshot` iso, then `export {"path":"plate.step"}` and tell the user where it is.
+5. `screenshot` iso, then `export {"path":"DESIGNS/plate.step"}` with the absolute folder, and
+   tell the user the full path.
 
 ## Guardrails
 
