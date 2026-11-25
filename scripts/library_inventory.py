@@ -18,6 +18,7 @@ README = ROOT / "README.md"
 CATALOG = ROOT / "catalog" / "catalog.json"
 INDEX = ROOT / "catalog" / "index.json"
 ALIASES = ROOT / "catalog" / "aliases.json"
+FORK_SOURCES = ROOT / "catalog" / "fork-sources.json"
 START = "<!-- BEGIN GENERATED CATEGORY TABLE -->"
 END = "<!-- END GENERATED CATEGORY TABLE -->"
 
@@ -217,6 +218,41 @@ def check_aliases(records: list[dict[str, object]]) -> list[str]:
     return issues
 
 
+def check_fork_sources(records: list[dict[str, object]]) -> list[str]:
+    try:
+        data = json.loads(FORK_SOURCES.read_text(encoding="utf-8"))
+        repositories, entries = data["repositories"], data["skills"]
+        if not isinstance(repositories, dict) or not isinstance(entries, dict):
+            raise ValueError("repositories and skills must be keyed by ID")
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        return [f"{FORK_SOURCES.name}: {exc}"]
+
+    expected = {str(r["id"]): ROOT / str(r["source"]) for r in records if r["category"] == "forks"}
+    issues = [f"{FORK_SOURCES.name}: missing {key}" for key in sorted(expected.keys() - entries.keys())]
+    issues.extend(f"{FORK_SOURCES.name}: unknown {key}" for key in sorted(entries.keys() - expected.keys()))
+    for key in sorted(expected.keys() & entries.keys()):
+        entry = entries[key]
+        if not isinstance(entry, dict):
+            issues.append(f"{key}: invalid source entry")
+            continue
+        fork, upstream_path = str(entry.get("fork", "")), str(entry.get("entrypoint", ""))
+        repo = repositories.get(fork, {})
+        commit = str(repo.get("commit", "")) if isinstance(repo, dict) else ""
+        path = expected[key]
+        url = f"https://github.com/{fork}/blob/{commit}/{upstream_path}"
+        if not re.fullmatch(r"[0-9a-f]{40}", commit) or not upstream_path or url not in path.read_text(encoding="utf-8"):
+            issues.append(f"{key}: upstream pin differs from SKILL.md")
+        if entry.get("mode") not in ("bundled", "upstream-project", "upstream-assets", "adapted-template"):
+            issues.append(f"{key}: unknown source mode")
+        notices = entry.get("license_files")
+        if not isinstance(notices, list) or not notices or not all(
+            isinstance(name, str) and Path(name).name == name and (path.parent / name).is_file()
+            for name in notices
+        ):
+            issues.append(f"{key}: missing local license notices")
+    return issues
+
+
 def normalize_index(records: list[dict[str, object]]) -> None:
     data = json.loads(INDEX.read_text(encoding="utf-8"))
     by_record = {str(record["id"]): record for record in records}
@@ -273,6 +309,7 @@ def main() -> int:
         errors.extend(check_catalog(CATALOG, records, "installed"))
         errors.extend(check_catalog(INDEX, records, "skills"))
         errors.extend(check_aliases(records))
+        errors.extend(check_fork_sources(records))
 
     for warning in warnings:
         print(f"WARNING: {warning}")

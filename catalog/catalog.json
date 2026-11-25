@@ -3,11 +3,24 @@
   "generated_at": "2026-09-02T09:10:17Z",
   "offline": true,
   "counts": {
-    "installed": 574,
+    "installed": 575,
     "upstream": 0,
     "mcps": 34
   },
   "installed": [
+    {
+      "id": "forks/base44-weekly-report",
+      "name": "base44-weekly-report",
+      "description": "Use when asked for a weekly Base44 task report with completed and carried-over counts by assignee.",
+      "category": "forks",
+      "source": "skills/forks/base44-weekly-report/SKILL.md",
+      "tags": [
+        "base44",
+        "task-reporting"
+      ],
+      "triggers": [],
+      "links": []
+    },
     {
       "id": "forks/a2ui",
       "name": "a2ui",
