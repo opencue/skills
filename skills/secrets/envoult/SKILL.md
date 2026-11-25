@@ -1,6 +1,8 @@
 ---
 name: envoult
-description: 'Use when user says "envoult", "manage my secrets", "push env vars to coolify", "diff secrets against coolify", "rotate a secret", "open the vault". Manages env vars and secrets across multiple Coolify-deployed apps via an age-encrypted vault — set/get/list keys, reconcile local secrets with coolify app env, and sync drift. Use when pasting STRIPE_API_KEY / RESEND_API_KEY / BILLINGO_API_KEY into local .env files feels wrong, or when the user mentions "envoultd" or the encrypted secret vault.'
+description: >-
+  Use for envoult or envoultd, managing environment secrets in an age-encrypted
+  vault, rotating a secret, or comparing masked vault metadata with a Coolify app.
 ---
 
 # envoult
@@ -11,7 +13,7 @@ description: 'Use when user says "envoult", "manage my secrets", "push env vars 
 
 ## Core principle
 
-All shop secrets (Stripe, Resend, Billingo, DB credentials, webhook signing keys, …) live in a single `~/.config/envoult/vault.age` file, encrypted with the user's master passphrase. Two-level namespace: `profile → env → KEY` (e.g., `marva/prod/STRIPE_API_KEY`). Push to Coolify with one command; diff against Coolify when in doubt.
+Secrets live in `~/.config/envoult/vault.age`, encrypted with the user's master passphrase. Use the `profile → env → KEY` namespace (for example, `demo/staging/SERVICE_API_KEY`). Agents keep previews masked, never read plaintext values or passphrases, and leave vault writes and deployment syncs to the operator.
 
 ## Quick reference
 
@@ -23,21 +25,17 @@ envoult lock                                   # purge cache
 
 # Read
 envoult list                                   # all profiles
-envoult list marva                             # envs in marva
-envoult list marva prod                        # keys (values masked)
-envoult list marva prod --values               # show values (confirms first)
-envoult get marva prod STRIPE_API_KEY          # raw value to stdout
+envoult list demo                              # envs in demo
+envoult list demo staging                        # keys (values masked)
 
 # Write
-envoult set marva prod STRIPE_API_KEY sk_live_…    # inline
-envoult set marva prod LARGE_MULTILINE              # opens $EDITOR
-envoult delete marva prod OLD_KEY --yes
-envoult import marva prod --file /path/to/.env     # bulk upsert
+envoult set demo staging LARGE_MULTILINE              # opens $EDITOR
+envoult import demo staging --file /path/to/.env     # bulk upsert
 
 # Sync to/from Coolify
-envoult diff coolify marva prod gy03fgoo6d9filocrlxyued8   # show drift
-envoult sync coolify marva prod <app_uuid>                  # vault → Coolify (with confirm)
-envoult pull coolify marva prod <app_uuid>                  # Coolify → vault (with confirm)
+envoult diff coolify demo staging <app_uuid>   # show drift
+envoult sync coolify demo staging <app_uuid>                  # vault → Coolify (with confirm)
+envoult pull coolify demo staging <app_uuid>                  # Coolify → vault (with confirm)
 
 # MCP daemon (for me to use)
 envoult mcp                                                  # shells to envoultd over stdio
@@ -46,9 +44,8 @@ envoult mcp                                                  # shells to envoult
 ## When to use envoult
 
 - Setting up a new Coolify app's env vars: `envoult import` the existing `.env`, then `envoult sync coolify`.
-- Auditing drift: `envoult diff coolify <profile> <env> <app_uuid>` shows add/change/remove keys, masked by default; add `--reveal` to see values.
-- Rotating a secret: `envoult set <profile> <env> <KEY> <new>`, then `envoult sync coolify …`.
-- Reading a secret without leaking it to history: `envoult get … | clip` (or pipe straight to the consumer).
+- Auditing drift: `envoult diff coolify <profile> <env> <app_uuid>` shows add/change/remove keys. Keep values masked.
+- Rotating a secret: the operator enters the new value in the editor, checks the sync plan, then runs the sync.
 
 ## When NOT to use envoult
 
@@ -65,7 +62,7 @@ When `envoult mcp` is running (or registered as an MCP server in `~/.claude.json
 | `envoult_list_profiles` | discover what's in the vault |
 | `envoult_list_envs` | discover envs in a profile |
 | `envoult_list_keys` | discover keys (no values) |
-| `envoult_get` | read one value; values masked unless `reveal: true` is set in the call |
+| `envoult_get` | check one key with the value masked; do not enable reveal |
 | `envoult_diff_coolify` | compute drift between vault and a Coolify app |
 | `envoult_plan_sync` | dry-run what `sync coolify` would change |
 | `envoult_coolify_apps` | list Coolify apps the token reaches |
@@ -120,15 +117,10 @@ envoult unlock                     # cache for 1h
 ### Migrate an existing `.env.coolify` into envoult
 
 ```bash
-envoult import marva prod --file ~/Documents/medusa-shops/szaloniroda/marva/apps/backend/.env.coolify
-envoult diff coolify marva prod gy03fgoo6d9filocrlxyued8   # sanity check
-shred -u ~/Documents/medusa-shops/szaloniroda/marva/apps/backend/.env.coolify   # only after diff is clean
+envoult import demo staging --file /path/to/.env.coolify
+envoult diff coolify demo staging <app_uuid>   # sanity check
 ```
 
 ### Pre-sync sanity check (use the MCP from Claude)
 
 Ask Claude to call `envoult_plan_sync` — it returns the add/change/remove breakdown without touching Coolify. Approve the plan, then run `envoult sync coolify …` in your terminal.
-
-## Status
-
-v0.1 scaffold landed 2026-05-20 — workspace builds, all crates have tests, no Coolify endpoint wired against a live API yet (HTTP client tests use `wiremock`). First real-world rollout: migrate marva's `.env.coolify` into the vault.
