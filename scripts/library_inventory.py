@@ -242,7 +242,8 @@ def check_fork_sources(records: list[dict[str, object]], *, root: Path = ROOT) -
         commit = str(repo.get("commit", "")) if isinstance(repo, dict) else ""
         path = expected[key]
         url = f"https://github.com/{fork}/blob/{commit}/{upstream_path}"
-        if not re.fullmatch(r"[0-9a-f]{40}", commit) or not upstream_path or url not in path.read_text(encoding="utf-8"):
+        pinned_link = re.search(re.escape(url) + r"(?=[)\s]|$)", path.read_text(encoding="utf-8"))
+        if not re.fullmatch(r"[0-9a-f]{40}", commit) or not upstream_path or not pinned_link:
             issues.append(f"{key}: upstream pin differs from SKILL.md")
         if entry.get("mode") not in ("bundled", "upstream-project", "upstream-assets", "adapted-template"):
             issues.append(f"{key}: unknown source mode")

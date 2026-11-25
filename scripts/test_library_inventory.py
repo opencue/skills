@@ -26,6 +26,9 @@ def test_fork_sources() -> None:
         config = root / "catalog" / "fork-sources.json"
         config.parent.mkdir()
 
+        assert check_fork_sources([record], root=root)[0].startswith("fork-sources.json:")
+        config.write_text("{]", encoding="utf-8")
+        assert check_fork_sources([record], root=root)[0].startswith("fork-sources.json:")
         config.write_text(json.dumps(manifest), encoding="utf-8")
         assert check_fork_sources([record], root=root) == []
 
@@ -36,9 +39,12 @@ def test_fork_sources() -> None:
             ("repositories", {fork: {**repository, "status": "source-only"}}, "fork is not marked imported"),
             ("repositories", {fork: {**repository, "commit": "abc"}}, "upstream pin differs"),
             ("repositories", {fork: {**repository, "commit": "b" * 40}}, "upstream pin differs"),
+            ("skills", {skill_id: {**entry, "entrypoint": "skills/demo/SKILL.m"}}, "upstream pin differs"),
+            ("skills", {skill_id: {**entry, "entrypoint": ""}}, "upstream pin differs"),
             ("skills", {skill_id: {**entry, "mode": "unknown"}}, "unknown source mode"),
             ("skills", {skill_id: {**entry, "license_files": []}}, "missing local license notices"),
             ("skills", {skill_id: {**entry, "license_files": ["../LICENSE"]}}, "missing local license notices"),
+            ("skills", {skill_id: {**entry, "license_files": ["NOTICE"]}}, "missing local license notices"),
         )
         for field, value, expected in cases:
             bad = {**manifest, field: value}
