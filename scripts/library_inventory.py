@@ -18,7 +18,6 @@ README = ROOT / "README.md"
 CATALOG = ROOT / "catalog" / "catalog.json"
 INDEX = ROOT / "catalog" / "index.json"
 ALIASES = ROOT / "catalog" / "aliases.json"
-FORK_SOURCES = ROOT / "catalog" / "fork-sources.json"
 START = "<!-- BEGIN GENERATED CATEGORY TABLE -->"
 END = "<!-- END GENERATED CATEGORY TABLE -->"
 
@@ -218,18 +217,19 @@ def check_aliases(records: list[dict[str, object]]) -> list[str]:
     return issues
 
 
-def check_fork_sources(records: list[dict[str, object]]) -> list[str]:
+def check_fork_sources(records: list[dict[str, object]], *, root: Path = ROOT) -> list[str]:
+    manifest = root / "catalog" / "fork-sources.json"
     try:
-        data = json.loads(FORK_SOURCES.read_text(encoding="utf-8"))
+        data = json.loads(manifest.read_text(encoding="utf-8"))
         repositories, entries = data["repositories"], data["skills"]
         if not isinstance(repositories, dict) or not isinstance(entries, dict):
             raise ValueError("repositories and skills must be keyed by ID")
     except (OSError, ValueError, KeyError, TypeError) as exc:
-        return [f"{FORK_SOURCES.name}: {exc}"]
+        return [f"{manifest.name}: {exc}"]
 
-    expected = {str(r["id"]): ROOT / str(r["source"]) for r in records if r["category"] == "forks"}
-    issues = [f"{FORK_SOURCES.name}: missing {key}" for key in sorted(expected.keys() - entries.keys())]
-    issues.extend(f"{FORK_SOURCES.name}: unknown {key}" for key in sorted(entries.keys() - expected.keys()))
+    expected = {str(r["id"]): root / str(r["source"]) for r in records if r["category"] == "forks"}
+    issues = [f"{manifest.name}: missing {key}" for key in sorted(expected.keys() - entries.keys())]
+    issues.extend(f"{manifest.name}: unknown {key}" for key in sorted(entries.keys() - expected.keys()))
     for key in sorted(expected.keys() & entries.keys()):
         entry = entries[key]
         if not isinstance(entry, dict):
@@ -237,6 +237,8 @@ def check_fork_sources(records: list[dict[str, object]]) -> list[str]:
             continue
         fork, upstream_path = str(entry.get("fork", "")), str(entry.get("entrypoint", ""))
         repo = repositories.get(fork, {})
+        if not isinstance(repo, dict) or repo.get("status") != "imported":
+            issues.append(f"{key}: fork is not marked imported")
         commit = str(repo.get("commit", "")) if isinstance(repo, dict) else ""
         path = expected[key]
         url = f"https://github.com/{fork}/blob/{commit}/{upstream_path}"
