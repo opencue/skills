@@ -230,12 +230,14 @@ def check_fork_sources(records: list[dict[str, object]], *, root: Path = ROOT) -
     expected = {str(r["id"]): root / str(r["source"]) for r in records if r["category"] == "forks"}
     issues = [f"{manifest.name}: missing {key}" for key in sorted(expected.keys() - entries.keys())]
     issues.extend(f"{manifest.name}: unknown {key}" for key in sorted(entries.keys() - expected.keys()))
+    used_forks: set[str] = set()
     for key in sorted(expected.keys() & entries.keys()):
         entry = entries[key]
         if not isinstance(entry, dict):
             issues.append(f"{key}: invalid source entry")
             continue
         fork, upstream_path = str(entry.get("fork", "")), str(entry.get("entrypoint", ""))
+        used_forks.add(fork)
         repo = repositories.get(fork, {})
         if not isinstance(repo, dict) or repo.get("status") != "imported":
             issues.append(f"{key}: fork is not marked imported")
@@ -253,6 +255,10 @@ def check_fork_sources(records: list[dict[str, object]], *, root: Path = ROOT) -
             for name in notices
         ):
             issues.append(f"{key}: missing local license notices")
+    for fork in sorted(repositories.keys() - used_forks):
+        repo = repositories[fork]
+        if isinstance(repo, dict) and repo.get("status") == "imported":
+            issues.append(f"{manifest.name}: {fork} is marked imported but has no skills")
     return issues
 
 

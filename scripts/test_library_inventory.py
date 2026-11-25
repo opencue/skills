@@ -37,6 +37,7 @@ def test_fork_sources() -> None:
             ("skills", {**manifest["skills"], "forks/unknown": entry}, "unknown forks/unknown"),
             ("skills", {skill_id: None}, "invalid source entry"),
             ("repositories", {fork: {**repository, "status": "source-only"}}, "fork is not marked imported"),
+            ("repositories", {fork: repository, "Example/orphan": repository}, "marked imported but has no skills"),
             ("repositories", {fork: {**repository, "commit": "abc"}}, "upstream pin differs"),
             ("repositories", {fork: {**repository, "commit": "b" * 40}}, "upstream pin differs"),
             ("skills", {skill_id: {**entry, "entrypoint": "skills/demo/SKILL.m"}}, "upstream pin differs"),
