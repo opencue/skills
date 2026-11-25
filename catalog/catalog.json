@@ -3,7 +3,7 @@
   "generated_at": "2026-09-02T09:10:17Z",
   "offline": true,
   "counts": {
-    "installed": 445,
+    "installed": 446,
     "upstream": 0,
     "mcps": 34
   },
@@ -5258,6 +5258,16 @@
         "navigation",
         "safety"
       ],
+      "triggers": [],
+      "links": []
+    },
+    {
+      "id": "secrets/envoult",
+      "name": "envoult",
+      "description": "Use for envoult or envoultd, managing environment secrets in an age-encrypted vault, rotating a secret, or comparing masked vault metadata with a Coolify app.",
+      "source": "skills/secrets/envoult/SKILL.md",
+      "category": "secrets",
+      "tags": [],
       "triggers": [],
       "links": []
     },

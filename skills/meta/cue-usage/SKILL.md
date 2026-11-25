@@ -5,7 +5,6 @@ tags: [meta, cue, profiles, skills, mcps]
 category: meta
 version: 1.0.0
 requires_mcps: []
-name: cue-agent-profile-manager
 ---
 
 # cue, Agent Profile Manager

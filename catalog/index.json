@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
   "counts": {
-    "skills": 445,
+    "skills": 446,
     "withTriggers": 313,
     "withCapability": 327,
     "withRequires": 26
@@ -8244,6 +8244,13 @@
       "category": "cad",
       "description": "Use when the user says \"model a part\", \"SolidCraft\", \"CAD this\", \"export STEP/STL\", or opens a .sc design. Drives SolidCraft CAD over its MCP server and checks each stage with measure.",
       "source": "skills/cad/solidcraft/SKILL.md"
+    },
+    {
+      "id": "secrets/envoult",
+      "name": "envoult",
+      "category": "secrets",
+      "description": "Use for envoult or envoultd, managing environment secrets in an age-encrypted vault, rotating a secret, or comparing masked vault metadata with a Coolify app.",
+      "source": "skills/secrets/envoult/SKILL.md"
     }
   ],
   "mcpProviders": {
