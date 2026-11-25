@@ -1,0 +1,1266 @@
+{
+  "snapshot": "2026-11-25",
+  "repositories": {
+    "NagyVikt/Claude-BugHunter": {
+      "commit": "5d91c812ee25efc0c1d5191377632e3aed7e8d2d",
+      "created": "2026-11-17",
+      "default_branch": "main",
+      "license": "MIT",
+      "upstream": "elementalsouls/Claude-BugHunter",
+      "status": "excluded"
+    },
+    "NagyVikt/DesktopCommanderMCP": {
+      "commit": "9a101b17e44577f0baefa4c7120f087881c5cc56",
+      "created": "2026-11-25",
+      "default_branch": "main",
+      "license": "MIT",
+      "upstream": "wonderwhy-er/DesktopCommanderMCP",
+      "status": "imported"
+    },
+    "NagyVikt/ESP32Marauder": {
+      "commit": "511bb3694d0c4dc064888e762bde44fcc9b7f48a",
+      "created": "2026-11-09",
+      "default_branch": "master",
+      "license": null,
+      "upstream": "justcallmekoko/ESP32Marauder",
+      "status": "no-skill"
+    },
+    "NagyVikt/a2ui": {
+      "commit": "b4f91c26fcf62abc0720c21a65840220941d0a3f",
+      "created": "2026-11-19",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "upstream": "a2ui-project/a2ui",
+      "status": "imported"
+    },
+    "NagyVikt/ag-ui": {
+      "commit": "2330368a2a74573902858867072406638ba3073d",
+      "created": "2026-11-15",
+      "default_branch": "main",
+      "license": "MIT",
+      "upstream": "ag-ui-protocol/ag-ui",
+      "status": "imported"
+    },
+    "NagyVikt/agent-desktop": {
+      "commit": "b43ac4f6e892ef608f8851428613c4009f0e84c7",
+      "created": "2026-11-06",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "upstream": "vercel-labs/agent-desktop",
+      "status": "imported"
+    },
+    "NagyVikt/app-store-compliance": {
+      "commit": "d2156bab9d7189835631c0a99adcc2479d32138d",
+      "created": "2026-11-19",
+      "default_branch": "main",
+      "license": "LicenseRef-OpenRoots-ORA-2.3",
+      "upstream": "mjmirza/app-store-compliance",
+      "status": "source-only",
+      "entrypoint": "agent-os/skill/SKILL.md"
+    },
+    "NagyVikt/billion-context": {
+      "commit": "04ecbb42dd38543e9c407bd40eb773ae5ec8b60b",
+      "created": "2026-11-19",
+      "default_branch": "master",
+      "license": "NOASSERTION",
+      "upstream": "ranxianglei/billion-context",
+      "status": "source-only",
+      "entrypoint": "PLUGIN.md"
+    },
+    "NagyVikt/claude-quickstarts": {
+      "commit": "4a4224bdf0e9cfb3332167b69c90457403813625",
+      "created": "2026-11-15",
+      "default_branch": "main",
+      "license": "MIT",
+      "upstream": "anthropics/claude-quickstarts",
+      "status": "imported"
+    },
+    "NagyVikt/cli": {
+      "commit": "10a8d28ec6d7e3b3d20de1fb67c51e44d4bf672c",
+      "created": "2026-11-22",
+      "default_branch": "main",
+      "license": "MIT",
+      "upstream": "base44/cli",
+      "status": "imported"
+    },
+    "NagyVikt/elephant-goldfish-model": {
+      "commit": "e4747323aab66157812cd3a71755f6447b2803a2",
+      "created": "2026-11-15",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "upstream": "google/elephant-goldfish-model",
+      "status": "imported"
+    },
+    "NagyVikt/ffmpeg-skill": {
+      "commit": "c7dad34c846099e7cf606ef943abe5e12d1ab0f9",
+      "created": "2026-11-25",
+      "default_branch": "main",
+      "license": "MIT",
+      "upstream": "kajisho5/ffmpeg-skill",
+      "status": "imported"
+    },
+    "NagyVikt/itsaplan": {
+      "commit": "3c0875ea1130ef0b269e6568b36fdd356833d714",
+      "created": "2026-11-22",
+      "default_branch": "main",
+      "license": "AGPL-3.0",
+      "upstream": "croffasia/itsaplan",
+      "status": "imported"
+    },
+    "NagyVikt/nginx": {
+      "commit": "2e8440bcdc438f0f1cd03da778a3843ddb3c86d9",
+      "created": "2026-11-22",
+      "default_branch": "master",
+      "license": "BSD-2-Clause",
+      "upstream": "nginx/nginx",
+      "status": "no-skill"
+    },
+    "NagyVikt/solidcraft": {
+      "commit": "18dfe20b005bd2e8846ed6ba8ca145c2678ed5b3",
+      "created": "2026-11-17",
+      "default_branch": "main",
+      "license": "MIT OR Apache-2.0",
+      "upstream": "tangency-labs/solidcraft",
+      "status": "imported"
+    },
+    "NagyVikt/stitch-skills": {
+      "commit": "0337446dadde6f8c94210444e2aa9d546126480f",
+      "created": "2026-11-17",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "upstream": "google-labs-code/stitch-skills",
+      "status": "imported"
+    },
+    "NagyVikt/sure": {
+      "commit": "270ee4b6e4d6bef3d67c70a36a1f5a21a5211204",
+      "created": "2026-11-14",
+      "default_branch": "main",
+      "license": "AGPL-3.0",
+      "upstream": "we-promise/sure",
+      "status": "no-skill"
+    },
+    "NagyVikt/taste-skill": {
+      "commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "created": "2026-11-18",
+      "default_branch": "main",
+      "license": "MIT",
+      "upstream": "Leonxlnx/taste-skill",
+      "status": "imported"
+    },
+    "NagyVikt/univer": {
+      "commit": "0d7923dd7a26e6bea56f1bc791a03618235a4618",
+      "created": "2026-11-14",
+      "default_branch": "dev",
+      "license": "Apache-2.0",
+      "upstream": "dream-num/univer",
+      "status": "no-skill"
+    },
+    "NagyVikt/uptime-kuma": {
+      "commit": "7e5075d12c85f7282f9c7b7d6821d56aa3acc688",
+      "created": "2026-11-14",
+      "default_branch": "master",
+      "license": "MIT",
+      "upstream": "louislam/uptime-kuma",
+      "status": "no-skill"
+    },
+    "NagyVikt/video-shotcraft": {
+      "commit": "da5ffcfc7195b3840d90ff352a7c52f527886688",
+      "created": "2026-11-18",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "upstream": "Vincentwei1021/video-shotcraft",
+      "status": "imported"
+    }
+  },
+  "skills": {
+    "forks/a2ui": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": "skills/a2ui/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-add-eval-datapoint": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/a2ui-add-eval-datapoint/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-audit": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/a2ui-audit/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-blueprint-compliance": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": "blueprints/skills/a2ui-blueprint-compliance/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-blueprint-maintenance": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": "blueprints/skills/a2ui-blueprint-maintenance/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-blueprint-navigator": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": "blueprints/skills/a2ui-blueprint-navigator/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-create-feature-blueprint": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": "blueprints/skills/a2ui-create-feature-blueprint/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-doc-sync-check": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/a2ui-doc-sync-check/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-generate-pydantic-models": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/a2ui-generate-pydantic-models/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-implement-feature-from-blueprint": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": "blueprints/skills/a2ui-implement-feature-from-blueprint/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-implement-new-sdks-for-client-language": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/a2ui-implement-new-sdks-for-client-language/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-issue-triage": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/a2ui-issue-triage/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-migration": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/a2ui-migration/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-release-python": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/a2ui-release-python/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-remediate-problem": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/a2ui-remediate-problem/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/a2ui-test-quality-check": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/a2ui-test-quality-check/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/ag-ui-a2ui-integration": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": "skills/ag-ui-a2ui-integration/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agent-desktop": {
+      "fork": "NagyVikt/agent-desktop",
+      "entrypoint": "skills/agent-desktop/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agent-desktop-ffi": {
+      "fork": "NagyVikt/agent-desktop",
+      "entrypoint": "skills/agent-desktop-ffi/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agent-desktop-linux": {
+      "fork": "NagyVikt/agent-desktop",
+      "entrypoint": "skills/agent-desktop-linux/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agent-desktop-macos": {
+      "fork": "NagyVikt/agent-desktop",
+      "entrypoint": "skills/agent-desktop-macos/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agent-desktop-windows": {
+      "fork": "NagyVikt/agent-desktop",
+      "entrypoint": "skills/agent-desktop-windows/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-cross-sdk-parity": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-cross-sdk-parity/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dojo": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dojo/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-agents-sync": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dotnet-agents-sync/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-client-tools": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-client-tools/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-code-review": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dotnet-code-review/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-cross-language-tests": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dotnet-cross-language-tests/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-feature-workflow": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dotnet-feature-workflow/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-human-in-the-loop": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-human-in-the-loop/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-integration-tests": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dotnet-integration-tests/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-multimodal": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-multimodal/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-protobuf": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-protobuf/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-reasoning": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-reasoning/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-sample-step": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dotnet-sample-step/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-sdk-docs": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dotnet-sdk-docs/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-server-tools": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-server-tools/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-shared-state": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-shared-state/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-streaming-chat": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-streaming-chat/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-transport": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dotnet-transport/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-troubleshoot": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-troubleshoot/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-unit-tests": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dotnet-unit-tests/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-dotnet-wire-types": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-dotnet-wire-types/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/agui-playwright-validate": {
+      "fork": "NagyVikt/ag-ui",
+      "entrypoint": ".github/skills/agui-playwright-validate/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/architecture-diagram": {
+      "fork": "NagyVikt/agent-desktop",
+      "entrypoint": ".agents/skills/architecture-diagram/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/base44-weekly-report": {
+      "fork": "NagyVikt/cli",
+      "entrypoint": "packages/cli/templates/backend-and-client/base44/agent-skills/weekly-report.md",
+      "mode": "adapted-template",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/building-python-mcp-servers": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/mcp-server-design/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/building-the-review-page": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/review-page-ui/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/ci-pipeline-synthesizer": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/ci-pipeline-synthesizer/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/coding-principles": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/coding-principles/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/computer-use-best-practices-first-run": {
+      "fork": "NagyVikt/claude-quickstarts",
+      "entrypoint": "computer-use-best-practices/.claude/skills/first-run/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/computer-use-demo-verify": {
+      "fork": "NagyVikt/claude-quickstarts",
+      "entrypoint": "computer-use-demo/.claude/skills/verify/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/concurrent-branches": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/concurrent-branches/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/copilot-kit-ag-ui-verify": {
+      "fork": "NagyVikt/claude-quickstarts",
+      "entrypoint": "managed-agents/copilot-kit-ag-ui/.claude/skills/verify/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/desktop-commander-ai-tools-setup": {
+      "fork": "NagyVikt/DesktopCommanderMCP",
+      "entrypoint": "skills/ai-tools-setup/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/desktop-commander-computer-health-check": {
+      "fork": "NagyVikt/DesktopCommanderMCP",
+      "entrypoint": "skills/computer-health-check/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/desktop-commander-knowledge-base": {
+      "fork": "NagyVikt/DesktopCommanderMCP",
+      "entrypoint": "skills/knowledge-base/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/desktop-commander-obsidian-vault": {
+      "fork": "NagyVikt/DesktopCommanderMCP",
+      "entrypoint": "skills/obsidian-vault/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/desktop-commander-overview": {
+      "fork": "NagyVikt/DesktopCommanderMCP",
+      "entrypoint": "skills/desktop-commander-overview/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/desktop-commander-terminal": {
+      "fork": "NagyVikt/DesktopCommanderMCP",
+      "entrypoint": "skills/terminal/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/egm-bootstrap": {
+      "fork": "NagyVikt/elephant-goldfish-model",
+      "entrypoint": "skills/egm-bootstrap/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/egm-brainstorm": {
+      "fork": "NagyVikt/elephant-goldfish-model",
+      "entrypoint": "skills/egm-brainstorm/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/egm-draft": {
+      "fork": "NagyVikt/elephant-goldfish-model",
+      "entrypoint": "skills/egm-draft/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/egm-drift-report": {
+      "fork": "NagyVikt/elephant-goldfish-model",
+      "entrypoint": "skills/egm-drift-report/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/egm-resolve": {
+      "fork": "NagyVikt/elephant-goldfish-model",
+      "entrypoint": "skills/egm-resolve/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/egm-review": {
+      "fork": "NagyVikt/elephant-goldfish-model",
+      "entrypoint": "skills/egm-review/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/egm-review-loop": {
+      "fork": "NagyVikt/elephant-goldfish-model",
+      "entrypoint": "skills/egm-review-loop/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/ffmpeg-skill": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": "SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/guarding-destructive-operations": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/destructive-operations/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/inference-format-optimizer": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": "eval/iterative_format_optimizer/skills/inference-format-optimizer/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/inspect-ai": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/inspect-ai/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/itsaplan-code-review": {
+      "fork": "NagyVikt/itsaplan",
+      "entrypoint": ".agents/skills/code-review/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/jev-desktop": {
+      "fork": "NagyVikt/agent-desktop",
+      "entrypoint": "skills/jev-desktop/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/keeping-git-repos-clean": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/git-hygiene/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/managing-python-releases": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/release-management/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/natural-writing": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/natural-writing/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/openshell-policy-advisor": {
+      "fork": "NagyVikt/claude-quickstarts",
+      "entrypoint": "managed-agents/self-hosted-sandboxes/openshell-policy/sandbox/openshell-skills/policy-advisor/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/pr-hygiene": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/pr-hygiene/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/probing-edge-values": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/edge-probe/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/probing-first-try-use": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/first-try-probe/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/public-documentation": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/public-documentation/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/reproducing-ci-locally": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/reproducing-ci-locally/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/reviewing-ffmpeg-skill-changes": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/code-review/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/running-github-actions-efficiently": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/github-actions/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/shipping-across-surfaces": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/cross-surface-changes/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/shipping-build-artifacts": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/build-artifacts/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/solidcraft-agent-tools": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-agent-tools/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-checking": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-checking/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-commands": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-commands/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-contributing": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-contributing/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-crash-safety": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-crash-safety/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-editing": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-editing/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-file-formats": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-file-formats/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-ground-rules": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-ground-rules/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-layers": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-layers/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-mechanisms": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-mechanisms/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-modeling": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-modeling/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-packaging": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-packaging/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-performance": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-performance/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-preferences": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-preferences/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-reporting": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-reporting/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-sheetmetal": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-sheetmetal/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-tests": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-tests/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-ui": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-ui/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/solidcraft-ui-text": {
+      "fork": "NagyVikt/solidcraft",
+      "entrypoint": "skills/solidcraft-ui-text/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-BRAND",
+        "LICENSE-MIT",
+        "NOTICE"
+      ]
+    },
+    "forks/stitch-code-to-design": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-design/skills/code-to-design/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-design-md": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-utilities/skills/design-md/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-enhance-prompt": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-utilities/skills/enhance-prompt/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-extract-design-md": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-design/skills/extract-design-md/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-extract-static-html": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-design/skills/extract-static-html/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-generate-design": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-design/skills/generate-design/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-loop": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-utilities/skills/stitch-loop/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-manage-design-system": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-design/skills/manage-design-system/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-react-components": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-build/skills/react-components/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-react-native": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-build/skills/react-native/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-react-vite-dashboard": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-build/skills/react-vite-dashboard/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-remotion": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-build/skills/remotion/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-shadcn-ui": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-build/skills/shadcn-ui/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-site-md": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-utilities/skills/site-md/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-taste-design": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-utilities/skills/taste-design/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/stitch-upload-to-stitch": {
+      "fork": "NagyVikt/stitch-skills",
+      "entrypoint": "plugins/stitch-design/skills/upload-to-stitch/SKILL.md",
+      "mode": "bundled",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/sweeping-defect-siblings": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/sibling-sweep/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/taste-skill-design-taste-frontend": {
+      "fork": "NagyVikt/taste-skill",
+      "entrypoint": "skills/taste-skill/SKILL.md",
+      "mode": "upstream-assets",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/technical-writer": {
+      "fork": "NagyVikt/agent-desktop",
+      "entrypoint": ".agents/skills/technical-writer/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/tidy": {
+      "fork": "NagyVikt/itsaplan",
+      "entrypoint": ".agents/skills/tidy/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/update-changelog": {
+      "fork": "NagyVikt/a2ui",
+      "entrypoint": ".agents/skills/update-changelog/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/verifying-external-behavior": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/verifying-external-behavior/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/video-shotcraft": {
+      "fork": "NagyVikt/video-shotcraft",
+      "entrypoint": "SKILL.md",
+      "mode": "upstream-assets",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    "forks/writing-defect-reports": {
+      "fork": "NagyVikt/ffmpeg-skill",
+      "entrypoint": ".claude/skills/defect-reports/SKILL.md",
+      "mode": "upstream-project",
+      "license_files": [
+        "LICENSE"
+      ]
+    }
+  }
+}

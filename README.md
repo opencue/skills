@@ -1,6 +1,6 @@
 # cue/skills — Skill Library
 
-> 574 skills across 42 categories. The source of truth for all local skills used by [cue](https://github.com/opencue/claude-code-skills) profiles.
+> 575 skills across 42 categories. The source of truth for all local skills used by [cue](https://github.com/opencue/claude-code-skills) profiles.
 
 ## What's here
 
@@ -125,7 +125,7 @@ instead of overwriting them, and refresh the cue catalog after import.
 <!-- BEGIN GENERATED CATEGORY TABLE -->
 | Category | Skills |
 |----------|-------:|
-| `forks` | 128 |
+| `forks` | 129 |
 | `media` | 61 |
 | `gstack` | 53 |
 | `meta` | 49 |

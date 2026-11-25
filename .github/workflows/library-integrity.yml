@@ -18,3 +18,5 @@ jobs:
           python-version: "3.12"
       - name: Validate inventory, generated metadata, and portable paths
         run: python scripts/library_inventory.py
+      - name: Test fork-source validation
+        run: python scripts/test_library_inventory.py

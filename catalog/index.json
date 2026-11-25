@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
   "counts": {
-    "skills": 574,
+    "skills": 575,
     "withTriggers": 313,
     "withCapability": 327,
     "withRequires": 26
@@ -8566,6 +8566,13 @@
       "category": "forks",
       "description": "Use only while working in the agent-desktop project. Create or update architecture and flow diagrams for agent-desktop's docs site in apps/docs. Use when a docs page needs a diagram of components, data flow, or a command pipeline, or when an existing diagram in apps/docs/public/desktop/diagrams changes.",
       "source": "skills/forks/architecture-diagram/SKILL.md"
+    },
+    {
+      "id": "forks/base44-weekly-report",
+      "name": "base44-weekly-report",
+      "category": "forks",
+      "description": "Use when asked for a weekly Base44 task report with completed and carried-over counts by assignee.",
+      "source": "skills/forks/base44-weekly-report/SKILL.md"
     },
     {
       "id": "forks/building-python-mcp-servers",
