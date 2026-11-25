@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
   "counts": {
-    "skills": 446,
+    "skills": 574,
     "withTriggers": 313,
     "withCapability": 327,
     "withRequires": 26
@@ -8251,6 +8251,902 @@
       "category": "secrets",
       "description": "Use for envoult or envoultd, managing environment secrets in an age-encrypted vault, rotating a secret, or comparing masked vault metadata with a Coolify app.",
       "source": "skills/secrets/envoult/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui",
+      "name": "a2ui",
+      "category": "forks",
+      "description": "Build agent-generated / AI-generated UI with A2UI (Agent-to-User Interface), the open protocol where an agent streams layout data and the app renders it with its own native components (React, Angular, Lit, Flutter, SwiftUI, Jetpack Compose). Use when developers want an AI, LLM or agent to generate or update UI at runtime (\"generative UI\", \"GenUI\", \"agent-generated UI\", \"AI renders widgets/forms/cards\", \"server-driven UI from an LLM\"), especially on Flutter, Angular, native mobile, more than one platform, or when a remote or third-party agent must not send executable code. Triggers on: \"A2UI\", \"generative UI\", \"GenUI\", \"Flutter GenUI\", \"genui\", \"agent UI\", \"AI-generated UI\", \"dynamic UI from LLM\".",
+      "source": "skills/forks/a2ui/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-add-eval-datapoint",
+      "name": "a2ui-add-eval-datapoint",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Step-by-step workflow for adding and verifying new evaluation data points in the A2UI evaluation suite, by importing a real trace or authoring a sample by hand.",
+      "source": "skills/forks/a2ui-add-eval-datapoint/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-audit",
+      "name": "a2ui-audit",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Main coordination skill to run the blueprint compliance, documentation synchronization, and test quality audits, posting the combined results as a labeled GitHub issue.",
+      "source": "skills/forks/a2ui-audit/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-blueprint-compliance",
+      "name": "a2ui-blueprint-compliance",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Verification of platform codebase blueprint compliance against the latest module blueprints.",
+      "source": "skills/forks/a2ui-blueprint-compliance/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-blueprint-maintenance",
+      "name": "a2ui-blueprint-maintenance",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Manage the evolution, merging, archiving, and cleanup of specifications and blueprints across the workspace.",
+      "source": "skills/forks/a2ui-blueprint-maintenance/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-blueprint-navigator",
+      "name": "a2ui-blueprint-navigator",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Analytical navigation of A2UI Spec-Driven Development module and codebase blueprints.",
+      "source": "skills/forks/a2ui-blueprint-navigator/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-create-feature-blueprint",
+      "name": "a2ui-create-feature-blueprint",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Provides instructions on how to create a new language-agnostic A2UI Feature Blueprint, ensuring consistency and ease of cross-language implementation.",
+      "source": "skills/forks/a2ui-create-feature-blueprint/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-doc-sync-check",
+      "name": "a2ui-doc-sync-check",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Auditing codebase implementations for synchronization drift with the user documentation, readmes, and code comments.",
+      "source": "skills/forks/a2ui-doc-sync-check/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-generate-pydantic-models",
+      "name": "a2ui-generate-pydantic-models",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Automated generator for strongly typed Pydantic v2 data models and basic catalogs across any A2UI protocol version (v0.8, v0.9, v0.9.1, v1.0, etc.).",
+      "source": "skills/forks/a2ui-generate-pydantic-models/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-implement-feature-from-blueprint",
+      "name": "a2ui-implement-feature-from-blueprint",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Provides instructions on implementing feature specs or module blueprint commit diffs in a specific codebase.",
+      "source": "skills/forks/a2ui-implement-feature-from-blueprint/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-implement-new-sdks-for-client-language",
+      "name": "a2ui-implement-new-sdks-for-client-language",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Step-by-step phased instructions for building new A2UI Core SDKs, Framework Adapters, and Inference SDKs from scratch in any client language.",
+      "source": "skills/forks/a2ui-implement-new-sdks-for-client-language/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-issue-triage",
+      "name": "a2ui-issue-triage",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Automates the triage of GitHub issues in the A2UI repository. Helps the oncall engineer by fetching untriaged issues, generating AI-suggested priorities, assignees, and responses, launching a local review dashboard, and bulk-applying approved decisions to GitHub. Use when tasked with triaging new GitHub issues or managing the repository backlog.",
+      "source": "skills/forks/a2ui-issue-triage/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-migration",
+      "name": "a2ui-migration",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Migrates an app, renderer, catalog or agent that uses A2UI (or a predecessor such as Flutter `genui`) to a newer SDK or protocol version. Use when a task mentions migrating, upgrading, porting or moving A2UI code between SDKs, packages or protocol versions (v0.8, v0.9, v0.9.1, v1.0), when a dependency such as `genui`, `a2ui_core`, `@a2ui/web_core`, `a2ui-core` or an A2UI Swift package needs a major bump, or when payloads or fixtures must change wire version. The skill first identifies the language, the source and the target, then routes to a case-specific guide where one exists.",
+      "source": "skills/forks/a2ui-migration/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-release-python",
+      "name": "a2ui-release-python",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Releases the Python SDKs (a2ui-core, a2ui-agent-sdk, a2ui-a2a, a2ui-adk) to PyPI by running preflight checks, dispatching the release workflow as a dry run, confirming with the maintainer, publishing, and following the changelog pull request through to merge. Use when asked to cut, publish, or release a Python SDK version.",
+      "source": "skills/forks/a2ui-release-python/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-remediate-problem",
+      "name": "a2ui-remediate-problem",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Remediates a specific recommendation from an A2UI compliance report issue, or resolves any general GitHub issue, by inspecting context, implementing minimal targeted fixes, verifying tests, creating a branch, and opening a developer-signed Pull Request. Use when asked to fix or remediate an A2UI compliance audit finding, recommendation, or repository issue.",
+      "source": "skills/forks/a2ui-remediate-problem/SKILL.md"
+    },
+    {
+      "id": "forks/a2ui-test-quality-check",
+      "name": "a2ui-test-quality-check",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Auditing test suites for assertion utility, boundary cases coverage, and verification strength.",
+      "source": "skills/forks/a2ui-test-quality-check/SKILL.md"
+    },
+    {
+      "id": "forks/ag-ui-a2ui-integration",
+      "name": "ag-ui-a2ui-integration",
+      "category": "forks",
+      "description": "Use when adding A2UI rendering to any AG-UI-supported framework or custom AG-UI application, scaffolding an AG-UI app that should render A2UI, adapting an AG-UI integration to emit A2UI surfaces, or wiring the AG-UI A2UI middleware/toolkit with a compatible renderer.",
+      "source": "skills/forks/ag-ui-a2ui-integration/SKILL.md"
+    },
+    {
+      "id": "forks/agent-desktop",
+      "name": "agent-desktop",
+      "category": "forks",
+      "description": "Operate desktop applications on macOS, Windows and Linux through native accessibility trees, using the agent-desktop CLI. Use when an AI agent must see or act on a desktop GUI: click buttons, fill forms, read UI state, navigate menus, toggle checkboxes, scroll, drag, type text, press shortcuts, take screenshots, manage windows, use the clipboard, launch or close apps, read notifications. Triggers on: \"click button\", \"fill form\", \"open app\", \"read UI\", \"computer use\", \"operate desktop\", \"accessibility tree\", \"snapshot app\", \"type into field\", \"navigate menu\", \"toggle checkbox\", \"take screenshot\", \"desktop automation\", \"agent-desktop\", or any desktop GUI task on macOS, Windows or Linux.",
+      "source": "skills/forks/agent-desktop/SKILL.md"
+    },
+    {
+      "id": "forks/agent-desktop-ffi",
+      "name": "agent-desktop-ffi",
+      "category": "forks",
+      "description": "C-ABI bindings over agent-desktop's PlatformAdapter. Consumers (Python ctypes, Swift, Node ffi-napi, Go cgo, C++, Ruby fiddle) link libagent_desktop_ffi.{dylib,so,dll} and call `ad_*` functions directly instead of spawning the CLI binary per call. The canonical observe-act workflow is: ad_init \u2192 ad_adapter_create[_with_session] \u2192 ad_snapshot \u2192 read qualified refs (@s8f3k2p9:e5) \u2192 ad_execute_by_ref \u2192 ad_free_string \u2192 ad_adapter_destroy.",
+      "source": "skills/forks/agent-desktop-ffi/SKILL.md"
+    },
+    {
+      "id": "forks/agent-desktop-linux",
+      "name": "agent-desktop-linux",
+      "category": "forks",
+      "description": "Linux platform guide for the agent-desktop CLI. Lists per command group what works on X11 and on Wayland, how to check the AT-SPI accessibility bus, the first-contact gotchas (app names, Chromium and Electron flags, headed focus, blocked key combos), and where to find lifecycle, screenshot, clipboard, tray, notification and troubleshooting details. Triggers on: \"linux desktop automation\", \"AT-SPI tree\", \"automate GNOME app\", \"agent-desktop on Linux\", \"accessibility bus not available\", \"empty supported_surfaces\", \"wayland screenshot consent\", or any Linux GUI interaction task.",
+      "source": "skills/forks/agent-desktop-linux/SKILL.md"
+    },
+    {
+      "id": "forks/agent-desktop-macos",
+      "name": "agent-desktop-macos",
+      "category": "forks",
+      "description": "macOS platform guide for the agent-desktop CLI. Use for desktop automation on macOS: granting Accessibility and Screen Recording permission (TCC), what headed mode does on macOS (physical-first click, type and scroll), surfaces (menu, menubar, sheet, popover, alert, dock, menu-bar-extras), menu bar apps and system panels with no window, Notification Center, Chromium and Electron apps including launch --cdp, and fixing PERM_DENIED, empty accessibility trees, ACTION_FAILED and APP_UNRESPONSIVE.",
+      "source": "skills/forks/agent-desktop-macos/SKILL.md"
+    },
+    {
+      "id": "forks/agent-desktop-windows",
+      "name": "agent-desktop-windows",
+      "category": "forks",
+      "description": "Windows platform guide for the agent-desktop CLI. Lists per command group what works on Windows and what refuses, the first-contact gotchas (PowerShell ref quoting, minimized windows, headed-only input), and where to find shell surfaces, notifications, the cursor overlay, UIPI elevation, Chromium/Electron settle behavior and troubleshooting. Triggers on: \"windows desktop automation\", \"UIA tree\", \"automate Windows app\", \"agent-desktop on Windows\", \"elevated window input blocked\", \"E_ACCESSDENIED\", or any Windows GUI interaction task.",
+      "source": "skills/forks/agent-desktop-windows/SKILL.md"
+    },
+    {
+      "id": "forks/agui-cross-sdk-parity",
+      "name": "agui-cross-sdk-parity",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Keep the AG-UI .NET SDK at feature and wire-format PARITY with the canonical reference SDKs (TypeScript is the source of truth; Python is types/encoder only). USE FOR: porting a feature/event/behavior that landed in the TS (or Python) SDK into .NET, verifying the .NET wire format (JSON, SSE, protobuf) matches the reference, locating where the reference implementation and compatibility fixtures live, mapping a TS concept to the .NET event/client/encoder model, resolving an upstream protocol fix (e.g. a Microsoft.Extensions.AI / Microsoft Agent Framework issue) that needs a .NET counterpart, deciding which .NET package owns a change. DO NOT USE FOR: the mechanics of writing a specific test (use agui-dotnet-unit-tests for serialization round-trips, agui-dotnet-integration-tests for cross-language / E2E harness mechanics, agui-dotnet-wire-types for JSON/proto type rules, agui-dotnet-transport for SSE/HTTP transport details). This skill is about the PARITY PROCESS and where the reference lives, not test authoring.",
+      "source": "skills/forks/agui-cross-sdk-parity/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dojo",
+      "name": "agui-dojo",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Run the AG-UI Dojo demo viewer locally and wire the AG-UI .NET SDK in as a dojo integration. USE FOR: starting the dojo app (apps/dojo), running the .NET dojo backend (AGUIDojoServer), registering or modifying the ag-ui-dotnet integration (agents.ts/menu.ts/env.ts/files.json), running the dojo Playwright e2e suite for the .NET integration (agUiDotnetTests), or understanding how dojo-e2e.yml runs it in CI. DO NOT USE FOR: generic Playwright validation of arbitrary pages (use agui-playwright-validate), or the docs site (use agui-dotnet-sdk-docs).",
+      "source": "skills/forks/agui-dojo/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-agents-sync",
+      "name": "agui-dotnet-agents-sync",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Keep the AG-UI .NET SDK docs (sdks/dotnet/AGENTS.md and docs/architecture.md) in sync with the real code tree after structural changes. USE FOR: \"update AGENTS.md / docs/architecture.md\", \"check the dotnet docs are current\", verifying docs after a .NET SDK refactor (package rename, added/removed project, changed endpoint pattern, new/renamed test project, sample step added, new convention). DO NOT USE FOR: writing product code or tests (follow AGENTS.md itself), Python/TypeScript SDK docs, or generic markdown editing unrelated to the dotnet SDK structure.",
+      "source": "skills/forks/agui-dotnet-agents-sync/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-client-tools",
+      "name": "agui-dotnet-client-tools",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Expose client-side (frontend) tools to an AG-UI agent with the AG-UI .NET SDK \u2014 C# functions that run in the CLIENT app (read local state, GPS, UI, device APIs), where the client executes the call and returns the result so the run continues. USE FOR: declaring an AIFunction in the client and passing it via ChatOptions.Tools to AGUIChatClient; having the client execute a tool the model requested and feed the result back automatically; understanding why no UseFunctionInvocation is needed on the client (AGUIChatClient already invokes functions); what the server must do (UseFunctionInvocation + TerminateOnUnknownCalls) so it forwards an unknown/client tool instead of erroring. DO NOT USE FOR: tools that run on the server/backend (use agui-dotnet-server-tools); pausing for human approval/input before acting (interrupts / human-in-the-loop); plain chat (use agui-dotnet-streaming-chat); shared state, generative UI, multimodal, or protobuf.",
+      "source": "skills/forks/agui-dotnet-client-tools/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-code-review",
+      "name": "agui-dotnet-code-review",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Review C#/.NET code changes to the AG-UI .NET SDK (sdks/dotnet/) against its specific conventions and architectural rules \u2014 AOT serialization, the \"no ASP.NET in src/\" boundary, the PublicAPI analyzer workflow, wire compatibility with the TypeScript reference, and the house style (sealed/no-records/ConfigureAwait). Runs a phased, rule-by-rule review. USE FOR: reviewing a PR, diff, or branch that touches sdks/dotnet/; checking a new event/message type; verifying serialization, package placement, or public-API changes in the .NET SDK. DO NOT USE FOR: generic C# style nits already enforced by analyzers/EditorConfig; reviewing the TypeScript SDK (sdks/typescript/) or Python SDK (sdks/python/); writing new features (only flag violations, never rewrite code).",
+      "source": "skills/forks/agui-dotnet-code-review/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-cross-language-tests",
+      "name": "agui-dotnet-cross-language-tests",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Author cross-language interop tests that verify the AG-UI .NET SDK is wire-compatible with the TypeScript SDK \u2014 a Vitest TS client driving a C# CrossLanguage.TestServer over HTTP, both directions, including protobuf byte-parity against @ag-ui/proto. USE FOR: adding or modifying cross-language interop coverage, CrossLanguage.TestServer routes, the CrossLanguage.Vitest suite, protobuf wire parity tests, TS-client-to-C#-server or C#-client-to-TS-server scenarios. DO NOT USE FOR: .NET-only unit tests (use agui-dotnet-unit-tests), ASP.NET Core hosting integration tests (use agui-dotnet-integration-tests).",
+      "source": "skills/forks/agui-dotnet-cross-language-tests/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-feature-workflow",
+      "name": "agui-dotnet-feature-workflow",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Orchestrator/hub for implementing a feature or change in the AG-UI .NET SDK (sdks/dotnet). USE FOR: \"what's the workflow\", \"what order do I do things in\", \"how do I implement a feature in the .NET SDK\", starting any non-trivial AG-UI .NET SDK change, planning the end-to-end steps and definition-of-done (code + AOT serialization + client/server mapping + unit/integration/cross-language tests + docs + PublicAPI + AGENTS.md sync). DO NOT USE FOR: the deep how-to of a single step \u2014 this skill ROUTES to focused siblings: adding wire types (agui-dotnet-wire-types), transport/encoding (agui-dotnet-transport), unit tests (agui-dotnet-unit-tests), integration tests (agui-dotnet-integration-tests), cross-language tests (agui-dotnet-cross-language-tests), porting from TS/Python (agui-cross-sdk-parity), adding a GettingStarted sample Step (agui-dotnet-sample-step), SDK docs (agui-dotnet-sdk-docs), AGENTS/Architecture sync (agui-dotnet-agents-sync), the dojo (agui-dojo), review (agui-dotnet-code-review).",
+      "source": "skills/forks/agui-dotnet-feature-workflow/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-human-in-the-loop",
+      "name": "agui-dotnet-human-in-the-loop",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Pause an AG-UI agent run for a human, then resume it, with the AG-UI .NET SDK \u2014 gate a sensitive tool behind explicit approval, or interrupt a run to collect free-form input from the user before continuing. USE FOR: requiring human approval before a tool executes (ApprovalRequiredAIFunction + ToolApprovalRequestContent/ToolApprovalResponseContent, resume by appending the request + CreateResponse(approved)); pausing a run to ask the user a question and resuming with their answer (InterruptRequestContent / InterruptResponseContent, RunAgentInput.Resume); how a paused run surfaces as RUN_FINISHED outcome=interrupt and how the client detects and answers it. DO NOT USE FOR: tools that run without approval on the server (use agui-dotnet-server-tools) or in the client (use agui-dotnet-client-tools); plain chat (use agui-dotnet-streaming-chat); shared state, generative UI, multimodal, or protobuf.",
+      "source": "skills/forks/agui-dotnet-human-in-the-loop/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-integration-tests",
+      "name": "agui-dotnet-integration-tests",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Write integration tests for the AG-UI .NET SDK. USE FOR: adding a new AG-UI event type and covering it end-to-end, testing SSE or protobuf streaming through the hosting pipeline, verifying AGUIChatClient maps events to ChatResponseUpdate, multi-turn conversation tests, parameterizing a test over Json/Protobuf transports, adding or updating a GettingStarted sample replay/Verify snapshot. Covers: WebApplicationFactory + DelegatingStreamingChatClient setup, IChatClient-based assertions with Assert.Collection, TransportFormat [Theory] (Json/Protobuf), recording/replay capture infrastructure, and the 8-capture-point Verify baselines. DO NOT USE FOR: unit tests of event serialization (use tests/AGUI.Abstractions.UnitTests) or stream-conversion unit tests (use tests/AGUI.Server.UnitTests).",
+      "source": "skills/forks/agui-dotnet-integration-tests/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-multimodal",
+      "name": "agui-dotnet-multimodal",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Send images and other binary/file content to an AG-UI agent with the AG-UI .NET SDK \u2014 attach pictures (or audio, PDFs, etc.) to a user message so a multimodal model can see them. USE FOR: building a user ChatMessage with mixed content parts (TextContent plus DataContent for inline bytes, or UriContent for a hosted URL); choosing inline bytes vs a URL reference; setting the correct media type; sending the message through AGUIChatClient so the content parts cross the AG-UI wire to a vision/multimodal model. DO NOT USE FOR: plain text chat (use agui-dotnet-streaming-chat); tool calls (use agui-dotnet-server-tools / agui-dotnet-client-tools); structured shared state (use agui-dotnet-shared-state); reasoning traces, interrupts, generative UI, or protobuf.",
+      "source": "skills/forks/agui-dotnet-multimodal/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-protobuf",
+      "name": "agui-dotnet-protobuf",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Use the protobuf wire transport (instead of the default Server-Sent Events) for an AG-UI connection with the AG-UI .NET SDK \u2014 a compact binary event stream negotiated via the Accept header. USE FOR: making an AGUIChatClient prefer protobuf by wiring an AGUIEventStreamHandler with ProtobufEventStreamFormatter (then SseEventStreamFormatter as fallback) into the HttpClient; enabling a server to answer protobuf by registering ProtobufEventStreamFormatter and negotiating the response format from the request Accept header; understanding the protobuf-or-SSE fallback. DO NOT USE FOR: the default SSE transport or first-time setup (use agui-dotnet-streaming-chat); JSON event serialization questions; tools, state, interrupts, multimodal, or generative UI.",
+      "source": "skills/forks/agui-dotnet-protobuf/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-reasoning",
+      "name": "agui-dotnet-reasoning",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Surface a reasoning/thinking model's intermediate thoughts separately from its final answer with the AG-UI .NET SDK \u2014 so a client can show the agent \"thinking\" before it responds, and handle that reasoning trace correctly across turns. USE FOR: distinguishing the model's reasoning trace from its answer on the client by matching TextReasoningContent vs TextContent in each ChatResponseUpdate's Contents; rendering thinking and answer in different ways as they stream; deciding whether to carry the reasoning text into later turns (whether to append/resend the model's reasoning back into conversation history). DO NOT USE FOR: plain text streaming with no reasoning display (use agui-dotnet-streaming-chat); tools, shared state, interrupts, multimodal, generative UI, or protobuf.",
+      "source": "skills/forks/agui-dotnet-reasoning/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-sample-step",
+      "name": "agui-dotnet-sample-step",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Add a GettingStarted sample Step (a Server/Client pair) to the AG-UI .NET SDK that demonstrates one protocol feature the way we want users to write it. USE FOR: adding a new samples/GettingStarted/StepNN_<Name> Server+Client pair, wiring it into AGUI.slnx and the integration-test project, giving it a deterministic FakeChatClient for replay, and registering it in the Step tables in AGENTS.md / docs/architecture.md. DO NOT USE FOR: the replay/Verify integration-test mechanics (use agui-dotnet-integration-tests), the dojo scenarios under samples/AGUIClientServer (use agui-dojo), or protocol/wire changes the sample exercises (use agui-dotnet-wire-types / agui-dotnet-transport).",
+      "source": "skills/forks/agui-dotnet-sample-step/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-sdk-docs",
+      "name": "agui-dotnet-sdk-docs",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Author, update, and validate the AG-UI .NET SDK documentation pages on the docs.ag-ui.com Mintlify site (under docs/). USE FOR: adding or editing a \".NET SDK\" docs page (sdk/dotnet/**/*.mdx), wiring it into the docs.json \".NET\" nav group and global anchor, running the docs site locally with mintlify dev, previewing/validating rendered .NET pages, checking the .NET sidebar anchor/icon. DO NOT USE FOR: in-repo dotnet markdown such as sdks/dotnet/AGENTS.md or docs/architecture.md (use agui-dotnet-agents-sync); TypeScript/Python docs pages; product code, tests, or wire types.",
+      "source": "skills/forks/agui-dotnet-sdk-docs/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-server-tools",
+      "name": "agui-dotnet-server-tools",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Expose server-side (backend) tools an AG-UI agent can call with the AG-UI .NET SDK \u2014 C# functions that run on the server, where the server executes the call and feeds the result back to the model. USE FOR: defining an AIFunction with AIFunctionFactory.Create and registering it on the server's IChatClient via ConfigureOptions + UseFunctionInvocation; making the model call your backend function during a run; AOT-safe tool arguments/results (registering a JsonSerializerContext for complex tool parameter types); parallel/concurrent backend tool calls (AllowConcurrentInvocation); TerminateOnUnknownCalls behavior. DO NOT USE FOR: tools that run in the client/frontend (use agui-dotnet-client-tools); pausing a tool for human approval or input (interrupts / human-in-the-loop); plain streaming chat with no tools (use agui-dotnet-streaming-chat); shared state, generative UI, multimodal, or protobuf.",
+      "source": "skills/forks/agui-dotnet-server-tools/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-shared-state",
+      "name": "agui-dotnet-shared-state",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Share structured, evolving state between an AG-UI agent and its client with the AG-UI .NET SDK \u2014 the client seeds state on the request, the server reads it, mutates it, and streams the updated state back as snapshots or deltas alongside the chat. USE FOR: sending initial/working state from the client via ChatOptions.RawRepresentationFactory -> RunAgentInput.State; reading inbound state on the server with ChatOptions.TryGetRunAgentInput and RunAgentInput.State; emitting a full state object as a StateSnapshotEvent (or incremental JSON-Patch changes as a StateDeltaEvent) from a DelegatingChatClient via ChatResponseUpdate.RawRepresentation; reading state back on the client from update.RawRepresentation as StateSnapshotEvent. DO NOT USE FOR: passing one-off tool arguments (use agui-dotnet-server-tools); rendering UI components from tool calls (use agui-dotnet-generative-ui); plain chat (use agui-dotnet-streaming-chat); approvals/interrupts, multimodal, or protobuf.",
+      "source": "skills/forks/agui-dotnet-shared-state/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-streaming-chat",
+      "name": "agui-dotnet-streaming-chat",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Get started with the AG-UI .NET SDK: bootstrap and run your first streaming-chat app (client + server) with the AG-UI .NET NuGet packages (AGUI.Client, AGUI.Server, AGUI.Formatting, AGUI.Abstractions). USE FOR: which packages to install and how to wire them; constructing an AGUIChatClient against an endpoint and streaming the reply as Microsoft.Extensions.AI IChatClient / ChatResponseUpdate; hosting an AG-UI POST endpoint yourself over any IChatClient; running a single- or multi-turn conversation; STATELESS agents (client owns history, resends it every turn) vs HOSTED / conversation-holding agents (server keeps the session, client pins a thread id). DO NOT USE FOR: changing the AG-UI .NET SDK itself (use the agui-dotnet-* contributor skills); server tools (agui-dotnet-server-tools); client tools (agui-dotnet-client-tools); interrupts / human-in-the-loop; shared state; generative UI; multimodal; or protobuf transport.",
+      "source": "skills/forks/agui-dotnet-streaming-chat/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-transport",
+      "name": "agui-dotnet-transport",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Add or modify a wire transport / event-stream encoding in the AG-UI .NET SDK \u2014 the protobuf codec, the SSE format, content negotiation, the JsonElement-to-protobuf Value bridge, or a brand new encoding \u2014 while preserving Native AOT compatibility and byte-level wire compatibility with @ag-ui/proto. USE FOR: working on AGUI.Formatting / AGUI.Protobuf, IAGUIEventStreamFormatter, transport content negotiation, the JsonElement-to-google.protobuf.Value bridge, SSE or protobuf framing, server formatter registration / AGUIResults.Events negotiation. DO NOT USE FOR: adding a new wire event TYPE (use agui-dotnet-wire-types), writing tests (use agui-dotnet-integration-tests).",
+      "source": "skills/forks/agui-dotnet-transport/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-troubleshoot",
+      "name": "agui-dotnet-troubleshoot",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Diagnose and fix problems in an AG-UI .NET app built on the AG-UI SDK \u2014 when streaming chat, tools, state, interrupts, or the transport misbehave. USE FOR: the agent forgetting earlier turns / history truncated; update.ConversationId always null; state or lifecycle updates that never arrive; a tool throwing at runtime or producing AOT/trim warnings; an unknown-tool error mid-run; 406 Not Acceptable from the endpoint; an interrupt or approval that won't resume; and inspecting the raw AG-UI event stream (curl SSE frames, RawEvent on ChatResponseUpdate.RawRepresentation) to see what's actually on the wire. DO NOT USE FOR: first-time setup or the happy path (use agui-dotnet-streaming-chat); implementing a specific feature cleanly (use the matching agui-dotnet-* skill).",
+      "source": "skills/forks/agui-dotnet-troubleshoot/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-unit-tests",
+      "name": "agui-dotnet-unit-tests",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Author unit tests for the AG-UI .NET SDK (the *.UnitTests projects), following the SDK's serialization and compatibility conventions. USE FOR: adding unit-test coverage for a new type/method in AGUI.Abstractions/Formatting/Protobuf/Client/Server, event serialization round-trips, JsonDocument property-name assertions, backward-compatibility fixtures against TypeScript JSON, protobuf codec round-trips, client builder/handler tests, server ChatResponseUpdate conversion tests, SSE formatter tests. DO NOT USE FOR: HTTP pipeline / WebApplicationFactory end-to-end tests (use the agui-dotnet-integration-tests skill), cross-language TS\u2194C# server-parity tests (use the cross-language test skill).",
+      "source": "skills/forks/agui-dotnet-unit-tests/SKILL.md"
+    },
+    {
+      "id": "forks/agui-dotnet-wire-types",
+      "name": "agui-dotnet-wire-types",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Add or modify a wire/protocol type in the AG-UI .NET SDK AGUI.Abstractions package \u2014 a new event, message, or content-part type, the AOT source-gen serializer context, or a polymorphic JSON converter, keeping it AOT-safe, JSON-wire-compatible with the TypeScript reference, and PublicAPI-clean. USE FOR: adding an AG-UI event type, adding a message role or input-content type, editing AGUIJsonSerializerContext, editing BaseEventJsonConverter / AGUIMessageJsonConverter / AGUIInputContentJsonConverter, fixing PublicAPI.Unshipped analyzer build failures on protocol types, wire-format round-trip serialization. DO NOT USE FOR: writing integration/SSE tests (use agui-dotnet-integration-tests), server hosting/endpoint code, or non-Abstractions packages.",
+      "source": "skills/forks/agui-dotnet-wire-types/SKILL.md"
+    },
+    {
+      "id": "forks/agui-playwright-validate",
+      "name": "agui-playwright-validate",
+      "category": "forks",
+      "description": "Use only while working in the ag-ui project. Manually validate a running web app or docs site with the Playwright MCP server \u2014 navigate pages, assert headings/text/status, check for console errors, hover/click to exercise interactions, take screenshots for human review, and verify visual details such as an icon's color in light vs dark mode by reading computed styles. USE FOR: \"validate with Playwright\", \"open the browser and check\", visually verifying a UI or docs change, confirming a CSS/SVG/icon edit rendered, checking a page for console errors, comparing light/dark mode appearance. DO NOT USE FOR: writing automated unit/E2E test files (dojo e2e lives in agui-dojo); docs-site content/structure checks specific to the .NET SDK docs (use agui-dotnet-sdk-docs). INVOKES: browser_navigate, browser_snapshot, browser_take_screenshot, browser_evaluate, browser_hover, browser_click, browser_console_messages Playwright MCP tools.",
+      "source": "skills/forks/agui-playwright-validate/SKILL.md"
+    },
+    {
+      "id": "forks/architecture-diagram",
+      "name": "architecture-diagram",
+      "category": "forks",
+      "description": "Use only while working in the agent-desktop project. Create or update architecture and flow diagrams for agent-desktop's docs site in apps/docs. Use when a docs page needs a diagram of components, data flow, or a command pipeline, or when an existing diagram in apps/docs/public/desktop/diagrams changes.",
+      "source": "skills/forks/architecture-diagram/SKILL.md"
+    },
+    {
+      "id": "forks/building-python-mcp-servers",
+      "name": "building-python-mcp-servers",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Builds robust Python MCP (Model Context Protocol) servers with FastMCP \u2014 tool design, error contracts, event-loop-safe blocking work, subprocess/CLI wrapping, single-file vs packaged distribution, global-state-free testing, and prompt-injection awareness. Use when writing an MCP server, exposing a tool or CLI to an LLM client, debugging tool registration/packaging, or testing MCP tools.",
+      "source": "skills/forks/building-python-mcp-servers/SKILL.md"
+    },
+    {
+      "id": "forks/building-the-review-page",
+      "name": "building-the-review-page",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Build or change the standalone review page (scripts/_review.py, `npx ffmpeg-skill review`) \u2014 the editor-style screen where a person looks at a render project and its result and composes an instruction for their agent. Covers the fixed constraints (one offline HTML file, nothing executed, no new dependency, not a contract tool), the 16:10 three-column layout, the numbering scheme every element carries (S, C, T, A, M, R, P,",
+      "source": "skills/forks/building-the-review-page/SKILL.md"
+    },
+    {
+      "id": "forks/ci-pipeline-synthesizer",
+      "name": "ci-pipeline-synthesizer",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Generate GitHub Actions CI/CD pipeline configurations for automated building and testing of library and package projects. Use when creating or updating CI workflows for npm packages, Python packages, Go modules, Rust crates, or other library projects that need automated build and test pipelines. Includes templates for common package ecosystems with best practices for dependency caching, matrix testing, and artifact publishing.",
+      "source": "skills/forks/ci-pipeline-synthesizer/SKILL.md"
+    },
+    {
+      "id": "forks/coding-principles",
+      "name": "coding-principles",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Enforces engineering, architecture, public API, and code quality standards distilled from human reviewer feedback across A2UI pull requests. Use when authoring new code, refactoring, addressing review feedback, or reviewing PR diffs. Don't use for release publishing or spec blueprint generation without code or PR changes.",
+      "source": "skills/forks/coding-principles/SKILL.md"
+    },
+    {
+      "id": "forks/computer-use-best-practices-first-run",
+      "name": "computer-use-best-practices-first-run",
+      "category": "forks",
+      "description": "Use only while working in the claude-quickstarts project. Guide a new user through their first computer-use agent run (env check, safe browser-only task, then open the trajectory viewer).",
+      "source": "skills/forks/computer-use-best-practices-first-run/SKILL.md"
+    },
+    {
+      "id": "forks/computer-use-demo-verify",
+      "name": "computer-use-demo-verify",
+      "category": "forks",
+      "description": "Use only while working in the claude-quickstarts project. Build the computer-use-demo image and drive the Streamlit UI headlessly to verify changes end-to-end.",
+      "source": "skills/forks/computer-use-demo-verify/SKILL.md"
+    },
+    {
+      "id": "forks/concurrent-branches",
+      "name": "concurrent-branches",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Resolve conflicts and merges when several branches are open against one repo at the same time \u2014 the hotspot files every change must touch (registry manifests, a single version field, shared tool config, one aggregated test module, tracked build output), union-vs-recompute-vs-rebuild as three different correct resolutions, generated artifacts that must never be merged, non-deterministic serialization that makes every branch conflict, renumbered identifiers that git cannot show you, and why a clean auto-merge is not a passing test. Use when rebasing or merging a long-lived branch, resolving conflict markers, reviewing a merge commit, deciding what a repo should commit vs generate, or setting up a repo that will take parallel contributions.",
+      "source": "skills/forks/concurrent-branches/SKILL.md"
+    },
+    {
+      "id": "forks/copilot-kit-ag-ui-verify",
+      "name": "copilot-kit-ag-ui-verify",
+      "category": "forks",
+      "description": "Use only while working in the claude-quickstarts project. Build and drive the copilot-kit-ag-ui demo to verify changes end-to-end.",
+      "source": "skills/forks/copilot-kit-ag-ui-verify/SKILL.md"
+    },
+    {
+      "id": "forks/desktop-commander-ai-tools-setup",
+      "name": "desktop-commander-ai-tools-setup",
+      "category": "forks",
+      "description": "Set up, connect, validate, and repair Claude Desktop and MCP servers using Desktop Commander \u2014 inspecting and fixing mcp.json / claude_desktop_config.json, getting MCP servers to connect, and diagnosing local AI tooling. Use when a user wants to install, configure, connect, validate, or fix Claude Desktop, an MCP server, an MCP config file, or a local AI agent/gateway. Trigger on the symptoms that actually bring people in: \"Claude can't see my tools\", \"my MCP server isn't showing up\", \"tools aren't loading in Claude\", \"add an MCP server\", \"my MCP isn't connecting\", \"fix my Claude Desktop config\", \"the agent won't respond\", \"wire up Ollama / LM Studio\", \"restart Claude Desktop\". Also covers local agent gateways like OpenClaw and Hermes.",
+      "source": "skills/forks/desktop-commander-ai-tools-setup/SKILL.md"
+    },
+    {
+      "id": "forks/desktop-commander-computer-health-check",
+      "name": "desktop-commander-computer-health-check",
+      "category": "forks",
+      "description": "Run a comprehensive, read-only health check on the user's computer and return a scored chat summary with prioritized, plain-English recommendations and safe cleanup suggestions. Use this whenever the user wants to check their computer's health, speed it up, free up / reclaim disk space, find what's eating CPU / memory / storage, check battery health and wear, audit login & startup items, see pending updates, or asks for a \"tune-up\", \"checkup\", \"system report\", \"health check\", or \"is my Mac/PC/laptop healthy\". Trigger even on casual phrasing like \"my laptop feels slow\", \"why is my fan so loud\", \"my computer is laggy\", \"running out of space\", or \"clean up my machine\". Works on macOS, Windows, and Linux. This is a Desktop Commander skill: it relies on a real local shell (start_process / interact_with_process) and is strictly read-only by default \u2014 it never needs sudo and only performs cleanups the user explicitly approves.",
+      "source": "skills/forks/desktop-commander-computer-health-check/SKILL.md"
+    },
+    {
+      "id": "forks/desktop-commander-knowledge-base",
+      "name": "desktop-commander-knowledge-base",
+      "category": "forks",
+      "description": "Create and maintain a Markdown knowledge base that any AI agent can read, search, and update. Use when the user wants to start a knowledge base, add or update notes, organize docs/notes for an agent or LLM to consume, build an index of notes, or run a cleanup/maintenance pass on an existing MD knowledge base. Triggers include \"knowledge base\", \"KB\", \"notes for the agent\", \"index of notes\", \"second brain\", \"docs for AI context\", \"add a note\", \"update the KB\".",
+      "source": "skills/forks/desktop-commander-knowledge-base/SKILL.md"
+    },
+    {
+      "id": "forks/desktop-commander-obsidian-vault",
+      "name": "desktop-commander-obsidian-vault",
+      "category": "forks",
+      "description": "Organize Obsidian vaults with MOCs, wikilinks, frontmatter/properties, dashboards, orphan-note checks, and cleanup workflows. Use ONLY when the user explicitly refers to Obsidian \u2014 by naming \"Obsidian\", an Obsidian \"vault\", or an Obsidian-specific feature such as wikilinks (\"[[ ]]\"), the Dataview or Bases plugins, or Obsidian Properties. Within that Obsidian context it covers creating Maps of Content, adding/fixing wikilinks, finding orphan notes, normalizing YAML frontmatter, generating Dataview/Bases dashboards, organizing folders, deduplicating or renaming notes, and preparing the vault for AI use. Do NOT use this skill for generic note-taking, Markdown, or knowledge-base requests that don't mention Obsidian.",
+      "source": "skills/forks/desktop-commander-obsidian-vault/SKILL.md"
+    },
+    {
+      "id": "forks/desktop-commander-overview",
+      "name": "desktop-commander-overview",
+      "category": "forks",
+      "description": "Use for Desktop Commander MCP capabilities \u2014 persistent shells and REPLs, long-running processes, filesystem beyond the workspace, structured files (.xlsx, .docx, .pdf, images) and large local data files such as CSVs, ripgrep search at scale, SSH, or cross-turn state.",
+      "source": "skills/forks/desktop-commander-overview/SKILL.md"
+    },
+    {
+      "id": "forks/desktop-commander-terminal",
+      "name": "desktop-commander-terminal",
+      "category": "forks",
+      "description": "Use Desktop Commander for terminal and command-line work, especially anything that needs a shell whose state persists across turns: Python/Node REPLs, database shells, dev servers and other long-running processes, SSH into remote machines, and Windows PowerShell. Also handles everyday terminal tasks \u2014 navigating folders, choosing the right command for the user's shell (PowerShell, cmd, bash, zsh), running Docker/curl/cloud-CLI commands, inspecting processes and ports, and saving recurring workflows as scripts \u2014 even when the user doesn't say \"Desktop Commander\" or \"terminal.\" Reach for it on pasted errors like \"command not found\", \"permission denied\", \"EADDRINUSE\", \"address already in use\", \"npm ERR!\", \"ModuleNotFoundError\", or \"ENOENT\", and on intents like \"what's using port 3000\", \"kill that process\", \"ssh into my server\", or \"why won't my dev server start\". Works on Windows, macOS, and Linux. Never run destructive commands without explicit confirmation.",
+      "source": "skills/forks/desktop-commander-terminal/SKILL.md"
+    },
+    {
+      "id": "forks/egm-bootstrap",
+      "name": "egm-bootstrap",
+      "category": "forks",
+      "description": "Bootstrap directory README.md files across a repository subtree.",
+      "source": "skills/forks/egm-bootstrap/SKILL.md"
+    },
+    {
+      "id": "forks/egm-brainstorm",
+      "name": "egm-brainstorm",
+      "category": "forks",
+      "description": "Interactive ideation and brainstorming skill for the Elephant & Goldfish Model (EGM). Helps turn half-baked concepts into structured hypotheses via clarifying questions, review, and iterative refinement. Produces an RFC summary for human review or more detailed design with egm-draft.",
+      "source": "skills/forks/egm-brainstorm/SKILL.md"
+    },
+    {
+      "id": "forks/egm-draft",
+      "name": "egm-draft",
+      "category": "forks",
+      "description": "Drafts a design document section-by-section using the concepts brief from egm-brainstorm (or user notes). This is the second step in the Elephant-Goldfish (EGM) feature flow. Use when you are ready to write a design doc after aligning on requirements + solution.",
+      "source": "skills/forks/egm-draft/SKILL.md"
+    },
+    {
+      "id": "forks/egm-drift-report",
+      "name": "egm-drift-report",
+      "category": "forks",
+      "description": "Runs drift detection on all design documents to check for document and code consistency. Produces an actionable report with differences. Use when the user asks to detect drift or check for consistency across all design documents or READMEs in a directory.",
+      "source": "skills/forks/egm-drift-report/SKILL.md"
+    },
+    {
+      "id": "forks/egm-resolve",
+      "name": "egm-resolve",
+      "category": "forks",
+      "description": "The Elephant resolution skill. Ingests flat deficiency reports from concurrent Goldfish reviewers, applies automated fixes for PROPOSE FIX items via UI multiple-choice gates, and presents interactive negotiation/re-sync checkpoints.",
+      "source": "skills/forks/egm-resolve/SKILL.md"
+    },
+    {
+      "id": "forks/egm-review",
+      "name": "egm-review",
+      "category": "forks",
+      "description": "Orchestrates the EGM Goldfish Review Protocol. Used as part of the EGM process to perform design document reviews. Executes five review phases: Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate Zoom Out Review, and Implementation Readiness.",
+      "source": "skills/forks/egm-review/SKILL.md"
+    },
+    {
+      "id": "forks/egm-review-loop",
+      "name": "egm-review-loop",
+      "category": "forks",
+      "description": "Executes the Antagonistic-Review process from the Elephant-Goldfish Model (EGM) via an automated multi-agent review loop to audit documents against qualitative standards and structural templates, and automatically apply approved fixes. Use when reviewing design docs, READMEs, feature specifications, implementation plans, or verifying document completeness and tone.",
+      "source": "skills/forks/egm-review-loop/SKILL.md"
+    },
+    {
+      "id": "forks/ffmpeg-skill",
+      "name": "ffmpeg-skill",
+      "category": "forks",
+      "description": "Edit video and audio with local FFmpeg: cut, join, reframe, speed, captions, overlays, silence removal, sync, loudness, HDR to SDR, platform exports and checks. Use whenever the user mentions a video or audio file (mp4, mov, wav, m4a), footage, captions, a reel or short, YouTube/TikTok delivery, LUFS or ffmpeg, even without saying \"edit\". Needs FFmpeg 6.1+ and Python 3.10+; stdlib only, no cloud.",
+      "source": "skills/forks/ffmpeg-skill/SKILL.md"
+    },
+    {
+      "id": "forks/guarding-destructive-operations",
+      "name": "guarding-destructive-operations",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Add and review preconditions on operations that delete, overwrite, rewrite history, or resolve a caller-supplied name to a filesystem path \u2014 refusing instead of warning, placing the guard ahead of the first mutation, structural classification rather than string-prefix matching, name validation plus resolved-path containment as two independent checks, why a guard on the destructive path is invisible to the dry-run, and mutation-testing each half separately. Use when writing or reviewing a `--rebuild`/`--reset`/`--purge` command, a bulk delete, a history rewrite, an `rm -rf`-shaped step, or any code that turns an argument into a file path.",
+      "source": "skills/forks/guarding-destructive-operations/SKILL.md"
+    },
+    {
+      "id": "forks/inference-format-optimizer",
+      "name": "inference-format-optimizer",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Iterative benchmarking, evaluation, and algorithmic optimization of alternative A2UI inference formats (such as Express, Atom, and Elemental). Trigger when asked to: (1) Run optimization passes or loops on an inference format, (2) Evaluate or benchmark format accuracy, latency, or token efficiency, (3) Create parallel worktree subagents for format iteration, or (4) Benchmark format trade-offs against baselines.",
+      "source": "skills/forks/inference-format-optimizer/SKILL.md"
+    },
+    {
+      "id": "forks/inspect-ai",
+      "name": "inspect-ai",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Useful when working with the Inspect AI evaluation framework (e.g., in the eval/ directory). Provides instructions on how to access Inspect AI documentation.",
+      "source": "skills/forks/inspect-ai/SKILL.md"
+    },
+    {
+      "id": "forks/itsaplan-code-review",
+      "name": "itsaplan-code-review",
+      "category": "forks",
+      "description": "Use only while working in the itsaplan project. Use when reviewing code \u2014 a diff, a merge request, a file, a directory, or a feature. Produces structured code-review findings, filters out false positives and nitpicks, and prints a concise verdict report. Trigger when the user asks to review a diff, review an MR, or check code for bugs, security issues, or rule violations.",
+      "source": "skills/forks/itsaplan-code-review/SKILL.md"
+    },
+    {
+      "id": "forks/jev-desktop",
+      "name": "jev-desktop",
+      "category": "forks",
+      "description": "Drive a desktop application from one plain-language goal, or resolve one intent at a time, without ever reading the accessibility tree. Use when automating a desktop app and you want to keep a 150-element JSON tree out of your context. Hand `run.mjs` a whole goal and it observes, decides and acts until the goal is met; hand `act.mjs` a single step when you want to keep the plan yourself. Covers which element, which operation, when to look deeper, and when to stop. Needs a clone of the agent-desktop repository and a TYPESAFE_API_KEY.",
+      "source": "skills/forks/jev-desktop/SKILL.md"
+    },
+    {
+      "id": "forks/keeping-git-repos-clean",
+      "name": "keeping-git-repos-clean",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Prevents, detects, and remediates files that should never be committed \u2014 secrets (.env, API tokens, hardcoded credentials) and dev artifacts (build output, scratch databases, editor/OS files). Covers .gitignore (and why it does not untrack), git rm --cached, auditing tracked files, history scrubbing, and credential rotation. Use when a repo has committed secrets or junk, when setting up a new repo's ignore rules, or when reviewing what a repo actually tracks.",
+      "source": "skills/forks/keeping-git-repos-clean/SKILL.md"
+    },
+    {
+      "id": "forks/managing-python-releases",
+      "name": "managing-python-releases",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Manages Python library releases including semantic versioning, changelog maintenance (Keep a Changelog format), release automation with GitHub Actions, and deprecation workflows. Use when planning releases, writing changelogs, automating release pipelines, or communicating breaking changes.",
+      "source": "skills/forks/managing-python-releases/SKILL.md"
+    },
+    {
+      "id": "forks/natural-writing",
+      "name": "natural-writing",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Contains well-defined rules for creating natural, accurate, and readable writing. Use this skill whenever authoring longer text, including reports, PR descriptions, READMEs, system designs, analysis documents, or general documentation.",
+      "source": "skills/forks/natural-writing/SKILL.md"
+    },
+    {
+      "id": "forks/openshell-policy-advisor",
+      "name": "openshell-policy-advisor",
+      "category": "forks",
+      "description": "Use only while working in the claude-quickstarts project. Use when an OpenShell sandbox returns policy_denied, mentions policy.local, or needs a narrow network policy proposal.",
+      "source": "skills/forks/openshell-policy-advisor/SKILL.md"
+    },
+    {
+      "id": "forks/pr-hygiene",
+      "name": "pr-hygiene",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Enforces pull request scope, atomicity, and software design standards distilled from human reviewer feedback across A2UI pull requests. Use when authoring, preparing, splitting, or reviewing a pull request, or when a change introduces new modules, abstractions, or comments.",
+      "source": "skills/forks/pr-hygiene/SKILL.md"
+    },
+    {
+      "id": "forks/probing-edge-values",
+      "name": "probing-edge-values",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Find the option values an ffmpeg-skill tool accepts without anyone having decided what they mean \u2014 zero, a negative number, a value far past any real frame or clip \u2014 by running tests/edge_values.py over every numeric option in the contract, then reading each call that ran or hung against the option's help, and checking the few properties a tool should keep (doing it twice changes nothing more, an inverse returns the source's shape, the output is what probe.py says). Use when looking for defects nobody has reported, before a tool moves from beta to stable, after adding a numeric option, or when a report says a tool \"hung\", \"wrote a strange file\" or \"accepted nonsense\".",
+      "source": "skills/forks/probing-edge-values/SKILL.md"
+    },
+    {
+      "id": "forks/probing-first-try-use",
+      "name": "probing-first-try-use",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Find the places where an agent that has not read the docs gets an ffmpeg-skill tool wrong on the first try \u2014 having a fresh agent write calls blind from each tool's name and one line about it, running them with tests/first_try.py, reading the calls that ran as carefully as the ones that failed, teaching each miss through a help string or the shared hint, and recording it in docs/stumbles.jsonl so a test replays it. Use when asked how usable the tools are, before promoting a tool from beta to stable, after adding or renaming options, at the weekly measurement, or when a user reports that an agent \"kept guessing the wrong flag\".",
+      "source": "skills/forks/probing-first-try-use/SKILL.md"
+    },
+    {
+      "id": "forks/public-documentation",
+      "name": "public-documentation",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Defines authoring, multi-version tabbing, multi-SDK code example, diagram, and PR preview standards for the A2UI developer site (docs/site/). Progressively routes by page type (guides, concepts, components/landing pages, and specifications/agent manifests) so agents load only the rules relevant to their task.",
+      "source": "skills/forks/public-documentation/SKILL.md"
+    },
+    {
+      "id": "forks/reproducing-ci-locally",
+      "name": "reproducing-ci-locally",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Run the CI gate on your machine so it agrees with the runner \u2014 deriving the exact command, paths, markers, and env from the workflow file instead of the Makefile, unblocking gate steps that short-circuit and hide the next failure, pinning the linter version CI resolves, building the interpreter/toolchain environment the runner builds, and confirming the run is green instead of explaining a red job away. Use when a check passes locally but fails in CI (or the reverse), when a lint/format job goes red on an untouched file, when setting up a local dev loop for an unfamiliar repo, or before pushing a branch you expect to merge.",
+      "source": "skills/forks/reproducing-ci-locally/SKILL.md"
+    },
+    {
+      "id": "forks/reviewing-ffmpeg-skill-changes",
+      "name": "reviewing-ffmpeg-skill-changes",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Review a change to the ffmpeg-skill repository for the failures its own contract makes possible \u2014 a claim in a result document that is true at one layer and false at the layer a caller reads, a new flag that reaches the code but not the contract/docs/demo surfaces, a \"bug\" that docs/design-decisions.md already decided with a pinning test, a fix with no regression test, a new runtime dependency or a raw ffmpeg shell call that breaks the scope boundary, a SKILL.md line added without one trimmed, a review that re-derives findings from a summary instead of the tree at the reviewed commit. Use when asked to review a PR or diff in this repository, when authoring code here and needing a pre-commit check, or when triaging an external review or audit report about this codebase.",
+      "source": "skills/forks/reviewing-ffmpeg-skill-changes/SKILL.md"
+    },
+    {
+      "id": "forks/running-github-actions-efficiently",
+      "name": "running-github-actions-efficiently",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Cut GitHub Actions minutes and wall-clock time without losing coverage \u2014 the OS billing multiplier (macOS 10x / Windows 2x / Linux 1x), trigger hygiene that stops push+pull_request double-firing, concurrency that cancels superseded runs, dependency caching keyed on lockfiles, matrix discipline, and auditing scheduled crons that bill 24/7. Use when CI is burning included minutes, when runs feel slow, when setting up a new repo's workflows, or when reviewing an existing workflow for waste.",
+      "source": "skills/forks/running-github-actions-efficiently/SKILL.md"
+    },
+    {
+      "id": "forks/shipping-across-surfaces",
+      "name": "shipping-across-surfaces",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Land a change everywhere the same fact is stated \u2014 enumerating the full surface inventory (landing copy, docs, machine-readable summaries, changelog badges repeated across every page, sitemap, README, descriptions embedded in code, and untyped frontend consumers of typed responses), generating a surface instead of restating it, drift tests where you cannot generate, never hand-maintaining a copy of a surface another codebase owns, shipping a paired PR when you change a format a different codebase decodes, and keeping overloaded product words apart. Use when adding or renaming a user-facing feature, editing product/marketing copy or docs, renaming a serialized response field, changing a serialization or share-link format, wiring one repo's output into another's checks, or reviewing a PR that touched only one place a fact appears.",
+      "source": "skills/forks/shipping-across-surfaces/SKILL.md"
+    },
+    {
+      "id": "forks/shipping-build-artifacts",
+      "name": "shipping-build-artifacts",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Make the build step a real gate on what you actually distribute \u2014 build scripts that warn and exit 0 on a missing input, size checks with only an upper bound, hand-maintained file lists that drift from the entrypoints they must cover, committed bundles that go stale when only the source changes, GNU-only shell in release scripts that aborts on the other OS, and verification that runs against the source tree instead of the artifact. Use when writing or reviewing a build/package script, a `dist/` copy step, a release workflow that uploads a zip or installer, or a committed compiled asset.",
+      "source": "skills/forks/shipping-build-artifacts/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-agent-tools",
+      "name": "solidcraft-agent-tools",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when running SolidCraft to see a change working, driving it through the control channel or CLI, or adding or changing an MCP tool, control method or bundled agent skill.",
+      "source": "skills/forks/solidcraft-agent-tools/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-checking",
+      "name": "solidcraft-checking",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use alongside solidcraft-modeling and solidcraft-editing whenever you build, change or port a SolidCraft design. Checks for errors SolidCraft does not report (parameter ranges, every allowed value, exact STEP comparison), regression tests, designs kept in git, porting from build123d, CadQuery, OpenSCAD or STEP.",
+      "source": "skills/forks/solidcraft-checking/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-commands",
+      "name": "solidcraft-commands",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when adding or changing a SolidCraft command or any user-visible behaviour, or when deciding which crate code belongs in. Covers CommandSpec, command ids, programmatic calls vs dialogs, crate layering and the generated feature list.",
+      "source": "skills/forks/solidcraft-commands/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-contributing",
+      "name": "solidcraft-contributing",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when someone wants to contribute code or documentation to SolidCraft, from setting up a fork and choosing an issue through submitting a pull request and responding to review.",
+      "source": "skills/forks/solidcraft-contributing/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-crash-safety",
+      "name": "solidcraft-crash-safety",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when writing or reviewing non-test Rust in SolidCraft, handling design files, command parameters or control-channel input, calling the kernel, or investigating a crash report. A crash loses someone's work, so this outranks feature work.",
+      "source": "skills/forks/solidcraft-crash-safety/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-editing",
+      "name": "solidcraft-editing",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when changing, fixing or extending an existing SolidCraft design through its MCP server - a .sc file (or an older .solidcraft one) or the design open in the app. Typical requests: resize it, move a cut, change a hole or standoff, add a fillet or chamfer, make a fixed value parametric, or a feature shows an error after a change or after the app crashed.",
+      "source": "skills/forks/solidcraft-editing/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-file-formats",
+      "name": "solidcraft-file-formats",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when a SolidCraft change saves something new in a design (a field, a feature type, a kind of name) or changes what older designs mean, and when touching STEP, IGES, 3MF, STL, OBJ, DXF or URDF import and export.",
+      "source": "skills/forks/solidcraft-file-formats/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-ground-rules",
+      "name": "solidcraft-ground-rules",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use before adding any dependency, icon, image, font, test reference data or product wording to SolidCraft, or when unsure whether something may be copied, read or named. Covers independence from other CAD products, GPL code, asset attribution and the product name.",
+      "source": "skills/forks/solidcraft-ground-rules/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-layers",
+      "name": "solidcraft-layers",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when deciding whether code goes in SolidCraft or in solidcore (the vendored kernel in solidcore/), and in which solidcore crate: geometry, a modelling workflow, kernel work, or a review comment about the layer split.",
+      "source": "skills/forks/solidcraft-layers/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-mechanisms",
+      "name": "solidcraft-mechanisms",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when building, driving or animating an assembly or mechanism in SolidCraft through its MCP server - components, grounding, joints and joint origins, rigid groups, motion links, closed loops such as an actuator on a hinged panel or a linkage, contact sets, motion studies, degrees of freedom - or when a drive moves nothing, stops early or a part jumps when it is joined. To model the parts themselves, use solidcraft-modeling.",
+      "source": "skills/forks/solidcraft-mechanisms/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-modeling",
+      "name": "solidcraft-modeling",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when building a new part, enclosure, bracket, plate, flange or any other 3D solid in SolidCraft through its MCP server (tools such as batch, execute, measure, screenshot), or when a SolidCraft session is using many tool calls or tokens.",
+      "source": "skills/forks/solidcraft-modeling/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-packaging",
+      "name": "solidcraft-packaging",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when preparing or shipping a SolidCraft release, changing installers or packages (AppImage, MSI, dmg, Flatpak, Snap, WinGet, Nix, FreeBSD, web), release asset names, signing or the Pages deployment.",
+      "source": "skills/forks/solidcraft-packaging/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-performance",
+      "name": "solidcraft-performance",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when a SolidCraft change is slow, blocks the window, runs long work, or must build for the browser. Covers keeping the window thread free, measuring a speed-up, the wasm build and what may be JavaScript or Python.",
+      "source": "skills/forks/solidcraft-performance/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-preferences",
+      "name": "solidcraft-preferences",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when a SolidCraft change alters a default behaviour, an existing shortcut or the look users already have, or adds a setting in Preferences. Covers keeping the old behaviour behind a preference and the PR's 'Changes a default' line.",
+      "source": "skills/forks/solidcraft-preferences/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-reporting",
+      "name": "solidcraft-reporting",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when a SolidCraft user says something went wrong - the app crashed or closed, a command failed or gave the wrong shape, a number is off, a design no longer rebuilds, something hangs - and wants it reported or fixed upstream. Turns the problem into a minimal, reproducible bug report with exact steps, a command script, expected and actual results and a screenshot.",
+      "source": "skills/forks/solidcraft-reporting/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-sheetmetal",
+      "name": "solidcraft-sheetmetal",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when building or changing a sheet metal part in SolidCraft through its MCP server (flange, segments, hem, fold, unfold, flat pattern, DXF, bend table), or when a request describes bends in words.",
+      "source": "skills/forks/solidcraft-sheetmetal/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-tests",
+      "name": "solidcraft-tests",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when writing, placing or running tests in SolidCraft: a regression test for a bug, an engine test for a command, a UI scenario, a reference (oracle) test, goldens, or when CI fails a test you did not touch.",
+      "source": "skills/forks/solidcraft-tests/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-ui",
+      "name": "solidcraft-ui",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when adding or changing a SolidCraft dialog, panel, menu, overlay, canvas, camera input, slider, icon or colour in crates/ui-egui. Covers the single UI container, the UI kit, navigation::handle, theme tokens, command icons and UI scenarios.",
+      "source": "skills/forks/solidcraft-ui/SKILL.md"
+    },
+    {
+      "id": "forks/solidcraft-ui-text",
+      "name": "solidcraft-ui-text",
+      "category": "forks",
+      "description": "Use only while working in the solidcraft project. Use when adding or changing any user-visible text in SolidCraft: a label, tooltip, message, command label or a new language. Covers the message catalogs in assets/locales, sorted lists, which locales a new key needs, UK English and terminology.",
+      "source": "skills/forks/solidcraft-ui-text/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-code-to-design",
+      "name": "stitch-code-to-design",
+      "category": "forks",
+      "description": "Convert frontend code (Vite, React, Angular, Vue, etc.) to a Stitch Design by chaining static HTML extraction, design system extraction, and file upload. **ALWAYS** use this skill when the user's intent is to move existing web apps or React/Angular/Vue components into Stitch (e.g., requests to \"save\", \"migrate\", or \"upload\"). You must use this skill even for simple \"save\" operations, as it is the only way to ensure the design system is extracted and assets are properly linked.",
+      "source": "skills/forks/stitch-code-to-design/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-design-md",
+      "name": "stitch-design-md",
+      "category": "forks",
+      "description": "Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files",
+      "source": "skills/forks/stitch-design-md/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-enhance-prompt",
+      "name": "stitch-enhance-prompt",
+      "category": "forks",
+      "description": "Transforms vague UI ideas into polished, Stitch-optimized prompts. Enhances specificity, adds UI/UX keywords, injects design system context, and structures output for better generation results.",
+      "source": "skills/forks/stitch-enhance-prompt/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-extract-design-md",
+      "name": "stitch-extract-design-md",
+      "category": "forks",
+      "description": "Extract a comprehensive design system (DESIGN.md) directly from frontend source code \u2014 React, Vue, Svelte, Angular, plain HTML/CSS, or any web framework. Analyzes component files, stylesheets, Tailwind configs, theme definitions, and design tokens to produce a rich, Stitch-compatible design system document. Use this skill whenever the user wants to reverse-engineer a design system from an existing codebase, audit the visual language of a project, extract design tokens from source files, or understand the styling patterns in a frontend repo \u2014 even if they just say \"what does this app look like?\" or \"pull out the design from this code.\"",
+      "source": "skills/forks/stitch-extract-design-md/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-extract-static-html",
+      "name": "stitch-extract-static-html",
+      "category": "forks",
+      "description": "Extract self-contained static HTML from a built web application or React components by inlining CSS and images. Use this skill whenever you need to capture a specific UI state, share a static version of a page, or prepare assets for Stitch upload, even if the user just asks to 'save the HTML' or 'mock the view'.",
+      "source": "skills/forks/stitch-extract-static-html/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-generate-design",
+      "name": "stitch-generate-design",
+      "category": "forks",
+      "description": "Generate new screens from text prompts or images, edit existing screens with prompts and design system tokens, and generate design variants using Stitch MCP. Includes prompt enhancement pipeline, design mappings, professional UI/UX terminology, design tokens and theme system capabilities.",
+      "source": "skills/forks/stitch-generate-design/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-loop",
+      "name": "stitch-loop",
+      "category": "forks",
+      "description": "Teaches agents to iteratively build websites using Stitch with an autonomous baton-passing loop pattern",
+      "source": "skills/forks/stitch-loop/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-manage-design-system",
+      "name": "stitch-manage-design-system",
+      "category": "forks",
+      "description": "Manage design systems in Stitch using MCP tools. Includes retrieval of assets, creating/updating design systems in Stitch, and applying them to screens.",
+      "source": "skills/forks/stitch-manage-design-system/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-react-components",
+      "name": "stitch-react-components",
+      "category": "forks",
+      "description": "Converts Stitch designs into modular Vite and React components, or syncs/updates existing React components to align with the latest Stitch designs, using system-level networking and AST-based validation.",
+      "source": "skills/forks/stitch-react-components/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-react-native",
+      "name": "stitch-react-native",
+      "category": "forks",
+      "description": "Convert Stitch HTML designs to React Native components, or syncs/updates existing native components to align with the latest Stitch designs, using StyleSheet.",
+      "source": "skills/forks/stitch-react-native/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-react-vite-dashboard",
+      "name": "stitch-react-vite-dashboard",
+      "category": "forks",
+      "description": "Convert Stitch designs into production React + Vite dashboards with TanStack Query, accessible tokens from DESIGN.md, and Web3-ready patterns (ethers/viem).",
+      "source": "skills/forks/stitch-react-vite-dashboard/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-remotion",
+      "name": "stitch-remotion",
+      "category": "forks",
+      "description": "Generate walkthrough videos from Stitch projects using Remotion with smooth transitions, zooming, and text overlays",
+      "source": "skills/forks/stitch-remotion/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-shadcn-ui",
+      "name": "stitch-shadcn-ui",
+      "category": "forks",
+      "description": "Expert guidance for integrating and building applications with shadcn/ui components, including component discovery, installation, customization, and best practices.",
+      "source": "skills/forks/stitch-shadcn-ui/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-site-md",
+      "name": "stitch-site-md",
+      "category": "forks",
+      "description": "Analyze a project description or site requirements and synthesize a project constitution into SITE.md for the Stitch Build Loop",
+      "source": "skills/forks/stitch-site-md/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-taste-design",
+      "name": "stitch-taste-design",
+      "category": "forks",
+      "description": "Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards \u2014 strict typography, calibrated color, asymmetric layouts, perpetual micro-motion, and hardware-accelerated performance.",
+      "source": "skills/forks/stitch-taste-design/SKILL.md"
+    },
+    {
+      "id": "forks/stitch-upload-to-stitch",
+      "name": "stitch-upload-to-stitch",
+      "category": "forks",
+      "description": "Upload local assets (images, mockups, extracted HTML, design markdown) to a Stitch project. ALWAYS use this skill when you need to upload visual assets, HTML pages, or design docs to Stitch, particularly when direct MCP tool calls fail or truncate due to base64 token limits.",
+      "source": "skills/forks/stitch-upload-to-stitch/SKILL.md"
+    },
+    {
+      "id": "forks/sweeping-defect-siblings",
+      "name": "sweeping-defect-siblings",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Turn one reported defect in ffmpeg-skill into the full list of places the same thing happens \u2014 naming the defect's class (an input property, a shared step, a convention that differs between two code paths, an FFmpeg-version behaviour), sweeping every tool with tests/sweep.py and a path-parity probe, separating decided refusals from real siblings, and landing the fix with one regression test per class rather than per report. Use whenever an issue or PR comment reports a bug in this repository, before writing the fix, and again when triaging an external review or audit.",
+      "source": "skills/forks/sweeping-defect-siblings/SKILL.md"
+    },
+    {
+      "id": "forks/taste-skill-design-taste-frontend",
+      "name": "taste-skill-design-taste-frontend",
+      "category": "forks",
+      "description": "tasteskill 2.5.1, the anti-slop frontend skill. Builds professional company websites at the level of figma.com and x.ai: plain copy in a voice of its own, one system, one section per screen, equal edges, real photographs and real product UI (licensed stand-in photographs when the client has none; a product render only when the brief asks for 3D), a hero entrance and one or two dealt moments on every page, shader effects and scenes only on tech, gaming and software pages, quiet micro-interactions, and a checker and finish gate that enforce it in a real browser. Use this whenever you build, design, redesign, restyle, polish or review a landing page, company, product, shop, cafe, hotel, studio, SaaS, AI, developer-tool or game site, as static HTML/CSS or inside an existing React, Next.js, Vue, Svelte, Astro or Tailwind project, or when the user says a page looks generic, templated or \"AI-made\".",
+      "source": "skills/forks/taste-skill-design-taste-frontend/SKILL.md"
+    },
+    {
+      "id": "forks/technical-writer",
+      "name": "technical-writer",
+      "category": "forks",
+      "description": "Use only while working in the agent-desktop project. Write, review, and edit agent-desktop documentation, including the docs site in apps/docs served at agent-browser.dev/desktop, READMEs, the agent skills in skills/, changelog entries, commit messages, PR descriptions, and issues. Use for getting-started guides, command references, conceptual explanations, integration guides, troubleshooting, and code examples.",
+      "source": "skills/forks/technical-writer/SKILL.md"
+    },
+    {
+      "id": "forks/tidy",
+      "name": "tidy",
+      "category": "forks",
+      "description": "Use only while working in the itsaplan project. Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Focuses on recently modified code unless instructed otherwise.",
+      "source": "skills/forks/tidy/SKILL.md"
+    },
+    {
+      "id": "forks/update-changelog",
+      "name": "update-changelog",
+      "category": "forks",
+      "description": "Use only while working in the a2ui project. Instructions and best practices for updating CHANGELOG.md files across A2UI packages. Use when adding or modifying a CHANGELOG.md file, when a PR adds, modifies, deprecates, or removes public exports or consumer-observable behavior in a published package, or when resolving merge conflicts in a CHANGELOG.md file.",
+      "source": "skills/forks/update-changelog/SKILL.md"
+    },
+    {
+      "id": "forks/verifying-external-behavior",
+      "name": "verifying-external-behavior",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Confirms what a third-party library, remote API, build backend, or scraped document actually does before writing code that depends on it \u2014 throwaway probes that run in seconds, permissive clients that forward wrong arguments instead of rejecting them, per-endpoint docs that don't generalize, response shapes that make a \"fast path\" always-false, fakes that encode your assumption rather than the service's behavior, and dry-runs that skip the step that fails. Use when integrating a new dependency or endpoint, writing a tolerated-status or error branch, choosing a client argument name, testing against a fake, or reviewing code that asserts an upstream contract.",
+      "source": "skills/forks/verifying-external-behavior/SKILL.md"
+    },
+    {
+      "id": "forks/video-shotcraft",
+      "name": "video-shotcraft",
+      "category": "forks",
+      "description": "Create cinematic product videos from frontend projects or webpages with Remotion, real page captures, shot cards, the Ink Press template, beat sync and sound design. Use for full product promos, reproducing Ink Press, single shot-card effects, or finding, adding, replacing and aligning sound effects in an existing product video or shot, including candidate-only SFX searches. \u7528\u771f\u5b9e\u9875\u9762\u3001\u955c\u5934\u5361\u4e0e Ink Press \u6a21\u677f\u5236\u4f5c\u4ea7\u54c1\u5ba3\u4f20\u7247\uff1b\u7528\u6237\u8981\u6c42\u7528 video-shotcraft \u505a\u89c6\u9891\u3001\u590d\u523b\u6a21\u677f\u3001\u5236\u4f5c\u5355\u955c\u5934\uff0c\u6216\u7ed9\u5df2\u5b8c\u6210\u7684\u4ea7\u54c1\u7247/\u955c\u5934\u627e\u97f3\u6548\u5019\u9009\u3001\u52a0\u97f3\u6548\u3001\u6362\u97f3\u6548\u3001\u5bf9\u9f50\u58f0\u97f3\u65f6\u4f7f\u7528\u3002",
+      "source": "skills/forks/video-shotcraft/SKILL.md"
+    },
+    {
+      "id": "forks/writing-defect-reports",
+      "name": "writing-defect-reports",
+      "category": "forks",
+      "description": "Use only while working in the ffmpeg-skill project. Establish a finding before you publish it, and correct it after \u2014 headlines that overstate what actually reproduces at the layer a user sees, reporting code that no entry point can reach or that is already dead, filing a caveat the project's own records already answered, re-verifying your prior notes against the tree instead of against the note, choosing the narrowest injection point that reproduces a failure without breaking the run first, capturing probe output a harness swallows, and withdrawing a published claim in the thread where you published it. Use when filing an issue, writing the body of a PR or code review that asserts a defect, triaging someone else's report, or deciding whether a suspicious observation is reportable at all.",
+      "source": "skills/forks/writing-defect-reports/SKILL.md"
     }
   ],
   "mcpProviders": {
